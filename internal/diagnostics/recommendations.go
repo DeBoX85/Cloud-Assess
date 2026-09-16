@@ -11,7 +11,7 @@ import (
 )
 
 const (
-	Source                    = "DIAGNOSTICS"
+	Source                         = "DIAGNOSTICS"
 	ValidationAzureResourceManager = "Azure Resource Manager"
 	CategoryMonitoringAndAlerting  = "MonitoringAndAlerting"
 )
