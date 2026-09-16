@@ -8,6 +8,7 @@ import (
 	"io"
 	"net/http"
 	"strconv"
+	"strings"
 	"time"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
@@ -54,13 +55,13 @@ func (t *HTTPTransport) Do(ctx context.Context, request Request) (*Response, err
 	defer response.Body.Close()
 
 	queryResponse := &Response{}
-	if value := response.Header.Get("x-ms-user-quota-remaining"); value != "" {
+	if value := headerValue(response.Header, "x-ms-user-quota-remaining"); value != "" {
 		queryResponse.Quota, err = strconv.Atoi(value)
 		if err != nil {
 			return nil, fmt.Errorf("parse ARG quota header: %w", err)
 		}
 	}
-	if value := response.Header.Get("x-ms-user-quota-resets-after"); value != "" {
+	if value := headerValue(response.Header, "x-ms-user-quota-resets-after"); value != "" {
 		queryResponse.RetryAfter, err = parseResetAfter(value)
 		if err != nil {
 			return nil, fmt.Errorf("parse ARG reset-after header: %w", err)
@@ -72,6 +73,15 @@ func (t *HTTPTransport) Do(ctx context.Context, request Request) (*Response, err
 	}
 	_, _ = io.Copy(io.Discard, response.Body)
 	return queryResponse, nil
+}
+
+func headerValue(headers http.Header, name string) string {
+	for key, values := range headers {
+		if strings.EqualFold(key, name) && len(values) > 0 {
+			return values[0]
+		}
+	}
+	return ""
 }
 
 func parseResetAfter(value string) (time.Duration, error) {
