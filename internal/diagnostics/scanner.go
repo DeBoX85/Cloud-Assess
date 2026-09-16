@@ -36,8 +36,8 @@ type BatchClient interface {
 
 type Result struct {
 	Recommendations []assessment.RecommendationDefinition
-	Findings         []assessment.Finding
-	Warnings         []assessment.AssessmentWarning
+	Findings        []assessment.Finding
+	Warnings        []assessment.AssessmentWarning
 }
 
 type Scanner struct {
