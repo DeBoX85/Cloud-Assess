@@ -30,14 +30,12 @@ func TestValidateResourceGroupID(t *testing.T) {
 
 func TestTagFiltersPreserveReferenceSemantics(t *testing.T) {
 	filters := NewFilters()
-	filters.Assessment.Include.ResourceTypes = []string{"Microsoft.Test/widgets"}
 	filters.Assessment.Include.Tags = map[string]string{"env": "prod", "team": "platform"}
 	filters.Assessment.Exclude.Tags = map[string]string{"lifecycle": "retired"}
 	filters.RebuildIndexes()
+	filters.Assessment.SetAllowedResourceTypes([]string{"Microsoft.Test/widgets"})
 
 	id := "/subscriptions/sub/resourceGroups/rg/providers/Microsoft.Test/widgets/one"
-	rg := "/subscriptions/sub/resourceGroups/rg"
-
 	tests := []struct {
 		name string
 		tags map[string]string
@@ -51,7 +49,7 @@ func TestTagFiltersPreserveReferenceSemantics(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got := filters.Assessment.IsResourceExcluded(id, "sub", rg, "microsoft.test/widgets", tt.tags)
+			got := filters.Assessment.IsResourceExcluded(id, tt.tags)
 			if got != tt.want {
 				t.Fatalf("IsResourceExcluded() = %v, want %v", got, tt.want)
 			}
@@ -63,6 +61,8 @@ func TestIncludeAndExcludePrecedence(t *testing.T) {
 	filters := NewFilters()
 	filters.Assessment.Include.Subscriptions = []string{"SUB-A"}
 	filters.Assessment.Exclude.Subscriptions = []string{"sub-a", "sub-b"}
+	filters.Assessment.Include.ResourceGroups = []string{"/subscriptions/sub-a/resourceGroups/keep"}
+	filters.Assessment.Exclude.ResourceGroups = []string{"/subscriptions/sub-a/resourceGroups/keep"}
 	filters.RebuildIndexes()
 
 	if filters.Assessment.IsSubscriptionExcluded("sub-a") {
@@ -71,16 +71,73 @@ func TestIncludeAndExcludePrecedence(t *testing.T) {
 	if !filters.Assessment.IsSubscriptionExcluded("sub-b") {
 		t.Fatal("subscription outside include set should be excluded")
 	}
+	if filters.Assessment.IsResourceGroupExcluded("/subscriptions/sub-a/resourceGroups/keep") {
+		t.Fatal("explicit resource-group include should win over matching exclusion")
+	}
+	if !filters.Assessment.IsResourceGroupExcluded("/subscriptions/sub-a/resourceGroups/other") {
+		t.Fatal("resource group outside include set should be excluded")
+	}
+}
+
+func TestStructuralScopeIsReappliedToDownstreamFindings(t *testing.T) {
+	filters := NewFilters()
+	filters.Assessment.Include.Subscriptions = []string{"sub-a"}
+	filters.Assessment.Include.ResourceGroups = []string{"/subscriptions/sub-a/resourceGroups/keep"}
+	excludedID := "/subscriptions/sub-a/resourceGroups/keep/providers/Microsoft.Test/widgets/excluded"
+	filters.Assessment.Exclude.Resources = []string{excludedID}
+	filters.RebuildIndexes()
+	filters.Assessment.SetAllowedResourceTypes([]string{"Microsoft.Test/widgets"})
+
+	inScope := "/subscriptions/sub-a/resourceGroups/keep/providers/Microsoft.Test/widgets/one"
+	if filters.Assessment.IsServiceExcluded(inScope) {
+		t.Fatal("in-scope resource should remain included")
+	}
+	if !filters.Assessment.IsServiceExcluded("/subscriptions/sub-a/resourceGroups/keep/providers/Microsoft.Other/things/one") {
+		t.Fatal("resource type outside scanner scope should be excluded")
+	}
+	if !filters.Assessment.IsServiceExcluded("/subscriptions/sub-b/resourceGroups/keep/providers/Microsoft.Test/widgets/one") {
+		t.Fatal("resource outside included subscription should be excluded")
+	}
+	if !filters.Assessment.IsServiceExcluded("/subscriptions/sub-a/resourceGroups/other/providers/Microsoft.Test/widgets/one") {
+		t.Fatal("resource outside included resource group should be excluded")
+	}
+	if !filters.Assessment.IsServiceExcluded(excludedID) {
+		t.Fatal("explicit resource exclusion should apply downstream")
+	}
+}
+
+func TestScannerScopeMustBeInstalledBeforeResourceFiltering(t *testing.T) {
+	filters := NewFilters()
+	id := "/subscriptions/sub/resourceGroups/rg/providers/Microsoft.Test/widgets/one"
+	if !filters.Assessment.IsResourceExcluded(id, nil) {
+		t.Fatal("unconfigured scanner scope should fail closed, matching reference LoadFilters assumptions")
+	}
+	filters.Assessment.SetAllowedResourceTypes([]string{"Microsoft.Test/widgets"})
+	if filters.Assessment.IsResourceExcluded(id, nil) {
+		t.Fatal("allowed resource type should be included after scanner scope is installed")
+	}
 }
 
 func TestTagScopeAppliesToChildResource(t *testing.T) {
 	filters := NewFilters()
 	filters.Assessment.Include.Tags = map[string]string{"env": "prod"}
 	filters.RebuildIndexes()
+	filters.Assessment.SetAllowedResourceTypes([]string{"Microsoft.Test/widgets"})
 	parent := "/subscriptions/sub/resourceGroups/rg/providers/Microsoft.Test/widgets/one"
 	filters.Assessment.SetResourceScope(parent, true)
 	if filters.Assessment.IsServiceExcluded(parent + "/slots/blue") {
 		t.Fatal("child resource should inherit included parent scope")
+	}
+}
+
+func TestExcludeOnlyTagScopeKeepsUnknownDownstreamResource(t *testing.T) {
+	filters := NewFilters()
+	filters.Assessment.Exclude.Tags = map[string]string{"lifecycle": "retired"}
+	filters.RebuildIndexes()
+	filters.Assessment.SetAllowedResourceTypes([]string{"Microsoft.Test/widgets"})
+	id := "/subscriptions/sub/resourceGroups/rg/providers/Microsoft.Test/widgets/unknown"
+	if filters.Assessment.IsServiceExcluded(id) {
+		t.Fatal("unknown tag scope should remain included for exclude-only tag filters")
 	}
 }
 
