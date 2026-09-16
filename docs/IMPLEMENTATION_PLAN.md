@@ -6,7 +6,7 @@ Reference implementation: `DeBoX85/azqr`
 
 Reference commit: `8e4f0577f3615e6c9014c031bcad079f235369cc`
 
-Current implementation milestone: deterministic foundation, Diagnostics, Advisor, and Defender (steps 1-15) implemented and quality-gated. Azure Policy is the next subsystem.
+Current implementation milestone: deterministic foundation and all core Azure-data subsystems through Cost (steps 1-18) implemented and quality-gated. Stage health and assessment completeness is the next subsystem.
 
 ## Principle
 
@@ -59,11 +59,11 @@ Observe source behavior
 
 ## Current completion boundary
 
-Steps 1-15 are implemented at the subsystem/characterization level and pass the repository quality gate. Their deterministic contracts are available for later orchestration, but the end-to-end `scan` command is not yet complete.
+Steps 1-18 are implemented at the subsystem/characterization level and pass the repository quality gate. Their deterministic contracts are available for orchestration, but the end-to-end `scan` command is not yet complete.
 
-Diagnostics returns canonical recommendation definitions, findings, and warnings. Advisor remains a separate auxiliary dataset combining ARG recommendation instances with Advisor metadata. Defender remains two separate auxiliary datasets: plan/tier status and unhealthy security recommendations. These subsystems are intentionally not wired into the placeholder CLI until stage orchestration and canonical result assembly are implemented.
+Implemented Azure-data subsystems now include Diagnostics, Advisor, Defender status/recommendations, Azure Policy noncompliance, Arc-enabled SQL inventory/status, and previous-month Cost Management data. The next phase is the execution/orchestration layer that records each requested stage as completed, completed-with-warnings, skipped, or failed and derives explicit overall assessment completeness.
 
-The next implementation target is Azure Policy (step 16).
+The source `--stage-param` contract has also been characterized. At the pinned commit, only the plugin stage registers an option: `plugin.target-regions=<comma-separated string>`. Unknown stages/options and type mismatches are errors. This will be integrated with stage orchestration rather than treated as a separate subsystem.
 
 ## Characterization levels
 
@@ -77,6 +77,7 @@ Priority cases:
 - tag matching
 - resource-group validation
 - stage defaults and validation
+- stage parameter validation
 - severity thresholds
 - previous-calendar-month cost period
 - subscription-ID redaction
@@ -96,6 +97,8 @@ Sanitized Azure/API fixtures should test mappings such as:
 - Defender pricing row -> Defender plan status
 - Defender assessment -> Defender recommendation
 - Policy state -> Policy record
+- Arc SQL row -> Arc SQL record
+- Cost Management row -> Cost record
 - resource row -> Resource
 - diagnostic-settings batch response -> diagnostic finding
 
@@ -172,6 +175,7 @@ Add tests for:
 - Defender unhealthy recommendation
 - Policy noncompliance
 - Arc SQL presence
+- Arc SQL numeric-vCore live response shape
 - Cost available
 - Cost unauthorized/unavailable
 
@@ -197,6 +201,13 @@ The following differences are deliberate and should not fail equivalence tests:
 - Advisor records are sorted deterministically after normalization
 - malformed Defender ARG rows become explicit warnings
 - Defender status and recommendation records are sorted deterministically after normalization
+- malformed Azure Policy and Arc SQL rows become explicit warnings
+- Azure Policy and Arc SQL records are sorted deterministically after normalization
+- Arc SQL preserves the pinned source `vcores` string-decoder contract even though the pinned KQL projects `toint(properties.vCore)`; this remains a live-equivalence review item
+- Cost Management uses the shared authenticated ARM HTTP layer rather than adding the `armcostmanagement` SDK dependency while preserving the same REST contract
+- Cost records are sorted deterministically and malformed rows become explicit warnings
+- skippable Cost Management Azure errors become explicit per-subscription warnings rather than log-only skips
+- Cost records populate subscription display names from the already-discovered subscription map, correcting a pinned source stage bug that left this report column empty
 
 ## Output strategy
 
