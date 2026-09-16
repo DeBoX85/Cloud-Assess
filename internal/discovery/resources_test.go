@@ -7,6 +7,7 @@ import (
 	"testing"
 
 	"github.com/DeBoX85/Cloud-Assess/internal/arg"
+	"github.com/DeBoX85/Cloud-Assess/internal/assessment"
 	"github.com/DeBoX85/Cloud-Assess/internal/config"
 )
 
@@ -100,7 +101,7 @@ func TestDiscoverResourcesReturnsQueryFailure(t *testing.T) {
 
 func TestCountResourcesByTypeAndSubscriptionIsDeterministic(t *testing.T) {
 	resources := []struct {
-		sub  string
+		sub      string
 		typeName string
 	}{
 		{sub: "sub-b", typeName: "Microsoft.Storage/storageAccounts"},
