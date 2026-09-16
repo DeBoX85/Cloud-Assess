@@ -22,6 +22,8 @@ func Default() Branding {
 		CLIName:          "cloud-assess",
 		ReportTitle:      "Azure Cloud Assessment",
 		ReportFilePrefix: "cloud_assessment",
+		WebsiteURL:       "https://github.com/DeBoX85/Cloud-Assess",
+		SupportURL:       "https://github.com/DeBoX85/Cloud-Assess/issues",
 		LogoAltText:      "Cloud Assess logo",
 	}
 }
