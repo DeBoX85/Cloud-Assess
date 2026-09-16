@@ -6,6 +6,8 @@ Reference implementation: `DeBoX85/azqr`
 
 Reference commit: `8e4f0577f3615e6c9014c031bcad079f235369cc`
 
+Current implementation milestone: deterministic foundation and Diagnostics (steps 1-13) implemented and quality-gated. Advisor is the next subsystem.
+
 ## Principle
 
 Cloud Assess will be rebuilt behavior-first, not by blindly copying the source tree.
@@ -54,6 +56,14 @@ Observe source behavior
 29. CI and packaging
 30. Security/license review
 31. Plugin migration
+
+## Current completion boundary
+
+Steps 1-13 are implemented at the subsystem/characterization level and pass the repository quality gate. This means their deterministic contracts are available for later orchestration, but it does not yet mean the end-to-end `scan` command is complete.
+
+Diagnostics is implemented as an independently testable subsystem that returns canonical recommendation definitions, findings, and warnings. It is intentionally not wired into the placeholder CLI until the stage orchestration and canonical result assembly phases.
+
+The next implementation target is Advisor (step 14).
 
 ## Characterization levels
 
@@ -178,6 +188,9 @@ The following differences are deliberate and should not fail equivalence tests:
 - subscription masking is named subscription-ID redaction
 - custom rule source/path is neutral rather than legacy-branded
 - plugin permissions are documented independently
+- Diagnostics findings identify `Azure Resource Manager` as their validation mechanism instead of inheriting a generic Azure Resource Graph label
+- non-success Diagnostics subrequests retain source-compatible finding semantics while producing explicit uncertainty warnings
+- malformed diagnostic-setting IDs become warnings rather than panic-prone parsing
 
 ## Output strategy
 
