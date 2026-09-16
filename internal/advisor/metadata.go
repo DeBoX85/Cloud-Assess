@@ -31,11 +31,6 @@ func NewMetadataClient(client httpGetter, endpoint string) *MetadataClient {
 	return &MetadataClient{client: client, endpoint: strings.TrimSuffix(endpoint, "/")}
 }
 
-func NewMetadataClientWithDefaultHTTP(credential interface{ /* marker kept out of public API */ }) *MetadataClient {
-	_ = credential
-	return nil
-}
-
 // RecommendationTypes reproduces the source SDK's paged ARM request to
 // /providers/Microsoft.Advisor/metadata?api-version=2020-01-01 and extracts the
 // recommendationType metadata entity into recommendation ID -> display name.
