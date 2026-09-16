@@ -6,7 +6,7 @@ Reference implementation: `DeBoX85/azqr`
 
 Reference commit: `8e4f0577f3615e6c9014c031bcad079f235369cc`
 
-Current implementation milestone: deterministic foundation and Diagnostics (steps 1-13) implemented and quality-gated. Advisor is the next subsystem.
+Current implementation milestone: deterministic foundation, Diagnostics, and Advisor (steps 1-14) implemented and quality-gated. Defender is the next subsystem.
 
 ## Principle
 
@@ -59,11 +59,11 @@ Observe source behavior
 
 ## Current completion boundary
 
-Steps 1-13 are implemented at the subsystem/characterization level and pass the repository quality gate. This means their deterministic contracts are available for later orchestration, but it does not yet mean the end-to-end `scan` command is complete.
+Steps 1-14 are implemented at the subsystem/characterization level and pass the repository quality gate. This means their deterministic contracts are available for later orchestration, but it does not yet mean the end-to-end `scan` command is complete.
 
-Diagnostics is implemented as an independently testable subsystem that returns canonical recommendation definitions, findings, and warnings. It is intentionally not wired into the placeholder CLI until the stage orchestration and canonical result assembly phases.
+Diagnostics is implemented as an independently testable subsystem that returns canonical recommendation definitions, findings, and warnings. Advisor is implemented as a separate auxiliary dataset using Azure Resource Graph for recommendation instances and the Advisor metadata ARM API contract for recommendation descriptions. Both are intentionally not wired into the placeholder CLI until the stage orchestration and canonical result assembly phases.
 
-The next implementation target is Advisor (step 14).
+The next implementation target is Defender (step 15), including both Defender pricing/status data and Defender security recommendation data.
 
 ## Characterization levels
 
@@ -183,7 +183,7 @@ The following differences are deliberate and should not fail equivalence tests:
 - no legacy configuration compatibility requirement
 - `GraphResult` replaced by `Finding`
 - `GraphRecommendation` replaced by `RecommendationDefinition`
-- lower-level packages return errors instead of calling `log.Fatal`
+- lower-level packages return errors instead of calling `log.Fatal` or silently returning nil datasets
 - stage status and assessment completeness are explicit
 - subscription masking is named subscription-ID redaction
 - custom rule source/path is neutral rather than legacy-branded
@@ -191,6 +191,9 @@ The following differences are deliberate and should not fail equivalence tests:
 - Diagnostics findings identify `Azure Resource Manager` as their validation mechanism instead of inheriting a generic Azure Resource Graph label
 - non-success Diagnostics subrequests retain source-compatible finding semantics while producing explicit uncertainty warnings
 - malformed diagnostic-setting IDs become warnings rather than panic-prone parsing
+- Advisor metadata is retrieved through the shared authenticated ARM HTTP layer rather than adding the `armadvisor` SDK dependency
+- malformed Advisor ARG rows become explicit warnings
+- Advisor records are sorted deterministically after normalization
 
 ## Output strategy
 
