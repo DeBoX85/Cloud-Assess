@@ -93,7 +93,14 @@ func TestScanMatchesStorageDiagnosticSettingsBehavior(t *testing.T) {
 		for _, item := range request.Requests {
 			content := json.RawMessage(`{"value":[]}`)
 			if strings.Contains(strings.ToLower(item.RelativeURL), "/withdiag/") {
-				content = json.RawMessage(`{"value":[{"id":"` + withDiagID + `/providers/microsoft.insights/diagnosticSettings/default"}]}`)
+				payload := diagnosticSettingsPayload{Value: []diagnosticSetting{{
+					ID: withDiagID + "/providers/microsoft.insights/diagnosticSettings/default",
+				}}}
+				encoded, err := json.Marshal(payload)
+				if err != nil {
+					t.Fatal(err)
+				}
+				content = encoded
 			}
 			responses = append(responses, armBatchResponseItem{HTTPStatusCode: http.StatusOK, Content: content})
 		}
@@ -249,9 +256,14 @@ func TestNonSuccessSubrequestPreservesReferenceFindingAndAddsWarning(t *testing.
 func TestMalformedDiagnosticSettingIDBecomesWarning(t *testing.T) {
 	const resourceID = "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Storage/storageAccounts/st1"
 	client := &fakeBatchClient{handler: func(request armBatchRequest) (*http.Response, error) {
+		payload := diagnosticSettingsPayload{Value: []diagnosticSetting{{ID: "not-a-diagnostic-setting-id"}}}
+		encoded, err := json.Marshal(payload)
+		if err != nil {
+			t.Fatal(err)
+		}
 		return jsonResponse(t, armBatchResponse{Responses: []armBatchResponseItem{{
 			HTTPStatusCode: http.StatusOK,
-			Content:        json.RawMessage(`{"value":[{"id":"not-a-diagnostic-setting-id"}]}`),
+			Content:        encoded,
 		}}}), nil
 	}}
 
