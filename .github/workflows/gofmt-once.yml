@@ -1,0 +1,33 @@
+name: One-time report-layer gofmt
+
+on:
+  push:
+    branches:
+      - bootstrap/core-v1
+    paths:
+      - .github/workflows/gofmt-once.yml
+
+permissions:
+  contents: write
+
+jobs:
+  format:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: bootstrap/core-v1
+      - uses: actions/setup-go@v6
+        with:
+          go-version: '1.26.0'
+      - run: gofmt -w $(git ls-files '*.go')
+      - name: Commit formatting
+        run: |
+          if git diff --quiet; then
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add '*.go'
+          git commit -m "style: normalize report-layer Go formatting"
+          git push origin HEAD:bootstrap/core-v1
