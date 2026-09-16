@@ -32,6 +32,7 @@ func TestDiscoverResourcesUsesReferenceProjectionAndPartitionsScope(t *testing.T
 	filters := config.NewFilters()
 	filters.Assessment.Exclude.ResourceGroups = []string{"/subscriptions/sub/resourceGroups/drop"}
 	filters.RebuildIndexes()
+	filters.Assessment.SetAllowedResourceTypes([]string{"Microsoft.Test/widgets"})
 
 	inventory, err := DiscoverResources(context.Background(), q, map[string]string{"sub": "Test"}, filters)
 	if err != nil {
@@ -55,16 +56,16 @@ func TestDiscoverResourcesUsesReferenceProjectionAndPartitionsScope(t *testing.T
 	}
 }
 
-func TestDiscoverResourcesAppliesTagAndResourceTypeFilters(t *testing.T) {
+func TestDiscoverResourcesAppliesTagAndScannerResourceTypeFilters(t *testing.T) {
 	q := &fakeResourceQuerier{result: &arg.Result{Data: []json.RawMessage{
 		json.RawMessage(`{"id":"/subscriptions/sub/resourceGroups/rg/providers/Microsoft.Test/widgets/one","subscriptionId":"sub","resourceGroup":"rg","type":"Microsoft.Test/widgets","name":"one","tags":{"ENV":"prod"}}`),
 		json.RawMessage(`{"id":"/subscriptions/sub/resourceGroups/rg/providers/Microsoft.Other/things/two","subscriptionId":"sub","resourceGroup":"rg","type":"Microsoft.Other/things","name":"two","tags":{"env":"prod"}}`),
 		json.RawMessage(`{"id":"/subscriptions/sub/resourceGroups/rg/providers/Microsoft.Test/widgets/three","subscriptionId":"sub","resourceGroup":"rg","type":"Microsoft.Test/widgets","name":"three","tags":{"env":"dev"}}`),
 	}}}
 	filters := config.NewFilters()
-	filters.Assessment.Include.ResourceTypes = []string{"Microsoft.Test/widgets"}
 	filters.Assessment.Include.Tags = map[string]string{"env": "prod"}
 	filters.RebuildIndexes()
+	filters.Assessment.SetAllowedResourceTypes([]string{"Microsoft.Test/widgets"})
 
 	inventory, err := DiscoverResources(context.Background(), q, map[string]string{"sub": "Test"}, filters)
 	if err != nil {
@@ -96,6 +97,14 @@ func TestDiscoverResourcesReturnsQueryFailure(t *testing.T) {
 	inventory, err := DiscoverResources(context.Background(), q, nil, nil)
 	if err == nil || !errors.Is(err, boom) || inventory != nil {
 		t.Fatalf("unexpected failure result: inventory=%#v err=%v", inventory, err)
+	}
+}
+
+func TestDiscoverResourcesRejectsNilQueryResult(t *testing.T) {
+	q := &fakeResourceQuerier{}
+	inventory, err := DiscoverResources(context.Background(), q, nil, nil)
+	if err == nil || inventory != nil {
+		t.Fatalf("expected nil-result error, inventory=%#v err=%v", inventory, err)
 	}
 }
 
