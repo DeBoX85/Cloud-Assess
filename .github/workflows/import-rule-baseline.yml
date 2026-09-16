@@ -1,0 +1,66 @@
+name: Import pinned rule baseline
+
+on:
+  push:
+    branches:
+      - bootstrap/core-v1
+    paths:
+      - .github/rule-sync-trigger
+
+permissions:
+  contents: write
+
+jobs:
+  import:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout Cloud Assess
+        uses: actions/checkout@v4
+        with:
+          ref: bootstrap/core-v1
+          fetch-depth: 0
+
+      - name: Import pinned reference rule snapshots
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          REFERENCE_SHA="8e4f0577f3615e6c9014c031bcad079f235369cc"
+          APRL_SHA="60eaddda76541f6adbc1c5ffa686829807e55e29"
+
+          tmp="$(mktemp -d)"
+          trap 'rm -rf "$tmp"' EXIT
+
+          mkdir -p "$tmp/reference"
+          curl --fail --location --retry 3 \
+            "https://codeload.github.com/DeBoX85/azqr/tar.gz/${REFERENCE_SHA}" \
+            --output "$tmp/reference.tar.gz"
+          tar -xzf "$tmp/reference.tar.gz" --strip-components=1 -C "$tmp/reference"
+
+          rm -rf internal/rules/custom/azure-resources
+          rm -rf internal/rules/upstream/orphan-resources
+          mkdir -p internal/rules/custom
+          mkdir -p internal/rules/upstream
+
+          cp -a "$tmp/reference/internal/graph/azqr/azure-resources" internal/rules/custom/azure-resources
+          cp -a "$tmp/reference/internal/graph/azure-orphan-resources" internal/rules/upstream/orphan-resources
+
+          if [ -e internal/rules/upstream/aprl ]; then
+            git rm -rf --quiet internal/rules/upstream/aprl || rm -rf internal/rules/upstream/aprl
+          fi
+          git submodule add --force \
+            https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2.git \
+            internal/rules/upstream/aprl
+          git -C internal/rules/upstream/aprl checkout "$APRL_SHA"
+
+          git add .gitmodules internal/rules/custom internal/rules/upstream
+
+          if git diff --cached --quiet; then
+            echo "Pinned rule baseline already matches the requested revisions."
+            exit 0
+          fi
+
+          git config user.name "cloud-assess-bot"
+          git config user.email "134433647+DeBoX85@users.noreply.github.com"
+          git commit -m "data: import pinned assessment rule baseline"
+          git push origin HEAD:bootstrap/core-v1
