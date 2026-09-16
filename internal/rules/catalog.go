@@ -24,18 +24,18 @@ const (
 )
 
 type rawRecommendation struct {
-	ID                   string        `yaml:"aprlGuid"`
-	RecommendationTypeID any           `yaml:"recommendationTypeId"`
-	Description          string        `yaml:"description"`
-	Category             string        `yaml:"recommendationControl"`
-	Impact               string        `yaml:"recommendationImpact"`
-	ResourceType         string        `yaml:"recommendationResourceType"`
-	MetadataState        string        `yaml:"recommendationMetadataState"`
-	LongDescription      string        `yaml:"longDescription"`
-	PotentialBenefits    string        `yaml:"potentialBenefits"`
-	PGVerified           bool          `yaml:"pgVerified"`
-	AutomationAvailable  any           `yaml:"automationAvailable"`
-	Tags                 []string      `yaml:"tags,omitempty"`
+	ID                   string         `yaml:"aprlGuid"`
+	RecommendationTypeID any            `yaml:"recommendationTypeId"`
+	Description          string         `yaml:"description"`
+	Category             string         `yaml:"recommendationControl"`
+	Impact               string         `yaml:"recommendationImpact"`
+	ResourceType         string         `yaml:"recommendationResourceType"`
+	MetadataState        string         `yaml:"recommendationMetadataState"`
+	LongDescription      string         `yaml:"longDescription"`
+	PotentialBenefits    string         `yaml:"potentialBenefits"`
+	PGVerified           bool           `yaml:"pgVerified"`
+	AutomationAvailable  any            `yaml:"automationAvailable"`
+	Tags                 []string       `yaml:"tags,omitempty"`
 	LearnMore            []rawLearnMore `yaml:"learnMoreLink,flow"`
 }
 
