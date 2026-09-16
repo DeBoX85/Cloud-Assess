@@ -45,9 +45,9 @@ func sampleResult() *result.AssessmentResult {
 				ResourceType:     "microsoft.storage/storageaccounts",
 				ResourceID:       "/subscriptions/sub-1/resourceGroups/rg/providers/Microsoft.Storage/storageAccounts/st1",
 				SubscriptionID:   "sub-1",
-				ResourceGroup:     "rg",
-				ResourceName:      "st1",
-				Source:            "CUSTOM",
+				ResourceGroup:    "rg",
+				ResourceName:     "st1",
+				Source:           "CUSTOM",
 			},
 		},
 		Resources: []assessment.Resource{
