@@ -1,0 +1,45 @@
+name: Refresh Go dependency lock
+
+on:
+  push:
+    branches:
+      - bootstrap/core-v1
+    paths:
+      - .github/go-mod-tidy-trigger
+
+permissions:
+  contents: write
+
+jobs:
+  tidy:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: bootstrap/core-v1
+          submodules: recursive
+          fetch-depth: 0
+
+      - name: Set up Go
+        uses: actions/setup-go@v6
+        with:
+          go-version: '1.26.0'
+          cache: false
+
+      - name: Tidy dependencies
+        run: go mod tidy
+
+      - name: Commit dependency lock updates
+        shell: bash
+        run: |
+          set -euo pipefail
+          git add go.mod go.sum
+          if git diff --cached --quiet; then
+            echo "go.mod and go.sum already tidy"
+            exit 0
+          fi
+          git config user.name "cloud-assess-bot"
+          git config user.email "134433647+DeBoX85@users.noreply.github.com"
+          git commit -m "build: refresh Go dependency lock"
+          git push origin HEAD:bootstrap/core-v1
