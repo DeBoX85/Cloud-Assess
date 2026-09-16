@@ -3,6 +3,8 @@ package config
 import (
 	"fmt"
 	"strings"
+
+	"github.com/DeBoX85/Cloud-Assess/internal/azure"
 )
 
 type Filters struct {
@@ -15,7 +17,6 @@ type AssessmentFilter struct {
 
 	includeSubscriptions   map[string]bool
 	includeResourceGroups  map[string]bool
-	includeResourceTypes   map[string]bool
 	includeTags            map[string]string
 	excludeSubscriptions   map[string]bool
 	excludeResourceGroups  map[string]bool
@@ -23,13 +24,21 @@ type AssessmentFilter struct {
 	excludeRecommendations map[string]bool
 	excludeTags            map[string]string
 	resourceScope          map[string]bool
+
+	// allowedResourceTypes is runtime scanner scope, not raw user configuration.
+	// The reference implementation builds this set from the selected scanner keys and
+	// applies it to both inventory and downstream findings. It must therefore be set by
+	// scanner selection before resource/finding filtering begins.
+	allowedResourceTypes map[string]bool
 }
 
 type IncludeFilter struct {
 	Subscriptions  []string          `yaml:"subscriptions,flow" json:"subscriptions"`
 	ResourceGroups []string          `yaml:"resourceGroups,flow" json:"resourceGroups"`
-	ResourceTypes  []string          `yaml:"resourceTypes,flow" json:"resourceTypes"`
-	Tags           map[string]string `yaml:"tags" json:"tags"`
+	// ResourceTypes preserves the reference configuration name. Despite the name,
+	// values are scanner/service keys such as "aks", "ca", and "st", not ARM type strings.
+	ResourceTypes []string          `yaml:"resourceTypes,flow" json:"resourceTypes"`
+	Tags          map[string]string `yaml:"tags" json:"tags"`
 }
 
 type ExcludeFilter struct {
@@ -71,7 +80,6 @@ func (f *AssessmentFilter) rebuildIndexes() {
 	}
 	f.includeSubscriptions = stringSet(f.Include.Subscriptions)
 	f.includeResourceGroups = stringSet(f.Include.ResourceGroups)
-	f.includeResourceTypes = stringSet(f.Include.ResourceTypes)
 	f.includeTags = normalizeTags(f.Include.Tags)
 	f.excludeSubscriptions = stringSet(f.Exclude.Subscriptions)
 	f.excludeResourceGroups = stringSet(f.Exclude.ResourceGroups)
@@ -79,6 +87,9 @@ func (f *AssessmentFilter) rebuildIndexes() {
 	f.excludeRecommendations = stringSet(f.Exclude.Recommendations)
 	f.excludeTags = normalizeTags(f.Exclude.Tags)
 	f.resourceScope = map[string]bool{}
+	// Scanner scope depends on Include.ResourceTypes and the CLI scanner selection,
+	// so rebuilding config indexes intentionally invalidates any previous runtime scope.
+	f.allowedResourceTypes = nil
 }
 
 func (f *AssessmentFilter) Validate() error {
@@ -104,6 +115,13 @@ func ValidateResourceGroupID(resourceGroupID string) error {
 	return nil
 }
 
+// SetAllowedResourceTypes installs the ARM resource-type scope derived from the
+// selected scanner keys. An empty set intentionally excludes every resource type,
+// matching the fail-closed behavior of the reference implementation after scanner loading.
+func (f *AssessmentFilter) SetAllowedResourceTypes(resourceTypes []string) {
+	f.allowedResourceTypes = stringSet(resourceTypes)
+}
+
 func (f *AssessmentFilter) IsSubscriptionExcluded(subscriptionID string) bool {
 	id := normalize(subscriptionID)
 	if f.includeSubscriptions[id] {
@@ -127,20 +145,21 @@ func (f *AssessmentFilter) IsResourceGroupExcluded(resourceGroupID string) bool 
 }
 
 func (f *AssessmentFilter) IsResourceTypeExcluded(resourceType string) bool {
-	if len(f.includeResourceTypes) == 0 {
-		return false
-	}
-	return !f.includeResourceTypes[normalize(resourceType)]
+	return !f.allowedResourceTypes[normalize(resourceType)]
 }
 
 func (f *AssessmentFilter) IsRecommendationExcluded(recommendationID string) bool {
 	return f.excludeRecommendations[normalize(recommendationID)]
 }
 
-func (f *AssessmentFilter) IsResourceExcluded(resourceID, subscriptionID, resourceGroupID, resourceType string, tags map[string]string) bool {
-	if f.IsSubscriptionExcluded(subscriptionID) || f.IsResourceGroupExcluded(resourceGroupID) || f.IsResourceTypeExcluded(resourceType) || f.excludeResources[normalize(resourceID)] {
+// IsResourceExcluded evaluates structural scope and tags during resource discovery.
+// Structural values are derived from the ARM resource ID so inventory and downstream
+// findings use the same source-of-truth semantics.
+func (f *AssessmentFilter) IsResourceExcluded(resourceID string, tags map[string]string) bool {
+	if f.isResourceStructurallyExcluded(resourceID) {
 		return true
 	}
+
 	normalizedTags := normalizeTags(tags)
 	for key, value := range f.excludeTags {
 		if actual, ok := normalizedTags[key]; ok && actual == value {
@@ -159,25 +178,49 @@ func (f *AssessmentFilter) SetResourceScope(resourceID string, included bool) {
 	f.resourceScope[normalize(resourceID)] = included
 }
 
+// IsServiceExcluded preserves the reference downstream finding filter name and behavior.
+// It reapplies structural scanner/subscription/RG/resource scope before tag-scope inheritance.
 func (f *AssessmentFilter) IsServiceExcluded(resourceID string) bool {
-	id := normalize(resourceID)
-	if f.excludeResources[id] {
+	if f.isResourceStructurallyExcluded(resourceID) {
 		return true
 	}
 	if len(f.includeTags) == 0 && len(f.excludeTags) == 0 {
 		return false
 	}
+	if included, ok := f.resourceScopeDecision(resourceID); ok {
+		return !included
+	}
+	// Unknown scope is fail-closed for include-tag filters and fail-open for
+	// exclude-only tag filters, matching the reference implementation.
+	return len(f.includeTags) > 0
+}
+
+func (f *AssessmentFilter) isResourceStructurallyExcluded(resourceID string) bool {
+	resourceType := azure.ResourceTypeFromResourceID(resourceID)
+	if f.IsResourceTypeExcluded(resourceType) {
+		return true
+	}
+	if f.IsSubscriptionExcluded(azure.SubscriptionFromResourceID(resourceID)) {
+		return true
+	}
+	if f.IsResourceGroupExcluded(azure.ResourceGroupIDFromResourceID(resourceID)) {
+		return true
+	}
+	return f.excludeResources[normalize(resourceID)]
+}
+
+func (f *AssessmentFilter) resourceScopeDecision(resourceID string) (bool, bool) {
+	id := normalize(resourceID)
 	for {
 		if included, ok := f.resourceScope[id]; ok {
-			return !included
+			return included, true
 		}
 		lastSlash := strings.LastIndexByte(id, '/')
 		if lastSlash <= 0 {
-			break
+			return false, false
 		}
 		id = id[:lastSlash]
 	}
-	return len(f.includeTags) > 0
 }
 
 func stringSet(values []string) map[string]bool {
