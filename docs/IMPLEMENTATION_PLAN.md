@@ -6,7 +6,7 @@ Reference implementation: `DeBoX85/azqr`
 
 Reference commit: `8e4f0577f3615e6c9014c031bcad079f235369cc`
 
-Current implementation milestone: deterministic foundation, Diagnostics, and Advisor (steps 1-14) implemented and quality-gated. Defender is the next subsystem.
+Current implementation milestone: deterministic foundation, Diagnostics, Advisor, and Defender (steps 1-15) implemented and quality-gated. Azure Policy is the next subsystem.
 
 ## Principle
 
@@ -59,11 +59,11 @@ Observe source behavior
 
 ## Current completion boundary
 
-Steps 1-14 are implemented at the subsystem/characterization level and pass the repository quality gate. This means their deterministic contracts are available for later orchestration, but it does not yet mean the end-to-end `scan` command is complete.
+Steps 1-15 are implemented at the subsystem/characterization level and pass the repository quality gate. Their deterministic contracts are available for later orchestration, but the end-to-end `scan` command is not yet complete.
 
-Diagnostics is implemented as an independently testable subsystem that returns canonical recommendation definitions, findings, and warnings. Advisor is implemented as a separate auxiliary dataset using Azure Resource Graph for recommendation instances and the Advisor metadata ARM API contract for recommendation descriptions. Both are intentionally not wired into the placeholder CLI until the stage orchestration and canonical result assembly phases.
+Diagnostics returns canonical recommendation definitions, findings, and warnings. Advisor remains a separate auxiliary dataset combining ARG recommendation instances with Advisor metadata. Defender remains two separate auxiliary datasets: plan/tier status and unhealthy security recommendations. These subsystems are intentionally not wired into the placeholder CLI until stage orchestration and canonical result assembly are implemented.
 
-The next implementation target is Defender (step 15), including both Defender pricing/status data and Defender security recommendation data.
+The next implementation target is Azure Policy (step 16).
 
 ## Characterization levels
 
@@ -93,6 +93,7 @@ Sanitized Azure/API fixtures should test mappings such as:
 
 - ARG row -> Finding
 - Advisor response -> Advisor record
+- Defender pricing row -> Defender plan status
 - Defender assessment -> Defender recommendation
 - Policy state -> Policy record
 - resource row -> Resource
@@ -194,6 +195,8 @@ The following differences are deliberate and should not fail equivalence tests:
 - Advisor metadata is retrieved through the shared authenticated ARM HTTP layer rather than adding the `armadvisor` SDK dependency
 - malformed Advisor ARG rows become explicit warnings
 - Advisor records are sorted deterministically after normalization
+- malformed Defender ARG rows become explicit warnings
+- Defender status and recommendation records are sorted deterministically after normalization
 
 ## Output strategy
 
