@@ -14,23 +14,23 @@ const SchemaVersion = "1.0"
 // AssessmentResult is the canonical in-memory assessment contract consumed by renderers.
 // It intentionally separates primary recommendation findings from auxiliary Azure datasets.
 type AssessmentResult struct {
-	SchemaVersion           string                              `json:"schemaVersion"`
-	GeneratedAt             time.Time                           `json:"generatedAt"`
-	ScopeID                 string                              `json:"scopeId"`
-	Completeness            assessment.Completeness             `json:"completeness"`
-	Stages                  []assessment.StageExecution         `json:"stages"`
+	SchemaVersion           string                                `json:"schemaVersion"`
+	GeneratedAt             time.Time                             `json:"generatedAt"`
+	ScopeID                 string                                `json:"scopeId"`
+	Completeness            assessment.Completeness               `json:"completeness"`
+	Stages                  []assessment.StageExecution           `json:"stages"`
 	Recommendations         []assessment.RecommendationDefinition `json:"recommendations"`
-	Findings                []assessment.Finding                `json:"findings"`
-	Summary                 *findings.Summary                   `json:"summary"`
-	Resources               []assessment.Resource               `json:"resources"`
-	OutOfScope              []assessment.Resource               `json:"outOfScope"`
-	ResourceTypes           []assessment.ResourceTypeCount      `json:"resourceTypes"`
-	Advisor                 []assessment.AdvisorRecommendation  `json:"advisor"`
-	Defender                []assessment.DefenderPlanStatus     `json:"defender"`
-	DefenderRecommendations []assessment.DefenderRecommendation `json:"defenderRecommendations"`
-	AzurePolicy             []assessment.PolicyNonCompliance    `json:"azurePolicy"`
-	ArcSQL                  []assessment.ArcSQLRecord           `json:"arcSQL"`
-	Costs                   []assessment.CostRecord             `json:"costs"`
+	Findings                []assessment.Finding                  `json:"findings"`
+	Summary                 *findings.Summary                     `json:"summary"`
+	Resources               []assessment.Resource                 `json:"resources"`
+	OutOfScope              []assessment.Resource                 `json:"outOfScope"`
+	ResourceTypes           []assessment.ResourceTypeCount        `json:"resourceTypes"`
+	Advisor                 []assessment.AdvisorRecommendation    `json:"advisor"`
+	Defender                []assessment.DefenderPlanStatus       `json:"defender"`
+	DefenderRecommendations []assessment.DefenderRecommendation   `json:"defenderRecommendations"`
+	AzurePolicy             []assessment.PolicyNonCompliance      `json:"azurePolicy"`
+	ArcSQL                  []assessment.ArcSQLRecord             `json:"arcSQL"`
+	Costs                   []assessment.CostRecord               `json:"costs"`
 }
 
 type Input struct {
