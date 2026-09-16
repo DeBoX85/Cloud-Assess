@@ -92,6 +92,7 @@ func TestScanMatchesStorageDiagnosticSettingsBehavior(t *testing.T) {
 		responses := make([]armBatchResponseItem, 0, len(request.Requests))
 		for _, item := range request.Requests {
 			content := json.RawMessage(`{"value":[]}`)
+			// Build the non-empty payload with json.Marshal to keep the fixture structurally valid.
 			if strings.Contains(strings.ToLower(item.RelativeURL), "/withdiag/") {
 				payload := diagnosticSettingsPayload{Value: []diagnosticSetting{{
 					ID: withDiagID + "/providers/microsoft.insights/diagnosticSettings/default",
