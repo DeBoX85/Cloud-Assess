@@ -5,6 +5,8 @@ go 1.26.0
 require (
 	github.com/Azure/azure-sdk-for-go/sdk/azcore v1.23.1
 	github.com/Azure/azure-sdk-for-go/sdk/azidentity v1.14.1
+	github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/managementgroups/armmanagementgroups v1.2.0
+	github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/subscription/armsubscription v1.2.0
 	github.com/spf13/cobra v1.10.2
 	github.com/xuri/excelize/v2 v2.11.0
 	golang.org/x/time v0.16.0
