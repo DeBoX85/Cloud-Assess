@@ -120,16 +120,22 @@ Discovery produces both in-scope and out-of-scope collections.
 
 ## Filtering semantics
 
-Filters support subscription, resource group, resource type, individual-resource exclusion, recommendation exclusion, and tags.
+Filters support subscription, resource group, scanner/service selection, individual-resource exclusion, recommendation exclusion, and tags.
 
-- include lists narrow scope
-- exclusion takes precedence
+- explicit subscription and resource-group include lists narrow scope
+- an explicitly included subscription or resource group takes precedence over a matching exclusion, preserving reference behavior
+- the legacy-compatible `include.resourceTypes` field contains scanner/service keys such as `aks`, `ca`, `st`, and `vnet`; it does not contain literal ARM resource-type strings
+- selected scanner keys are expanded into an internal allowed ARM resource-type set
+- that structural scanner/subscription/resource-group/resource-ID scope is applied both during inventory discovery and again to downstream findings
+- exact individual-resource exclusions remove the matching resource
 - all include tags must match
 - any matching exclude tag excludes the resource
 - tag keys are case-insensitive
 - tag values are exact-match
+- child findings inherit the nearest recorded parent tag-scope decision
+- unknown tag scope is excluded for include-tag filters and retained for exclude-only tag filters
 
-The target configuration root will use neutral terminology such as `assessment:` rather than the legacy product name.
+The target configuration root uses neutral terminology such as `assessment:` rather than the legacy product name. The target also renames the legacy `exclude.services` field to the clearer `exclude.resources`; this is an intentional configuration compatibility break, not a behavioral change.
 
 ## Recommendation catalog
 
@@ -213,6 +219,7 @@ Stage-local failures such as Advisor, Policy, Defender, Cost, or optional-plugin
 - skip-token pagination
 - bounded rule concurrency
 - malformed-row tolerance
+- malformed-row visibility through warnings/completeness metadata
 - unsupported logical-table skip semantics
 - management-group-aware authorization where required
 
