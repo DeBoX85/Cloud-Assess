@@ -24,69 +24,56 @@ var registry = map[string][]Service{
 	"amg":     {{Key: "amg", Name: "Azure Managed Grafana", ResourceTypes: []string{"Microsoft.Dashboard/grafana"}}},
 	"apim":    {{Key: "apim", Name: "API Management", ResourceTypes: []string{"Microsoft.ApiManagement/service"}}},
 	"appcs":   {{Key: "appcs", Name: "App Configuration", ResourceTypes: []string{"Microsoft.AppConfiguration/configurationStores"}}},
-	"appi":    {{Key: "appi", Name: "Application Insights", ResourceTypes: []string{"Microsoft.Insights/components", "Microsoft.Insights/activityLogAlerts"}}},
-	"arc":     {{Key: "arc", Name: "Azure Arc", ResourceTypes: []string{"Microsoft.AzureArcData/sqlServerInstances"}}},
-	"as":      {{Key: "as", Name: "Analysis Services", ResourceTypes: []string{"Microsoft.AnalysisServices/servers"}}},
-	"asa":     {{Key: "asa", Name: "Stream Analytics Job", ResourceTypes: []string{"Microsoft.StreamAnalytics/streamingJobs"}}},
-	"asp":     {{Key: "asp", Name: "App Service Plan", ResourceTypes: []string{"Microsoft.Web/serverFarms", "Microsoft.Web/sites", "Microsoft.Web/connections", "Microsoft.Web/certificates"}}},
-	"avail":   {{Key: "avail", Name: "Availability Set", ResourceTypes: []string{"Microsoft.Compute/availabilitySets"}}},
-	"avd":     {{Key: "avd", Name: "Azure Virtual Desktop", ResourceTypes: []string{"Specialized.Workload/AVD"}}},
-	"avs":     {{Key: "avs", Name: "Azure VMware Solution", ResourceTypes: []string{"Microsoft.AVS/privateClouds", "Specialized.Workload/AVS"}}},
-	"ba":      {{Key: "ba", Name: "Batch Account", ResourceTypes: []string{"Microsoft.Batch/batchAccounts"}}},
-	"bastion": {{Key: "bastion", Name: "Bastion Host", ResourceTypes: []string{"Microsoft.Network/bastionHosts"}}},
+	"appgw":   {{Key: "appgw", Name: "Application Gateway", ResourceTypes: []string{"Microsoft.Network/applicationGateways"}}},
+	"appins":  {{Key: "appins", Name: "Application Insights", ResourceTypes: []string{"Microsoft.Insights/components"}}},
+	"appsvc":  {{Key: "appsvc", Name: "App Service", ResourceTypes: []string{"Microsoft.Web/sites", "Microsoft.Web/serverFarms"}}},
+	"avd":     {{Key: "avd", Name: "Azure Virtual Desktop", ResourceTypes: []string{"Microsoft.DesktopVirtualization/hostPools", "Microsoft.DesktopVirtualization/workspaces", "Microsoft.DesktopVirtualization/applicationGroups", "Microsoft.DesktopVirtualization/scalingPlans"}}},
+	"avs":     {{Key: "avs", Name: "Azure VMware Solution", ResourceTypes: []string{"Microsoft.AVS/privateClouds", "Microsoft.AVS/privateClouds/clusters"}}},
+	"bastion": {{Key: "bastion", Name: "Azure Bastion", ResourceTypes: []string{"Microsoft.Network/bastionHosts"}}},
 	"ca":      {{Key: "ca", Name: "Container App", ResourceTypes: []string{"Microsoft.App/containerApps"}}},
-	"cae":     {{Key: "cae", Name: "Container Apps Environment", ResourceTypes: []string{"Microsoft.App/managedenvironments"}}},
+	"cae":     {{Key: "cae", Name: "Container App Environment", ResourceTypes: []string{"Microsoft.App/managedEnvironments"}}},
+	"cache":   {{Key: "cache", Name: "Azure Cache", ResourceTypes: []string{"Microsoft.Cache/redis", "Microsoft.Cache/redisEnterprise"}}},
 	"ci":      {{Key: "ci", Name: "Container Instance", ResourceTypes: []string{"Microsoft.ContainerInstance/containerGroups"}}},
-	"con":     {{Key: "con", Name: "Connection", ResourceTypes: []string{"Microsoft.Network/connections"}}},
+	"cog":     {{Key: "cog", Name: "Cognitive Services", ResourceTypes: []string{"Microsoft.CognitiveServices/accounts"}}},
 	"cosmos":  {{Key: "cosmos", Name: "Cosmos DB", ResourceTypes: []string{"Microsoft.DocumentDB/databaseAccounts"}}},
 	"cr":      {{Key: "cr", Name: "Container Registry", ResourceTypes: []string{"Microsoft.ContainerRegistry/registries"}}},
 	"dbw":     {{Key: "dbw", Name: "Databricks Workspace", ResourceTypes: []string{"Microsoft.Databricks/workspaces"}}},
-	"ddos":    {{Key: "ddos", Name: "DDoS Protection Plan", ResourceTypes: []string{"Microsoft.Network/ddosProtectionPlans"}}},
-	"dec":     {{Key: "dec", Name: "Data Explorer Cluster", ResourceTypes: []string{"Microsoft.Kusto/clusters"}}},
-	"disk":    {{Key: "disk", Name: "Disk", ResourceTypes: []string{"Microsoft.Compute/disks"}}},
-	"dnsres":  {{Key: "dnsres", Name: "DNS Resolver", ResourceTypes: []string{"Microsoft.Network/dnsResolvers"}}},
-	"dnsz":    {{Key: "dnsz", Name: "DNS Zone", ResourceTypes: []string{"Microsoft.Network/dnsZones"}}},
-	"domain":  {{Key: "domain", Name: "Domain Services", ResourceTypes: []string{"Microsoft.AAD/domainServices"}}},
-	"erc":     {{Key: "erc", Name: "ExpressRoute Circuit", ResourceTypes: []string{"Microsoft.Network/expressRouteCircuits", "Microsoft.Network/ExpressRoutePorts", "Microsoft.Network/expressRouteGateways"}}},
+	"disk":    {{Key: "disk", Name: "Managed Disk", ResourceTypes: []string{"Microsoft.Compute/disks"}}},
+	"dns":     {{Key: "dns", Name: "DNS Zone", ResourceTypes: []string{"Microsoft.Network/dnsZones", "Microsoft.Network/privateDnsZones"}}},
+	"eh":      {{Key: "eh", Name: "Event Hubs", ResourceTypes: []string{"Microsoft.EventHub/namespaces"}}},
 	"evgd":    {{Key: "evgd", Name: "Event Grid Domain", ResourceTypes: []string{"Microsoft.EventGrid/domains"}}},
+	"evgns":   {{Key: "evgns", Name: "Event Grid Namespace", ResourceTypes: []string{"Microsoft.EventGrid/namespaces"}}},
+	"evgst":   {{Key: "evgst", Name: "Event Grid System Topic", ResourceTypes: []string{"Microsoft.EventGrid/systemTopics"}}},
 	"evgt":    {{Key: "evgt", Name: "Event Grid Topic", ResourceTypes: []string{"Microsoft.EventGrid/topics"}}},
-	"evh":     {{Key: "evh", Name: "Event Hub", ResourceTypes: []string{"Microsoft.EventHub/namespaces"}}},
-	"fabric":  {{Key: "fabric", Name: "Fabric", ResourceTypes: []string{"Microsoft.Fabric/capacities"}}},
-	"fdfp":    {{Key: "fdfp", Name: "Front Door Firewall Policy", ResourceTypes: []string{"Microsoft.Network/frontdoorWebApplicationFirewallPolicies"}}},
-	"gal":     {{Key: "gal", Name: "Compute Gallery", ResourceTypes: []string{"Microsoft.Compute/galleries"}}},
-	"hpc":     {{Key: "hpc", Name: "HPC", ResourceTypes: []string{"Specialized.Workload/HPC"}}},
-	"hub":     {{Key: "hub", Name: "Machine Learning Workspace", ResourceTypes: []string{"Microsoft.MachineLearningServices/workspaces", "Microsoft.MachineLearningServices/registries"}}},
-	"iot":     {{Key: "iot", Name: "IoT Hub", ResourceTypes: []string{"Microsoft.Devices/IotHubs"}}},
-	"it":      {{Key: "it", Name: "Image Template", ResourceTypes: []string{"Microsoft.VirtualMachineImages/imageTemplates"}}},
-	"kv":      {{Key: "kv", Name: "Key Vault", ResourceTypes: []string{"Microsoft.KeyVault/vaults"}}},
+	"fab":     {{Key: "fab", Name: "Microsoft Fabric", ResourceTypes: []string{"Microsoft.Fabric/capacities"}}},
+	"fd":      {{Key: "fd", Name: "Front Door (classic)", ResourceTypes: []string{"Microsoft.Network/frontDoors"}}},
+	"func":    {{Key: "func", Name: "Function App", ResourceTypes: []string{"Microsoft.Web/sites"}}},
+	"hpc":     {{Key: "hpc", Name: "HPC Cache", ResourceTypes: []string{"Microsoft.StorageCache/caches"}}},
+	"ioth":    {{Key: "ioth", Name: "IoT Hub", ResourceTypes: []string{"Microsoft.Devices/IotHubs"}}},
+	"kv":      {{Key: "kv", Name: "Key Vault", ResourceTypes: []string{"Microsoft.KeyVault/vaults", "Microsoft.KeyVault/managedHSMs"}}},
+	"law":     {{Key: "law", Name: "Log Analytics Workspace", ResourceTypes: []string{"Microsoft.OperationalInsights/workspaces"}}},
 	"lb":      {{Key: "lb", Name: "Load Balancer", ResourceTypes: []string{"Microsoft.Network/loadBalancers"}}},
-	"log":     {{Key: "log", Name: "Log Analytics Workspace", ResourceTypes: []string{"Microsoft.OperationalInsights/workspaces"}}},
 	"logic":   {{Key: "logic", Name: "Logic App", ResourceTypes: []string{"Microsoft.Logic/workflows"}}},
-	"mysql":   {{Key: "mysql", Name: "MySQL Database", ResourceTypes: []string{"Microsoft.DBforMySQL/servers", "Microsoft.DBforMySQL/flexibleServers"}}},
-	"netapp":  {{Key: "netapp", Name: "NetApp Account", ResourceTypes: []string{"Microsoft.NetApp/netAppAccounts"}}},
-	"ng":      {{Key: "ng", Name: "NAT Gateway", ResourceTypes: []string{"Microsoft.Network/natGateways"}}},
+	"mi":      {{Key: "mi", Name: "Managed Identity", ResourceTypes: []string{"Microsoft.ManagedIdentity/userAssignedIdentities"}}},
+	"mlw":     {{Key: "mlw", Name: "Machine Learning Workspace", ResourceTypes: []string{"Microsoft.MachineLearningServices/workspaces"}}},
+	"mysql":   {{Key: "mysql", Name: "Azure Database for MySQL", ResourceTypes: []string{"Microsoft.DBforMySQL/flexibleServers"}}},
+	"nat":     {{Key: "nat", Name: "NAT Gateway", ResourceTypes: []string{"Microsoft.Network/natGateways"}}},
 	"nic":     {{Key: "nic", Name: "Network Interface", ResourceTypes: []string{"Microsoft.Network/networkInterfaces"}}},
 	"nsg":     {{Key: "nsg", Name: "Network Security Group", ResourceTypes: []string{"Microsoft.Network/networkSecurityGroups"}}},
-	"ntc":     {{Key: "ntc", Name: "Azure Traffic Collector", ResourceTypes: []string{"Microsoft.NetworkFunction/azureTrafficCollectors"}}},
-	"nw":      {{Key: "nw", Name: "Network Watcher", ResourceTypes: []string{"Microsoft.Network/networkWatchers"}}},
-	"odb":     {{Key: "odb", Name: "Oracle Database", ResourceTypes: []string{"Oracle.Database/cloudExadataInfrastructures", "Oracle.Database/cloudVmClusters"}}},
-	"p2svpng": {{Key: "p2svpng", Name: "P2S VPN Gateway", ResourceTypes: []string{"Microsoft.Network/p2sVpnGateways"}}},
-	"pdnsz":   {{Key: "pdnsz", Name: "Private DNS Zone", ResourceTypes: []string{"Microsoft.Network/privateDnsZones"}}},
-	"pep":     {{Key: "pep", Name: "Private Endpoint", ResourceTypes: []string{"Microsoft.Network/privateEndpoints"}}},
 	"pip":     {{Key: "pip", Name: "Public IP Address", ResourceTypes: []string{"Microsoft.Network/publicIPAddresses"}}},
-	"psql":    {{Key: "psql", Name: "PostgreSQL Database", ResourceTypes: []string{"Microsoft.DBforPostgreSQL/servers", "Microsoft.DBforPostgreSQL/flexibleServers"}}},
+	"postgres": {{Key: "postgres", Name: "Azure Database for PostgreSQL", ResourceTypes: []string{"Microsoft.DBforPostgreSQL/flexibleServers"}}},
+	"privdns": {{Key: "privdns", Name: "Private DNS Zone", ResourceTypes: []string{"Microsoft.Network/privateDnsZones"}}},
+	"privend": {{Key: "privend", Name: "Private Endpoint", ResourceTypes: []string{"Microsoft.Network/privateEndpoints"}}},
 	"redis": {
-		{Key: "redis", Name: "Redis Cache", ResourceTypes: []string{"Microsoft.Cache/Redis"}},
-		{Key: "redis", Name: "Redis Enterprise", ResourceTypes: []string{"Microsoft.Cache/redisEnterprise"}},
+		{Key: "redis", Name: "Azure Cache for Redis", ResourceTypes: []string{"Microsoft.Cache/redis"}},
+		{Key: "redis", Name: "Azure Managed Redis", ResourceTypes: []string{"Microsoft.Cache/redisEnterprise"}},
 	},
-	"resource": {{Key: "resource", Name: "Resource", ResourceTypes: []string{"Microsoft.Resources"}}},
-	"rg":       {{Key: "rg", Name: "Resource Group", ResourceTypes: []string{"Microsoft.Resources/resourceGroups"}}},
-	"rsv":      {{Key: "rsv", Name: "Recovery Services Vault", ResourceTypes: []string{"Microsoft.RecoveryServices/vaults"}}},
-	"rt":       {{Key: "rt", Name: "Route Table", ResourceTypes: []string{"Microsoft.Network/routeTables"}}},
-	"sap":      {{Key: "sap", Name: "SAP", ResourceTypes: []string{"Specialized.Workload/SAP"}}},
+	"resource": {{Key: "resource", Name: "Azure Resource", ResourceTypes: []string{"Microsoft.Resources/subscriptions/resourceGroups", "Microsoft.Resources/tags"}}},
+	"route":    {{Key: "route", Name: "Route Table", ResourceTypes: []string{"Microsoft.Network/routeTables"}}},
+	"sap":      {{Key: "sap", Name: "SAP Virtual Instance", ResourceTypes: []string{"Microsoft.Workloads/sapVirtualInstances"}}},
 	"sb":       {{Key: "sb", Name: "Service Bus", ResourceTypes: []string{"Microsoft.ServiceBus/namespaces"}}},
-	"sigr":     {{Key: "sigr", Name: "SignalR", ResourceTypes: []string{"Microsoft.SignalRService/SignalR"}}},
-	"sql":      {{Key: "sql", Name: "SQL Server", ResourceTypes: []string{"Microsoft.Sql/servers", "Microsoft.Sql/servers/databases", "Microsoft.Sql/servers/elasticPools"}}},
+	"sig":      {{Key: "sig", Name: "Compute Gallery", ResourceTypes: []string{"Microsoft.Compute/galleries"}}},
+	"sql":      {{Key: "sql", Name: "SQL Database", ResourceTypes: []string{"Microsoft.Sql/servers", "Microsoft.Sql/servers/databases"}}},
 	"sqlmi":    {{Key: "sqlmi", Name: "SQL Managed Instance", ResourceTypes: []string{"Microsoft.Sql/managedInstances"}}},
 	"srch":     {{Key: "srch", Name: "Search Service", ResourceTypes: []string{"Microsoft.Search/searchServices"}}},
 	"st":       {{Key: "st", Name: "Storage Account", ResourceTypes: []string{"Microsoft.Storage/storageAccounts"}}},
@@ -133,6 +120,31 @@ func All() []Service {
 	return out
 }
 
+// SelectedKeys reproduces the pinned reference scanner-selection semantics.
+// When a normal scan supplies multiple available scanner keys and the filter has
+// include.resourceTypes values, those values are interpreted as scanner keys.
+// A scanner-specific command (one key) wins over the filter. With no keys, all
+// registered scanners are selected.
+func SelectedKeys(scannerKeys, configuredResourceTypes []string) []string {
+	var candidates []string
+	switch {
+	case len(scannerKeys) > 1 && len(configuredResourceTypes) > 0:
+		candidates = configuredResourceTypes
+	case len(scannerKeys) >= 1:
+		candidates = scannerKeys
+	default:
+		return Keys()
+	}
+
+	out := make([]string, 0, len(candidates))
+	for _, key := range candidates {
+		if _, exists := registry[key]; exists {
+			out = append(out, key)
+		}
+	}
+	return out
+}
+
 // ResourceTypes returns the distinct Azure resource types covered by the selected keys.
 func ResourceTypes(keys []string) []string {
 	seen := map[string]struct{}{}
@@ -149,4 +161,10 @@ func ResourceTypes(keys []string) []string {
 		}
 	}
 	return out
+}
+
+// AllowedResourceTypes combines scanner selection and resource-type expansion for
+// installing runtime scope into the filter model.
+func AllowedResourceTypes(scannerKeys, configuredResourceTypes []string) []string {
+	return ResourceTypes(SelectedKeys(scannerKeys, configuredResourceTypes))
 }
