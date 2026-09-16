@@ -65,22 +65,22 @@ type RecommendationDefinition struct {
 }
 
 type Finding struct {
-	RecommendationID    string            `json:"recommendationId"`
-	Source              string            `json:"source"`
-	ValidationMechanism string            `json:"validationMechanism,omitempty"`
-	Category            string            `json:"category"`
-	Impact              string            `json:"impact"`
-	ResourceType        string            `json:"resourceType"`
-	Recommendation      string            `json:"recommendation"`
-	LongDescription     string            `json:"longDescription,omitempty"`
-	PotentialBenefits   string            `json:"potentialBenefits,omitempty"`
-	ResourceID          string            `json:"resourceId"`
-	SubscriptionID      string            `json:"subscriptionId"`
-	SubscriptionName    string            `json:"subscriptionName,omitempty"`
-	ResourceGroup       string            `json:"resourceGroup"`
-	ResourceName        string            `json:"resourceName"`
-	Tags                map[string]string `json:"tags,omitempty"`
-	Parameters          []string          `json:"parameters,omitempty"`
-	LearnMoreURL        string            `json:"learnMoreUrl,omitempty"`
-	AutomationAvailable string            `json:"automationAvailable,omitempty"`
+	RecommendationID    string   `json:"recommendationId"`
+	Source              string   `json:"source"`
+	ValidationMechanism string   `json:"validationMechanism,omitempty"`
+	Category            string   `json:"category"`
+	Impact              string   `json:"impact"`
+	ResourceType        string   `json:"resourceType"`
+	Recommendation      string   `json:"recommendation"`
+	LongDescription     string   `json:"longDescription,omitempty"`
+	PotentialBenefits   string   `json:"potentialBenefits,omitempty"`
+	ResourceID          string   `json:"resourceId"`
+	SubscriptionID      string   `json:"subscriptionId"`
+	SubscriptionName    string   `json:"subscriptionName,omitempty"`
+	ResourceGroup       string   `json:"resourceGroup"`
+	ResourceName        string   `json:"resourceName"`
+	Tags                string   `json:"tags,omitempty"`
+	Parameters          []string `json:"parameters,omitempty"`
+	LearnMoreURL        string   `json:"learnMoreUrl,omitempty"`
+	AutomationAvailable string   `json:"automationAvailable,omitempty"`
 }
