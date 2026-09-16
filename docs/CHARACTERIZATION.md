@@ -97,26 +97,45 @@ This document tracks source behavior that Cloud Assess intentionally preserves o
 - Batch/transport/decode failures are returned to the caller rather than terminating the process.
 - Diagnostics findings use source `DIAGNOSTICS` and validation mechanism `Azure Resource Manager`. This intentionally corrects the reference report's historical tendency to describe the canonical finding stream as ARG-validated even when a finding came from direct ARM validation.
 
+### Advisor
+
+- Advisor remains an auxiliary assessment dataset rather than being folded into the primary `Finding` stream.
+- Recommendation instances are retrieved from the `AdvisorResources` Azure Resource Graph table.
+- The pinned query only considers `microsoft.advisor/recommendations` records with a non-empty assessed resource ID.
+- Suppressed recommendations are excluded when `properties.suppressionIds` is present and non-empty.
+- Results are deduplicated by resource ID plus recommendation type ID using `summarize take_any(*)`.
+- Human-readable recommendation descriptions are resolved through the Microsoft Advisor metadata contract at `/providers/Microsoft.Advisor/metadata?api-version=2020-01-01`.
+- Advisor metadata pagination follows `nextLink` until exhausted.
+- Only the metadata entity named `recommendationType` contributes recommendation ID to display-name mappings.
+- Subscription exclusion and downstream resource/service exclusion are reapplied before an Advisor record is emitted.
+- Advisor records preserve recommendation ID, subscription ID/name, resource type, resource name, resource ID, category, impact, and metadata-derived description.
+- Missing metadata for a recommendation ID preserves the source behavior of an empty description rather than dropping the Advisor record.
+- Malformed ARG rows are skipped and surfaced as `advisor_malformed_arg_rows` warnings.
+- Advisor output ordering is deterministic in Cloud Assess. This is an intentional determinism improvement over source ordering.
+- Metadata or ARG query failures are returned to the caller rather than being logged and silently converted to a nil dataset.
+- Cloud Assess implements the Advisor metadata wire contract through the existing authenticated/retrying ARM HTTP layer instead of adding the `armadvisor` SDK dependency. This is an implementation change, not a behavior change.
+
 ## Known intentional differences
 
 - Product/CLI/configuration branding is neutralized.
 - The configuration root is `assessment:` rather than the legacy product name.
 - The legacy `exclude.services` configuration concept is named `exclude.resources` in Cloud Assess.
-- Lower-level errors are propagated rather than calling `log.Fatal`.
+- Lower-level errors are propagated rather than calling `log.Fatal` or silently returning nil datasets.
 - Deterministic ordering is added where source map/concurrency ordering was unstable.
 - Cloud Assess exposes explicit warning/completeness signals for malformed ARG rows.
 - Diagnostics carries its real validation mechanism (`Azure Resource Manager`) rather than labeling every primary finding as Azure Resource Graph validated.
 - Non-success diagnostics subrequests preserve reference finding semantics but additionally produce explicit uncertainty warnings.
 - Malformed diagnostic-setting IDs become warnings instead of panics.
+- Advisor metadata uses the existing authenticated ARM HTTP layer rather than the `armadvisor` SDK while preserving the same API contract.
+- Advisor malformed ARG rows are surfaced as warnings instead of being log-only behavior.
 
 ## Next characterization targets
 
 1. Stage parameter parsing (`--stage-param`) and stage-specific option semantics.
-2. Advisor result retrieval and normalization.
-3. Defender status and Defender recommendation behavior.
-4. Azure Policy noncompliance behavior.
-5. Arc SQL behavior.
-6. Cost API result retrieval and normalization beyond the already-characterized date range.
-7. Canonical assessment-result assembly and completeness calculation.
-8. JSON, Excel, CSV, SARIF, and stdout rendering equivalence.
-9. End-to-end CLI exit-code and severity-gate behavior.
+2. Defender status and Defender recommendation behavior.
+3. Azure Policy noncompliance behavior.
+4. Arc SQL behavior.
+5. Cost API result retrieval and normalization beyond the already-characterized date range.
+6. Canonical assessment-result assembly and completeness calculation.
+7. JSON, Excel, CSV, SARIF, and stdout rendering equivalence.
+8. End-to-end CLI exit-code and severity-gate behavior.
