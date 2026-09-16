@@ -115,6 +115,25 @@ This document tracks source behavior that Cloud Assess intentionally preserves o
 - Metadata or ARG query failures are returned to the caller rather than being logged and silently converted to a nil dataset.
 - Cloud Assess implements the Advisor metadata wire contract through the existing authenticated/retrying ARM HTTP layer instead of adding the `armadvisor` SDK dependency. This is an implementation change, not a behavior change.
 
+### Defender
+
+- Defender is represented as two separate auxiliary datasets: plan/tier status and security recommendations.
+- Defender status comes from `SecurityResources` records of type `microsoft.security/pricings`, joined to subscription containers to obtain the subscription display name.
+- Defender status preserves subscription ID, subscription name, plan name, and pricing tier.
+- The Defender status path reapplies subscription exclusion but does not apply resource-level filtering because the records are subscription/plan scoped.
+- Defender recommendations come from `microsoft.security/assessments` with `properties.status.code == 'Unhealthy'`.
+- Recommendation metadata categories are expanded with `mvexpand`, so one unhealthy assessment can yield category-specific rows.
+- The pinned recommendation query derives resource group, resource type, and resource name by splitting `properties.resourceDetails.Id`.
+- The source query projects `ResourceType = tostring(ResourceIdsplit[6])`; Cloud Assess preserves the projected value rather than silently replacing it with a full normalized ARM type.
+- Source-side `distinct` is preserved in the query and Cloud Assess also preserves the source post-query deduplication key `(resourceID, category, recommendationName)`.
+- Defender recommendation filtering reapplies downstream resource/service exclusion using the assessed resource ID.
+- Subscription names for Defender recommendations are resolved from the already-discovered subscription map; missing names remain empty.
+- Defender portal links preserve the source normalization behavior by prefixing `https://` to the projected portal-link value.
+- Malformed Defender status rows are skipped and surfaced as `defender_status_malformed_arg_rows` warnings.
+- Malformed Defender recommendation rows are skipped and surfaced as `defender_recommendations_malformed_arg_rows` warnings.
+- Defender status and recommendation outputs are sorted deterministically in Cloud Assess.
+- ARG query failures and nil ARG results are returned to the caller rather than being logged and silently converted to nil datasets.
+
 ## Known intentional differences
 
 - Product/CLI/configuration branding is neutralized.
@@ -128,14 +147,15 @@ This document tracks source behavior that Cloud Assess intentionally preserves o
 - Malformed diagnostic-setting IDs become warnings instead of panics.
 - Advisor metadata uses the existing authenticated ARM HTTP layer rather than the `armadvisor` SDK while preserving the same API contract.
 - Advisor malformed ARG rows are surfaced as warnings instead of being log-only behavior.
+- Defender malformed ARG rows are surfaced as warnings rather than being log-only behavior.
+- Defender datasets are sorted deterministically after normalization.
 
 ## Next characterization targets
 
 1. Stage parameter parsing (`--stage-param`) and stage-specific option semantics.
-2. Defender status and Defender recommendation behavior.
-3. Azure Policy noncompliance behavior.
-4. Arc SQL behavior.
-5. Cost API result retrieval and normalization beyond the already-characterized date range.
-6. Canonical assessment-result assembly and completeness calculation.
-7. JSON, Excel, CSV, SARIF, and stdout rendering equivalence.
-8. End-to-end CLI exit-code and severity-gate behavior.
+2. Azure Policy noncompliance behavior.
+3. Arc SQL behavior.
+4. Cost API result retrieval and normalization beyond the already-characterized date range.
+5. Canonical assessment-result assembly and completeness calculation.
+6. JSON, Excel, CSV, SARIF, and stdout rendering equivalence.
+7. End-to-end CLI exit-code and severity-gate behavior.
