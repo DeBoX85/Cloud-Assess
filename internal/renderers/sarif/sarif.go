@@ -15,10 +15,10 @@ import (
 )
 
 const (
-	schemaURL              = "https://json.schemastore.org/sarif-2.1.0.json"
-	fingerprintNamespace   = "cloudAssessFinding/v1"
-	automationNamespace    = "cloud-assess/"
-	logicalLocationKind    = "resource"
+	schemaURL            = "https://json.schemastore.org/sarif-2.1.0.json"
+	fingerprintNamespace = "cloudAssessFinding/v1"
+	automationNamespace  = "cloud-assess/"
+	logicalLocationKind  = "resource"
 )
 
 type logFile struct {
@@ -28,9 +28,9 @@ type logFile struct {
 }
 
 type run struct {
-	Tool       tool       `json:"tool"`
+	Tool       tool          `json:"tool"`
 	Results    []sarifResult `json:"results"`
-	Automation automation `json:"automationDetails,omitempty"`
+	Automation automation    `json:"automationDetails,omitempty"`
 }
 
 type automation struct {
