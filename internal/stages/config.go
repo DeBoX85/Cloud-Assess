@@ -32,10 +32,14 @@ var defaults = map[string]bool{
 
 type Config struct {
 	enabled map[string]bool
+	options map[string]map[string]any
 }
 
 func NewDefault() *Config {
-	c := &Config{enabled: map[string]bool{}}
+	c := &Config{
+		enabled: map[string]bool{},
+		options: map[string]map[string]any{},
+	}
 	for name, enabled := range defaults {
 		c.enabled[name] = enabled
 	}
