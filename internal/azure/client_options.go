@@ -3,9 +3,9 @@ package azure
 import (
 	"time"
 
-	"github.com/DeBoX85/Cloud-Assess/internal/throttling"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/arm"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
+	"github.com/DeBoX85/Cloud-Assess/internal/throttling"
 )
 
 // NewARMClientOptions returns the shared ARM SDK configuration used by production Azure adapters.

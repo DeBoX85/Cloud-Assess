@@ -12,7 +12,7 @@ import (
 
 // AzureScopeClient implements subscription and management-group discovery with Azure SDK clients.
 type AzureScopeClient struct {
-	subscriptions     *armsubscription.SubscriptionsClient
+	subscriptions    *armsubscription.SubscriptionsClient
 	managementGroups *armmanagementgroups.ClientFactory
 }
 
@@ -37,7 +37,7 @@ func NewAzureScopeClient(credential azcore.TokenCredential, options *arm.ClientO
 		return nil, fmt.Errorf("create Azure management groups client factory: %w", err)
 	}
 	return &AzureScopeClient{
-		subscriptions:     subscriptions,
+		subscriptions:    subscriptions,
 		managementGroups: managementGroups,
 	}, nil
 }
@@ -59,7 +59,7 @@ func (c *AzureScopeClient) ListSubscriptions(ctx context.Context) ([]Subscriptio
 			if item == nil || item.SubscriptionID == nil {
 				continue
 			}
-		result = append(result, Subscription{
+			result = append(result, Subscription{
 				ID:    value(item.SubscriptionID),
 				Name:  value(item.DisplayName),
 				State: subscriptionState(item.State),
