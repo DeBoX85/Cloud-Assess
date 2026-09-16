@@ -70,3 +70,38 @@ func TestByKeyReturnsCopy(t *testing.T) {
 		t.Fatal("ByKey exposed mutable registry slice")
 	}
 }
+
+func TestSelectedKeysUsesFilterResourceTypesForNormalScan(t *testing.T) {
+	available := Keys()
+	selected := SelectedKeys(available, []string{"aks", "ca", "does-not-exist", "st"})
+	want := []string{"aks", "ca", "st"}
+	if !reflect.DeepEqual(selected, want) {
+		t.Fatalf("SelectedKeys() = %#v, want %#v", selected, want)
+	}
+}
+
+func TestSelectedKeysScannerSpecificCommandWinsOverFilter(t *testing.T) {
+	selected := SelectedKeys([]string{"vm"}, []string{"aks", "st"})
+	if !reflect.DeepEqual(selected, []string{"vm"}) {
+		t.Fatalf("SelectedKeys() = %#v, want vm", selected)
+	}
+}
+
+func TestSelectedKeysDefaultsToAllScanners(t *testing.T) {
+	selected := SelectedKeys(nil, nil)
+	if !reflect.DeepEqual(selected, Keys()) {
+		t.Fatal("empty scanner selection should default to all scanners")
+	}
+}
+
+func TestAllowedResourceTypesExpandsSelectedScannerKeys(t *testing.T) {
+	got := AllowedResourceTypes(Keys(), []string{"aks", "vnet"})
+	want := []string{
+		"Microsoft.ContainerService/managedClusters",
+		"Microsoft.Network/virtualNetworks",
+		"Microsoft.Network/virtualNetworks/subnets",
+	}
+	if !reflect.DeepEqual(got, want) {
+		t.Fatalf("AllowedResourceTypes() = %#v, want %#v", got, want)
+	}
+}
