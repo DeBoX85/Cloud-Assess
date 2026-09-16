@@ -40,20 +40,25 @@ type StageExecution struct {
 	Error      *AssessmentError    `json:"error,omitempty"`
 }
 
+type LearnMoreLink struct {
+	Name string `json:"name"`
+	URL  string `json:"url"`
+}
+
 type RecommendationDefinition struct {
-	ID                  string            `json:"id"`
-	Recommendation      string            `json:"recommendation"`
-	Category            string            `json:"category"`
-	Impact              string            `json:"impact"`
-	ResourceType        string            `json:"resourceType"`
-	State               string            `json:"state,omitempty"`
-	LongDescription     string            `json:"longDescription,omitempty"`
-	PotentialBenefits   string            `json:"potentialBenefits,omitempty"`
-	AutomationAvailable bool              `json:"automationAvailable"`
-	Tags                []string          `json:"tags,omitempty"`
-	Query               string            `json:"-"`
-	LearnMore            map[string]string `json:"learnMore,omitempty"`
-	Source               string            `json:"source"`
+	ID                  string          `json:"id"`
+	Recommendation      string          `json:"recommendation"`
+	Category            string          `json:"category"`
+	Impact              string          `json:"impact"`
+	ResourceType        string          `json:"resourceType"`
+	State               string          `json:"state,omitempty"`
+	LongDescription     string          `json:"longDescription,omitempty"`
+	PotentialBenefits   string          `json:"potentialBenefits,omitempty"`
+	AutomationAvailable string          `json:"automationAvailable,omitempty"`
+	Tags                []string        `json:"tags,omitempty"`
+	Query               string          `json:"-"`
+	LearnMore           []LearnMoreLink `json:"learnMore,omitempty"`
+	Source               string          `json:"source"`
 }
 
 type Finding struct {
@@ -73,5 +78,5 @@ type Finding struct {
 	Tags                map[string]string `json:"tags,omitempty"`
 	Parameters          []string          `json:"parameters,omitempty"`
 	LearnMoreURL        string            `json:"learnMoreUrl,omitempty"`
-	AutomationAvailable bool              `json:"automationAvailable"`
+	AutomationAvailable string            `json:"automationAvailable,omitempty"`
 }
