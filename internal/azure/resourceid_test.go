@@ -24,11 +24,11 @@ func TestResourceIDHelpers(t *testing.T) {
 
 func TestMalformedResourceIDReturnsEmptyComponents(t *testing.T) {
 	for name, fn := range map[string]func(string) string{
-		"subscription": SubscriptionFromResourceID,
-		"resourceGroup": ResourceGroupFromResourceID,
+		"subscription":    SubscriptionFromResourceID,
+		"resourceGroup":   ResourceGroupFromResourceID,
 		"resourceGroupID": ResourceGroupIDFromResourceID,
-		"resourceType": ResourceTypeFromResourceID,
-		"resourceName": ResourceNameFromResourceID,
+		"resourceType":    ResourceTypeFromResourceID,
+		"resourceName":    ResourceNameFromResourceID,
 	} {
 		if got := fn(""); got != "" {
 			t.Fatalf("%s empty input = %q", name, got)
