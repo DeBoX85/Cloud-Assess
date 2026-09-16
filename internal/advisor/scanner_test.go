@@ -12,9 +12,9 @@ import (
 )
 
 type fakeGetter struct {
-	urls    []string
-	pages   map[string][]byte
-	errors  map[string]error
+	urls   []string
+	pages  map[string][]byte
+	errors map[string]error
 }
 
 func (f *fakeGetter) Get(_ context.Context, url string) ([]byte, error) {
@@ -29,13 +29,30 @@ func (f *fakeGetter) Get(_ context.Context, url string) ([]byte, error) {
 	return body, nil
 }
 
+func mustJSON(t *testing.T, value any) []byte {
+	t.Helper()
+	payload, err := json.Marshal(value)
+	if err != nil {
+		t.Fatal(err)
+	}
+	return payload
+}
+
 func TestMetadataRecommendationTypesFollowsPagination(t *testing.T) {
 	const endpoint = "https://management.azure.com"
 	first := endpoint + "/providers/Microsoft.Advisor/metadata?api-version=2020-01-01"
 	second := endpoint + "/next-page?api-version=2020-01-01"
 	getter := &fakeGetter{pages: map[string][]byte{
-		first: []byte(`{"value":[{"name":"category","properties":{"supportedValues":[{"id":"ignore","displayName":"Ignore"}]}},{"name":"recommendationType","properties":{"supportedValues":[{"id":"rec-1","displayName":"First recommendation"}]}}],"nextLink":"/next-page?api-version=2020-01-01"}`),
-		second: []byte(`{"value":[{"name":"recommendationType","properties":{"supportedValues":[{"id":"rec-2","displayName":"Second recommendation"}]}}]}`),
+		first: mustJSON(t, metadataListResult{
+			Value: []metadataEntity{
+				{Name: "category", Properties: metadataEntityProperties{SupportedValues: []metadataSupportedValue{{ID: "ignore", DisplayName: "Ignore"}}}},
+				{Name: "recommendationType", Properties: metadataEntityProperties{SupportedValues: []metadataSupportedValue{{ID: "rec-1", DisplayName: "First recommendation"}}}},
+			},
+			NextLink: "/next-page?api-version=2020-01-01",
+		}),
+		second: mustJSON(t, metadataListResult{Value: []metadataEntity{
+			{Name: "recommendationType", Properties: metadataEntityProperties{SupportedValues: []metadataSupportedValue{{ID: "rec-2", DisplayName: "Second recommendation"}}}},
+		}}),
 	}}
 
 	got, err := NewMetadataClient(getter, endpoint).RecommendationTypes(context.Background())
@@ -54,11 +71,9 @@ func TestMetadataRecommendationTypesFollowsPagination(t *testing.T) {
 type fakeMetadata struct {
 	values map[string]string
 	err    error
-	calls  int
 }
 
 func (f *fakeMetadata) RecommendationTypes(context.Context) (map[string]string, error) {
-	f.calls++
 	if f.err != nil {
 		return nil, f.err
 	}
@@ -66,17 +81,15 @@ func (f *fakeMetadata) RecommendationTypes(context.Context) (map[string]string, 
 }
 
 type fakeGraph struct {
-	result        *arg.Result
-	err           error
-	calls         int
-	query         string
-	subscriptions map[string]string
+	result *arg.Result
+	err    error
+	calls  int
+	query  string
 }
 
-func (f *fakeGraph) Query(_ context.Context, query string, subscriptions map[string]string, _ ...arg.QueryOptions) (*arg.Result, error) {
+func (f *fakeGraph) Query(_ context.Context, query string, _ map[string]string, _ ...arg.QueryOptions) (*arg.Result, error) {
 	f.calls++
 	f.query = query
-	f.subscriptions = subscriptions
 	if f.err != nil {
 		return nil, f.err
 	}
@@ -96,27 +109,29 @@ func (f fakeFilter) IsServiceExcluded(resourceID string) bool {
 	return f.excludedResources[strings.ToLower(resourceID)]
 }
 
+func advisorRowMessage(t *testing.T, row advisorRow) json.RawMessage {
+	t.Helper()
+	return json.RawMessage(mustJSON(t, row))
+}
+
 func TestScannerNormalizesFiltersWarnsAndSorts(t *testing.T) {
 	const (
-		subA = "11111111-1111-1111-1111-111111111111"
-		subB = "22222222-2222-2222-2222-222222222222"
-		resA = "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Storage/storageAccounts/sta"
-		resB = "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/virtualMachines/vmb"
+		subA        = "11111111-1111-1111-1111-111111111111"
+		subB        = "22222222-2222-2222-2222-222222222222"
+		resA        = "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Storage/storageAccounts/sta"
+		resB        = "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/virtualMachines/vmb"
 		resExcluded = "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.KeyVault/vaults/skipme"
-		resSubB = "/subscriptions/22222222-2222-2222-2222-222222222222/resourceGroups/rg/providers/Microsoft.Storage/storageAccounts/subb"
+		resSubB     = "/subscriptions/22222222-2222-2222-2222-222222222222/resourceGroups/rg/providers/Microsoft.Storage/storageAccounts/subb"
 	)
 	rows := []json.RawMessage{
-		json.RawMessage(`{"SubscriptionId":"` + subA + `","ResourceId":"` + resB + `","ImpactedValue":"vmb","Category":"Cost","Impact":"Medium","RecommendationTypeId":"rec-b"}`),
-		json.RawMessage(`{"SubscriptionId":"` + subA + `","ResourceId":"` + resA + `","ImpactedValue":"sta","Category":"Reliability","Impact":"High","RecommendationTypeId":"rec-a"}`),
-		json.RawMessage(`{"SubscriptionId":"` + subA + `","ResourceId":"` + resExcluded + `","ImpactedValue":"skipme","Category":"Security","Impact":"High","RecommendationTypeId":"rec-c"}`),
-		json.RawMessage(`{"SubscriptionId":"` + subB + `","ResourceId":"` + resSubB + `","ImpactedValue":"subb","Category":"Cost","Impact":"Low","RecommendationTypeId":"rec-d"}`),
+		advisorRowMessage(t, advisorRow{SubscriptionID: subA, ResourceID: resB, ImpactedValue: "vmb", Category: "Cost", Impact: "Medium", RecommendationTypeID: "rec-b"}),
+		advisorRowMessage(t, advisorRow{SubscriptionID: subA, ResourceID: resA, ImpactedValue: "sta", Category: "Reliability", Impact: "High", RecommendationTypeID: "rec-a"}),
+		advisorRowMessage(t, advisorRow{SubscriptionID: subA, ResourceID: resExcluded, ImpactedValue: "skipme", Category: "Security", Impact: "High", RecommendationTypeID: "rec-c"}),
+		advisorRowMessage(t, advisorRow{SubscriptionID: subB, ResourceID: resSubB, ImpactedValue: "subb", Category: "Cost", Impact: "Low", RecommendationTypeID: "rec-d"}),
 		json.RawMessage(`{"SubscriptionId":`),
 	}
 	graph := &fakeGraph{result: &arg.Result{Data: rows}}
-	metadata := &fakeMetadata{values: map[string]string{
-		"rec-a": "Recommendation A",
-		"rec-b": "Recommendation B",
-	}}
+	metadata := &fakeMetadata{values: map[string]string{"rec-a": "Recommendation A", "rec-b": "Recommendation B"}}
 	filter := fakeFilter{
 		excludedSubscriptions: map[string]bool{strings.ToLower(subB): true},
 		excludedResources:     map[string]bool{strings.ToLower(resExcluded): true},
@@ -151,7 +166,7 @@ func TestScannerNormalizesFiltersWarnsAndSorts(t *testing.T) {
 func TestScannerPreservesEmptyDescriptionWhenMetadataMissing(t *testing.T) {
 	const resourceID = "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Storage/storageAccounts/st1"
 	graph := &fakeGraph{result: &arg.Result{Data: []json.RawMessage{
-		json.RawMessage(`{"SubscriptionId":"11111111-1111-1111-1111-111111111111","ResourceId":"` + resourceID + `","ImpactedValue":"st1","Category":"Cost","Impact":"Low","RecommendationTypeId":"unknown"}`),
+		advisorRowMessage(t, advisorRow{SubscriptionID: "11111111-1111-1111-1111-111111111111", ResourceID: resourceID, ImpactedValue: "st1", Category: "Cost", Impact: "Low", RecommendationTypeID: "unknown"}),
 	}}}
 	result, err := NewWithClients(graph, &fakeMetadata{values: map[string]string{}}).Scan(context.Background(), map[string]string{}, nil)
 	if err != nil {
@@ -164,8 +179,7 @@ func TestScannerPreservesEmptyDescriptionWhenMetadataMissing(t *testing.T) {
 
 func TestMetadataFailureStopsBeforeARGQuery(t *testing.T) {
 	graph := &fakeGraph{result: &arg.Result{}}
-	metadata := &fakeMetadata{err: errors.New("metadata failed")}
-	_, err := NewWithClients(graph, metadata).Scan(context.Background(), nil, nil)
+	_, err := NewWithClients(graph, &fakeMetadata{err: errors.New("metadata failed")}).Scan(context.Background(), nil, nil)
 	if err == nil || !strings.Contains(err.Error(), "metadata failed") {
 		t.Fatalf("expected metadata error, got %v", err)
 	}
