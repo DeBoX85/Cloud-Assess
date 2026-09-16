@@ -46,24 +46,28 @@ type LearnMoreLink struct {
 }
 
 type RecommendationDefinition struct {
-	ID                  string          `json:"id"`
-	Recommendation      string          `json:"recommendation"`
-	Category            string          `json:"category"`
-	Impact              string          `json:"impact"`
-	ResourceType        string          `json:"resourceType"`
-	State               string          `json:"state,omitempty"`
-	LongDescription     string          `json:"longDescription,omitempty"`
-	PotentialBenefits   string          `json:"potentialBenefits,omitempty"`
-	AutomationAvailable string          `json:"automationAvailable,omitempty"`
-	Tags                []string        `json:"tags,omitempty"`
-	Query               string          `json:"-"`
-	LearnMore           []LearnMoreLink `json:"learnMore,omitempty"`
+	ID                   string          `json:"id"`
+	RecommendationTypeID string          `json:"recommendationTypeId,omitempty"`
+	Recommendation       string          `json:"recommendation"`
+	Category             string          `json:"category"`
+	Impact               string          `json:"impact"`
+	ResourceType         string          `json:"resourceType"`
+	State                string          `json:"state,omitempty"`
+	LongDescription      string          `json:"longDescription,omitempty"`
+	PotentialBenefits    string          `json:"potentialBenefits,omitempty"`
+	PGVerified           bool            `json:"pgVerified"`
+	AutomationAvailable  string          `json:"automationAvailable,omitempty"`
+	Tags                 []string        `json:"tags,omitempty"`
+	Query                string          `json:"-"`
+	LearnMore            []LearnMoreLink `json:"learnMore,omitempty"`
 	Source               string          `json:"source"`
+	ValidationMechanism  string          `json:"validationMechanism,omitempty"`
 }
 
 type Finding struct {
 	RecommendationID    string            `json:"recommendationId"`
 	Source              string            `json:"source"`
+	ValidationMechanism string            `json:"validationMechanism,omitempty"`
 	Category            string            `json:"category"`
 	Impact              string            `json:"impact"`
 	ResourceType        string            `json:"resourceType"`
