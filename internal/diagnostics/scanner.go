@@ -36,8 +36,8 @@ type BatchClient interface {
 
 type Result struct {
 	Recommendations []assessment.RecommendationDefinition
-	Findings        []assessment.Finding
-	Warnings        []assessment.AssessmentWarning
+	Findings         []assessment.Finding
+	Warnings         []assessment.AssessmentWarning
 }
 
 type Scanner struct {
@@ -244,7 +244,7 @@ func (s *Scanner) scanBatch(
 	request := armBatchRequest{Requests: make([]armBatchRequestItem, 0, len(resourceIDs))}
 	for _, resourceID := range resourceIDs {
 		request.Requests = append(request.Requests, armBatchRequestItem{
-			HTTPMethod: http.MethodGet,
+			HTTPMethod:  http.MethodGet,
 			RelativeURL: resourceID + "/providers/microsoft.insights/diagnosticSettings?api-version=" + diagnosticsAPI,
 		})
 	}
