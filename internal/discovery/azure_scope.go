@@ -12,7 +12,7 @@ import (
 
 // AzureScopeClient implements subscription and management-group discovery with Azure SDK clients.
 type AzureScopeClient struct {
-	subscriptions    *armsubscription.SubscriptionsClient
+	subscriptions     *armsubscription.SubscriptionsClient
 	managementGroups *armmanagementgroups.ClientFactory
 }
 
@@ -37,7 +37,7 @@ func NewAzureScopeClient(credential azcore.TokenCredential, options *arm.ClientO
 		return nil, fmt.Errorf("create Azure management groups client factory: %w", err)
 	}
 	return &AzureScopeClient{
-		subscriptions:    subscriptions,
+		subscriptions:     subscriptions,
 		managementGroups: managementGroups,
 	}, nil
 }
@@ -60,9 +60,9 @@ func (c *AzureScopeClient) ListSubscriptions(ctx context.Context) ([]Subscriptio
 				continue
 			}
 			result = append(result, Subscription{
-				ID:    value(item.SubscriptionID),
-				Name:  value(item.DisplayName),
-				State: subscriptionState(item.State),
+				ID:          value(item.SubscriptionID),
+				DisplayName: value(item.DisplayName),
+				State:       subscriptionState(item.State),
 			})
 		}
 	}
@@ -88,7 +88,7 @@ func (c *AzureScopeClient) SubscriptionsUnderManagementGroup(ctx context.Context
 			}
 			entry := Subscription{ID: value(item.Name)}
 			if item.Properties != nil {
-				entry.Name = value(item.Properties.DisplayName)
+				entry.DisplayName = value(item.Properties.DisplayName)
 				entry.State = value(item.Properties.State)
 			}
 			result = append(result, entry)
@@ -97,11 +97,11 @@ func (c *AzureScopeClient) SubscriptionsUnderManagementGroup(ctx context.Context
 	return result, nil
 }
 
-// ChildManagementGroups returns descendant management-group IDs below one management group.
+// DescendantManagementGroups returns descendant management-group IDs below one management group.
 // The Azure endpoint returns all descendants, not only immediate children. The discovery walker
 // deduplicates visited group IDs, so returning every descendant preserves source behavior without
 // creating duplicate subscription records.
-func (c *AzureScopeClient) ChildManagementGroups(ctx context.Context, groupID string) ([]string, error) {
+func (c *AzureScopeClient) DescendantManagementGroups(ctx context.Context, groupID string) ([]string, error) {
 	if c == nil || c.managementGroups == nil {
 		return nil, fmt.Errorf("Azure management groups client is not configured")
 	}
