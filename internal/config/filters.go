@@ -33,8 +33,8 @@ type AssessmentFilter struct {
 }
 
 type IncludeFilter struct {
-	Subscriptions  []string          `yaml:"subscriptions,flow" json:"subscriptions"`
-	ResourceGroups []string          `yaml:"resourceGroups,flow" json:"resourceGroups"`
+	Subscriptions  []string `yaml:"subscriptions,flow" json:"subscriptions"`
+	ResourceGroups []string `yaml:"resourceGroups,flow" json:"resourceGroups"`
 	// ResourceTypes preserves the reference configuration name. Despite the name,
 	// values are scanner/service keys such as "aks", "ca", and "st", not ARM type strings.
 	ResourceTypes []string          `yaml:"resourceTypes,flow" json:"resourceTypes"`
