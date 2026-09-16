@@ -17,6 +17,7 @@ type fakeQuerier struct {
 	calls   []string
 	results map[string]*Result
 	errors  map[string]error
+	nilFor  map[string]bool
 }
 
 func (f *fakeQuerier) Query(_ context.Context, query string, _ map[string]string, _ ...QueryOptions) (*Result, error) {
@@ -25,6 +26,9 @@ func (f *fakeQuerier) Query(_ context.Context, query string, _ map[string]string
 	f.mu.Unlock()
 	if err := f.errors[query]; err != nil {
 		return nil, err
+	}
+	if f.nilFor[query] {
+		return nil, nil
 	}
 	if result := f.results[query]; result != nil {
 		return result, nil
@@ -72,6 +76,27 @@ func TestExecuteRecommendationsSkipsUnsupportedLogicalTableWithWarning(t *testin
 	}
 }
 
+func TestExecuteRecommendationsSurfacesMalformedRowsAsWarning(t *testing.T) {
+	id := "/subscriptions/sub/resourceGroups/rg/providers/Microsoft.Test/widgets/one"
+	q := &fakeQuerier{results: map[string]*Result{
+		"query": {Data: []json.RawMessage{
+			json.RawMessage(fmt.Sprintf(`{"id":%q,"name":"one"}`, id)),
+			json.RawMessage(`{"id":1,"name":`),
+		}},
+	}}
+	definitions := []assessment.RecommendationDefinition{{ID: "rec", Query: "query", ResourceType: "Microsoft.Test/widgets"}}
+	findings, warnings, err := ExecuteRecommendations(context.Background(), q, definitions, nil, nil, 1)
+	if err != nil {
+		t.Fatalf("malformed row should not fail rule execution: %v", err)
+	}
+	if len(findings) != 1 || len(warnings) != 1 || warnings[0].Code != "malformed_arg_rows" {
+		t.Fatalf("unexpected malformed-row result: findings=%#v warnings=%#v", findings, warnings)
+	}
+	if warnings[0].Message != "skipped 1/2 malformed ARG row(s)" {
+		t.Fatalf("unexpected malformed-row message: %q", warnings[0].Message)
+	}
+}
+
 func TestExecuteRecommendationsReturnsOrdinaryQueryFailure(t *testing.T) {
 	boom := errors.New("query failed")
 	q := &fakeQuerier{errors: map[string]error{"query": boom}}
@@ -82,6 +107,15 @@ func TestExecuteRecommendationsReturnsOrdinaryQueryFailure(t *testing.T) {
 	}
 	if findings != nil {
 		t.Fatalf("fatal query failure should return nil findings, got %#v", findings)
+	}
+}
+
+func TestExecuteRecommendationsRejectsNilQueryResult(t *testing.T) {
+	q := &fakeQuerier{nilFor: map[string]bool{"query": true}}
+	definitions := []assessment.RecommendationDefinition{{ID: "rec", Query: "query"}}
+	findings, _, err := ExecuteRecommendations(context.Background(), q, definitions, nil, nil, 1)
+	if err == nil || findings != nil {
+		t.Fatalf("expected nil-result failure, findings=%#v err=%v", findings, err)
 	}
 }
 
