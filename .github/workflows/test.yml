@@ -1,4 +1,4 @@
-name: Go test
+name: Go quality gate
 
 on:
   push:
@@ -13,13 +13,14 @@ permissions:
   contents: read
 
 jobs:
-  test:
+  quality:
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
           submodules: recursive
+          fetch-depth: 1
 
       - name: Set up Go
         uses: actions/setup-go@v6
@@ -27,11 +28,54 @@ jobs:
           go-version: '1.26.0'
           cache: true
 
-      - name: Download dependencies
-        run: go mod download
+      - name: Verify pinned rule provenance
+        shell: bash
+        run: |
+          set -euo pipefail
+          expected_aprl='60eaddda76541f6adbc1c5ffa686829807e55e29'
+          expected_aor='a3ff1cafbc0a74ea4e4d2cc5aa2812f7c1dab9f5'
+          expected_custom='674b9b3dcb443ce6dc445b48e1db47e4a0ca7082'
 
-      - name: Test
-        run: go test ./...
+          actual_aprl="$(git rev-parse HEAD:internal/rules/upstream/aprl)"
+          actual_aor="$(git rev-parse HEAD:internal/rules/upstream/orphan-resources)"
+          actual_custom="$(git rev-parse HEAD:internal/rules/custom)"
+
+          test "$actual_aprl" = "$expected_aprl"
+          test "$actual_aor" = "$expected_aor"
+          test "$actual_custom" = "$expected_custom"
+
+          test "$(git -C internal/rules/upstream/aprl rev-parse HEAD)" = "$expected_aprl"
+
+      - name: Verify formatting
+        shell: bash
+        run: |
+          set -euo pipefail
+          files="$(git ls-files '*.go')"
+          unformatted="$(gofmt -l $files)"
+          if [ -n "$unformatted" ]; then
+            echo 'The following Go files are not gofmt-formatted:'
+            echo "$unformatted"
+            exit 1
+          fi
+
+      - name: Verify module graph
+        shell: bash
+        run: |
+          set -euo pipefail
+          go mod tidy
+          git diff --exit-code -- go.mod go.sum
+
+      - name: Verify product branding boundaries
+        shell: bash
+        run: |
+          set -euo pipefail
+          if grep -RInE --include='*.go' 'azqr_action_plan|Use:[[:space:]]*"azqr"|github\.com/Azure/azqr|Azure Quick Review 🚀' cmd internal; then
+            echo 'Legacy product identity found in executable Go source.'
+            exit 1
+          fi
+
+      - name: Test with race detector
+        run: go test -race -count=1 ./...
 
       - name: Vet
         run: go vet ./...
