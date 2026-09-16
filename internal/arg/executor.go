@@ -88,8 +88,13 @@ func ExecuteRecommendations(
 					cancel()
 					return
 				}
+				if result == nil {
+					outcomes <- ruleOutcome{err: fmt.Errorf("recommendation %s query failed: nil ARG result", definition.ID)}
+					cancel()
+					return
+				}
 
-				rows := DecodeRows[FindingRow](result.Data)
+				rows, malformed := DecodeRowsWithStats[FindingRow](result.Data)
 				findings := FindingsFromRows(definition, rows, subscriptions)
 				if isResourceExcluded != nil {
 					filtered := findings[:0]
@@ -100,7 +105,17 @@ func ExecuteRecommendations(
 					}
 					findings = filtered
 				}
-				outcomes <- ruleOutcome{findings: findings}
+
+				outcome := ruleOutcome{findings: findings}
+				if malformed > 0 {
+					outcome.warning = &RuleWarning{
+						RecommendationID: definition.ID,
+						ResourceType:     definition.ResourceType,
+						Code:             "malformed_arg_rows",
+						Message:          fmt.Sprintf("skipped %d/%d malformed ARG row(s)", malformed, len(result.Data)),
+					}
+				}
+				outcomes <- outcome
 			}
 		}
 	}
