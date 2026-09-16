@@ -84,3 +84,27 @@ type Finding struct {
 	LearnMoreURL        string   `json:"learnMoreUrl,omitempty"`
 	AutomationAvailable string   `json:"automationAvailable,omitempty"`
 }
+
+// Resource is the normalized Azure inventory record used by filtering, scanner pruning and reports.
+type Resource struct {
+	ID             string            `json:"id"`
+	SubscriptionID string            `json:"subscriptionId"`
+	ResourceGroup  string            `json:"resourceGroup"`
+	Location       string            `json:"location"`
+	Type           string            `json:"type"`
+	Name           string            `json:"name"`
+	SKUName        string            `json:"skuName,omitempty"`
+	SKUTier        string            `json:"skuTier,omitempty"`
+	SKUFamily      string            `json:"skuFamily,omitempty"`
+	SKUCapacity    int               `json:"skuCapacity,omitempty"`
+	Kind           string            `json:"kind,omitempty"`
+	Tags           map[string]string `json:"tags,omitempty"`
+	SLA            string            `json:"sla,omitempty"`
+}
+
+type ResourceTypeCount struct {
+	SubscriptionID   string `json:"subscriptionId"`
+	SubscriptionName string `json:"subscriptionName"`
+	ResourceType     string `json:"resourceType"`
+	Count            int    `json:"count"`
+}
