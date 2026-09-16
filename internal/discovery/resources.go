@@ -8,7 +8,6 @@ import (
 
 	"github.com/DeBoX85/Cloud-Assess/internal/arg"
 	"github.com/DeBoX85/Cloud-Assess/internal/assessment"
-	"github.com/DeBoX85/Cloud-Assess/internal/azure"
 	"github.com/DeBoX85/Cloud-Assess/internal/config"
 )
 
@@ -55,6 +54,9 @@ func DiscoverResources(
 	if err != nil {
 		return nil, fmt.Errorf("query Azure Resource Graph for resource inventory: %w", err)
 	}
+	if result == nil {
+		return nil, fmt.Errorf("query Azure Resource Graph for resource inventory: nil result")
+	}
 	inventory := &ResourceInventory{
 		Included: make([]assessment.Resource, 0, len(result.Data)),
 		Excluded: []assessment.Resource{},
@@ -83,14 +85,7 @@ func DiscoverResources(
 
 		excluded := false
 		if filters != nil && filters.Assessment != nil {
-			rgID := azure.ResourceGroupIDFromResourceID(resource.ID)
-			excluded = filters.Assessment.IsResourceExcluded(
-				resource.ID,
-				resource.SubscriptionID,
-				rgID,
-				resource.Type,
-				resource.Tags,
-			)
+			excluded = filters.Assessment.IsResourceExcluded(resource.ID, resource.Tags)
 			filters.Assessment.SetResourceScope(resource.ID, !excluded)
 		}
 		if excluded {
