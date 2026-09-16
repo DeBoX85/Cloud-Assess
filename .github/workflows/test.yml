@@ -12,6 +12,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: go-quality-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   quality:
     runs-on: ubuntu-24.04
@@ -28,21 +32,24 @@ jobs:
           go-version: '1.26.0'
           cache: true
 
-      - name: Verify pinned rule provenance
+      - name: Verify pinned source-data provenance
         shell: bash
         run: |
           set -euo pipefail
           expected_aprl='60eaddda76541f6adbc1c5ffa686829807e55e29'
           expected_aor='a3ff1cafbc0a74ea4e4d2cc5aa2812f7c1dab9f5'
           expected_custom='674b9b3dcb443ce6dc445b48e1db47e4a0ca7082'
+          expected_skus='a2d97a60ec445ce4023a1a5a9b6c4dca76e31f5a'
 
           actual_aprl="$(git rev-parse HEAD:internal/rules/upstream/aprl)"
           actual_aor="$(git rev-parse HEAD:internal/rules/upstream/orphan-resources)"
           actual_custom="$(git rev-parse HEAD:internal/rules/custom)"
+          actual_skus="$(git hash-object internal/skus/known_skus.yaml)"
 
           test "$actual_aprl" = "$expected_aprl"
           test "$actual_aor" = "$expected_aor"
           test "$actual_custom" = "$expected_custom"
+          test "$actual_skus" = "$expected_skus"
 
           test "$(git -C internal/rules/upstream/aprl rev-parse HEAD)" = "$expected_aprl"
 
