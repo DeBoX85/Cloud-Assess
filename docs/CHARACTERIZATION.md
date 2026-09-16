@@ -79,6 +79,24 @@ This document tracks source behavior that Cloud Assess intentionally preserves o
 - Resource inventory is partitioned into in-scope and out-of-scope collections.
 - Malformed inventory rows are skipped and counted.
 
+### Diagnostics
+
+- The diagnostics subsystem preserves the pinned reference diagnostic-settings support table.
+- 41 supported resource types have dedicated missing-diagnostics recommendation definitions; additional legacy/system types are queried but intentionally do not create a dedicated recommendation.
+- Diagnostic settings are validated directly through Azure Resource Manager, not Azure Resource Graph.
+- The ARM batch endpoint is `/batch?api-version=2020-06-01`.
+- Each subrequest queries `<resource-id>/providers/microsoft.insights/diagnosticSettings?api-version=2021-05-01-preview`.
+- Only resource types in the diagnostics support table are included in ARM batch requests.
+- Batch size remains 20 resources and concurrency is capped at 30 workers.
+- A resource with at least one returned diagnostic setting is treated as compliant for the dedicated diagnostic recommendation.
+- A supported resource without settings receives its dedicated recommendation when one exists.
+- Downstream structural/tag filtering is reapplied before a diagnostic finding is emitted.
+- The source storage-account behavior is characterized: a storage account without settings receives `st-001`; a storage account with settings does not.
+- A non-success ARM batch subrequest preserves the reference output behavior, which can still result in a missing-diagnostics finding, but Cloud Assess adds a `diagnostics_subrequest_non_success` warning so uncertainty is visible.
+- A malformed diagnostic-setting ID is converted to a `diagnostics_malformed_setting_id` warning rather than risking a panic.
+- Batch/transport/decode failures are returned to the caller rather than terminating the process.
+- Diagnostics findings use source `DIAGNOSTICS` and validation mechanism `Azure Resource Manager`. This intentionally corrects the reference report's historical tendency to describe the canonical finding stream as ARG-validated even when a finding came from direct ARM validation.
+
 ## Known intentional differences
 
 - Product/CLI/configuration branding is neutralized.
@@ -87,16 +105,18 @@ This document tracks source behavior that Cloud Assess intentionally preserves o
 - Lower-level errors are propagated rather than calling `log.Fatal`.
 - Deterministic ordering is added where source map/concurrency ordering was unstable.
 - Cloud Assess exposes explicit warning/completeness signals for malformed ARG rows.
+- Diagnostics carries its real validation mechanism (`Azure Resource Manager`) rather than labeling every primary finding as Azure Resource Graph validated.
+- Non-success diagnostics subrequests preserve reference finding semantics but additionally produce explicit uncertainty warnings.
+- Malformed diagnostic-setting IDs become warnings instead of panics.
 
 ## Next characterization targets
 
 1. Stage parameter parsing (`--stage-param`) and stage-specific option semantics.
-2. Diagnostics recommendation definitions and ARM batch behavior.
-3. Advisor result retrieval and normalization.
-4. Defender status and Defender recommendation behavior.
-5. Azure Policy noncompliance behavior.
-6. Arc SQL behavior.
-7. Cost API result retrieval and normalization beyond the already-characterized date range.
-8. Canonical assessment-result assembly and completeness calculation.
-9. JSON, Excel, CSV, SARIF, and stdout rendering equivalence.
-10. End-to-end CLI exit-code and severity-gate behavior.
+2. Advisor result retrieval and normalization.
+3. Defender status and Defender recommendation behavior.
+4. Azure Policy noncompliance behavior.
+5. Arc SQL behavior.
+6. Cost API result retrieval and normalization beyond the already-characterized date range.
+7. Canonical assessment-result assembly and completeness calculation.
+8. JSON, Excel, CSV, SARIF, and stdout rendering equivalence.
+9. End-to-end CLI exit-code and severity-gate behavior.
