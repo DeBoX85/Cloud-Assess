@@ -95,15 +95,15 @@ func createStyles(file *excelize.File) (*styleCache, error) {
 		return nil, fmt.Errorf("create Excel title style: %w", err)
 	}
 	header, err := file.NewStyle(&excelize.Style{
-		Font: &excelize.Font{Bold: true},
-		Fill: excelize.Fill{Type: "pattern", Color: []string{"#CAEDFB"}, Pattern: 1},
+		Font:      &excelize.Font{Bold: true},
+		Fill:      excelize.Fill{Type: "pattern", Color: []string{"#CAEDFB"}, Pattern: 1},
 		Alignment: &excelize.Alignment{Vertical: "top", WrapText: true},
 	})
 	if err != nil {
 		return nil, fmt.Errorf("create Excel header style: %w", err)
 	}
 	blue, err := file.NewStyle(&excelize.Style{
-		Fill: excelize.Fill{Type: "pattern", Color: []string{"#EAF6FB"}, Pattern: 1},
+		Fill:      excelize.Fill{Type: "pattern", Color: []string{"#EAF6FB"}, Pattern: 1},
 		Alignment: &excelize.Alignment{Vertical: "top", WrapText: true},
 	})
 	if err != nil {

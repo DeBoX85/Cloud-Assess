@@ -33,10 +33,10 @@ func excelFixture() *result.AssessmentResult {
 		Findings: []assessment.Finding{
 			{RecommendationID: "rec-1", Recommendation: "Secure storage", Category: "Security", Impact: "High", ResourceType: "microsoft.storage/storageaccounts", Source: "CUSTOM", ValidationMechanism: "Azure Resource Graph", ResourceID: resourceID, SubscriptionID: subscriptionID, SubscriptionName: "Sub One", ResourceGroup: "rg", ResourceName: "st1", LearnMoreURL: "https://example.test/rec"},
 		},
-		Resources: []assessment.Resource{{ID: resourceID, SubscriptionID: subscriptionID, ResourceGroup: "rg", Location: "westeurope", Type: "microsoft.storage/storageaccounts", Name: "st1"}},
+		Resources:     []assessment.Resource{{ID: resourceID, SubscriptionID: subscriptionID, ResourceGroup: "rg", Location: "westeurope", Type: "microsoft.storage/storageaccounts", Name: "st1"}},
 		ResourceTypes: []assessment.ResourceTypeCount{{SubscriptionID: subscriptionID, SubscriptionName: "Sub One", ResourceType: "microsoft.storage/storageaccounts", Count: 1}},
-		Defender: []assessment.DefenderPlanStatus{{SubscriptionID: subscriptionID, SubscriptionName: "Sub One", Name: "VirtualMachines", Tier: "Standard"}},
-		Costs: []assessment.CostRecord{{From: time.Date(2026, 8, 1, 0, 0, 0, 0, time.UTC), To: time.Date(2026, 8, 31, 23, 59, 59, 0, time.UTC), SubscriptionID: subscriptionID, SubscriptionName: "Sub One", ServiceName: "Storage", Value: "12.34", Currency: "NOK"}},
+		Defender:      []assessment.DefenderPlanStatus{{SubscriptionID: subscriptionID, SubscriptionName: "Sub One", Name: "VirtualMachines", Tier: "Standard"}},
+		Costs:         []assessment.CostRecord{{From: time.Date(2026, 8, 1, 0, 0, 0, 0, time.UTC), To: time.Date(2026, 8, 31, 23, 59, 59, 0, time.UTC), SubscriptionID: subscriptionID, SubscriptionName: "Sub One", ServiceName: "Storage", Value: "12.34", Currency: "NOK"}},
 	})
 }
 
