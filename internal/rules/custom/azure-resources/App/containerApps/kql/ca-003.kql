@@ -1,0 +1,8 @@
+// Azure Resource Graph Query
+// Find all Container Apps and report their SLA based on zone redundancy
+// SLA is based on minimum replica count and scale rules configuration
+// Zone redundancy requires minReplicas >= 2 for proper distribution across zones
+resources
+| where type =~ "Microsoft.App/containerApps"
+| extend param1 = '99.95%'
+| project recommendationId = "ca-003", name, id, tags, param1

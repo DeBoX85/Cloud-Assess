@@ -1,0 +1,9 @@
+// Logic App should limit access to Http Triggers
+resources
+| where type =~ 'Microsoft.Logic/workflows'
+| where tostring(properties.definition.triggers) contains '"kind":"Http"'
+| extend allowedIPs = properties.accessControl.triggers.allowedCallerIpAddresses
+| where isnull(allowedIPs) or array_length(allowedIPs) == 0
+| extend recommendationId = 'logic-004'
+| extend param1 = ''
+| project recommendationId, name, id, tags, param1

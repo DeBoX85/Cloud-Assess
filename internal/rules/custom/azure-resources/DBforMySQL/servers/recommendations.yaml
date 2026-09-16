@@ -1,0 +1,96 @@
+- description: Azure Database for MySQL - Single Server SLA
+  aprlGuid: mysql-003
+  recommendationTypeId: null
+  recommendationControl: SLA
+  recommendationImpact: High
+  recommendationResourceType: Microsoft.DBforMySQL/servers
+  recommendationMetadataState: Active
+  longDescription: Azure Database for MySQL - Single Server SLA
+  potentialBenefits: ''
+  pgVerified: true
+  automationAvailable: true
+  tags: []
+  learnMoreLink:
+  - name: Service Level Agreements (SLA) for Online Services
+    url: https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services
+
+- description: Azure Database for MySQL - Single Server should have private endpoints enabled
+  aprlGuid: mysql-004
+  recommendationTypeId: null
+  recommendationControl: Security
+  recommendationImpact: High
+  recommendationResourceType: Microsoft.DBforMySQL/servers
+  recommendationMetadataState: Active
+  longDescription: Azure Database for MySQL - Single Server should have private endpoints enabled
+  potentialBenefits: See recommendation details
+  pgVerified: true
+  automationAvailable: true
+  tags: []
+  learnMoreLink:
+  - name: Learn more
+    url: 'https://learn.microsoft.com/azure/mysql/single-server/concepts-data-access-security-private-link'
+
+- description: Azure Database for MySQL - Single Server is on the retirement path
+  aprlGuid: mysql-007
+  recommendationTypeId: null
+  recommendationControl: HighAvailability
+  recommendationImpact: High
+  recommendationResourceType: Microsoft.DBforMySQL/servers
+  recommendationMetadataState: Active
+  longDescription: Azure Database for MySQL - Single Server is on the retirement path
+  potentialBenefits: See recommendation details
+  pgVerified: true
+  automationAvailable: true
+  tags: []
+  learnMoreLink:
+  - name: Learn more
+    url: 'https://learn.microsoft.com/azure/mysql/single-server/whats-happening-to-mysql-single-server'
+
+- description: Azure Database for MySQL - Flexible Server SLA
+  aprlGuid: mysqlf-003
+  recommendationTypeId: null
+  recommendationControl: SLA
+  recommendationImpact: High
+  recommendationResourceType: Microsoft.DBforMySQL/flexibleServers
+  recommendationMetadataState: Active
+  longDescription: Azure Database for MySQL - Flexible Server SLA
+  potentialBenefits: See recommendation details
+  pgVerified: true
+  automationAvailable: true
+  tags: []
+  learnMoreLink:
+  - name: Learn more
+    url: 'https://learn.microsoft.com/azure/mysql/flexible-server/concepts-high-availability'
+
+- description: Azure Database for MySQL - Flexible Server should have private access enabled
+  aprlGuid: mysqlf-004
+  recommendationTypeId: null
+  recommendationControl: Security
+  recommendationImpact: High
+  recommendationResourceType: Microsoft.DBforMySQL/flexibleServers
+  recommendationMetadataState: Active
+  longDescription: Azure Database for MySQL - Flexible Server should have private access enabled
+  potentialBenefits: See recommendation details
+  pgVerified: true
+  automationAvailable: true
+  tags: []
+  learnMoreLink:
+  - name: Learn more
+    url: 'https://learn.microsoft.com/azure/mysql/flexible-server/concepts-networking-vnet'
+
+- description: Azure Database for MySQL - Flexible Server is running a version subject to Extended Security Updates (ESU) billing
+  aprlGuid: mysqlf-005
+  recommendationTypeId: null
+  recommendationControl: Governance
+  recommendationImpact: High
+  recommendationResourceType: Microsoft.DBforMySQL/flexibleServers
+  recommendationMetadataState: Active
+  longDescription: 'Azure Database for MySQL - Flexible Servers running major version 5.7 or 8.0 have reached, or are approaching, the end of Azure Standard Support and are billed for Extended Security Updates (ESU). Perform a Major Version Upgrade to a supported version to avoid ESU charges.'
+  potentialBenefits: Avoid Extended Security Updates (ESU) billing by upgrading to a supported major version
+  pgVerified: true
+  automationAvailable: true
+  tags: []
+  learnMoreLink:
+  - name: Learn more
+    url: 'https://learn.microsoft.com/en-us/azure/mysql/concepts-version-policy'
+

@@ -1,0 +1,20 @@
+// Azure Resource Graph Query
+// Find Redis Enterprise instances using deprecated SKUs (Enterprise_E* and EnterpriseFlash_F*)
+// that should be migrated to Azure Managed Redis (Balanced_B*, MemoryOptimized_M*, ComputeOptimized_X*, Flash_F*)
+// Retirement timeline: no new Enterprise/EnterpriseFlash instances from April 2026, full migration by March 2027
+resources
+| where type =~ 'Microsoft.Cache/redisEnterprise'
+| extend skuName = tostring(sku.name)
+| where skuName in~ (
+    'Enterprise_E5',
+    'Enterprise_E10',
+    'Enterprise_E20',
+    'Enterprise_E50',
+    'Enterprise_E100',
+    'Enterprise_E200',
+    'Enterprise_E400',
+    'EnterpriseFlash_F300',
+    'EnterpriseFlash_F700',
+    'EnterpriseFlash_F1500'
+)
+| project recommendationId = 'redis-010', name, id, tags, param1 = skuName

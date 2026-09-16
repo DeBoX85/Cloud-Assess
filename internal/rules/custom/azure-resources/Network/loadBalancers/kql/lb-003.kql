@@ -1,0 +1,10 @@
+// Azure Resource Graph Query
+// Find Load Balancers and report SLA based on SKU
+resources
+| where type =~ 'Microsoft.Network/loadBalancers'
+| extend skuName = tostring(sku.name)
+| extend slaValue = case(
+    skuName =~ "Standard", "99.99%",
+    "None"
+)
+| project recommendationId = 'lb-003', name, id, tags, param1 = slaValue

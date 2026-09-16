@@ -1,0 +1,7 @@
+// Azure Resource Graph Query
+// Find Azure Cache for Redis instances that should be migrated to Azure Managed Redis.
+// All SKUs (Basic, Standard, Premium) retire on September 30, 2028.
+resources
+| where type =~ 'Microsoft.Cache/Redis'
+| extend skuName = tostring(sku.name)
+| project recommendationId = 'redis-011', name, id, tags, param1 = skuName

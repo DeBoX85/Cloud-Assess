@@ -1,0 +1,10 @@
+// Azure Resource Graph Query
+// Find Azure Firewalls and report SLA based on Availability Zone deployment
+resources
+| where type =~ 'Microsoft.Network/azureFirewalls'
+| extend hasZones = isnotnull(zones) and array_length(zones) >= 2
+| extend slaValue = case(
+    hasZones, "99.99%",
+    "99.95%"
+)
+| project recommendationId = 'afw-003', name, id, tags, param1 = slaValue

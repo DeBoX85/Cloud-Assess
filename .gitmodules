@@ -1,0 +1,3 @@
+[submodule "internal/rules/upstream/aprl"]
+	path = internal/rules/upstream/aprl
+	url = https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2.git
