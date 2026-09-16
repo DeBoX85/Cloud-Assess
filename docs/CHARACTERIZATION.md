@@ -38,6 +38,8 @@ This document tracks source behavior that Cloud Assess intentionally preserves o
 - Default stages are graph, diagnostics, advisor, and defender.
 - Graph remains mandatory for a normal assessment.
 - Invalid stage names return errors rather than terminating the process. This is an intentional reliability change.
+- At the pinned source commit, `--stage-param` only registers `plugin.target-regions` as a string option.
+- Stage parameters use `stage.key=value`; malformed parameters, unknown stages/options, and type mismatches are errors.
 
 ### Azure/resource helpers
 
@@ -95,7 +97,7 @@ This document tracks source behavior that Cloud Assess intentionally preserves o
 - A non-success ARM batch subrequest preserves the reference output behavior, which can still result in a missing-diagnostics finding, but Cloud Assess adds a `diagnostics_subrequest_non_success` warning so uncertainty is visible.
 - A malformed diagnostic-setting ID is converted to a `diagnostics_malformed_setting_id` warning rather than risking a panic.
 - Batch/transport/decode failures are returned to the caller rather than terminating the process.
-- Diagnostics findings use source `DIAGNOSTICS` and validation mechanism `Azure Resource Manager`. This intentionally corrects the reference report's historical tendency to describe the canonical finding stream as ARG-validated even when a finding came from direct ARM validation.
+- Diagnostics findings use source `DIAGNOSTICS` and validation mechanism `Azure Resource Manager`.
 
 ### Advisor
 
@@ -108,31 +110,65 @@ This document tracks source behavior that Cloud Assess intentionally preserves o
 - Advisor metadata pagination follows `nextLink` until exhausted.
 - Only the metadata entity named `recommendationType` contributes recommendation ID to display-name mappings.
 - Subscription exclusion and downstream resource/service exclusion are reapplied before an Advisor record is emitted.
-- Advisor records preserve recommendation ID, subscription ID/name, resource type, resource name, resource ID, category, impact, and metadata-derived description.
-- Missing metadata for a recommendation ID preserves the source behavior of an empty description rather than dropping the Advisor record.
+- Missing metadata preserves an empty description rather than dropping the record.
 - Malformed ARG rows are skipped and surfaced as `advisor_malformed_arg_rows` warnings.
-- Advisor output ordering is deterministic in Cloud Assess. This is an intentional determinism improvement over source ordering.
+- Advisor output ordering is deterministic in Cloud Assess.
 - Metadata or ARG query failures are returned to the caller rather than being logged and silently converted to a nil dataset.
-- Cloud Assess implements the Advisor metadata wire contract through the existing authenticated/retrying ARM HTTP layer instead of adding the `armadvisor` SDK dependency. This is an implementation change, not a behavior change.
+- Cloud Assess implements the Advisor metadata wire contract through the existing authenticated/retrying ARM HTTP layer instead of adding the `armadvisor` SDK dependency.
 
 ### Defender
 
 - Defender is represented as two separate auxiliary datasets: plan/tier status and security recommendations.
-- Defender status comes from `SecurityResources` records of type `microsoft.security/pricings`, joined to subscription containers to obtain the subscription display name.
-- Defender status preserves subscription ID, subscription name, plan name, and pricing tier.
-- The Defender status path reapplies subscription exclusion but does not apply resource-level filtering because the records are subscription/plan scoped.
-- Defender recommendations come from `microsoft.security/assessments` with `properties.status.code == 'Unhealthy'`.
-- Recommendation metadata categories are expanded with `mvexpand`, so one unhealthy assessment can yield category-specific rows.
-- The pinned recommendation query derives resource group, resource type, and resource name by splitting `properties.resourceDetails.Id`.
-- The source query projects `ResourceType = tostring(ResourceIdsplit[6])`; Cloud Assess preserves the projected value rather than silently replacing it with a full normalized ARM type.
-- Source-side `distinct` is preserved in the query and Cloud Assess also preserves the source post-query deduplication key `(resourceID, category, recommendationName)`.
-- Defender recommendation filtering reapplies downstream resource/service exclusion using the assessed resource ID.
-- Subscription names for Defender recommendations are resolved from the already-discovered subscription map; missing names remain empty.
-- Defender portal links preserve the source normalization behavior by prefixing `https://` to the projected portal-link value.
-- Malformed Defender status rows are skipped and surfaced as `defender_status_malformed_arg_rows` warnings.
-- Malformed Defender recommendation rows are skipped and surfaced as `defender_recommendations_malformed_arg_rows` warnings.
-- Defender status and recommendation outputs are sorted deterministically in Cloud Assess.
-- ARG query failures and nil ARG results are returned to the caller rather than being logged and silently converted to nil datasets.
+- Defender status comes from `microsoft.security/pricings` joined to subscription containers.
+- Defender status preserves subscription ID/name, plan name, and pricing tier and reapplies subscription exclusion.
+- Defender recommendations come from unhealthy `microsoft.security/assessments` and expand metadata categories with `mvexpand`.
+- The source query projects `ResourceType = tostring(ResourceIdsplit[6])`; Cloud Assess preserves that projected value.
+- Source-side `distinct` plus the post-query `(resourceID, category, recommendationName)` dedup key are preserved.
+- Defender recommendation filtering reapplies downstream resource/service exclusion.
+- Defender portal links preserve source normalization by prefixing `https://`.
+- Malformed status/recommendation rows become explicit warnings.
+- Defender outputs are sorted deterministically and ARG failures are returned.
+
+### Azure Policy
+
+- Azure Policy remains an auxiliary dataset of non-compliant policy states.
+- The pinned query reads `microsoft.policyinsights/policystates` and filters to `complianceState == 'NonCompliant'`.
+- Policy definition metadata is left-joined to obtain display name and description.
+- Subscription containers are left-joined to obtain subscription display names.
+- The query executes with management-group-aware ARG authorization scope enabled.
+- Subscription and downstream resource/service filters are reapplied after query execution.
+- Source post-query deduplication by `(resourceID, policyDefinitionID)` is preserved.
+- Resource group, full resource type, and resource name are derived from the policy state's resource ID.
+- Policy display/definition/assignment identities, timestamp, description, and compliance state are preserved.
+- Malformed rows become `policy_malformed_arg_rows` warnings and failures are returned.
+- Azure Policy output is sorted deterministically.
+
+### Arc SQL
+
+- Arc SQL uses the pinned multi-join Resource Graph query for `Microsoft.AzureArcData/sqlServerInstances`.
+- The query joins the `WindowsAgent.SqlServer` Hybrid Compute extension and Hybrid Compute machine status.
+- Source derivation of license (`Paid` -> `SA`, `PAYG` -> `PAYG`, otherwise `unset`) is preserved.
+- DPS and telemetry status parsing/fallback logic is preserved in the KQL.
+- Subscription and downstream resource/service filters are reapplied; the SQL instance resource ID is the resource-scope key.
+- Subscription display names are resolved from the discovered subscription map.
+- Malformed rows become `arcsql_malformed_arg_rows` warnings and failures are returned.
+- Arc SQL output is sorted deterministically.
+- The pinned query projects `vcores = toint(properties.vCore)` while the pinned row decoder expects a string. Cloud Assess currently preserves that decoder contract and explicitly characterizes numeric `vcores` as a malformed row. This remains a live-equivalence review item rather than an untracked source ambiguity.
+
+### Cost Management
+
+- Cost uses the exact previous completed UTC calendar month.
+- The pinned query is `ActualCost` with `Custom` timeframe, `TotalCost = Sum(Cost)`, grouped by the `ServiceName` dimension.
+- The wire endpoint is `/subscriptions/{id}/providers/Microsoft.CostManagement/query?api-version=2021-10-01`.
+- The source Cost Management row contract is `[value, serviceName, currency]` and values are converted with generic `%v` formatting.
+- The source stage runs at most two subscription workers concurrently; Cloud Assess preserves that ceiling.
+- Cloud Assess queries subscriptions independently and then sorts the combined records deterministically.
+- Azure response codes `MissingRegistrationForResourceProvider`, `MissingSubscriptionRegistration`, `DisallowedOperation`, and `NotFound` preserve source skip semantics but produce `cost_subscription_skipped` warnings.
+- Non-skippable Cost Management failures are returned to the caller.
+- Short/malformed rows become `cost_malformed_row` warnings instead of risking an index panic.
+- Empty/204 Cost responses produce an empty dataset without failure.
+- Cloud Assess uses the shared authenticated ARM HTTP layer instead of importing `armcostmanagement`, preserving the same API contract.
+- Cloud Assess intentionally populates `SubscriptionName` from the discovered subscription map. The pinned source `CostStage` fails to pass the name into `ScannerConfig`, leaving that report column empty despite modeling it; this is treated as a target correctness fix.
 
 ## Known intentional differences
 
@@ -141,21 +177,19 @@ This document tracks source behavior that Cloud Assess intentionally preserves o
 - The legacy `exclude.services` configuration concept is named `exclude.resources` in Cloud Assess.
 - Lower-level errors are propagated rather than calling `log.Fatal` or silently returning nil datasets.
 - Deterministic ordering is added where source map/concurrency ordering was unstable.
-- Cloud Assess exposes explicit warning/completeness signals for malformed ARG rows.
-- Diagnostics carries its real validation mechanism (`Azure Resource Manager`) rather than labeling every primary finding as Azure Resource Graph validated.
+- Cloud Assess exposes explicit warning/completeness signals for malformed rows.
+- Diagnostics carries its real validation mechanism (`Azure Resource Manager`) rather than a generic ARG label.
 - Non-success diagnostics subrequests preserve reference finding semantics but additionally produce explicit uncertainty warnings.
 - Malformed diagnostic-setting IDs become warnings instead of panics.
-- Advisor metadata uses the existing authenticated ARM HTTP layer rather than the `armadvisor` SDK while preserving the same API contract.
-- Advisor malformed ARG rows are surfaced as warnings instead of being log-only behavior.
-- Defender malformed ARG rows are surfaced as warnings rather than being log-only behavior.
-- Defender datasets are sorted deterministically after normalization.
+- Advisor metadata uses the existing authenticated ARM HTTP layer rather than the `armadvisor` SDK.
+- Cost Management uses the existing authenticated ARM HTTP layer rather than the `armcostmanagement` SDK.
+- Cost subscription names are populated, correcting the pinned source stage bug.
+- Arc SQL retains the pinned `vcores` decoder mismatch until live equivalence establishes the correct current Azure response behavior.
 
 ## Next characterization targets
 
-1. Stage parameter parsing (`--stage-param`) and stage-specific option semantics.
-2. Azure Policy noncompliance behavior.
-3. Arc SQL behavior.
-4. Cost API result retrieval and normalization beyond the already-characterized date range.
-5. Canonical assessment-result assembly and completeness calculation.
-6. JSON, Excel, CSV, SARIF, and stdout rendering equivalence.
-7. End-to-end CLI exit-code and severity-gate behavior.
+1. Stage health and overall assessment completeness behavior.
+2. Canonical assessment-result assembly.
+3. JSON, Excel, CSV, SARIF, and stdout rendering equivalence.
+4. End-to-end CLI exit-code and severity-gate behavior.
+5. Live-equivalence resolution of the Arc SQL `vcores` response shape.
