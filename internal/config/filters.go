@@ -45,16 +45,29 @@ func NewFilters() *Filters {
 		Include: &IncludeFilter{Tags: map[string]string{}},
 		Exclude: &ExcludeFilter{Tags: map[string]string{}},
 	}}
-	f.Assessment.initialize()
+	f.RebuildIndexes()
 	return f
 }
 
-func (f *AssessmentFilter) initialize() {
+func (f *Filters) RebuildIndexes() {
+	if f.Assessment == nil {
+		f.Assessment = &AssessmentFilter{}
+	}
+	f.Assessment.rebuildIndexes()
+}
+
+func (f *AssessmentFilter) rebuildIndexes() {
 	if f.Include == nil {
 		f.Include = &IncludeFilter{Tags: map[string]string{}}
 	}
 	if f.Exclude == nil {
 		f.Exclude = &ExcludeFilter{Tags: map[string]string{}}
+	}
+	if f.Include.Tags == nil {
+		f.Include.Tags = map[string]string{}
+	}
+	if f.Exclude.Tags == nil {
+		f.Exclude.Tags = map[string]string{}
 	}
 	f.includeSubscriptions = stringSet(f.Include.Subscriptions)
 	f.includeResourceGroups = stringSet(f.Include.ResourceGroups)
@@ -124,8 +137,8 @@ func (f *AssessmentFilter) IsRecommendationExcluded(recommendationID string) boo
 	return f.excludeRecommendations[normalize(recommendationID)]
 }
 
-func (f *AssessmentFilter) IsResourceExcluded(resourceID, subscriptionID, resourceGroup, resourceType string, tags map[string]string) bool {
-	if f.IsSubscriptionExcluded(subscriptionID) || f.IsResourceGroupExcluded(resourceGroup) || f.IsResourceTypeExcluded(resourceType) || f.excludeResources[normalize(resourceID)] {
+func (f *AssessmentFilter) IsResourceExcluded(resourceID, subscriptionID, resourceGroupID, resourceType string, tags map[string]string) bool {
+	if f.IsSubscriptionExcluded(subscriptionID) || f.IsResourceGroupExcluded(resourceGroupID) || f.IsResourceTypeExcluded(resourceType) || f.excludeResources[normalize(resourceID)] {
 		return true
 	}
 	normalizedTags := normalizeTags(tags)
