@@ -1,32 +1,35 @@
 package main
 
 import (
+	"context"
 	"fmt"
 	"os"
-
-	"github.com/DeBoX85/Cloud-Assess/internal/branding"
-	"github.com/spf13/cobra"
+	"os/signal"
+	"syscall"
 )
 
+var version = "dev"
+
 func main() {
-	brand := branding.Default()
+	os.Exit(run(os.Args[1:]))
+}
 
-	root := &cobra.Command{
-		Use:   brand.CLIName,
-		Short: brand.ReportTitle,
-		Long:  fmt.Sprintf("%s is an Azure cloud assessment toolkit.", brand.ProductName),
-	}
-
-	root.AddCommand(&cobra.Command{
-		Use:   "scan",
-		Short: "Assess Azure resources",
-		RunE: func(cmd *cobra.Command, args []string) error {
-			return fmt.Errorf("scan engine is not implemented yet")
-		},
+func run(args []string) int {
+	root := newRootCommand(func(ctx context.Context, flags scanFlags) (int, error) {
+		return executeScan(ctx, flags)
 	})
+	ctx, stop := signal.NotifyContext(root.Context(), os.Interrupt, syscall.SIGTERM)
+	defer stop()
+	root.SetContext(ctx)
+	root.SetArgs(args)
 
+	exitCode := 0
 	if err := root.Execute(); err != nil {
 		fmt.Fprintln(os.Stderr, err)
-		os.Exit(1)
+		exitCode = 1
 	}
+	if value, ok := root.Context().Value(exitCodeContextKey{}).(*int); ok && value != nil && *value != 0 {
+		exitCode = *value
+	}
+	return exitCode
 }
