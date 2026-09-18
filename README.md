@@ -2,11 +2,15 @@
 
 Azure cloud assessment toolkit.
 
-Cloud Assess is a new Azure assessment engine being built from a clean repository while using the behavior of a pinned Azure assessment reference implementation as a compatibility baseline.
+Cloud Assess is a new Azure assessment engine built from a clean repository while using the behavior of a pinned Azure assessment reference implementation as a compatibility baseline.
 
 ## Current status
 
-Early bootstrap and characterization phase. The `scan` command is intentionally a stub until the core behavior is covered by characterization tests.
+The core generic `cloud-assess scan` path is implemented and covered by deterministic, cross-package, race-enabled, and executable smoke tests.
+
+The current core path includes Azure authentication, subscription and management-group discovery, resource inventory, filtering, scanner pruning, pinned recommendation execution, Diagnostics, Advisor, Defender, Azure Policy, Arc SQL, Cost, stage health/completeness, severity gating, and XLSX/JSON/CSV/SARIF/stdout rendering.
+
+The project is **not yet release-complete**. The next major validation milestone is source-versus-target equivalence against a live Azure test environment. External/plugin execution, scanner-specific CLI commands, `rules` / `plugins` CLI surfaces, packaging, and final release/security review remain outstanding.
 
 ## Working product identity
 
@@ -15,7 +19,9 @@ Early bootstrap and characterization phase. The `scan` command is intentionally 
 - Primary human report: **Excel**
 - Canonical machine-readable report: **JSON**
 
-Excel and JSON are both first-class outputs. Excel is intended to remain the default format for human review, while JSON is used for automation, integration, and equivalence testing.
+Excel and JSON are both first-class outputs. Excel is the default format for human review, while JSON is used for automation, integration, and equivalence testing.
+
+Subscription-ID redaction is enabled by default for XLSX, CSV, JSON, and JSON stdout. SARIF intentionally retains stable Azure resource identities for automation/baselining and should be treated as identity-bearing output.
 
 ## Reference baseline
 
@@ -27,7 +33,7 @@ Pinned reference commit:
 8e4f0577f3615e6c9014c031bcad079f235369cc
 ```
 
-Pinning the reference commit ensures that upstream changes do not silently change the behavior Cloud Assess is being compared against during the initial reproduction effort.
+Pinning the reference commit ensures that upstream changes do not silently change the behavior Cloud Assess is compared against during the initial reproduction effort.
 
 ## Design goals
 
@@ -42,20 +48,26 @@ Pinning the reference commit ensures that upstream changes do not silently chang
 - clear error propagation instead of lower-level process termination
 - required open-source attribution retained
 
-## Documentation
+## Development and validation
 
-- [Target specification](docs/TARGET_SPECIFICATION.md)
-- [Implementation plan](docs/IMPLEMENTATION_PLAN.md)
-- [Notices and attribution](NOTICE.md)
-
-## Development branch
-
-Initial bootstrap work is being developed on:
+Active development branch:
 
 ```text
 bootstrap/core-v1
 ```
 
+The repository quality gate verifies pinned source-data provenance, Go formatting, module consistency, branding boundaries, executable build/help smoke tests, race-enabled tests, and `go vet`.
+
+The generic scan path is suitable for controlled test-environment validation. It should not yet be treated as production/customer-equivalent until live source-versus-target regression testing is complete.
+
+## Documentation
+
+- [Target specification](docs/TARGET_SPECIFICATION.md)
+- [Implementation plan](docs/IMPLEMENTATION_PLAN.md)
+- [Characterization baseline](docs/CHARACTERIZATION.md)
+- [Quality Gate 001](docs/QUALITY_GATE_001.md)
+- [Notices and attribution](NOTICE.md)
+
 ## License
 
-Cloud Assess is licensed under the Apache License 2.0 at the repository level. Incorporated or derived third-party material remains subject to its applicable license and attribution requirements. See [NOTICE.md](NOTICE.md).
+Cloud Assess is licensed under the Apache License 2.0 at the repository level. Incorporated or derived third-party material remains subject to its applicable license and attribution requirements. See [NOTICE.md](NOTICE.md) and [THIRD_PARTY_LICENSES.md](THIRD_PARTY_LICENSES.md).
