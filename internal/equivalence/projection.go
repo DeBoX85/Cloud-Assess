@@ -1,6 +1,7 @@
 package equivalence
 
 import (
+	"bytes"
 	"encoding/json"
 	"fmt"
 	"io"
@@ -28,12 +29,20 @@ func LoadReference(reader io.Reader) (Projection, error) {
 	if reader == nil {
 		return Projection{}, fmt.Errorf("reference reader is nil")
 	}
+	content, err := io.ReadAll(reader)
+	if err != nil {
+		return Projection{}, fmt.Errorf("read reference JSON: %w", err)
+	}
 	var raw map[string]json.RawMessage
-	if err := json.NewDecoder(reader).Decode(&raw); err != nil {
+	if err := json.Unmarshal(content, &raw); err != nil {
 		return Projection{}, fmt.Errorf("decode reference JSON: %w", err)
 	}
 
 	projection := newProjection()
+	if containsRedactedSubscriptionID(content) {
+		projection.Comparable = false
+		projection.Notes = append(projection.Notes, "reference report contains redacted subscription IDs; rerun with --mask=false")
+	}
 	sections := map[string]string{
 		"recommendations":         DatasetRecommendations,
 		"impacted":                DatasetFindings,
@@ -77,8 +86,12 @@ func LoadTarget(reader io.Reader) (Projection, error) {
 	if reader == nil {
 		return Projection{}, fmt.Errorf("target reader is nil")
 	}
+	content, err := io.ReadAll(reader)
+	if err != nil {
+		return Projection{}, fmt.Errorf("read target JSON: %w", err)
+	}
 	var data result.AssessmentResult
-	if err := json.NewDecoder(reader).Decode(&data); err != nil {
+	if err := json.Unmarshal(content, &data); err != nil {
 		return Projection{}, fmt.Errorf("decode target JSON: %w", err)
 	}
 	if strings.TrimSpace(data.SchemaVersion) == "" {
@@ -86,6 +99,10 @@ func LoadTarget(reader io.Reader) (Projection, error) {
 	}
 
 	projection := newProjection()
+	if containsRedactedSubscriptionID(content) {
+		projection.Comparable = false
+		projection.Notes = append(projection.Notes, "target report contains redacted subscription IDs; rerun with --redact-subscription-ids=false")
+	}
 	switch data.Completeness {
 	case assessment.CompletenessFailed, assessment.CompletenessPartial:
 		projection.Comparable = false
@@ -610,4 +627,11 @@ func normalizeSource(recommendationID, source string) string {
 		return rules.SourceCustom
 	}
 	return normalized
+}
+
+
+var redactedSubscriptionMarker = []byte("xxxxxxxx-xxxx-xxxx-xxxx-xxxxx")
+
+func containsRedactedSubscriptionID(content []byte) bool {
+	return bytes.Contains(bytes.ToLower(content), redactedSubscriptionMarker)
 }
