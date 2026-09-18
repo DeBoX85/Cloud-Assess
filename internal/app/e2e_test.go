@@ -62,7 +62,7 @@ func TestEndToEndCoordinatorApplicationAndRenderers(t *testing.T) {
 
 	catalog := rules.NewCatalog()
 	catalog.Add(definition)
-	operations := operationsForEndToEndTest(catalog, resource, finding)
+	operations := operationsForEndToEndTest(t, catalog, resource, finding)
 	coordinator := orchestration.NewCoordinator(operations)
 	stageConfig := stages.NewDefault()
 	for _, name := range []string{
@@ -146,7 +146,7 @@ func TestEndToEndCoordinatorApplicationAndRenderers(t *testing.T) {
 	}
 }
 
-func operationsForEndToEndTest(catalog *rules.Catalog, resource assessment.Resource, finding assessment.Finding) orchestration.Operations {
+func operationsForEndToEndTest(t *testing.T, catalog *rules.Catalog, resource assessment.Resource, finding assessment.Finding) orchestration.Operations {
 	return orchestration.Operations{
 		DiscoverSubscriptions: func(context.Context, []string, *config.Filters) (map[string]string, error) {
 			return map[string]string{resource.SubscriptionID: "Test Subscription"}, nil
