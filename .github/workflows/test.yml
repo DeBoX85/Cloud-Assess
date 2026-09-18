@@ -81,6 +81,21 @@ jobs:
             exit 1
           fi
 
+      - name: Build CLI
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p .build
+          go build -o .build/cloud-assess ./cmd/cloud-assess
+
+      - name: Smoke-test CLI help
+        shell: bash
+        run: |
+          set -euo pipefail
+          ./.build/cloud-assess --help >/dev/null
+          ./.build/cloud-assess scan --help >/dev/null
+          ./.build/cloud-assess --version >/dev/null
+
       - name: Test with race detector
         run: go test -race -count=1 ./...
 
