@@ -111,8 +111,8 @@ func LoadTarget(reader io.Reader) (Projection, error) {
 
 	projectTargetRecommendations(&projection, &data)
 	projectTargetFindings(&projection, &data)
-	projectTargetResources(&projection, DatasetInventory, data.Resources)
-	projectTargetResources(&projection, DatasetOutOfScope, data.OutOfScope)
+	projectTargetResources(&projection, DatasetInventory, data.Resources, data.Findings)
+	projectTargetResources(&projection, DatasetOutOfScope, data.OutOfScope, data.Findings)
 	projectTargetResourceTypes(&projection, &data)
 	projectTargetAdvisor(&projection, &data)
 	projectTargetDefender(&projection, &data)
@@ -383,13 +383,13 @@ func projectTargetFindings(projection *Projection, data *result.AssessmentResult
 	}
 }
 
-func projectTargetResources(projection *Projection, datasetName string, resources []assessment.Resource) {
+func projectTargetResources(projection *Projection, datasetName string, resources []assessment.Resource, findings []assessment.Finding) {
 	slaByID := map[string]string{}
-	for _, record := range projection.Datasets[DatasetFindings].Records {
-		if record.Fields["category"] != lower(assessment.CategorySLA) {
+	for _, finding := range findings {
+		if !strings.EqualFold(finding.Category, assessment.CategorySLA) || len(finding.Parameters) == 0 {
 			continue
 		}
-		slaByID[record.Fields["resourceId"]] = record.Fields["param1"]
+		slaByID[lower(finding.ResourceID)] = text(finding.Parameters[0])
 	}
 	for _, resource := range resources {
 		resourceID := lower(resource.ID)
