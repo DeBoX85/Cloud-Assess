@@ -10,7 +10,7 @@ The core generic `cloud-assess scan` path is implemented and covered by determin
 
 The current core path includes Azure authentication, subscription and management-group discovery, resource inventory, filtering, scanner pruning, pinned recommendation execution, Diagnostics, Advisor, Defender, Azure Policy, Arc SQL, Cost, stage health/completeness, severity gating, and XLSX/JSON/CSV/SARIF/stdout rendering.
 
-The project is **not yet release-complete**. The next major validation milestone is source-versus-target equivalence against a live Azure test environment. External/plugin execution, scanner-specific CLI commands, `rules` / `plugins` CLI surfaces, packaging, and final release/security review remain outstanding.
+The project is **not yet release-complete**. A deterministic semantic source-versus-target equivalence harness is now implemented; the next major validation milestone is running that harness against the same live Azure test environment with both implementations. External/plugin execution, scanner-specific CLI commands, `rules` / `plugins` CLI surfaces, packaging, and final release/security review remain outstanding.
 
 ## Working product identity
 
@@ -65,6 +65,7 @@ The generic scan path is suitable for controlled test-environment validation. It
 - [Target specification](docs/TARGET_SPECIFICATION.md)
 - [Implementation plan](docs/IMPLEMENTATION_PLAN.md)
 - [Characterization baseline](docs/CHARACTERIZATION.md)
+- [Source-versus-target equivalence runbook](docs/EQUIVALENCE.md)
 - [Quality Gate 001](docs/QUALITY_GATE_001.md)
 - [Quality Gate 002](docs/QUALITY_GATE_002.md)
 - [Notices and attribution](NOTICE.md)
