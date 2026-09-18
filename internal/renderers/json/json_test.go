@@ -156,6 +156,33 @@ func TestMarshalWithOptionsRedactsSubscriptionIDsEverywhere(t *testing.T) {
 	}
 }
 
+
+func TestMarshalWithOptionsRedactsWarningOnlySubscriptionIDs(t *testing.T) {
+	const subscriptionID = "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
+	data := result.Build(result.Input{
+		Completeness: assessment.CompletenessCompleteWithWarnings,
+		Stages: []assessment.StageExecution{{
+			Name:   "cost",
+			Status: assessment.StageCompletedWithWarnings,
+			Warnings: []assessment.AssessmentWarning{{
+				Code:    "cost_subscription_skipped",
+				Message: "skipped Cost Management query for subscription " + subscriptionID + " because Azure returned NotFound",
+			}},
+		}},
+	})
+
+	encoded, err := MarshalWithOptions(data, Options{RedactSubscriptionIDs: true})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if strings.Contains(strings.ToLower(string(encoded)), strings.ToLower(subscriptionID)) {
+		t.Fatalf("warning-only subscription ID was not redacted: %s", encoded)
+	}
+	if !strings.Contains(string(encoded), redact.SubscriptionID(subscriptionID, true)) {
+		t.Fatalf("warning-only subscription ID was not replaced with the expected mask: %s", encoded)
+	}
+}
+
 func TestWriteFile(t *testing.T) {
 	filename := filepath.Join(t.TempDir(), "assessment.json")
 	if err := WriteFile(sampleResult(), filename); err != nil {
