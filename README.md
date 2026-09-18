@@ -66,6 +66,7 @@ The generic scan path is suitable for controlled test-environment validation. It
 - [Implementation plan](docs/IMPLEMENTATION_PLAN.md)
 - [Characterization baseline](docs/CHARACTERIZATION.md)
 - [Quality Gate 001](docs/QUALITY_GATE_001.md)
+- [Quality Gate 002](docs/QUALITY_GATE_002.md)
 - [Notices and attribution](NOTICE.md)
 
 ## License
