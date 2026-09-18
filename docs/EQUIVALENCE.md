@@ -50,6 +50,8 @@ For a meaningful live comparison:
 7. Disable subscription-ID masking/redaction so full Azure resource identity is available.
 8. Do not enable reference plugins while Cloud Assess plugin execution remains deferred.
 
+Both inputs must contain full, unredacted subscription identities. The harness detects the reference/Cloud Assess subscription mask marker and rejects redacted reports as non-comparable rather than producing misleading record deltas.
+
 A target assessment with overall `partial` or `failed` completeness is rejected as a valid equivalence baseline.
 
 A target assessment with `complete_with_warnings` remains comparable, but the stage warnings must be reviewed alongside the semantic diff.
@@ -207,6 +209,8 @@ Duplicate resource-type counts with identical subscription display name and reso
 
 Each dataset reports:
 
+- `referenceCount` / `targetCount`: total projected records on each side
+- `missingCount` / `extraCount` / `changedCount`: quick triage totals
 - `coverageMismatch`: enabled on one side but not the other
 - `missing`: present in the reference but absent from Cloud Assess
 - `extra`: present in Cloud Assess but absent from the reference
