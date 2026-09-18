@@ -206,6 +206,21 @@ This document tracks source behavior that Cloud Assess intentionally preserves o
 - CI smoke-tests `cloud-assess --help`, `cloud-assess scan --help`, and `cloud-assess --version`.
 - The permanent gate also verifies pinned source-data provenance, formatting, module graph cleanliness, branding boundaries, race-enabled tests, and `go vet`.
 
+### Semantic source-versus-target equivalence
+
+- The pinned reference JSON is a presentation-table projection while Cloud Assess JSON is a canonical domain contract; raw JSON equality is therefore not a valid compatibility test.
+- The development equivalence harness projects both formats into stable semantic datasets for recommendations, impacted findings, resource-type counts, inventory, out-of-scope inventory, Advisor, Defender, Defender recommendations, Azure Policy, Arc SQL, and Cost.
+- Primary findings are matched by normalized recommendation ID plus resource ID.
+- Dataset coverage is compared explicitly so enabling a stage on only one side is visible before record-level analysis.
+- Each dataset reports reference/target counts plus missing, extra, and changed record counts and details.
+- Target assessments with `partial` or `failed` completeness are rejected as equivalence baselines.
+- Redacted source or target JSON is rejected as non-comparable so default masking cannot create misleading missing/extra deltas.
+- Known legacy provenance is normalized narrowly: source `AZQR` maps to `DIAGNOSTICS` only for known diagnostics recommendation IDs and to `CUSTOM` for the legacy embedded custom corpus. APRL and AOR provenance remain strict.
+- The pinned Cost-stage subscription-name omission is ignored because Cloud Assess deliberately corrects it.
+- Azure Policy timestamps, row ordering, target-only schema/timing metadata, and formatting-only numeric differences are excluded from semantic equality.
+- SLA findings remain excluded from ordinary impacted findings but feed inventory SLA values, matching source report behavior.
+- The equivalence utility is intentionally development-only under `tools/equivalence`; it is not the deferred user-facing historical report comparison feature.
+
 ## Known intentional differences
 
 - Product/CLI/configuration branding is neutralized.
@@ -224,9 +239,8 @@ This document tracks source behavior that Cloud Assess intentionally preserves o
 
 ## Next characterization targets
 
-1. Build the semantic source-versus-target equivalence harness.
-2. Run the pinned reference and Cloud Assess against the same stable non-production Azure test environment.
-3. Classify and resolve live deltas, including the Arc SQL `vcores` response shape.
-4. Add targeted Terraform/reference fixtures for important scenarios absent from the existing test environment.
-5. Wire external/YAML plugin execution into production orchestration and then migrate the deferred internal plugins.
-6. Complete the agreed scanner-specific, `rules`, and `plugins list/info` CLI surfaces.
+1. Run the pinned reference and Cloud Assess against the same stable non-production Azure test environment using the semantic equivalence harness.
+2. Classify and resolve live deltas, including the Arc SQL `vcores` response shape.
+3. Add targeted Terraform/reference fixtures for important scenarios absent from the existing test environment.
+4. Wire external/YAML plugin execution into production orchestration and then migrate the deferred internal plugins.
+5. Complete the agreed scanner-specific, `rules`, and `plugins list/info` CLI surfaces.
