@@ -52,6 +52,9 @@ func TestCompareSurfacesChangedSemanticField(t *testing.T) {
 	if len(diff.Changed) != 1 {
 		t.Fatalf("changed findings = %#v, want one", diff.Changed)
 	}
+	if diff.ReferenceCount != 1 || diff.TargetCount != 1 || diff.MissingCount != 0 || diff.ExtraCount != 0 || diff.ChangedCount != 1 {
+		t.Fatalf("finding summary counts = %#v", diff)
+	}
 	if len(diff.Changed[0].Fields) != 1 || diff.Changed[0].Fields[0].Field != "impact" {
 		t.Fatalf("finding field deltas = %#v, want impact only", diff.Changed[0].Fields)
 	}
@@ -124,6 +127,41 @@ func TestCoverageMismatchIsExplicit(t *testing.T) {
 	diff := datasetDiff(report, DatasetAdvisor)
 	if !diff.CoverageMismatch || diff.ReferenceEnabled || !diff.TargetEnabled {
 		t.Fatalf("advisor coverage diff = %#v", diff)
+	}
+}
+
+func TestRedactedReportsAreNotComparable(t *testing.T) {
+	reference, err := LoadReference(bytes.NewReader([]byte(`{
+		"recommendations": [],
+		"impacted": [{
+			"recommendationId": "rec-1",
+			"resourceId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxx5555555/resourceGroups/rg/providers/Microsoft.Storage/storageAccounts/st",
+			"subscriptionId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxx5555555"
+		}],
+		"resourceType": [],
+		"inventory": [],
+		"outOfScope": []
+	}`)))
+	if err != nil {
+		t.Fatal(err)
+	}
+	if reference.Comparable {
+		t.Fatal("redacted reference report must not be comparable")
+	}
+
+	targetJSON := targetFixtureJSON(t, false)
+	targetJSON = bytes.ReplaceAll(targetJSON, []byte(testSubscriptionID), []byte("xxxxxxxx-xxxx-xxxx-xxxx-xxxxx5555555"))
+	target, err := LoadTarget(bytes.NewReader(targetJSON))
+	if err != nil {
+		t.Fatal(err)
+	}
+	if target.Comparable {
+		t.Fatal("redacted target report must not be comparable")
+	}
+
+	report := Compare(reference, target)
+	if report.Equivalent || len(report.Preconditions) != 2 {
+		t.Fatalf("redacted comparison = %#v", report)
 	}
 }
 
