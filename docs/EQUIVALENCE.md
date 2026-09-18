@@ -37,6 +37,108 @@ Exit codes:
 
 This tool is deliberately outside the public `cloud-assess` command tree. It is a reproduction/regression harness, not the deferred historical-report comparison feature.
 
+
+## Automated Windows live runner
+
+For the normal Windows development workflow, use:
+
+```powershell
+.\scripts\live-equivalence.ps1 \
+  -ReferenceRepo C:\src\azqr-reference \
+  -SubscriptionId <subscription-id>
+```
+
+For a resource-group-scoped first pass:
+
+```powershell
+.\scripts\live-equivalence.ps1 \
+  -ReferenceRepo C:\src\azqr-reference \
+  -SubscriptionId <subscription-id> \
+  -ResourceGroup <resource-group>
+```
+
+For management-group validation:
+
+```powershell
+.\scripts\live-equivalence.ps1 \
+  -ReferenceRepo C:\src\azqr-reference \
+  -ManagementGroupId <management-group-id>
+```
+
+The runner:
+
+1. verifies the reference checkout is exactly at the pinned AZQR commit;
+2. requires both reference and Cloud Assess working trees to be clean;
+3. verifies both APRL submodules are initialized at the pinned APRL revision;
+4. records the exact source and target commit SHAs and branches;
+5. records Go/PowerShell versions and Azure cloud endpoint variables that affect runtime behavior;
+6. records the selected scope and stages;
+7. hashes any reference/target filter files used;
+8. runs the pinned reference with JSON enabled and masking disabled;
+9. runs Cloud Assess with canonical JSON enabled and redaction disabled;
+10. captures stdout and stderr separately for both scans;
+11. runs the semantic comparator;
+12. writes a machine-readable `run-metadata.json` alongside the two reports and equivalence report.
+
+By default, the evidence is written beneath:
+
+```text
+artifacts/equivalence/<UTC timestamp>/
+```
+
+The `artifacts/` directory is ignored by Git because live-equivalence evidence contains unredacted Azure identifiers and may contain other sensitive assessment metadata.
+
+A typical evidence bundle contains:
+
+```text
+reference.json
+target.json
+equivalence.json
+run-metadata.json
+reference.stdout.log
+reference.stderr.log
+target.stdout.log
+target.stderr.log
+equivalence.stdout.log
+equivalence.stderr.log
+```
+
+The runner performs read-oriented assessment operations only; it does not provision or modify Azure resources.
+
+### Preparing the pinned reference checkout
+
+Create a dedicated clean checkout for the reference:
+
+```powershell
+git clone https://github.com/DeBoX85/azqr.git C:\src\azqr-reference
+Set-Location C:\src\azqr-reference
+git checkout 8e4f0577f3615e6c9014c031bcad079f235369cc
+git submodule update --init --recursive
+```
+
+Also initialize the target submodule after cloning Cloud Assess:
+
+```powershell
+git submodule update --init --recursive
+```
+
+Do not make local edits in either checkout before an equivalence run. The runner intentionally refuses dirty repositories because an uncommitted state cannot be reconstructed later from the recorded SHA.
+
+### Filter-file note
+
+Cloud Assess intentionally does not require legacy configuration compatibility, so the pinned reference and Cloud Assess do not necessarily consume the same filter-file schema.
+
+For filtered equivalence runs use:
+
+```powershell
+-ReferenceFilters C:\path\reference-filters.yaml
+-TargetFilters C:\path\target-filters.yaml
+```
+
+The two files must express the same assessment intent. Their SHA-256 hashes are captured in `run-metadata.json`.
+
+The first live validation should use no filter file so configuration translation cannot obscure core assessment parity.
+
 ## Required run conditions
 
 For a meaningful live comparison:
