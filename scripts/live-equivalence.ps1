@@ -45,6 +45,7 @@ Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
 
 $PinnedReferenceCommit = '8e4f0577f3615e6c9014c031bcad079f235369cc'
+$PinnedAprlCommit = '60eaddda76541f6adbc1c5ffa686829807e55e29'
 
 function Resolve-Directory {
     param(
@@ -103,6 +104,36 @@ function Assert-CleanRepo {
     $status = Invoke-GitText -Repo $Repo -Arguments @('status', '--porcelain')
     if (-not [string]::IsNullOrWhiteSpace($status)) {
         throw "$Label has uncommitted or untracked changes. The live equivalence run requires a clean checkout so the recorded commit SHA is authoritative."
+    }
+}
+
+function Assert-SubmoduleCommit {
+    param(
+        [string] $Repo,
+        [string] $RelativePath,
+        [string] $ExpectedCommit,
+        [string] $Label
+    )
+
+    $treeCommit = Invoke-GitText -Repo $Repo -Arguments @('rev-parse', "HEAD:$RelativePath")
+    if ($treeCommit -ne $ExpectedCommit) {
+        throw "$Label tree entry is $treeCommit, expected $ExpectedCommit"
+    }
+
+    $checkoutPath = Join-Path $Repo $RelativePath
+    if (-not (Test-Path -LiteralPath $checkoutPath -PathType Container)) {
+        throw "$Label is not initialized. Run: git submodule update --init --recursive"
+    }
+
+    try {
+        $checkoutCommit = Invoke-GitText -Repo $checkoutPath -Arguments @('rev-parse', 'HEAD')
+    }
+    catch {
+        throw "$Label is not initialized correctly. Run: git submodule update --init --recursive"
+    }
+
+    if ($checkoutCommit -ne $ExpectedCommit) {
+        throw "$Label checkout is at $checkoutCommit, expected $ExpectedCommit. Run: git submodule update --init --recursive"
     }
 }
 
@@ -187,6 +218,9 @@ if ($referenceCommit -ne $PinnedReferenceCommit) {
 Assert-CleanRepo -Repo $ReferenceRepo -Label 'Reference repository'
 Assert-CleanRepo -Repo $TargetRepo -Label 'Cloud Assess repository'
 
+Assert-SubmoduleCommit -Repo $ReferenceRepo -RelativePath 'internal/graph/aprl' -ExpectedCommit $PinnedAprlCommit -Label 'Reference APRL submodule'
+Assert-SubmoduleCommit -Repo $TargetRepo -RelativePath 'internal/rules/upstream/aprl' -ExpectedCommit $PinnedAprlCommit -Label 'Cloud Assess APRL submodule'
+
 $targetCommit = Invoke-GitText -Repo $TargetRepo -Arguments @('rev-parse', 'HEAD')
 $referenceBranch = Invoke-GitText -Repo $ReferenceRepo -Arguments @('rev-parse', '--abbrev-ref', 'HEAD')
 $targetBranch = Invoke-GitText -Repo $TargetRepo -Arguments @('rev-parse', '--abbrev-ref', 'HEAD')
@@ -263,6 +297,7 @@ $metadata = [ordered]@{
     warning = 'This evidence bundle contains unredacted Azure identifiers and must be handled as sensitive assessment data.'
     createdUtc = [DateTime]::UtcNow.ToString('o')
     pinnedReferenceCommit = $PinnedReferenceCommit
+    pinnedAprlCommit = $PinnedAprlCommit
     reference = [ordered]@{
         repo = $ReferenceRepo
         branch = $referenceBranch
