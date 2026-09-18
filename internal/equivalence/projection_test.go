@@ -283,6 +283,28 @@ func targetFixtureJSON(t *testing.T, changedImpact bool) []byte {
 	return encoded
 }
 
+func TestNormalizeSourcePreservesStrictProvenanceBoundaries(t *testing.T) {
+	tests := []struct {
+		name             string
+		recommendationID string
+		source           string
+		want             string
+	}{
+		{name: "diagnostics", recommendationID: "st-001", source: "AZQR", want: "DIAGNOSTICS"},
+		{name: "legacy custom", recommendationID: "domain-003", source: "AZQR", want: "CUSTOM"},
+		{name: "APRL", recommendationID: "st-003", source: "APRL", want: "APRL"},
+		{name: "AOR", recommendationID: "orphan-id", source: "AOR", want: "AOR"},
+	}
+
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			if got := normalizeSource(test.recommendationID, test.source); got != test.want {
+				t.Fatalf("normalizeSource(%q, %q) = %q, want %q", test.recommendationID, test.source, got, test.want)
+			}
+		})
+	}
+}
+
 func datasetDiff(report Report, name string) DatasetDiff {
 	for _, diff := range report.Datasets {
 		if diff.Name == name {
