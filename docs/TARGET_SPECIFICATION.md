@@ -69,7 +69,7 @@ Core v1 includes:
 - post-report severity gate
 - plugin architecture
 
-Exact behavioral parity for internal plugins is deferred until after the core engine is equivalent.
+Exact behavioral parity for internal plugins is deferred until after the core engine is equivalent. The current core-v1 executable therefore rejects explicit plugin-stage execution before Azure authentication rather than advertising a stage that cannot yet run.
 
 ## Output strategy
 
@@ -269,13 +269,27 @@ The Excel report should preserve the conceptual datasets from the reference and 
 
 The existing masking behavior is specifically subscription-ID redaction. It does not anonymize the entire report.
 
-Cloud Assess should use explicit naming such as `--redact-subscription-ids`.
+Cloud Assess uses the explicit `--redact-subscription-ids` control.
+
+When enabled, subscription-ID redaction applies to:
+
+- Excel
+- CSV
+- canonical JSON files
+- canonical JSON stdout
+
+For JSON, known subscription IDs are also redacted when embedded inside serialized ARM/resource identifiers and related strings, not only in dedicated `subscriptionId` fields.
+
+SARIF intentionally retains stable Azure resource identities because resource IDs and fingerprints are part of its automation/baselining contract, matching the identity-bearing behavior of the pinned reference. SARIF must therefore be treated as sensitive/identity-bearing output even when subscription redaction is enabled for the other report formats.
+
+Redaction is not full anonymization: resource names, resource groups, tags, subscription display names, and other potentially identifying metadata can remain.
 
 ## Deferred functionality
 
 Deferred until after core v1 equivalence:
 
-- full internal-plugin parity
+- production external/YAML plugin execution and full internal-plugin parity
+- scanner-specific CLI commands and the `rules` / `plugins list/info` command surfaces
 - MCP server
 - historical report compare
 - alternative VM SKU utility
