@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"os"
 	"path/filepath"
+	"strings"
 	"testing"
 
 	"github.com/DeBoX85/Cloud-Assess/internal/advisor"
@@ -18,15 +19,17 @@ import (
 	"github.com/DeBoX85/Cloud-Assess/internal/discovery"
 	"github.com/DeBoX85/Cloud-Assess/internal/orchestration"
 	"github.com/DeBoX85/Cloud-Assess/internal/policy"
+	"github.com/DeBoX85/Cloud-Assess/internal/redact"
 	"github.com/DeBoX85/Cloud-Assess/internal/rules"
 	"github.com/DeBoX85/Cloud-Assess/internal/stages"
 	"github.com/xuri/excelize/v2"
 )
 
 func TestEndToEndCoordinatorApplicationAndRenderers(t *testing.T) {
+	const subscriptionID = "11111111-2222-3333-4444-555555555555"
 	resource := assessment.Resource{
-		ID:             "/subscriptions/sub-1/resourceGroups/rg/providers/Microsoft.Storage/storageAccounts/store",
-		SubscriptionID: "sub-1",
+		ID:             "/subscriptions/" + subscriptionID + "/resourceGroups/rg/providers/Microsoft.Storage/storageAccounts/store",
+		SubscriptionID: subscriptionID,
 		ResourceGroup:  "rg",
 		Type:           "Microsoft.Storage/storageAccounts",
 		Name:           "store",
@@ -62,7 +65,16 @@ func TestEndToEndCoordinatorApplicationAndRenderers(t *testing.T) {
 	operations := operationsForEndToEndTest(catalog, resource, finding)
 	coordinator := orchestration.NewCoordinator(operations)
 	stageConfig := stages.NewDefault()
-	for _, name := range []string{stages.Diagnostics, stages.Advisor, stages.Defender, stages.DefenderRecommendations, stages.Policy, stages.Arc, stages.Cost, stages.Plugin} {
+	for _, name := range []string{
+		stages.Diagnostics,
+		stages.Advisor,
+		stages.Defender,
+		stages.DefenderRecommendations,
+		stages.Policy,
+		stages.Arc,
+		stages.Cost,
+		stages.Plugin,
+	} {
 		if err := stageConfig.Set(name, false); err != nil {
 			t.Fatal(err)
 		}
@@ -71,7 +83,11 @@ func TestEndToEndCoordinatorApplicationAndRenderers(t *testing.T) {
 	base := filepath.Join(t.TempDir(), "cloud-assess-e2e")
 	runner := NewRunner(coordinator)
 	outcome, err := runner.Run(context.Background(), ScanOptions{
-		Assessment: orchestration.Request{Subscriptions: []string{"sub-1"}, ScannerKeys: []string{"st"}, Stages: stageConfig},
+		Assessment: orchestration.Request{
+			Subscriptions: []string{subscriptionID},
+			ScannerKeys:   []string{"st"},
+			Stages:        stageConfig,
+		},
 		Outputs: OutputOptions{
 			BaseName:              base,
 			XLSX:                  true,
@@ -93,6 +109,13 @@ func TestEndToEndCoordinatorApplicationAndRenderers(t *testing.T) {
 	jsonBytes, err := os.ReadFile(base + ".json")
 	if err != nil {
 		t.Fatal(err)
+	}
+	if strings.Contains(strings.ToLower(string(jsonBytes)), strings.ToLower(subscriptionID)) {
+		t.Fatal("generated JSON leaked raw subscription ID")
+	}
+	masked := redact.SubscriptionID(subscriptionID, true)
+	if !strings.Contains(string(jsonBytes), masked) {
+		t.Fatalf("generated JSON does not contain masked subscription ID %q", masked)
 	}
 	var payload map[string]any
 	if err := json.Unmarshal(jsonBytes, &payload); err != nil {
@@ -118,22 +141,35 @@ func TestEndToEndCoordinatorApplicationAndRenderers(t *testing.T) {
 	if value, err := workbook.GetCellValue("Assessment Status", "A5"); err != nil || value != string(assessment.CompletenessComplete) {
 		t.Fatalf("Assessment Status completeness = %q, err=%v", value, err)
 	}
+	if value, err := workbook.GetCellValue("ImpactedResources", "H5"); err != nil || value != masked {
+		t.Fatalf("ImpactedResources subscription = %q, err=%v, want %q", value, err, masked)
+	}
 }
 
 func operationsForEndToEndTest(catalog *rules.Catalog, resource assessment.Resource, finding assessment.Finding) orchestration.Operations {
 	return orchestration.Operations{
 		DiscoverSubscriptions: func(context.Context, []string, *config.Filters) (map[string]string, error) {
-			return map[string]string{"sub-1": "Test Subscription"}, nil
+			return map[string]string{resource.SubscriptionID: "Test Subscription"}, nil
 		},
 		DiscoverManagementGroups: func(context.Context, []string, *config.Filters) (map[string]string, error) {
-			return map[string]string{"sub-1": "Test Subscription"}, nil
+			return map[string]string{resource.SubscriptionID: "Test Subscription"}, nil
 		},
 		DiscoverResources: func(_ context.Context, _ map[string]string, filters *config.Filters) (*discovery.ResourceInventory, error) {
 			filters.Assessment.SetResourceScope(resource.ID, true)
 			return &discovery.ResourceInventory{Included: []assessment.Resource{resource}}, nil
 		},
 		LoadCatalog: func() (*rules.Catalog, error) { return catalog, nil },
-		ExecuteGraph: func(context.Context, []assessment.RecommendationDefinition, map[string]string, *config.AssessmentFilter) ([]assessment.Finding, []arg.RuleWarning, error) {
+		ExecuteGraph: func(_ context.Context, definitions []assessment.RecommendationDefinition, _ map[string]string, _ *config.AssessmentFilter) ([]assessment.Finding, []arg.RuleWarning, error) {
+			found := false
+			for _, definition := range definitions {
+				if definition.ID == finding.RecommendationID {
+					found = true
+					break
+				}
+			}
+			if !found {
+				t.Fatalf("phase-two graph definitions did not include %s: %#v", finding.RecommendationID, definitions)
+			}
 			return []assessment.Finding{finding}, nil, nil
 		},
 		ScanDiagnostics: func(context.Context, []assessment.Resource, *config.AssessmentFilter, map[string]string) (diagnostics.Result, error) {
