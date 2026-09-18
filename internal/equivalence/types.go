@@ -63,6 +63,11 @@ type DatasetDiff struct {
 	Name             string          `json:"name"`
 	ReferenceEnabled bool            `json:"referenceEnabled"`
 	TargetEnabled    bool            `json:"targetEnabled"`
+	ReferenceCount   int             `json:"referenceCount"`
+	TargetCount      int             `json:"targetCount"`
+	MissingCount     int             `json:"missingCount"`
+	ExtraCount       int             `json:"extraCount"`
+	ChangedCount     int             `json:"changedCount"`
 	CoverageMismatch bool            `json:"coverageMismatch,omitempty"`
 	Missing          []Record        `json:"missing,omitempty"`
 	Extra            []Record        `json:"extra,omitempty"`
