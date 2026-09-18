@@ -93,6 +93,13 @@ func (r *Runner) Run(ctx context.Context, options ScanOptions) (Outcome, error) 
 		}
 	}
 
+	baseName := options.Outputs.BaseName
+	if baseName == "" {
+		// The reference selects its default output name during initialization, before the
+		// potentially long-running Azure assessment begins. Preserve that timing.
+		baseName = defaultBaseName(r.now())
+	}
+
 	assessmentResult, executionErr := r.assessment.Run(ctx, options.Assessment)
 	outcome.Assessment = assessmentResult
 	if assessmentResult == nil {
@@ -102,10 +109,6 @@ func (r *Runner) Run(ctx context.Context, options ScanOptions) (Outcome, error) 
 		return outcome, fmt.Errorf("assessment returned no result")
 	}
 
-	baseName := options.Outputs.BaseName
-	if baseName == "" {
-		baseName = defaultBaseName(r.now())
-	}
 	files, err := r.render(assessmentResult, baseName, options.Outputs)
 	outcome.Files = files
 	if err != nil {
@@ -136,6 +139,7 @@ func (r *Runner) Run(ctx context.Context, options ScanOptions) (Outcome, error) 
 func (r *Runner) render(data *result.AssessmentResult, baseName string, options OutputOptions) ([]string, error) {
 	generated := make([]string, 0, 4)
 	tableOptions := tables.Options{RedactSubscriptionIDs: options.RedactSubscriptionIDs}
+	jsonOptions := jsonrenderer.Options{RedactSubscriptionIDs: options.RedactSubscriptionIDs}
 
 	if options.XLSX {
 		filename := baseName + ".xlsx"
@@ -146,7 +150,7 @@ func (r *Runner) render(data *result.AssessmentResult, baseName string, options 
 	}
 	if options.JSON {
 		filename := baseName + ".json"
-		if err := jsonrenderer.WriteFile(data, filename); err != nil {
+		if err := jsonrenderer.WriteFileWithOptions(data, filename, jsonOptions); err != nil {
 			return generated, err
 		}
 		generated = append(generated, filename)
@@ -166,7 +170,7 @@ func (r *Runner) render(data *result.AssessmentResult, baseName string, options 
 		generated = append(generated, filename)
 	}
 	if options.Stdout {
-		encoded, err := jsonrenderer.String(data)
+		encoded, err := jsonrenderer.StringWithOptions(data, jsonOptions)
 		if err != nil {
 			return generated, err
 		}
