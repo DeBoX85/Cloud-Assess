@@ -6,11 +6,11 @@ Reference implementation: `DeBoX85/azqr`
 
 Reference commit: `8e4f0577f3615e6c9014c031bcad079f235369cc`
 
-Current implementation milestone: deterministic foundation and all core Azure-data subsystems through Cost (steps 1-18) implemented and quality-gated. Stage health and assessment completeness is the next subsystem.
+Current implementation milestone: the generic core scan path through CLI integration, report rendering, stage completeness, and exit/severity semantics is implemented and locally quality-gated. Source-versus-target equivalence is the next major phase.
 
 ## Principle
 
-Cloud Assess will be rebuilt behavior-first, not by blindly copying the source tree.
+Cloud Assess is rebuilt behavior-first, not by blindly copying the source tree.
 
 For each major subsystem:
 
@@ -44,12 +44,12 @@ Observe source behavior
 17. Arc SQL
 18. Cost
 19. Stage health and assessment completeness
-20. Canonical findings summary
+20. Canonical assessment result and findings summary
 21. JSON renderer
 22. CSV renderer
 23. Excel renderer
 24. SARIF renderer
-25. CLI integration
+25. CLI integration and production orchestration
 26. Severity and exit-code gates
 27. Equivalence harness
 28. Live Azure regression suite
@@ -59,11 +59,60 @@ Observe source behavior
 
 ## Current completion boundary
 
-Steps 1-18 are implemented at the subsystem/characterization level and pass the repository quality gate. Their deterministic contracts are available for orchestration, but the end-to-end `scan` command is not yet complete.
+Steps 1-26 are implemented for the generic core scan path and covered by the repository quality gate.
 
-Implemented Azure-data subsystems now include Diagnostics, Advisor, Defender status/recommendations, Azure Policy noncompliance, Arc-enabled SQL inventory/status, and previous-month Cost Management data. The next phase is the execution/orchestration layer that records each requested stage as completed, completed-with-warnings, skipped, or failed and derives explicit overall assessment completeness.
+The current executable path is:
 
-The source `--stage-param` contract has also been characterized. At the pinned commit, only the plugin stage registers an option: `plugin.target-regions=<comma-separated string>`. Unknown stages/options and type mismatches are errors. This will be integrated with stage orchestration rather than treated as a separate subsystem.
+```text
+cloud-assess scan
+  -> validate filters/stages/gate
+  -> DefaultAzureCredential
+  -> resolve subscription or management-group scope
+  -> discover and filter inventory
+  -> build/prune pinned recommendation catalog
+  -> execute Graph recommendations
+  -> execute enabled auxiliary stages
+  -> build canonical assessment result
+  -> render requested reports
+  -> apply completeness / severity exit semantics
+```
+
+Implemented Azure-data subsystems include Diagnostics, Advisor, Defender status/recommendations, Azure Policy noncompliance, Arc-enabled SQL inventory/status, and previous-month Cost Management data.
+
+Implemented output formats are XLSX, canonical JSON, CSV, SARIF 2.1.0, and canonical JSON stdout. Excel remains enabled by default.
+
+Exit semantics are finalized:
+
+```text
+0 = complete successful assessment and severity gate passed
+1 = execution, configuration, authentication, or rendering failure
+2 = quality/severity gate failed
+3 = partial assessment because a requested noncritical stage failed
+```
+
+Reports are rendered before exit 2 or 3 is returned, preserving evidence for CI and troubleshooting. When a critical stage returns a partial result plus an error, requested reports are also persisted when possible before exit 1.
+
+The CI foundation from step 29 is already partly implemented ahead of sequence. It currently checks pinned source-data provenance, formatting, module graph cleanliness, branding boundaries, the actual CLI build, root/scan help and version smoke tests, race-enabled tests, and `go vet`. Packaging/release automation remains future work.
+
+## Current known gaps
+
+The generic core `scan` path is runnable, but core v1 is not yet declared equivalent or release-complete.
+
+Outstanding work includes:
+
+- semantic source-versus-target equivalence harness
+- live Azure regression against the pinned reference
+- resolution of the live Arc SQL `vcores` response shape
+- external/YAML plugin execution in production orchestration
+- internal plugin migration/parity
+- scanner-specific CLI commands
+- `rules` CLI command
+- `plugins list/info` CLI surface
+- final dependency/license inventory
+- packaging/release artifacts
+- security and operational review at distributable-product level
+
+Until plugin execution is implemented, explicitly enabling the plugin stage in the core-v1 CLI returns a clear configuration error before Azure authentication.
 
 ## Characterization levels
 
@@ -71,7 +120,7 @@ The source `--stage-param` contract has also been characterized. At the pinned c
 
 No Azure connection required.
 
-Priority cases:
+Covered priority cases include:
 
 - filter precedence
 - tag matching
@@ -90,7 +139,7 @@ Priority cases:
 
 ### 2. Fixture-based components
 
-Sanitized Azure/API fixtures should test mappings such as:
+Sanitized Azure/API fixtures cover mappings such as:
 
 - ARG row -> Finding
 - Advisor response -> Advisor record
@@ -102,28 +151,41 @@ Sanitized Azure/API fixtures should test mappings such as:
 - resource row -> Resource
 - diagnostic-settings batch response -> diagnostic finding
 
-### 3. Golden reports
+### 3. Cross-package and report characterization
 
-Generate deterministic canonical assessment data and compare semantic output for:
+The target now includes a cross-package path using fake Azure operations but the real:
+
+```text
+Coordinator
+  -> Application Runner
+  -> Canonical Result
+  -> JSON Renderer
+  -> Excel Renderer
+```
+
+This verifies orchestration-to-report contracts without requiring live Azure.
+
+Report characterization focuses on semantic output for:
 
 - JSON
 - CSV
 - XLSX
 - SARIF
 
-Excel comparison should focus on worksheet names, headers, rows, ordering, counts, redaction and relevant formatting contracts rather than raw XLSX bytes.
+Excel comparison focuses on worksheet names, headers, rows, ordering, counts, redaction and relevant formatting contracts rather than raw XLSX ZIP bytes.
 
 ### 4. Live Azure equivalence
 
-For representative Terraform scenarios:
+Next major phase:
 
 ```text
-Deploy known fixture
+Select stable Azure test scope
 Run pinned reference
 Run Cloud Assess
 Normalize both outputs
-Compare findings and datasets
-Destroy fixture
+Compare findings and auxiliary datasets
+Classify every delta
+Repeat with targeted fixtures for missing scenarios
 ```
 
 Primary finding comparison key:
@@ -135,6 +197,8 @@ Category
 Impact
 Source
 ```
+
+A pre-existing non-production Azure test environment is suitable for the first pass. Targeted Terraform fixtures should be added only for behaviors not represented there.
 
 ## Existing reference fixtures to reuse
 
@@ -149,15 +213,15 @@ The pinned source already includes useful integration scenarios for:
 - Storage TLS
 - Storage immutable versioning
 
-These form the initial live-equivalence suite.
+These form the initial targeted live-equivalence supplement.
 
-## Additional characterization scenarios
+## Additional live characterization scenarios
 
-Add tests for:
+Validate:
 
 - subscription include/exclude
 - resource-group include/exclude
-- resource-type include
+- scanner/resource-type selection
 - resource exclusion
 - recommendation exclusion
 - include tags
@@ -174,8 +238,7 @@ Add tests for:
 - Defender pricing status
 - Defender unhealthy recommendation
 - Policy noncompliance
-- Arc SQL presence
-- Arc SQL numeric-vCore live response shape
+- Arc SQL presence and numeric-vCore response shape
 - Cost available
 - Cost unauthorized/unavailable
 
@@ -191,54 +254,35 @@ The following differences are deliberate and should not fail equivalence tests:
 - lower-level packages return errors instead of calling `log.Fatal` or silently returning nil datasets
 - stage status and assessment completeness are explicit
 - subscription masking is named subscription-ID redaction
+- deterministic ordering is added where source map/concurrency ordering was unstable
 - custom rule source/path is neutral rather than legacy-branded
-- plugin permissions are documented independently
 - Diagnostics findings identify `Azure Resource Manager` as their validation mechanism instead of inheriting a generic Azure Resource Graph label
 - non-success Diagnostics subrequests retain source-compatible finding semantics while producing explicit uncertainty warnings
 - malformed diagnostic-setting IDs become warnings rather than panic-prone parsing
 - Advisor metadata is retrieved through the shared authenticated ARM HTTP layer rather than adding the `armadvisor` SDK dependency
-- malformed Advisor ARG rows become explicit warnings
-- Advisor records are sorted deterministically after normalization
-- malformed Defender ARG rows become explicit warnings
-- Defender status and recommendation records are sorted deterministically after normalization
-- malformed Azure Policy and Arc SQL rows become explicit warnings
-- Azure Policy and Arc SQL records are sorted deterministically after normalization
-- Arc SQL preserves the pinned source `vcores` string-decoder contract even though the pinned KQL projects `toint(properties.vCore)`; this remains a live-equivalence review item
-- Cost Management uses the shared authenticated ARM HTTP layer rather than adding the `armcostmanagement` SDK dependency while preserving the same REST contract
-- Cost records are sorted deterministically and malformed rows become explicit warnings
-- skippable Cost Management Azure errors become explicit per-subscription warnings rather than log-only skips
-- Cost records populate subscription display names from the already-discovered subscription map, correcting a pinned source stage bug that left this report column empty
+- malformed Advisor/Defender/Policy/Arc SQL rows become explicit warnings
+- Cost Management uses the shared authenticated ARM HTTP layer rather than adding the `armcostmanagement` SDK dependency
+- Cost records populate subscription display names from the already-discovered subscription map, correcting a pinned source stage bug
+- Arc SQL preserves the pinned source `vcores` string-decoder contract pending live-equivalence evidence
+- SARIF uses Cloud Assess branding and a Cloud Assess fingerprint namespace
 
-## Output strategy
+## Output and redaction strategy
 
-JSON is implemented before Excel because it is easier to normalize and compare in automated equivalence tests.
+JSON is canonical machine-readable assessment state. Excel remains the default human-facing report. Both are generated from the same canonical assessment result.
 
-This does not make JSON the preferred human report.
+When subscription-ID redaction is enabled, XLSX, CSV, JSON, and JSON stdout mask subscription IDs, including subscription IDs embedded in serialized ARM/resource strings.
 
-Excel remains the default end-user report. Both Excel and JSON are first-class outputs generated from the same canonical assessment result.
+SARIF intentionally retains stable Azure resource identities because its results and fingerprints are intended for automation and baselining, matching the identity-bearing behavior of the pinned reference. SARIF should therefore be treated as sensitive/identity-bearing output.
 
-## Exit semantics
-
-Tool execution failures, partial assessments, and severity-gate failures must be distinguishable.
-
-Conceptually:
-
-```text
-0 = complete successful assessment and gate passed
-1 = execution/configuration failure
-2 = quality/severity gate failed
-3 = partial assessment because a requested stage failed
-```
-
-Exact numeric values can be finalized with the CLI implementation.
+Exact source-versus-target equivalence runs should disable redaction where stable raw resource identity is required for comparison.
 
 ## Licensing and attribution
 
 Cloud Assess is currently licensed under Apache 2.0 at the repository level.
 
-Reused or derived MIT-licensed source and recommendation material must retain applicable copyright and license notices, including Microsoft-originated source, APRL material, Azure Orphan Resources material, and other third-party dependencies as required.
+Reused or derived MIT-licensed source and recommendation material retains applicable copyright and license notices, including Microsoft-originated source, APRL material, Azure Orphan Resources material, and other third-party dependencies as required.
 
-A generated/maintained notice inventory should be part of the release process.
+A generated/maintained dependency-license inventory remains part of the release process.
 
 ## Definition of done for core v1
 
@@ -249,13 +293,14 @@ Core v1 is complete when:
 - required legal attribution remains
 - scope/filter behavior is equivalent
 - rule loading and scanner pruning are equivalent
-- normalized core findings are materially equivalent for reference fixtures
+- normalized core findings are materially equivalent for representative Azure inputs
 - Diagnostics, Advisor, Defender, Policy, Arc SQL and Cost are reproduced
 - stage failures are explicitly visible
 - assessment completeness is explicit
 - Excel and JSON are both first-class outputs
 - CSV and SARIF work
 - redaction and severity gates work
-- unit and characterization tests pass
+- unit, cross-package, race, vet and executable smoke tests pass
 - selected live Azure equivalence tests pass
+- remaining CLI/plugin gaps are either implemented or explicitly deferred from the release target
 - security and license checks pass
