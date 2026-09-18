@@ -629,7 +629,6 @@ func normalizeSource(recommendationID, source string) string {
 	return normalized
 }
 
-
 var redactedSubscriptionMarker = []byte("xxxxxxxx-xxxx-xxxx-xxxx-xxxxx")
 
 func containsRedactedSubscriptionID(content []byte) bool {
