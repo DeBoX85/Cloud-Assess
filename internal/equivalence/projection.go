@@ -11,6 +11,7 @@ import (
 	"github.com/DeBoX85/Cloud-Assess/internal/azure"
 	"github.com/DeBoX85/Cloud-Assess/internal/diagnostics"
 	"github.com/DeBoX85/Cloud-Assess/internal/result"
+	"github.com/DeBoX85/Cloud-Assess/internal/rules"
 	"github.com/DeBoX85/Cloud-Assess/internal/skus"
 	"github.com/DeBoX85/Cloud-Assess/internal/stages"
 )
@@ -606,6 +607,7 @@ func normalizeSource(recommendationID, source string) string {
 		if _, ok := diagnosticRecommendationIDs[lower(recommendationID)]; ok {
 			return diagnostics.Source
 		}
+		return rules.SourceCustom
 	}
 	return normalized
 }
