@@ -43,25 +43,25 @@ This tool is deliberately outside the public `cloud-assess` command tree. It is 
 For the normal Windows development workflow, use:
 
 ```powershell
-.\scripts\live-equivalence.ps1 \
-  -ReferenceRepo C:\src\azqr-reference \
+.\scripts\live-equivalence.ps1 `
+  -ReferenceRepo C:\src\azqr-reference `
   -SubscriptionId <subscription-id>
 ```
 
 For a resource-group-scoped first pass:
 
 ```powershell
-.\scripts\live-equivalence.ps1 \
-  -ReferenceRepo C:\src\azqr-reference \
-  -SubscriptionId <subscription-id> \
+.\scripts\live-equivalence.ps1 `
+  -ReferenceRepo C:\src\azqr-reference `
+  -SubscriptionId <subscription-id> `
   -ResourceGroup <resource-group>
 ```
 
 For management-group validation:
 
 ```powershell
-.\scripts\live-equivalence.ps1 \
-  -ReferenceRepo C:\src\azqr-reference \
+.\scripts\live-equivalence.ps1 `
+  -ReferenceRepo C:\src\azqr-reference `
   -ManagementGroupId <management-group-id>
 ```
 
