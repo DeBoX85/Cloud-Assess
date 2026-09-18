@@ -37,6 +37,8 @@ func compareDataset(name string, reference, target Dataset) DatasetDiff {
 		Name:             name,
 		ReferenceEnabled: reference.Enabled,
 		TargetEnabled:    target.Enabled,
+		ReferenceCount:   len(reference.Records),
+		TargetCount:      len(target.Records),
 		CoverageMismatch: reference.Enabled != target.Enabled,
 	}
 
@@ -68,6 +70,9 @@ func compareDataset(name string, reference, target Dataset) DatasetDiff {
 			}
 		}
 	}
+	diff.MissingCount = len(diff.Missing)
+	diff.ExtraCount = len(diff.Extra)
+	diff.ChangedCount = len(diff.Changed)
 	return diff
 }
 
