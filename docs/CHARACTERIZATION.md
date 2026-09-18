@@ -170,6 +170,42 @@ This document tracks source behavior that Cloud Assess intentionally preserves o
 - Cloud Assess uses the shared authenticated ARM HTTP layer instead of importing `armcostmanagement`, preserving the same API contract.
 - Cloud Assess intentionally populates `SubscriptionName` from the discovered subscription map. The pinned source `CostStage` fails to pass the name into `ScannerConfig`, leaving that report column empty despite modeling it; this is treated as a target correctness fix.
 
+
+### Stage execution, orchestration, and application semantics
+
+- Scope discovery, resource inventory, and the Graph recommendation stage are critical stages.
+- Diagnostics, Advisor, Defender, Defender recommendations, Policy, Arc SQL, Cost, and future plugin execution are noncritical stages.
+- A critical-stage failure stops later requested stages and produces overall `failed` completeness.
+- A noncritical-stage failure is recorded and later stages continue, producing `partial` completeness.
+- Warnings without stage failure produce `complete_with_warnings`.
+- Explicitly disabled stages are recorded as skipped without degrading completeness.
+- The coordinator preserves the source two-phase Graph behavior: phase 1 builds the selected recommendation catalog; phase 2 prunes service scanners to deployed resource types and always includes the generic resource scanner.
+- Explicit CLI subscription and resource-group scopes are folded into the include filter before discovery, matching source initialization behavior.
+- Default output filenames select their timestamp before assessment execution, matching the source initialization timing.
+- Reports are rendered before quality-gate or partial-assessment exit semantics are applied, so diagnostic evidence remains available.
+- Process exit codes are `0` success, `1` execution/configuration/render failure, `2` severity-gate failure, and `3` partial assessment.
+- Cancellation from SIGINT/SIGTERM is propagated through the command context into assessment operations.
+- The current core-v1 CLI rejects explicit plugin-stage execution before Azure authentication because production plugin execution is still deferred.
+
+### Canonical result and report rendering
+
+- All report formats consume one deterministic canonical `AssessmentResult`.
+- The canonical result contains schema version, generation time, scope ID, completeness, stage executions, recommendations, primary findings, summary, inventory/out-of-scope inventory, resource-type counts, and all auxiliary datasets.
+- JSON serializes the canonical result rather than presentation tables and excludes internal KQL through domain JSON tags.
+- Excel and CSV share one table-projection layer so report columns, stage gating, applicability, redaction, SKU capacity, and SLA projection cannot drift independently.
+- Excel places `Assessment Status` first so partial/failed stages are visible before recommendation data.
+- SARIF remains a findings-oriented SARIF 2.1.0 projection with Cloud Assess branding and fingerprint namespace.
+- XLSX, CSV, JSON, and JSON stdout honor subscription-ID redaction when enabled.
+- Canonical JSON redaction replaces known subscription IDs wherever they appear in serialized strings, including embedded ARM/resource IDs and portal/policy strings.
+- SARIF intentionally retains stable Azure resource identities, matching the identity-bearing behavior of the pinned source.
+- A cross-package smoke test exercises fake Azure operations through the real coordinator, application runner, JSON renderer, and Excel renderer, including redaction and workbook structure.
+
+### Executable quality controls
+
+- CI builds the actual `cloud-assess` binary in addition to compiling packages through tests.
+- CI smoke-tests `cloud-assess --help`, `cloud-assess scan --help`, and `cloud-assess --version`.
+- The permanent gate also verifies pinned source-data provenance, formatting, module graph cleanliness, branding boundaries, race-enabled tests, and `go vet`.
+
 ## Known intentional differences
 
 - Product/CLI/configuration branding is neutralized.
@@ -188,8 +224,9 @@ This document tracks source behavior that Cloud Assess intentionally preserves o
 
 ## Next characterization targets
 
-1. Stage health and overall assessment completeness behavior.
-2. Canonical assessment-result assembly.
-3. JSON, Excel, CSV, SARIF, and stdout rendering equivalence.
-4. End-to-end CLI exit-code and severity-gate behavior.
-5. Live-equivalence resolution of the Arc SQL `vcores` response shape.
+1. Build the semantic source-versus-target equivalence harness.
+2. Run the pinned reference and Cloud Assess against the same stable non-production Azure test environment.
+3. Classify and resolve live deltas, including the Arc SQL `vcores` response shape.
+4. Add targeted Terraform/reference fixtures for important scenarios absent from the existing test environment.
+5. Wire external/YAML plugin execution into production orchestration and then migrate the deferred internal plugins.
+6. Complete the agreed scanner-specific, `rules`, and `plugins list/info` CLI surfaces.
