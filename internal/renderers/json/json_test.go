@@ -156,7 +156,6 @@ func TestMarshalWithOptionsRedactsSubscriptionIDsEverywhere(t *testing.T) {
 	}
 }
 
-
 func TestMarshalWithOptionsRedactsWarningOnlySubscriptionIDs(t *testing.T) {
 	const subscriptionID = "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
 	data := result.Build(result.Input{
