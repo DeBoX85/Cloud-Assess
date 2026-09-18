@@ -81,6 +81,24 @@ jobs:
             exit 1
           fi
 
+      - name: Parse PowerShell validation scripts
+        shell: pwsh
+        run: |
+          $parseFailed = $false
+          Get-ChildItem -Path ./scripts -Filter *.ps1 -File | ForEach-Object {
+            $tokens = $null
+            $errors = $null
+            [System.Management.Automation.Language.Parser]::ParseFile($_.FullName, [ref]$tokens, [ref]$errors) | Out-Null
+            if ($errors.Count -gt 0) {
+              $parseFailed = $true
+              Write-Host "PowerShell parse errors in $($_.FullName):"
+              $errors | ForEach-Object { Write-Error $_.Message }
+            }
+          }
+          if ($parseFailed) {
+            exit 1
+          }
+
       - name: Build CLI
         shell: bash
         run: |
