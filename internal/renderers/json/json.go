@@ -77,6 +77,7 @@ func WriteFileWithOptions(data *result.AssessmentResult, filename string, opts O
 
 func redactSubscriptionIDs(encoded []byte, data *result.AssessmentResult) []byte {
 	ids := collectSubscriptionIDs(data)
+	ids = append(ids, subscriptionIDsFromSerializedJSON(encoded)...)
 	if len(ids) == 0 {
 		return encoded
 	}
@@ -146,5 +147,37 @@ func collectSubscriptionIDs(data *result.AssessmentResult) []string {
 	for _, item := range data.Costs {
 		add(item.SubscriptionID)
 	}
+	return ids
+}
+
+
+const subscriptionGUIDPattern = `[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}`
+
+var (
+	subscriptionFieldPattern = regexp.MustCompile(`(?i)"subscriptionId"\s*:\s*"(` + subscriptionGUIDPattern + `)"`)
+	subscriptionPathPattern  = regexp.MustCompile(`(?i)/subscriptions/(` + subscriptionGUIDPattern + `)`)
+	subscriptionTextPattern  = regexp.MustCompile(`(?i)\bsubscription(?:\s+id)?\s+(` + subscriptionGUIDPattern + `)\b`)
+)
+
+func subscriptionIDsFromSerializedJSON(encoded []byte) []string {
+	seen := map[string]struct{}{}
+	var ids []string
+	addMatches := func(pattern *regexp.Regexp) {
+		for _, match := range pattern.FindAllSubmatch(encoded, -1) {
+			if len(match) < 2 {
+				continue
+			}
+			id := string(match[1])
+			key := strings.ToLower(id)
+			if _, exists := seen[key]; exists {
+				continue
+			}
+			seen[key] = struct{}{}
+			ids = append(ids, id)
+		}
+	}
+	addMatches(subscriptionFieldPattern)
+	addMatches(subscriptionPathPattern)
+	addMatches(subscriptionTextPattern)
 	return ids
 }
