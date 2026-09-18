@@ -405,9 +405,57 @@ PASS: provenance, formatting, module graph, branding boundary, executable build/
 
 `docs/EQUIVALENCE.md`
 
+### Phase H: Reproducible live-equivalence runner
+
+**Objective**
+
+Turn the documented live-comparison procedure into an auditable, repeatable Windows workflow before touching the Azure test environment.
+
+**Validated baseline**
+
+```text
+b7eca668b67a3a3515ed4d2fe6bc6e3a8469e706
+```
+
+**Workflow**
+
+```text
+35359172689
+```
+
+**Result**
+
+PASS: pinned-data provenance, Go formatting/module consistency, branding boundaries, PowerShell parsing, actual CLI build/help/version smoke tests, full race-enabled tests, and `go vet`.
+
+**Implemented**
+
+- `scripts/live-equivalence.ps1`
+- subscription, resource-group, and management-group scopes
+- strict pinned-reference commit verification
+- clean-working-tree requirement for both source and target
+- exact APRL submodule verification for both repositories
+- automatic unredacted AZQR reference run
+- automatic unredacted Cloud Assess target run
+- automatic semantic comparator execution
+- timestamped local evidence bundles under `artifacts/equivalence/`
+- Git ignore protection for sensitive live evidence
+- per-command stdout/stderr capture
+- exact commit/branch/scope/stage/filter/environment metadata
+- SHA-256 hashes for separate source/target filter files
+- explicit warning that the evidence bundle contains sensitive unredacted Azure identifiers
+- CI parsing of PowerShell validation scripts
+
+**Operational decision**
+
+The live runner does not clone, checkout, or mutate the source repositories automatically. It fails closed when the reference is not at the pinned commit, a working tree is dirty, or a required submodule is not initialized at the pinned revision. This preserves forensic reproducibility and avoids silently changing the developer's environment.
+
+**Runbook**
+
+`docs/EQUIVALENCE.md`
+
 ## Current boundary
 
-The deterministic/local development phases through semantic equivalence tooling are complete and quality-gated.
+The deterministic/local development phases through semantic equivalence tooling and the reproducible live-equivalence runner are complete and quality-gated.
 
 The next major phase is:
 
