@@ -9,6 +9,7 @@ import (
 	"time"
 
 	"github.com/DeBoX85/Cloud-Assess/internal/assessment"
+	"github.com/DeBoX85/Cloud-Assess/internal/redact"
 	"github.com/DeBoX85/Cloud-Assess/internal/result"
 )
 
@@ -116,6 +117,42 @@ func TestStringMatchesMarshal(t *testing.T) {
 	}
 	if text != string(encoded) {
 		t.Fatal("stdout JSON representation differs from file representation")
+	}
+}
+
+func TestMarshalWithOptionsRedactsSubscriptionIDsEverywhere(t *testing.T) {
+	const subscriptionID = "11111111-2222-3333-4444-555555555555"
+	resourceID := "/subscriptions/" + subscriptionID + "/resourceGroups/rg/providers/Microsoft.Storage/storageAccounts/st1"
+
+	data := sampleResult()
+	data.Findings[0].SubscriptionID = subscriptionID
+	data.Findings[0].ResourceID = resourceID
+	data.Resources[0].SubscriptionID = subscriptionID
+	data.Resources[0].ID = resourceID
+	data.DefenderRecommendations = []assessment.DefenderRecommendation{{
+		SubscriptionID:  subscriptionID,
+		ResourceID:      resourceID,
+		AzurePortalLink: "https://portal.azure.com/#resource/subscriptions/" + subscriptionID + "/resourceGroups/rg",
+	}}
+
+	encoded, err := MarshalWithOptions(data, Options{RedactSubscriptionIDs: true})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if strings.Contains(strings.ToLower(string(encoded)), strings.ToLower(subscriptionID)) {
+		t.Fatalf("redacted JSON still contains raw subscription ID: %s", encoded)
+	}
+	masked := redact.SubscriptionID(subscriptionID, true)
+	if masked == "" || !strings.Contains(string(encoded), masked) {
+		t.Fatalf("redacted JSON does not contain expected masked subscription ID %q", masked)
+	}
+
+	raw, err := Marshal(data)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if !strings.Contains(string(raw), subscriptionID) {
+		t.Fatal("unredacted Marshal unexpectedly removed subscription ID")
 	}
 }
 
