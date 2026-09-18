@@ -6,22 +6,28 @@ import (
 	"errors"
 	"os"
 	"path/filepath"
+	"strings"
 	"testing"
 	"time"
 
 	"github.com/DeBoX85/Cloud-Assess/internal/assessment"
 	"github.com/DeBoX85/Cloud-Assess/internal/orchestration"
+	"github.com/DeBoX85/Cloud-Assess/internal/redact"
 	"github.com/DeBoX85/Cloud-Assess/internal/result"
 )
 
 type fakeAssessmentRunner struct {
-	result *result.AssessmentResult
-	err    error
-	calls  int
+	result       *result.AssessmentResult
+	err          error
+	calls        int
+	beforeReturn func()
 }
 
 func (f *fakeAssessmentRunner) Run(context.Context, orchestration.Request) (*result.AssessmentResult, error) {
 	f.calls++
+	if f.beforeReturn != nil {
+		f.beforeReturn()
+	}
 	return f.result, f.err
 }
 
@@ -114,6 +120,75 @@ func TestRunStdoutUsesCanonicalJSON(t *testing.T) {
 	}
 	if !bytes.Contains(output.Bytes(), []byte(`"schemaVersion": "1.0"`)) {
 		t.Fatalf("stdout did not contain canonical JSON: %s", output.String())
+	}
+}
+
+func TestRunRedactsCanonicalJSONAndStdout(t *testing.T) {
+	const subscriptionID = "11111111-2222-3333-4444-555555555555"
+	resourceID := "/subscriptions/" + subscriptionID + "/resourceGroups/rg/providers/Microsoft.Storage/storageAccounts/st"
+	assessmentResult := result.Build(result.Input{
+		GeneratedAt:  time.Unix(1, 0),
+		Completeness: assessment.CompletenessComplete,
+		Resources: []assessment.Resource{{
+			ID:             resourceID,
+			SubscriptionID: subscriptionID,
+			ResourceGroup:  "rg",
+			Type:           "microsoft.storage/storageaccounts",
+			Name:           "st",
+		}},
+	})
+
+	base := filepath.Join(t.TempDir(), "redacted")
+	var output bytes.Buffer
+	runner := NewRunner(&fakeAssessmentRunner{result: assessmentResult})
+	runner.stdout = &output
+	outcome, err := runner.Run(context.Background(), ScanOptions{Outputs: OutputOptions{
+		BaseName:              base,
+		JSON:                  true,
+		Stdout:                true,
+		RedactSubscriptionIDs: true,
+	}})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if outcome.ExitCode != ExitSuccess {
+		t.Fatalf("exit code = %d, want 0", outcome.ExitCode)
+	}
+
+	fileContent, err := os.ReadFile(base + ".json")
+	if err != nil {
+		t.Fatal(err)
+	}
+	for name, content := range map[string]string{"file": string(fileContent), "stdout": output.String()} {
+		if strings.Contains(strings.ToLower(content), strings.ToLower(subscriptionID)) {
+			t.Fatalf("%s output still contains raw subscription ID", name)
+		}
+		if !strings.Contains(content, redact.SubscriptionID(subscriptionID, true)) {
+			t.Fatalf("%s output does not contain the expected masked subscription ID", name)
+		}
+	}
+}
+
+func TestDefaultBaseNameChosenBeforeAssessmentExecution(t *testing.T) {
+	start := time.Date(2026, 9, 17, 13, 5, 6, 0, time.FixedZone("CEST", 2*60*60))
+	finished := start.Add(25 * time.Minute)
+	current := start
+	fake := &fakeAssessmentRunner{
+		result: result.Build(result.Input{GeneratedAt: finished, Completeness: assessment.CompletenessComplete}),
+		beforeReturn: func() {
+			current = finished
+		},
+	}
+	runner := NewRunner(fake)
+	runner.now = func() time.Time { return current }
+	t.Chdir(t.TempDir())
+
+	outcome, err := runner.Run(context.Background(), ScanOptions{Outputs: OutputOptions{JSON: true}})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(outcome.Files) != 1 || outcome.Files[0] != "cloud_assessment_2026_09_17_T130506.json" {
+		t.Fatalf("generated files = %#v, want scan-start timestamp", outcome.Files)
 	}
 }
 
