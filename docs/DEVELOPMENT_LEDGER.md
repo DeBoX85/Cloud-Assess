@@ -1,0 +1,481 @@
+# Cloud Assess Development Ledger
+
+Status: active development-process audit index
+
+Purpose: provide a durable, repository-backed record of how Cloud Assess was designed, implemented, reviewed, corrected, and validated.
+
+This ledger is intended for later troubleshooting, forensic review, handover, and development audit. It supplements rather than replaces Git history.
+
+## Audit model
+
+Cloud Assess development evidence is intentionally split into several layers:
+
+| Evidence | Purpose | Authority |
+|---|---|---|
+| Git commit history | Exact chronological code/document changes | Primary per-change record |
+| GitHub Actions runs | Executable validation of a specific commit SHA | Primary validation record |
+| This development ledger | Chronological index connecting milestones, decisions, defects, commits, and validation | Primary process index |
+| `IMPLEMENTATION_PLAN.md` | Planned phases, completion boundary, outstanding work | Current roadmap |
+| `CHARACTERIZATION.md` | Source behavior preserved or intentionally changed | Behavioral contract |
+| `QUALITY_GATE_001.md` | Formal audit of the core foundation | Audit snapshot |
+| `QUALITY_GATE_002.md` | Formal audit of the runnable integration path | Audit snapshot |
+| `EQUIVALENCE.md` | Procedure and normalization rules for source-vs-target comparison | Validation runbook |
+| `TARGET_SPECIFICATION.md` | Target architecture/product requirements | Design contract |
+| `NOTICE.md` / `THIRD_PARTY_LICENSES.md` | Attribution and incorporated-license evidence | Legal/provenance record |
+
+If this ledger and Git disagree about the exact contents of a change, Git is authoritative. If documentation and the pinned reference disagree about source behavior, the pinned source implementation and characterization tests are authoritative.
+
+## Reference baseline
+
+Reference repository:
+
+```text
+DeBoX85/azqr
+```
+
+Pinned reference commit:
+
+```text
+8e4f0577f3615e6c9014c031bcad079f235369cc
+```
+
+Pinned source tree:
+
+```text
+17d93b20c303f90f7843036be82f0dc32f3260f1
+```
+
+Pinned APRL revision:
+
+```text
+60eaddda76541f6adbc1c5ffa686829807e55e29
+```
+
+Pinned AOR imported tree:
+
+```text
+a3ff1cafbc0a74ea4e4d2cc5aa2812f7c1dab9f5
+```
+
+Pinned custom-rule imported tree:
+
+```text
+674b9b3dcb443ce6dc445b48e1db47e4a0ca7082
+```
+
+Pinned known-SKU blob:
+
+```text
+a2d97a60ec445ce4023a1a5a9b6c4dca76e31f5a
+```
+
+Active development branch:
+
+```text
+bootstrap/core-v1
+```
+
+## Standing development rules
+
+These rules have governed the reconstruction effort:
+
+1. Code/runtime behavior wins over stale or ambiguous documentation.
+2. Source behavior is characterized before target behavior is declared equivalent.
+3. Functional behavior is preserved unless an intentional change is explicitly recorded.
+4. Lower-level packages return errors instead of terminating the process.
+5. Target improvements must not be silently normalized as source-equivalent; they must be documented.
+6. Exact source-data provenance is pinned and checked in CI.
+7. Every milestone head must pass the permanent quality gate before it is treated as complete.
+8. Partial or failed live assessments cannot be used as valid equivalence baselines.
+9. New normalization rules in the equivalence harness require an explicit compatibility rationale.
+10. Public/release readiness is not inferred from unit-test success alone; live Azure equivalence remains required.
+
+## Development chronology
+
+### Phase A: Repository and target architecture
+
+**Objective**
+
+Create an independent Cloud Assess repository and define the target architecture before reproducing assessment behavior.
+
+**Key decisions**
+
+- Working product name: Cloud Assess
+- CLI name: `cloud-assess`
+- Go retained as implementation language
+- Apache-2.0 repository-level license
+- Required MIT attribution retained for incorporated/derived material
+- Canonical neutral domain model instead of source `GraphResult` coupling
+- Excel remains the default human-facing report
+- JSON becomes the canonical machine-facing result contract
+- Core implementation may be restructured as long as behavior remains materially equivalent
+- Legacy CLI/config compatibility is not required
+
+**Primary records**
+
+- `docs/TARGET_SPECIFICATION.md`
+- `docs/IMPLEMENTATION_PLAN.md`
+- `NOTICE.md`
+- `THIRD_PARTY_LICENSES.md`
+
+### Phase B: Foundation and characterization
+
+**Objective**
+
+Reproduce and characterize deterministic core behavior before adding the Azure auxiliary stages.
+
+**Implemented/characterized**
+
+- neutral branding/domain model
+- filter semantics
+- scanner/service selection
+- stage configuration
+- severity gate
+- subscription-ID redaction
+- previous-completed-month Cost period
+- resource-ID helpers
+- scanner registry
+- APRL/AOR/custom recommendation corpus
+- Azure cloud/environment selection
+- DefaultAzureCredential construction
+- authenticated retry/throttling HTTP stack
+- Resource Graph transport, pagination, batching, row decoding and error handling
+- resource inventory discovery
+- subscription discovery abstractions
+- management-group traversal
+- findings deduplication and summary
+- recommendation applicability
+
+### Quality Gate 001
+
+**Purpose**
+
+Loop back over the foundation before beginning the auxiliary Azure stages.
+
+**Validated code baseline**
+
+```text
+dc82bc81755acae7ad84759483b59509f0889e2d
+```
+
+**Workflow**
+
+```text
+35095316848
+```
+
+**Material defect found**
+
+The initial target interpreted `include.resourceTypes` as literal ARM resource types. The reference uses scanner/service keys and then expands them into ARM resource-type scope. Downstream findings were also not reapplying the complete structural scope.
+
+**Remediation**
+
+- restored scanner-key semantics
+- applied subscription/RG/resource-type/resource scope to inventory and downstream findings
+- added regression tests
+- corrected specification drift
+- strengthened CI
+- added complete third-party MIT license texts
+
+**Full record**
+
+`docs/QUALITY_GATE_001.md`
+
+### Phase C: Azure assessment subsystems
+
+**Objective**
+
+Reproduce the non-core-Graph Azure datasets independently before orchestration.
+
+**Diagnostics**
+
+- direct ARM batch behavior
+- 20-resource batch size
+- 30-worker ceiling
+- 41 dedicated recommendation definitions
+- explicit Azure Resource Manager validation mechanism
+- non-success subrequests surfaced as warnings
+- lower-level failures returned instead of process termination
+
+**Advisor**
+
+- ARG recommendation instances
+- Advisor metadata API for descriptions
+- no additional Advisor SDK dependency; shared ARM HTTP layer used
+- malformed rows surfaced as warnings
+- deterministic output
+
+**Defender**
+
+- separate plan/tier status dataset
+- separate unhealthy security recommendations dataset
+- source-compatible deduplication
+- preserved source ResourceType projection behavior
+
+**Azure Policy**
+
+- noncompliant policy-state dataset
+- management-group-aware ARG scope
+- source-compatible deduplication and metadata joins
+
+**Arc SQL**
+
+- pinned multi-join ARG query
+- source license/DPS/telemetry derivation
+- pinned `vcores` decoder mismatch retained as a live-equivalence review item
+
+**Cost**
+
+- previous completed UTC month
+- ActualCost grouped by ServiceName
+- source-compatible two-worker ceiling
+- direct authenticated Cost Management REST call
+- source skip/error codes preserved
+- source bug corrected: subscription display name is populated
+
+### Phase D: Stage health and canonical result
+
+**Objective**
+
+Make assessment health explicit and separate from process success.
+
+**Implemented**
+
+- per-stage status
+- `complete`
+- `complete_with_warnings`
+- `partial`
+- `failed`
+- critical stage stop behavior
+- optional-stage continuation
+- stage parameter validation
+- canonical immutable-style assessment result
+- deterministic dataset ordering
+
+**Exit semantics**
+
+```text
+0 = success
+1 = execution/config/auth/render failure
+2 = quality/severity gate failure
+3 = partial assessment
+```
+
+### Phase E: Rendering
+
+**Implemented**
+
+- canonical JSON
+- CSV
+- Excel
+- SARIF 2.1.0
+- JSON stdout
+- shared CSV/Excel table projection
+- Assessment Status as first Excel worksheet
+- source-compatible SKU capacity behavior using exact pinned known-SKU data
+- centralized Cloud Assess branding
+- private report file permissions
+
+**Intentional renderer differences**
+
+- canonical JSON is domain-oriented rather than source table-oriented
+- SARIF uses Cloud Assess branding/fingerprint namespace
+- Diagnostics reports the real ARM validation mechanism
+- Assessment Status exposes stage health directly
+
+### Phase F: Production orchestration and CLI
+
+**Objective**
+
+Turn the independently tested subsystems into a runnable internal product path.
+
+**Implemented**
+
+```text
+cloud-assess scan
+  -> validate configuration/stages/gate
+  -> Azure credential
+  -> scope discovery
+  -> inventory discovery
+  -> two-phase Graph catalog/pruning/execution
+  -> enabled auxiliary stages
+  -> canonical result
+  -> report rendering
+  -> completeness/severity exit semantics
+```
+
+**Key behavior**
+
+- CLI subscription/RG scope is folded into include filters as in the reference
+- Graph/resource inventory/scope are critical
+- optional stage failures preserve later results
+- reports are written before exit 2/3 when possible
+- SIGINT/SIGTERM cancellation is propagated through command context
+- default report timestamp is selected at scan start
+- explicit plugin-stage execution fails early while production plugin execution is deferred
+
+### Quality Gate 002
+
+**Purpose**
+
+Audit the recent integration work after an interrupted development session.
+
+**Validated code/CI baseline**
+
+```text
+ec24ddb0eaab7d4f8902a4eb962e9f392499ee9f
+```
+
+**Workflow**
+
+```text
+35295328518
+```
+
+**Material findings**
+
+1. JSON/stdout redaction was not honoring default subscription-ID redaction.
+2. Deferred plugin stage could be requested misleadingly.
+3. Default report timestamp was selected too late.
+4. Cross-package integration coverage was insufficient.
+5. CI did not explicitly build/invoke the final binary.
+6. GitHub checkout action used a deprecated Node runtime.
+7. Repository status documentation was stale.
+
+**Remediation**
+
+- JSON/stdout redaction fixed, including embedded/warning-only subscription IDs
+- plugin stage now fails before Azure authentication while deferred
+- timestamp moved to scan start
+- authoritative coordinator -> app -> JSON/XLSX smoke path added
+- CI builds the binary and runs root/scan/version smoke checks
+- checkout action updated
+- status docs brought current
+
+**Full record**
+
+`docs/QUALITY_GATE_002.md`
+
+### Phase G: Semantic equivalence harness
+
+**Objective**
+
+Create a deterministic comparison boundary before live Azure validation.
+
+**Current validated head**
+
+```text
+f357a8b4e149b46540b1687779899abc1cc76138
+```
+
+**Workflow**
+
+```text
+35297058652
+```
+
+**Result**
+
+PASS: provenance, formatting, module graph, branding boundary, executable build/smoke checks, full race-enabled tests, and `go vet`.
+
+**Implemented**
+
+- development-only `tools/equivalence`
+- reference table-JSON projection
+- Cloud Assess canonical JSON projection
+- semantic comparison by stable identities
+- dataset coverage mismatch detection
+- missing/extra/changed record details
+- per-dataset reference/target/missing/extra/changed counts
+- target `partial`/`failed` rejection
+- redacted-input rejection
+- documented intentional normalization only
+
+**Intentional normalizations**
+
+- reference `AZQR` -> `DIAGNOSTICS` for known Diagnostics recommendation IDs
+- reference `AZQR` -> `CUSTOM` for legacy embedded custom-rule recommendations
+- APRL/AOR provenance remains strict
+- Cost subscription display-name source bug ignored
+- Azure Policy timestamp ignored
+- target-only timing/schema metadata ignored
+- numeric formatting-only differences normalized
+
+**Runbook**
+
+`docs/EQUIVALENCE.md`
+
+## Current boundary
+
+The deterministic/local development phases through semantic equivalence tooling are complete and quality-gated.
+
+The next major phase is:
+
+```text
+Live Azure source-versus-target regression
+```
+
+Required evidence set for each live pass:
+
+- exact pinned reference commit
+- exact Cloud Assess commit
+- Azure scope/stage/filter parameters
+- unredacted reference JSON
+- unredacted Cloud Assess JSON
+- generated equivalence JSON
+- classification notes for every non-empty delta
+
+## Known open items
+
+The following are not forgotten; they remain intentionally open:
+
+- live Azure equivalence
+- Arc SQL numeric `vcores` response-shape resolution
+- production external/YAML plugin execution
+- internal plugin migration/parity
+- scanner-specific CLI commands
+- `rules` CLI command
+- `plugins list/info` CLI
+- packaging/distribution
+- generated dependency/license inventory
+- final release-level security and operational review
+- deferred compare/alternative-VM-SKU/MCP/public website/distribution work
+
+## Troubleshooting and forensic reconstruction
+
+For a later investigation, use this order:
+
+1. Identify the affected behavior/milestone in this ledger.
+2. Open the linked quality gate or characterization section.
+3. Find the relevant target commit SHA.
+4. Inspect the exact change with:
+   ```bash
+   git show <commit-sha>
+   ```
+5. Inspect chronological history around it:
+   ```bash
+   git log --date=iso --decorate --oneline bootstrap/core-v1
+   ```
+6. Re-run or inspect the associated GitHub Actions workflow using its recorded run ID.
+7. Compare the behavior to the pinned source commit.
+8. Run the relevant characterization/unit test.
+9. For live mismatches, reproduce both unredacted JSON reports and run `tools/equivalence`.
+10. Classify the delta before changing code.
+
+## Maintenance rule for this ledger
+
+From this point onward, update this ledger whenever any of the following occurs:
+
+- a milestone becomes complete
+- a material defect is found
+- a behavior is intentionally changed from the source
+- a source defect is deliberately corrected
+- a new quality gate is performed
+- the pinned reference/provenance changes
+- live equivalence identifies a new class of delta
+- a deferred feature enters or leaves scope
+- a release baseline is created
+
+Routine commits do not need individual prose entries because the Git log already records them. Significant commits and every validated milestone must be indexed here.
+
+This makes the development process reconstructable even if the conversational history that produced it is unavailable.
