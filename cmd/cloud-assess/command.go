@@ -76,7 +76,12 @@ func newScanCommand(executor scanExecutor, exitCode *int) *cobra.Command {
 	command.Flags().BoolVar(&flags.stdout, "stdout", false, "Write canonical JSON to stdout")
 	command.Flags().BoolVar(&flags.sarif, "sarif", false, "Create SARIF 2.1.0 report")
 	command.Flags().StringVarP(&flags.outputName, "output-name", "o", "", "Output base filename without extension")
-	command.Flags().BoolVar(&flags.redactSubscriptionIDs, "redact-subscription-ids", true, "Redact subscription IDs in human-oriented reports")
+	command.Flags().BoolVar(
+		&flags.redactSubscriptionIDs,
+		"redact-subscription-ids",
+		true,
+		"Redact subscription IDs in XLSX, CSV, JSON and stdout output; SARIF retains stable resource identities",
+	)
 	command.Flags().StringVarP(&flags.filtersFile, "filters", "e", "", "Assessment filters file (YAML)")
 	command.Flags().StringVar(&flags.failOn, "fail-on", "", "Return exit code 2 when findings meet or exceed this impact (High, Medium, Low)")
 	return command
@@ -96,6 +101,9 @@ func executeScan(ctx context.Context, flags scanFlags) (int, error) {
 	}
 	if err := stageConfig.Validate(); err != nil {
 		return app.ExitExecutionFail, err
+	}
+	if stageConfig.IsEnabled(stages.Plugin) {
+		return app.ExitExecutionFail, fmt.Errorf("plugin stage is not available in the current core-v1 build")
 	}
 	if flags.failOn != "" {
 		if _, err := gate.Parse(flags.failOn); err != nil {
