@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"errors"
+	"strings"
 	"testing"
 )
 
@@ -77,5 +78,18 @@ func TestScanDefaultsToExcelAndRedaction(t *testing.T) {
 	}
 	if !got.redactSubscriptionIDs {
 		t.Fatal("subscription ID redaction should be enabled by default")
+	}
+}
+
+func TestExecuteScanRejectsDeferredPluginStageBeforeAzureAuthentication(t *testing.T) {
+	code, err := executeScan(context.Background(), scanFlags{stageNames: []string{"plugin"}})
+	if err == nil {
+		t.Fatal("expected plugin availability error")
+	}
+	if code != 1 {
+		t.Fatalf("exit code = %d, want 1", code)
+	}
+	if !strings.Contains(err.Error(), "plugin stage is not available") {
+		t.Fatalf("unexpected error: %v", err)
 	}
 }
