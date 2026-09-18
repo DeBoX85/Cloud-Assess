@@ -6,7 +6,7 @@ Reference implementation: `DeBoX85/azqr`
 
 Reference commit: `8e4f0577f3615e6c9014c031bcad079f235369cc`
 
-Current implementation milestone: the generic core scan path through CLI integration, report rendering, stage completeness, and exit/severity semantics is implemented and locally quality-gated. Source-versus-target equivalence is the next major phase.
+Current implementation milestone: the generic core scan path and deterministic semantic source-versus-target equivalence harness are implemented. Live Azure source-versus-target regression is the next major phase.
 
 ## Principle
 
@@ -59,7 +59,7 @@ Observe source behavior
 
 ## Current completion boundary
 
-Steps 1-26 are implemented for the generic core scan path and covered by the repository quality gate.
+Steps 1-27 are implemented: the generic core scan path is quality-gated and the development equivalence harness can normalize the pinned reference table-JSON and Cloud Assess canonical JSON into comparable semantic datasets.
 
 The current executable path is:
 
@@ -100,7 +100,6 @@ The generic core `scan` path is runnable, but core v1 is not yet declared equiva
 
 Outstanding work includes:
 
-- semantic source-versus-target equivalence harness
 - live Azure regression against the pinned reference
 - resolution of the live Arc SQL `vcores` response shape
 - external/YAML plugin execution in production orchestration
