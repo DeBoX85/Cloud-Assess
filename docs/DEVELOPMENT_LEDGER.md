@@ -519,6 +519,53 @@ This is not treated as an assessment-semantic defect.
 
 The original Azure scans do not need to be repeated for this correction because the raw reference and target JSON artifacts already exist. Re-running the comparator against those same artifacts after pulling the normalization fix is sufficient to validate the reclassification.
 
+### Phase J: First successful live Azure equivalence baseline
+
+**Date**
+
+```text
+2026-09-22
+```
+
+**Evidence**
+
+The original live Azure reference and target reports from Phase I were re-compared after adding the narrowly scoped Diagnostics subscription-name normalization.
+
+**Result**
+
+```text
+equivalent: true
+```
+
+**Semantic coverage**
+
+- recommendations: 314 reference / 314 target, 0 missing, 0 extra, 0 changed
+- primary findings: 71 / 71, 0 missing, 0 extra, 0 changed
+- resource types: 7 / 7, exact
+- in-scope inventory: 21 / 21, exact
+- out-of-scope inventory: 3 / 3, exact
+- Advisor: 12 / 12, exact
+- Defender plan status: enabled on both sides, 0 / 0
+- Azure Policy: not enabled in this pass
+- Arc SQL: not enabled in this pass
+- Defender recommendations: not enabled in this pass
+- Cost: not enabled in this pass
+
+**Interpretation**
+
+For the default-stage behavior actually exercised by this subscription, Cloud Assess is semantically equivalent to the pinned AZQR reference after accounting for the confirmed pinned-source Diagnostics subscription-name omission.
+
+This milestone does not yet establish equivalence for optional stages that were not enabled or for Azure behaviors absent from the selected subscription.
+
+**Next validation boundary**
+
+Expand live coverage deliberately rather than repeating the same baseline:
+
+1. enable optional stages that can return data in the existing test subscription;
+2. validate filtered/resource-group scope;
+3. validate multi-subscription or management-group scope;
+4. add targeted fixtures only for important behaviors absent from the existing environment.
+
 ## Current boundary
 
 The deterministic/local development phases through semantic equivalence tooling and the reproducible live-equivalence runner are complete and quality-gated.
