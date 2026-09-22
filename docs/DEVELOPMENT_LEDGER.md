@@ -453,6 +453,72 @@ The live runner does not clone, checkout, or mutate the source repositories auto
 
 `docs/EQUIVALENCE.md`
 
+### Phase I: First live Azure equivalence pass
+
+**Date**
+
+```text
+2026-09-22
+```
+
+**Reference commit**
+
+```text
+8e4f0577f3615e6c9014c031bcad079f235369cc
+```
+
+**Target assessment commit**
+
+```text
+27346cab18873402ab6f74468924ca3f72ce6539
+```
+
+**Scope**
+
+One non-production Azure subscription, default stage set, no filter files.
+
+**Execution health**
+
+- pinned reference scan exit code: 0
+- Cloud Assess scan exit code: 0
+- semantic comparator exit code: 1 on the initial comparison
+
+**Observed semantic counts**
+
+- recommendations: 314 reference / 314 target, no missing/extra/changed records
+- primary findings: 71 reference / 71 target, no missing/extra records, 11 changed records
+- resource types: 7 / 7, exact
+- in-scope inventory: 21 / 21, exact
+- out-of-scope inventory: 3 / 3, exact
+- Advisor: 12 / 12, exact
+- Defender status: enabled on both sides, 0 / 0
+- Policy, Arc SQL, Defender recommendations, and Cost were not enabled in this default-stage pass
+
+**Only observed delta**
+
+All 11 changed primary findings differed only in `subscriptionName`.
+
+Pinned-source inspection confirmed that these records were Diagnostics findings. The AZQR Diagnostics scanner populates `SubscriptionID` but does not assign `GraphResult.SubscriptionName`. Cloud Assess intentionally fills the discovered subscription display name.
+
+**Classification**
+
+```text
+Pinned-source data omission corrected by target
+```
+
+This is not treated as an assessment-semantic defect.
+
+**Remediation**
+
+- equivalence normalization narrowed to known Diagnostics recommendation IDs only
+- ordinary Graph findings continue to compare subscription display name strictly
+- regression fixture changed to reproduce the actual live AZQR omission
+- dedicated test added to prove the normalization does not apply to non-Diagnostics findings
+
+**Validation state**
+
+The original Azure scans do not need to be repeated for this correction because the raw reference and target JSON artifacts already exist. Re-running the comparator against those same artifacts after pulling the normalization fix is sufficient to validate the reclassification.
+
 ## Current boundary
 
 The deterministic/local development phases through semantic equivalence tooling and the reproducible live-equivalence runner are complete and quality-gated.
