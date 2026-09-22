@@ -566,6 +566,69 @@ Expand live coverage deliberately rather than repeating the same baseline:
 3. validate multi-subscription or management-group scope;
 4. add targeted fixtures only for important behaviors absent from the existing environment.
 
+### Phase K: Optional-stage live Azure equivalence pass
+
+**Date**
+
+```text
+2026-09-22
+```
+
+**Reference commit**
+
+```text
+8e4f0577f3615e6c9014c031bcad079f235369cc
+```
+
+**Target commit**
+
+```text
+498511488401247a7c8cecaba6438580ba6fc09a
+```
+
+**Scope**
+
+Same non-production Azure subscription used for the first baseline, no filter files.
+
+**Additional stages enabled**
+
+```text
+policy
+defender-recommendations
+cost
+```
+
+The default graph/diagnostics/advisor/defender stages remained enabled on both source and target.
+
+**Execution health**
+
+- pinned reference scan exit code: 0
+- Cloud Assess scan exit code: 0
+- semantic comparator exit code: 0
+- semantic result: equivalent = true
+
+**Semantic coverage**
+
+- recommendations: 314 / 314, exact
+- primary findings: 71 / 71, exact
+- resource types: 7 / 7, exact
+- in-scope inventory: 21 / 21, exact
+- out-of-scope inventory: 3 / 3, exact
+- Advisor: 12 / 12, exact
+- Azure Policy: enabled on both sides, 0 / 0
+- Defender recommendations: enabled on both sides, 0 / 0
+- Defender plan status: enabled on both sides, 0 / 0
+- Cost: 5 / 5, exact
+- Arc SQL: not enabled in this pass
+
+**Interpretation**
+
+The Cost implementation now has live semantic-equivalence evidence with non-empty data. Policy and Defender Recommendations have live execution/coverage equivalence evidence for an empty-result environment, but still require a future environment or targeted fixture containing non-empty results before their row-level projections can be considered live-validated.
+
+**Next validation boundary**
+
+Validate scope semantics next, beginning with resource-group scope on the same subscription. After that, validate multi-subscription or management-group traversal if an appropriate test scope is available.
+
 ## Current boundary
 
 The deterministic/local development phases through semantic equivalence tooling and the reproducible live-equivalence runner are complete and quality-gated.
