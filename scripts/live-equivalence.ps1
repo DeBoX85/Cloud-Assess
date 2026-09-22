@@ -149,11 +149,19 @@ function Invoke-CapturedNative {
 
     $started = [DateTime]::UtcNow
     Push-Location $WorkingDirectory
+    $previousErrorActionPreference = $ErrorActionPreference
     try {
+        # Windows PowerShell 5.1 promotes native-process stderr records according to
+        # ErrorActionPreference. Go writes normal module-download progress to stderr,
+        # so the script-level 'Stop' setting would otherwise abort a successful run
+        # before LASTEXITCODE can be evaluated. Capture stderr and judge the native
+        # command solely by its process exit code.
+        $ErrorActionPreference = 'Continue'
         & $Command @Arguments 1> $StdoutPath 2> $StderrPath
         $exitCode = $LASTEXITCODE
     }
     finally {
+        $ErrorActionPreference = $previousErrorActionPreference
         Pop-Location
     }
     $finished = [DateTime]::UtcNow
