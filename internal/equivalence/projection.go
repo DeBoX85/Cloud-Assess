@@ -187,7 +187,7 @@ func projectReferenceRows(projection *Projection, name string, rows []map[string
 				"resourceType":     lower(get(row, "resourceType")),
 				"recommendation":   text(get(row, "recommendation")),
 				"subscriptionId":   lower(get(row, "subscriptionId")),
-				"subscriptionName": text(get(row, "subscriptionName")),
+				"subscriptionName": normalizeFindingSubscriptionName(id, get(row, "subscriptionName")),
 				"resourceGroup":    lower(get(row, "resourceGroup")),
 				"resourceName":     lower(get(row, "resourceName")),
 				"param1":           text(get(row, "param1")),
@@ -388,7 +388,7 @@ func projectTargetFindings(projection *Projection, data *result.AssessmentResult
 			"resourceType":     lower(finding.ResourceType),
 			"recommendation":   text(finding.Recommendation),
 			"subscriptionId":   lower(finding.SubscriptionID),
-			"subscriptionName": text(finding.SubscriptionName),
+			"subscriptionName": normalizeFindingSubscriptionName(id, finding.SubscriptionName),
 			"resourceGroup":    lower(finding.ResourceGroup),
 			"resourceName":     lower(finding.ResourceName),
 			"param1":           params[0],
@@ -616,6 +616,17 @@ func number(value string) string {
 		return strconv.FormatFloat(parsed, 'g', -1, 64)
 	}
 	return text(value)
+}
+
+func normalizeFindingSubscriptionName(recommendationID, subscriptionName string) string {
+	if _, ok := diagnosticRecommendationIDs[lower(recommendationID)]; ok {
+		// The pinned reference Diagnostics scanner populates SubscriptionID but
+		// leaves GraphResult.SubscriptionName unset. Cloud Assess intentionally
+		// fills the discovered subscription display name, so the omission is not
+		// a semantic assessment difference.
+		return ""
+	}
+	return text(subscriptionName)
 }
 
 func normalizeSource(recommendationID, source string) string {
