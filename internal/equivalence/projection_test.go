@@ -188,7 +188,7 @@ func referenceFixtureJSON(t *testing.T) []byte {
 			"recommendation":   "Storage should have diagnostic settings enabled",
 			"recommendationId": "st-001",
 			"subscriptionId":   testSubscriptionID,
-			"subscriptionName": "Test Subscription",
+			"subscriptionName": "",
 			"resourceGroup":    "RG",
 			"resourceName":     "ST1",
 			"resourceId":       testResourceID,
@@ -319,6 +319,15 @@ func targetFixtureJSON(t *testing.T, changedImpact bool) []byte {
 		t.Fatal(err)
 	}
 	return encoded
+}
+
+func TestFindingSubscriptionNameNormalizationIsDiagnosticsOnly(t *testing.T) {
+	if got := normalizeFindingSubscriptionName("st-001", "Development"); got != "" {
+		t.Fatalf("diagnostics subscription name = %q, want empty comparison value", got)
+	}
+	if got := normalizeFindingSubscriptionName("aprl-001", "Development"); got != "Development" {
+		t.Fatalf("ordinary finding subscription name = %q, want Development", got)
+	}
 }
 
 func TestNormalizeSourcePreservesStrictProvenanceBoundaries(t *testing.T) {
