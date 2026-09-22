@@ -273,6 +273,14 @@ Known diagnostic recommendation IDs therefore normalize from reference `AZQR` to
 
 The reference ImpactedResources table hard-codes `Azure Resource Graph` as the validation mechanism even for diagnostics. Validation-mechanism text is therefore not used as an equivalence field.
 
+### Diagnostics subscription display name
+
+The pinned reference Diagnostics scanner creates primary findings from inventory resources but does not populate `GraphResult.SubscriptionName`. Cloud Assess intentionally fills the already-discovered subscription display name.
+
+For known Diagnostics recommendation IDs, the equivalence harness therefore ignores `subscriptionName` when comparing primary findings. This normalization is deliberately narrow: subscription display names remain strict comparison fields for ordinary Graph findings and auxiliary datasets.
+
+This behavior was confirmed by the first live Azure comparison on 2026-09-22, where all 11 reported finding deltas were this exact reference omission.
+
 ### Cost subscription display name
 
 The pinned reference Cost stage does not pass subscription display name into its scanner configuration, leaving the Cost report subscription-name column empty.
