@@ -629,6 +629,81 @@ The Cost implementation now has live semantic-equivalence evidence with non-empt
 
 Validate scope semantics next, beginning with resource-group scope on the same subscription. After that, validate multi-subscription or management-group traversal if an appropriate test scope is available.
 
+### Phase L: Resource-group-scoped live Azure equivalence pass
+
+**Date**
+
+```text
+2026-09-22
+```
+
+**Reference commit**
+
+```text
+8e4f0577f3615e6c9014c031bcad079f235369cc
+```
+
+**Target commit**
+
+```text
+3f869e7cdce26b6bf11fa4306337efd45018fa3a
+```
+
+**Pinned APRL commit**
+
+```text
+60eaddda76541f6adbc1c5ffa686829807e55e29
+```
+
+**Scope**
+
+The same non-production Azure subscription used for the preceding live passes, restricted to resource group:
+
+```text
+haz-rg-aitestbed-wus
+```
+
+No filter files were used.
+
+**Stages**
+
+The default graph, diagnostics, Advisor, and Defender plan-status stages were enabled on both source and target. Policy, Arc SQL, Defender Recommendations, and Cost were not enabled.
+
+**Execution health**
+
+- pinned reference scan exit code: 0
+- Cloud Assess scan exit code: 0
+- semantic comparator exit code: 0
+- semantic result: equivalent = true
+
+**Semantic coverage**
+
+- recommendations: 314 / 314, exact
+- primary findings: 47 / 47, exact
+- resource types: 7 / 7, exact
+- in-scope inventory: 11 / 11, exact
+- out-of-scope inventory: 13 / 13, exact
+- Advisor: 6 / 6, exact
+- Defender plan status: enabled on both sides, 0 / 0
+- Azure Policy: not enabled in this pass
+- Arc SQL: not enabled in this pass
+- Defender recommendations: not enabled in this pass
+- Cost: not enabled in this pass
+
+**Interpretation**
+
+Cloud Assess is semantically equivalent to the pinned AZQR reference for the resource-group-scoped behavior exercised by this environment. The non-empty findings, inventory, out-of-scope, and Advisor datasets provide live evidence that the resource-group boundary and downstream scope filtering behave equivalently.
+
+The empty Defender plan-status result establishes execution and empty-result equivalence only. It does not validate non-empty Defender row projection.
+
+**Evidence note**
+
+The run metadata captured the full source and target commands, scope, commits, dataset enablement, and exit codes. Its `stages` property was null because the runner used the implicit default stage set. The executed commands and dataset enablement make the effective coverage reconstructable, but the runner should record the resolved default stages explicitly in future evidence.
+
+**Next validation boundary**
+
+Validate broader scope traversal next, using multi-subscription or management-group scope if an appropriate test scope and permissions are available. Important behaviors still absent from live non-empty evidence should subsequently be covered through a suitable Azure environment or targeted fixtures.
+
 ## Current boundary
 
 The deterministic/local development phases through semantic equivalence tooling and the reproducible live-equivalence runner are complete and quality-gated.
