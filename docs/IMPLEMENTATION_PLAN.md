@@ -6,7 +6,7 @@ Reference implementation: `DeBoX85/azqr`
 
 Reference commit: `8e4f0577f3615e6c9014c031bcad079f235369cc`
 
-Current implementation milestone: the generic core scan path and deterministic semantic source-versus-target equivalence harness are implemented. Live Azure regression is in progress: default-stage, optional-stage, and resource-group-scoped passes are complete and equivalent for the data exercised. Broader traversal and non-empty evidence for currently absent datasets remain next.
+Current implementation milestone: the generic core scan path and deterministic semantic source-versus-target equivalence harness are implemented. Live Azure regression is in progress: default-stage, optional-stage, resource-group-scoped, and two-subscription passes are equivalent for the data compared. The two-subscription pass has two unresolved Diagnostics HTTP 400 warnings. Management-group traversal and non-empty evidence for currently absent datasets remain next.
 
 ## Principle
 
@@ -59,7 +59,7 @@ Observe source behavior
 
 ## Current completion boundary
 
-Steps 1-27 are implemented. Step 28 is in progress, with equivalent live baselines recorded for default stages, optional Policy/Defender Recommendations/Cost execution, and resource-group scope. Step 29 has a permanent CI quality gate but still lacks packaging/release automation.
+Steps 1-27 are implemented. Step 28 is in progress, with equivalent live baselines recorded for default stages, optional Policy/Defender Recommendations/Cost execution, resource-group scope, and two-subscription scope. The two-subscription pass has an unresolved Diagnostics warning boundary. Step 29 has a permanent CI quality gate but still lacks packaging/release automation.
 
 The current executable path is:
 
@@ -100,8 +100,9 @@ The generic core `scan` path is runnable and semantically equivalent for the liv
 
 Outstanding work includes:
 
-- multi-subscription and management-group live regression against the pinned reference
-- non-empty live or targeted-fixture evidence for Policy, Defender Recommendations, and Defender plan status
+- investigation of two Diagnostics HTTP 400 subrequests in the two-subscription pass
+- management-group live regression against the pinned reference
+- non-empty live or targeted-fixture evidence for Policy and Defender Recommendations
 - resolution of the live Arc SQL `vcores` response shape
 - external/YAML plugin execution in production orchestration
 - internal plugin migration/parity
@@ -182,7 +183,8 @@ Current state and next boundary:
 Completed: default-stage subscription baseline
 Completed: optional Policy/Defender Recommendations/Cost pass
 Completed: resource-group-scoped pass
-Next: multi-subscription or management-group traversal
+Completed with warnings: two-subscription pass, including non-empty Defender plan status
+Next: investigate Diagnostics HTTP 400 responses and validate management-group traversal
 Then: targeted fixtures for important non-empty scenarios absent from the environment
 ```
 
