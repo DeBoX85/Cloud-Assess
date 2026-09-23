@@ -61,6 +61,8 @@ Observe source behavior
 
 Steps 1-27 are implemented. Step 28 is in progress, with equivalent live baselines recorded for default stages, optional Policy/Defender Recommendations/Cost execution, resource-group scope, and two-subscription scope. The two-subscription pass has an unresolved Diagnostics warning boundary. Step 29 has a permanent CI quality gate but still lacks packaging/release automation.
 
+The ordered remaining work, evidence gates, and release-scope decisions are maintained in [ROADMAP.md](ROADMAP.md).
+
 The current executable path is:
 
 ```text

@@ -67,6 +67,7 @@ The generic scan path is suitable for controlled test-environment validation. It
 - [Target specification](docs/TARGET_SPECIFICATION.md)
 - [Implementation plan](docs/IMPLEMENTATION_PLAN.md)
 - [Development ledger](docs/DEVELOPMENT_LEDGER.md)
+- [Execution roadmap](docs/ROADMAP.md)
 - [Characterization baseline](docs/CHARACTERIZATION.md)
 - [Source-versus-target equivalence runbook](docs/EQUIVALENCE.md)
 - [Quality Gate 001](docs/QUALITY_GATE_001.md)
