@@ -172,6 +172,19 @@ The two files must express the same assessment intent. Their SHA-256 hashes are 
 
 The first live validation should use no filter file so configuration translation cannot obscure core assessment parity.
 
+For the first service-selection pass on the `AdvisoryDev` non-production leaf management group, the checked-in pair at `examples/filters/azqr-storage-vm.yml` and `examples/filters/cloud-assess-storage-vm.yml` includes only the `st` and `vm` scanner keys. The pinned source uses `azqr:` and Cloud Assess uses `assessment:`; both files select Storage Accounts and Virtual Machines. The known Dev inventory has both types, so this pass can exercise non-empty inventory and findings without including the Network Watcher in the diagnostic-settings batch. The absence of its warning in a filtered pass does not close the unfiltered Diagnostics warning boundary.
+
+```powershell
+Set-Location C:\src\Cloud-Assess
+.\scripts\live-equivalence.ps1 `
+  -ReferenceRepo C:\src\azqr-reference `
+  -ManagementGroupId AdvisoryDev `
+  -ReferenceFilters .\examples\filters\azqr-storage-vm.yml `
+  -TargetFilters .\examples\filters\cloud-assess-storage-vm.yml
+```
+
+The runner records hashes of both filter files. Review the resolved subscription, enabled stages, warning codes and semantic datasets before treating this pass as evidence for scanner selection. This fixture does not cover resource-group, tag, individual-resource or recommendation filters; those require separate passes.
+
 ## Required run conditions
 
 For a meaningful live comparison:

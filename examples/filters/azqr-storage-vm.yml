@@ -1,0 +1,7 @@
+# Pinned AZQR filter for the read-only Storage/VM live-equivalence pass.
+# resourceTypes values are scanner keys, not ARM resource type strings.
+azqr:
+  include:
+    resourceTypes:
+      - st
+      - vm
