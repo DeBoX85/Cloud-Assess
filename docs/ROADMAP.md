@@ -13,16 +13,16 @@ This document orders the remaining work and defines the evidence needed to close
 - The generic scan, its canonical reports, the deterministic semantic comparator, and the Windows live-equivalence runner are implemented and CI-gated.
 - Default-stage subscription, optional-stage, resource-group, and two-subscription live passes returned `equivalent = true` for the compared data.
 - Cost and Defender plan status have non-empty live row-level equivalence evidence. Policy and Defender Recommendations have only empty-result live execution evidence. Arc SQL has not been live-validated.
-- The two-subscription pass resolved both requested subscriptions and exercised non-empty inventory, findings, and Advisor records in each. Its target Diagnostics stage reported two HTTP 400 ARM batch subrequests, so those diagnostic-setting conclusions remain uncertain. See Phase N in the ledger.
+- The two-subscription pass resolved both requested subscriptions and exercised non-empty inventory, findings, and Advisor records in each. Its target Diagnostics stage reported two HTTP 400 ARM batch subrequests. A later read-only individual GET probe found two Network Watchers returning HTTP 400 `ResourceTypeNotSupported`; the historical batch failures were not correlated to request IDs. These resources have no dedicated Diagnostics recommendation in either implementation. See Phases N and O in the ledger.
 - Management-group traversal, representative filtered scopes, final feature boundaries, packaging, and release review remain open.
 
-The next work item is the Diagnostics investigation. Management-group planning and deterministic fixture preparation can proceed alongside it. Core equivalence and a release decision require the open validation limits to be resolved or explicitly accepted with a narrowed scope.
+The next live work item is management-group traversal, while the Phase N Diagnostics warning caveat remains in the evidence matrix. Core equivalence and a release decision require the open validation limits to be resolved or explicitly accepted with a narrowed scope.
 
 ## Execution order and completion gates
 
 | Order | Workstream | Completion evidence | Dependency or input |
 |---|---|---|---|
-| 1 | Investigate Diagnostics HTTP 400 responses | Affected resource types and IDs identified privately, response cause classified, finding impact assessed, and a regression fixture or documented API limitation recorded | Locally retained Phase N reports and access to the same non-production scope |
+| 1 | Investigate Diagnostics HTTP 400 responses | Individual GET evidence and the source finding impact are documented in Phase O; historical batch request correlation remains open if exact mapping is required | A controlled read-only batch capture with request correlation to close the historical mapping |
 | 2 | Validate management-group traversal | Pinned source and target runs on the same management group; resolved descendants, per-subscription contribution, stage health, and semantic datasets reviewed | Suitable non-production management group and read access to its child subscriptions |
 | 3 | Close filter and scope combinations | Paired source/target filter fixtures and semantic evidence for include/exclude, tags, scanner selection, and resource/recommendation exclusions | Representative existing resources; provision fixtures only if separately approved |
 | 4 | Close missing stage data | Non-empty Policy and Defender Recommendations comparisons; Arc SQL response shape resolved and characterized | Appropriate live resources or sanitized targeted fixtures |
@@ -35,12 +35,14 @@ The order indicates dependencies, not promised dates. A suitable test scope may 
 
 ## 1. Diagnose the two HTTP 400 responses
 
+**Current evidence:** A read-only probe on the retained target inventory returned 35 successful GETs and two HTTP 400 `ResourceTypeNotSupported` responses, both for Network Watchers. Neither pinned AZQR nor Cloud Assess defines a dedicated missing-diagnostics recommendation for this resource type. The original batch returned two HTTP 400 subresponses without request correlation, so the matching failures strongly suggest but do not establish their historical identity. No target-only behavior has been demonstrated. Retain the `complete_with_warnings` classification. See [Phase O](DEVELOPMENT_LEDGER.md#phase-o-diagnostics-warning-investigation-with-individual-gets).
+
 1. Preserve the unredacted Phase N evidence bundle outside Git. Use its recorded commits, Azure environment, and stage health to reproduce the same requests.
 2. Map the failing ARM batch subresponses to their diagnostic-settings resource requests. Perform read-only individual requests as needed; do not assume an HTTP 400 means that a diagnostic setting is absent.
 3. Distinguish invalid/unsupported resource paths, transient Azure behavior, authorization issues, and target request-construction defects. Compare the pinned reference's request and finding behavior.
 4. If Cloud Assess has a defect, add a focused regression fixture, fix it, and rerun the relevant comparison. If Azure or the source behavior is limiting, retain the warning and document which conclusions cannot be trusted.
 
-**Exit:** the two responses and their possible effect on findings are classified. A semantically equal report by itself does not prove those two diagnostic-setting assessments are correct.
+**Exit:** the two historical batch responses are correlated with resource requests and their possible effect on findings is classified, or the unresolved correlation is explicitly accepted as a documented API evidence limit for the release. A semantically equal report by itself does not prove unsuccessful diagnostic-setting assessments are correct.
 
 ## 2. Finish scope and filter equivalence
 
@@ -96,7 +98,7 @@ Before provisioning a test fixture or exposing a sensitive evidence bundle outsi
 
 ## Inputs needed when each boundary is reached
 
-1. For Diagnostics: the retained Phase N target/reference reports or a local, sanitized account of which two read-only requests failed, including resource type and ARM error code.
+1. For Diagnostics, if exact historical mapping is required: a sanitized, request-correlated batch capture from a controlled read-only rerun. The individual GET resource types and ARM error codes are already recorded in Phase O.
 2. For management-group testing: a suitable non-production management-group ID, descendant access, and the same scanner identity used for both executions.
 3. For missing stage data: existing safe Policy, Defender Recommendations, and Arc SQL examples; any Azure fixture creation requires separate authorization.
 4. For release scope: a decision about internal plugins, scanner-specific commands, `rules`, and `plugins list/info` if these cannot all be included in the first release.

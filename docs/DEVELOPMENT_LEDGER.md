@@ -859,6 +859,32 @@ Investigate the two Diagnostics HTTP 400 subrequests using the locally retained 
 
 The [execution roadmap](ROADMAP.md) now orders the remaining live validation, missing stage evidence, first-release feature decisions, packaging, and final security/operational review. It records explicit completion evidence and required user inputs, including separate authorization before Azure fixture provisioning. This planning checkpoint does not claim that any of those open items are complete or expand the agreed core-v1 scope.
 
+### Phase O: Diagnostics warning investigation with individual GETs
+
+**Date**
+
+```text
+2026-09-23
+```
+
+**Evidence and method**
+
+The user ran the read-only `tools/diagnostics-probe` from target commit `f8fc77900ba0803232dbaba4e14053edca2454c0` against the locally retained, unredacted Phase N target report (`20260923_112151Z`) in an authenticated Azure environment. The probe made individual diagnostic-settings GET requests using the scanner's ARM endpoint, supported-resource list, and API version. The user supplied its sanitized console summary; the raw report and resource IDs remain outside Git. The identity used by the probe was not independently verified against the original scan metadata.
+
+- original target report: 2 Diagnostics batch subrequest warnings with HTTP 400
+- probe: 37 eligible resources, 35 successful GETs, 2 failed GETs
+- both failed GETs: `microsoft.network/networkwatchers`, HTTP 400, Azure error code `ResourceTypeNotSupported`
+
+**Classification and impact**
+
+The pinned AZQR reference (`8e4f0577f3615e6c9014c031bcad079f235369cc`) and Cloud Assess both include Network Watchers in the Diagnostics request list. Both have a `nil` recommendation entry for that resource type. Consequently, these two failed requests cannot themselves produce dedicated missing-diagnostics findings in either implementation. This is a pinned-source eligibility mismatch with the API behavior observed in this Azure environment, not evidence of a target-only request-construction defect. The target preserved reference output and reported the non-success status as warnings; do not suppress these warnings to make the stage appear complete.
+
+The probe ran after the original scan and issued individual GETs, while Phase N used ARM batch. The matching number and status of failures strongly suggest the Network Watchers caused the two batch warnings, but the original batch responses did not retain a resource correlation or error code. Their exact identity and the absence of other transient batch failures remain unproved. The original target report remains `complete_with_warnings`; this investigation does not turn it into a fully successful Diagnostics pass. A batch response capture with request correlation would be needed to confirm the historical mapping if required for release evidence.
+
+**Next validation boundary**
+
+Proceed with management-group traversal on a suitable read-only test scope. Keep the Phase N Diagnostics caveat in the evidence matrix, and correlate batch failures with request IDs in a future controlled run if that limitation needs to be closed.
+
 ## Current boundary
 
 The generic core scan, deterministic equivalence tooling, reproducible live runner, default/optional/resource-group/two-subscription live passes, and post-live repository remediation are complete and quality-gated for the behavior exercised so far. The two-subscription pass has an explicit Diagnostics warning boundary.
@@ -866,7 +892,7 @@ The generic core scan, deterministic equivalence tooling, reproducible live runn
 The next live validation boundary is:
 
 ```text
-Diagnostics HTTP 400 warning investigation and management-group source-versus-target equivalence
+Management-group source-versus-target equivalence; retain the Phase N Diagnostics warning caveat
 ```
 
 Required evidence set for each live pass:
