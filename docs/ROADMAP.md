@@ -14,16 +14,16 @@ This document orders the remaining work and defines the evidence needed to close
 - Default-stage subscription, optional-stage, resource-group, and two-subscription live passes returned `equivalent = true` for the compared data.
 - Cost and Defender plan status have non-empty live row-level equivalence evidence. Policy and Defender Recommendations have only empty-result live execution evidence. Arc SQL has not been live-validated.
 - The two-subscription pass resolved both requested subscriptions and exercised non-empty inventory, findings, and Advisor records in each. Its target Diagnostics stage reported two HTTP 400 ARM batch subrequests. A later read-only individual GET probe found two Network Watchers returning HTTP 400 `ResourceTypeNotSupported`; the historical batch failures were not correlated to request IDs. These resources have no dedicated Diagnostics recommendation in either implementation. See Phases N and O in the ledger.
-- Management-group traversal, representative filtered scopes, final feature boundaries, packaging, and release review remain open.
+- A leaf management-group pass on `AdvisoryDev` matched exactly for the compared datasets, with one resolved Dev subscription and one Diagnostics warning. Parent-to-child traversal, representative filtered scopes, final feature boundaries, packaging, and release review remain open. See Phase P in the ledger.
 
-The next live work item is management-group traversal, while the Phase N Diagnostics warning caveat remains in the evidence matrix. Core equivalence and a release decision require the open validation limits to be resolved or explicitly accepted with a narrowed scope.
+The next live work items are nested management-group traversal in a suitable non-production hierarchy and representative filtered scopes. Diagnostics warning caveats from Phases N and P remain in the evidence matrix. Core equivalence and a release decision require the open validation limits to be resolved or explicitly accepted with a narrowed scope.
 
 ## Execution order and completion gates
 
 | Order | Workstream | Completion evidence | Dependency or input |
 |---|---|---|---|
 | 1 | Investigate Diagnostics HTTP 400 responses | Individual GET evidence and the source finding impact are documented in Phase O; historical batch request correlation remains open if exact mapping is required | A controlled read-only batch capture with request correlation to close the historical mapping |
-| 2 | Validate management-group traversal | Pinned source and target runs on the same management group; resolved descendants, per-subscription contribution, stage health, and semantic datasets reviewed | Suitable non-production management group and read access to its child subscriptions |
+| 2 | Validate management-group traversal | Leaf group comparison completed in Phase P; parent-to-child recursion remains to be exercised with the same evidence checks | Suitable non-production parent group and read access to its child groups/subscriptions; `Advisory` includes production and was not scanned |
 | 3 | Close filter and scope combinations | Paired source/target filter fixtures and semantic evidence for include/exclude, tags, scanner selection, and resource/recommendation exclusions | Representative existing resources; provision fixtures only if separately approved |
 | 4 | Close missing stage data | Non-empty Policy and Defender Recommendations comparisons; Arc SQL response shape resolved and characterized | Appropriate live resources or sanitized targeted fixtures |
 | 5 | Strengthen failure and output checks | Tests/evidence for partial stages, permission failures, warnings, redaction, severity exit codes, and report consistency | Results from steps 1-4 and controlled negative-path fixtures |
@@ -46,7 +46,7 @@ The order indicates dependencies, not promised dates. A suitable test scope may 
 
 ## 2. Finish scope and filter equivalence
 
-- Run a management-group pass with the pinned AZQR checkout and Cloud Assess on the same identity, cloud, stages, and stable non-production hierarchy. Confirm which child subscriptions were resolved, which produced data, and whether either scan returned warnings or partial results. Cover nested groups when the test hierarchy provides them.
+- Retain the Phase P leaf management-group baseline. Run a separate parent-group pass with pinned AZQR and Cloud Assess on the same identity, cloud, stages, and stable non-production hierarchy. Confirm which child subscriptions were resolved, which produced data, and whether either scan returned warnings or partial results. The known `Advisory` parent includes a production child and needs a separate scope decision before scanning it.
 - Exercise the no-explicit-scope path against a controlled test tenant if its accessible subscription set is known; verify active/disabled subscription handling without unexpectedly scanning unrelated subscriptions.
 - Validate the remaining filter interactions in paired source/target schemas: subscription and resource-group include/exclude precedence, service/scanner selection, individual-resource and recommendation exclusions, include/exclude tags, and parent/child tag scope. Cover multiple resource groups in one subscription where data permits.
 - Reuse existing reference integration fixtures and sanitized recorded API fixtures for cases the live environment cannot exercise. Provisioning Terraform/Azure fixtures is a separate, opt-in step because it changes Azure resources and may incur cost.
