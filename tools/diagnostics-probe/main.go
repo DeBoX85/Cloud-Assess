@@ -41,7 +41,7 @@ type summary struct {
 	OriginalHTTP400Warnings int       `json:"originalHTTP400Warnings"`
 	EligibleResources       int       `json:"eligibleResources"`
 	SuccessfulGETs          int       `json:"successfulGets"`
-	Failures               []failure `json:"failures"`
+	Failures                []failure `json:"failures"`
 }
 
 var safeErrorCode = regexp.MustCompile(`^[A-Za-z0-9._-]{1,80}$`)
@@ -139,7 +139,7 @@ func probe(ctx context.Context, client getter, endpoint string, resources []asse
 	result := summary{
 		OriginalHTTP400Warnings: originalWarnings,
 		EligibleResources:       len(resources),
-		Failures:               []failure{},
+		Failures:                []failure{},
 	}
 	for _, resource := range resources {
 		url := strings.TrimSuffix(endpoint, "/") + resource.ID + "/providers/microsoft.insights/diagnosticSettings?api-version=" + diagnosticSettingsAPI
