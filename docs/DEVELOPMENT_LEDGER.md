@@ -920,6 +920,12 @@ The target scope stage completed with one resolved subscription. The user's loca
 
 The local target stage summary reported inventory 12, graph 44, diagnostics 6, Advisor 11, and Defender plan status 0. Scope, inventory, graph, Advisor, and Defender stages completed; Diagnostics completed with warnings. It contained one `diagnostics_subrequest_non_success` warning. A follow-up local read of that warning showed `diagnostic settings batch subrequest returned HTTP 400`. The batch warning does not contain the affected resource or Azure error code; the comparator independently noted target warnings. It cannot be assumed to be the Network Watcher response observed by the later individual GET probe in Phase O without request correlation. The target report remains `complete_with_warnings`, so diagnostic-setting conclusions for the unsuccessful batch subrequest remain uncertain.
 
+**Read-only probe follow-up**
+
+The user ran `tools/diagnostics-probe` against the retained Phase P target report. It selected 11 supported inventory resources, returned 10 successful individual diagnostic-settings GETs and one HTTP 400 `ResourceTypeNotSupported` response for `microsoft.network/networkwatchers`. The resource-ID hash for that failure exactly matched one of the two failed Network Watchers in the Phase O probe of the broader two-subscription report. This confirms that the same Network Watcher produces the same error on subsequent individual GETs and strengthens the explanation for the Phase N and P warnings.
+
+Neither original ARM batch response retained request-to-subresponse correlation, so the matching count and status still do not prove which resource generated each historical warning. In the pinned source and target, the Network Watcher Diagnostics support entry has no dedicated recommendation, so this observed unsupported-resource response does not itself generate a missing-diagnostics finding. Preserve both historical reports as `complete_with_warnings`; an exact batch mapping remains open if required for release evidence.
+
 **Next validation boundary**
 
 Keep parent-to-child management-group traversal open until a suitable non-production parent with accessible descendants is available or a separate scope decision is made. Continue with representative filter combinations and missing non-empty optional-stage evidence. Preserve the raw reports and logs under the local evidence stamp for later warning classification.
