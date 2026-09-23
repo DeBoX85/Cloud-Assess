@@ -987,6 +987,35 @@ The user identified `rg-fos-FinopsHub-dev-euw` and `Environment: dev`. Their loc
 
 Paired AZQR and Cloud Assess fixtures now express the full Dev resource-group ID for an RG-only pass, and another pair expresses a tag-only include. The [equivalence guide](EQUIVALENCE.md#filter-file-note) records the RG runner command and the condition for using the tag-only pair. Before running the tag pass, check whether the unfiltered Dev inventory contains any nonmatching resources; if none exist, a passing comparison would not prove tag exclusion. Neither new fixture pair has live equivalence evidence yet, and the earlier unfiltered Diagnostics warning caveats remain open.
 
+### Phase R: AdvisoryDev resource-group filter semantic comparison
+
+**Date and provenance**
+
+```text
+2026-09-23
+Reference: 8e4f0577f3615e6c9014c031bcad079f235369cc
+Target: 1cd44a4904dd1ea1272c2eff89782c4ab3e0f63d
+APRL: 60eaddda76541f6adbc1c5ffa686829807e55e29
+Evidence stamp: 20260923_160228Z
+```
+
+The user supplied `run-metadata.json` and `equivalence.json` for the separate RG-only fixture pair on `AdvisoryDev`. Both commands requested the same management group and implicit default graph, diagnostics, Advisor, and Defender stages. Neither command used a CLI resource-group scope flag. The reference filter was `examples/filters/azqr-dev-rg.yml` (SHA-256 `f287e8c45e9febf1216d6d688242765fa545856f7049ed7337343cc0a635c022`); the target filter was `examples/filters/cloud-assess-dev-rg.yml` (SHA-256 `09d6664d56a3c91a01d060e2ca162dd8e6ae6a46fa99917af9dce5551f7f09e5`). These hashes match the checked-in fixture content with Windows CRLF line endings. The raw reports and logs remain in the user's local evidence directory and were not independently inspected.
+
+**Execution and semantic result**
+
+- reference, target, and comparator exit codes: 0 / 0 / 0
+- comparator result: `equivalent = true`; zero missing, extra, or changed records in every enabled dataset
+- recommendations: 314 / 314
+- primary findings: 11 / 11
+- resource types: 3 / 3
+- in-scope inventory: 3 / 3
+- out-of-scope inventory: 19 / 19
+- Advisor: 3 / 3
+- Defender plan status: enabled on both sides, 0 / 0
+- Policy, Defender Recommendations, Arc SQL, and Cost: not enabled
+
+The non-empty inventory, findings, out-of-scope, and Advisor datasets support exact comparator-level equivalence for this resource-group include filter. The two supplied files do not contain target completeness, resolved subscription IDs, stage statuses, or warning codes. A local target-report summary is still required to close the stage-health and scope review. The tag-only fixture has not been run; its baseline selectivity must be checked separately. Unfiltered Diagnostics warning caveats remain open.
+
 ## Current boundary
 
 The generic core scan, deterministic equivalence tooling, reproducible live runner, default/optional/resource-group/two-subscription/leaf-management-group and Storage/VM filtered live passes, and post-live repository remediation are complete and quality-gated for the behavior exercised so far. The unfiltered two-subscription and leaf-management-group passes have explicit Diagnostics warning boundaries.
