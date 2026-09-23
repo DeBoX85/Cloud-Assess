@@ -198,6 +198,19 @@ Set-Location C:\src\Cloud-Assess
 
 A second pair, `examples/filters/azqr-environment-dev.yml` and `examples/filters/cloud-assess-environment-dev.yml`, includes resources tagged `Environment: dev` regardless of resource group. Run that pair separately only after confirming the unfiltered Dev inventory contains both matching and nonmatching resources; otherwise the live pass cannot demonstrate that the tag filter excludes anything. All three resources observed in the named group carry this tag, so combining the two include conditions there would not independently validate tag filtering. For both passes, inspect target stage health and the resolved subscription, as well as exact comparator counts. A warning-free filtered pass cannot resolve the earlier unfiltered Diagnostics warnings.
 
+The unfiltered Dev inventory check has now confirmed 3 matching and 9 nonmatching resources. For the separate tag-only pass use the same `AdvisoryDev` scope and default stages, with no CLI resource-group flag:
+
+```powershell
+Set-Location C:\src\Cloud-Assess
+.\scripts\live-equivalence.ps1 `
+  -ReferenceRepo C:\src\azqr-reference `
+  -ManagementGroupId AdvisoryDev `
+  -ReferenceFilters .\examples\filters\azqr-environment-dev.yml `
+  -TargetFilters .\examples\filters\cloud-assess-environment-dev.yml
+```
+
+If the Dev inventory has not changed, expect three matching resources; investigate a different count before treating a semantically equal result as tag-filter coverage. The tag-only and RG-only passes can select the same three resources here; their separate filter files test the two mechanisms independently.
+
 ## Required run conditions
 
 For a meaningful live comparison:

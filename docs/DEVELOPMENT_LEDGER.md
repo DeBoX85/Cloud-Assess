@@ -1014,7 +1014,11 @@ The user supplied `run-metadata.json` and `equivalence.json` for the separate RG
 - Defender plan status: enabled on both sides, 0 / 0
 - Policy, Defender Recommendations, Arc SQL, and Cost: not enabled
 
-The non-empty inventory, findings, out-of-scope, and Advisor datasets support exact comparator-level equivalence for this resource-group include filter. The two supplied files do not contain target completeness, resolved subscription IDs, stage statuses, or warning codes. A local target-report summary is still required to close the stage-health and scope review. The tag-only fixture has not been run; its baseline selectivity must be checked separately. Unfiltered Diagnostics warning caveats remain open.
+**Target stage and scope follow-up**
+
+The user read the retained target report locally and reported `complete` status. The scope stage completed with one subscription, and the only populated subscription ID across inventory, out-of-scope, findings, Advisor, and Defender data was the expected Dev subscription `c09f96df-19de-4c49-80ff-0c1a94d93ab2`. Scope, inventory (3 records), graph (11), diagnostics (3), Advisor (3), and Defender (0) stages completed with no warning codes. Defender Recommendations, Policy, Arc SQL, Cost, and plugins were skipped. This closes target stage-health and scope review for the RG-only pass; its filtered result does not resolve the earlier unfiltered Diagnostics warnings. The raw reports and logs remain local and were not independently inspected by the reviewer.
+
+The same local check of the unfiltered Phase P target inventory found 12 in-scope resources: 3 with resource tag `Environment: dev` and 9 without that exact tag match. The three matching resources are the same three already identified in the selected RG. The separate tag-only fixture can therefore test exclusion of nonmatching resources without an RG filter; it has not yet been run. Even if a tag-only report matches the RG-only report, each independently applied filter must be verified against the unfiltered baseline and pinned reference.
 
 ## Current boundary
 
