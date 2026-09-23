@@ -940,6 +940,37 @@ Keep parent-to-child management-group traversal open until a suitable non-produc
 
 The Dev inventory contains two Storage Accounts and one Virtual Machine. A paired, subscription-agnostic fixture now selects the `st` and `vm` scanner keys under the pinned source's `azqr:` root and the target's `assessment:` root. The [equivalence guide](EQUIVALENCE.md#filter-file-note) records the exact read-only runner command on `AdvisoryDev`. This fixture has been syntax-checked locally; a filtered live pass and its warning/scope review remain pending. It does not establish tag, resource-group, resource, or recommendation filter equivalence.
 
+### Phase Q: AdvisoryDev Storage/VM filtered semantic comparison
+
+**Date and provenance**
+
+```text
+2026-09-23
+Reference: 8e4f0577f3615e6c9014c031bcad079f235369cc
+Target: 229555a6ecea67642909f002ec0ec2e986743256
+APRL: 60eaddda76541f6adbc1c5ffa686829807e55e29
+Evidence stamp: 20260923_153403Z
+```
+
+The user supplied the generated `run-metadata.json` and `equivalence.json`. The runner requested management group `AdvisoryDev`, with graph, diagnostics, Advisor, and Defender stages. The reference used `examples/filters/azqr-storage-vm.yml` (SHA-256 `d18089f17792644ccb51828c55ea6272362701139c193023a4af44c06daf5422`); the target used `examples/filters/cloud-assess-storage-vm.yml` (SHA-256 `231db54615fea8a91265387303f66f6eecedfcf42b8bc1b8c6e983458be6bf51`). Each command in the metadata includes its respective filter path. The raw source and target reports and logs remain in the user's local evidence directory and were not independently inspected.
+
+Both filter hashes match the checked-in fixture contents with CRLF checkout line endings on Windows; Git's LF blob hashes naturally differ. This is a line-ending difference, not evidence of changed filter selection.
+
+**Execution and semantic result**
+
+- reference, target, and comparator exit codes: 0 / 0 / 0
+- comparator result: `equivalent = true`; no missing, extra, or changed records in any enabled dataset
+- recommendations: 61 / 61
+- primary findings: 18 / 18
+- resource types: 3 / 3
+- in-scope inventory: 4 / 4
+- out-of-scope inventory: 18 / 18
+- Advisor: 9 / 9
+- Defender plan status: enabled on both sides, 0 / 0
+- Policy, Defender Recommendations, Arc SQL, and Cost: not enabled
+
+This establishes exact comparator-level semantic agreement for the selected scanner keys and requested scope with non-empty findings, inventory, out-of-scope inventory, and Advisor data. The attachments alone do not show the resolved subscription IDs, target completeness, individual stage statuses or warning codes. In particular, they do not establish that filtering removed the prior Network Watcher Diagnostics warning. Obtain a local target-report stage and scope summary before calling this filtered pass fully health-reviewed. The unfiltered Phase N and P Diagnostics warning boundaries remain open, as do tag, resource-group, individual-resource, recommendation, and nested management-group filter/traversal checks.
+
 ## Current boundary
 
 The generic core scan, deterministic equivalence tooling, reproducible live runner, default/optional/resource-group/two-subscription/leaf-management-group live passes, and post-live repository remediation are complete and quality-gated for the behavior exercised so far. The two-subscription and leaf-management-group passes have explicit Diagnostics warning boundaries.
