@@ -969,16 +969,20 @@ Both filter hashes match the checked-in fixture contents with CRLF checkout line
 - Defender plan status: enabled on both sides, 0 / 0
 - Policy, Defender Recommendations, Arc SQL, and Cost: not enabled
 
-This establishes exact comparator-level semantic agreement for the selected scanner keys and requested scope with non-empty findings, inventory, out-of-scope inventory, and Advisor data. The attachments alone do not show the resolved subscription IDs, target completeness, individual stage statuses or warning codes. In particular, they do not establish that filtering removed the prior Network Watcher Diagnostics warning. Obtain a local target-report stage and scope summary before calling this filtered pass fully health-reviewed. The unfiltered Phase N and P Diagnostics warning boundaries remain open, as do tag, resource-group, individual-resource, recommendation, and nested management-group filter/traversal checks.
+**Target stage and scope follow-up**
+
+The user read the retained unredacted target report locally and supplied its summary. Target completeness was `complete`. Its scope stage completed with one subscription; across inventory, out-of-scope inventory, findings, Advisor, and Defender records, the only populated subscription ID was the expected non-production Dev subscription `c09f96df-19de-4c49-80ff-0c1a94d93ab2`. Scope, inventory (4 records), graph (19), diagnostics (2), Advisor (9), and Defender (0) stages all completed with no warning codes. Defender Recommendations, Policy, Arc SQL, Cost, and plugins were skipped. The graph and diagnostics stage record counts are stage counters and should not be equated with the comparator's primary-finding count of 18.
+
+This completes target stage-health and scope review for this filtered pass. The supplied comparison establishes exact semantic agreement for the selected scanner keys and requested scope, with non-empty findings, inventory, out-of-scope inventory, and Advisor data. The Network Watcher HTTP 400 batch warning seen in the earlier unfiltered Dev run is absent from this filtered target report; this does not resolve the historical warning or identify its exact batch request. Raw reports and logs were retained locally and were not independently inspected by the reviewer. The unfiltered Phase N and P Diagnostics warning boundaries remain open, as do tag, resource-group, individual-resource, recommendation, and nested management-group filter/traversal checks.
 
 ## Current boundary
 
-The generic core scan, deterministic equivalence tooling, reproducible live runner, default/optional/resource-group/two-subscription/leaf-management-group live passes, and post-live repository remediation are complete and quality-gated for the behavior exercised so far. The two-subscription and leaf-management-group passes have explicit Diagnostics warning boundaries.
+The generic core scan, deterministic equivalence tooling, reproducible live runner, default/optional/resource-group/two-subscription/leaf-management-group and Storage/VM filtered live passes, and post-live repository remediation are complete and quality-gated for the behavior exercised so far. The unfiltered two-subscription and leaf-management-group passes have explicit Diagnostics warning boundaries.
 
 The next live validation boundary is:
 
 ```text
-Nested management-group traversal and representative filtered-scope equivalence; retain Diagnostics warning caveats
+Nested management-group traversal and remaining filter combinations; retain unfiltered Diagnostics warning caveats
 ```
 
 Required evidence set for each live pass:
