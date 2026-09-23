@@ -1,0 +1,5 @@
+# Cloud Assess equivalent of azqr-environment-dev.yml.
+assessment:
+  include:
+    tags:
+      Environment: dev
