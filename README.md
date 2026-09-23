@@ -10,7 +10,7 @@ The core generic `cloud-assess scan` path is implemented and covered by determin
 
 The current core path includes Azure authentication, subscription and management-group discovery, resource inventory, filtering, scanner pruning, pinned recommendation execution, Diagnostics, Advisor, Defender, Azure Policy, Arc SQL, Cost, stage health/completeness, severity gating, and XLSX/JSON/CSV/SARIF/stdout rendering.
 
-The project is **not yet release-complete**. The deterministic semantic source-versus-target harness has produced equivalent live baselines for the default stages, optional Policy/Defender Recommendations/Cost execution, resource-group scope, and two-subscription scope. Cost and Defender plan status now have non-empty live evidence; Policy and Defender Recommendations have empty-result evidence only. The two-subscription pass completed with two unresolved Diagnostics HTTP 400 subrequest warnings. Management-group traversal, Arc SQL, and other scenarios absent from the test environment remain to be validated.
+The project is **not yet release-complete**. The deterministic semantic source-versus-target harness has produced equivalent live baselines for default stages, optional Policy/Defender Recommendations/Cost execution, resource-group and two-subscription scopes, a leaf management group, and separate Storage/VM, resource-group and tag-include filters. Cost and Defender plan status have non-empty live evidence; Policy and Defender Recommendations have empty-result evidence only. Unfiltered Diagnostics HTTP 400 batch warnings remain uncorrelated. Parent-to-child management-group traversal, the cross-run Advisor count change in the tag pass, Arc SQL and other scenarios absent from the test environment remain to be validated.
 
 External/plugin execution, scanner-specific CLI commands, `rules` / `plugins` CLI surfaces, packaging, generated dependency/license inventory, and final release/security review also remain outstanding.
 
@@ -60,7 +60,7 @@ Active development branch:
 bootstrap/core-v1
 ```
 
-The repository quality gate verifies pinned source-data provenance, Go formatting, module consistency, branding boundaries, PowerShell validation helpers, executable build/help smoke tests, race-enabled tests, a minimum statement-coverage floor, `go vet`, and reachable-vulnerability scanning. External GitHub Actions are pinned to immutable commit SHAs.
+The repository quality gate verifies pinned source-data provenance, Go formatting, module consistency, branding boundaries, PowerShell validation helpers, executable build/help smoke tests, race-enabled tests, a minimum statement-coverage floor, `go vet`, and reachable-vulnerability scanning. A required Windows job validates PowerShell 5.1 helpers, Go tests and executable smoke checks. Both jobs and pull requests are enforced on `bootstrap/core-v1` by an active ruleset. External GitHub Actions are pinned to immutable commit SHAs.
 
 The generic scan path is suitable for controlled test-environment validation. It should not yet be treated as production/customer-equivalent until the remaining live-coverage, packaging, dependency/license, security, and operational boundaries are complete.
 
