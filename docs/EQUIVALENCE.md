@@ -198,7 +198,7 @@ Set-Location C:\src\Cloud-Assess
 
 A second pair, `examples/filters/azqr-environment-dev.yml` and `examples/filters/cloud-assess-environment-dev.yml`, includes resources tagged `Environment: dev` regardless of resource group. Run that pair separately only after confirming the unfiltered Dev inventory contains both matching and nonmatching resources; otherwise the live pass cannot demonstrate that the tag filter excludes anything. All three resources observed in the named group carry this tag, so combining the two include conditions there would not independently validate tag filtering. For both passes, inspect target stage health and the resolved subscription, as well as exact comparator counts. A warning-free filtered pass cannot resolve the earlier unfiltered Diagnostics warnings.
 
-The unfiltered Dev inventory check has now confirmed 3 matching and 9 nonmatching resources. For the separate tag-only pass use the same `AdvisoryDev` scope and default stages, with no CLI resource-group flag:
+The unfiltered Dev inventory check confirmed 3 matching and 9 nonmatching resources. To reproduce the separate tag-only pass, use the same `AdvisoryDev` scope and default stages, with no CLI resource-group flag:
 
 ```powershell
 Set-Location C:\src\Cloud-Assess
@@ -209,7 +209,7 @@ Set-Location C:\src\Cloud-Assess
   -TargetFilters .\examples\filters\cloud-assess-environment-dev.yml
 ```
 
-If the Dev inventory has not changed, expect three matching resources; investigate a different count before treating a semantically equal result as tag-filter coverage. The tag-only and RG-only passes can select the same three resources here; their separate filter files test the two mechanisms independently.
+The Phase S tag-only pass selected exactly the same three tagged resource IDs as the earlier unfiltered baseline; the other nine resources were excluded and both reports matched semantically. If the Dev inventory changes in a later run, investigate a different count before treating a semantically equal result as tag-filter coverage. The tag-only and RG-only passes each counted three selected resources through separate mechanisms, but their ID sets have not been directly compared. Advisor returned two rows on each side in the tag-only pass, versus three rows on each side in the earlier RG-only pass; the cause of that cross-run change remains open.
 
 ## Required run conditions
 

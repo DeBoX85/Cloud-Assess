@@ -1034,14 +1034,65 @@ The maintenance workflows have been changed to publish generated commits on dedi
 
 The first PR run of the Windows job passed PowerShell 5.1 parsing/helpers but exposed three tests asserting Unix `0600` file-mode bits on Windows. The Windows Go runtime reported `0666` for created CSV, XLSX and SARIF files. Go's Windows `FileMode`/`Chmod` API exposes the read-only attribute rather than the Windows access-control list, so the Unix-mode assertions were scoped to non-Windows platforms. This does **not** validate Windows report ACL privacy; Gate 004 now requires an explicit Windows ACL review before release approval. The changed PR must pass both CI jobs before merging.
 
+### Planning checkpoint: Enforced branch checks verified
+
+**Date**
+
+```text
+2026-09-23
+```
+
+PR #15 merged the maintenance-branch, Windows validation and Gate 004 planning changes into `bootstrap/core-v1` at `b75ca9a0397538e0f44376a225ba9c26ef66ad93`. Both required job contexts, `quality` and `windows-validation`, passed on the PR and the postmerge push run `35890146814`.
+
+The repository's active branch ruleset `23890737` targets exactly `refs/heads/bootstrap/core-v1`, requires a pull request and both GitHub Actions job checks, prohibits deletion and non-fast-forward updates, and lists no bypass actors. The branch API reports `protected: true`. Its strict up-to-date requirement is disabled; this meets the agreed PR/checks enforcement but leaves a separate policy choice if concurrent merges become a concern. This checkpoint verifies enforced *development* CI; it is not a Gate 004 PASS, and Windows report ACL privacy is still unverified. The revised maintenance workflows have not yet been demonstrated with a postchange manual dispatch.
+
+### Phase S: AdvisoryDev tag-only include-filter semantic comparison
+
+**Date and provenance**
+
+```text
+2026-09-23
+Reference: 8e4f0577f3615e6c9014c031bcad079f235369cc
+Target: 1cd44a4904dd1ea1272c2eff89782c4ab3e0f63d
+APRL: 60eaddda76541f6adbc1c5ffa686829807e55e29
+Evidence stamp: 20260923_170735Z
+```
+
+The user supplied `run-metadata.json`, `equivalence.json`, and a local summary computed from the unredacted target report and the Phase P unfiltered target report. The raw reference/target JSON and logs remain local and were not independently inspected. The runner used the `AdvisoryDev` management-group leaf without a CLI resource-group flag, with implicit graph, diagnostics, Advisor and Defender stages on both sides. The reference filter `examples/filters/azqr-environment-dev.yml` had SHA-256 `2e02f685c73c8810aa992045e81e5deb0e789b824ed1f6f51be94b33dce044fb`; the target filter `examples/filters/cloud-assess-environment-dev.yml` had SHA-256 `b091145d2e5c48189d3b3ff3a5fa091d39e420ea545f9edde99ba0793f12eb8f`. Both hashes match the checked-in YAML with Windows CRLF checkout line endings. The pair includes resource tag `Environment: dev` without an RG include filter.
+
+**Execution and semantic result**
+
+- reference, target and comparator exit codes: 0 / 0 / 0
+- comparator: `equivalent = true`, no missing, extra or changed records in any enabled dataset
+- recommendations: 314 / 314
+- primary findings: 11 / 11
+- resource types: 3 / 3
+- in-scope inventory: 3 / 3
+- out-of-scope inventory: 19 / 19
+- Advisor: 2 / 2
+- Defender plan status: enabled on both sides, 0 / 0
+- Policy, Defender Recommendations, Arc SQL and Cost: not enabled
+
+The user's target report summary showed `complete` with one resolved scope subscription, 3 inventory, 11 graph, 3 diagnostics, 2 Advisor and 0 Defender stage records. Every requested stage completed with no warning codes. The local resource-ID set comparison against the earlier unfiltered Dev inventory returned `SelectedIdsMatchTags = True`: the three selected resources exactly matched the three with resource tag `Environment: dev`, none of the other nine baseline in-scope resources was selected, and all three selected records retained the tag. The out-of-scope count was 19. This provides non-empty, independently selective evidence for the include-tag condition, subject to the locally reported ID-set check.
+
+**Cross-run caveat**
+
+The RG-only Phase R pass counted three selected resources in the named group and had 3 / 3 Advisor rows, while the later tag-only run has 2 / 2. The earlier unfiltered baseline counted exactly three tagged resources in that group, and Phase S's IDs match that baseline. The two filtered runs' resource-ID sets have not yet been compared directly. The paired comparison within each run is exact; that does not establish why one Advisor row is absent across runs. The missing row's identity, whether it still targeted a selected resource, and whether Azure state changed or downstream filter behavior differed need local record-level classification. Do not silently label the difference as environmental or treat all tag-related downstream behavior as closed until this check is done.
+
+The target SHA in this run predates the current branch merge `b75ca9a`. The intervening changed files are documentation, CI workflows, renderer tests and a SARIF comment; no Azure scan/tag-filter implementation or tag fixture content changed. The pass therefore characterizes the tag behavior exercised by the recorded target SHA; future runs should first fast-forward the local branch for exact current-branch provenance.
+
+**Next validation boundary**
+
+Classify the cross-run Advisor row difference from locally retained Phase R and S target reports without publishing resource IDs. Then continue remaining include/exclude tag and filter combinations and safe parent-to-child management-group traversal. Unfiltered Diagnostics caveats remain open. Quality Gate 004 is still planned, not passed.
+
 ## Current boundary
 
-The generic core scan, deterministic equivalence tooling, reproducible live runner, default/optional/resource-group/two-subscription/leaf-management-group and Storage/VM filtered live passes, and post-live repository remediation are complete and quality-gated for the behavior exercised so far. The unfiltered two-subscription and leaf-management-group passes have explicit Diagnostics warning boundaries.
+The generic core scan, deterministic equivalence tooling, reproducible live runner, default/optional/resource-group/two-subscription/leaf-management-group and separate Storage/VM, RG and tag include-filter live passes, plus enforced development CI, are complete for the behavior exercised so far. The unfiltered two-subscription and leaf-management-group passes have explicit Diagnostics warning boundaries; the cross-run Advisor count change in the tag pass remains to be classified.
 
 The next live validation boundary is:
 
 ```text
-Nested management-group traversal and remaining filter combinations; retain unfiltered Diagnostics warning caveats
+Classify the cross-run Advisor difference; nested management-group traversal and remaining filter combinations; retain unfiltered Diagnostics warning caveats
 ```
 
 Required evidence set for each live pass:
@@ -1059,6 +1110,7 @@ Required evidence set for each live pass:
 The following are not forgotten; they remain intentionally open:
 
 - Diagnostics HTTP 400 subrequest root cause and affected-resource coverage
+- cross-run Advisor count difference between RG-only and tag-only filtered passes
 - nested management-group traversal equivalence
 - non-empty Policy and Defender Recommendations evidence
 - Arc SQL numeric `vcores` response-shape resolution

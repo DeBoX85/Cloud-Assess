@@ -6,7 +6,7 @@ Reference implementation: `DeBoX85/azqr`
 
 Reference commit: `8e4f0577f3615e6c9014c031bcad079f235369cc`
 
-Current implementation milestone: the generic core scan path and deterministic semantic source-versus-target equivalence harness are implemented. Live Azure regression is in progress: default-stage, optional-stage, resource-group-scoped, and two-subscription passes are equivalent for the data compared. The two-subscription pass has two unresolved Diagnostics HTTP 400 warnings. Management-group traversal and non-empty evidence for currently absent datasets remain next.
+Current implementation milestone: the generic core scan path and deterministic semantic source-versus-target equivalence harness are implemented. Live Azure regression is in progress: default-stage, optional-stage, resource-group-scoped, two-subscription, leaf-management-group and selected filter passes are equivalent for the data compared. Unfiltered Diagnostics batch warnings remain uncorrelated; the tag pass has an unclassified cross-run Advisor count change. Parent-to-child management-group traversal and non-empty evidence for currently absent datasets remain next.
 
 ## Principle
 
@@ -59,7 +59,7 @@ Observe source behavior
 
 ## Current completion boundary
 
-Steps 1-27 are implemented. Step 28 is in progress, with equivalent live baselines recorded for default stages, optional Policy/Defender Recommendations/Cost execution, resource-group scope, and two-subscription scope. The two-subscription pass has an unresolved Diagnostics warning boundary. Step 29 has a permanent CI quality gate but still lacks packaging/release automation.
+Steps 1-27 are implemented. Step 28 is in progress, with equivalent live baselines recorded for default stages, optional Policy/Defender Recommendations/Cost execution, resource-group and two-subscription scopes, a leaf management group, and separate scanner, RG include and tag include filters. The unfiltered passes retain Diagnostics warning limits; the tag pass retains a cross-run Advisor count question. Step 29 has enforced Linux and Windows CI jobs but still lacks packaging/release automation.
 
 The ordered remaining work, evidence gates, and release-scope decisions are maintained in [ROADMAP.md](ROADMAP.md).
 
@@ -103,7 +103,8 @@ The generic core `scan` path is runnable and semantically equivalent for the liv
 Outstanding work includes:
 
 - investigation of two Diagnostics HTTP 400 subrequests in the two-subscription pass
-- management-group live regression against the pinned reference
+- parent-to-child management-group live regression against the pinned reference; the leaf pass is complete
+- classification of the cross-run Advisor count change between RG and tag filter passes
 - non-empty live or targeted-fixture evidence for Policy and Defender Recommendations
 - resolution of the live Arc SQL `vcores` response shape
 - external/YAML plugin execution in production orchestration
