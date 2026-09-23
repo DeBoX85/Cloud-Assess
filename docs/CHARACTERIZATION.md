@@ -204,7 +204,8 @@ This document tracks source behavior that Cloud Assess intentionally preserves o
 
 - CI builds the actual `cloud-assess` binary in addition to compiling packages through tests.
 - CI smoke-tests `cloud-assess --help`, `cloud-assess scan --help`, and `cloud-assess --version`.
-- The permanent gate also verifies pinned source-data provenance, formatting, module graph cleanliness, branding boundaries, race-enabled tests, and `go vet`.
+- The permanent gate also verifies pinned source-data provenance, formatting, module graph cleanliness, branding boundaries, PowerShell validation-helper behavior, race-enabled tests, a minimum total statement-coverage floor, `go vet`, and reachable vulnerabilities.
+- CI uses the current patched Go 1.26 toolchain selected by the repository and pins external GitHub Actions to immutable commit SHAs.
 
 ### Semantic source-versus-target equivalence
 
@@ -239,8 +240,9 @@ This document tracks source behavior that Cloud Assess intentionally preserves o
 
 ## Next characterization targets
 
-1. Run the pinned reference and Cloud Assess against the same stable non-production Azure test environment using the semantic equivalence harness.
-2. Classify and resolve live deltas, including the Arc SQL `vcores` response shape.
-3. Add targeted Terraform/reference fixtures for important scenarios absent from the existing test environment.
-4. Wire external/YAML plugin execution into production orchestration and then migrate the deferred internal plugins.
-5. Complete the agreed scanner-specific, `rules`, and `plugins list/info` CLI surfaces.
+1. Validate multi-subscription or management-group traversal against the pinned reference.
+2. Resolve the Arc SQL `vcores` response shape with live or targeted evidence.
+3. Obtain non-empty live or targeted-fixture evidence for Policy, Defender Recommendations, and Defender plan status.
+4. Add targeted Terraform/reference fixtures for other important scenarios absent from the existing test environment.
+5. Wire external/YAML plugin execution into production orchestration and then migrate the deferred internal plugins.
+6. Complete the agreed scanner-specific, `rules`, and `plugins list/info` CLI surfaces.

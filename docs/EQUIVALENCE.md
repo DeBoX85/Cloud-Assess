@@ -57,6 +57,23 @@ For a resource-group-scoped first pass:
   -ResourceGroup <resource-group>
 ```
 
+Multiple subscriptions are accepted as a PowerShell array or a comma-separated value:
+
+```powershell
+.\scripts\live-equivalence.ps1 `
+  -ReferenceRepo C:\src\azqr-reference `
+  -SubscriptionId <subscription-1>,<subscription-2>
+```
+
+One or more resource groups may be supplied when exactly one subscription is selected:
+
+```powershell
+.\scripts\live-equivalence.ps1 `
+  -ReferenceRepo C:\src\azqr-reference `
+  -SubscriptionId <subscription-id> `
+  -ResourceGroup <resource-group-1>,<resource-group-2>
+```
+
 For management-group validation:
 
 ```powershell
@@ -65,6 +82,8 @@ For management-group validation:
   -ManagementGroupId <management-group-id>
 ```
 
+Multiple management groups may likewise be supplied as an array or comma-separated value.
+
 The runner:
 
 1. verifies the reference checkout is exactly at the pinned AZQR commit;
@@ -72,13 +91,15 @@ The runner:
 3. verifies both APRL submodules are initialized at the pinned APRL revision;
 4. records the exact source and target commit SHAs and branches;
 5. records Go/PowerShell versions and Azure cloud endpoint variables that affect runtime behavior;
-6. records the selected scope and stages;
+6. records the selected scope, requested stage controls, and resolved effective stages;
 7. hashes any reference/target filter files used;
 8. runs the pinned reference with JSON enabled and masking disabled;
 9. runs Cloud Assess with canonical JSON enabled and redaction disabled;
 10. captures stdout and stderr separately for both scans;
 11. runs the semantic comparator;
 12. writes a machine-readable `run-metadata.json` alongside the two reports and equivalence report.
+
+When `-Stages` is omitted, the runner passes no stage override to either executable and records the resolved default set (`graph`, `diagnostics`, `advisor`, and `defender`) with `usesImplicitDefaults: true`. Explicit additions and `-stage` removals are resolved and recorded separately from the original requested controls.
 
 By default, the evidence is written beneath:
 

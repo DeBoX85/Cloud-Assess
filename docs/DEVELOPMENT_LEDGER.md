@@ -19,6 +19,7 @@ Cloud Assess development evidence is intentionally split into several layers:
 | `CHARACTERIZATION.md` | Source behavior preserved or intentionally changed | Behavioral contract |
 | `QUALITY_GATE_001.md` | Formal audit of the core foundation | Audit snapshot |
 | `QUALITY_GATE_002.md` | Formal audit of the runnable integration path | Audit snapshot |
+| `QUALITY_GATE_003.md` | Formal post-live-validation repository and quality-gate audit | Audit snapshot |
 | `EQUIVALENCE.md` | Procedure and normalization rules for source-vs-target comparison | Validation runbook |
 | `TARGET_SPECIFICATION.md` | Target architecture/product requirements | Design contract |
 | `NOTICE.md` / `THIRD_PARTY_LICENSES.md` | Attribution and incorporated-license evidence | Legal/provenance record |
@@ -704,14 +705,86 @@ The run metadata captured the full source and target commands, scope, commits, d
 
 Validate broader scope traversal next, using multi-subscription or management-group scope if an appropriate test scope and permissions are available. Important behaviors still absent from live non-empty evidence should subsequently be covered through a suitable Azure environment or targeted fixtures.
 
-## Current boundary
+### Phase M: Post-live-validation repository audit and quality-gate hardening
 
-The deterministic/local development phases through semantic equivalence tooling and the reproducible live-equivalence runner are complete and quality-gated.
-
-The next major phase is:
+**Date**
 
 ```text
-Live Azure source-versus-target regression
+2026-09-23
+```
+
+**Audited baseline**
+
+```text
+5cc911ea853cbcdf402a43cb0c96d359f8ece81d
+```
+
+**Validated remediation commit**
+
+```text
+954dd75584f96dff1f5017b952c0fd11def40a53
+```
+
+**Workflow evidence**
+
+```text
+Go quality gate run 35847062551
+```
+
+**Reason for the gate**
+
+Development paused before broader live scope validation to perform a complete repository QA and check for implementation, documentation, evidence, CI, or security drift.
+
+**Material findings**
+
+- Go `1.26.0` produced 19 reachable standard-library findings under `govulncheck`
+- implicit live-runner stages executed correctly but were serialized as null in evidence metadata
+- the live runner could not express multiple explicit subscriptions even though both executables support them
+- PowerShell evidence logic was parser-checked but not behavior-tested
+- README, implementation-plan, characterization, and current-boundary text lagged behind the completed Phase J/K/L live passes
+- pull requests targeting the active development branch were not quality-gated
+- external GitHub Actions used mutable major-version tags
+- the permanent gate had no coverage floor or reachable-vulnerability scan
+
+**Remediation**
+
+- raised the repository and CI toolchain to Go `1.26.8`
+- added pinned `govulncheck v1.8.0`; remediated result is zero reachable vulnerabilities
+- added a 75% total statement-coverage floor; validated total is 77.2%
+- pinned external actions to full commit SHAs
+- added `bootstrap/core-v1` as a pull-request gate target
+- added tested scope/stage helper logic for the live runner
+- runner metadata schema `1.1` records requested controls, effective stages, and implicit-default selection
+- runner now supports multiple subscriptions, multiple management groups, and multiple resource groups within one subscription
+- reconciled current-state and next-boundary documentation
+- created `QUALITY_GATE_003.md` as the detailed audit record
+
+**Validation state**
+
+- independent repeated shuffled tests: pass
+- PowerShell parse and behavior tests: pass
+- executable build/help/version checks: pass
+- full race-enabled tests: pass
+- coverage floor: pass at 77.2%
+- `go vet`: pass
+- `actionlint`: pass
+- `govulncheck`: pass with zero reachable vulnerabilities
+- hosted quality gate: pass
+
+**Residual boundary**
+
+The Phase J/K/L raw evidence bundles remain intentionally untracked because they contain unredacted Azure identifiers. This repository gate validates the runner, metadata contract, code, documentation, and hosted workflow; it does not replace independent replay of those sensitive bundles.
+
+Broader live equivalence remains next, beginning with multi-subscription or management-group scope. Arc SQL and non-empty Policy/Defender datasets still require suitable live data or targeted fixtures.
+
+## Current boundary
+
+The generic core scan, deterministic equivalence tooling, reproducible live runner, default/optional/resource-group live passes, and post-live repository remediation are complete and quality-gated for the behavior exercised so far.
+
+The next live validation boundary is:
+
+```text
+Multi-subscription or management-group source-versus-target equivalence
 ```
 
 Required evidence set for each live pass:
@@ -728,7 +801,8 @@ Required evidence set for each live pass:
 
 The following are not forgotten; they remain intentionally open:
 
-- live Azure equivalence
+- multi-subscription and management-group live equivalence
+- non-empty Policy, Defender Recommendations, and Defender plan-status evidence
 - Arc SQL numeric `vcores` response-shape resolution
 - production external/YAML plugin execution
 - internal plugin migration/parity

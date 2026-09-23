@@ -6,7 +6,7 @@ Reference implementation: `DeBoX85/azqr`
 
 Reference commit: `8e4f0577f3615e6c9014c031bcad079f235369cc`
 
-Current implementation milestone: the generic core scan path and deterministic semantic source-versus-target equivalence harness are implemented. Live Azure source-versus-target regression is the next major phase.
+Current implementation milestone: the generic core scan path and deterministic semantic source-versus-target equivalence harness are implemented. Live Azure regression is in progress: default-stage, optional-stage, and resource-group-scoped passes are complete and equivalent for the data exercised. Broader traversal and non-empty evidence for currently absent datasets remain next.
 
 ## Principle
 
@@ -59,7 +59,7 @@ Observe source behavior
 
 ## Current completion boundary
 
-Steps 1-27 are implemented: the generic core scan path is quality-gated and the development equivalence harness can normalize the pinned reference table-JSON and Cloud Assess canonical JSON into comparable semantic datasets.
+Steps 1-27 are implemented. Step 28 is in progress, with equivalent live baselines recorded for default stages, optional Policy/Defender Recommendations/Cost execution, and resource-group scope. Step 29 has a permanent CI quality gate but still lacks packaging/release automation.
 
 The current executable path is:
 
@@ -92,15 +92,16 @@ Exit semantics are finalized:
 
 Reports are rendered before exit 2 or 3 is returned, preserving evidence for CI and troubleshooting. When a critical stage returns a partial result plus an error, requested reports are also persisted when possible before exit 1.
 
-The CI foundation from step 29 is already partly implemented ahead of sequence. It currently checks pinned source-data provenance, formatting, module graph cleanliness, branding boundaries, the actual CLI build, root/scan help and version smoke tests, race-enabled tests, and `go vet`. Packaging/release automation remains future work.
+The CI foundation from step 29 is already partly implemented ahead of sequence. It checks pinned source-data provenance, formatting, module graph cleanliness, branding boundaries, PowerShell validation-helper behavior, the actual CLI build, root/scan help and version smoke tests, race-enabled tests, a minimum statement-coverage floor, `go vet`, and reachable vulnerabilities. External actions are commit-pinned. Packaging/release automation remains future work.
 
 ## Current known gaps
 
-The generic core `scan` path is runnable, but core v1 is not yet declared equivalent or release-complete.
+The generic core `scan` path is runnable and semantically equivalent for the live behaviors exercised so far, but core v1 is not yet declared release-complete.
 
 Outstanding work includes:
 
-- live Azure regression against the pinned reference
+- multi-subscription and management-group live regression against the pinned reference
+- non-empty live or targeted-fixture evidence for Policy, Defender Recommendations, and Defender plan status
 - resolution of the live Arc SQL `vcores` response shape
 - external/YAML plugin execution in production orchestration
 - internal plugin migration/parity
@@ -175,16 +176,14 @@ Excel comparison focuses on worksheet names, headers, rows, ordering, counts, re
 
 ### 4. Live Azure equivalence
 
-Next major phase:
+Current state and next boundary:
 
 ```text
-Select stable Azure test scope
-Run pinned reference
-Run Cloud Assess
-Normalize both outputs
-Compare findings and auxiliary datasets
-Classify every delta
-Repeat with targeted fixtures for missing scenarios
+Completed: default-stage subscription baseline
+Completed: optional Policy/Defender Recommendations/Cost pass
+Completed: resource-group-scoped pass
+Next: multi-subscription or management-group traversal
+Then: targeted fixtures for important non-empty scenarios absent from the environment
 ```
 
 Primary finding comparison key:
@@ -197,7 +196,7 @@ Impact
 Source
 ```
 
-A pre-existing non-production Azure test environment is suitable for the first pass. Targeted Terraform fixtures should be added only for behaviors not represented there.
+The existing non-production Azure environment supplied the first three live passes. Targeted Terraform fixtures should be added only for important behaviors not represented there.
 
 ## Existing reference fixtures to reuse
 
