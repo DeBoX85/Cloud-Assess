@@ -209,7 +209,7 @@ Set-Location C:\src\Cloud-Assess
   -TargetFilters .\examples\filters\cloud-assess-environment-dev.yml
 ```
 
-The Phase S tag-only pass selected exactly the same three tagged resource IDs as the earlier unfiltered baseline; the other nine resources were excluded and both reports matched semantically. If the Dev inventory changes in a later run, investigate a different count before treating a semantically equal result as tag-filter coverage. The tag-only and RG-only passes each counted three selected resources through separate mechanisms, but their ID sets have not been directly compared. Advisor returned two rows on each side in the tag-only pass, versus three rows on each side in the earlier RG-only pass; the cause of that cross-run change remains open.
+The Phase S tag-only pass selected exactly the same three tagged resource IDs as the earlier unfiltered baseline; the other nine resources were excluded and both reports matched semantically. If the Dev inventory changes in a later run, investigate a different count before treating a semantically equal result as tag-filter coverage. A later local comparison confirmed the tag-only and RG-only selected ID sets also matched. Advisor returned two rows on each side in the tag-only pass versus three on each side in the earlier RG-only pass. The missing row targeted neither a selected resource nor its child, consistent with the pinned source's include-tag rule excluding unknown downstream tag scope. Azure timing cannot be ruled out between runs.
 
 ## Required run conditions
 

@@ -1085,14 +1085,28 @@ The target SHA in this run predates the current branch merge `b75ca9a`. The inte
 
 Classify the cross-run Advisor row difference from locally retained Phase R and S target reports without publishing resource IDs. Then continue remaining include/exclude tag and filter combinations and safe parent-to-child management-group traversal. Unfiltered Diagnostics caveats remain open. Quality Gate 004 is still planned, not passed.
 
+### Phase S follow-up: Advisor row scope in the tag-only pass
+
+**Date**
+
+```text
+2026-09-23
+```
+
+The user compared the locally retained, unredacted Phase R RG-only and Phase S tag-only target reports without sharing resource IDs. The selected inventory ID sets were identical (`SameSelectedResourceIds = True`), each with three resources. The earlier RG-only report had three Advisor rows; the tag-only report had two. Exactly one RG-only row was absent, with no added tag-only rows. The absent row was `HighAvailability`, `Medium` impact and targeted neither a selected inventory resource nor a child of one in either filtered report. The summary did not disclose whether this Advisor resource existed in either out-of-scope inventory; no raw reports or API response snapshots were independently inspected.
+
+In the pinned AZQR source at `8e4f0577`, `internal/scanners/advisor.go` applies `filters.Azqr.IsServiceExcluded` to each Advisor resource ID. `internal/models/filters.go` excludes an Advisor row when an include-tag filter is active and no tag-scope decision is known for that ID or its recorded ancestors. Cloud Assess applies the same policy in `internal/advisor/scanner.go` and `internal/config/filters.go`. The RG-only filter need not exclude an otherwise structurally in-scope Advisor resource merely because it was not in the discovered inventory. The observed 3-to-2 difference is therefore **consistent with the source-compatible unknown tag-scope rule** when the same Advisor row is returned in both runs. The runs were separated in time; without their raw Azure API responses, a concurrent Azure Advisor change cannot be ruled out. No target-only semantic delta or defect has been demonstrated. A focused deterministic regression test now characterizes the include-tag unknown-scope case while preserving the selected-parent child case.
+
+This closes the cross-run row *classification* with its timing limit. It does not certify every tag interaction: exclude tags, multiple tags, key/value edge cases and other downstream scope combinations remain on the roadmap. The Phase S result stays `equivalent = true` and `complete`; historical unfiltered Diagnostics warnings remain separate open evidence limits.
+
 ## Current boundary
 
-The generic core scan, deterministic equivalence tooling, reproducible live runner, default/optional/resource-group/two-subscription/leaf-management-group and separate Storage/VM, RG and tag include-filter live passes, plus enforced development CI, are complete for the behavior exercised so far. The unfiltered two-subscription and leaf-management-group passes have explicit Diagnostics warning boundaries; the cross-run Advisor count change in the tag pass remains to be classified.
+The generic core scan, deterministic equivalence tooling, reproducible live runner, default/optional/resource-group/two-subscription/leaf-management-group and separate Storage/VM, RG and tag include-filter live passes, plus enforced development CI, are complete for the behavior exercised so far. The unfiltered two-subscription and leaf-management-group passes have explicit Diagnostics warning boundaries. The cross-run Advisor count difference has a source-compatible filter explanation with an unavoidable historical Azure timing limit.
 
 The next live validation boundary is:
 
 ```text
-Classify the cross-run Advisor difference; nested management-group traversal and remaining filter combinations; retain unfiltered Diagnostics warning caveats
+Nested management-group traversal and remaining filter combinations; retain unfiltered Diagnostics warning caveats
 ```
 
 Required evidence set for each live pass:
@@ -1110,7 +1124,6 @@ Required evidence set for each live pass:
 The following are not forgotten; they remain intentionally open:
 
 - Diagnostics HTTP 400 subrequest root cause and affected-resource coverage
-- cross-run Advisor count difference between RG-only and tag-only filtered passes
 - nested management-group traversal equivalence
 - non-empty Policy and Defender Recommendations evidence
 - Arc SQL numeric `vcores` response-shape resolution
