@@ -1,6 +1,7 @@
 name: Import pinned rule baseline
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - bootstrap/core-v1
@@ -62,5 +63,8 @@ jobs:
 
           git config user.name "cloud-assess-bot"
           git config user.email "134433647+DeBoX85@users.noreply.github.com"
+          branch="maintenance/rule-import-${GITHUB_RUN_ID}"
+          git switch -c "$branch"
           git commit -m "data: import pinned assessment rule baseline"
-          git push origin HEAD:bootstrap/core-v1
+          git push origin "HEAD:refs/heads/$branch"
+          echo "Open a PR for the rule baseline: https://github.com/${GITHUB_REPOSITORY}/compare/bootstrap/core-v1...${branch}?expand=1" >> "$GITHUB_STEP_SUMMARY"

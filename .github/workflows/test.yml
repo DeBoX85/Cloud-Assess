@@ -136,3 +136,52 @@ jobs:
 
       - name: Check reachable vulnerabilities
         run: go run golang.org/x/vuln/cmd/govulncheck@v1.8.0 ./...
+
+  windows-validation:
+    runs-on: windows-2022
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          submodules: recursive
+
+      - name: Set up Go
+        uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # v6.5.0
+        with:
+          go-version: '1.26.8'
+          cache: true
+
+      - name: Parse scripts with Windows PowerShell 5.1
+        shell: powershell
+        run: |
+          $parseFailed = $false
+          Get-ChildItem -Path ./scripts -Include *.ps1,*.psm1 -File -Recurse | ForEach-Object {
+            $tokens = $null
+            $errors = $null
+            [System.Management.Automation.Language.Parser]::ParseFile($_.FullName, [ref]$tokens, [ref]$errors) | Out-Null
+            if ($errors.Count -gt 0) {
+              $parseFailed = $true
+              $errors | ForEach-Object { Write-Error $_.Message }
+            }
+          }
+          if ($parseFailed) { exit 1 }
+
+      - name: Test Windows PowerShell validation helpers
+        shell: powershell
+        run: ./scripts/tests/live-equivalence.tests.ps1
+
+      - name: Test Go packages on Windows
+        run: go test ./...
+
+      - name: Build and smoke-test Windows CLI
+        shell: powershell
+        run: |
+          New-Item -ItemType Directory -Path .build -Force | Out-Null
+          go build -o .build/cloud-assess.exe ./cmd/cloud-assess
+          if ($LASTEXITCODE -ne 0) { throw 'Windows CLI build failed.' }
+          & ./.build/cloud-assess.exe --help | Out-Null
+          if ($LASTEXITCODE -ne 0) { throw 'Windows root help failed.' }
+          & ./.build/cloud-assess.exe scan --help | Out-Null
+          if ($LASTEXITCODE -ne 0) { throw 'Windows scan help failed.' }
+          & ./.build/cloud-assess.exe --version | Out-Null
+          if ($LASTEXITCODE -ne 0) { throw 'Windows version failed.' }

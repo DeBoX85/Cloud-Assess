@@ -8,6 +8,8 @@ Reference implementation: `DeBoX85/azqr` at `8e4f0577f3615e6c9014c031bcad079f235
 
 This document orders the remaining work and defines the evidence needed to close it. [TARGET_SPECIFICATION.md](TARGET_SPECIFICATION.md) defines the product contract; [IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md) records the implementation sequence and definition of done; [DEVELOPMENT_LEDGER.md](DEVELOPMENT_LEDGER.md) records what actually happened. Historical quality gates remain snapshots, not statements that every later boundary has passed.
 
+[Quality Gate 004](QUALITY_GATE_004_PLAN.md) is a planned core validation decision with explicit evidence rows, not a completed gate. The release artifact/security/operations decision follows separately after first-release scope is fixed.
+
 ## Starting point
 
 - The generic scan, its canonical reports, the deterministic semantic comparator, and the Windows live-equivalence runner are implemented and CI-gated.
@@ -32,6 +34,8 @@ The next live work items are nested management-group traversal in a suitable non
 | 6 | Set and implement the first-release feature boundary | Required plugin and CLI work implemented; any omissions expressly re-scoped in the specification and ledger | Decision on first-release scope after core equivalence |
 | 7 | Build distributable artifacts and complete release review | Repeatable builds, license/dependency inventory, checksums/provenance, clean-machine tests, and security/operations sign-off | Feature boundary and selected target platforms |
 | 8 | Record release candidate baseline | Pinned source/target provenance, completed evidence matrix, accepted limitations, release SHA, CI runs, and rollback instructions indexed in the ledger | All required gates pass |
+
+The permanent CI workflow is a development regression gate. Protect `bootstrap/core-v1` with a required PR and both `quality` and `windows-validation` checks to enforce it at merge. The dependency and rule maintenance workflows publish proposed changes to separate branches and provide compare links for PR creation; they no longer push directly to the protected branch.
 
 The order indicates dependencies, not promised dates. A suitable test scope may let steps 2-4 proceed concurrently; a missing environment must remain an explicit evidence gap rather than a fabricated success.
 
