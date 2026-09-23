@@ -71,6 +71,7 @@ The generic scan path is suitable for controlled test-environment validation. It
 - [Source-versus-target equivalence runbook](docs/EQUIVALENCE.md)
 - [Quality Gate 001](docs/QUALITY_GATE_001.md)
 - [Quality Gate 002](docs/QUALITY_GATE_002.md)
+- [Quality Gate 003](docs/QUALITY_GATE_003.md)
 - [Notices and attribution](NOTICE.md)
 
 ## License
