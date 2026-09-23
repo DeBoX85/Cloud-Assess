@@ -146,7 +146,8 @@ func Marshal(data *result.AssessmentResult, version string) ([]byte, error) {
 	return encoded, nil
 }
 
-// WriteFile writes the SARIF report with private file permissions.
+// WriteFile writes the SARIF report with a private Unix mode. Windows access
+// is governed by the destination directory's ACL, not this mode argument.
 func WriteFile(data *result.AssessmentResult, filename, version string) error {
 	if filename == "" {
 		return fmt.Errorf("SARIF output filename is empty")

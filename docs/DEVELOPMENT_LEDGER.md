@@ -1032,6 +1032,8 @@ A review of Gates 001-003 and the current workflow found that their PASS records
 
 The maintenance workflows have been changed to publish generated commits on dedicated branches with PR compare links, rather than pushing directly to `bootstrap/core-v1`. The Go quality workflow has gained a separate Windows PowerShell 5.1 and Windows Go executable validation job. The [Quality Gate 004 plan](QUALITY_GATE_004_PLAN.md) defines core evidence rows and acceptance rules. These workflow changes and the branch protection setting must be verified before calling CI enforced; Gate 004 remains planned, not passed. The tag-only live pass and other roadmap boundaries remain open.
 
+The first PR run of the Windows job passed PowerShell 5.1 parsing/helpers but exposed three tests asserting Unix `0600` file-mode bits on Windows. The Windows Go runtime reported `0666` for created CSV, XLSX and SARIF files. Go's Windows `FileMode`/`Chmod` API exposes the read-only attribute rather than the Windows access-control list, so the Unix-mode assertions were scoped to non-Windows platforms. This does **not** validate Windows report ACL privacy; Gate 004 now requires an explicit Windows ACL review before release approval. The changed PR must pass both CI jobs before merging.
+
 ## Current boundary
 
 The generic core scan, deterministic equivalence tooling, reproducible live runner, default/optional/resource-group/two-subscription/leaf-management-group and Storage/VM filtered live passes, and post-live repository remediation are complete and quality-gated for the behavior exercised so far. The unfiltered two-subscription and leaf-management-group passes have explicit Diagnostics warning boundaries.

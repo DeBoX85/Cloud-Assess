@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"os"
 	"path/filepath"
+	"runtime"
 	"strings"
 	"testing"
 	"time"
@@ -109,8 +110,11 @@ func TestWriteFile(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if got := info.Mode().Perm(); got != 0o600 {
-		t.Fatalf("permissions = %o, want 600", got)
+	// Go's Windows FileMode reports the read-only attribute, not the file ACL.
+	if runtime.GOOS != "windows" {
+		if got := info.Mode().Perm(); got != 0o600 {
+			t.Fatalf("permissions = %o, want 600", got)
+		}
 	}
 	if err := WriteFile(testResult(), "", "dev"); err == nil {
 		t.Fatal("WriteFile() with empty filename error = nil, want error")

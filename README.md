@@ -25,6 +25,8 @@ Excel and JSON are both first-class outputs. Excel is the default format for hum
 
 Subscription-ID redaction is enabled by default for XLSX, CSV, JSON, and JSON stdout. SARIF intentionally retains stable Azure resource identities for automation/baselining and should be treated as identity-bearing output.
 
+Store reports in an access-controlled directory. On Windows, Go's Unix-style `0600` file mode does not establish a private Windows ACL; report ACL behavior remains a first-release security review item.
+
 ## Reference baseline
 
 Reference repository: `DeBoX85/azqr`
