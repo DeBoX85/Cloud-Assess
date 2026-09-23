@@ -1,0 +1,7 @@
+# Cloud Assess equivalent of azqr-storage-vm.yml.
+# resourceTypes values are scanner keys, not ARM resource type strings.
+assessment:
+  include:
+    resourceTypes:
+      - st
+      - vm

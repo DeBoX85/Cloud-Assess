@@ -930,6 +930,16 @@ Neither original ARM batch response retained request-to-subresponse correlation,
 
 Keep parent-to-child management-group traversal open until a suitable non-production parent with accessible descendants is available or a separate scope decision is made. Continue with representative filter combinations and missing non-empty optional-stage evidence. Preserve the raw reports and logs under the local evidence stamp for later warning classification.
 
+### Planning checkpoint: Paired Storage/VM filter fixture
+
+**Date**
+
+```text
+2026-09-23
+```
+
+The Dev inventory contains two Storage Accounts and one Virtual Machine. A paired, subscription-agnostic fixture now selects the `st` and `vm` scanner keys under the pinned source's `azqr:` root and the target's `assessment:` root. The [equivalence guide](EQUIVALENCE.md#filter-file-note) records the exact read-only runner command on `AdvisoryDev`. This fixture has been syntax-checked locally; a filtered live pass and its warning/scope review remain pending. It does not establish tag, resource-group, resource, or recommendation filter equivalence.
+
 ## Current boundary
 
 The generic core scan, deterministic equivalence tooling, reproducible live runner, default/optional/resource-group/two-subscription/leaf-management-group live passes, and post-live repository remediation are complete and quality-gated for the behavior exercised so far. The two-subscription and leaf-management-group passes have explicit Diagnostics warning boundaries.
