@@ -126,6 +126,18 @@ equivalence.stderr.log
 
 The runner performs read-oriented assessment operations only; it does not provision or modify Azure resources.
 
+### Investigating Diagnostics batch warnings
+
+If the target Diagnostics stage records `diagnostics_subrequest_non_success` warnings, the batch status alone does not identify the affected resources. From the clean Cloud Assess checkout used for the pass, probe the retained target inventory with individual, read-only diagnostic-settings GET requests:
+
+```powershell
+go run ./tools/diagnostics-probe --target C:\src\Cloud-Assess\artifacts\equivalence\<run-stamp>\target.json
+```
+
+The probe uses Cloud Assess's normal Azure credential and endpoint selection and the same supported-resource table and diagnostic-settings API version as the scanner. It caps the number of requests at 100 unless `--max-requests` is raised deliberately. Its console JSON contains only the number of eligible resources, the original HTTP 400 warning count, successes, and failures with resource type, HTTP status, Azure error code, and a shortened SHA-256 hash of the resource ID. Raw resource IDs are not printed. Keep the original target report private.
+
+Individual GET responses may differ from the earlier ARM batch subresponses or from later Azure state. If the two HTTP 400 responses are not reproduced, retain the original warnings as unresolved and investigate batch-specific behavior; do not reclassify an uncertain diagnostic finding as confirmed simply because the probe succeeded.
+
 ### Preparing the pinned reference checkout
 
 Create a dedicated clean checkout for the reference:
