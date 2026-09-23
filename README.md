@@ -10,7 +10,9 @@ The core generic `cloud-assess scan` path is implemented and covered by determin
 
 The current core path includes Azure authentication, subscription and management-group discovery, resource inventory, filtering, scanner pruning, pinned recommendation execution, Diagnostics, Advisor, Defender, Azure Policy, Arc SQL, Cost, stage health/completeness, severity gating, and XLSX/JSON/CSV/SARIF/stdout rendering.
 
-The project is **not yet release-complete**. A deterministic semantic source-versus-target equivalence harness is now implemented; the next major validation milestone is running that harness against the same live Azure test environment with both implementations. External/plugin execution, scanner-specific CLI commands, `rules` / `plugins` CLI surfaces, packaging, and final release/security review remain outstanding.
+The project is **not yet release-complete**. The deterministic semantic source-versus-target harness has produced equivalent live baselines for the default stages, optional Policy/Defender Recommendations/Cost execution, and resource-group scope. Cost has non-empty live evidence; Policy, Defender Recommendations, and Defender plan status currently have empty-result evidence only. Multi-subscription and management-group traversal, Arc SQL, and other scenarios absent from the test environment remain to be validated.
+
+External/plugin execution, scanner-specific CLI commands, `rules` / `plugins` CLI surfaces, packaging, generated dependency/license inventory, and final release/security review also remain outstanding.
 
 ## Working product identity
 
@@ -56,9 +58,9 @@ Active development branch:
 bootstrap/core-v1
 ```
 
-The repository quality gate verifies pinned source-data provenance, Go formatting, module consistency, branding boundaries, executable build/help smoke tests, race-enabled tests, and `go vet`.
+The repository quality gate verifies pinned source-data provenance, Go formatting, module consistency, branding boundaries, PowerShell validation helpers, executable build/help smoke tests, race-enabled tests, a minimum statement-coverage floor, `go vet`, and reachable-vulnerability scanning. External GitHub Actions are pinned to immutable commit SHAs.
 
-The generic scan path is suitable for controlled test-environment validation. It should not yet be treated as production/customer-equivalent until live source-versus-target regression testing is complete.
+The generic scan path is suitable for controlled test-environment validation. It should not yet be treated as production/customer-equivalent until the remaining live-coverage, packaging, dependency/license, security, and operational boundaries are complete.
 
 ## Documentation
 

@@ -22,13 +22,13 @@ param(
     [string] $ReferenceRepo,
 
     [Parameter(ParameterSetName = 'Subscription', Mandatory = $true)]
-    [string] $SubscriptionId,
+    [string[]] $SubscriptionId,
 
     [Parameter(ParameterSetName = 'Subscription')]
-    [string] $ResourceGroup,
+    [string[]] $ResourceGroup,
 
     [Parameter(ParameterSetName = 'ManagementGroup', Mandatory = $true)]
-    [string] $ManagementGroupId,
+    [string[]] $ManagementGroupId,
 
     [string[]] $Stages,
 
@@ -46,6 +46,8 @@ $ErrorActionPreference = 'Stop'
 
 $PinnedReferenceCommit = '8e4f0577f3615e6c9014c031bcad079f235369cc'
 $PinnedAprlCommit = '60eaddda76541f6adbc1c5ffa686829807e55e29'
+
+Import-Module (Join-Path $PSScriptRoot 'live-equivalence.helpers.psm1') -Force
 
 function Resolve-Directory {
     param(
@@ -253,25 +255,15 @@ $targetJson = "$targetBase.json"
 $equivalenceJson = Join-Path $runDirectory 'equivalence.json'
 $metadataPath = Join-Path $runDirectory 'run-metadata.json'
 
-$scopeArguments = @()
-$scopeMetadata = [ordered]@{}
-if ($PSCmdlet.ParameterSetName -eq 'ManagementGroup') {
-    $scopeArguments += @('--management-group-id', $ManagementGroupId)
-    $scopeMetadata.managementGroupId = $ManagementGroupId
-}
-else {
-    $scopeArguments += @('--subscription-id', $SubscriptionId)
-    $scopeMetadata.subscriptionId = $SubscriptionId
-    if (-not [string]::IsNullOrWhiteSpace($ResourceGroup)) {
-        $scopeArguments += @('--resource-group', $ResourceGroup)
-        $scopeMetadata.resourceGroup = $ResourceGroup
-    }
-}
+$scopeSelection = Resolve-LiveEquivalenceScope `
+    -SubscriptionId $SubscriptionId `
+    -ResourceGroup $ResourceGroup `
+    -ManagementGroupId $ManagementGroupId
+$scopeArguments = @($scopeSelection.Arguments)
+$scopeMetadata = $scopeSelection.Metadata
 
-$stageArguments = @()
-if ($null -ne $Stages -and $Stages.Count -gt 0) {
-    $stageArguments = @('--stages', ($Stages -join ','))
-}
+$stageSelection = Resolve-LiveEquivalenceStages -Stages $Stages
+$stageArguments = @($stageSelection.Arguments)
 
 $referenceArguments = @(
     'run', './cmd/azqr', 'scan'
@@ -300,7 +292,7 @@ if ($TargetFilters) {
 }
 
 $metadata = [ordered]@{
-    schemaVersion = '1.0'
+    schemaVersion = '1.1'
     purpose = 'Cloud Assess live source-versus-target equivalence'
     warning = 'This evidence bundle contains unredacted Azure identifiers and must be handled as sensitive assessment data.'
     createdUtc = [DateTime]::UtcNow.ToString('o')
@@ -319,7 +311,11 @@ $metadata = [ordered]@{
         filters = Get-OptionalFileEvidence -Path $TargetFilters
     }
     scope = $scopeMetadata
-    stages = @($Stages)
+    stages = @($stageSelection.EffectiveStages)
+    stageSelection = [ordered]@{
+        usesImplicitDefaults = $stageSelection.UsesImplicitDefaults
+        requested = @($stageSelection.RequestedStages)
+    }
     environment = [ordered]@{
         powerShell = $PSVersionTable.PSVersion.ToString()
         go = $goVersion
