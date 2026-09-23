@@ -25,6 +25,8 @@ Excel and JSON are both first-class outputs. Excel is the default format for hum
 
 Subscription-ID redaction is enabled by default for XLSX, CSV, JSON, and JSON stdout. SARIF intentionally retains stable Azure resource identities for automation/baselining and should be treated as identity-bearing output.
 
+Store reports in an access-controlled directory. On Windows, Go's Unix-style `0600` file mode does not establish a private Windows ACL; report ACL behavior remains a first-release security review item.
+
 ## Reference baseline
 
 Reference repository: `DeBoX85/azqr`
@@ -73,6 +75,7 @@ The generic scan path is suitable for controlled test-environment validation. It
 - [Quality Gate 001](docs/QUALITY_GATE_001.md)
 - [Quality Gate 002](docs/QUALITY_GATE_002.md)
 - [Quality Gate 003](docs/QUALITY_GATE_003.md)
+- [Quality Gate 004 plan (not yet passed)](docs/QUALITY_GATE_004_PLAN.md)
 - [Notices and attribution](NOTICE.md)
 
 ## License

@@ -1020,6 +1020,20 @@ The user read the retained target report locally and reported `complete` status.
 
 The same local check of the unfiltered Phase P target inventory found 12 in-scope resources: 3 with resource tag `Environment: dev` and 9 without that exact tag match. The three matching resources are the same three already identified in the selected RG. The separate tag-only fixture can therefore test exclusion of nonmatching resources without an RG filter; it has not yet been run. Even if a tag-only report matches the RG-only report, each independently applied filter must be verified against the unfiltered baseline and pinned reference.
 
+### Planning checkpoint: Enforced CI and Quality Gate 004
+
+**Date**
+
+```text
+2026-09-23
+```
+
+A review of Gates 001-003 and the current workflow found that their PASS records are correctly scoped to their recorded commits but are not release approval. The latest reviewed merged-branch Go quality run was green, with 76.3% aggregate statement coverage against a 75% floor. Lower-coverage risk areas included throttling (33.3%), CLI (53.0%), discovery (59.9%), canonical result assembly (62.8%), and orchestration (69.5%). The `bootstrap/core-v1` branch API reported `protected: false`, so passing CI was not yet a merge requirement.
+
+The maintenance workflows have been changed to publish generated commits on dedicated branches with PR compare links, rather than pushing directly to `bootstrap/core-v1`. The Go quality workflow has gained a separate Windows PowerShell 5.1 and Windows Go executable validation job. The [Quality Gate 004 plan](QUALITY_GATE_004_PLAN.md) defines core evidence rows and acceptance rules. These workflow changes and the branch protection setting must be verified before calling CI enforced; Gate 004 remains planned, not passed. The tag-only live pass and other roadmap boundaries remain open.
+
+The first PR run of the Windows job passed PowerShell 5.1 parsing/helpers but exposed three tests asserting Unix `0600` file-mode bits on Windows. The Windows Go runtime reported `0666` for created CSV, XLSX and SARIF files. Go's Windows `FileMode`/`Chmod` API exposes the read-only attribute rather than the Windows access-control list, so the Unix-mode assertions were scoped to non-Windows platforms. This does **not** validate Windows report ACL privacy; Gate 004 now requires an explicit Windows ACL review before release approval. The changed PR must pass both CI jobs before merging.
+
 ## Current boundary
 
 The generic core scan, deterministic equivalence tooling, reproducible live runner, default/optional/resource-group/two-subscription/leaf-management-group and Storage/VM filtered live passes, and post-live repository remediation are complete and quality-gated for the behavior exercised so far. The unfiltered two-subscription and leaf-management-group passes have explicit Diagnostics warning boundaries.

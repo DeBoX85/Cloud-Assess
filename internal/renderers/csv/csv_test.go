@@ -4,6 +4,7 @@ import (
 	encodingcsv "encoding/csv"
 	"os"
 	"path/filepath"
+	"runtime"
 	"testing"
 	"time"
 
@@ -84,8 +85,11 @@ func TestWriteUsesPrivateFilePermissions(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if got := info.Mode().Perm(); got != 0o600 {
-		t.Fatalf("CSV mode = %o, want 600", got)
+	// Go's Windows FileMode reports the read-only attribute, not the file ACL.
+	if runtime.GOOS != "windows" {
+		if got := info.Mode().Perm(); got != 0o600 {
+			t.Fatalf("CSV mode = %o, want 600", got)
+		}
 	}
 }
 

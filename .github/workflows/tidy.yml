@@ -1,6 +1,7 @@
 name: Refresh Go dependency lock
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - bootstrap/core-v1
@@ -30,7 +31,7 @@ jobs:
       - name: Tidy dependencies
         run: go mod tidy
 
-      - name: Commit dependency lock updates
+      - name: Publish dependency lock update branch
         shell: bash
         run: |
           set -euo pipefail
@@ -41,5 +42,8 @@ jobs:
           fi
           git config user.name "cloud-assess-bot"
           git config user.email "134433647+DeBoX85@users.noreply.github.com"
+          branch="maintenance/tidy-${GITHUB_RUN_ID}"
+          git switch -c "$branch"
           git commit -m "build: refresh Go dependency lock"
-          git push origin HEAD:bootstrap/core-v1
+          git push origin "HEAD:refs/heads/$branch"
+          echo "Open a PR for the dependency update: https://github.com/${GITHUB_REPOSITORY}/compare/bootstrap/core-v1...${branch}?expand=1" >> "$GITHUB_STEP_SUMMARY"
