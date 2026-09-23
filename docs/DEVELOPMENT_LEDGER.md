@@ -21,6 +21,7 @@ Cloud Assess development evidence is intentionally split into several layers:
 | `QUALITY_GATE_002.md` | Formal audit of the runnable integration path | Audit snapshot |
 | `QUALITY_GATE_003.md` | Formal post-live-validation repository and quality-gate audit | Audit snapshot |
 | `EQUIVALENCE.md` | Procedure and normalization rules for source-vs-target comparison | Validation runbook |
+| `ROADMAP.md` | Ordered remaining work, evidence gates, and release-scope decisions | Current execution roadmap |
 | `TARGET_SPECIFICATION.md` | Target architecture/product requirements | Design contract |
 | `NOTICE.md` / `THIRD_PARTY_LICENSES.md` | Attribution and incorporated-license evidence | Legal/provenance record |
 
@@ -847,6 +848,16 @@ Cloud Assess and the pinned reference are semantically equivalent for the compar
 **Next validation boundary**
 
 Investigate the two Diagnostics HTTP 400 subrequests using the locally retained evidence and read-only Azure requests if the affected resources can be identified. Then validate management-group traversal when an appropriate scope is available. Obtain non-empty Policy and Defender Recommendations evidence and resolve the Arc SQL response shape separately.
+
+### Planning checkpoint: Remaining-work roadmap
+
+**Date**
+
+```text
+2026-09-23
+```
+
+The [execution roadmap](ROADMAP.md) now orders the remaining live validation, missing stage evidence, first-release feature decisions, packaging, and final security/operational review. It records explicit completion evidence and required user inputs, including separate authorization before Azure fixture provisioning. This planning checkpoint does not claim that any of those open items are complete or expand the agreed core-v1 scope.
 
 ## Current boundary
 
