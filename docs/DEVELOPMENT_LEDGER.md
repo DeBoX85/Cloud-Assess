@@ -885,14 +885,53 @@ The probe ran after the original scan and issued individual GETs, while Phase N 
 
 Proceed with management-group traversal on a suitable read-only test scope. Keep the Phase N Diagnostics caveat in the evidence matrix, and correlate batch failures with request IDs in a future controlled run if that limitation needs to be closed.
 
+### Phase P: AdvisoryDev leaf management-group live equivalence pass
+
+**Date and provenance**
+
+```text
+2026-09-23
+Reference: 8e4f0577f3615e6c9014c031bcad079f235369cc
+Target: bc69fc004f67df1094305fb3f91ba41d625152cf
+APRL: 60eaddda76541f6adbc1c5ffa686829807e55e29
+Evidence stamp: 20260923_145252Z
+```
+
+**Scope and evidence**
+
+The requested management-group ID was `AdvisoryDev`, the accessible non-production leaf under `Advisory`. The parent `Advisory` also contains a production child, so it was not scanned in this pass. The user supplied the generated `run-metadata.json`, `equivalence.json`, and a local summary of the unredacted target report. Raw source/target JSON and logs remain local and were not independently inspected by the reviewer. No filter files were supplied; implicit default stages were graph, diagnostics, Advisor, and Defender plan status on both sides.
+
+The target scope stage completed with one resolved subscription. The user's local check found one distinct subscription ID across inventory, out-of-scope inventory, findings, Advisor, and Defender records, and confirmed it was the expected Dev subscription. This pass exercises leaf management-group subscription discovery and subsequent assessment. It does not exercise recursion from a parent management group into child groups or assess the sibling production subscription.
+
+**Execution health and semantic coverage**
+
+- pinned reference scan exit code: 0
+- Cloud Assess scan exit code: 0
+- comparator exit code: 0; `equivalent = true`
+- target completeness: `complete_with_warnings`
+- recommendations: 314 / 314, exact
+- primary findings: 44 / 44, exact
+- resource types: 11 / 11, exact
+- in-scope inventory: 12 / 12, exact
+- out-of-scope inventory: 10 / 10, exact
+- Advisor: 11 / 11, exact
+- Defender plan status: enabled on both sides, 0 / 0
+- Policy, Defender Recommendations, Arc SQL, and Cost: not enabled
+
+The local target stage summary reported inventory 12, graph 44, diagnostics 6, Advisor 11, and Defender plan status 0. Scope, inventory, graph, Advisor, and Defender stages completed; Diagnostics completed with warnings. It contained one `diagnostics_subrequest_non_success` warning. The supplied summary includes its code, but not its HTTP status, error details, or the affected resource; the comparator independently noted target warnings. It cannot be assumed to be the Network Watcher response observed by the later individual GET probe in Phase O without request correlation. The target report remains `complete_with_warnings`, so diagnostic-setting conclusions for the unsuccessful batch subrequest remain uncertain.
+
+**Next validation boundary**
+
+Keep parent-to-child management-group traversal open until a suitable non-production parent with accessible descendants is available or a separate scope decision is made. Continue with representative filter combinations and missing non-empty optional-stage evidence. Preserve the raw reports and logs under the local evidence stamp for later warning classification.
+
 ## Current boundary
 
-The generic core scan, deterministic equivalence tooling, reproducible live runner, default/optional/resource-group/two-subscription live passes, and post-live repository remediation are complete and quality-gated for the behavior exercised so far. The two-subscription pass has an explicit Diagnostics warning boundary.
+The generic core scan, deterministic equivalence tooling, reproducible live runner, default/optional/resource-group/two-subscription/leaf-management-group live passes, and post-live repository remediation are complete and quality-gated for the behavior exercised so far. The two-subscription and leaf-management-group passes have explicit Diagnostics warning boundaries.
 
 The next live validation boundary is:
 
 ```text
-Management-group source-versus-target equivalence; retain the Phase N Diagnostics warning caveat
+Nested management-group traversal and representative filtered-scope equivalence; retain Diagnostics warning caveats
 ```
 
 Required evidence set for each live pass:
@@ -910,7 +949,7 @@ Required evidence set for each live pass:
 The following are not forgotten; they remain intentionally open:
 
 - Diagnostics HTTP 400 subrequest root cause and affected-resource coverage
-- management-group live equivalence
+- nested management-group traversal equivalence
 - non-empty Policy and Defender Recommendations evidence
 - Arc SQL numeric `vcores` response-shape resolution
 - production external/YAML plugin execution
