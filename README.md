@@ -10,7 +10,7 @@ The core generic `cloud-assess scan` path is implemented and covered by determin
 
 The current core path includes Azure authentication, subscription and management-group discovery, resource inventory, filtering, scanner pruning, pinned recommendation execution, Diagnostics, Advisor, Defender, Azure Policy, Arc SQL, Cost, stage health/completeness, severity gating, and XLSX/JSON/CSV/SARIF/stdout rendering.
 
-The project is **not yet release-complete**. The deterministic semantic source-versus-target harness has produced equivalent live baselines for the default stages, optional Policy/Defender Recommendations/Cost execution, and resource-group scope. Cost has non-empty live evidence; Policy, Defender Recommendations, and Defender plan status currently have empty-result evidence only. Multi-subscription and management-group traversal, Arc SQL, and other scenarios absent from the test environment remain to be validated.
+The project is **not yet release-complete**. The deterministic semantic source-versus-target harness has produced equivalent live baselines for the default stages, optional Policy/Defender Recommendations/Cost execution, resource-group scope, and two-subscription scope. Cost and Defender plan status now have non-empty live evidence; Policy and Defender Recommendations have empty-result evidence only. The two-subscription pass completed with two unresolved Diagnostics HTTP 400 subrequest warnings. Management-group traversal, Arc SQL, and other scenarios absent from the test environment remain to be validated.
 
 External/plugin execution, scanner-specific CLI commands, `rules` / `plugins` CLI surfaces, packaging, generated dependency/license inventory, and final release/security review also remain outstanding.
 

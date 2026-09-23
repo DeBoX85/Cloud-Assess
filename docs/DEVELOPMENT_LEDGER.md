@@ -777,14 +777,85 @@ The Phase J/K/L raw evidence bundles remain intentionally untracked because they
 
 Broader live equivalence remains next, beginning with multi-subscription or management-group scope. Arc SQL and non-empty Policy/Defender datasets still require suitable live data or targeted fixtures.
 
+### Phase N: Two-subscription live Azure equivalence pass
+
+**Date**
+
+```text
+2026-09-23
+```
+
+**Reference commit**
+
+```text
+8e4f0577f3615e6c9014c031bcad079f235369cc
+```
+
+**Target commit**
+
+```text
+612fc765fe74677fc05cd4f5e5574595030c4c4f
+```
+
+**Pinned APRL commit**
+
+```text
+60eaddda76541f6adbc1c5ffa686829807e55e29
+```
+
+**Scope and evidence**
+
+Two distinct, accessible non-production Azure subscriptions were passed explicitly. No resource-group scope or filter files were used. The effective stages were the implicit defaults: graph, diagnostics, Advisor, and Defender plan status. Policy, Defender Recommendations, Arc SQL, Cost, and plugins were not enabled.
+
+The local, untracked evidence bundle is identified by UTC run stamp `20260923_112151Z`. The reviewer examined its `run-metadata.json` and `equivalence.json`, plus stage health and per-subscription counts extracted locally from the unredacted target JSON. The unredacted source and target reports and execution logs were not transferred to this repository or independently replayed by the reviewer.
+
+**Execution health**
+
+- pinned reference scan exit code: 0
+- Cloud Assess scan exit code: 0
+- semantic comparator exit code: 0
+- semantic result: `equivalent = true`
+- target assessment completeness: `complete_with_warnings`
+- scope discovery: completed, 2 subscriptions resolved
+
+**Semantic coverage**
+
+- recommendations: 314 / 314, exact
+- primary findings: 98 / 98, exact
+- resource types: 23 / 23, exact
+- in-scope inventory: 38 / 38, exact
+- out-of-scope inventory: 21 / 21, exact
+- Advisor: 46 / 46, exact
+- Defender plan status: 18 / 18, exact and non-empty
+- Policy, Defender Recommendations, Arc SQL, and Cost: not enabled
+
+The user's local per-subscription target summary showed the following, with subscription IDs omitted from this ledger:
+
+| Selected subscription | In-scope inventory | Out-of-scope inventory | Raw target findings | Advisor | Defender plan status |
+|---|---:|---:|---:|---:|---:|
+| 1 | 12 | 10 | 50 | 11 | 0 |
+| 2 | 26 | 11 | 74 | 35 | 18 |
+
+Both subscriptions contributed non-empty inventory, findings, and Advisor records. Raw target findings include SLA-category findings; the semantic primary-findings dataset excludes those and compares the associated SLA values through inventory instead. Thus the raw per-subscription finding counts must not be added and compared directly with the 98 primary-finding records.
+
+**Warning classification and interpretation**
+
+The target Diagnostics stage completed with two `diagnostics_subrequest_non_success` warnings. Both were HTTP 400 responses from ARM batch subrequests for diagnostic settings. For a non-success subrequest, the target preserves the pinned reference's missing-diagnostics finding behavior while explicitly reporting that the diagnostic-setting state of the affected resource is uncertain. The available aggregate evidence does not identify the two affected resources or establish why Azure returned HTTP 400. These warnings are an unresolved coverage limitation, not an observed source-versus-target delta.
+
+Cloud Assess and the pinned reference are semantically equivalent for the compared two-subscription datasets in this run, and the non-empty Defender plan-status result supplies live row-level equivalence evidence. This does not prove the correctness of diagnostic-setting conclusions for the two unsuccessful subrequests, and it does not establish management-group traversal or the optional stages absent from this pass.
+
+**Next validation boundary**
+
+Investigate the two Diagnostics HTTP 400 subrequests using the locally retained evidence and read-only Azure requests if the affected resources can be identified. Then validate management-group traversal when an appropriate scope is available. Obtain non-empty Policy and Defender Recommendations evidence and resolve the Arc SQL response shape separately.
+
 ## Current boundary
 
-The generic core scan, deterministic equivalence tooling, reproducible live runner, default/optional/resource-group live passes, and post-live repository remediation are complete and quality-gated for the behavior exercised so far.
+The generic core scan, deterministic equivalence tooling, reproducible live runner, default/optional/resource-group/two-subscription live passes, and post-live repository remediation are complete and quality-gated for the behavior exercised so far. The two-subscription pass has an explicit Diagnostics warning boundary.
 
 The next live validation boundary is:
 
 ```text
-Multi-subscription or management-group source-versus-target equivalence
+Diagnostics HTTP 400 warning investigation and management-group source-versus-target equivalence
 ```
 
 Required evidence set for each live pass:
@@ -801,8 +872,9 @@ Required evidence set for each live pass:
 
 The following are not forgotten; they remain intentionally open:
 
-- multi-subscription and management-group live equivalence
-- non-empty Policy, Defender Recommendations, and Defender plan-status evidence
+- Diagnostics HTTP 400 subrequest root cause and affected-resource coverage
+- management-group live equivalence
+- non-empty Policy and Defender Recommendations evidence
 - Arc SQL numeric `vcores` response-shape resolution
 - production external/YAML plugin execution
 - internal plugin migration/parity

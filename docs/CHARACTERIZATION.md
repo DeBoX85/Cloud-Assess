@@ -240,9 +240,10 @@ This document tracks source behavior that Cloud Assess intentionally preserves o
 
 ## Next characterization targets
 
-1. Validate multi-subscription or management-group traversal against the pinned reference.
-2. Resolve the Arc SQL `vcores` response shape with live or targeted evidence.
-3. Obtain non-empty live or targeted-fixture evidence for Policy, Defender Recommendations, and Defender plan status.
-4. Add targeted Terraform/reference fixtures for other important scenarios absent from the existing test environment.
-5. Wire external/YAML plugin execution into production orchestration and then migrate the deferred internal plugins.
-6. Complete the agreed scanner-specific, `rules`, and `plugins list/info` CLI surfaces.
+1. Investigate the two Diagnostics HTTP 400 batch subrequests observed in the two-subscription live pass.
+2. Validate management-group traversal against the pinned reference; two-subscription traversal and non-empty Defender plan-status projection now have live equivalence evidence.
+3. Resolve the Arc SQL `vcores` response shape with live or targeted evidence.
+4. Obtain non-empty live or targeted-fixture evidence for Policy and Defender Recommendations.
+5. Add targeted Terraform/reference fixtures for other important scenarios absent from the existing test environment.
+6. Wire external/YAML plugin execution into production orchestration and then migrate the deferred internal plugins.
+7. Complete the agreed scanner-specific, `rules`, and `plugins list/info` CLI surfaces.
