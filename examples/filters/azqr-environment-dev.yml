@@ -1,0 +1,6 @@
+# Pinned AZQR include-tag filter for the AdvisoryDev live comparison.
+# Matches resource tags; a resource-group tag alone does not select child resources.
+azqr:
+  include:
+    tags:
+      Environment: dev

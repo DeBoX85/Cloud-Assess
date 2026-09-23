@@ -185,6 +185,19 @@ Set-Location C:\src\Cloud-Assess
 
 The runner records hashes of both filter files. Review the resolved subscription, enabled stages, warning codes and semantic datasets before treating this pass as evidence for scanner selection. This fixture does not cover resource-group, tag, individual-resource or recommendation filters; those require separate passes.
 
+The next Dev filter pass tests resource-group inclusion independently. The checked-in pair `examples/filters/azqr-dev-rg.yml` and `examples/filters/cloud-assess-dev-rg.yml` includes the full ARM ID of `rg-fos-FinopsHub-dev-euw` in the Dev subscription. A local review of the unfiltered Dev target inventory found three in-scope resources in that group. Keep the management-group scope and default stages the same as the earlier Dev passes; do not also supply the CLI resource-group flag, which would make the filter's effect harder to distinguish.
+
+```powershell
+Set-Location C:\src\Cloud-Assess
+.\scripts\live-equivalence.ps1 `
+  -ReferenceRepo C:\src\azqr-reference `
+  -ManagementGroupId AdvisoryDev `
+  -ReferenceFilters .\examples\filters\azqr-dev-rg.yml `
+  -TargetFilters .\examples\filters\cloud-assess-dev-rg.yml
+```
+
+A second pair, `examples/filters/azqr-environment-dev.yml` and `examples/filters/cloud-assess-environment-dev.yml`, includes resources tagged `Environment: dev` regardless of resource group. Run that pair separately only after confirming the unfiltered Dev inventory contains both matching and nonmatching resources; otherwise the live pass cannot demonstrate that the tag filter excludes anything. All three resources observed in the named group carry this tag, so combining the two include conditions there would not independently validate tag filtering. For both passes, inspect target stage health and the resolved subscription, as well as exact comparator counts. A warning-free filtered pass cannot resolve the earlier unfiltered Diagnostics warnings.
+
 ## Required run conditions
 
 For a meaningful live comparison:

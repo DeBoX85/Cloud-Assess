@@ -1,0 +1,5 @@
+# Cloud Assess equivalent of azqr-dev-rg.yml.
+assessment:
+  include:
+    resourceGroups:
+      - /subscriptions/c09f96df-19de-4c49-80ff-0c1a94d93ab2/resourceGroups/rg-fos-FinopsHub-dev-euw

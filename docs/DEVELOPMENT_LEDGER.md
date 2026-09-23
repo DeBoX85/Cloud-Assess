@@ -975,6 +975,18 @@ The user read the retained unredacted target report locally and supplied its sum
 
 This completes target stage-health and scope review for this filtered pass. The supplied comparison establishes exact semantic agreement for the selected scanner keys and requested scope, with non-empty findings, inventory, out-of-scope inventory, and Advisor data. The Network Watcher HTTP 400 batch warning seen in the earlier unfiltered Dev run is absent from this filtered target report; this does not resolve the historical warning or identify its exact batch request. Raw reports and logs were retained locally and were not independently inspected by the reviewer. The unfiltered Phase N and P Diagnostics warning boundaries remain open, as do tag, resource-group, individual-resource, recommendation, and nested management-group filter/traversal checks.
 
+### Planning checkpoint: Separate Dev resource-group and tag filters
+
+**Date**
+
+```text
+2026-09-23
+```
+
+The user identified `rg-fos-FinopsHub-dev-euw` and `Environment: dev`. Their local read of the unfiltered Phase P target report counted three in-scope resources in that group, all three with the tag on the resource records. This supports a non-empty RG include pass, but a combined RG-and-tag pass cannot isolate the tag condition because it retains the same three resources as an RG-only pass. The resource types for these three records were not established by the supplied output.
+
+Paired AZQR and Cloud Assess fixtures now express the full Dev resource-group ID for an RG-only pass, and another pair expresses a tag-only include. The [equivalence guide](EQUIVALENCE.md#filter-file-note) records the RG runner command and the condition for using the tag-only pair. Before running the tag pass, check whether the unfiltered Dev inventory contains any nonmatching resources; if none exist, a passing comparison would not prove tag exclusion. Neither new fixture pair has live equivalence evidence yet, and the earlier unfiltered Diagnostics warning caveats remain open.
+
 ## Current boundary
 
 The generic core scan, deterministic equivalence tooling, reproducible live runner, default/optional/resource-group/two-subscription/leaf-management-group and Storage/VM filtered live passes, and post-live repository remediation are complete and quality-gated for the behavior exercised so far. The unfiltered two-subscription and leaf-management-group passes have explicit Diagnostics warning boundaries.
