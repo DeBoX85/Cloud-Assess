@@ -6,7 +6,7 @@ Reference implementation: `DeBoX85/azqr`
 
 Reference commit: `8e4f0577f3615e6c9014c031bcad079f235369cc`
 
-Current implementation milestone: the generic core scan path and deterministic semantic source-versus-target equivalence harness are implemented. Live Azure regression is in progress: default-stage, optional-stage, resource-group-scoped, two-subscription, leaf-management-group and selected filter passes are equivalent for the data compared. Unfiltered Diagnostics batch warnings remain uncorrelated. The tag-pass Advisor count change is consistent with the pinned source's unknown tag-scope exclusion rule, with Azure timing still possible. Parent-to-child management-group traversal and non-empty evidence for currently absent datasets remain next.
+Current implementation milestone: the generic core scan path and deterministic semantic source-versus-target equivalence harness are implemented. Live Azure regression is in progress: default-stage, optional-stage, resource-group-scoped, two-subscription, leaf-management-group and selected filter passes are equivalent for the data compared. Unfiltered Diagnostics batch warnings remain uncorrelated. The cross-run Advisor count change may reflect excluded or unknown tag scope, or Azure timing; its exact cause remains open. Parent-to-child management-group traversal and non-empty evidence for currently absent datasets remain next.
 
 ## Principle
 
@@ -59,7 +59,7 @@ Observe source behavior
 
 ## Current completion boundary
 
-Steps 1-27 are implemented. Step 28 is in progress, with equivalent live baselines recorded for default stages, optional Policy/Defender Recommendations/Cost execution, resource-group and two-subscription scopes, a leaf management group, and separate scanner, RG include and tag include filters. The unfiltered passes retain Diagnostics warning limits. The tag-pass Advisor count difference has a source-compatible filter explanation, without proving that Azure state stayed fixed across runs. Step 29 has enforced Linux and Windows CI jobs but still lacks packaging/release automation.
+Steps 1-27 are implemented. Step 28 is in progress, with equivalent live baselines recorded for default stages, optional Policy/Defender Recommendations/Cost execution, resource-group and two-subscription scopes, a leaf management group, and separate scanner, RG include and tag include filters. The unfiltered passes retain Diagnostics warning limits. The cross-run Advisor count difference has multiple source-compatible possibilities and cannot establish unchanged Azure state. Step 29 has enforced Linux and Windows CI jobs but still lacks packaging/release automation.
 
 The ordered remaining work, evidence gates, and release-scope decisions are maintained in [ROADMAP.md](ROADMAP.md).
 
@@ -184,10 +184,10 @@ Current state and next boundary:
 ```text
 Completed: default-stage subscription baseline
 Completed: optional Policy/Defender Recommendations/Cost pass
-Completed: resource-group-scoped pass
-Completed with warnings: two-subscription pass, including non-empty Defender plan status
-Next: investigate Diagnostics HTTP 400 responses and validate management-group traversal
-Then: targeted fixtures for important non-empty scenarios absent from the environment
+Completed: resource-group-scoped and two-subscription passes (the latter with Diagnostics warnings and non-empty Defender plan status)
+Completed: AdvisoryDev leaf management group, Storage/VM selection, RG include and tag-only include passes
+Next: parent-to-child management-group traversal, remaining filter combinations and Advisor cross-run scope check
+Also open: historical Diagnostics batch request correlation and targeted non-empty fixtures for absent scenarios
 ```
 
 Primary finding comparison key:

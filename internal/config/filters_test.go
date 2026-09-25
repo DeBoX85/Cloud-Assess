@@ -130,7 +130,7 @@ func TestTagScopeAppliesToChildResource(t *testing.T) {
 	}
 }
 
-func TestIncludeTagScopeExcludesUnknownDownstreamResource(t *testing.T) {
+func TestIncludeTagScopeExcludesUnknownAndExcludedDownstreamResource(t *testing.T) {
 	filters := NewFilters()
 	filters.Assessment.Include.Tags = map[string]string{"Environment": "dev"}
 	filters.RebuildIndexes()
@@ -140,6 +140,15 @@ func TestIncludeTagScopeExcludesUnknownDownstreamResource(t *testing.T) {
 	unknown := "/subscriptions/sub/resourceGroups/rg/providers/Microsoft.Test/widgets/unknown"
 	if !filters.Assessment.IsServiceExcluded(unknown) {
 		t.Fatal("include-tag filter should exclude an Advisor resource with unknown tag scope even when its RG is in scope")
+	}
+	// Discovery records excluded resources as well as selected resources. An
+	// Advisor result for an excluded resource must remain excluded downstream.
+	filters.Assessment.SetResourceScope(unknown, false)
+	if !filters.Assessment.IsServiceExcluded(unknown) {
+		t.Fatal("include-tag filter should exclude an Advisor resource with recorded excluded tag scope")
+	}
+	if !filters.Assessment.IsServiceExcluded(unknown + "/slots/child") {
+		t.Fatal("a child of an excluded resource should inherit the excluded tag scope")
 	}
 	if filters.Assessment.IsServiceExcluded(selected + "/slots/child") {
 		t.Fatal("a child of an included resource should inherit the parent's tag scope")
