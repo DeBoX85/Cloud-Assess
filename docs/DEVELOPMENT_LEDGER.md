@@ -1099,14 +1099,32 @@ In the pinned AZQR source at `8e4f0577`, `internal/scanners/advisor.go` applies 
 
 This closes the cross-run row *classification* with its timing limit. It does not certify every tag interaction: exclude tags, multiple tags, key/value edge cases and other downstream scope combinations remain on the roadmap. The Phase S result stays `equivalent = true` and `complete`; historical unfiltered Diagnostics warnings remain separate open evidence limits.
 
+### Phase S evidence correction and recent-commit QA
+
+**Date**
+
+```text
+2026-09-25
+```
+
+The review of the merged PRs #15–#17 and the pinned AZQR source identified an over-specific interpretation above. Both implementations record scope for *all* discovered inventory rows, including excluded rows (`SetResourceScope(resource.ID, !excluded)`). An Advisor ID that is neither a selected inventory ID nor its descendant can therefore match an explicitly excluded inventory ID or its descendant; it need not have *unknown* tag scope. The user's local summary did not compare the missing Advisor ID against `outOfScope`. The cross-run observation supports source/target agreement **within each run** and shows that the missing Advisor row was outside the selected inventory subtree, but cannot distinguish an excluded-scope decision, an unknown-scope decision, or a change in Azure Advisor results between runs. The previous classification of the exact cause as closed is withdrawn. No target-only mismatch has been shown.
+
+The tag-only evidence still supports the `Environment: dev` include-filter behavior exercised in Phase S: both reports match semantically, and the user-reported ID-set comparison selects exactly the three matching resources from the earlier unfiltered Dev inventory, leaving nine nonmatching resources. The raw reports and API snapshots were not available to the reviewer, and the old Azure state cannot be reconstructed from the comparator alone. A regression assertion now covers explicitly excluded descendants as well as unknown and selected-parent descendants.
+
+Recent-commit QA inspected merge `99d3b20` and its PR #15–#17 changes against the target specification, implementation plan, roadmap and Gate 004 plan. `git diff --check` on those changes passed; the postmerge workflow run `36085601101` passed both `quality` and `windows-validation`, including race tests, coverage floor, vet, reachable-vulnerability check, native PowerShell parser/helper checks and Windows Go tests. The active branch ruleset still requires PRs and both checks. The Gate 004 evidence matrix remains planned rather than passed. After initializing the pinned APRL submodule and obtaining Go 1.26.8 locally, focused tests and `go test -count=1 ./...` passed with this correction; the new PR must pass both required jobs again. The stale completion summary in the implementation plan was also corrected.
+
+**Follow-up evidence boundary**
+
+On the retained local Phase R and S target reports, check the absent Advisor row's resource ID against *both* `resources` and `outOfScope`, looking for the nearest recorded ancestor. Report only whether the nearest decision is included, excluded or absent, and whether its subscription, RG and scanner type meet structural filters; do not publish IDs. This can discriminate the recorded-scope hypotheses for the target report. Determining whether Azure returned the identical Advisor row to both scans requires historical API responses, which were not captured, or a new controlled paired run.
+
 ## Current boundary
 
-The generic core scan, deterministic equivalence tooling, reproducible live runner, default/optional/resource-group/two-subscription/leaf-management-group and separate Storage/VM, RG and tag include-filter live passes, plus enforced development CI, are complete for the behavior exercised so far. The unfiltered two-subscription and leaf-management-group passes have explicit Diagnostics warning boundaries. The cross-run Advisor count difference has a source-compatible filter explanation with an unavoidable historical Azure timing limit.
+The generic core scan, deterministic equivalence tooling, reproducible live runner, default/optional/resource-group/two-subscription/leaf-management-group and separate Storage/VM, RG and tag include-filter live passes, plus enforced development CI, are complete for the behavior exercised so far. The unfiltered two-subscription and leaf-management-group passes have explicit Diagnostics warning boundaries. The cross-run Advisor count difference has multiple source-compatible explanations and an unresolved historical Azure timing limit.
 
 The next live validation boundary is:
 
 ```text
-Nested management-group traversal and remaining filter combinations; retain unfiltered Diagnostics warning caveats
+Nested management-group traversal, remaining filter combinations and Advisor row scope check; retain unfiltered Diagnostics warning caveats
 ```
 
 Required evidence set for each live pass:
@@ -1124,6 +1142,7 @@ Required evidence set for each live pass:
 The following are not forgotten; they remain intentionally open:
 
 - Diagnostics HTTP 400 subrequest root cause and affected-resource coverage
+- precise cross-run Advisor row cause (excluded versus unknown scope, structural filtering or Azure timing)
 - nested management-group traversal equivalence
 - non-empty Policy and Defender Recommendations evidence
 - Arc SQL numeric `vcores` response-shape resolution
