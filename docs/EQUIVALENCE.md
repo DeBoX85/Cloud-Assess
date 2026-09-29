@@ -230,6 +230,8 @@ The runner performs read-only assessment requests and writes reports under the l
 
 The `20260929_113319Z` pass completed with `equivalent = true` for nine selected resources and non-empty findings and Advisor data. The user's local ID check matched the nine non-Dev-tagged in-scope IDs from the earlier unfiltered baseline; none of the nine selected resources had the Dev tag. The target was `complete_with_warnings` because Diagnostics recorded one `diagnostics_subrequest_non_success` warning. Do not treat that warning as resolved by the exact semantic match. See Phase T in the ledger for the evidence and remaining limits.
 
+A local follow-up confirmed that all populated target data belonged to the expected Dev subscription. The read-only individual-GET probe found one eligible Network Watcher returning HTTP 400 `ResourceTypeNotSupported`, with the same hashed ID as in earlier probes. This supports the existing explanation but does not map the batch warning to that resource; retain `complete_with_warnings`.
+
 ## Required run conditions
 
 For a meaningful live comparison:
