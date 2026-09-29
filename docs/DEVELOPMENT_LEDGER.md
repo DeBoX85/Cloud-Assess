@@ -1301,7 +1301,19 @@ The live-equivalence runner now records a sanitized target stage-health summary 
 
 **Validation boundary**
 
-Run targeted and hosted CI checks on the resulting PR; its checks record the exact revision and run IDs. Leave unperformed Gate 004 evidence rows open. Do not reclassify historical Diagnostics warnings as correlated from this new response-count check.
+PR #29 passed the hosted `quality` and `windows-validation` jobs (workflow run `36577883439`) and merged at `12d39739a70bfab03032c898f6459f0cc4e227e0`. Leave unperformed Gate 004 evidence rows open. Do not reclassify historical Diagnostics warnings as correlated from this new response-count check.
+
+### Gate 004 output-boundary follow-up
+
+**Date**
+
+```text
+2026-09-29
+```
+
+The existing cross-package assessment test now requests XLSX, JSON, CSV, SARIF and stdout in one run. It checks that raw subscription IDs are absent from JSON, every generated CSV table, every XLSX cell and stdout; that masked IDs are present in JSON, CSV, XLSX and stdout; and that SARIF retains the full resource ID needed to identify findings. This checks application option propagation and real renderer output together. SARIF contains sensitive resource identity by design and must be handled accordingly. The focused test passed locally; hosted CI on the follow-up revision is required before this checkpoint is considered merged.
+
+This deterministic test does not substitute for inspecting artifacts from a built CLI on supported platforms or checking Windows ACLs for unredacted reports. Those Gate 004 rows remain open, as do maintenance workflow dispatches and live Diagnostics request correlation.
 
 ## Current boundary
 
