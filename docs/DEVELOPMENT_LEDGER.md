@@ -15,6 +15,7 @@ Cloud Assess development evidence is intentionally split into several layers:
 | Git commit history | Exact chronological code/document changes | Primary per-change record |
 | GitHub Actions runs | Executable validation of a specific commit SHA | Primary validation record |
 | This development ledger | Chronological index connecting milestones, decisions, defects, commits, and validation | Primary process index |
+| `FAILURE_NOTES.md` | Confirmed mistakes, recurrence checks, corrections and prevention steps | Troubleshooting index; underlying Git/CI/ledger evidence remains authoritative |
 | `IMPLEMENTATION_PLAN.md` | Planned phases, completion boundary, outstanding work | Current roadmap |
 | `CHARACTERIZATION.md` | Source behavior preserved or intentionally changed | Behavioral contract |
 | `QUALITY_GATE_001.md` | Formal audit of the core foundation | Audit snapshot |
@@ -1455,6 +1456,18 @@ A deterministic HTTPS fixture now drives the production authenticated Azure HTTP
 
 The initial PR #43 CI run (`36597984445`) failed on both Linux and Windows because the fixture set `MaxRetries: 0`, which the Azure SDK interprets as its default of three retries. The mocked HTTP 429 therefore received four requests and triggered the fixture's one-request assertion. This was a test-configuration error, not an observed scanner failure. The fixture was corrected to `-1`, the SDK's documented one-try/no-retry setting. The code was reviewed and `git diff --check` passed locally. The scratch environment has no Go toolchain, so hosted checks provide executable verification. The corrected PR #43 run (`36598430521`) passed both required `quality` and `windows-validation` jobs and merged at `2afcf7146612d51ec30eab64c7c656b7acdf4ad5`. This verifies the bounded HTTP-client-to-ARG-query negative path; default retry timing, coordinator status and other failures remain open.
 
+### Failure register and Graph critical-failure report fixture
+
+**Date**
+
+```text
+2026-09-29
+```
+
+At the operator's request, [FAILURE_NOTES.md](FAILURE_NOTES.md) now indexes confirmed mistakes with a recurrence search, correction, prevention check, status and original evidence. It starts with the over-specific Phase S Advisor interpretation, the vague local same-RG handoff, and the PR #43 zero-retry test assumption. The notes do not replace this ledger, Git or CI. New failures should be checked against the register before a repeated workaround is attempted; record a new entry or append a recurrence without including credentials or raw Azure rows.
+
+A cross-package test injects a critical Graph query error at the coordinator operation seam after successful scope and inventory. It drives the coordinator and application JSON renderer together, requiring exit 1, persisted `failed` completeness, a failed Graph stage, skipped Advisor, retained discovered inventory and zero fabricated findings. This complements the separate real authenticated HTTP 429-to-query fixture. It does not join that HTTP fixture to the coordinator in one test, prove CLI process behavior, or validate other adapters. No Azure requests were made. The scratch runtime has no Go toolchain; hosted Linux and Windows CI must validate the test before its evidence is counted.
+
 ## Current boundary
 
 The generic core scan, deterministic equivalence tooling, reproducible live runner, default/optional/resource-group/two-subscription/leaf-management-group and separate Storage/VM, RG include/exclude, tag include/exclude, recommendation-exclude and individual-resource-exclude live passes, plus enforced development CI, are complete for the behavior exercised so far. The unfiltered two-subscription, leaf-management-group, tag-exclude, RG-exclude and individual-resource-exclude passes have explicit Diagnostics warning boundaries; the recommendation-exclude pass is also `complete_with_warnings`, without supplied warning details. Network Watcher individual-GET probes and the Phase W one-request batch probe support an explanation for earlier warnings but have not mapped the original multi-request batch responses. The missing cross-run Advisor row has unknown recorded tag scope in the tag-only target inventory; historical Azure timing remains unresolved.
@@ -1522,6 +1535,7 @@ From this point onward, update this ledger whenever any of the following occurs:
 
 - a milestone becomes complete
 - a material defect is found
+- a confirmed development mistake needs a recurrence check in [FAILURE_NOTES.md](FAILURE_NOTES.md)
 - a behavior is intentionally changed from the source
 - a source defect is deliberately corrected
 - a new quality gate is performed
