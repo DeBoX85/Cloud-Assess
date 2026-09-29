@@ -1410,7 +1410,25 @@ The focused adapter test, full Go suite, focused vet and diff check passed local
 
 The operator confirmed that no suitable non-production nested management-group parent is available. Live parent-to-child traversal is now explicitly tracked as `DV-001` in [DEFERRED_VALIDATION.md](DEFERRED_VALIDATION.md), separately linked from the README, roadmap and Gate 004 plan. Its status is deferred evidence, not PASS or a preaccepted release limitation. The register states the safe resume trigger, required paired-run evidence, and the first-release scope decision if it remains unavailable. The `Advisory` production-containing parent was not scanned.
 
-To continue with an accessible `AdvisoryDev` scope, paired same-resource-group include/exclude fixtures have been prepared for pinned AZQR and Cloud Assess. The fixture puts `rg-fos-FinopsHub-dev-euw` in both lists, exercising the characterized explicit-include precedence with non-empty previously observed Dev resources. [EQUIVALENCE.md](EQUIVALENCE.md#next-paired-filter-pass-include-and-exclude-the-same-dev-resource-group) records the command and checks. The live pass has **not** been executed; no new equivalence or stage-health evidence is claimed. Prior Phase R resource counts are historical expectations only.
+To continue with an accessible `AdvisoryDev` scope, paired same-resource-group include/exclude fixtures were prepared for pinned AZQR and Cloud Assess. The fixture puts `rg-fos-FinopsHub-dev-euw` in both lists, exercising the characterized explicit-include precedence with non-empty previously observed Dev resources. [EQUIVALENCE.md](EQUIVALENCE.md#paired-filter-pass-include-and-exclude-the-same-dev-resource-group) records the command and checks. At this checkpoint the live pass had not yet been executed; its later result is recorded below. Prior Phase R resource counts were historical expectations only.
+
+### Same-resource-group include/exclude precedence live pass
+
+**Date and provenance**
+
+```text
+2026-09-29
+Evidence directory: C:\src\Cloud-Assess\artifacts\equivalence\20260929_160941Z
+Reference: 8e4f0577f3615e6c9014c031bcad079f235369cc
+Target: 92dfaeb0a8c4a124dea4c7f2fd9b85f22e6d68da
+APRL: 60eaddda76541f6adbc1c5ffa686829807e55e29
+```
+
+The operator ran the paired filters from the preceding checkpoint on the `AdvisoryDev` leaf. Each filter lists the same full Dev resource-group ID in both its include and exclude resource-group fields. Run metadata records the exact commands, filter paths and SHA-256 values, implicit default stages (`graph`, `diagnostics`, `advisor`, `defender`), one scope record, and exit code 0 for the pinned reference, target and comparator. The uploaded metadata and equivalence report were inspected; the unredacted source and target reports and logs remain in the operator's ignored local evidence directory.
+
+The comparator returned `equivalent = true`. Recommendations were 314/314, findings 11/11, resource types 3/3, selected inventory 3/3, out-of-scope inventory 19/19, Advisor 2/2 and Defender plan status 0/0, with no missing, extra or changed records in enabled datasets. Policy, Defender Recommendations, Arc SQL and Cost were not enabled. Target completeness was `complete`; scope, inventory, graph, diagnostics, Advisor and Defender stages completed without warnings.
+
+The operator's local check of `target.json` found all three selected resources in `rg-fos-FinopsHub-dev-euw`, the same normalized selected resource IDs as the retained Phase R RG-include target report, and only the expected Dev subscription among the target's recorded data subscriptions. These checks support the observed include-over-exclude precedence with non-empty resources and paired source/target semantics. The older Phase R report is a separate Azure snapshot; ID equality is corroboration rather than a substitute for the current-run comparison. The reviewer did not independently inspect the unredacted target JSON. This pass does not exercise a different group combination, a nested management-group parent, or optional stages. `DV-001` remains deferred and Gate 004 remains open.
 
 ## Current boundary
 
