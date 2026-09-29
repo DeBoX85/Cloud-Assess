@@ -272,7 +272,7 @@ Retain the raw reports and logs locally. Verify that the selected recommendation
 
 The `20260929_123149Z` pass returned `equivalent = true`: 313/313 recommendations, 43/43 findings, 12/12 inventory, 10/10 out-of-scope and 10/10 Advisor, with no enabled-dataset deltas. Reference, target and comparator exited 0. The user's local raw-report check found one baseline finding with the excluded ID, zero in each new report, and the affected resource still selected in the target inventory. The new target had `complete_with_warnings`; its warning codes and exact affected requests were not supplied. This is evidence for the observed recommendation exclusion, subject to that stage-health limit and the separate-snapshot boundary. See Phase V in the ledger. The observed recommendation catalog count is 313 on both sides; the preceding Phase U pass had 314, but the filter effect is established by the finding and inventory checks rather than a catalog-count inference.
 
-### Next paired filter pass: exclude one observed resource
+### Paired filter pass: exclude one observed resource
 
 The pinned source calls exact resource-ID exclusions `azqr.exclude.services`; Cloud Assess calls them `assessment.exclude.resources`. To avoid committing an unredacted resource ID, `scripts/prepare-resource-exclusion.ps1` derives a VM from the observed Phase U backup finding, checks that the same ID remains in the newer Phase V target inventory under the expected Dev subscription, and writes both YAML files under ignored `artifacts/`. It reads local JSON only and makes no Azure request. On the user's Windows checkout, after fetching the branch containing this helper:
 
@@ -297,6 +297,8 @@ $prepared | Format-List
 ```
 
 Keep both generated filter files with the local evidence bundle. The preparer prints only a resource ID hash and counts, plus local paths. The runner records the filter paths and SHA-256 hashes. Do not publish the generated YAML or unredacted reports. For a discriminating result, verify the previously selected resource moves out of target inventory and into `outOfScope`, related findings disappear or are consistently filtered on both sides, and unrelated inventory remains. Review resolved and contributing subscriptions, stage warnings and the semantic comparator separately. Azure may change between runs, so do not infer causation solely from a changed total count.
+
+The `20260929_132714Z` pass returned `equivalent = true` with 314/314 recommendations, 35/35 primary findings, 11/11 selected and 11/11 out-of-scope resources, and 5/5 Advisor rows; all enabled datasets had no deltas. The user's local check confirmed the previously selected VM was excluded, appeared once out of scope, had zero remaining target findings, and that every other selected resource ID matched the earlier Phase V target inventory. Target completeness was `complete_with_warnings`: Diagnostics had one `diagnostics_subrequest_non_success` warning; the failed request and HTTP status were not supplied. This establishes the observed exact-resource-exclusion behavior, with the Diagnostics warning and separate Azure snapshot limits preserved. See Phase W in the ledger.
 
 ## Required run conditions
 

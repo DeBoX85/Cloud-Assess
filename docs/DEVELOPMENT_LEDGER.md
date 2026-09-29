@@ -1252,11 +1252,40 @@ The user's local check reported target completeness `complete_with_warnings`; th
 
 ### Planning checkpoint: Individual-resource exclusion evidence fixture
 
-The next paired filter pass uses `scripts/prepare-resource-exclusion.ps1` to derive one previously observed VM resource ID from the locally retained Phase U finding and Phase V inventory, without publishing the ARM ID. The helper writes paired AZQR `exclude.services` and Cloud Assess `exclude.resources` YAML into ignored `artifacts/` and makes no Azure calls. See [EQUIVALENCE.md](EQUIVALENCE.md#next-paired-filter-pass-exclude-one-observed-resource) for the commands and required result checks. This is a prepared test, not a completed live equivalence pass. The existing Diagnostics warning, other filter combinations, nested management-group traversal and Gate 004 remain open.
+The next paired filter pass uses `scripts/prepare-resource-exclusion.ps1` to derive one previously observed VM resource ID from the locally retained Phase U finding and Phase V inventory, without publishing the ARM ID. The helper writes paired AZQR `exclude.services` and Cloud Assess `exclude.resources` YAML into ignored `artifacts/` and makes no Azure calls. See [EQUIVALENCE.md](EQUIVALENCE.md#paired-filter-pass-exclude-one-observed-resource) for the commands and required result checks. This checkpoint prepared the test; the subsequent live result is recorded in Phase W. The existing Diagnostics warning, other filter combinations, nested management-group traversal and Gate 004 remain open.
+
+### Phase W: AdvisoryDev individual-resource exclusion live comparison
+
+**Date and provenance**
+
+```text
+2026-09-29
+Reference: 8e4f0577f3615e6c9014c031bcad079f235369cc
+Target: 15ed0ca82fe8125c105a3ed6e74fad83df94565c
+APRL: 60eaddda76541f6adbc1c5ffa686829807e55e29
+Evidence stamp: 20260929_132714Z
+```
+
+The user supplied `equivalence.json`, `run-metadata.json`, and a local check of the retained Phase U, Phase V and new target reports. The raw reports, generated filter YAML and logs remain local and were not independently inspected. The local helper generated AZQR `exclude.services` and Cloud Assess `exclude.resources` filters for one previously observed Dev VM. The metadata records their SHA-256 hashes as `ac87a6e858823bbb4cd603fc63ad2a1e2e372a271fc5e92844a586cb35443441` and `8bc729528969e53a959331056951c6d993d42a9a92364c2844eeab3287c50d4f`. Both scans used leaf management group `AdvisoryDev` and the implicit graph, diagnostics, Advisor and Defender stages.
+
+**Execution and semantic result**
+
+- reference, target and comparator exit codes: 0 / 0 / 0
+- comparator: `equivalent = true`, no missing, extra or changed records in enabled datasets
+- recommendations: 314 / 314; primary findings: 35 / 35
+- resource types: 10 / 10; in-scope inventory: 11 / 11; out-of-scope inventory: 11 / 11
+- Advisor: 5 / 5; Defender plan status: enabled on both sides, 0 / 0
+- Policy, Defender Recommendations, Arc SQL and Cost: not enabled
+
+The user's local target-report check confirmed that the selected VM was present in the Phase V inventory, absent from this run's selected inventory, present once in this run's `outOfScope`, and associated with zero new target findings. All other selected resource IDs matched the Phase V inventory exactly. This provides non-empty, selective exact-resource-exclusion evidence for the observed VM alongside within-run source/target equivalence. Findings and Advisor totals changed across separate Azure snapshots; their count differences alone cannot establish which rows were removed by the filter.
+
+**Stage-health limit and next boundary**
+
+The target reported `complete_with_warnings`: Diagnostics completed with one `diagnostics_subrequest_non_success` warning and six stage records; other enabled stages completed without warning. The warning's HTTP status, failed batch request and affected resource were not supplied for this pass. An earlier individual Network Watcher GET cannot be assumed to identify this particular batch response. The successful comparator therefore does not close Diagnostics coverage for the unsuccessful request. Nested management-group traversal, other filter interactions, non-empty optional-stage gaps and Quality Gate 004 remain open.
 
 ## Current boundary
 
-The generic core scan, deterministic equivalence tooling, reproducible live runner, default/optional/resource-group/two-subscription/leaf-management-group and separate Storage/VM, RG include/exclude, tag include/exclude and recommendation-exclude live passes, plus enforced development CI, are complete for the behavior exercised so far. The unfiltered two-subscription, leaf-management-group, tag-exclude and RG-exclude passes have explicit Diagnostics warning boundaries; the recommendation-exclude pass is also `complete_with_warnings`, without supplied warning details. Network Watcher individual-GET probes support an explanation for earlier warnings but have not mapped the batch requests. The missing cross-run Advisor row has unknown recorded tag scope in the tag-only target inventory; historical Azure timing remains unresolved.
+The generic core scan, deterministic equivalence tooling, reproducible live runner, default/optional/resource-group/two-subscription/leaf-management-group and separate Storage/VM, RG include/exclude, tag include/exclude, recommendation-exclude and individual-resource-exclude live passes, plus enforced development CI, are complete for the behavior exercised so far. The unfiltered two-subscription, leaf-management-group, tag-exclude, RG-exclude and individual-resource-exclude passes have explicit Diagnostics warning boundaries; the recommendation-exclude pass is also `complete_with_warnings`, without supplied warning details. Network Watcher individual-GET probes support an explanation for earlier warnings but have not mapped the batch requests. The missing cross-run Advisor row has unknown recorded tag scope in the tag-only target inventory; historical Azure timing remains unresolved.
 
 The next live validation boundary is:
 
