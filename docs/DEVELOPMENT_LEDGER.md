@@ -1361,6 +1361,10 @@ The Resource Graph HTTP transport previously decoded a successful HTTP response 
 
 The change adds one deterministic negative-path check. Azure throttling, timeouts, cancellation across real adapters, CLI failure persistence and other Gate 004 evidence remain open. No Azure requests were made for this checkpoint.
 
+**Validation**
+
+The focused ARG test, full Go suite, focused vet and diff check passed locally. PR #35 passed the hosted `quality` and `windows-validation` jobs (workflow run `36582502895`) and merged at `ddba2a9842651854606901ac25b5a58910f3c9d0`. Gate 004 remains planned.
+
 ## Current boundary
 
 The generic core scan, deterministic equivalence tooling, reproducible live runner, default/optional/resource-group/two-subscription/leaf-management-group and separate Storage/VM, RG include/exclude, tag include/exclude, recommendation-exclude and individual-resource-exclude live passes, plus enforced development CI, are complete for the behavior exercised so far. The unfiltered two-subscription, leaf-management-group, tag-exclude, RG-exclude and individual-resource-exclude passes have explicit Diagnostics warning boundaries; the recommendation-exclude pass is also `complete_with_warnings`, without supplied warning details. Network Watcher individual-GET probes support an explanation for earlier warnings but have not mapped the batch requests. The missing cross-run Advisor row has unknown recorded tag scope in the tag-only target inventory; historical Azure timing remains unresolved.
