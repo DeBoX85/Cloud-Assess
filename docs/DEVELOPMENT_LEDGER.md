@@ -1170,9 +1170,23 @@ The target reported `complete_with_warnings`: Diagnostics completed with one `di
 
 Confirm the exact resolved subscription in a sanitized local check, classify this run's Diagnostics warning if its affected request can be identified, then continue other filter interactions and suitable non-production parent-to-child management-group traversal. Gate 004 remains planned.
 
+### Phase T follow-up: scope and individual Diagnostics probe
+
+**Date**
+
+```text
+2026-09-29
+```
+
+The user checked the retained Phase T target JSON locally. Across included inventory, out-of-scope inventory, findings, Advisor and Defender records, there was exactly one distinct subscription ID, and it was the expected non-production Dev subscription. This closes the Phase T target data-subscription check without publishing raw report rows.
+
+The user then ran the read-only `tools/diagnostics-probe` against the retained Phase T target report. The tool counted one original HTTP 400 Diagnostics warning. It issued individual GETs for eight eligible inventory resources: seven succeeded, and one Network Watcher returned HTTP 400 `ResourceTypeNotSupported`. Its resource-ID hash matched the Network Watcher observed in the earlier Phase N/P individual-GET probes. Only the probe summary was shared; raw resource IDs and Azure reports remain local. This repeated observation strengthens the explanation that Network Watcher eligibility produces these Diagnostics warnings in this environment. The Phase T batch subresponse still lacks request correlation, and the later individual GET cannot prove that it was the failed batch request or rule out a transient batch failure. The target remains `complete_with_warnings`.
+
+The pinned source and target have no dedicated missing-diagnostics recommendation for Network Watchers, as characterized in Phase O. The probe evidence therefore does not identify a missing Network Watcher recommendation delta, while the exact assessment meaning of the uncorrelated batch failure remains bounded by the warning. No additional Azure scan or comparator run was performed for this follow-up.
+
 ## Current boundary
 
-The generic core scan, deterministic equivalence tooling, reproducible live runner, default/optional/resource-group/two-subscription/leaf-management-group and separate Storage/VM, RG, tag include and tag exclude live passes, plus enforced development CI, are complete for the behavior exercised so far. The unfiltered two-subscription, leaf-management-group, and exclude-tag passes have explicit Diagnostics warning boundaries. The missing cross-run Advisor row has unknown recorded tag scope in the tag-only target inventory; historical Azure timing remains unresolved.
+The generic core scan, deterministic equivalence tooling, reproducible live runner, default/optional/resource-group/two-subscription/leaf-management-group and separate Storage/VM, RG, tag include and tag exclude live passes, plus enforced development CI, are complete for the behavior exercised so far. The unfiltered two-subscription, leaf-management-group, and exclude-tag passes have explicit Diagnostics warning boundaries, supported but not request-correlated by Network Watcher individual-GET probes. The missing cross-run Advisor row has unknown recorded tag scope in the tag-only target inventory; historical Azure timing remains unresolved.
 
 The next live validation boundary is:
 
@@ -1195,7 +1209,7 @@ Required evidence set for each live pass:
 The following are not forgotten; they remain intentionally open:
 
 - Diagnostics HTTP 400 subrequest root cause and affected-resource coverage
-- exclude-tag pass Diagnostics warning request/status classification
+- exclude-tag pass Diagnostics batch request correlation (individual probe identified a matching Network Watcher error)
 - historical Advisor API row presence/timing across separate RG-only and tag-only runs
 - nested management-group traversal equivalence
 - non-empty Policy and Defender Recommendations evidence
