@@ -261,7 +261,7 @@ Keep both unredacted reports and logs in the ignored local evidence directory. R
 
 The `20260929_121323Z` pass returned `equivalent = true` with nine selected resources, 33 findings and eight Advisor rows on each side. The user's local check found all three previously included resources in the excluded group in the target `outOfScope` set, none selected, and an exact match between the selected IDs and the same-day Phase T tag-exclude pass. Only the expected Dev subscription contributed data. The target remained `complete_with_warnings` with one Diagnostics subrequest warning; see Phase U in the ledger. The prior Network Watcher probe does not correlate this run's batch failure to a resource.
 
-### Next paired filter pass: include and exclude the same Dev resource group
+### Paired filter pass: include and exclude the same Dev resource group
 
 The paired fixtures `examples/filters/azqr-include-exclude-dev-rg.yml` and `examples/filters/cloud-assess-include-exclude-dev-rg.yml` place the same full Dev resource-group ID in both include and exclude lists. This isolates precedence without involving a production-containing management-group parent. The local filter characterization expects the explicit include to win for that group. The earlier Phase R RG-include pass selected three resources, but that older count is only a comparison point if the inventory remains stable.
 
@@ -280,6 +280,8 @@ if ($LASTEXITCODE -ne 0) { throw 'Fast-forward failed' }
 ```
 
 Keep the unredacted bundle under ignored `artifacts/`. Review the comparator result and stage completeness, confirm that the scope resolves only the expected Dev subscription, and verify every selected inventory resource belongs to the named group. Compare the selected ID set to the retained Phase R RG-include report as corroboration, while recognizing those reports are separate Azure snapshots. If a stage warns or the inventory differs, classify it before treating the pass as precedence evidence. This paired leaf-scope pass does not close DV-001 nested management-group traversal.
+
+The `20260929_160941Z` paired pass returned `equivalent = true` with 314/314 recommendations, 11/11 findings, 3/3 selected resources, 19/19 out-of-scope resources and 2/2 Advisor rows. All three processes exited 0. Target completeness was `complete` and its enabled stages had no warnings. The operator's local report check confirmed that all three selected resources belong to the named Dev group, the selected ID set matches the retained Phase R RG-include report, and only the expected Dev subscription contributes data. This supports the observed include-over-exclude precedence for the same RG with non-empty data. The raw reports remain local; the historical ID comparison does not prove Azure was unchanged between runs. See the same-RG precedence entry in the ledger. DV-001 and other filter combinations remain open.
 
 ### Paired filter pass: exclude one observed recommendation
 
