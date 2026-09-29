@@ -80,6 +80,7 @@ The order indicates dependencies, not promised dates. A suitable test scope may 
 - Exercise Arc-enabled SQL with a real or faithful recorded response containing numeric `vcores`; resolve the pinned source's response-decoder ambiguity, add a characterization test, and classify any intentional target correction.
 - Retain the non-empty Cost and Defender plan-status baselines and rerun only when changed code or a new scope creates a concrete regression question. Exercise Cost access failure separately from a valid zero-cost result.
 - Characterize invalid input, authentication/authorization failures, API throttling, partial noncritical stages, malformed rows, and warning-to-completeness behavior with focused fixtures. Verify that reports are retained before partial and severity-gate exits.
+- Keep the cross-package Cost access-denial and truncated Diagnostics batch-response checks in CI. Extend adapter-to-report tests to uncovered denied/throttled/canceled cases, checking that a failed request cannot become a successful empty result. Distinguish successful empty responses from failed retrievals.
 - Cover recommendation applicability (not applicable, compliant, noncompliant), finding deduplication, and diagnostic settings present/absent with existing source fixtures or representative live data. Verify each supported cloud/authority/ARM endpoint variant with an appropriate test environment, or record it as unvalidated if none is available.
 - Check real-output projections for XLSX, JSON, CSV, SARIF, and stdout, including redaction boundaries and the identity-bearing nature of SARIF. Avoid putting unredacted Azure reports into public CI artifacts.
 
@@ -105,9 +106,12 @@ Keep the current early error for explicit plugin-stage requests until a working 
 - Produce reproducible build metadata, checksums, and artifact provenance. GitHub Actions [artifact attestations](https://docs.github.com/en/actions/how-tos/secure-your-work/use-artifact-attestations/use-artifact-attestations) are one option to evaluate once the release workflow exists.
 - Generate and review a dependency and license inventory, including bundled rule data and transitive dependencies; retain the required notices and source pins. Recheck reachable vulnerabilities, action SHAs, Go patch level, and package-specific negative paths rather than relying only on the current aggregate coverage floor.
 - Review authentication and least-privilege setup, timeout/retry/throttle behavior, error handling, local report permissions, redaction and SARIF exposure, evidence retention, and recovery/rollback instructions. Verify default operations remain read-oriented.
+- Run a controlled production-scope pilot only after the core validation decision and explicit scope approval. Check the read-oriented identity and endpoint behavior, resolved subscriptions, API load/time bounds, warning and partial-result handling, secure report storage/retention and stop procedure on the exact candidate build.
 - Update the user guide, CLI examples, deployment/upgrade notes, supported scope matrix, known limitations, and troubleshooting guidance. Keep quality-gate snapshots immutable and record new results in the ledger.
 
 **Exit:** a release candidate is installable and supportable from its published artifacts, and a final security, licensing, and operational gate has recorded results on the exact release SHA.
+
+The dependency and rule-refresh workflows also need controlled no-change and changed-output dispatch checks before their automation is treated as operationally verified. Their proposed branches must go through the same protected PR checks; automated commits must carry a bot identity rather than a human's noreply address.
 
 ## Evidence and decision rules
 

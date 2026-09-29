@@ -254,6 +254,33 @@ func TestNonSuccessSubrequestPreservesReferenceFindingAndAddsWarning(t *testing.
 	}
 }
 
+func TestTruncatedBatchResponseFailsInsteadOfReportingMissingSettings(t *testing.T) {
+	resourceIDs := []string{
+		"/subscriptions/sub/resourceGroups/rg/providers/Microsoft.Storage/storageAccounts/one",
+		"/subscriptions/sub/resourceGroups/rg/providers/Microsoft.Storage/storageAccounts/two",
+	}
+	client := &fakeBatchClient{handler: func(request armBatchRequest) (*http.Response, error) {
+		if len(request.Requests) != len(resourceIDs) {
+			t.Fatalf("batch requests = %d, want %d", len(request.Requests), len(resourceIDs))
+		}
+		return jsonResponse(t, armBatchResponse{Responses: []armBatchResponseItem{{
+			HTTPStatusCode: http.StatusOK,
+			Content:        json.RawMessage(`{"value":[]}`),
+		}}}), nil
+	}}
+	resources := []assessment.Resource{
+		{ID: resourceIDs[0], Type: "Microsoft.Storage/storageAccounts"},
+		{ID: resourceIDs[1], Type: "Microsoft.Storage/storageAccounts"},
+	}
+	result, err := NewWithClient(client, "https://management.azure.com").Scan(context.Background(), resources, nil, nil)
+	if err == nil || !strings.Contains(err.Error(), "1 subresponses for 2 requests") {
+		t.Fatalf("truncated batch error = %v", err)
+	}
+	if len(result.Findings) != 0 {
+		t.Fatalf("incomplete batch produced missing-settings findings: %+v", result.Findings)
+	}
+}
+
 func TestMalformedDiagnosticSettingIDBecomesWarning(t *testing.T) {
 	const resourceID = "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Storage/storageAccounts/st1"
 	client := &fakeBatchClient{handler: func(request armBatchRequest) (*http.Response, error) {

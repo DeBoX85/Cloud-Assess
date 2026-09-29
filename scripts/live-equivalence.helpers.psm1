@@ -144,4 +144,33 @@ function Resolve-LiveEquivalenceStages {
     }
 }
 
-Export-ModuleMember -Function Resolve-LiveEquivalenceScope, Resolve-LiveEquivalenceStages
+function Get-TargetAssessmentSummary {
+    [CmdletBinding()]
+    param([Parameter(Mandatory = $true)] $Report)
+
+    $stageSummaries = @()
+    foreach ($stage in @($Report.stages)) {
+        $codes = @()
+        $warningsProperty = $stage.PSObject.Properties['warnings']
+        if ($null -ne $warningsProperty) {
+            foreach ($warning in @($warningsProperty.Value)) {
+                if ($null -ne $warning -and -not [string]::IsNullOrWhiteSpace([string]$warning.code)) {
+                    $codes += [string]$warning.code
+                }
+            }
+        }
+        $stageSummaries += [ordered]@{
+            name = [string]$stage.name
+            status = [string]$stage.status
+            records = [int]$stage.records
+            warningCodes = @($codes)
+        }
+    }
+
+    return [ordered]@{
+        completeness = [string]$Report.completeness
+        stages = @($stageSummaries)
+    }
+}
+
+Export-ModuleMember -Function Resolve-LiveEquivalenceScope, Resolve-LiveEquivalenceStages, Get-TargetAssessmentSummary

@@ -84,4 +84,26 @@ Assert-Throws -Label 'mixed management-group scope' -Action {
     Resolve-LiveEquivalenceScope -SubscriptionId 'sub-1' -ManagementGroupId 'mg-1'
 } -MessagePattern 'cannot be combined'
 
+$sensitive = 'subscription-secret-1111'
+$summary = Get-TargetAssessmentSummary -Report ([pscustomobject]@{
+    completeness = 'complete_with_warnings'
+    stages = @(
+        [pscustomobject]@{ name = 'scope'; status = 'completed'; records = 1 },
+        [pscustomobject]@{
+            name = 'diagnostics'; status = 'completed_with_warnings'; records = 2
+            warnings = @([pscustomobject]@{ code = 'diagnostics_subrequest_non_success'; message = "failed $sensitive" })
+        },
+        [pscustomobject]@{ name = 'policy'; status = 'skipped'; records = 0 }
+    )
+})
+if ($summary.completeness -ne 'complete_with_warnings' -or $summary.stages.Count -ne 3 -or
+    $summary.stages[1].status -ne 'completed_with_warnings' -or $summary.stages[1].records -ne 2) {
+    throw 'Stage-health summary lost status or record counts.'
+}
+Assert-SequenceEqual -Label 'stage warning codes' -Actual $summary.stages[1].warningCodes -Expected @('diagnostics_subrequest_non_success')
+Assert-SequenceEqual -Label 'omitted stage warnings' -Actual $summary.stages[0].warningCodes -Expected @()
+if (($summary | ConvertTo-Json -Depth 12) -match $sensitive) {
+    throw 'Stage-health summary leaked a warning message with an Azure identifier.'
+}
+
 Write-Host 'live-equivalence helper tests: PASS'

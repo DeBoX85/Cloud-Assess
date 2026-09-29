@@ -264,6 +264,9 @@ func (s *Scanner) scanBatch(
 	if err := json.NewDecoder(response.Body).Decode(&batch); err != nil {
 		return nil, nil, fmt.Errorf("decode diagnostic settings batch response: %w", err)
 	}
+	if len(batch.Responses) != len(resourceIDs) {
+		return nil, nil, fmt.Errorf("diagnostic settings batch returned %d subresponses for %d requests", len(batch.Responses), len(resourceIDs))
+	}
 
 	enabled := map[string]bool{}
 	warnings := []assessment.AssessmentWarning{}
