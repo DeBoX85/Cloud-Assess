@@ -23,6 +23,16 @@ This document orders the remaining work and defines the evidence needed to close
 
 The next live work items are nested management-group traversal in a suitable non-production hierarchy and remaining filter combinations. Diagnostics warning caveats from Phases N and P remain in the evidence matrix. Core equivalence and a release decision require the open validation limits to be resolved or explicitly accepted with a narrowed scope.
 
+## Historical requirement reconciliation
+
+A one-time review of the earlier project conversation identified three requirements to resolve before the first-release boundary. That history is design context, not evidence that current behavior is defective or that later decisions were never made:
+
+- **Adjustable branding:** The original request called for a simple way to change product branding. `internal/branding` centralizes the current identity, but changing its defaults requires a code change and rebuild. Decide the supported adjustment workflow, verify that the CLI and all report formats use it consistently, and document it. A YAML branding file was an illustration in the earlier conversation, not an agreed format.
+- **Extension versus built-in plugin scope:** YAML/KQL recommendation extensions were named in the original core-v1 scope. Full behavioral parity for built-in plugins was deferred. Production external/YAML plugin execution is still open, so decide and document its first-release status separately from each built-in plugin. The named historical inventory for the eventual parity matrix is AI Governance, Carbon, Region Selection, Service Health, SQL EOL, and Zone Mapping; verify the pinned-source names and behavior when building that matrix.
+- **Access model:** The earlier specification separated ordinary read-oriented resource access from Cost data visibility and required a Cost access failure to remain distinct from a valid zero-cost result. Document the actual stage-specific permissions, billing prerequisites, and failure behavior as part of the release operations review. Verify current Azure role guidance against official documentation before publishing concrete role recommendations. Plugin permissions need their own entries when plugins are supported.
+
+These items do not change the Phase S tag-filter result or close its separate-run Advisor timing limit. The next paired filter pass can exercise exclusion of `Environment: dev` independently of the completed include-tag pass; see [EQUIVALENCE.md](EQUIVALENCE.md). Keep the existing Gate 004 and release-gate criteria in force.
+
 ## Execution order and completion gates
 
 | Order | Workstream | Completion evidence | Dependency or input |

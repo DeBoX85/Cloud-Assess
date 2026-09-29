@@ -1,0 +1,5 @@
+# Cloud Assess equivalent of azqr-exclude-environment-dev.yml.
+assessment:
+  exclude:
+    tags:
+      Environment: dev
