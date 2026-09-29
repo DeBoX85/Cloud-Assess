@@ -3,12 +3,25 @@ package arg
 import (
 	"context"
 	"encoding/json"
+	"errors"
 	"io"
 	"net/http"
+	"net/http/httptest"
 	"strings"
+	"sync/atomic"
 	"testing"
 	"time"
+
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
+	"github.com/DeBoX85/Cloud-Assess/internal/azure"
 )
+
+type argTestCredential struct{}
+
+func (argTestCredential) GetToken(context.Context, policy.TokenRequestOptions) (azcore.AccessToken, error) {
+	return azcore.AccessToken{Token: "test-token", ExpiresOn: time.Now().Add(time.Hour)}, nil
+}
 
 type fakePoster struct {
 	url  string
@@ -98,6 +111,54 @@ func TestHTTPTransportRejectsMissingDataInsteadOfReportingEmptySuccess(t *testin
 	)
 	if err != nil || result == nil || len(result.Data) != 0 {
 		t.Fatalf("valid empty result = %#v, error = %v", result, err)
+	}
+}
+
+func TestQueryDistinguishesThrottlingFromValidEmptyARGResponse(t *testing.T) {
+	for _, test := range []struct {
+		name    string
+		status  int
+		payload string
+	}{
+		{name: "throttled", status: http.StatusTooManyRequests, payload: `{"error":{"code":"TooManyRequests","message":"retry later"}}`},
+		{name: "empty", status: http.StatusOK, payload: `{"data":[]}`},
+	} {
+		t.Run(test.name, func(t *testing.T) {
+			var calls atomic.Int32
+			server := httptest.NewTLSServer(http.HandlerFunc(func(w http.ResponseWriter, request *http.Request) {
+				calls.Add(1)
+				if request.Method != http.MethodPost || request.Header.Get("Authorization") != "Bearer test-token" {
+					t.Errorf("unexpected ARG request method or authentication: %s", request.Method)
+				}
+				w.Header().Set("Content-Type", "application/json")
+				w.WriteHeader(test.status)
+				_, _ = io.WriteString(w, test.payload)
+			}))
+			defer server.Close()
+
+			httpClient := azure.NewHTTPClient(argTestCredential{}, &azure.HTTPClientOptions{
+				Timeout:    2 * time.Second,
+				MaxRetries: -1, // The Azure SDK uses its default retry count for zero.
+				Scope:      "https://management.azure.com/.default",
+				Transport:  server.Client(),
+			})
+			result, err := NewClient(NewHTTPTransportWithClient(httpClient, server.URL)).Query(
+				context.Background(), "resources", map[string]string{"sub": "name"},
+			)
+			if got := calls.Load(); got != 1 {
+				t.Fatalf("ARG request count = %d, want 1", got)
+			}
+			if test.status == http.StatusOK {
+				if err != nil || result == nil || len(result.Data) != 0 {
+					t.Fatalf("valid empty result = %#v, error = %v", result, err)
+				}
+				return
+			}
+			var responseError *azcore.ResponseError
+			if result != nil || !errors.As(err, &responseError) || responseError.StatusCode != http.StatusTooManyRequests {
+				t.Fatalf("throttled result = %#v, error = %v; want Azure HTTP 429 failure", result, err)
+			}
+		})
 	}
 }
 

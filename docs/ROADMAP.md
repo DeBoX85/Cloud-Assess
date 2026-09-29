@@ -23,7 +23,7 @@ These are coarse planning estimates, not measured coverage or quality-gate decis
 | Installable and supportable first-release toolkit | About 45% | Packaging, clean installation, dependency/license inventory, artifact provenance, operational/security review and release gate are not complete. |
 | Full AZQR feature parity | About 55% | The common assessment path has substantial equivalence evidence, while internal plugins, scanner-specific commands and ancillary CLI surfaces remain unimplemented or deliberately deferred. This is broader than the current core-v1 acceptance target. |
 
-The estimates are rounded to roughly ten percentage points and must not be used as a release approval. The next checkpoint is a Gate 004 negative-path fixture through a production adapter and the query/coordinator boundary, followed by the remaining paired filter interactions and non-empty optional-stage evidence. No Azure access is needed for the deterministic fixture. Do not scan the production-containing `Advisory` parent to advance DV-001.
+The estimates are rounded to roughly ten percentage points and must not be used as a release approval. The first Gate 004 negative-path fixture now exercises the production authenticated HTTP client through the ARG query boundary for HTTP 429 versus valid empty data. Its CI validation and merge are required before counting it as checked. Coordinator stage health, other failure paths, remaining paired filter interactions and non-empty optional-stage evidence follow. No Azure access is needed for the deterministic fixture. Do not scan the production-containing `Advisory` parent to advance DV-001.
 
 ## Starting point
 
