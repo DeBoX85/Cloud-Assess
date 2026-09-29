@@ -138,7 +138,7 @@ func TestQueryDistinguishesThrottlingFromValidEmptyARGResponse(t *testing.T) {
 
 			httpClient := azure.NewHTTPClient(argTestCredential{}, &azure.HTTPClientOptions{
 				Timeout:    2 * time.Second,
-				MaxRetries: 0,
+				MaxRetries: -1, // The Azure SDK uses its default retry count for zero.
 				Scope:      "https://management.azure.com/.default",
 				Transport:  server.Client(),
 			})

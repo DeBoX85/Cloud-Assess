@@ -1453,7 +1453,7 @@ Next, strengthen a failed/throttled Azure adapter path through the query boundar
 
 A deterministic HTTPS fixture now drives the production authenticated Azure HTTP client, Resource Graph HTTP transport and query client together. It contrasts a structured HTTP 429 response with a successful `data: []` response. With the retry budget set to zero to model an exhausted retry path, the former must return a wrapped Azure response error and nil query result; the latter must return a valid empty result. The fixture checks that each case made exactly one authenticated POST and makes no Azure calls. It closes one failed-retrieval-versus-empty-result regression path, not the default retry timing, real Azure throttling, coordinator stage health, or all Gate 004 negative paths.
 
-The code was reviewed and `git diff --check` passed locally. The scratch environment does not have a Go toolchain; required Linux and Windows CI jobs are the executable verification for the PR. Record their run and merge identity once complete.
+The initial PR #43 CI run (`36597984445`) failed on both Linux and Windows because the fixture set `MaxRetries: 0`, which the Azure SDK interprets as its default of three retries. The mocked HTTP 429 therefore received four requests and triggered the fixture's one-request assertion. This was a test-configuration error, not an observed scanner failure. The fixture now uses `-1`, the SDK's documented one-try/no-retry setting. The code was reviewed and `git diff --check` passed locally. The scratch environment does not have a Go toolchain; required Linux and Windows CI jobs provide executable verification. Record the corrected run and merge identity once complete.
 
 ## Current boundary
 
