@@ -1333,6 +1333,18 @@ This tool has not been run against the user's Azure environment in this checkpoi
 
 The full Go suite, focused vet and diff check passed locally. PR #31 passed the hosted `quality` and `windows-validation` jobs (workflow run `36580144346`) and merged at `a2290322db919198e8eb9342eb0c2aba469974af`. The associated probe test is deterministic; no Azure batch outcome was observed during this validation.
 
+### Gate 004 bounded-pagination checkpoint
+
+**Date**
+
+```text
+2026-09-29
+```
+
+The Resource Graph query client previously followed any non-nil `$skipToken` without detecting an empty or repeated token. A malformed or faulty response could therefore cause unbounded requests and duplicate records. The client now stops with an error on either condition and checks cancellation before each page request. Focused tests assert that a repeated token never becomes a successful partial result and that a canceled context triggers no transport call. This is a deliberate safety correction for invalid pagination, not a claim about the pinned source's behavior under malformed responses. Normal continuation-token behavior and prior successful live equivalence are unchanged.
+
+This deterministic boundary does not prove Azure throttling, malformed HTTP response, or end-to-end failure handling in every stage. Those Gate 004 checks remain open. No Azure requests were made for this checkpoint.
+
 ## Current boundary
 
 The generic core scan, deterministic equivalence tooling, reproducible live runner, default/optional/resource-group/two-subscription/leaf-management-group and separate Storage/VM, RG include/exclude, tag include/exclude, recommendation-exclude and individual-resource-exclude live passes, plus enforced development CI, are complete for the behavior exercised so far. The unfiltered two-subscription, leaf-management-group, tag-exclude, RG-exclude and individual-resource-exclude passes have explicit Diagnostics warning boundaries; the recommendation-exclude pass is also `complete_with_warnings`, without supplied warning details. Network Watcher individual-GET probes support an explanation for earlier warnings but have not mapped the batch requests. The missing cross-run Advisor row has unknown recorded tag scope in the tag-only target inventory; historical Azure timing remains unresolved.

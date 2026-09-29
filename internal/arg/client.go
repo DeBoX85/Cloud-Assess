@@ -83,7 +83,11 @@ func (c *Client) Query(
 		batch := append([]string(nil), subscriptionIDs[start:end]...)
 
 		var skipToken *string
+		seenTokens := map[string]struct{}{}
 		for {
+			if err := ctx.Err(); err != nil {
+				return nil, fmt.Errorf("resource graph query canceled: %w", err)
+			}
 			top := MaxRowsPerPage
 			requestOptions := &RequestOptions{
 				ResultFormat: ResultFormatObjectArray,
@@ -112,6 +116,13 @@ func (c *Client) Query(
 				break
 			}
 			token := *response.SkipToken
+			if token == "" {
+				return nil, fmt.Errorf("resource graph returned an empty continuation token")
+			}
+			if _, exists := seenTokens[token]; exists {
+				return nil, fmt.Errorf("resource graph repeated a continuation token")
+			}
+			seenTokens[token] = struct{}{}
 			skipToken = &token
 		}
 	}

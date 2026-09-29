@@ -73,6 +73,35 @@ func TestQueryFollowsSkipTokenAndAggregatesRows(t *testing.T) {
 	}
 }
 
+func TestQueryRejectsRepeatedOrEmptyContinuationToken(t *testing.T) {
+	for _, test := range []struct {
+		name      string
+		responses []*Response
+		calls     int
+	}{
+		{name: "repeated", responses: []*Response{{Data: []json.RawMessage{json.RawMessage(`{"page":1}`)}, SkipToken: strptr("same")}, {Data: []json.RawMessage{json.RawMessage(`{"page":1}`)}, SkipToken: strptr("same")}}, calls: 2},
+		{name: "empty", responses: []*Response{{SkipToken: strptr("")}}, calls: 1},
+	} {
+		t.Run(test.name, func(t *testing.T) {
+			transport := &fakeTransport{responses: test.responses}
+			result, err := NewClient(transport).Query(context.Background(), "resources", map[string]string{"sub": "name"})
+			if err == nil || result != nil || len(transport.requests) != test.calls {
+				t.Fatalf("result = %#v, error = %v, calls = %d; want explicit failure after %d calls", result, err, len(transport.requests), test.calls)
+			}
+		})
+	}
+}
+
+func TestQueryStopsBeforeTransportWhenContextIsCanceled(t *testing.T) {
+	ctx, cancel := context.WithCancel(context.Background())
+	cancel()
+	transport := &fakeTransport{}
+	result, err := NewClient(transport).Query(ctx, "resources", map[string]string{"sub": "name"})
+	if result != nil || !errors.Is(err, context.Canceled) || len(transport.requests) != 0 {
+		t.Fatalf("result = %#v, error = %v, calls = %d; want cancellation before request", result, err, len(transport.requests))
+	}
+}
+
 func TestQueryUsesReferenceRequestOptions(t *testing.T) {
 	transport := &fakeTransport{responses: []*Response{{}}}
 	client := NewClient(transport)
