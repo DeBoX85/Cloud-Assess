@@ -310,6 +310,8 @@ Keep both generated filter files with the local evidence bundle. The preparer pr
 
 The `20260929_132714Z` pass returned `equivalent = true` with 314/314 recommendations, 35/35 primary findings, 11/11 selected and 11/11 out-of-scope resources, and 5/5 Advisor rows; all enabled datasets had no deltas. The user's local check confirmed the previously selected VM was excluded, appeared once out of scope, had zero remaining target findings, and that every other selected resource ID matched the earlier Phase V target inventory. Target completeness was `complete_with_warnings`: Diagnostics had one `diagnostics_subrequest_non_success` warning; the failed request and HTTP status were not supplied. This establishes the observed exact-resource-exclusion behavior, with the Diagnostics warning and separate Azure snapshot limits preserved. See Phase W in the ledger.
 
+A later `single-batch` probe against this retained target inventory returned nine successful one-request ARM batches and one Network Watcher HTTP 400, with the same shortened resource-ID hash as earlier individual GET failures. It corroborates the likely cause but cannot map the original multi-request warning to that resource. The original target remains `complete_with_warnings`; see the Phase W Diagnostics follow-up in the ledger.
+
 ## Required run conditions
 
 For a meaningful live comparison:

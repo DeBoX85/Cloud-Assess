@@ -1365,9 +1365,26 @@ The change adds one deterministic negative-path check. Azure throttling, timeout
 
 The focused ARG test, full Go suite, focused vet and diff check passed locally. PR #35 passed the hosted `quality` and `windows-validation` jobs (workflow run `36582502895`) and merged at `ddba2a9842651854606901ac25b5a58910f3c9d0`. Gate 004 remains planned.
 
+### Phase W Diagnostics one-request batch follow-up
+
+**Date and provenance**
+
+```text
+2026-09-29
+Probe code revision: 8c4f99aa9a91c10e88cd0f27164096fe77292887
+Original evidence stamp: 20260929_132714Z
+Original target scan revision: 15ed0ca82fe8125c105a3ed6e74fad83df94565c
+```
+
+The user fast-forwarded their local `bootstrap/core-v1` checkout to `8c4f99a` and ran `go run ./tools/diagnostics-probe --mode single-batch` against the locally retained, unredacted Phase W `target.json`. The probe used the user's Azure authentication to issue one read-only diagnostic-settings GET subrequest in each ARM batch POST for the ten eligible inventory resources. Only the sanitized console summary was supplied; the raw report, request and response bodies and logs remain local and were not independently replayed by the reviewer.
+
+The summary counted one HTTP 400 warning in the original target report. In the later probe, nine one-request batches succeeded and one returned HTTP 400 for `microsoft.network/networkwatchers`, with shortened resource-ID hash `4d7a2aeb63c53438`. No Azure error code was present in this batch probe's sanitized output. The hash matches the Network Watcher previously observed in individual GET probes of the broader Dev evidence, where `ResourceTypeNotSupported` was returned. The new observation directly associates a current one-request batch HTTP 400 with that Network Watcher, strengthening the explanation for the historical Phase W warning. It does not prove which subrequest failed in Phase W's original multi-request batch or that the Azure response remained unchanged between runs.
+
+Network Watchers are included in both pinned-source and target Diagnostics request lists but have no dedicated missing-diagnostics recommendation in their shared behavior. If this Network Watcher was the sole failed historical subrequest, it could not itself produce a dedicated missing-diagnostics finding. That conditional conclusion does not rule out a different historical failed request. Keep Phase W `complete_with_warnings` and its Diagnostics assessment uncertainty; do not promote the original semantic-equivalence PASS into full Diagnostics coverage or close Gate 004 on this basis.
+
 ## Current boundary
 
-The generic core scan, deterministic equivalence tooling, reproducible live runner, default/optional/resource-group/two-subscription/leaf-management-group and separate Storage/VM, RG include/exclude, tag include/exclude, recommendation-exclude and individual-resource-exclude live passes, plus enforced development CI, are complete for the behavior exercised so far. The unfiltered two-subscription, leaf-management-group, tag-exclude, RG-exclude and individual-resource-exclude passes have explicit Diagnostics warning boundaries; the recommendation-exclude pass is also `complete_with_warnings`, without supplied warning details. Network Watcher individual-GET probes support an explanation for earlier warnings but have not mapped the batch requests. The missing cross-run Advisor row has unknown recorded tag scope in the tag-only target inventory; historical Azure timing remains unresolved.
+The generic core scan, deterministic equivalence tooling, reproducible live runner, default/optional/resource-group/two-subscription/leaf-management-group and separate Storage/VM, RG include/exclude, tag include/exclude, recommendation-exclude and individual-resource-exclude live passes, plus enforced development CI, are complete for the behavior exercised so far. The unfiltered two-subscription, leaf-management-group, tag-exclude, RG-exclude and individual-resource-exclude passes have explicit Diagnostics warning boundaries; the recommendation-exclude pass is also `complete_with_warnings`, without supplied warning details. Network Watcher individual-GET probes and the Phase W one-request batch probe support an explanation for earlier warnings but have not mapped the original multi-request batch responses. The missing cross-run Advisor row has unknown recorded tag scope in the tag-only target inventory; historical Azure timing remains unresolved.
 
 The next live validation boundary is:
 
