@@ -272,6 +272,32 @@ Retain the raw reports and logs locally. Verify that the selected recommendation
 
 The `20260929_123149Z` pass returned `equivalent = true`: 313/313 recommendations, 43/43 findings, 12/12 inventory, 10/10 out-of-scope and 10/10 Advisor, with no enabled-dataset deltas. Reference, target and comparator exited 0. The user's local raw-report check found one baseline finding with the excluded ID, zero in each new report, and the affected resource still selected in the target inventory. The new target had `complete_with_warnings`; its warning codes and exact affected requests were not supplied. This is evidence for the observed recommendation exclusion, subject to that stage-health limit and the separate-snapshot boundary. See Phase V in the ledger. The observed recommendation catalog count is 313 on both sides; the preceding Phase U pass had 314, but the filter effect is established by the finding and inventory checks rather than a catalog-count inference.
 
+### Next paired filter pass: exclude one observed resource
+
+The pinned source calls exact resource-ID exclusions `azqr.exclude.services`; Cloud Assess calls them `assessment.exclude.resources`. To avoid committing an unredacted resource ID, `scripts/prepare-resource-exclusion.ps1` derives a VM from the observed Phase U backup finding, checks that the same ID remains in the newer Phase V target inventory under the expected Dev subscription, and writes both YAML files under ignored `artifacts/`. It reads local JSON only and makes no Azure request. On the user's Windows checkout, after fetching the branch containing this helper:
+
+```powershell
+Set-Location C:\src\Cloud-Assess
+git fetch --quiet origin bootstrap/core-v1
+if ($LASTEXITCODE -ne 0) { throw 'Fetch failed' }
+git merge --ff-only origin/bootstrap/core-v1
+if ($LASTEXITCODE -ne 0) { throw 'Fast-forward failed' }
+
+$prepared = .\scripts\prepare-resource-exclusion.ps1 `
+  -BaselineTargetJson 'C:\src\Cloud-Assess\artifacts\equivalence\20260929_121323Z\target.json' `
+  -CurrentTargetJson 'C:\src\Cloud-Assess\artifacts\equivalence\20260929_123149Z\target.json' `
+  -ExpectedSubscriptionId 'c09f96df-19de-4c49-80ff-0c1a94d93ab2'
+$prepared | Format-List
+
+.\scripts\live-equivalence.ps1 `
+  -ReferenceRepo C:\src\azqr-reference `
+  -ManagementGroupId AdvisoryDev `
+  -ReferenceFilters $prepared.ReferenceFilters `
+  -TargetFilters $prepared.TargetFilters
+```
+
+Keep both generated filter files with the local evidence bundle. The preparer prints only a resource ID hash and counts, plus local paths. The runner records the filter paths and SHA-256 hashes. Do not publish the generated YAML or unredacted reports. For a discriminating result, verify the previously selected resource moves out of target inventory and into `outOfScope`, related findings disappear or are consistently filtered on both sides, and unrelated inventory remains. Review resolved and contributing subscriptions, stage warnings and the semantic comparator separately. Azure may change between runs, so do not infer causation solely from a changed total count.
+
 ## Required run conditions
 
 For a meaningful live comparison:
