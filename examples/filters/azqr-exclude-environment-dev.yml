@@ -1,0 +1,5 @@
+# Pinned AZQR exclude-tag filter for the AdvisoryDev live comparison.
+azqr:
+  exclude:
+    tags:
+      Environment: dev
