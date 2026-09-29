@@ -1382,6 +1382,20 @@ The summary counted one HTTP 400 warning in the original target report. In the l
 
 Network Watchers are included in both pinned-source and target Diagnostics request lists but have no dedicated missing-diagnostics recommendation in their shared behavior. If this Network Watcher was the sole failed historical subrequest, it could not itself produce a dedicated missing-diagnostics finding. That conditional conclusion does not rule out a different historical failed request. Keep Phase W `complete_with_warnings` and its Diagnostics assessment uncertainty; do not promote the original semantic-equivalence PASS into full Diagnostics coverage or close Gate 004 on this basis.
 
+### Nested management-group evidence boundary and synthetic adapter test
+
+**Date**
+
+```text
+2026-09-29
+```
+
+The user has no available non-production parent management group with nested child groups for a live paired scan. The known `Advisory` parent includes a production child. A subscription include filter is not a safe substitute for a scoped parent test: the current discovery walker asks for the descendants and direct subscriptions of every visited group before deciding which returned subscriptions pass the filter. Do not run the parent scope as an implicit workaround. No production parent was scanned and no Azure hierarchy was changed.
+
+A new deterministic fixture drives the production Azure SDK scope adapter and the discovery walker together with mocked management-group subscription and descendant HTTP responses. It covers a synthetic root, child and leaf, an all-descendants response that repeats the leaf, a subscription include filter, disabled-subscription exclusion, and a denied leaf request that fails without returning a partial scope. It exercises actual SDK response decoding and local traversal without Azure calls. The earlier walker-only recursion test remains in place.
+
+The fixture strengthens implementation evidence, but it is not a live source-versus-target parent-group comparison and does not establish real-world RBAC visibility or Azure behavior in an accessible nested hierarchy. Leave the live traversal row open. At Gate 004, either supply suitable live evidence or record an explicit accepted limitation and narrow the first-release management-group support claim; the target specification currently includes recursive management-group resolution. Other Gate 004 evidence can proceed independently.
+
 ## Current boundary
 
 The generic core scan, deterministic equivalence tooling, reproducible live runner, default/optional/resource-group/two-subscription/leaf-management-group and separate Storage/VM, RG include/exclude, tag include/exclude, recommendation-exclude and individual-resource-exclude live passes, plus enforced development CI, are complete for the behavior exercised so far. The unfiltered two-subscription, leaf-management-group, tag-exclude, RG-exclude and individual-resource-exclude passes have explicit Diagnostics warning boundaries; the recommendation-exclude pass is also `complete_with_warnings`, without supplied warning details. Network Watcher individual-GET probes and the Phase W one-request batch probe support an explanation for earlier warnings but have not mapped the original multi-request batch responses. The missing cross-run Advisor row has unknown recorded tag scope in the tag-only target inventory; historical Azure timing remains unresolved.
