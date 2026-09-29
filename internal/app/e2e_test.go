@@ -1,6 +1,7 @@
 package app
 
 import (
+	"bytes"
 	"context"
 	"encoding/json"
 	"errors"
@@ -83,6 +84,8 @@ func TestEndToEndCoordinatorApplicationAndRenderers(t *testing.T) {
 
 	base := filepath.Join(t.TempDir(), "cloud-assess-e2e")
 	runner := NewRunner(coordinator)
+	var stdout bytes.Buffer
+	runner.stdout = &stdout
 	outcome, err := runner.Run(context.Background(), ScanOptions{
 		Assessment: orchestration.Request{
 			Subscriptions: []string{subscriptionID},
@@ -93,6 +96,9 @@ func TestEndToEndCoordinatorApplicationAndRenderers(t *testing.T) {
 			BaseName:              base,
 			XLSX:                  true,
 			JSON:                  true,
+			CSV:                   true,
+			SARIF:                 true,
+			Stdout:                true,
 			RedactSubscriptionIDs: true,
 			Version:               "test",
 		},
@@ -103,8 +109,24 @@ func TestEndToEndCoordinatorApplicationAndRenderers(t *testing.T) {
 	if outcome.ExitCode != ExitSuccess {
 		t.Fatalf("exit code = %d, want 0", outcome.ExitCode)
 	}
-	if len(outcome.Files) != 2 {
-		t.Fatalf("generated files = %#v, want JSON + XLSX", outcome.Files)
+	var csvFiles int
+	var maskedCSV bool
+	for _, filename := range outcome.Files {
+		if !strings.HasSuffix(filename, ".csv") {
+			continue
+		}
+		csvFiles++
+		data, err := os.ReadFile(filename)
+		if err != nil {
+			t.Fatal(err)
+		}
+		if strings.Contains(strings.ToLower(string(data)), subscriptionID) {
+			t.Fatalf("generated CSV %q leaked raw subscription ID", filename)
+		}
+		maskedCSV = maskedCSV || strings.Contains(string(data), redact.SubscriptionID(subscriptionID, true))
+	}
+	if csvFiles == 0 || !maskedCSV {
+		t.Fatalf("generated files = %#v, want CSV tables containing the masked subscription ID", outcome.Files)
 	}
 
 	jsonBytes, err := os.ReadFile(base + ".json")
@@ -115,6 +137,16 @@ func TestEndToEndCoordinatorApplicationAndRenderers(t *testing.T) {
 		t.Fatal("generated JSON leaked raw subscription ID")
 	}
 	masked := redact.SubscriptionID(subscriptionID, true)
+	if strings.Contains(strings.ToLower(stdout.String()), subscriptionID) || !strings.Contains(stdout.String(), masked) {
+		t.Fatal("stdout did not honor subscription ID redaction")
+	}
+	sarifBytes, err := os.ReadFile(base + ".sarif")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if !strings.Contains(strings.ToLower(string(sarifBytes)), strings.ToLower(resource.ID)) {
+		t.Fatal("SARIF did not retain the resource identity needed for stable findings")
+	}
 	if !strings.Contains(string(jsonBytes), masked) {
 		t.Fatalf("generated JSON does not contain masked subscription ID %q", masked)
 	}
@@ -144,6 +176,19 @@ func TestEndToEndCoordinatorApplicationAndRenderers(t *testing.T) {
 	}
 	if value, err := workbook.GetCellValue("ImpactedResources", "H5"); err != nil || value != masked {
 		t.Fatalf("ImpactedResources subscription = %q, err=%v, want %q", value, err, masked)
+	}
+	for _, sheet := range sheets {
+		rows, err := workbook.GetRows(sheet)
+		if err != nil {
+			t.Fatal(err)
+		}
+		for _, row := range rows {
+			for _, cell := range row {
+				if strings.Contains(strings.ToLower(cell), subscriptionID) {
+					t.Fatalf("XLSX sheet %q leaked raw subscription ID", sheet)
+				}
+			}
+		}
 	}
 }
 
