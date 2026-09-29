@@ -232,6 +232,23 @@ The `20260929_113319Z` pass completed with `equivalent = true` for nine selected
 
 A local follow-up confirmed that all populated target data belonged to the expected Dev subscription. The read-only individual-GET probe found one eligible Network Watcher returning HTTP 400 `ResourceTypeNotSupported`, with the same hashed ID as in earlier probes. This supports the existing explanation but does not map the batch warning to that resource; retain `complete_with_warnings`.
 
+### Next paired filter pass: exclude the Dev resource group
+
+The pair `examples/filters/azqr-exclude-dev-rg.yml` and `examples/filters/cloud-assess-exclude-dev-rg.yml` excludes the full ARM ID of `rg-fos-FinopsHub-dev-euw` without an include filter. This tests resource-group exclusion independently of the completed RG include and tag exclude passes. The earlier unfiltered Dev inventory contained three in-scope resources in that group and nine outside it. All three group resources carried `Environment: dev`, so the selected IDs should match the nine from the Phase T tag-exclude report if the inventory has remained stable. These older counts and ID sets are comparison points, not unconditional acceptance criteria.
+
+```powershell
+Set-Location C:\src\Cloud-Assess
+git fetch origin bootstrap/core-v1
+git merge --ff-only origin/bootstrap/core-v1
+.\scripts\live-equivalence.ps1 `
+  -ReferenceRepo C:\src\azqr-reference `
+  -ManagementGroupId AdvisoryDev `
+  -ReferenceFilters .\examples\filters\azqr-exclude-dev-rg.yml `
+  -TargetFilters .\examples\filters\cloud-assess-exclude-dev-rg.yml
+```
+
+Keep both unredacted reports and logs in the ignored local evidence directory. Review comparator equality, the exact resolved subscription, stage completeness and warnings, the selected IDs against the earlier baseline and Phase T report, and whether the three previously included group resources are now recorded out of scope. Resource-group exclusion may still include the Network Watcher elsewhere in Dev; do not treat a repeated Diagnostics warning as resolved by semantic equality or an individual GET. Advisor rows can vary between scans, so assess source/target agreement within this run before interpreting cross-run differences. Do not add the CLI RG flag or a tag filter to this pass.
+
 ## Required run conditions
 
 For a meaningful live comparison:
