@@ -1430,6 +1430,19 @@ The comparator returned `equivalent = true`. Recommendations were 314/314, findi
 
 The operator's local check of `target.json` found all three selected resources in `rg-fos-FinopsHub-dev-euw`, the same normalized selected resource IDs as the retained Phase R RG-include target report, and only the expected Dev subscription among the target's recorded data subscriptions. These checks support the observed include-over-exclude precedence with non-empty resources and paired source/target semantics. The older Phase R report is a separate Azure snapshot; ID equality is corroboration rather than a substitute for the current-run comparison. The reviewer did not independently inspect the unredacted target JSON. This pass does not exercise a different group combination, a nested management-group parent, or optional stages. `DV-001` remains deferred and Gate 004 remains open.
 
+### Progress and roadmap review checkpoint
+
+**Date**
+
+```text
+2026-09-29
+Reviewed branch: bootstrap/core-v1 at ef3bd8b3ae5832ef6b6354f26e45725a3d4e8fea
+```
+
+The target specification, implementation plan, roadmap, Gate 004 matrix and recent live evidence were reviewed after the same-RG precedence pass. Steps 1-27 of the implementation plan are coded; step 28 has partial live coverage; step 29 has required Linux/Windows CI but no distributable release; steps 30-31 require security/license work and the plugin scope decision. Step count alone is not a completion percentage. [ROADMAP.md](ROADMAP.md#progress-estimate-and-next-checkpoint) now carries rounded, judgmental estimates for the exercised core scan, core-v1 acceptance, installable toolkit and broader AZQR parity, with the evidence limits stated alongside them. No gate status changed.
+
+Next, strengthen a failed/throttled Azure adapter path through the query boundary with a deterministic fixture; then continue remaining filter interactions and missing optional-stage projections. This can proceed without Azure access. The nested management-group live test remains DV-001, deferred rather than passed or accepted. Reassess the estimates after Gate 004 evidence and the first-release feature boundary are decided.
+
 ## Current boundary
 
 The generic core scan, deterministic equivalence tooling, reproducible live runner, default/optional/resource-group/two-subscription/leaf-management-group and separate Storage/VM, RG include/exclude, tag include/exclude, recommendation-exclude and individual-resource-exclude live passes, plus enforced development CI, are complete for the behavior exercised so far. The unfiltered two-subscription, leaf-management-group, tag-exclude, RG-exclude and individual-resource-exclude passes have explicit Diagnostics warning boundaries; the recommendation-exclude pass is also `complete_with_warnings`, without supplied warning details. Network Watcher individual-GET probes and the Phase W one-request batch probe support an explanation for earlier warnings but have not mapped the original multi-request batch responses. The missing cross-run Advisor row has unknown recorded tag scope in the tag-only target inventory; historical Azure timing remains unresolved.

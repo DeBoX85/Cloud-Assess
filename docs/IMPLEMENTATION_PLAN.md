@@ -59,7 +59,7 @@ Observe source behavior
 
 ## Current completion boundary
 
-Steps 1-27 are implemented. Step 28 is in progress, with equivalent live baselines recorded for default stages, optional Policy/Defender Recommendations/Cost execution, resource-group and two-subscription scopes, a leaf management group, and separate scanner, RG and tag include/exclude, recommendation-exclude and exact-resource-exclude filters. Several passes retain Diagnostics warning limits. The missing Advisor row has unknown recorded tag scope in the tag-only target report, but the separate runs cannot establish unchanged Azure state. Step 29 has enforced Linux and Windows CI jobs but still lacks packaging/release automation.
+Steps 1-27 are implemented. Step 28 is in progress, with equivalent live baselines recorded for default stages, optional Policy/Defender Recommendations/Cost execution, resource-group and two-subscription scopes, a leaf management group, separate scanner, RG and tag include/exclude, same-RG include/exclude precedence, recommendation-exclude and exact-resource-exclude filters. Several passes retain Diagnostics warning limits. The missing Advisor row has unknown recorded tag scope in the tag-only target report, but the separate runs cannot establish unchanged Azure state. Step 29 has enforced Linux and Windows CI jobs but still lacks packaging/release automation. These numbered steps are not equal-sized progress units; see the dated estimates and limitations in [ROADMAP.md](ROADMAP.md#progress-estimate-and-next-checkpoint).
 
 The ordered remaining work, evidence gates, and release-scope decisions are maintained in [ROADMAP.md](ROADMAP.md).
 

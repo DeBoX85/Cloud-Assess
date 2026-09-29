@@ -1,6 +1,6 @@
 # Cloud Assess Roadmap
 
-Status: working execution roadmap, 2026-09-23
+Status: working execution roadmap, reviewed 2026-09-29 against `bootstrap/core-v1` at `ef3bd8b3ae5832ef6b6354f26e45725a3d4e8fea`
 
 Active development branch: `bootstrap/core-v1`
 
@@ -11,6 +11,19 @@ This document orders the remaining work and defines the evidence needed to close
 [Quality Gate 004](QUALITY_GATE_004_PLAN.md) is a planned core validation decision with explicit evidence rows, not a completed gate. The release artifact/security/operations decision follows separately after first-release scope is fixed.
 
 The environment-dependent nested management-group pass is tracked separately as [DV-001](DEFERRED_VALIDATION.md#dv-001-live-nested-management-group-traversal). Deferral keeps other work moving but does not mark that evidence row passed.
+
+## Progress estimate and next checkpoint
+
+These are coarse planning estimates, not measured coverage or quality-gate decisions. The 31 implementation-plan steps have unequal size: steps 1-27 are coded, step 28 has partial live evidence, step 29 has enforced CI but no packaging, and steps 30-31 remain incomplete or subject to the first-release scope decision. Counting coded steps as 27/31 would therefore exaggerate readiness.
+
+| Outcome | Estimate | Basis and largest remaining limits |
+|---|---:|---|
+| Generic core scan on exercised Azure scopes | About 80% | The executable, stage health, reports and comparator work, with many exact live passes. Non-empty Policy/Defender Recommendations, Arc SQL numeric `vcores`, remaining scope/filter cases and warning classification are missing. |
+| Core-v1 acceptance against the agreed first-release scope | About 65% | Quality Gate 004 is planned, with open negative paths, evidence gaps, feature-boundary decisions and deferred live nested management-group traversal (DV-001). The scope decision could change this estimate. |
+| Installable and supportable first-release toolkit | About 45% | Packaging, clean installation, dependency/license inventory, artifact provenance, operational/security review and release gate are not complete. |
+| Full AZQR feature parity | About 55% | The common assessment path has substantial equivalence evidence, while internal plugins, scanner-specific commands and ancillary CLI surfaces remain unimplemented or deliberately deferred. This is broader than the current core-v1 acceptance target. |
+
+The estimates are rounded to roughly ten percentage points and must not be used as a release approval. The next checkpoint is a Gate 004 negative-path fixture through a production adapter and the query/coordinator boundary, followed by the remaining paired filter interactions and non-empty optional-stage evidence. No Azure access is needed for the deterministic fixture. Do not scan the production-containing `Advisory` parent to advance DV-001.
 
 ## Starting point
 
@@ -45,7 +58,7 @@ These items do not change the Phase S tag-filter result or close its separate-ru
 |---|---|---|---|
 | 1 | Investigate Diagnostics HTTP 400 responses | Individual GET evidence and the source finding impact are documented in Phase O; historical batch request correlation remains open if exact mapping is required | A controlled read-only batch capture with request correlation to close the historical mapping |
 | 2 | Validate management-group traversal | Leaf group comparison completed in Phase P; synthetic Azure SDK adapter-to-walker hierarchy and denial fixture covers implementation paths, while live parent-to-child source/target evidence remains open | No suitable non-production nested parent is currently available; `Advisory` includes production and was not scanned. Record an explicit scoped Gate 004 limitation if this remains unavailable |
-| 3 | Close filter and scope combinations | Paired source/target filter fixtures and semantic evidence for include/exclude, tags, scanner selection, and resource/recommendation exclusions; the same-RG include/exclude precedence pair passed on the Dev leaf with three selected resources and no target warnings. Other interactions remain | Representative existing resources; provision fixtures only if separately approved |
+| 3 | Close filter and scope combinations | Paired source/target filter fixtures and semantic evidence for include/exclude, tags, scanner selection, and resource/recommendation exclusions; the same-RG include/exclude precedence pair passed on the Dev leaf with three selected resources and no target warnings. Subscription precedence, multi-RG and other interactions remain | Representative existing resources; provision fixtures only if separately approved |
 | 4 | Close missing stage data | Non-empty Policy and Defender Recommendations comparisons; Arc SQL response shape resolved and characterized | Appropriate live resources or sanitized targeted fixtures |
 | 5 | Strengthen failure and output checks | Tests/evidence for partial stages, permission failures, warnings, redaction, severity exit codes, and report consistency | Results from steps 1-4 and controlled negative-path fixtures |
 | 6 | Set and implement the first-release feature boundary | Required plugin and CLI work implemented; any omissions expressly re-scoped in the specification and ledger | Decision on first-release scope after core equivalence |
