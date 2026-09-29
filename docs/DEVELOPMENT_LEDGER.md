@@ -1400,6 +1400,18 @@ The fixture strengthens implementation evidence, but it is not a live source-ver
 
 The focused adapter test, full Go suite, focused vet and diff check passed locally. PR #38 passed the hosted `quality` and `windows-validation` jobs (workflow run `36593065309`) and merged at `06380af0f9136836d7cd251eeb4b52cd36deca48`. The live nested-scope limitation remains open.
 
+### Deferred validation register and next filter fixture
+
+**Date**
+
+```text
+2026-09-29
+```
+
+The operator confirmed that no suitable non-production nested management-group parent is available. Live parent-to-child traversal is now explicitly tracked as `DV-001` in [DEFERRED_VALIDATION.md](DEFERRED_VALIDATION.md), separately linked from the README, roadmap and Gate 004 plan. Its status is deferred evidence, not PASS or a preaccepted release limitation. The register states the safe resume trigger, required paired-run evidence, and the first-release scope decision if it remains unavailable. The `Advisory` production-containing parent was not scanned.
+
+To continue with an accessible `AdvisoryDev` scope, paired same-resource-group include/exclude fixtures have been prepared for pinned AZQR and Cloud Assess. The fixture puts `rg-fos-FinopsHub-dev-euw` in both lists, exercising the characterized explicit-include precedence with non-empty previously observed Dev resources. [EQUIVALENCE.md](EQUIVALENCE.md#next-paired-filter-pass-include-and-exclude-the-same-dev-resource-group) records the command and checks. The live pass has **not** been executed; no new equivalence or stage-health evidence is claimed. Prior Phase R resource counts are historical expectations only.
+
 ## Current boundary
 
 The generic core scan, deterministic equivalence tooling, reproducible live runner, default/optional/resource-group/two-subscription/leaf-management-group and separate Storage/VM, RG include/exclude, tag include/exclude, recommendation-exclude and individual-resource-exclude live passes, plus enforced development CI, are complete for the behavior exercised so far. The unfiltered two-subscription, leaf-management-group, tag-exclude, RG-exclude and individual-resource-exclude passes have explicit Diagnostics warning boundaries; the recommendation-exclude pass is also `complete_with_warnings`, without supplied warning details. Network Watcher individual-GET probes and the Phase W one-request batch probe support an explanation for earlier warnings but have not mapped the original multi-request batch responses. The missing cross-run Advisor row has unknown recorded tag scope in the tag-only target inventory; historical Azure timing remains unresolved.

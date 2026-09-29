@@ -261,6 +261,26 @@ Keep both unredacted reports and logs in the ignored local evidence directory. R
 
 The `20260929_121323Z` pass returned `equivalent = true` with nine selected resources, 33 findings and eight Advisor rows on each side. The user's local check found all three previously included resources in the excluded group in the target `outOfScope` set, none selected, and an exact match between the selected IDs and the same-day Phase T tag-exclude pass. Only the expected Dev subscription contributed data. The target remained `complete_with_warnings` with one Diagnostics subrequest warning; see Phase U in the ledger. The prior Network Watcher probe does not correlate this run's batch failure to a resource.
 
+### Next paired filter pass: include and exclude the same Dev resource group
+
+The paired fixtures `examples/filters/azqr-include-exclude-dev-rg.yml` and `examples/filters/cloud-assess-include-exclude-dev-rg.yml` place the same full Dev resource-group ID in both include and exclude lists. This isolates precedence without involving a production-containing management-group parent. The local filter characterization expects the explicit include to win for that group. The earlier Phase R RG-include pass selected three resources, but that older count is only a comparison point if the inventory remains stable.
+
+```powershell
+Set-Location C:\src\Cloud-Assess
+git fetch --quiet origin bootstrap/core-v1
+if ($LASTEXITCODE -ne 0) { throw 'Fetch failed' }
+git merge --ff-only origin/bootstrap/core-v1
+if ($LASTEXITCODE -ne 0) { throw 'Fast-forward failed' }
+
+.\scripts\live-equivalence.ps1 `
+  -ReferenceRepo C:\src\azqr-reference `
+  -ManagementGroupId AdvisoryDev `
+  -ReferenceFilters .\examples\filters\azqr-include-exclude-dev-rg.yml `
+  -TargetFilters .\examples\filters\cloud-assess-include-exclude-dev-rg.yml
+```
+
+Keep the unredacted bundle under ignored `artifacts/`. Review the comparator result and stage completeness, confirm that the scope resolves only the expected Dev subscription, and verify every selected inventory resource belongs to the named group. Compare the selected ID set to the retained Phase R RG-include report as corroboration, while recognizing those reports are separate Azure snapshots. If a stage warns or the inventory differs, classify it before treating the pass as precedence evidence. This paired leaf-scope pass does not close DV-001 nested management-group traversal.
+
 ### Paired filter pass: exclude one observed recommendation
 
 The pair `examples/filters/azqr-exclude-vm-backup-recommendation.yml` and `examples/filters/cloud-assess-exclude-vm-backup-recommendation.yml` excludes pinned APRL recommendation `1981f704-97b9-b645-9c57-33f8ded9261a`. Its pinned KQL targets Azure virtual machines without backup, and the user's local Phase U report showed one APRL/AOR finding with this ID. The fixture tests recommendation exclusion without narrowing inventory by resource group, tag, or scanner. It was run on the non-production `AdvisoryDev` leaf with implicit default stages using:

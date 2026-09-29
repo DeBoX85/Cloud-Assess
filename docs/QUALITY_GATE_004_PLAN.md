@@ -24,6 +24,8 @@ Choose and document the first-release plugin and CLI boundary before passing Gat
 
 Every row must be marked **PASS**, **ACCEPTED LIMITATION** with scope and impact, or **BLOCKED**. A blocked required row prevents Gate 004 PASS. A comparator result of `equivalent = true` with `complete_with_warnings` cannot by itself satisfy the relevant row. Keep raw unredacted Azure evidence outside Git; publish only safe metadata, counts, classification and references to locally retained bundles.
 
+The live parent-to-child management-group pass is deferred as [DV-001](DEFERRED_VALIDATION.md#dv-001-live-nested-management-group-traversal). Deferral does not itself constitute an accepted limitation. Resolve its release impact explicitly at this gate if no safe live test scope becomes available.
+
 ## Continuous checks supporting this decision
 
 The Go quality workflow checks pinned provenance, formatting, module graph, branding, PowerShell validation helpers, build/help/version, race-enabled tests, aggregate statement coverage, vet and reachable known vulnerabilities. The Windows validation job adds native Windows PowerShell 5.1 parser/helper checks plus Go tests and executable help/version smoke tests. An active ruleset now requires pull requests and both job contexts on `bootstrap/core-v1`; the enforced development CI is not a Gate 004 or release PASS.
