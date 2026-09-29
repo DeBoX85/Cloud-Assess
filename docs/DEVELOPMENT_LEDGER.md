@@ -1221,9 +1221,38 @@ The target reported `complete_with_warnings`. Diagnostics had one `diagnostics_s
 
 Continue other filter interactions with discriminating inputs, especially include/exclude precedence and resource/recommendation exclusions. Parent-to-child management-group recursion, missing non-empty optional-stage data, and Gate 004 remain open.
 
+### Phase V: AdvisoryDev recommendation exclusion live comparison
+
+**Date and provenance**
+
+```text
+2026-09-29
+Reference: 8e4f0577f3615e6c9014c031bcad079f235369cc
+Target: 9f87418b23e49924033f978267bea9a9750e112f
+APRL: 60eaddda76541f6adbc1c5ffa686829807e55e29
+Evidence stamp: 20260929_123149Z
+```
+
+The user supplied the equivalence and run-metadata JSON, plus a local check of the retained raw target/reference reports against the Phase U target report. Raw reports and logs remain local and were not independently inspected. The paired fixtures exclude recommendation `1981f704-97b9-b645-9c57-33f8ded9261a` on the `AdvisoryDev` leaf, with implicit graph, diagnostics, Advisor and Defender stages. The metadata records the reference and target fixture SHA-256 values as `f18568cdd722de0f392aad299ed759588f3b416498b3e68a4c45da488646f6e6` and `aeae852fed910ac3b2e9db16909997c61de190a80d6bfc81c6740b0aeea18b22`. These match the committed fixture bytes with Windows CRLF line endings.
+
+**Execution and semantic result**
+
+- reference, target and comparator exit codes: 0 / 0 / 0
+- comparator: `equivalent = true`, no missing, extra or changed records in enabled datasets
+- recommendations: 313 / 313; primary findings: 43 / 43
+- resource types: 11 / 11; in-scope inventory: 12 / 12; out-of-scope inventory: 10 / 10
+- Advisor: 10 / 10; Defender plan status: enabled on both sides, 0 / 0
+- Policy, Defender Recommendations, Arc SQL and Cost: not enabled
+
+The user's local check found one finding for this recommendation in the earlier Phase U target report. In this pass, both target and reference have zero findings with that ID, while the earlier finding's resource remains in the new target inventory. This establishes non-empty, selective recommendation-exclusion behavior for that observed finding, in addition to within-run source/target equivalence. Separate Azure snapshots do not establish that all other service responses or findings remained stable.
+
+**Stage-health limit and next boundary**
+
+The user's local check reported target completeness `complete_with_warnings`; the supplied equivalence file likewise notes warnings. The specific stage warning codes and affected batch requests were not supplied for this pass, so Diagnostics results cannot be classified more narrowly here. This pass does not close the historical Diagnostics or Advisor timing limits, nested management-group traversal, other filter interactions, non-empty optional-stage gaps, or Quality Gate 004.
+
 ## Current boundary
 
-The generic core scan, deterministic equivalence tooling, reproducible live runner, default/optional/resource-group/two-subscription/leaf-management-group and separate Storage/VM, RG include/exclude and tag include/exclude live passes, plus enforced development CI, are complete for the behavior exercised so far. The unfiltered two-subscription, leaf-management-group, tag-exclude and RG-exclude passes have explicit Diagnostics warning boundaries; Network Watcher individual-GET probes support an explanation for earlier warnings but have not mapped the batch requests. The missing cross-run Advisor row has unknown recorded tag scope in the tag-only target inventory; historical Azure timing remains unresolved.
+The generic core scan, deterministic equivalence tooling, reproducible live runner, default/optional/resource-group/two-subscription/leaf-management-group and separate Storage/VM, RG include/exclude, tag include/exclude and recommendation-exclude live passes, plus enforced development CI, are complete for the behavior exercised so far. The unfiltered two-subscription, leaf-management-group, tag-exclude and RG-exclude passes have explicit Diagnostics warning boundaries; the recommendation-exclude pass is also `complete_with_warnings`, without supplied warning details. Network Watcher individual-GET probes support an explanation for earlier warnings but have not mapped the batch requests. The missing cross-run Advisor row has unknown recorded tag scope in the tag-only target inventory; historical Azure timing remains unresolved.
 
 The next live validation boundary is:
 
