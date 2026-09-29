@@ -1133,9 +1133,46 @@ This resolves the previously open **excluded versus unknown recorded-scope** que
 
 Treat historical Azure Advisor timing as unresolved when Gate 004 considers this cross-run observation. A new controlled paired run can test the rule under observed inputs if needed; no repeat of the already equivalent Phase S pass is required merely to classify its inventory scope. Continue the remaining tag interactions and suitable non-production nested management-group traversal.
 
+### Phase T: AdvisoryDev exclude-tag live semantic comparison
+
+**Date and provenance**
+
+```text
+2026-09-29
+Reference: 8e4f0577f3615e6c9014c031bcad079f235369cc
+Target: 948264f5d9670c132adc2a6a612edc770f311a26
+APRL: 60eaddda76541f6adbc1c5ffa686829807e55e29
+Evidence stamp: 20260929_113319Z
+```
+
+The user supplied `equivalence.json`, `run-metadata.json`, and a local PowerShell summary of the unredacted target report and the earlier unfiltered Dev report. The raw reference/target JSON and logs remain local and were not independently inspected. The runner used the `AdvisoryDev` leaf management group, no CLI RG flag, and the implicit graph, diagnostics, Advisor and Defender stages. The reference exclude-tag fixture `examples/filters/azqr-exclude-environment-dev.yml` had SHA-256 `fd0d34a84177d2e127b921173a7934a3119401357263ed37a2d6d820e9e9679e`; the target counterpart had SHA-256 `01f58353c8f1026fb647c749969ef6c41b4007c6b1353128152bf17e15c53f00`. Both express exclusion of resource tag `Environment: dev` without an include filter.
+
+**Execution and semantic result**
+
+- reference, target and comparator exit codes: 0 / 0 / 0
+- comparator: `equivalent = true`; no missing, extra or changed records in any enabled dataset
+- recommendations: 314 / 314
+- primary findings: 33 / 33
+- resource types: 9 / 9
+- in-scope inventory: 9 / 9
+- out-of-scope inventory: 13 / 13
+- Advisor: 8 / 8
+- Defender plan status: enabled on both sides, 0 / 0
+- Policy, Defender Recommendations, Arc SQL and Cost: not enabled
+
+The user's local target summary reported one scope-stage subscription, nine selected resources, zero selected with the Dev tag, and five Dev-tagged records in `outOfScope`. The selected ID set exactly matched the nine non-Dev-tagged in-scope resource IDs in the unfiltered Dev baseline from `20260923_145252Z`. This is non-empty selective evidence for the exclude-tag filter over the observed resources. The baseline is six days older, so the ID agreement is useful corroboration rather than proof that all Azure inventory remained static in the interval. `outOfScope` also contains resources outside that earlier in-scope set; its five Dev-tagged records should not be equated with the baseline's three selected Dev-tagged resources.
+
+**Stage-health limit**
+
+The target reported `complete_with_warnings`: Diagnostics completed with one `diagnostics_subrequest_non_success` warning and three stage records. Scope, inventory (9), graph (33), Advisor (8), and Defender (0) completed without warning codes; the optional stages were skipped. The warning's HTTP status and affected batch resource were not provided for this run, and the historical Network Watcher individual-GET evidence does not establish its cause here. Treat Diagnostics completeness as limited despite semantic equality. Advisor's 8 / 8 agreement is within this paired run; it does not resolve timing of the separate Phase R/S Advisor row.
+
+**Next boundary**
+
+Confirm the exact resolved subscription in a sanitized local check, classify this run's Diagnostics warning if its affected request can be identified, then continue other filter interactions and suitable non-production parent-to-child management-group traversal. Gate 004 remains planned.
+
 ## Current boundary
 
-The generic core scan, deterministic equivalence tooling, reproducible live runner, default/optional/resource-group/two-subscription/leaf-management-group and separate Storage/VM, RG and tag include-filter live passes, plus enforced development CI, are complete for the behavior exercised so far. The unfiltered two-subscription and leaf-management-group passes have explicit Diagnostics warning boundaries. The missing cross-run Advisor row has unknown recorded tag scope in the tag-only target inventory; historical Azure timing remains unresolved.
+The generic core scan, deterministic equivalence tooling, reproducible live runner, default/optional/resource-group/two-subscription/leaf-management-group and separate Storage/VM, RG, tag include and tag exclude live passes, plus enforced development CI, are complete for the behavior exercised so far. The unfiltered two-subscription, leaf-management-group, and exclude-tag passes have explicit Diagnostics warning boundaries. The missing cross-run Advisor row has unknown recorded tag scope in the tag-only target inventory; historical Azure timing remains unresolved.
 
 The next live validation boundary is:
 
@@ -1158,6 +1195,7 @@ Required evidence set for each live pass:
 The following are not forgotten; they remain intentionally open:
 
 - Diagnostics HTTP 400 subrequest root cause and affected-resource coverage
+- exclude-tag pass Diagnostics warning request/status classification
 - historical Advisor API row presence/timing across separate RG-only and tag-only runs
 - nested management-group traversal equivalence
 - non-empty Policy and Defender Recommendations evidence
