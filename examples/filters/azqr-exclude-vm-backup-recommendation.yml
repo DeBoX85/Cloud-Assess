@@ -1,0 +1,5 @@
+# Pinned AZQR recommendation exclusion for an observed AdvisoryDev VM finding.
+azqr:
+  exclude:
+    recommendations:
+      - 1981f704-97b9-b645-9c57-33f8ded9261a
