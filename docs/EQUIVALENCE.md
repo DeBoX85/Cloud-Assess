@@ -251,6 +251,25 @@ Keep both unredacted reports and logs in the ignored local evidence directory. R
 
 The `20260929_121323Z` pass returned `equivalent = true` with nine selected resources, 33 findings and eight Advisor rows on each side. The user's local check found all three previously included resources in the excluded group in the target `outOfScope` set, none selected, and an exact match between the selected IDs and the same-day Phase T tag-exclude pass. Only the expected Dev subscription contributed data. The target remained `complete_with_warnings` with one Diagnostics subrequest warning; see Phase U in the ledger. The prior Network Watcher probe does not correlate this run's batch failure to a resource.
 
+### Next paired filter pass: exclude one observed recommendation
+
+The pair `examples/filters/azqr-exclude-vm-backup-recommendation.yml` and `examples/filters/cloud-assess-exclude-vm-backup-recommendation.yml` excludes pinned APRL recommendation `1981f704-97b9-b645-9c57-33f8ded9261a`. Its pinned KQL targets Azure virtual machines without backup, and the user's local Phase U report showed one APRL/AOR finding with this ID. The fixture tests recommendation exclusion without narrowing inventory by resource group, tag, or scanner. It should be run on the same non-production `AdvisoryDev` leaf with implicit default stages:
+
+```powershell
+Set-Location C:\src\Cloud-Assess
+git fetch --quiet origin bootstrap/core-v1
+if ($LASTEXITCODE -ne 0) { throw 'Fetch failed' }
+git merge --ff-only origin/bootstrap/core-v1
+if ($LASTEXITCODE -ne 0) { throw 'Fast-forward failed' }
+.\scripts\live-equivalence.ps1 `
+  -ReferenceRepo C:\src\azqr-reference `
+  -ManagementGroupId AdvisoryDev `
+  -ReferenceFilters .\examples\filters\azqr-exclude-vm-backup-recommendation.yml `
+  -TargetFilters .\examples\filters\cloud-assess-exclude-vm-backup-recommendation.yml
+```
+
+Retain the raw reports and logs locally. Verify that the selected recommendation ID had a finding in the earlier Phase U report, that the same VM resource remains in the new target inventory, and that no target finding with this ID remains. Compare other findings and inventory against the baseline only after checking for intervening Azure changes; an old one-row count alone cannot prove why a current row is absent. Review comparator equality, stage coverage, exact scope subscription and completeness separately. A Diagnostics warning or cross-run Advisor count difference must be classified on its own evidence. The source and target recommendation catalogs may still list the excluded definition; do not assume the catalog row count must drop when execution is filtered.
+
 ## Required run conditions
 
 For a meaningful live comparison:
