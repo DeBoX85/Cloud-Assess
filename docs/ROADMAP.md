@@ -123,7 +123,7 @@ Before provisioning a test fixture or exposing a sensitive evidence bundle outsi
 
 ## Inputs needed when each boundary is reached
 
-1. For Diagnostics, if exact historical mapping is required: a sanitized, request-correlated batch capture from a controlled read-only rerun. The individual GET resource types and ARM error codes are already recorded in Phase O.
+1. For Diagnostics, if exact historical mapping is required: a sanitized, request-correlated capture from the original multi-request batch or a controlled rerun with explicit request correlation. The one-request batch probe can corroborate a repeated endpoint failure, but cannot identify an old failed subresponse by itself. The individual GET resource types and ARM error codes are already recorded in Phase O.
 2. For management-group testing: a suitable non-production management-group ID, descendant access, and the same scanner identity used for both executions.
 3. For missing stage data: existing safe Policy, Defender Recommendations, and Arc SQL examples; any Azure fixture creation requires separate authorization.
 4. For release scope: a decision about internal plugins, scanner-specific commands, `rules`, and `plugins list/info` if these cannot all be included in the first release.

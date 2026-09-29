@@ -1311,9 +1311,23 @@ PR #29 passed the hosted `quality` and `windows-validation` jobs (workflow run `
 2026-09-29
 ```
 
-The existing cross-package assessment test now requests XLSX, JSON, CSV, SARIF and stdout in one run. It checks that raw subscription IDs are absent from JSON, every generated CSV table, every XLSX cell and stdout; that masked IDs are present in JSON, CSV, XLSX and stdout; and that SARIF retains the full resource ID needed to identify findings. This checks application option propagation and real renderer output together. SARIF contains sensitive resource identity by design and must be handled accordingly. The focused test passed locally; hosted CI on the follow-up revision is required before this checkpoint is considered merged.
+The existing cross-package assessment test now requests XLSX, JSON, CSV, SARIF and stdout in one run. It checks that raw subscription IDs are absent from JSON, every generated CSV table, every XLSX cell and stdout; that masked IDs are present in JSON, CSV, XLSX and stdout; and that SARIF retains the full resource ID needed to identify findings. This checks application option propagation and real renderer output together. SARIF contains sensitive resource identity by design and must be handled accordingly. The focused test and full Go suite passed locally. PR #30 passed the hosted `quality` and `windows-validation` jobs (workflow run `36578734674`) and merged at `7ce8e6c010b3fd6b1c43884c855325840f15c3c6`.
 
 This deterministic test does not substitute for inspecting artifacts from a built CLI on supported platforms or checking Windows ACLs for unredacted reports. Those Gate 004 rows remain open, as do maintenance workflow dispatches and live Diagnostics request correlation.
+
+### Diagnostics correlation tooling checkpoint
+
+**Date**
+
+```text
+2026-09-29
+```
+
+An audit of the merged Gate 004 changes corrected the Phase output-boundary entry above: PR #30's two required jobs passed and its merge SHA is recorded. The ledger, gate matrix and roadmap still treat actual built-CLI artifacts, Windows ACLs, maintenance workflow dispatches and the historical batch warning correlation as open. Neither PR #29 nor #30 constitutes Gate 004 PASS.
+
+The Diagnostics probe now offers an optional `single-batch` mode. It sends exactly one diagnostic-settings GET subrequest per ARM batch POST, so a returned subresponse can be associated with that one resource without assuming multi-request response order. Its console output contains a shortened resource-ID hash, type, status and safe Azure error code for failures, with no raw IDs or error messages. A deterministic fake-transport test exercises a successful response, an HTTP 400 with a sensitive message and an empty response array. The original individual-GET mode and request cap remain in place.
+
+This tool has not been run against the user's Azure environment in this checkpoint. A later one-request batch failure can corroborate the Network Watcher hypothesis, but cannot identify the failing request in an old, uncaptured multi-request batch or prove Azure state has remained unchanged. Exact historical classification still requires correlated original evidence or an explicit accepted uncertainty. No Azure mutation or new scan was performed during this checkpoint.
 
 ## Current boundary
 

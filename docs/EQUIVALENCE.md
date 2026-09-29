@@ -140,6 +140,14 @@ The probe uses Cloud Assess's normal Azure credential and endpoint selection and
 
 Individual GET responses may differ from the earlier ARM batch subresponses or from later Azure state. If the two HTTP 400 responses are not reproduced, retain the original warnings as unresolved and investigate batch-specific behavior; do not reclassify an uncertain diagnostic finding as confirmed simply because the probe succeeded.
 
+To investigate the batch endpoint itself without assuming that a multi-request response preserves request order, use one read-only diagnostic-settings GET inside each ARM batch:
+
+```powershell
+go run ./tools/diagnostics-probe --mode single-batch --target C:\src\Cloud-Assess\artifacts\equivalence\<run-stamp>\target.json
+```
+
+The command makes one batch POST per eligible resource, with one GET subrequest in each batch. A non-success subresponse is therefore associated with the sole submitted resource; the summary prints only its shortened resource-ID hash, type, HTTP status and safe Azure error code. It caps requests at 100 by default and uses the scan's ARM batch and diagnostic-settings API versions. The POST executes a read-only GET subrequest; it is still an Azure API call and should be run only in an approved scope. A one-request batch may behave differently from the original multi-request batches, and Azure state can change. A matching resource hash is corroboration for a repeated failure, not proof of which resource failed in a prior unrecorded multi-request response. Retain original warning uncertainty until the original response is correlated or an explicit limitation is accepted.
+
 ### Preparing the pinned reference checkout
 
 Create a dedicated clean checkout for the reference:
