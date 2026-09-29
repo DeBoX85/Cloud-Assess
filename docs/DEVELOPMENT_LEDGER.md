@@ -1184,9 +1184,46 @@ The user then ran the read-only `tools/diagnostics-probe` against the retained P
 
 The pinned source and target have no dedicated missing-diagnostics recommendation for Network Watchers, as characterized in Phase O. The probe evidence therefore does not identify a missing Network Watcher recommendation delta, while the exact assessment meaning of the uncorrelated batch failure remains bounded by the warning. No additional Azure scan or comparator run was performed for this follow-up.
 
+### Phase U: AdvisoryDev resource-group exclusion live comparison
+
+**Date and provenance**
+
+```text
+2026-09-29
+Reference: 8e4f0577f3615e6c9014c031bcad079f235369cc
+Target: 5ff380763f9364315dcfb28edde0958528b49426
+APRL: 60eaddda76541f6adbc1c5ffa686829807e55e29
+Evidence stamp: 20260929_121323Z
+```
+
+The user supplied `equivalence.json`, `run-metadata.json`, and a local summary comparing the retained target JSON with the earlier unfiltered Dev and Phase T tag-exclude target reports. Raw reports and logs remain local and were not independently inspected. Both sides ran against leaf management group `AdvisoryDev` with the implicit graph, diagnostics, Advisor and Defender stages. The reference fixture `examples/filters/azqr-exclude-dev-rg.yml` had SHA-256 `0ce146968517c0bc8d203f9753bba29d365c33564a16357b02b0a28ae7248004`; the target fixture `examples/filters/cloud-assess-exclude-dev-rg.yml` had SHA-256 `ba18dfa9d86c6578853d71817e08f8c558974c8aac94b2109b3d166418f28e83`. Each excludes the same full ARM ID of `rg-fos-FinopsHub-dev-euw`; no tag filter or CLI RG scope was used.
+
+**Execution and semantic result**
+
+- reference, target and comparator exit codes: 0 / 0 / 0
+- comparator: `equivalent = true`, no missing, extra or changed records in enabled datasets
+- recommendations: 314 / 314
+- primary findings: 33 / 33
+- resource types: 9 / 9
+- in-scope inventory: 9 / 9
+- out-of-scope inventory: 13 / 13
+- Advisor: 8 / 8
+- Defender plan status: enabled on both sides, 0 / 0
+- Policy, Defender Recommendations, Arc SQL and Cost: not enabled
+
+The user's local check reported exactly three in-scope resources in the excluded group in the six-day-old unfiltered Dev baseline. All three IDs appeared in this run's `outOfScope`; none was selected. The nine selected IDs exactly matched the same-day Phase T tag-exclude target report. All populated target datasets had only the expected non-production Dev subscription ID. This is non-empty selective resource-group exclusion evidence for the observed inventory. Because the cross-run reports are separate Azure snapshots, their ID agreement corroborates selection but cannot establish that all Azure inventory or Advisor API output remained static.
+
+**Stage-health limit**
+
+The target reported `complete_with_warnings`. Diagnostics had one `diagnostics_subrequest_non_success` warning and three stage records; its warning message and failed batch request were not separately supplied for this run. Scope (one subscription), inventory (9), graph (33), Advisor (8), and Defender (0) completed without warnings; optional stages were skipped. The selected inventory ID set matches Phase T, where a later individual GET probe identified a Network Watcher HTTP 400, but that does not prove this run's uncorrelated batch failure had the same cause. Keep Diagnostics conclusions qualified. The within-run Advisor match does not resolve historical cross-run Azure Advisor timing.
+
+**Next boundary**
+
+Continue other filter interactions with discriminating inputs, especially include/exclude precedence and resource/recommendation exclusions. Parent-to-child management-group recursion, missing non-empty optional-stage data, and Gate 004 remain open.
+
 ## Current boundary
 
-The generic core scan, deterministic equivalence tooling, reproducible live runner, default/optional/resource-group/two-subscription/leaf-management-group and separate Storage/VM, RG, tag include and tag exclude live passes, plus enforced development CI, are complete for the behavior exercised so far. The unfiltered two-subscription, leaf-management-group, and exclude-tag passes have explicit Diagnostics warning boundaries, supported but not request-correlated by Network Watcher individual-GET probes. The missing cross-run Advisor row has unknown recorded tag scope in the tag-only target inventory; historical Azure timing remains unresolved.
+The generic core scan, deterministic equivalence tooling, reproducible live runner, default/optional/resource-group/two-subscription/leaf-management-group and separate Storage/VM, RG include/exclude and tag include/exclude live passes, plus enforced development CI, are complete for the behavior exercised so far. The unfiltered two-subscription, leaf-management-group, tag-exclude and RG-exclude passes have explicit Diagnostics warning boundaries; Network Watcher individual-GET probes support an explanation for earlier warnings but have not mapped the batch requests. The missing cross-run Advisor row has unknown recorded tag scope in the tag-only target inventory; historical Azure timing remains unresolved.
 
 The next live validation boundary is:
 
