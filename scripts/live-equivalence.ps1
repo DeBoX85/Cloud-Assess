@@ -292,7 +292,7 @@ if ($TargetFilters) {
 }
 
 $metadata = [ordered]@{
-    schemaVersion = '1.1'
+    schemaVersion = '1.2'
     purpose = 'Cloud Assess live source-versus-target equivalence'
     warning = 'This evidence bundle contains unredacted Azure identifiers and must be handled as sensitive assessment data.'
     createdUtc = [DateTime]::UtcNow.ToString('o')
@@ -378,6 +378,10 @@ if ($targetExecution.exitCode -ne 0) {
 if (-not (Test-Path -LiteralPath $targetJson -PathType Leaf)) {
     throw "Cloud Assess completed without producing expected JSON: $targetJson"
 }
+
+$targetReport = Get-Content -LiteralPath $targetJson -Raw | ConvertFrom-Json
+$metadata.targetAssessment = Get-TargetAssessmentSummary -Report $targetReport
+Write-Metadata -Metadata $metadata -Path $metadataPath
 
 Write-Host 'Running semantic equivalence comparison...'
 

@@ -3,6 +3,7 @@ package app
 import (
 	"context"
 	"encoding/json"
+	"errors"
 	"os"
 	"path/filepath"
 	"strings"
@@ -144,6 +145,75 @@ func TestEndToEndCoordinatorApplicationAndRenderers(t *testing.T) {
 	if value, err := workbook.GetCellValue("ImpactedResources", "H5"); err != nil || value != masked {
 		t.Fatalf("ImpactedResources subscription = %q, err=%v, want %q", value, err, masked)
 	}
+}
+
+func TestCostPermissionFailurePersistsPartialReportWithHealthyFindings(t *testing.T) {
+	const subscriptionID = "11111111-2222-3333-4444-555555555555"
+	resource := assessment.Resource{
+		ID:             "/subscriptions/" + subscriptionID + "/resourceGroups/rg/providers/Microsoft.Storage/storageAccounts/store",
+		SubscriptionID: subscriptionID, ResourceGroup: "rg", Type: "Microsoft.Storage/storageAccounts",
+	}
+	definition := assessment.RecommendationDefinition{
+		ID: "storage-test-1", ResourceType: resource.Type, Query: "resources | where false", Source: rules.SourceCustom,
+	}
+	finding := assessment.Finding{RecommendationID: definition.ID, ResourceID: resource.ID, ResourceType: resource.Type}
+	catalog := rules.NewCatalog()
+	catalog.Add(definition)
+	operations := operationsForEndToEndTest(t, catalog, resource, finding)
+	operations.ScanCost = func(context.Context, map[string]string) (cost.Result, error) {
+		return cost.Result{}, errors.New("cost access denied")
+	}
+	stageConfig := stages.NewDefault()
+	for _, name := range []string{stages.Diagnostics, stages.Advisor, stages.Defender} {
+		if err := stageConfig.Set(name, false); err != nil {
+			t.Fatal(err)
+		}
+	}
+	if err := stageConfig.Set(stages.Cost, true); err != nil {
+		t.Fatal(err)
+	}
+
+	base := filepath.Join(t.TempDir(), "partial-cost")
+	outcome, err := NewRunner(orchestration.NewCoordinator(operations)).Run(context.Background(), ScanOptions{
+		Assessment: orchestration.Request{Subscriptions: []string{subscriptionID}, ScannerKeys: []string{"st"}, Stages: stageConfig},
+		Outputs:    OutputOptions{BaseName: base, JSON: true},
+	})
+	if err == nil || outcome.ExitCode != ExitPartial {
+		t.Fatalf("cost access error = %v, exit = %d; want partial exit", err, outcome.ExitCode)
+	}
+	data, err := os.ReadFile(base + ".json")
+	if err != nil {
+		t.Fatalf("partial report was not persisted: %v", err)
+	}
+	var report struct {
+		Completeness string `json:"completeness"`
+		Findings     []struct {
+			RecommendationID string `json:"recommendationId"`
+		} `json:"findings"`
+		Stages []struct {
+			Name   string `json:"name"`
+			Status string `json:"status"`
+			Error  *struct {
+				Code string `json:"code"`
+			} `json:"error"`
+		} `json:"stages"`
+		Costs []json.RawMessage `json:"costs"`
+	}
+	if err := json.Unmarshal(data, &report); err != nil {
+		t.Fatal(err)
+	}
+	if report.Completeness != string(assessment.CompletenessPartial) || len(report.Findings) != 1 || report.Findings[0].RecommendationID != definition.ID || len(report.Costs) != 0 {
+		t.Fatalf("partial report lost healthy findings or fabricated costs: completeness=%s findings=%v costs=%d", report.Completeness, report.Findings, len(report.Costs))
+	}
+	for _, stage := range report.Stages {
+		if stage.Name == stages.Cost {
+			if stage.Status != string(assessment.StageFailed) || stage.Error == nil || stage.Error.Code != "stage_failed" {
+				t.Fatalf("Cost access denial was not visible in report: %+v", stage)
+			}
+			return
+		}
+	}
+	t.Fatal("partial report omitted Cost stage")
 }
 
 func operationsForEndToEndTest(t *testing.T, catalog *rules.Catalog, resource assessment.Resource, finding assessment.Finding) orchestration.Operations {

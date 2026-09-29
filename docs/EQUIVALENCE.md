@@ -126,6 +126,8 @@ equivalence.stderr.log
 
 The runner performs read-oriented assessment operations only; it does not provision or modify Azure resources.
 
+Starting with run-metadata schema `1.2`, the runner also records `targetAssessment`: the target completeness and each stage's name, status, record count and warning codes. It deliberately omits warning messages and resource identifiers from this summary. Earlier metadata bundles remain valid without this property. A warning code still requires inspection of the private target report and, where necessary, request-correlated evidence before its impact is classified.
+
 ### Investigating Diagnostics batch warnings
 
 If the target Diagnostics stage records `diagnostics_subrequest_non_success` warnings, the batch status alone does not identify the affected resources. From the clean Cloud Assess checkout used for the pass, probe the retained target inventory with individual, read-only diagnostic-settings GET requests:

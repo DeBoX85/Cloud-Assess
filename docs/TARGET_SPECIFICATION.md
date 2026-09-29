@@ -229,6 +229,8 @@ Diagnostics uses the discovered inventory and ARM batch reads of `Microsoft.Insi
 
 Errors are propagated rather than terminating from worker goroutines.
 
+When an ARM batch response contains a different number of subresponses than requested, Cloud Assess treats the Diagnostics stage as failed rather than inferring that the unmatched resources lack diagnostic settings. This safety correction applies to malformed API output and is tracked separately from successful-response equivalence with the pinned source.
+
 ## Cost behavior
 
 The source implementation defines the cost period as the previous completed UTC calendar month.

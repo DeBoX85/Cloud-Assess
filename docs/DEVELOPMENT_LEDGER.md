@@ -1283,6 +1283,26 @@ The user's local target-report check confirmed that the selected VM was present 
 
 The target reported `complete_with_warnings`: Diagnostics completed with one `diagnostics_subrequest_non_success` warning and six stage records; other enabled stages completed without warning. The warning's HTTP status, failed batch request and affected resource were not supplied for this pass. An earlier individual Network Watcher GET cannot be assumed to identify this particular batch response. The successful comparator therefore does not close Diagnostics coverage for the unsuccessful request. Nested management-group traversal, other filter interactions, non-empty optional-stage gaps and Quality Gate 004 remain open.
 
+### Gate 004 hardening checkpoint: failure evidence and adjacent workflows
+
+**Date**
+
+```text
+2026-09-29
+```
+
+The Gate 004 plan now states concrete evidence checks for adapter-to-report failures, Diagnostics uncertainty, missing non-empty projections, real output/privacy behavior and maintenance workflows. The later release decision includes a controlled production-scope pilot. This adds acceptance criteria; it does not pass Gate 004 or authorize a production scan.
+
+A Diagnostics batch response with a different number of subresponses than requested previously left unmatched resources absent from the enabled-settings map, potentially creating missing-diagnostics findings without an explicit retrieval failure. The target now fails that stage on a response-count mismatch; a focused two-request/one-response test prevents a false missing-settings finding. This is an intentional safety correction for malformed API output. It is not a claim that the pinned source behaves identically under a truncated batch response, and existing successful-batch equivalence evidence is unaffected. Request-to-subresponse correlation for otherwise complete batches remains open.
+
+A cross-package Cost access-denial test now checks the coordinator, application exit code and persisted JSON report together: the Cost stage must fail, the report must be partial, and healthy Graph findings must survive. Existing tests already cover other stage failures and individual Cost transport/authorization behavior. The maintenance workflows were also corrected to identify their generated commits as `github-actions[bot]` instead of pairing a bot name with the user's personal noreply address. Human-authored commits continue to use the user's configured identity. The workflows still need no-change and changed-output dispatch verification before their maintenance path is considered operationally exercised.
+
+The live-equivalence runner now records a sanitized target stage-health summary in metadata schema `1.2`, including completeness, status, record counts and warning codes but no warning messages or resource IDs. This makes the recurring warning review reconstructable from the metadata without claiming that a warning code alone identifies its failing Azure request. Older `1.1` evidence bundles remain unchanged.
+
+**Validation boundary**
+
+Run targeted and hosted CI checks on the resulting PR; its checks record the exact revision and run IDs. Leave unperformed Gate 004 evidence rows open. Do not reclassify historical Diagnostics warnings as correlated from this new response-count check.
+
 ## Current boundary
 
 The generic core scan, deterministic equivalence tooling, reproducible live runner, default/optional/resource-group/two-subscription/leaf-management-group and separate Storage/VM, RG include/exclude, tag include/exclude, recommendation-exclude and individual-resource-exclude live passes, plus enforced development CI, are complete for the behavior exercised so far. The unfiltered two-subscription, leaf-management-group, tag-exclude, RG-exclude and individual-resource-exclude passes have explicit Diagnostics warning boundaries; the recommendation-exclude pass is also `complete_with_warnings`, without supplied warning details. Network Watcher individual-GET probes support an explanation for earlier warnings but have not mapped the batch requests. The missing cross-run Advisor row has unknown recorded tag scope in the tag-only target inventory; historical Azure timing remains unresolved.
