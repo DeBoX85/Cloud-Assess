@@ -1,0 +1,6 @@
+# Pinned AZQR exclude-resource-group filter for the AdvisoryDev live comparison.
+# A resourceGroups entry requires the full ARM resource-group ID.
+azqr:
+  exclude:
+    resourceGroups:
+      - /subscriptions/c09f96df-19de-4c49-80ff-0c1a94d93ab2/resourceGroups/rg-fos-FinopsHub-dev-euw
