@@ -10,6 +10,8 @@ This document orders the remaining work and defines the evidence needed to close
 
 [Quality Gate 004](QUALITY_GATE_004_PLAN.md) is a planned core validation decision with explicit evidence rows, not a completed gate. The release artifact/security/operations decision follows separately after first-release scope is fixed.
 
+The environment-dependent nested management-group pass is tracked separately as [DV-001](DEFERRED_VALIDATION.md#dv-001-live-nested-management-group-traversal). Deferral keeps other work moving but does not mark that evidence row passed.
+
 ## Starting point
 
 - The generic scan, its canonical reports, the deterministic semantic comparator, and the Windows live-equivalence runner are implemented and CI-gated.
@@ -25,7 +27,7 @@ This document orders the remaining work and defines the evidence needed to close
 - The separate VM backup recommendation-exclusion pass matched exactly for 313 recommendations and 43 findings on both sides. A local check of retained raw reports found one baseline finding for the excluded ID, none in either filtered report, and the affected VM still in target inventory. The new target was `complete_with_warnings`, with warning details not supplied; see Phase V.
 - The exact individual-resource exclusion pass matched for 11 selected and 11 out-of-scope resources, 35 findings and five Advisor rows on both sides. A local check found the selected VM out of scope with zero findings while every other selected inventory ID matched the earlier Phase V report. The target Diagnostics stage had one uncorrelated warning. See Phase W and [EQUIVALENCE.md](EQUIVALENCE.md#paired-filter-pass-exclude-one-observed-resource).
 
-The next live work items are nested management-group traversal in a suitable non-production hierarchy and remaining filter combinations. Diagnostics warning caveats from Phases N, P, T, U and W, plus the unclassified warning in Phase V, remain in the evidence matrix. Core equivalence and a release decision require the open validation limits to be resolved or explicitly accepted with a narrowed scope.
+The next available live work items are remaining filter combinations. Live nested management-group traversal is deferred under DV-001 until a suitable non-production hierarchy exists. Diagnostics warning caveats from Phases N, P, T, U and W, plus the unclassified warning in Phase V, remain in the evidence matrix. Core equivalence and a release decision require the open validation limits to be resolved or explicitly accepted with a narrowed scope.
 
 ## Historical requirement reconciliation
 
@@ -43,7 +45,7 @@ These items do not change the Phase S tag-filter result or close its separate-ru
 |---|---|---|---|
 | 1 | Investigate Diagnostics HTTP 400 responses | Individual GET evidence and the source finding impact are documented in Phase O; historical batch request correlation remains open if exact mapping is required | A controlled read-only batch capture with request correlation to close the historical mapping |
 | 2 | Validate management-group traversal | Leaf group comparison completed in Phase P; synthetic Azure SDK adapter-to-walker hierarchy and denial fixture covers implementation paths, while live parent-to-child source/target evidence remains open | No suitable non-production nested parent is currently available; `Advisory` includes production and was not scanned. Record an explicit scoped Gate 004 limitation if this remains unavailable |
-| 3 | Close filter and scope combinations | Paired source/target filter fixtures and semantic evidence for include/exclude, tags, scanner selection, and resource/recommendation exclusions | Representative existing resources; provision fixtures only if separately approved |
+| 3 | Close filter and scope combinations | Paired source/target filter fixtures and semantic evidence for include/exclude, tags, scanner selection, and resource/recommendation exclusions; the same-RG include/exclude precedence pair is prepared but not run | Representative existing resources; provision fixtures only if separately approved |
 | 4 | Close missing stage data | Non-empty Policy and Defender Recommendations comparisons; Arc SQL response shape resolved and characterized | Appropriate live resources or sanitized targeted fixtures |
 | 5 | Strengthen failure and output checks | Tests/evidence for partial stages, permission failures, warnings, redaction, severity exit codes, and report consistency | Results from steps 1-4 and controlled negative-path fixtures |
 | 6 | Set and implement the first-release feature boundary | Required plugin and CLI work implemented; any omissions expressly re-scoped in the specification and ledger | Decision on first-release scope after core equivalence |
