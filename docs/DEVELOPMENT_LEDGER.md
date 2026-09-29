@@ -1443,6 +1443,18 @@ The target specification, implementation plan, roadmap, Gate 004 matrix and rece
 
 Next, strengthen a failed/throttled Azure adapter path through the query boundary with a deterministic fixture; then continue remaining filter interactions and missing optional-stage projections. This can proceed without Azure access. The nested management-group live test remains DV-001, deferred rather than passed or accepted. Reassess the estimates after Gate 004 evidence and the first-release feature boundary are decided.
 
+### Gate 004 Resource Graph throttling characterization
+
+**Date**
+
+```text
+2026-09-29
+```
+
+A deterministic HTTPS fixture now drives the production authenticated Azure HTTP client, Resource Graph HTTP transport and query client together. It contrasts a structured HTTP 429 response with a successful `data: []` response. With the retry budget set to zero to model an exhausted retry path, the former must return a wrapped Azure response error and nil query result; the latter must return a valid empty result. The fixture checks that each case made exactly one authenticated POST and makes no Azure calls. It closes one failed-retrieval-versus-empty-result regression path, not the default retry timing, real Azure throttling, coordinator stage health, or all Gate 004 negative paths.
+
+The code was reviewed and `git diff --check` passed locally. The scratch environment does not have a Go toolchain; required Linux and Windows CI jobs are the executable verification for the PR. Record their run and merge identity once complete.
+
 ## Current boundary
 
 The generic core scan, deterministic equivalence tooling, reproducible live runner, default/optional/resource-group/two-subscription/leaf-management-group and separate Storage/VM, RG include/exclude, tag include/exclude, recommendation-exclude and individual-resource-exclude live passes, plus enforced development CI, are complete for the behavior exercised so far. The unfiltered two-subscription, leaf-management-group, tag-exclude, RG-exclude and individual-resource-exclude passes have explicit Diagnostics warning boundaries; the recommendation-exclude pass is also `complete_with_warnings`, without supplied warning details. Network Watcher individual-GET probes and the Phase W one-request batch probe support an explanation for earlier warnings but have not mapped the original multi-request batch responses. The missing cross-run Advisor row has unknown recorded tag scope in the tag-only target inventory; historical Azure timing remains unresolved.
