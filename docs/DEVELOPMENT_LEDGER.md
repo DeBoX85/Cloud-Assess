@@ -1345,6 +1345,10 @@ The Resource Graph query client previously followed any non-nil `$skipToken` wit
 
 This deterministic boundary does not prove Azure throttling, malformed HTTP response, or end-to-end failure handling in every stage. Those Gate 004 checks remain open. No Azure requests were made for this checkpoint.
 
+**Validation**
+
+The focused ARG tests, full Go suite, focused vet and diff check passed locally. PR #33 passed the hosted `quality` and `windows-validation` jobs (workflow run `36581271240`) and merged at `d1fa30c10d68192b2dc963c994db3066e26712f1`. Gate 004 remains planned.
+
 ## Current boundary
 
 The generic core scan, deterministic equivalence tooling, reproducible live runner, default/optional/resource-group/two-subscription/leaf-management-group and separate Storage/VM, RG include/exclude, tag include/exclude, recommendation-exclude and individual-resource-exclude live passes, plus enforced development CI, are complete for the behavior exercised so far. The unfiltered two-subscription, leaf-management-group, tag-exclude, RG-exclude and individual-resource-exclude passes have explicit Diagnostics warning boundaries; the recommendation-exclude pass is also `complete_with_warnings`, without supplied warning details. Network Watcher individual-GET probes support an explanation for earlier warnings but have not mapped the batch requests. The missing cross-run Advisor row has unknown recorded tag scope in the tag-only target inventory; historical Azure timing remains unresolved.
