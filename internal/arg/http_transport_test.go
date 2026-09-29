@@ -74,6 +74,33 @@ func TestHTTPTransportRejectsMalformedQuotaHeaders(t *testing.T) {
 	}
 }
 
+func TestHTTPTransportRejectsMissingDataInsteadOfReportingEmptySuccess(t *testing.T) {
+	for _, payload := range []string{`{}`, `{"data":null}`, `{"count":0}`} {
+		t.Run(payload, func(t *testing.T) {
+			poster := &fakePoster{resp: &http.Response{
+				StatusCode: http.StatusOK,
+				Body:       io.NopCloser(strings.NewReader(payload)),
+			}}
+			result, err := NewClient(NewHTTPTransportWithClient(poster, "https://example.test/graph")).Query(
+				context.Background(), "resources", map[string]string{"sub": "name"},
+			)
+			if err == nil || result != nil || !strings.Contains(err.Error(), "missing or null data array") {
+				t.Fatalf("result = %#v, error = %v; want failed query, not empty success", result, err)
+			}
+		})
+	}
+	poster := &fakePoster{resp: &http.Response{
+		StatusCode: http.StatusOK,
+		Body:       io.NopCloser(strings.NewReader(`{"data":[]}`)),
+	}}
+	result, err := NewClient(NewHTTPTransportWithClient(poster, "https://example.test/graph")).Query(
+		context.Background(), "resources", map[string]string{"sub": "name"},
+	)
+	if err != nil || result == nil || len(result.Data) != 0 {
+		t.Fatalf("valid empty result = %#v, error = %v", result, err)
+	}
+}
+
 func TestParseResetAfter(t *testing.T) {
 	got, err := parseResetAfter("00:05:30")
 	if err != nil {
