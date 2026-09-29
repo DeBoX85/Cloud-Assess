@@ -211,6 +211,23 @@ Set-Location C:\src\Cloud-Assess
 
 The Phase S tag-only pass selected exactly the same three tagged resource IDs as the earlier unfiltered baseline; the other nine resources were excluded and both reports matched semantically. If the Dev inventory changes in a later run, investigate a different count before treating a semantically equal result as tag-filter coverage. A later local comparison confirmed the tag-only and RG-only selected ID sets also matched. Advisor returned two rows on each side in the tag-only pass versus three on each side in the earlier RG-only pass. A subsequent local check of the missing row against both selected and out-of-scope tag-only target inventory returned `NearestRecordedScope = unknown`: no resource or ancestor decision was recorded. Both pinned source and target exclude unknown downstream scope with an include-tag filter if the row is returned and structurally eligible. Because the reports came from separate Azure scans, the check cannot establish whether Azure returned that row in the later run. See the dated Phase S follow-ups in the ledger.
 
+### Next paired filter pass: exclude the Dev tag
+
+The pair `examples/filters/azqr-exclude-environment-dev.yml` and `examples/filters/cloud-assess-exclude-environment-dev.yml` excludes resources tagged `Environment: dev` without an include filter. Run it against the same `AdvisoryDev` leaf scope with the implicit default stages. The earlier unfiltered Dev target report had three matching and nine nonmatching in-scope resources. Recheck the live inventory and compare selected IDs to a contemporaneous unfiltered baseline before calling this a selective exclusion result; the old counts are an expectation, not a fixed acceptance condition.
+
+```powershell
+Set-Location C:\src\Cloud-Assess
+git fetch origin bootstrap/core-v1
+git merge --ff-only origin/bootstrap/core-v1
+.\scripts\live-equivalence.ps1 `
+  -ReferenceRepo C:\src\azqr-reference `
+  -ManagementGroupId AdvisoryDev `
+  -ReferenceFilters .\examples\filters\azqr-exclude-environment-dev.yml `
+  -TargetFilters .\examples\filters\cloud-assess-exclude-environment-dev.yml
+```
+
+The runner performs read-only assessment requests and writes reports under the local ignored `artifacts/` directory. It does not provision or change Azure resources. Preserve its `run-metadata.json`, source/target JSON, logs, and `equivalence.json` locally. Review `equivalent`, completeness, scope-stage subscription count, stage warning codes, and the selected/out-of-scope resource ID sets. The known Network Watcher may re-enter this wider scope; classify any Diagnostics warning without assuming the individual GET probe identifies a historical batch subrequest. Advisor can vary across separate Azure scans, so do not attribute a cross-run row difference to the filter without observed matching API input. Do not add the RG or include-tag filter to this pass.
+
 ## Required run conditions
 
 For a meaningful live comparison:
