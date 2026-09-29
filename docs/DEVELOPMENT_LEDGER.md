@@ -1329,6 +1329,10 @@ The Diagnostics probe now offers an optional `single-batch` mode. It sends exact
 
 This tool has not been run against the user's Azure environment in this checkpoint. A later one-request batch failure can corroborate the Network Watcher hypothesis, but cannot identify the failing request in an old, uncaptured multi-request batch or prove Azure state has remained unchanged. Exact historical classification still requires correlated original evidence or an explicit accepted uncertainty. No Azure mutation or new scan was performed during this checkpoint.
 
+**Validation**
+
+The full Go suite, focused vet and diff check passed locally. PR #31 passed the hosted `quality` and `windows-validation` jobs (workflow run `36580144346`) and merged at `a2290322db919198e8eb9342eb0c2aba469974af`. The associated probe test is deterministic; no Azure batch outcome was observed during this validation.
+
 ## Current boundary
 
 The generic core scan, deterministic equivalence tooling, reproducible live runner, default/optional/resource-group/two-subscription/leaf-management-group and separate Storage/VM, RG include/exclude, tag include/exclude, recommendation-exclude and individual-resource-exclude live passes, plus enforced development CI, are complete for the behavior exercised so far. The unfiltered two-subscription, leaf-management-group, tag-exclude, RG-exclude and individual-resource-exclude passes have explicit Diagnostics warning boundaries; the recommendation-exclude pass is also `complete_with_warnings`, without supplied warning details. Network Watcher individual-GET probes support an explanation for earlier warnings but have not mapped the batch requests. The missing cross-run Advisor row has unknown recorded tag scope in the tag-only target inventory; historical Azure timing remains unresolved.
