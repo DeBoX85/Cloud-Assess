@@ -249,6 +249,8 @@ git merge --ff-only origin/bootstrap/core-v1
 
 Keep both unredacted reports and logs in the ignored local evidence directory. Review comparator equality, the exact resolved subscription, stage completeness and warnings, the selected IDs against the earlier baseline and Phase T report, and whether the three previously included group resources are now recorded out of scope. Resource-group exclusion may still include the Network Watcher elsewhere in Dev; do not treat a repeated Diagnostics warning as resolved by semantic equality or an individual GET. Advisor rows can vary between scans, so assess source/target agreement within this run before interpreting cross-run differences. Do not add the CLI RG flag or a tag filter to this pass.
 
+The `20260929_121323Z` pass returned `equivalent = true` with nine selected resources, 33 findings and eight Advisor rows on each side. The user's local check found all three previously included resources in the excluded group in the target `outOfScope` set, none selected, and an exact match between the selected IDs and the same-day Phase T tag-exclude pass. Only the expected Dev subscription contributed data. The target remained `complete_with_warnings` with one Diagnostics subrequest warning; see Phase U in the ledger. The prior Network Watcher probe does not correlate this run's batch failure to a resource.
+
 ## Required run conditions
 
 For a meaningful live comparison:
