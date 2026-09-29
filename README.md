@@ -69,6 +69,7 @@ The generic scan path is suitable for controlled test-environment validation. It
 - [Target specification](docs/TARGET_SPECIFICATION.md)
 - [Implementation plan](docs/IMPLEMENTATION_PLAN.md)
 - [Development ledger](docs/DEVELOPMENT_LEDGER.md)
+- [Development failure notes](docs/FAILURE_NOTES.md)
 - [Execution roadmap](docs/ROADMAP.md)
 - [Deferred validation register](docs/DEFERRED_VALIDATION.md)
 - [Characterization baseline](docs/CHARACTERIZATION.md)

@@ -261,6 +261,75 @@ func TestCostPermissionFailurePersistsPartialReportWithHealthyFindings(t *testin
 	t.Fatal("partial report omitted Cost stage")
 }
 
+func TestGraphQueryFailurePersistsFailedReportAndStopsLaterStages(t *testing.T) {
+	const subscriptionID = "11111111-2222-3333-4444-555555555555"
+	resource := assessment.Resource{
+		ID:             "/subscriptions/" + subscriptionID + "/resourceGroups/rg/providers/Microsoft.Storage/storageAccounts/store",
+		SubscriptionID: subscriptionID,
+		ResourceGroup:  "rg",
+		Type:           "Microsoft.Storage/storageAccounts",
+	}
+	catalog := rules.NewCatalog()
+	catalog.Add(assessment.RecommendationDefinition{
+		ID: "storage-test-1", ResourceType: resource.Type, Query: "resources | where false", Source: rules.SourceCustom,
+	})
+	operations := operationsForEndToEndTest(t, catalog, resource, assessment.Finding{})
+	operations.ExecuteGraph = func(context.Context, []assessment.RecommendationDefinition, map[string]string, *config.AssessmentFilter) ([]assessment.Finding, []arg.RuleWarning, error) {
+		return nil, nil, errors.New("ARG query throttled")
+	}
+	advisorCalled := false
+	operations.ScanAdvisor = func(context.Context, map[string]string, *config.AssessmentFilter) (advisor.Result, error) {
+		advisorCalled = true
+		return advisor.Result{}, nil
+	}
+
+	base := filepath.Join(t.TempDir(), "failed-graph")
+	outcome, err := NewRunner(orchestration.NewCoordinator(operations)).Run(context.Background(), ScanOptions{
+		Assessment: orchestration.Request{Subscriptions: []string{subscriptionID}, ScannerKeys: []string{"st"}, Stages: stages.NewDefault()},
+		Outputs:    OutputOptions{BaseName: base, JSON: true},
+	})
+	if err == nil || !strings.Contains(err.Error(), "ARG query throttled") || outcome.ExitCode != ExitExecutionFail {
+		t.Fatalf("Graph query error = %v, exit = %d; want execution failure", err, outcome.ExitCode)
+	}
+	if advisorCalled {
+		t.Fatal("Advisor ran after critical Graph failure")
+	}
+	data, err := os.ReadFile(base + ".json")
+	if err != nil {
+		t.Fatalf("failed assessment report was not persisted: %v", err)
+	}
+	var report struct {
+		Completeness string            `json:"completeness"`
+		Resources    []json.RawMessage `json:"resources"`
+		Findings     []json.RawMessage `json:"findings"`
+		Stages       []struct {
+			Name   string `json:"name"`
+			Status string `json:"status"`
+			Error  *struct {
+				Code string `json:"code"`
+			} `json:"error"`
+		} `json:"stages"`
+	}
+	if err := json.Unmarshal(data, &report); err != nil {
+		t.Fatal(err)
+	}
+	if report.Completeness != string(assessment.CompletenessFailed) || len(report.Resources) != 1 || len(report.Findings) != 0 {
+		t.Fatalf("failed report lost inventory or invented findings: completeness=%s resources=%d findings=%d", report.Completeness, len(report.Resources), len(report.Findings))
+	}
+	graphFailed, advisorSkipped := false, false
+	for _, stage := range report.Stages {
+		switch stage.Name {
+		case stages.Graph:
+			graphFailed = stage.Status == string(assessment.StageFailed) && stage.Error != nil && stage.Error.Code == "stage_failed"
+		case stages.Advisor:
+			advisorSkipped = stage.Status == string(assessment.StageSkipped)
+		}
+	}
+	if !graphFailed || !advisorSkipped {
+		t.Fatalf("Graph failure or skipped Advisor missing from persisted stage health: %+v", report.Stages)
+	}
+}
+
 func operationsForEndToEndTest(t *testing.T, catalog *rules.Catalog, resource assessment.Resource, finding assessment.Finding) orchestration.Operations {
 	return orchestration.Operations{
 		DiscoverSubscriptions: func(context.Context, []string, *config.Filters) (map[string]string, error) {

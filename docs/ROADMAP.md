@@ -8,6 +8,8 @@ Reference implementation: `DeBoX85/azqr` at `8e4f0577f3615e6c9014c031bcad079f235
 
 This document orders the remaining work and defines the evidence needed to close it. [TARGET_SPECIFICATION.md](TARGET_SPECIFICATION.md) defines the product contract; [IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md) records the implementation sequence and definition of done; [DEVELOPMENT_LEDGER.md](DEVELOPMENT_LEDGER.md) records what actually happened. Historical quality gates remain snapshots, not statements that every later boundary has passed.
 
+The [failure notes](FAILURE_NOTES.md) index confirmed mistakes and their prevention checks. Search them when a similar symptom recurs and during QA; keep the development ledger as the milestone/evidence record.
+
 [Quality Gate 004](QUALITY_GATE_004_PLAN.md) is a planned core validation decision with explicit evidence rows, not a completed gate. The release artifact/security/operations decision follows separately after first-release scope is fixed.
 
 The environment-dependent nested management-group pass is tracked separately as [DV-001](DEFERRED_VALIDATION.md#dv-001-live-nested-management-group-traversal). Deferral keeps other work moving but does not mark that evidence row passed.
