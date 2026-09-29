@@ -1117,14 +1117,30 @@ Recent-commit QA inspected merge `99d3b20` and its PR #15–#17 changes against 
 
 On the retained local Phase R and S target reports, check the absent Advisor row's resource ID against *both* `resources` and `outOfScope`, looking for the nearest recorded ancestor. Report only whether the nearest decision is included, excluded or absent, and whether its subscription, RG and scanner type meet structural filters; do not publish IDs. This can discriminate the recorded-scope hypotheses for the target report. Determining whether Azure returned the identical Advisor row to both scans requires historical API responses, which were not captured, or a new controlled paired run.
 
+### Phase S follow-up: unknown Advisor tag scope confirmed in target inventory
+
+**Date**
+
+```text
+2026-09-29
+```
+
+The user ran the read-only nearest-ancestor check from the Phase S follow-up on the locally retained Phase R RG-only and Phase S tag-only target JSON reports. The sole Advisor row present in the RG-only report but absent from the tag-only report returned `NearestRecordedScope = unknown`, `Category = HighAvailability`, and `Impact = Medium`. The check matched Advisor rows by normalized recommendation/resource IDs, then searched the tag-only target's included **and** out-of-scope inventory for an exact ID or nearest ancestor. No ID or ancestor matched. No raw IDs or reports were shared; the result is a user-supplied local summary, not an independent replay of the reports.
+
+This resolves the previously open **excluded versus unknown recorded-scope** question for the target's tag-only inventory: the row has no recorded scope decision there. The checked-in `Environment: dev` include-tag fixture activates the fail-closed unknown-scope rule in both pinned AZQR and Cloud Assess. If Azure returned the same Advisor row to both runs and it passed structural filters, both implementations would exclude it in the tag-only run. The 3/3 RG-only and 2/2 tag-only Advisor results still come from separate scans; absent historical API response snapshots, the check cannot prove the row was returned to the tag-only scan or that the unknown-scope rule actually caused its disappearance. No source-versus-target discrepancy is evidenced within either pass. The Phase S tag-only `equivalent = true` result and its selective 3-resource coverage remain unchanged.
+
+**Remaining evidence limit**
+
+Treat historical Azure Advisor timing as unresolved when Gate 004 considers this cross-run observation. A new controlled paired run can test the rule under observed inputs if needed; no repeat of the already equivalent Phase S pass is required merely to classify its inventory scope. Continue the remaining tag interactions and suitable non-production nested management-group traversal.
+
 ## Current boundary
 
-The generic core scan, deterministic equivalence tooling, reproducible live runner, default/optional/resource-group/two-subscription/leaf-management-group and separate Storage/VM, RG and tag include-filter live passes, plus enforced development CI, are complete for the behavior exercised so far. The unfiltered two-subscription and leaf-management-group passes have explicit Diagnostics warning boundaries. The cross-run Advisor count difference has multiple source-compatible explanations and an unresolved historical Azure timing limit.
+The generic core scan, deterministic equivalence tooling, reproducible live runner, default/optional/resource-group/two-subscription/leaf-management-group and separate Storage/VM, RG and tag include-filter live passes, plus enforced development CI, are complete for the behavior exercised so far. The unfiltered two-subscription and leaf-management-group passes have explicit Diagnostics warning boundaries. The missing cross-run Advisor row has unknown recorded tag scope in the tag-only target inventory; historical Azure timing remains unresolved.
 
 The next live validation boundary is:
 
 ```text
-Nested management-group traversal, remaining filter combinations and Advisor row scope check; retain unfiltered Diagnostics warning caveats
+Nested management-group traversal and remaining filter combinations; retain historical Advisor timing and unfiltered Diagnostics warning caveats
 ```
 
 Required evidence set for each live pass:
@@ -1142,7 +1158,7 @@ Required evidence set for each live pass:
 The following are not forgotten; they remain intentionally open:
 
 - Diagnostics HTTP 400 subrequest root cause and affected-resource coverage
-- precise cross-run Advisor row cause (excluded versus unknown scope, structural filtering or Azure timing)
+- historical Advisor API row presence/timing across separate RG-only and tag-only runs
 - nested management-group traversal equivalence
 - non-empty Policy and Defender Recommendations evidence
 - Arc SQL numeric `vcores` response-shape resolution
