@@ -1396,6 +1396,10 @@ A new deterministic fixture drives the production Azure SDK scope adapter and th
 
 The fixture strengthens implementation evidence, but it is not a live source-versus-target parent-group comparison and does not establish real-world RBAC visibility or Azure behavior in an accessible nested hierarchy. Leave the live traversal row open. At Gate 004, either supply suitable live evidence or record an explicit accepted limitation and narrow the first-release management-group support claim; the target specification currently includes recursive management-group resolution. Other Gate 004 evidence can proceed independently.
 
+**Validation**
+
+The focused adapter test, full Go suite, focused vet and diff check passed locally. PR #38 passed the hosted `quality` and `windows-validation` jobs (workflow run `36593065309`) and merged at `06380af0f9136836d7cd251eeb4b52cd36deca48`. The live nested-scope limitation remains open.
+
 ## Current boundary
 
 The generic core scan, deterministic equivalence tooling, reproducible live runner, default/optional/resource-group/two-subscription/leaf-management-group and separate Storage/VM, RG include/exclude, tag include/exclude, recommendation-exclude and individual-resource-exclude live passes, plus enforced development CI, are complete for the behavior exercised so far. The unfiltered two-subscription, leaf-management-group, tag-exclude, RG-exclude and individual-resource-exclude passes have explicit Diagnostics warning boundaries; the recommendation-exclude pass is also `complete_with_warnings`, without supplied warning details. Network Watcher individual-GET probes and the Phase W one-request batch probe support an explanation for earlier warnings but have not mapped the original multi-request batch responses. The missing cross-run Advisor row has unknown recorded tag scope in the tag-only target inventory; historical Azure timing remains unresolved.
