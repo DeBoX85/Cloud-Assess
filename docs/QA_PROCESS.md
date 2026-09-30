@@ -24,7 +24,7 @@ Record tested head, CI run and merge SHA in the ledger for material checkpoints.
 
 ## Report guarantees and limits
 
-JSON, SARIF, CSV and XLSX stage each file in the destination directory, then replace it only after successful rendering and close. A rendering failure preserves an existing report and removes the staged file. Unix replacement files use mode 0600; Windows files inherit directory ACLs. The controlled Windows fixture proves inheritance in its restricted test directory, not privacy in an arbitrary operator directory. Symlink destinations are rejected; parent-directory security remains an operator responsibility.
+JSON, SARIF, CSV and XLSX stage each file in the destination directory, then replace it only after successful rendering and close. A rendering failure preserves an existing report and removes the staged file. Unix replacement files use mode 0600; New Windows files inherit directory ACLs; replacement files preserve the existing effective DACL before report bytes are written and protect that DACL from broader parent inheritance. A missing/unreadable DACL fails replacement. Owner/SACL preservation is not claimed; preserved DACLs are snapshots, so later directory inheritance changes do not automatically apply. The controlled Windows fixture proves inheritance in its restricted test directory, not privacy in an arbitrary operator directory. A separate replacement assertion broadens the directory while the existing report remains restricted, checking that replacing it does not grant new readers. Symlink destinations are rejected; parent-directory security remains an operator responsibility.
 
 Replacement uses Go `os.Rename`; atomic replacement on every operating system and crash/power-loss durability are not promised. Temporary files can remain after process kill. Multi-file exports are not a transaction: completed files may exist when a later output fails, and application failure/path reporting must remain honest.
 
@@ -40,3 +40,5 @@ Continue adapter denial/malformed-response checks, decoder fuzzing, workload con
 - [OWASP CSV Injection](https://owasp.org/www-community/attacks/CSV_Injection): CSV quoting alone does not stop spreadsheet formula interpretation; consumer behavior needs explicit limits.
 - [Go os.Rename](https://pkg.go.dev/os#Rename): replacement semantics and platform-dependent atomicity.
 - [SLSA build requirements](https://slsa.dev/spec/v1.2/requirements): release provenance review; no SLSA level is claimed.
+
+- [Microsoft PSModulePath guidance](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_psmodulepath?view=powershell-7.5): isolate module paths when a Go/Python intermediate process starts Windows PowerShell from PowerShell 7.

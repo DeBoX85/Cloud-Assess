@@ -23,6 +23,9 @@ func Write(filename string, render func(*os.File) error) error {
 	}
 	defer os.Remove(file.Name())
 	defer file.Close()
+	if err := preserveReplacementPrivacy(filename, file.Name()); err != nil {
+		return err
+	}
 	if err := render(file); err != nil {
 		_ = file.Close()
 		return err

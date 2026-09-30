@@ -1512,11 +1512,21 @@ Windows CI checks report inheritance from a controlled restricted directory. Thi
 
 Added 3,001-subscription batching, failure-after-first-page and configured transient retry recovery checks; strengthened ARG query endpoint and Diagnostics GET-subrequest contracts. These are selected adapter bounds, not proof every future request is read-oriented. Retry recovery uses explicit millisecond SDK options, not a default-backoff timing claim.
 
-CI adds bounded two-target fuzz runs, isolated comparator mutation checks, 20-minute job limits and synthetic failure-evidence retention using verified pinned upload-artifact v4.6.2. Added PR review template and QA_PROCESS feedback loop, linked roadmap/specification/Gate 004. Required Linux/Windows CI is pending; local Go is unavailable. Local diff check and Python syntax parsing passed. No Azure calls or laptop action are required. Gate 004 and the later release decision remain open.
+CI adds bounded two-target fuzz runs, isolated comparator mutation checks, 20-minute job limits and synthetic failure-evidence retention using verified pinned upload-artifact v4.6.2. Added PR review template and QA_PROCESS feedback loop, linked roadmap/specification/Gate 004. PR #53 passed required Linux/Windows jobs in corrected run `36726089065` on head `700223a33be5de919fc4c0177224e0018970e4a8`, merged at `d36e810e56649d9e85979e924abf03e5e602dc3e`. Both bounded fuzz targets and all four comparator mutations passed; aggregate statement coverage was 79.3%, which is not a readiness measure. Local diff check and Python syntax parsing passed. No Azure calls or laptop action are required. Gate 004 and the later release decision remain open.
 
-Initial run `36725561754` failed the Windows ACL fixture before assertions because Windows PowerShell could not load its Security module. Isolated its child PSModulePath and recorded the observed failure, cause hypothesis and pending verification in FN-005.
+Initial run `36725561754` failed the Windows ACL fixture before assertions because Windows PowerShell could not load its Security module. Isolated its child PSModulePath; corrected Windows ACL assertions passed in run `36726089065`, and FN-005 records the failure and verified correction.
 
 Logged the mistaken test-path inspection recurrence in FN-004. Development guidance was checked against official Go fuzz/rename documentation and OWASP CSV Injection; release provenance remains a later requirement, with no SLSA level claimed.
+
+### Windows replacement privacy follow-up
+
+**Date:** 2026-09-30.
+
+Follow-up review found that staging a replacement could broaden an existing Windows report's DACL if its directory permitted more readers. The creation-only ACL fixture did not cover this. Copy the existing effective DACL before writing report bytes and protect it from parent inheritance; fail replacement if the DACL cannot be obtained or is absent. Add a fixture that freezes a restricted report ACL, broadens the directory, replaces the report, and checks the replacement still allows only the original test identity. New files continue to require a suitably secured directory. Owner/SACL preservation and future inherited ACL updates are not claimed.
+
+Use already-pinned `golang.org/x/sys v0.47.0` Windows security APIs; the dependency becomes direct, with no version change. Required CI is pending. Record the gap/correction as FN-006 and the inspection-helper error as FN-007.
+
+A source search also found a Go toolchain outside PATH. It successfully selected/downloaded Go 1.26.8, so the earlier local-unavailability assumption is corrected as FN-008. Earlier checkpoints used actual hosted CI evidence; their results remain valid. After initializing the exact APRL pin, local `go test -race -count=1 ./...` passed with Go 1.26.8. Windows reportfile cross-compilation and module tidy also passed; only the already-pinned x/sys dependency moves from indirect to direct. Required hosted Windows/Linux runtime checks remain blocking.
 
 ## Current boundary
 

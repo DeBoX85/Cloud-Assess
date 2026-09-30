@@ -29,7 +29,7 @@ The estimates are rounded to roughly ten percentage points and must not be used 
 
 ## Autonomous QA work and feedback
 
-[QA_PROCESS.md](QA_PROCESS.md) defines final-diff review, failure recurrence handling, independent expected results, fixture boundaries and evidence updates. Comparator guards, bounded fuzzing, isolated mutation checks, staged output failure/privacy checks, large-subscription batching and read-oriented ARG/Diagnostics request contracts are added in the current checkpoint; required CI is pending.
+[QA_PROCESS.md](QA_PROCESS.md) defines final-diff review, failure recurrence handling, independent expected results, fixture boundaries and evidence updates. Comparator guards, bounded fuzzing, isolated mutation checks, staged output failure/privacy checks, large-subscription batching and read-oriented ARG/Diagnostics request contracts passed Linux/Windows CI in PR #53 (run `36726089065`). A follow-up Windows existing-DACL preservation regression is pending required CI.
 
 Continue without Azure/laptop access: remaining adapter errors and decoder properties, missing stage projections grounded in source/schema fixtures, deterministic filter interactions, maintenance fixture execution, dependency/license inventory and documentation reconciliation. Existing canonical result tests independently verify summary counts and caller-data ownership. Extend them for uncovered cases rather than duplicate them. Live scans, historical batch correlation, release scope decisions and production pilot remain separate dependencies. Do not claim release readiness from the autonomous backlog.
 
