@@ -33,4 +33,11 @@ func TestWindowsReportInheritsControlledDirectoryACL(t *testing.T) {
 		t.Fatal(err)
 	}
 	run(`$sid=[System.Security.Principal.WindowsIdentity]::GetCurrent().User.Value; $acl=Get-Acl -LiteralPath (Join-Path $env:CLOUD_ASSESS_TEST_ACL_DIR 'report.json'); $allowed=@($acl.Access | Where-Object { $_.AccessControlType -eq 'Allow' }); if ($allowed.Count -eq 0) { throw 'No allow entries' }; foreach ($entry in $allowed) { if ($entry.IdentityReference.Translate([System.Security.Principal.SecurityIdentifier]).Value -ne $sid) { throw 'Unexpected principal can access report' } }`)
+	// Freeze the existing restricted DACL, then broaden only the parent directory.
+	run(`$path=Join-Path $env:CLOUD_ASSESS_TEST_ACL_DIR 'report.json'; $acl=Get-Acl -LiteralPath $path; $acl.SetAccessRuleProtection($true,$true); Set-Acl -LiteralPath $path -AclObject $acl; $directory=Get-Acl -LiteralPath $env:CLOUD_ASSESS_TEST_ACL_DIR; $everyone=[System.Security.Principal.SecurityIdentifier]::new('S-1-1-0'); $rule=[System.Security.AccessControl.FileSystemAccessRule]::new($everyone,'ReadAndExecute','ContainerInherit,ObjectInherit','None','Allow'); $directory.AddAccessRule($rule); Set-Acl -LiteralPath $env:CLOUD_ASSESS_TEST_ACL_DIR -AclObject $directory`)
+	if err := WriteBytes(filepath.Join(dir, "report.json"), []byte("replacement")); err != nil {
+		t.Fatal(err)
+	}
+	run(`$sid=[System.Security.Principal.WindowsIdentity]::GetCurrent().User.Value; $acl=Get-Acl -LiteralPath (Join-Path $env:CLOUD_ASSESS_TEST_ACL_DIR 'report.json'); if (-not $acl.AreAccessRulesProtected) { throw 'Replacement DACL was not protected' }; foreach ($entry in $acl.Access) { if ($entry.AccessControlType -eq 'Allow' -and $entry.IdentityReference.Translate([System.Security.Principal.SecurityIdentifier]).Value -ne $sid) { throw 'Replacement broadened existing access' } }`)
+
 }
