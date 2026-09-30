@@ -201,6 +201,8 @@ Assessment completeness is separately represented as:
 - `partial`
 - `failed`
 
+Execution completeness applies to resolved/visible data; it does not independently certify intended estate visibility. The current discovery implementation may silently omit explicitly requested subscription IDs absent from visible listing, and ARG can omit inaccessible resources. How missing intended scopes are classified against the fatal unresolved-scope expectation below remains an acceptance decision, including intentional filters and zero-data subscriptions. Gate 004 tracks independent scope evidence and operator-verifiable reporting; see [ACCESS_MODEL.md](ACCESS_MODEL.md) and [OPERATIONS.md](OPERATIONS.md).
+
 ## HTTP operation limits
 
 The production authenticated HTTP client applies a positive `OperationTimeout` to one HTTP call, covering authentication, retry waits and response-body consumption. Defaults are ten times the per-attempt timeout. Earlier caller deadlines and cancellation remain authoritative; non-positive custom values add no operation deadline. This is not a whole-scan time limit or a guarantee that custom transports ignoring context terminate. Callers of `PostStream` must close response bodies; operation context cleanup occurs on body read completion/error or close.
@@ -246,6 +248,8 @@ Aggregation: sum
 Grouping: `ServiceName`
 
 Cost-access failure must be distinguishable from a valid zero-cost response.
+
+Current Cost queries aggregate each resolved subscription. Resource-group, resource-ID and tag filters do not narrow the billing query to selected resources; reports and operations must preserve that distinction.
 
 ## Summary semantics
 
