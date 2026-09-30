@@ -1,6 +1,6 @@
 # Cloud Assess Roadmap
 
-Status: working execution roadmap, reviewed 2026-09-30 against `bootstrap/core-v1` at `532c95aa3b3fdfe4015d66567be5e57c501809fc`
+Status: working execution roadmap, reviewed 2026-09-30 against `bootstrap/core-v1` at `735a29894aeba8f24f8c56ec0518cce1b6f6d8c2`
 
 Active development branch: `bootstrap/core-v1`
 
@@ -66,7 +66,7 @@ A one-time review of the earlier project conversation identified three requireme
 
 These items do not change the Phase S tag-filter result or close its separate-run Advisor timing limit. Paired exclusions of `Environment: dev`, the known Dev resource group and one observed VM recommendation were exercised in Phases T, U and V, each with an explicit warning limit. Keep the existing Gate 004 and release-gate criteria in force.
 
-The current dependency/license evidence inventory covers all 49 selected Go modules, the Go 1.26.8 standard library/toolchain notices and bundled rule/SKU pins. Linux and Windows CLI membership is recorded separately. CI checks freshness and failure paths; see [DEPENDENCIES.md](DEPENDENCIES.md). Platform artifact review, release notice packaging and licensing sign-off remain open. The next autonomous checkpoint is a deterministic built-CLI/report inspection before distribution packaging.
+The current dependency/license evidence inventory covers all 49 selected Go modules, the Go 1.26.8 standard library/toolchain notices and bundled rule/SKU pins. Linux and Windows CLI membership is recorded separately. CI checks freshness and failure paths; see [DEPENDENCIES.md](DEPENDENCIES.md). Platform artifact review, release notice packaging and licensing sign-off remain open. The next autonomous checkpoint executes the actual built Linux/Windows CLI offline: four help/version cases, fifteen preflight rejection cases with unchanged report hashes and an HTTP tripwire, and compiled dependency evidence matching the inventory. Local Linux checks pass; successful built-CLI Azure scans/rendering, installation/package verification and release sign-off remain separate. See [BUILT_CLI_VALIDATION.md](BUILT_CLI_VALIDATION.md). Packaging preparation follows this checkpoint.
 
 ## Execution order and completion gates
 

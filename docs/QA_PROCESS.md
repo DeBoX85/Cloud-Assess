@@ -44,6 +44,10 @@ A branch push using `GITHUB_TOKEN` does not automatically trigger push workflows
 
 The [inventory generator](DEPENDENCIES.md) collects versioned module checksums and full root license/notice texts plus bundled-source pins. Nine isolated safeguards and a required Linux freshness check reject missing evidence or stale output. Preserve original notice bytes rather than stripping third-party whitespace; generated NOTICES.md has a path-specific Git exception only. Stage new authored files and run a blocking staged diff check before publication. Regenerate and review dependency-refresh proposals; do not treat this snapshot as release-specific licensing approval.
 
+## Built artifact checks
+
+[BUILT_CLI_VALIDATION.md](BUILT_CLI_VALIDATION.md) distinguishes real compiled-CLI offline preflight/metadata checks from the existing injected test-executable synthetic report checks. Required jobs execute the actual CGO-disabled host amd64 artifact from a copied path with spaces. Fifteen invalid inputs must reject with the expected error before observed HTTP/authentication, preserve report/directory hashes and emit no stdout report. Compiled module membership, versions and checksums must match the inventory. These cases do not replace successful Azure execution, real package installs or release provenance.
+
 ## Remaining acceptance work
 
 Continue adapter denial/malformed-response checks, decoder fuzzing, workload concurrency/cancellation bounds and independent summary invariants where existing tests lack them. Maintenance no-change/changed-output execution, full built-CLI artifact inspection, and arbitrary-directory Windows ACL review remain open. Release artifacts additionally require clean installs, dependency/license review, checksums, build provenance verification and an approved pilot. This process does not silently choose release scope or supported platforms.
