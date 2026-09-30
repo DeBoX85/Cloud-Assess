@@ -306,3 +306,7 @@ Core v1 is complete when:
 - selected live Azure equivalence tests pass
 - remaining CLI/plugin gaps are either implemented or explicitly deferred from the release target
 - security and license checks pass
+
+## Access and operations evidence boundary
+
+[ACCESS_MODEL.md](ACCESS_MODEL.md) and [OPERATIONS.md](OPERATIONS.md) map current request semantics, scope/credential selection and recovery. Execution completeness does not establish intended estate visibility: discovery intersects requested IDs with visible subscriptions and ARG may silently omit inaccessible objects. Gate 004 tracks independent intended-versus-resolved scope evidence and reporting; no production or minimum-role certification is claimed. Cost remains subscription-wide under RG/tag/resource filters.
