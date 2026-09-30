@@ -111,7 +111,7 @@ Outstanding work includes:
 - scanner-specific CLI commands
 - `rules` CLI command
 - `plugins list/info` CLI surface
-- final dependency/license inventory
+- final release-specific dependency/license review and packaged notices
 - packaging/release artifacts
 - security and operational review at distributable-product level
 
@@ -284,7 +284,7 @@ Cloud Assess is currently licensed under Apache 2.0 at the repository level.
 
 Reused or derived MIT-licensed source and recommendation material retains applicable copyright and license notices, including Microsoft-originated source, APRL material, Azure Orphan Resources material, and other third-party dependencies as required.
 
-A generated/maintained dependency-license inventory remains part of the release process.
+A [generated dependency/license evidence inventory](DEPENDENCIES.md) now covers the selected module graph, Linux/Windows CLI membership, standard-library notices and bundled source pins, with CI freshness checks. Regeneration on the exact release tree, package-specific license review and inclusion of notices with artifacts remain part of the release process.
 
 ## Definition of done for core v1
 
