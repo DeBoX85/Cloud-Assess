@@ -34,6 +34,12 @@ CSV prefixes potentially formula-like cells with an apostrophe, including leadin
 
 The row-decoder fuzz target uses a 100,000-execution budget, a separate 60-second test timeout, two workers and an 8 KiB input bound. Seed/shape cases also run in ordinary Linux/Windows tests. Keep failures as failures; a time-budget termination without an assertion/corpus is distinct from a property counterexample and requires investigation (FN-010). Literal stage projection expectations must have reviewed source/schema provenance and explicitly distinguish fabricated rows from live captures.
 
+## Maintenance publication checks
+
+The tidy and pinned-rule workflows call the same tested publisher. It starts on `bootstrap/core-v1`, stages only the selected maintenance paths, rejects unrelated staged files, commits with bot identity and pushes a separate run-specific proposal ref without force. No-change output produces no branch/commit. Rejected publication must stay failed and omit a success summary. Local bare-remote tests cover the publication boundary, including gitlinks, not full generator correctness or hosted token/event behavior.
+
+A branch push using `GITHUB_TOKEN` does not automatically trigger push workflows. Open a reviewable PR with an authorized identity and observe `quality` and `windows-validation` on its exact head; never equate a published proposal with checked or merged changes. No complete maintenance workflow PASS is claimed from publisher tests alone.
+
 ## Remaining acceptance work
 
 Continue adapter denial/malformed-response checks, decoder fuzzing, workload concurrency/cancellation bounds and independent summary invariants where existing tests lack them. Maintenance no-change/changed-output execution, full built-CLI artifact inspection, and arbitrary-directory Windows ACL review remain open. Release artifacts additionally require clean installs, dependency/license review, checksums, build provenance verification and an approved pilot. This process does not silently choose release scope or supported platforms.
@@ -46,3 +52,5 @@ Continue adapter denial/malformed-response checks, decoder fuzzing, workload con
 - [SLSA build requirements](https://slsa.dev/spec/v1.2/requirements): release provenance review; no SLSA level is claimed.
 
 - [Microsoft PSModulePath guidance](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_psmodulepath?view=powershell-7.5): isolate module paths when a Go/Python intermediate process starts Windows PowerShell from PowerShell 7.
+
+- [GitHub GITHUB_TOKEN event guidance](https://docs.github.com/en/actions/concepts/security/github_token): proposal pushes and subsequent quality workflow execution are separate evidence.

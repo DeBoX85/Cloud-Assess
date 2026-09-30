@@ -14,6 +14,7 @@ permissions:
 jobs:
   import:
     runs-on: ubuntu-24.04
+    timeout-minutes: 20
     steps:
       - name: Checkout Cloud Assess
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -54,17 +55,6 @@ jobs:
             internal/rules/upstream/aprl
           git -C internal/rules/upstream/aprl checkout "$APRL_SHA"
 
-          git add .gitmodules internal/rules/custom internal/rules/upstream
-
-          if git diff --cached --quiet; then
-            echo "Pinned rule baseline already matches the requested revisions."
-            exit 0
-          fi
-
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          branch="maintenance/rule-import-${GITHUB_RUN_ID}"
-          git switch -c "$branch"
-          git commit -m "data: import pinned assessment rule baseline"
-          git push origin "HEAD:refs/heads/$branch"
-          echo "Open a PR for the rule baseline: https://github.com/${GITHUB_REPOSITORY}/compare/bootstrap/core-v1...${branch}?expand=1" >> "$GITHUB_STEP_SUMMARY"
+      - name: Publish rule baseline proposal branch
+        shell: bash
+        run: bash scripts/publish-maintenance.sh rule-import
