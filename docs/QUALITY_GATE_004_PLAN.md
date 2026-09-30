@@ -61,3 +61,7 @@ Include a controlled production-scope pilot in that release decision: explicitly
 ## Built CLI offline checkpoint
 
 The actual built CGO-disabled Linux/Windows amd64 CLI is checked for help/version, fifteen preflight failures, unchanged existing reports and compiled module identity/version/checksums. [BUILT_CLI_VALIDATION.md](BUILT_CLI_VALIDATION.md) records its offline boundary and the separate synthetic report fixtures. Both required jobs passed these checks in PR #61 run `36780706213` on code head `94992d058b0619f1a942c3abde48024024bb5ce9`. This strengthens executable-path evidence but does not close successful Azure-backed scan/render validation, packaging or the release decision.
+
+## Development candidate packaging checkpoint
+
+[PACKAGE_BUILDS.md](PACKAGE_BUILDS.md) records candidate ZIP creation with clean matching VCS revision, compiled inventory checks, committed notice bytes and payload/archive SHA-256 evidence. Both required jobs run twelve integrity/provenance fixtures and one actual-artifact case covering repeated archive equality, new-directory extraction and the installed-path offline CLI suite. Initial code head `1d465caeb6e76dd178cc7c0c858e89f83091f1d7` passed both required jobs in PR #62 run `36783988010`; native logs confirm thirteen cases without integration skips. This is isolated extraction on existing CI runners, not fresh-OS installation, signed release provenance, complete licensing approval or production acceptance. The release decision remains separate.
