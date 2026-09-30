@@ -74,3 +74,32 @@ func TestScopeIDIsDeterministicAndScopeSensitive(t *testing.T) {
 		t.Fatalf("scope ID length = %d, want 64 hex chars", len(one))
 	}
 }
+
+// These cases characterize visible-scope intersection, not authorization sufficiency.
+func TestDiscoverSubscriptionsRequestedIDsAbsentFromListing(t *testing.T) {
+	for _, tc := range []struct {
+		name      string
+		requested []string
+		wantCount int
+	}{
+		{name: "some visible", requested: []string{"visible", "missing"}, wantCount: 1},
+		{name: "none visible", requested: []string{"missing"}, wantCount: 0},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			lister := &fakeSubscriptionLister{subscriptions: []Subscription{{ID: "visible", DisplayName: "Visible", State: "Enabled"}}}
+			got, err := DiscoverSubscriptions(context.Background(), lister, tc.requested, config.NewFilters())
+			if err != nil {
+				t.Fatalf("unexpected discovery error: %v", err)
+			}
+			if len(got) != tc.wantCount {
+				t.Fatalf("resolved count = %d, want %d: %#v", len(got), tc.wantCount, got)
+			}
+			if _, exists := got["missing"]; exists {
+				t.Fatal("absent requested ID entered resolved scope")
+			}
+			if tc.wantCount == 1 && got["visible"] != "Visible" {
+				t.Fatalf("visible subscription lost: %#v", got)
+			}
+		})
+	}
+}

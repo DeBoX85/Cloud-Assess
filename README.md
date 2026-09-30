@@ -71,6 +71,8 @@ The generic scan path is suitable for controlled test-environment validation. It
 - [Development ledger](docs/DEVELOPMENT_LEDGER.md)
 - [Development failure notes](docs/FAILURE_NOTES.md)
 - [Execution roadmap](docs/ROADMAP.md)
+- [Azure access model](docs/ACCESS_MODEL.md)
+- [Operator runbook](docs/OPERATIONS.md)
 - [Deferred validation register](docs/DEFERRED_VALIDATION.md)
 - [Characterization baseline](docs/CHARACTERIZATION.md)
 - [Source-versus-target equivalence runbook](docs/EQUIVALENCE.md)

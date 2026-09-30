@@ -135,3 +135,11 @@ Record user-visible instruction errors and errors that affected code, tests, evi
 - **Correction:** Evaluate missing-binary handling inside the integration method, after argument parsing. Require a complete thirteen-test native run with no skipped integration before publication/merge.
 - **Prevention:** Avoid import-time skip decisions for runtime arguments. Inspect executed/skipped counts and require artifact validation instead of treating any exit-zero test invocation as equivalent.
 - **Evidence:** First isolated-clone output `Ran 13 tests ... OK (skipped=1)` with --binary, then corrected native runs. **Status:** Corrected before PR publication; final run evidence indexed in the ledger.
+
+## FN-016: Roadmap overview lagged the completed packaging checkpoint
+
+- **Date:** 2026-09-30.
+- **Mistake:** The detailed roadmap paragraph described tested candidate ZIP packaging while its overview still said no packaging and retained a 45% toolkit estimate. The conversation had already moved the coarse estimate to 55%.
+- **Correction:** Reconcile the overview with PR #62's final passing evidence and partial packaging boundary. Preserve open fresh-OS, publication, license/security/operations and release decisions; do not present packaging tests as release approval.
+- **Prevention:** When logging a milestone, review the top-level status, progress basis, current boundary and next tasks together. Search this register for documentation drift before reporting progress.
+- **Evidence/status:** Confirmed by source review at `ab0cc3b761956b5ea4712717b96a97d5a98f6567`; corrected in the access/operations review change. Existing FN-007 retrieval-output limits were also reviewed: bounded follow-up source reads replace truncated batches; no unseen lines support claims. A later spec-edit command omitted its heredoc terminator and failed Python parsing before writes. Corrected the command delimiter and reran the staged checks; check heredoc closure before dispatching multiline commands.
