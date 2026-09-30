@@ -1536,7 +1536,7 @@ Continuation review confirmed PRs #53/#54/#55 are merged and retained the open G
 
 Failed retrieval must persist a failed optional stage, zero optional records, partial completeness and exit 2 while retaining healthy inventory/findings. Successful empty retrieval must persist a completed zero-record stage with complete status and exit 0. The endpoint checks authentication, query, selected subscription, POST query endpoint/version and exactly one request with retries explicitly disabled. These envelopes are fabricated contract fixtures, not recordings from Azure; they do not establish non-empty row projection, default retry sequencing, management-group discovery or complete read-only assurance.
 
-Focused `go test -race -count=1 ./internal/app -run TestOptionalStageHTTPHealthPersistsReport` passed all cases. Full local `go test -race -count=1 ./...` also passed. Required hosted Linux/Windows validation follows before merge. No Azure calls or laptop action are needed. Inspection path-assumption recurrence is recorded in FN-004.
+Focused `go test -race -count=1 ./internal/app -run TestOptionalStageHTTPHealthPersistsReport` passed all cases. Full local `go test -race -count=1 ./...` also passed. Required Linux/Windows CI passed in PR #56, run `36730447316` on code head `f1e7358731f20e9b2f2430276656eeb1cfa90795`. The final documentation update must also pass both required checks before merge. No Azure calls or laptop action are needed. Inspection path-assumption recurrence is recorded in FN-004.
 
 ## Current boundary
 
