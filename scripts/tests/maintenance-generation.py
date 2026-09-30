@@ -76,10 +76,13 @@ class GenerationTests(unittest.TestCase):
                         GIT_CONFIG_COUNT='2', GIT_CONFIG_KEY_0='protocol.file.allow', GIT_CONFIG_VALUE_0='always',
                         GIT_CONFIG_KEY_1='url.'+str(self.aprl_source)+'.insteadOf', GIT_CONFIG_VALUE_1=APRL_URL,
                         QA_REPLAY_ARCHIVE=str(self.archive))
-        self.command('git', 'clone', '--shared', '--no-checkout', str(ROOT), str(self.repo), cwd=self.home)
+        self.command('git', 'clone', '--depth', '1', '--no-checkout', ROOT.as_uri(), str(self.repo), cwd=self.home)
         self.git('checkout', '-B', CORE, 'HEAD')
         self.git('remote', 'remove', 'origin')
         self.command('git', 'init', '--bare', str(self.remote), cwd=self.home)
+        # The synthetic server must accept the depth-one fixture baseline.
+        # This setting applies only to the disposable local bare remote.
+        self.git('--git-dir='+str(self.remote), 'config', 'receive.shallowUpdate', 'true')
         self.git('remote', 'add', 'origin', str(self.remote))
         self.git('push', 'origin', CORE)
         self.base = self.git('rev-parse', 'HEAD').stdout.strip()
@@ -93,8 +96,12 @@ class GenerationTests(unittest.TestCase):
         self.env['PATH'] = str(shim)+os.pathsep+self.env['PATH']
 
     def command(self, *args, cwd=None, check=True):
-        return subprocess.run(args, cwd=cwd or self.repo, env=self.env,
-                              text=True, capture_output=True, check=check, timeout=120)
+        try:
+            return subprocess.run(args, cwd=cwd or self.repo, env=self.env,
+                                  text=True, capture_output=True, check=check, timeout=120)
+        except subprocess.CalledProcessError as error:
+            error.add_note('Fixture command stderr:\n'+(error.stderr or '')[-4000:])
+            raise
 
     def git(self, *args, **kwargs):
         return self.command('git', *args, **kwargs)
