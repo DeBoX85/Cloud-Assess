@@ -39,6 +39,10 @@ jobs:
             --output "$tmp/reference.tar.gz"
           tar -xzf "$tmp/reference.tar.gz" --strip-components=1 -C "$tmp/reference"
 
+          # Validate source layout before replacing the checkout's rule directories.
+          test -d "$tmp/reference/internal/graph/azqr/azure-resources"
+          test -d "$tmp/reference/internal/graph/azure-orphan-resources"
+
           rm -rf internal/rules/custom/azure-resources
           rm -rf internal/rules/upstream/orphan-resources
           mkdir -p internal/rules/custom
@@ -54,6 +58,14 @@ jobs:
             https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2.git \
             internal/rules/upstream/aprl
           git -C internal/rules/upstream/aprl checkout "$APRL_SHA"
+
+          # Reject a wrong generated snapshot before any proposal is published.
+          git add .gitmodules internal/rules/custom internal/rules/upstream
+          generated_tree="$(git write-tree)"
+          test "$(git rev-parse "$generated_tree:internal/rules/custom")" = '674b9b3dcb443ce6dc445b48e1db47e4a0ca7082'
+          test "$(git rev-parse "$generated_tree:internal/rules/upstream/orphan-resources")" = 'a3ff1cafbc0a74ea4e4d2cc5aa2812f7c1dab9f5'
+          test "$(git rev-parse "$generated_tree:internal/rules/upstream/aprl")" = "$APRL_SHA"
+
 
       - name: Publish rule baseline proposal branch
         shell: bash

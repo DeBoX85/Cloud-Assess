@@ -36,7 +36,7 @@ The row-decoder fuzz target uses a 100,000-execution budget, a separate 60-secon
 
 ## Maintenance publication checks
 
-The tidy and pinned-rule workflows call the same tested publisher. It starts on `bootstrap/core-v1`, stages only the selected maintenance paths, rejects unrelated staged files, commits with bot identity and pushes a separate run-specific proposal ref without force. No-change output produces no branch/commit. Rejected publication must stay failed and omit a success summary. Local bare-remote tests cover the publication boundary, including gitlinks, not full generator correctness or hosted token/event behavior.
+The tidy and pinned-rule workflows call the same tested publisher. It starts on `bootstrap/core-v1`, stages only the selected maintenance paths, rejects unrelated staged files, commits with bot identity and pushes a separate run-specific proposal ref without force. No-change output produces no branch/commit. Rejected publication must stay failed and omit a success summary. Local bare-remote tests cover the publication boundary, including gitlinks. [MAINTENANCE.md](MAINTENANCE.md) documents additional recipe/output fixtures and staged rule-hash rejection checks, together with the remaining hosted transport/token/event limits.
 
 A branch push using `GITHUB_TOKEN` does not automatically trigger push workflows. Open a reviewable PR with an authorized identity and observe `quality` and `windows-validation` on its exact head; never equate a published proposal with checked or merged changes. No complete maintenance workflow PASS is claimed from publisher tests alone.
 
