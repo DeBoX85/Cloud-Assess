@@ -198,3 +198,17 @@ func TestDefaultBaseNameUsesCentralBrandPrefix(t *testing.T) {
 		t.Fatalf("default base = %q", got)
 	}
 }
+
+func TestRunOutputFailureReturnsExecutionFailureAndRetainsAssessment(t *testing.T) {
+	data := result.Build(result.Input{Completeness: assessment.CompletenessComplete})
+	base := filepath.Join(t.TempDir(), "blocked")
+	if err := os.Mkdir(base+".json", 0o700); err != nil {
+		t.Fatal(err)
+	}
+	outcome, err := NewRunner(&fakeAssessmentRunner{result: data}).Run(context.Background(), ScanOptions{
+		Outputs: OutputOptions{BaseName: base, JSON: true},
+	})
+	if err == nil || outcome.ExitCode != ExitExecutionFail || outcome.Assessment != data || len(outcome.Files) != 0 {
+		t.Fatalf("output failure error=%v outcome=%+v", err, outcome)
+	}
+}

@@ -83,3 +83,5 @@ The generic scan path is suitable for controlled test-environment validation. It
 ## License
 
 Cloud Assess is licensed under the Apache License 2.0 at the repository level. Incorporated or derived third-party material remains subject to its applicable license and attribution requirements. See [NOTICE.md](NOTICE.md) and [THIRD_PARTY_LICENSES.md](THIRD_PARTY_LICENSES.md).
+
+QA review and evidence rules: [QA_PROCESS.md](docs/QA_PROCESS.md).

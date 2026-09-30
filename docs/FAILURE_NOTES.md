@@ -41,4 +41,14 @@ Record user-visible instruction errors and errors that affected code, tests, evi
 - **Mistake and recurrence:** Tried reading nonexistent `cmd/cloud-assess/scan.go`, then repeated the path assumption with `internal/assessment/stage.go`. Both were inspection errors; no files were changed by the failed reads.
 - **Correction:** Used `rg --files` and read `command.go` and `types.go`.
 - **Prevention:** Inventory paths before reading an unfamiliar package; use symbol search to locate implementations.
-- **Evidence:** CLI process-test inspection session. **Status:** Corrected; recurrence recorded in this entry.
+- **Recurrence, 2026-09-30 QA expansion:** Tried reading nonexistent `internal/equivalence/compare_test.go` even though the inventory showed `projection_test.go`. Corrected through symbol search. Strengthened prevention: use the enumerated path exactly, and search test function names before guessing a test filename. No product files were changed by the failed read.
+- **Evidence:** CLI process-test and QA expansion inspection sessions. **Status:** Corrected; recurrences recorded in this entry.
+
+## FN-005: Windows ACL fixture inherited another PowerShell module path
+
+- **Date:** 2026-09-30.
+- **Mistake and impact:** The Go ACL fixture launched Windows PowerShell 5.1 with all environment variables inherited from a PowerShell 7 workflow shell. In run `36725561754`, Get-Acl could not autoload Microsoft.PowerShell.Security, so ACL assertions never ran and Windows CI failed. No product ACL defect was established.
+- **Cause:** Incompatible inherited PSModulePath is the working hypothesis from the observed module-load failure; corrected CI verification is pending.
+- **Correction:** Remove PSModulePath from only the child test process environment, allowing Windows PowerShell to construct its native module path.
+- **Prevention:** Isolate version-specific shell environments when invoking a different PowerShell runtime. Keep actual ACL assertions blocking; do not skip them to obtain green CI.
+- **Evidence:** PR #53, initial run `36725561754`, Windows job `109921410714`. **Status:** Correction awaiting CI.

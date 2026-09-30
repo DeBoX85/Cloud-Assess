@@ -3,12 +3,12 @@ package json
 import (
 	stdjson "encoding/json"
 	"fmt"
-	"os"
 	"regexp"
 	"sort"
 	"strings"
 
 	"github.com/DeBoX85/Cloud-Assess/internal/redact"
+	"github.com/DeBoX85/Cloud-Assess/internal/reportfile"
 	"github.com/DeBoX85/Cloud-Assess/internal/result"
 )
 
@@ -69,7 +69,7 @@ func WriteFileWithOptions(data *result.AssessmentResult, filename string, opts O
 	if err != nil {
 		return err
 	}
-	if err := os.WriteFile(filename, encoded, 0o600); err != nil {
+	if err := reportfile.WriteBytes(filename, encoded); err != nil {
 		return fmt.Errorf("write JSON report %q: %w", filename, err)
 	}
 	return nil

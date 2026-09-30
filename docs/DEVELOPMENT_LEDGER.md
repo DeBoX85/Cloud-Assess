@@ -1500,6 +1500,24 @@ Focused fixtures cover a 30-second retry hint interrupted by a shorter operation
 
 Source inspection used pinned azcore `v1.23.1` retry, pipeline and body-download implementations, rather than assuming zero-retry or streaming behavior. Local `git diff --check` passed. Gate 004 remains planned; default retry sequencing, other adapters and whole-scan bounded execution remain open.
 
+### Autonomous QA control expansion and report hardening
+
+**Date:** 2026-09-30.
+
+Implemented comparator missing/extra/changed/coverage/precondition guards, field-symmetry fuzzing, exact-resource exclusion properties, and an isolated four-mutation harness that requires assertion failures rather than compile failures. Existing Diagnostics-only normalization and canonical summary/ownership regressions remain in force. Found and corrected sparse/custom dataset-name ordering: custom names are sorted independently of how many standard datasets exist. Standard projection ordering is unchanged.
+
+Introduced shared staged report writes for JSON/SARIF/CSV/XLSX. Failed rendering preserves an existing file; successful Unix replacement is mode 0600, including formerly permissive destinations. Added temporary-file cleanup, invalid-destination and symlink rejection tests; application output failure must exit 1 while retaining the assessment. CSV cells with formula-like/control/fullwidth prefixes become apostrophe-prefixed text; XLSX ordinary untrusted cells are checked for absent formulas. These are deliberate target safety corrections outside the raw assessment-semantic equivalence claim. Canonical JSON data is unchanged.
+
+Windows CI checks report inheritance from a controlled restricted directory. This does not validate an operator's arbitrary directory ACLs. Go rename does not guarantee atomic replacement everywhere; process-kill/power-loss durability and multi-file transactions are not claimed. See QA_PROCESS for limits and OWASP spreadsheet-consumer caveats.
+
+Added 3,001-subscription batching, failure-after-first-page and configured transient retry recovery checks; strengthened ARG query endpoint and Diagnostics GET-subrequest contracts. These are selected adapter bounds, not proof every future request is read-oriented. Retry recovery uses explicit millisecond SDK options, not a default-backoff timing claim.
+
+CI adds bounded two-target fuzz runs, isolated comparator mutation checks, 20-minute job limits and synthetic failure-evidence retention using verified pinned upload-artifact v4.6.2. Added PR review template and QA_PROCESS feedback loop, linked roadmap/specification/Gate 004. Required Linux/Windows CI is pending; local Go is unavailable. Local diff check and Python syntax parsing passed. No Azure calls or laptop action are required. Gate 004 and the later release decision remain open.
+
+Initial run `36725561754` failed the Windows ACL fixture before assertions because Windows PowerShell could not load its Security module. Isolated its child PSModulePath and recorded the observed failure, cause hypothesis and pending verification in FN-005.
+
+Logged the mistaken test-path inspection recurrence in FN-004. Development guidance was checked against official Go fuzz/rename documentation and OWASP CSV Injection; release provenance remains a later requirement, with no SLSA level claimed.
+
 ## Current boundary
 
 The generic core scan, deterministic equivalence tooling, reproducible live runner, default/optional/resource-group/two-subscription/leaf-management-group and separate Storage/VM, RG include/exclude, tag include/exclude, recommendation-exclude and individual-resource-exclude live passes, plus enforced development CI, are complete for the behavior exercised so far. The unfiltered two-subscription, leaf-management-group, tag-exclude, RG-exclude and individual-resource-exclude passes have explicit Diagnostics warning boundaries; the recommendation-exclude pass is also `complete_with_warnings`, without supplied warning details. Network Watcher individual-GET probes and the Phase W one-request batch probe support an explanation for earlier warnings but have not mapped the original multi-request batch responses. The missing cross-run Advisor row has unknown recorded tag scope in the tag-only target inventory; historical Azure timing remains unresolved.

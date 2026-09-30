@@ -150,3 +150,39 @@ func TestQueryWithNoSubscriptionsMakesNoRequests(t *testing.T) {
 		t.Fatalf("unexpected empty-scope behavior: requests=%d data=%#v", len(transport.requests), result.Data)
 	}
 }
+
+func TestQueryLargeSubscriptionSetMakesBoundedDisjointBatches(t *testing.T) {
+	const count = 3001
+	subscriptions := make(map[string]string, count)
+	for i := 0; i < count; i++ {
+		subscriptions[fmt.Sprintf("sub-%04d", i)] = "fixture"
+	}
+	transport := &fakeTransport{}
+	result, err := NewClient(transport).Query(context.Background(), "resources", subscriptions)
+	if err != nil || result == nil || len(transport.requests) != 11 {
+		t.Fatalf("result=%v error=%v request count=%d", result, err, len(transport.requests))
+	}
+	seen := map[string]bool{}
+	for _, request := range transport.requests {
+		if len(request.Subscriptions) > 300 || len(request.Subscriptions) == 0 {
+			t.Fatalf("unbounded or empty batch: %d", len(request.Subscriptions))
+		}
+		for _, id := range request.Subscriptions {
+			if seen[id] {
+				t.Fatalf("subscription queried twice: %s", id)
+			}
+			seen[id] = true
+		}
+	}
+	if len(seen) != count {
+		t.Fatalf("queried %d subscriptions, want %d", len(seen), count)
+	}
+}
+
+func TestQueryFailureAfterSuccessfulPageDoesNotPublishTruncatedSuccess(t *testing.T) {
+	transport := &fakeTransport{responses: []*Response{{Data: []json.RawMessage{json.RawMessage(`{"id":"healthy-page"}`)}, SkipToken: strptr("next")}}, errAt: 2}
+	result, err := NewClient(transport).Query(context.Background(), "resources", map[string]string{"sub": "fixture"})
+	if err == nil || result != nil || len(transport.requests) != 2 {
+		t.Fatalf("result=%v error=%v calls=%d; truncated query must fail", result, err, len(transport.requests))
+	}
+}

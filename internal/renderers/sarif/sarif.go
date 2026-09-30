@@ -5,12 +5,12 @@ import (
 	"encoding/hex"
 	"encoding/json"
 	"fmt"
-	"os"
 	"strings"
 
 	"github.com/DeBoX85/Cloud-Assess/internal/assessment"
 	"github.com/DeBoX85/Cloud-Assess/internal/branding"
 	"github.com/DeBoX85/Cloud-Assess/internal/findings"
+	"github.com/DeBoX85/Cloud-Assess/internal/reportfile"
 	"github.com/DeBoX85/Cloud-Assess/internal/result"
 )
 
@@ -156,7 +156,7 @@ func WriteFile(data *result.AssessmentResult, filename, version string) error {
 	if err != nil {
 		return err
 	}
-	if err := os.WriteFile(filename, encoded, 0o600); err != nil {
+	if err := reportfile.WriteBytes(filename, encoded); err != nil {
 		return fmt.Errorf("write SARIF report %q: %w", filename, err)
 	}
 	return nil

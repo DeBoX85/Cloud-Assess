@@ -242,3 +242,23 @@ func TestHTTPClientPostStreamKeepsContextUntilBodyRelease(t *testing.T) {
 		})
 	}
 }
+
+func TestHTTPClientRecoversTransientFailureWithoutDuplicatingResult(t *testing.T) {
+	var calls atomic.Int32
+	transport := operationTransportFunc(func(request *http.Request) (*http.Response, error) {
+		if request.Method != http.MethodGet || request.Header.Get("Authorization") != "Bearer test-token" {
+			t.Errorf("unexpected authenticated request: %s", request.Method)
+		}
+		status, payload := http.StatusServiceUnavailable, `{"error":{"code":"Unavailable"}}`
+		if calls.Add(1) == 2 {
+			status, payload = http.StatusOK, `{"data":[{"id":"one"}]}`
+		}
+		return &http.Response{StatusCode: status, Header: make(http.Header), Body: io.NopCloser(strings.NewReader(payload)), Request: request}, nil
+	})
+	client := NewHTTPClient(&mockCredential{token: "test-token"}, testHTTPOptions(transport))
+	ctx := policy.WithRetryOptions(context.Background(), policy.RetryOptions{MaxRetries: 2, RetryDelay: time.Millisecond, MaxRetryDelay: time.Millisecond})
+	data, err := client.Get(ctx, "https://example.test")
+	if err != nil || string(data) != `{"data":[{"id":"one"}]}` || calls.Load() != 2 {
+		t.Fatalf("retry recovery data=%q error=%v calls=%d", data, err, calls.Load())
+	}
+}

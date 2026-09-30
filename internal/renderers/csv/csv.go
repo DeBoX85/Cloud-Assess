@@ -4,8 +4,11 @@ import (
 	"encoding/csv"
 	"fmt"
 	"os"
+	"strings"
+	"unicode"
 
 	"github.com/DeBoX85/Cloud-Assess/internal/renderers/tables"
+	"github.com/DeBoX85/Cloud-Assess/internal/reportfile"
 	"github.com/DeBoX85/Cloud-Assess/internal/result"
 )
 
@@ -38,19 +41,31 @@ func Write(data *result.AssessmentResult, baseFilename string, opts tables.Optio
 }
 
 func writeTable(filename string, rows [][]string) error {
-	file, err := os.OpenFile(filename, os.O_CREATE|os.O_WRONLY|os.O_TRUNC, 0o600)
-	if err != nil {
-		return fmt.Errorf("create CSV report %q: %w", filename, err)
-	}
-	writer := csv.NewWriter(file)
-	writer.WriteAll(rows)
-	writeErr := writer.Error()
-	closeErr := file.Close()
-	if writeErr != nil {
-		return fmt.Errorf("write CSV report %q: %w", filename, writeErr)
-	}
-	if closeErr != nil {
-		return fmt.Errorf("close CSV report %q: %w", filename, closeErr)
+	if err := reportfile.Write(filename, func(file *os.File) error {
+		writer := csv.NewWriter(file)
+		for _, row := range rows {
+			safe := make([]string, len(row))
+			for i, value := range row {
+				safe[i] = spreadsheetText(value)
+			}
+			if err := writer.Write(safe); err != nil {
+				return err
+			}
+		}
+		writer.Flush()
+		return writer.Error()
+	}); err != nil {
+		return fmt.Errorf("write CSV report %q: %w", filename, err)
 	}
 	return nil
+}
+
+// CSV quoting does not prevent spreadsheet formula interpretation. Prefix risky
+// cells as text in this human-oriented export; canonical JSON remains unchanged.
+func spreadsheetText(value string) string {
+	trimmed := strings.TrimLeftFunc(value, unicode.IsSpace)
+	if strings.HasPrefix(value, "\t") || strings.HasPrefix(value, "\r") || strings.HasPrefix(value, "\n") || strings.HasPrefix(trimmed, "=") || strings.HasPrefix(trimmed, "+") || strings.HasPrefix(trimmed, "-") || strings.HasPrefix(trimmed, "@") || strings.HasPrefix(trimmed, "＝") || strings.HasPrefix(trimmed, "＋") || strings.HasPrefix(trimmed, "－") || strings.HasPrefix(trimmed, "＠") {
+		return "'" + value
+	}
+	return value
 }

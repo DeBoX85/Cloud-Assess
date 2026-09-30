@@ -104,24 +104,19 @@ func datasetNames(left, right Projection) []string {
 			names = append(names, name)
 		}
 	}
+	var extra []string
 	for name := range left.Datasets {
-		if _, ok := seen[name]; ok {
-			continue
+		if _, ok := seen[name]; !ok {
+			seen[name] = struct{}{}
+			extra = append(extra, name)
 		}
-		seen[name] = struct{}{}
-		names = append(names, name)
 	}
 	for name := range right.Datasets {
-		if _, ok := seen[name]; ok {
-			continue
+		if _, ok := seen[name]; !ok {
+			seen[name] = struct{}{}
+			extra = append(extra, name)
 		}
-		seen[name] = struct{}{}
-		names = append(names, name)
 	}
-	if len(names) > len(datasetOrder) {
-		tail := append([]string(nil), names[len(datasetOrder):]...)
-		sort.Strings(tail)
-		copy(names[len(datasetOrder):], tail)
-	}
-	return names
+	sort.Strings(extra)
+	return append(names, extra...)
 }

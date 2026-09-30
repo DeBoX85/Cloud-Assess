@@ -8,6 +8,7 @@ import (
 
 	"github.com/DeBoX85/Cloud-Assess/internal/branding"
 	"github.com/DeBoX85/Cloud-Assess/internal/renderers/tables"
+	"github.com/DeBoX85/Cloud-Assess/internal/reportfile"
 	"github.com/DeBoX85/Cloud-Assess/internal/result"
 	"github.com/xuri/excelize/v2"
 )
@@ -69,15 +70,14 @@ func WriteFile(data *result.AssessmentResult, filename string, opts tables.Optio
 		_ = file.Close()
 		return fmt.Errorf("assessment produced no Excel sheets")
 	}
-	if err := file.SaveAs(filename); err != nil {
-		_ = file.Close()
-		return fmt.Errorf("save Excel report %q: %w", filename, err)
-	}
-	if err := file.Close(); err != nil {
-		return fmt.Errorf("close Excel report %q: %w", filename, err)
-	}
-	if err := os.Chmod(filename, 0o600); err != nil {
-		return fmt.Errorf("set Excel report permissions %q: %w", filename, err)
+	defer file.Close()
+	if err := reportfile.Write(filename, func(output *os.File) error {
+		if err := file.Write(output); err != nil {
+			return err
+		}
+		return file.Close()
+	}); err != nil {
+		return fmt.Errorf("write Excel report %q: %w", filename, err)
 	}
 	return nil
 }

@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"errors"
+	"fmt"
 	"io"
 	"net/http"
 	"sort"
@@ -20,7 +21,7 @@ type fakeBatchClient struct {
 	handler func(armBatchRequest) (*http.Response, error)
 }
 
-func (f *fakeBatchClient) PostStream(_ context.Context, _ string, body io.ReadSeekCloser) (*http.Response, error) {
+func (f *fakeBatchClient) PostStream(_ context.Context, url string, body io.ReadSeekCloser) (*http.Response, error) {
 	defer body.Close()
 	payload, err := io.ReadAll(body)
 	if err != nil {
@@ -29,6 +30,14 @@ func (f *fakeBatchClient) PostStream(_ context.Context, _ string, body io.ReadSe
 	var request armBatchRequest
 	if err := json.Unmarshal(payload, &request); err != nil {
 		return nil, err
+	}
+	if !strings.HasSuffix(url, "/batch?api-version=2020-06-01") {
+		return nil, fmt.Errorf("unexpected Diagnostics endpoint: %s", url)
+	}
+	for _, item := range request.Requests {
+		if item.HTTPMethod != http.MethodGet || !strings.HasSuffix(item.RelativeURL, "/providers/microsoft.insights/diagnosticSettings?api-version="+diagnosticsAPI) {
+			return nil, fmt.Errorf("non-read Diagnostics subrequest: %+v", item)
+		}
 	}
 	f.mu.Lock()
 	f.calls = append(f.calls, request)

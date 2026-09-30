@@ -107,3 +107,41 @@ func TestHyperlinkFormulaEscapesQuotes(t *testing.T) {
 		t.Fatalf("formula = %q, want %q", got, want)
 	}
 }
+
+func TestWorkbookStoresUntrustedFormulaLikeValuesAsText(t *testing.T) {
+	data := excelFixture()
+	data.Resources[0].Name = "=1+1"
+	filename := filepath.Join(t.TempDir(), "text.xlsx")
+	if err := WriteFile(data, filename, tables.Options{}); err != nil {
+		t.Fatal(err)
+	}
+	book, err := excelize.OpenFile(filename)
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer book.Close()
+	rows, err := book.GetRows("Inventory")
+	if err != nil {
+		t.Fatal(err)
+	}
+	found := false
+	for row, values := range rows {
+		for column, value := range values {
+			if value != "=1+1" {
+				continue
+			}
+			found = true
+			cell, err := excelize.CoordinatesToCellName(column+1, row+1)
+			if err != nil {
+				t.Fatal(err)
+			}
+			formula, err := book.GetCellFormula("Inventory", cell)
+			if err != nil || formula != "" {
+				t.Fatalf("untrusted value became formula: %q %v", formula, err)
+			}
+		}
+	}
+	if !found {
+		t.Fatal("formula-like fixture was not rendered")
+	}
+}
