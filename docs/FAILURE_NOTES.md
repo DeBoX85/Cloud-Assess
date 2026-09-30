@@ -73,6 +73,8 @@ Record user-visible instruction errors and errors that affected code, tests, evi
 
 - **Tool-helper recurrence, generation evidence update:** Incorrect escaping of Markdown backticks in a JavaScript template produced a syntax error before any tool ran. Built the command as plain lines, used Python character construction for backticks and validated the SHA before substitution. No files were changed by the failed call.
 
+- **Tool-argument recurrence, dependency inventory:** Initially passed `repo` instead of the connector-required `repository_full_name` when creating a tree. Binding validation rejected the request before mutation. Corrected the argument and compared the resulting Git tree exactly with the local staged tree before publishing.
+
 ## FN-008: Toolchain availability was inferred from PATH alone
 
 - **Date:** 2026-09-30. Earlier checkpoints said local Go was unavailable after checking PATH. A later source search found an existing Go 1.26.0 toolchain outside PATH, which successfully selected/downloaded Go 1.26.8. Earlier executable verification was performed in CI, not locally.
@@ -103,3 +105,11 @@ Record user-visible instruction errors and errors that affected code, tests, evi
 - **Correction:** Package dependency listing uses `-buildvcs=false` because its purpose is target membership; source pins are checked explicitly through Git. Command failures now report bounded stderr and have a five-minute timeout. This does not disable stamping in product builds or change repository ownership settings.
 - **Prevention:** Do not rely on incidental executable stamping to determine dependency membership. Preserve command diagnostics, validate source pins separately, and check that failed collection retains previous inventory files.
 - **Evidence:** Local initial inventory collection and corrected generation, plus retention fixture. **Status:** Corrected for inventory collection; underlying local VCS-stamping environment issue is not claimed resolved.
+
+## FN-013: Inventory notice whitespace check did not stop a local commit
+
+- **Date:** 2026-09-30.
+- **Mistake:** Ran `git diff --cached --check` followed by a commit without enforcing the first exit code. Raw retained third-party notices contain CRLF and trailing spaces; Git reported whitespace diagnostics but the local checkpoint commit still ran. The earlier unstaged-only check had also omitted new files.
+- **Correction:** Preserve source notice bytes intentionally with path-specific `-text -whitespace` attributes for generated NOTICES.md only. Use blocking staged checks before publication; freshness/hash checks continue verifying third-party evidence. Authored files retain whitespace checks.
+- **Prevention:** Stage new files before checking and enforce command failure before the next mutation. Document intentional source-byte exceptions rather than silently claiming every initial check passed.
+- **Evidence:** Local checkpoint commit `2037596`, notice diagnostics and corrected staged diff check. **Status:** Corrected before merge; no production behavior affected.

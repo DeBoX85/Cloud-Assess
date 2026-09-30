@@ -40,6 +40,10 @@ The tidy and pinned-rule workflows call the same tested publisher. It starts on 
 
 A branch push using `GITHUB_TOKEN` does not automatically trigger push workflows. Open a reviewable PR with an authorized identity and observe `quality` and `windows-validation` on its exact head; never equate a published proposal with checked or merged changes. No complete maintenance workflow PASS is claimed from publisher tests alone.
 
+## Dependency evidence checks
+
+The [inventory generator](DEPENDENCIES.md) collects versioned module checksums and full root license/notice texts plus bundled-source pins. Nine isolated safeguards and a required Linux freshness check reject missing evidence or stale output. Preserve original notice bytes rather than stripping third-party whitespace; generated NOTICES.md has a path-specific Git exception only. Stage new authored files and run a blocking staged diff check before publication. Regenerate and review dependency-refresh proposals; do not treat this snapshot as release-specific licensing approval.
+
 ## Remaining acceptance work
 
 Continue adapter denial/malformed-response checks, decoder fuzzing, workload concurrency/cancellation bounds and independent summary invariants where existing tests lack them. Maintenance no-change/changed-output execution, full built-CLI artifact inspection, and arbitrary-directory Windows ACL review remain open. Release artifacts additionally require clean installs, dependency/license review, checksums, build provenance verification and an approved pilot. This process does not silently choose release scope or supported platforms.

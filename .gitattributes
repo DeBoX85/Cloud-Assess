@@ -1,0 +1,2 @@
+# Preserve collected third-party notice bytes, including upstream whitespace.
+docs/dependencies/NOTICES.md -text -whitespace
