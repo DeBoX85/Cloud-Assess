@@ -34,3 +34,11 @@ Record user-visible instruction errors and errors that affected code, tests, evi
 - **Correction:** Changed the fixture to `MaxRetries: -1`. Corrected Linux and Windows CI jobs passed, and PR #43 merged.
 - **Prevention:** Inspect the exact dependency version's option semantics before writing an edge-case fixture, especially when zero values can mean defaults. When a test fails, compare the observed request count with SDK retry policy before altering product behavior.
 - **Evidence:** [Gate 004 throttling checkpoint](DEVELOPMENT_LEDGER.md#gate-004-resource-graph-throttling-characterization), initial run `36597984445`, corrected run `36598430521`. **Status:** Corrected.
+
+## FN-004: Assumed source paths during inspection
+
+- **Date:** 2026-09-30.
+- **Mistake and recurrence:** Tried reading nonexistent `cmd/cloud-assess/scan.go`, then repeated the path assumption with `internal/assessment/stage.go`. Both were inspection errors; no files were changed by the failed reads.
+- **Correction:** Used `rg --files` and read `command.go` and `types.go`.
+- **Prevention:** Inventory paths before reading an unfamiliar package; use symbol search to locate implementations.
+- **Evidence:** CLI process-test inspection session. **Status:** Corrected; recurrence recorded in this entry.

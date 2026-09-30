@@ -1468,6 +1468,16 @@ At the operator's request, [FAILURE_NOTES.md](FAILURE_NOTES.md) now indexes conf
 
 A cross-package test injects a critical Graph query error at the coordinator operation seam after successful scope and inventory. It drives the coordinator and application JSON renderer together, requiring exit 1, persisted `failed` completeness, a failed Graph stage, skipped Advisor, retained discovered inventory and zero fabricated findings. This complements the separate real authenticated HTTP 429-to-query fixture. It does not join that HTTP fixture to the coordinator in one test, prove CLI process behavior, or validate other adapters. No Azure requests were made. The scratch runtime has no Go toolchain; PR #45 passed required `quality` and `windows-validation` jobs (run `36600171189`) and merged at `94c954266d8961276dea1971d506fce0410b5cad`.
 
+### Gate 004 CLI subprocess exit and report checkpoint
+
+**Date:** 2026-09-30.
+
+Added `runWithExecutor` around the existing command executor seam; normal `run` continues to select `executeScan`. A test-executable subprocess runs the production command dispatcher and application renderer against deterministic assessment fixtures. The parent checks actual process exits 0 (complete), 1 (execution failure), 2 (severity gate), and 3 (partial), then verifies persisted JSON completeness, retained inventory, and expected findings after the child exits.
+
+This is not a built or installed Azure CLI test and does not exercise production credentials or join the HTTP 429 fixture to the coordinator. Other adapter failures, default retry timing, cancellation and release artifact checks remain open. No Azure requests are made. The runtime has no Go toolchain; required Linux and Windows CI must pass before merging. The PR and its required checks retain executable evidence. Gate 004 remains planned.
+
+Recorded two mistaken inspection paths and their recurrence prevention as FN-004 in [FAILURE_NOTES.md](FAILURE_NOTES.md).
+
 ## Current boundary
 
 The generic core scan, deterministic equivalence tooling, reproducible live runner, default/optional/resource-group/two-subscription/leaf-management-group and separate Storage/VM, RG include/exclude, tag include/exclude, recommendation-exclude and individual-resource-exclude live passes, plus enforced development CI, are complete for the behavior exercised so far. The unfiltered two-subscription, leaf-management-group, tag-exclude, RG-exclude and individual-resource-exclude passes have explicit Diagnostics warning boundaries; the recommendation-exclude pass is also `complete_with_warnings`, without supplied warning details. Network Watcher individual-GET probes and the Phase W one-request batch probe support an explanation for earlier warnings but have not mapped the original multi-request batch responses. The missing cross-run Advisor row has unknown recorded tag scope in the tag-only target inventory; historical Azure timing remains unresolved.
