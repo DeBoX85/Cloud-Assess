@@ -44,6 +44,7 @@ Record user-visible instruction errors and errors that affected code, tests, evi
 - **Recurrence, 2026-09-30 QA expansion:** Tried reading nonexistent `internal/equivalence/compare_test.go` even though the inventory showed `projection_test.go`. Corrected through symbol search. Strengthened prevention: use the enumerated path exactly, and search test function names before guessing a test filename. No product files were changed by the failed read.
 - **Recurrence, optional-stage checkpoint:** Guessed `internal/assessment/assessment.go` and then repeated the already recorded `stage.go` path during inspection. Neither exists. Located `types.go` using the file inventory. No product mutation resulted; the prevention rule was not followed and remains required.
 - **Recurrence, dependency inventory:** Guessed nonexistent `internal/rules/README.md` despite the path-inventory rule. Corrected by reading the enumerated provenance and embed files. No product change resulted.
+- **Recurrence, built-CLI checkpoint:** Assumed an `internal/cli` package during inventory/search; the CLI actually lives under `cmd/cloud-assess`. Corrected from enumerated paths before editing.
 - **Evidence:** CLI process-test and QA expansion inspection sessions. **Status:** Corrected; recurrences recorded in this entry.
 
 ## FN-005: Windows ACL fixture inherited another PowerShell module path
@@ -80,6 +81,8 @@ Record user-visible instruction errors and errors that affected code, tests, evi
 - **Date:** 2026-09-30. Earlier checkpoints said local Go was unavailable after checking PATH. A later source search found an existing Go 1.26.0 toolchain outside PATH, which successfully selected/downloaded Go 1.26.8. Earlier executable verification was performed in CI, not locally.
 - **Correction/prevention:** Verify known workspace toolchain locations and the actual selected version before concluding local testing is unavailable. Local tests are now possible; an initial broader run then failed setup because the APRL gitlink was uninitialized. Focused report/config tests passed; initializing the exact pinned submodule restored broader validation, and local `go test -race -count=1 ./...` then passed. Check toolchain, module dependencies and embedded gitlink contents together; continue required hosted Windows/Linux checks. **Status:** Environment availability corrected; previous CI evidence remains valid.
 
+- **Toolchain-path recurrence, built-CLI checkpoint:** The previously verified `/root/go/pkg/mod` toolchain was absent after the session gap. Initial build commands failed. Re-enumerated the workspace toolchain, selected Go 1.26.8 and used an explicit task-scoped GOPATH cache; did not claim executable validation from the failed attempt.
+
 ## FN-009: Documentation upload assumed command output was complete
 
 - **Date:** 2026-09-30. An evidence-update tree was constructed from shell output without first verifying complete content. The ledger exceeded the output limit, so the remote tree differed from the local staged tree. Detected before creating a commit or branch; the incomplete tree was never published.
@@ -111,5 +114,14 @@ Record user-visible instruction errors and errors that affected code, tests, evi
 - **Date:** 2026-09-30.
 - **Mistake:** Ran `git diff --cached --check` followed by a commit without enforcing the first exit code. Raw retained third-party notices contain CRLF and trailing spaces; Git reported whitespace diagnostics but the local checkpoint commit still ran. The earlier unstaged-only check had also omitted new files.
 - **Correction:** Preserve source notice bytes intentionally with path-specific `-text -whitespace` attributes for generated NOTICES.md only. Use blocking staged checks before publication; freshness/hash checks continue verifying third-party evidence. Authored files retain whitespace checks.
+- **Recurrence, built-CLI setup:** Initial shell commands continued to metadata decoding after a missing cached Go binary failed the build, producing a secondary JSON error. Follow-up builds enforce the build exit before tests. No report/binary validation claim was made from that attempt.
 - **Prevention:** Stage new files before checking and enforce command failure before the next mutation. Document intentional source-byte exceptions rather than silently claiming every initial check passed.
 - **Evidence:** Local checkpoint commit `2037596`, notice diagnostics and corrected staged diff check. **Status:** Corrected before merge; no production behavior affected.
+
+## FN-014: Built-CLI valid-filter fixture initially used the wrong tag schema
+
+- **Date:** 2026-09-30.
+- **Mistake:** A fixture labeled valid used `Environment: [dev]`; Cloud Assess tag values are scalar strings. Its case expected the deferred-plugin error but correctly received a YAML type error. The first local suite failed one of fifteen preflight cases; help/version and compiled dependency inspection passed. No Azure traffic was observed.
+- **Correction:** Reviewed the actual filter structure and used `Environment: dev`. Re-ran the entire built-CLI suite; all cases passed locally.
+- **Prevention:** Ground supposedly valid inputs in the target schema, and keep the expected error precise so earlier unrelated failures cannot masquerade as successful validation.
+- **Evidence:** Initial local built-CLI output and corrected suite. **Status:** Corrected locally; required Windows/Linux validation recorded in the ledger.

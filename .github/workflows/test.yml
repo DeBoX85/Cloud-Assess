@@ -112,6 +112,8 @@ jobs:
         run: ./scripts/tests/live-equivalence.tests.ps1
 
       - name: Build CLI
+        env:
+          CGO_ENABLED: '0'
         shell: bash
         run: |
           set -euo pipefail
@@ -125,6 +127,9 @@ jobs:
           ./.build/cloud-assess --help >/dev/null
           ./.build/cloud-assess scan --help >/dev/null
           ./.build/cloud-assess --version >/dev/null
+
+      - name: Verify built CLI preflight and compiled dependency evidence
+        run: python3 scripts/tests/built-cli.py --binary .build/cloud-assess
 
       - name: Test with race detector
         run: go test -race -count=1 ./...
@@ -210,6 +215,8 @@ jobs:
         run: go test ./...
 
       - name: Build and smoke-test Windows CLI
+        env:
+          CGO_ENABLED: '0'
         shell: powershell
         run: |
           New-Item -ItemType Directory -Path .build -Force | Out-Null
@@ -221,3 +228,6 @@ jobs:
           if ($LASTEXITCODE -ne 0) { throw 'Windows scan help failed.' }
           & ./.build/cloud-assess.exe --version | Out-Null
           if ($LASTEXITCODE -ne 0) { throw 'Windows version failed.' }
+
+      - name: Verify built Windows CLI preflight and compiled dependency evidence
+        run: python scripts/tests/built-cli.py --binary .build/cloud-assess.exe

@@ -94,7 +94,7 @@ Exit semantics are finalized:
 
 Reports are rendered before exit 2 or 3 is returned, preserving evidence for CI and troubleshooting. When a critical stage returns a partial result plus an error, requested reports are also persisted when possible before exit 1.
 
-The CI foundation from step 29 is already partly implemented ahead of sequence. It checks pinned source-data provenance, formatting, module graph cleanliness, branding boundaries, PowerShell validation-helper behavior, the actual CLI build, root/scan help and version smoke tests, race-enabled tests, a minimum statement-coverage floor, `go vet`, and reachable vulnerabilities. External actions are commit-pinned. Packaging/release automation remains future work.
+The CI foundation from step 29 is already partly implemented ahead of sequence. It checks pinned source-data provenance, formatting, module graph cleanliness, branding boundaries, PowerShell validation-helper behavior, the actual CLI build, root/scan help and version smoke tests, race-enabled tests, a minimum statement-coverage floor, `go vet`, and reachable vulnerabilities. External actions are commit-pinned. Required CI additionally executes built-CLI offline preflight/report-preservation cases and compares compiled dependencies with the generated inventory under CGO-disabled amd64 builds; see [BUILT_CLI_VALIDATION.md](BUILT_CLI_VALIDATION.md). Successful live built-CLI scans, packaging and release automation remain future work.
 
 ## Current known gaps
 
