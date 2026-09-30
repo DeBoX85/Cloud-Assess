@@ -44,6 +44,8 @@ Public Azure is the default. Government/China aliases and custom ARM/authority e
 
 Generic access denial fails the affected stage. Cost specifically retains a warning (`cost_subscription_skipped`) for Azure error codes `MissingRegistrationForResourceProvider`, `MissingSubscriptionRegistration`, `DisallowedOperation` and `NotFound`. This is not a rule that all HTTP 403 responses are successful empty results. The toolkit does not register providers automatically. See [OPERATIONS.md](OPERATIONS.md) for response handling.
 
+Advisor metadata continuations are restricted to the configured HTTPS host/port and repeated URLs fail. The default shared HTTP transport refuses redirects rather than moving requests outside their checked destination. Injected transports and SDK-owned pagers have separate policies. Tested SDK logs and response errors omit the bearer header, but raw service error content remains sensitive; this is not general log anonymization. See [OFFLINE_QA_REVIEW.md](OFFLINE_QA_REVIEW.md).
+
 ## Sources and validation boundary
 
 Reviewed implementation: `internal/azure`, `internal/discovery`, `internal/arg`, `internal/diagnostics`, `internal/advisor`, `internal/defender`, `internal/policy`, `internal/arcsql`, `internal/cost`, stage configuration and CLI dispatch. SDK credential selection is grounded in pinned module source `azidentity@v1.14.1/default_azure_credential.go`.

@@ -310,3 +310,5 @@ Core v1 is complete when:
 ## Access and operations evidence boundary
 
 [ACCESS_MODEL.md](ACCESS_MODEL.md) and [OPERATIONS.md](OPERATIONS.md) map current request semantics, scope/credential selection and recovery. Execution completeness does not establish intended estate visibility: discovery intersects requested IDs with visible subscriptions and ARG may silently omit inaccessible objects. Gate 004 tracks independent intended-versus-resolved scope evidence and reporting; no production or minimum-role certification is claimed. Cost remains subscription-wide under RG/tag/resource filters.
+
+The eight-task offline QA checkpoint adds a requirement-to-test map, combined scope fixtures, request/credential boundary safeguards, default retry-count checks, documentation parser/help validation and incomplete package rejection; see [OFFLINE_QA_REVIEW.md](OFFLINE_QA_REVIEW.md). Advisor origin/cycle checks and default shared-client redirect refusal are deliberate security corrections for unsafe response paths, not new feature parity or release approval.

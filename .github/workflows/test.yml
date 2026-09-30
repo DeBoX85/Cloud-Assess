@@ -131,6 +131,9 @@ jobs:
       - name: Verify built CLI preflight and compiled dependency evidence
         run: python3 scripts/tests/built-cli.py --binary .build/cloud-assess
 
+      - name: Verify authored documentation and operator examples
+        run: python3 scripts/tests/documentation.py --binary .build/cloud-assess --powershell pwsh
+
       - name: Test candidate package integrity and isolated installation
         run: python3 scripts/tests/package-candidate.py --binary .build/cloud-assess
 
@@ -235,5 +238,11 @@ jobs:
       - name: Verify built Windows CLI preflight and compiled dependency evidence
         run: python scripts/tests/built-cli.py --binary .build/cloud-assess.exe
 
+      - name: Verify Windows documentation and operator examples
+        run: python scripts/tests/documentation.py --binary .build/cloud-assess.exe --powershell powershell
+
       - name: Test Windows candidate package integrity and isolated installation
         run: python scripts/tests/package-candidate.py --binary .build/cloud-assess.exe
+
+      - name: Check Windows reachable vulnerabilities
+        run: go run golang.org/x/vuln/cmd/govulncheck@v1.8.0 ./...
