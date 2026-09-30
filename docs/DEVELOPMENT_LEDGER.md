@@ -1488,6 +1488,18 @@ A separate coordinator/application fixture interrupts the noncritical Advisor st
 
 **Inspection issue:** `HTTPClientOptions.OperationTimeout` is assigned by `DefaultHTTPClientOptions` but never consumed by the HTTP implementation. Its advertised value therefore does not impose a total operation deadline. Existing caller contexts and per-attempt `Timeout` remain separate mechanisms. Track an explicit implementation/removal decision and bounded retry/body-read tests before making total-duration claims. No production timeout behavior is changed in this checkpoint.
 
+### HTTP total-operation timeout remediation
+
+**Date:** 2026-09-30.
+
+Resolved the unused `OperationTimeout` configuration: a positive value now derives one caller context around each HTTP operation, covering authentication, retries and response consumption. An earlier caller deadline still wins. Defaults remain `Timeout * 10`; non-positive custom values add no operation deadline. This deliberately corrects target behavior and is not an AZQR live-equivalence claim. It does not add a whole-scan budget.
+
+`PostStream` transfers deadline cleanup to its response body and cancels on EOF/read error/close, rather than canceling at return. Buffered Get/Post calls release context on return; request/setup/error paths also release it. The pinned Azure SDK buffers bodies by default; the ownership wrapper preserves the method contract if a body remains unread.
+
+Focused fixtures cover a 30-second retry hint interrupted by a shorter operation deadline with retries enabled, blocked body reads for Get/Post/PostStream, earlier caller deadline and cancellation, zero/negative settings, and successful stream lifetime through EOF/close. These use the production SDK pipeline with a context-aware synthetic transport, not live Azure. Existing TLS interruption fixtures remain separate. Required Linux/Windows CI is pending; local Go is unavailable.
+
+Source inspection used pinned azcore `v1.23.1` retry, pipeline and body-download implementations, rather than assuming zero-retry or streaming behavior. Local `git diff --check` passed. Gate 004 remains planned; default retry sequencing, other adapters and whole-scan bounded execution remain open.
+
 ## Current boundary
 
 The generic core scan, deterministic equivalence tooling, reproducible live runner, default/optional/resource-group/two-subscription/leaf-management-group and separate Storage/VM, RG include/exclude, tag include/exclude, recommendation-exclude and individual-resource-exclude live passes, plus enforced development CI, are complete for the behavior exercised so far. The unfiltered two-subscription, leaf-management-group, tag-exclude, RG-exclude and individual-resource-exclude passes have explicit Diagnostics warning boundaries; the recommendation-exclude pass is also `complete_with_warnings`, without supplied warning details. Network Watcher individual-GET probes and the Phase W one-request batch probe support an explanation for earlier warnings but have not mapped the original multi-request batch responses. The missing cross-run Advisor row has unknown recorded tag scope in the tag-only target inventory; historical Azure timing remains unresolved.

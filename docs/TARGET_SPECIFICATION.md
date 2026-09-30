@@ -201,6 +201,10 @@ Assessment completeness is separately represented as:
 - `partial`
 - `failed`
 
+## HTTP operation limits
+
+The production authenticated HTTP client applies a positive `OperationTimeout` to one HTTP call, covering authentication, retry waits and response-body consumption. Defaults are ten times the per-attempt timeout. Earlier caller deadlines and cancellation remain authoritative; non-positive custom values add no operation deadline. This is not a whole-scan time limit or a guarantee that custom transports ignoring context terminate. Callers of `PostStream` must close response bodies; operation context cleanup occurs on body read completion/error or close.
+
 ## Failure model
 
 Assessment-fatal examples:
