@@ -1,6 +1,6 @@
 # Cloud Assess Roadmap
 
-Status: working execution roadmap, reviewed 2026-09-30 against `bootstrap/core-v1` at `a54ca1ac5f2c2c069fdeeb076eb40e9ff9fd0561`
+Status: working execution roadmap, reviewed 2026-09-30 against `bootstrap/core-v1` at `869dd3b03458ffc6ecde3a28115e8d600b314955`
 
 Active development branch: `bootstrap/core-v1`
 
@@ -30,6 +30,8 @@ The estimates are rounded to roughly ten percentage points and must not be used 
 ## Autonomous QA work and feedback
 
 [QA_PROCESS.md](QA_PROCESS.md) defines final-diff review, failure recurrence handling, independent expected results, fixture boundaries and evidence updates. Comparator guards, bounded fuzzing, isolated mutation checks, staged output failure/privacy checks, large-subscription batching and read-oriented ARG/Diagnostics request contracts passed Linux/Windows CI in PR #53 (run `36726089065`). Windows existing-DACL preservation during replacement passed both required jobs in PR #54 (run `36728008504`); arbitrary-directory ACL review remains open.
+
+A synthetic optional-stage HTTP-to-report matrix now covers Policy, Defender plan status and Defender Recommendations for access denial (403), throttling (429) with retries disabled, missing-data envelopes and valid empty data. Local focused race tests pass; required hosted CI remains pending. This does not close non-empty row projection, default retries or other adapters.
 
 Continue without Azure/laptop access: remaining adapter errors and decoder properties, missing stage projections grounded in source/schema fixtures, deterministic filter interactions, maintenance fixture execution, dependency/license inventory and documentation reconciliation. Existing canonical result tests independently verify summary counts and caller-data ownership. Extend them for uncovered cases rather than duplicate them. Live scans, historical batch correlation, release scope decisions and production pilot remain separate dependencies. Do not claim release readiness from the autonomous backlog.
 

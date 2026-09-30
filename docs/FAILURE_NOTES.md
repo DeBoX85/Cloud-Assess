@@ -42,6 +42,7 @@ Record user-visible instruction errors and errors that affected code, tests, evi
 - **Correction:** Used `rg --files` and read `command.go` and `types.go`.
 - **Prevention:** Inventory paths before reading an unfamiliar package; use symbol search to locate implementations.
 - **Recurrence, 2026-09-30 QA expansion:** Tried reading nonexistent `internal/equivalence/compare_test.go` even though the inventory showed `projection_test.go`. Corrected through symbol search. Strengthened prevention: use the enumerated path exactly, and search test function names before guessing a test filename. No product files were changed by the failed read.
+- **Recurrence, optional-stage checkpoint:** Guessed `internal/assessment/assessment.go` and then repeated the already recorded `stage.go` path during inspection. Neither exists. Located `types.go` using the file inventory. No product mutation resulted; the prevention rule was not followed and remains required.
 - **Evidence:** CLI process-test and QA expansion inspection sessions. **Status:** Corrected; recurrences recorded in this entry.
 
 ## FN-005: Windows ACL fixture inherited another PowerShell module path
