@@ -1514,6 +1514,8 @@ Added 3,001-subscription batching, failure-after-first-page and configured trans
 
 CI adds bounded two-target fuzz runs, isolated comparator mutation checks, 20-minute job limits and synthetic failure-evidence retention using verified pinned upload-artifact v4.6.2. Added PR review template and QA_PROCESS feedback loop, linked roadmap/specification/Gate 004. Required Linux/Windows CI is pending; local Go is unavailable. Local diff check and Python syntax parsing passed. No Azure calls or laptop action are required. Gate 004 and the later release decision remain open.
 
+Initial run `36725561754` failed the Windows ACL fixture before assertions because Windows PowerShell could not load its Security module. Isolated its child PSModulePath and recorded the observed failure, cause hypothesis and pending verification in FN-005.
+
 Logged the mistaken test-path inspection recurrence in FN-004. Development guidance was checked against official Go fuzz/rename documentation and OWASP CSV Injection; release provenance remains a later requirement, with no SLSA level claimed.
 
 ## Current boundary
