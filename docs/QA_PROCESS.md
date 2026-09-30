@@ -48,6 +48,10 @@ The [inventory generator](DEPENDENCIES.md) collects versioned module checksums a
 
 [BUILT_CLI_VALIDATION.md](BUILT_CLI_VALIDATION.md) distinguishes real compiled-CLI offline preflight/metadata checks from the existing injected test-executable synthetic report checks. Required jobs execute the actual CGO-disabled host amd64 artifact from a copied path with spaces. Fifteen invalid inputs must reject with the expected error before observed HTTP/authentication, preserve report/directory hashes and emit no stdout report. Compiled module membership, versions and checksums must match the inventory. These cases do not replace successful Azure execution, real package installs or release provenance.
 
+## Candidate package checks
+
+[PACKAGE_BUILDS.md](PACKAGE_BUILDS.md) adds strict compiled/source revision matching, committed-byte notices, archive/payload checksums and new-directory extraction validation. Both required jobs must pass actual package integration alongside integrity/provenance fixtures; a local unit-only run is insufficient. Existing directories/packages are retained on rejection. Do not infer signed publisher identity from checksums or fresh-machine behavior from a directory isolated on an existing runner.
+
 ## Remaining acceptance work
 
 Continue adapter denial/malformed-response checks, decoder fuzzing, workload concurrency/cancellation bounds and independent summary invariants where existing tests lack them. Maintenance no-change/changed-output execution, full built-CLI artifact inspection, and arbitrary-directory Windows ACL review remain open. Release artifacts additionally require clean installs, dependency/license review, checksums, build provenance verification and an approved pilot. This process does not silently choose release scope or supported platforms.

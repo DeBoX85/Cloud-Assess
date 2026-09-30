@@ -118,7 +118,7 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p .build
-          go build -o .build/cloud-assess ./cmd/cloud-assess
+          go build -trimpath -buildvcs=true -o .build/cloud-assess ./cmd/cloud-assess
 
       - name: Smoke-test CLI help
         shell: bash
@@ -130,6 +130,9 @@ jobs:
 
       - name: Verify built CLI preflight and compiled dependency evidence
         run: python3 scripts/tests/built-cli.py --binary .build/cloud-assess
+
+      - name: Test candidate package integrity and isolated installation
+        run: python3 scripts/tests/package-candidate.py --binary .build/cloud-assess
 
       - name: Test with race detector
         run: go test -race -count=1 ./...
@@ -220,7 +223,7 @@ jobs:
         shell: powershell
         run: |
           New-Item -ItemType Directory -Path .build -Force | Out-Null
-          go build -o .build/cloud-assess.exe ./cmd/cloud-assess
+          go build -trimpath -buildvcs=true -o .build/cloud-assess.exe ./cmd/cloud-assess
           if ($LASTEXITCODE -ne 0) { throw 'Windows CLI build failed.' }
           & ./.build/cloud-assess.exe --help | Out-Null
           if ($LASTEXITCODE -ne 0) { throw 'Windows root help failed.' }
@@ -231,3 +234,6 @@ jobs:
 
       - name: Verify built Windows CLI preflight and compiled dependency evidence
         run: python scripts/tests/built-cli.py --binary .build/cloud-assess.exe
+
+      - name: Test Windows candidate package integrity and isolated installation
+        run: python scripts/tests/package-candidate.py --binary .build/cloud-assess.exe

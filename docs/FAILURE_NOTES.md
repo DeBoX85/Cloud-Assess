@@ -109,6 +109,8 @@ Record user-visible instruction errors and errors that affected code, tests, evi
 - **Prevention:** Do not rely on incidental executable stamping to determine dependency membership. Preserve command diagnostics, validate source pins separately, and check that failed collection retains previous inventory files.
 - **Evidence:** Local initial inventory collection and corrected generation, plus retention fixture. **Status:** Corrected for inventory collection; underlying local VCS-stamping environment issue is not claimed resolved.
 
+- **Packaging follow-up:** A strict local `-buildvcs=true` build again failed. Bounded verbose output showed Go asking Git for status from a different workspace root instead of the project checkout. Kept candidate provenance strict and used an isolated clone for package validation rather than relaxing the package revision check or changing repository trust/ownership settings. This is a local workspace-context limitation, not a product source defect.
+
 ## FN-013: Inventory notice whitespace check did not stop a local commit
 
 - **Date:** 2026-09-30.
@@ -125,3 +127,11 @@ Record user-visible instruction errors and errors that affected code, tests, evi
 - **Correction:** Reviewed the actual filter structure and used `Environment: dev`. Re-ran the entire built-CLI suite; all cases passed locally.
 - **Prevention:** Ground supposedly valid inputs in the target schema, and keep the expected error precise so earlier unrelated failures cannot masquerade as successful validation.
 - **Evidence:** Initial local built-CLI output and corrected suite. **Status:** Corrected locally; required Windows/Linux validation recorded in the ledger.
+
+## FN-015: Package integration skip condition was evaluated before CLI parsing
+
+- **Date:** 2026-09-30.
+- **Mistake:** Used `unittest.skipUnless(BINARY)` as a decorator while BINARY was initialized to None and populated later by argument parsing. The first isolated-clone run supplied --binary but still skipped the actual-artifact case. Its twelve unit fixtures passed; it did not validate packaging/install behavior.
+- **Correction:** Evaluate missing-binary handling inside the integration method, after argument parsing. Require a complete thirteen-test native run with no skipped integration before publication/merge.
+- **Prevention:** Avoid import-time skip decisions for runtime arguments. Inspect executed/skipped counts and require artifact validation instead of treating any exit-zero test invocation as equivalent.
+- **Evidence:** First isolated-clone output `Ran 13 tests ... OK (skipped=1)` with --binary, then corrected native runs. **Status:** Corrected before PR publication; final run evidence indexed in the ledger.
