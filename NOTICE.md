@@ -32,4 +32,4 @@ The imported snapshot revision is recorded in `internal/rules/provenance.go`.
 
 ## Generated dependency notices
 
-The source/rule license texts above do not replace a dependency inventory. Before any release or redistribution, generate the dependency and embedded-content inventory from the actual Cloud Assess release tree and dependency graph, then review `NOTICE.md` and `THIRD_PARTY_LICENSES.md` for completeness.
+The source/rule license texts above do not replace a dependency inventory. The current [generated inventory and notices](docs/DEPENDENCIES.md) are checked for freshness in CI. Before any release or redistribution, regenerate from the actual release tree and dependency graph, review platform/artifact contents and these attributions for completeness, and include the required license texts with the distribution.

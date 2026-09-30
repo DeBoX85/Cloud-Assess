@@ -1,0 +1,833 @@
+{
+  "schemaVersion": 1,
+  "scope": "selected module graph, CLI targets, standard library and bundled data",
+  "goVersion": "go1.26.8",
+  "targets": [
+    "linux/amd64",
+    "windows/amd64"
+  ],
+  "referencePins": {
+    "ReferenceRepositoryCommit": "8e4f0577f3615e6c9014c031bcad079f235369cc",
+    "APRLCommit": "60eaddda76541f6adbc1c5ffa686829807e55e29",
+    "AORSnapshotTree": "a3ff1cafbc0a74ea4e4d2cc5aa2812f7c1dab9f5",
+    "CustomRulesSnapshotTree": "674b9b3dcb443ce6dc445b48e1db47e4a0ca7082"
+  },
+  "inputs": {
+    "go.mod": "67adbf31349c78bb99ae06f9819134886970c8661162feede517428defa5d507",
+    "go.sum": "267090bb707cefe178ccb90988df8ab08280b7b67eda582ef47c87f07b7a85ba",
+    "internal/rules/embedded.go": "1715ec6e108b5d62490b4a0c91b904e1fc018ea39df82947fdc628a8ffa71f19",
+    "internal/skus/skus.go": "9036aee8cd274afbf9034bed8f3b7ab1e19d52de5da481c370008a2493f259a3"
+  },
+  "modules": [
+    {
+      "path": "github.com/Azure/azure-sdk-for-go/sdk/azcore",
+      "version": "v1.23.1",
+      "direct": true,
+      "cliTargets": [
+        "linux/amd64",
+        "windows/amd64"
+      ],
+      "sum": "h1:zvXfGJCWvywnCA814d8ZiVyt+fm9nnTE8xSb99zRyfo=",
+      "goModSum": "h1:iptorS+VYKFL2N6PnebpS91dubG35eAOEERnT4PJbQU=",
+      "notices": [
+        {
+          "file": "LICENSE.txt",
+          "sha256": "646f8936b8ddcd14e13e578ff6857e368780b0d1a4f6066bee89211923a373e2"
+        }
+      ]
+    },
+    {
+      "path": "github.com/Azure/azure-sdk-for-go/sdk/azidentity",
+      "version": "v1.14.1",
+      "direct": true,
+      "cliTargets": [
+        "linux/amd64",
+        "windows/amd64"
+      ],
+      "sum": "h1:u93s+zU2JD62im61Bm5CZIc1ZrOJaIAWEg0WOrMVkEo=",
+      "goModSum": "h1:oXtinPO4OLj9d1DOTrqrL1oRwGhcqadvAmrl6wTeGlk=",
+      "notices": [
+        {
+          "file": "LICENSE.txt",
+          "sha256": "646f8936b8ddcd14e13e578ff6857e368780b0d1a4f6066bee89211923a373e2"
+        }
+      ]
+    },
+    {
+      "path": "github.com/Azure/azure-sdk-for-go/sdk/azidentity/cache",
+      "version": "v0.4.0",
+      "direct": false,
+      "cliTargets": [],
+      "sum": "h1:xFaZZ+IubdftrDHnGGwZ6QvQ3KHTtWl2MCK+GMt2vxs=",
+      "goModSum": "h1:mCBhUhlMjLLJKr5aqw2TNS/VqJOie8MzWq3DAMJeKso=",
+      "notices": [
+        {
+          "file": "LICENSE.txt",
+          "sha256": "646f8936b8ddcd14e13e578ff6857e368780b0d1a4f6066bee89211923a373e2"
+        }
+      ]
+    },
+    {
+      "path": "github.com/Azure/azure-sdk-for-go/sdk/internal",
+      "version": "v1.12.0",
+      "direct": false,
+      "cliTargets": [
+        "linux/amd64",
+        "windows/amd64"
+      ],
+      "sum": "h1:fhqpLE3UEXi9lPaBRpQ6XuRW0nU7hgg4zlmZZa+a9q4=",
+      "goModSum": "h1:7dCRMLwisfRH3dBupKeNCioWYUZ4SS09Z14H+7i8ZoY=",
+      "notices": [
+        {
+          "file": "LICENSE.txt",
+          "sha256": "646f8936b8ddcd14e13e578ff6857e368780b0d1a4f6066bee89211923a373e2"
+        }
+      ]
+    },
+    {
+      "path": "github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/internal/v2",
+      "version": "v2.0.0",
+      "direct": false,
+      "cliTargets": [],
+      "sum": "h1:PTFGRSlMKCQelWwxUyYVEUqseBJVemLyqWJjvMyt0do=",
+      "goModSum": "h1:LRr2FzBTQlONPPa5HREE5+RjSCTXl7BwOvYOaWTqCaI=",
+      "notices": [
+        {
+          "file": "LICENSE.txt",
+          "sha256": "646f8936b8ddcd14e13e578ff6857e368780b0d1a4f6066bee89211923a373e2"
+        }
+      ]
+    },
+    {
+      "path": "github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/managementgroups/armmanagementgroups",
+      "version": "v1.2.0",
+      "direct": true,
+      "cliTargets": [
+        "linux/amd64",
+        "windows/amd64"
+      ],
+      "sum": "h1:akP6VpxJGgQRpDR1P462piz/8OhYLRCreDj48AyNabc=",
+      "goModSum": "h1:8wzvopPfyZYPaQUoKW87Zfdul7jmJMDfp/k7YY3oJyA=",
+      "notices": [
+        {
+          "file": "LICENSE.txt",
+          "sha256": "8f3b85643422256a936daede0159c60fe5d140ace61a4fbb7de8b912e1274260"
+        }
+      ]
+    },
+    {
+      "path": "github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/resources/armresources",
+      "version": "v1.1.1",
+      "direct": false,
+      "cliTargets": [],
+      "sum": "h1:7CBQ+Ei8SP2c6ydQTGCCrS35bDxgTMfoP2miAwK++OU=",
+      "goModSum": "h1:c/wcGeGx5FUPbM/JltUYHZcKmigwyVLJlDq+4HdtXaw=",
+      "notices": [
+        {
+          "file": "LICENSE.txt",
+          "sha256": "8f3b85643422256a936daede0159c60fe5d140ace61a4fbb7de8b912e1274260"
+        }
+      ]
+    },
+    {
+      "path": "github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/subscription/armsubscription",
+      "version": "v1.2.0",
+      "direct": true,
+      "cliTargets": [
+        "linux/amd64",
+        "windows/amd64"
+      ],
+      "sum": "h1:UrGzkHueDwAWDdjQxC+QaXHd4tVCkISYE9j7fSSXF8k=",
+      "goModSum": "h1:qskvSQeW+cxEE2bcKYyKimB1/KiQ9xpJ99bcHY0BX6c=",
+      "notices": [
+        {
+          "file": "LICENSE.txt",
+          "sha256": "8f3b85643422256a936daede0159c60fe5d140ace61a4fbb7de8b912e1274260"
+        }
+      ]
+    },
+    {
+      "path": "github.com/AzureAD/microsoft-authentication-extensions-for-go/cache",
+      "version": "v0.1.1",
+      "direct": false,
+      "cliTargets": [],
+      "sum": "h1:WJTmL004Abzc5wDB5VtZG2PJk5ndYDgVacGqfirKxjM=",
+      "goModSum": "h1:tCcJZ0uHAmvjsVYzEFivsRTN00oz5BEsRgQHu5JZ9WE=",
+      "notices": [
+        {
+          "file": "LICENSE",
+          "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383"
+        }
+      ]
+    },
+    {
+      "path": "github.com/AzureAD/microsoft-authentication-library-for-go",
+      "version": "v1.8.0",
+      "direct": false,
+      "cliTargets": [
+        "linux/amd64",
+        "windows/amd64"
+      ],
+      "sum": "h1:Nljr4q1GRA/5vCrMONS+g4u4LRHNgOXVSh3O43J2CnI=",
+      "goModSum": "h1:Y33QHnf0FfdVewFFISOGe20mkZbxX4H839o955/PoeI=",
+      "notices": [
+        {
+          "file": "LICENSE",
+          "sha256": "9906940f61b1f0b533fa7d99baf55178b2808fbe113ea51dfbfad8572ccd5f2b"
+        }
+      ]
+    },
+    {
+      "path": "github.com/cpuguy83/go-md2man/v2",
+      "version": "v2.0.6",
+      "direct": false,
+      "cliTargets": [],
+      "sum": "h1:XJtiaUW6dEEqVuZiMTn1ldk455QWwEIsMIJlo5vtkx0=",
+      "goModSum": "h1:oOW0eioCTA6cOiMLiUPZOpcVxMig6NIQQ7OS05n1F4g=",
+      "notices": [
+        {
+          "file": "LICENSE.md",
+          "sha256": "a55959c4e3e8917bfa857359bb641115336276a6cc97408fd8197e079fb18470"
+        }
+      ]
+    },
+    {
+      "path": "github.com/creack/pty",
+      "version": "v1.1.9",
+      "direct": false,
+      "cliTargets": [],
+      "sum": "h1:uDmaGzcdjhF4i/plgjmEsriH11Y0o7RKapEf/LDaM3w=",
+      "goModSum": "h1:oKZEueFk5CKHvIhNR5MUki03XCEU+Q6VDXinZuGJ33E=",
+      "notices": [
+        {
+          "file": "LICENSE",
+          "sha256": "a2a1cea59d9c2d71908082f516f86bb560abf857646ecf69d70c121ead14aef4"
+        }
+      ]
+    },
+    {
+      "path": "github.com/davecgh/go-spew",
+      "version": "v1.1.1",
+      "direct": false,
+      "cliTargets": [],
+      "sum": "h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=",
+      "goModSum": "h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=",
+      "notices": [
+        {
+          "file": "LICENSE",
+          "sha256": "1b93a317849ee09d3d7e4f1d20c2b78ddb230b4becb12d7c224c927b9d470251"
+        }
+      ]
+    },
+    {
+      "path": "github.com/dnaeon/go-vcr",
+      "version": "v1.2.0",
+      "direct": false,
+      "cliTargets": [],
+      "sum": "h1:zHCHvJYTMh1N7xnV7zf1m1GPBF9Ad0Jk/whtQ1663qI=",
+      "goModSum": "h1:R4UdLID7HZT3taECzJs4YgbbH6PIGXB6W/sc5OLb6RQ=",
+      "notices": [
+        {
+          "file": "LICENSE",
+          "sha256": "7f52b9ab9566f8d6690e738f8ccdbe8c9545abd29962447ea1c7262666a65b56"
+        }
+      ]
+    },
+    {
+      "path": "github.com/golang-jwt/jwt/v5",
+      "version": "v5.3.1",
+      "direct": false,
+      "cliTargets": [
+        "linux/amd64",
+        "windows/amd64"
+      ],
+      "sum": "h1:kYf81DTWFe7t+1VvL7eS+jKFVWaUnK9cB1qbwn63YCY=",
+      "goModSum": "h1:fxCRLWMO43lRc8nhHWY6LGqRcf+1gQWArsqaEUEa5bE=",
+      "notices": [
+        {
+          "file": "LICENSE",
+          "sha256": "fe26ca41577b9b2b4448050a24b25e5753af66b5d5945d5d36094e7790bfcb2f"
+        }
+      ]
+    },
+    {
+      "path": "github.com/google/uuid",
+      "version": "v1.6.0",
+      "direct": false,
+      "cliTargets": [
+        "linux/amd64",
+        "windows/amd64"
+      ],
+      "sum": "h1:NIvaJDMOsjHA8n1jAhLSgzrAzy1Hgr+hNrb57e+94F0=",
+      "goModSum": "h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=",
+      "notices": [
+        {
+          "file": "LICENSE",
+          "sha256": "0a8d61ed3cbfd5312326e8126c31ce9c627a283adc99131b56896d29ada04b2d"
+        }
+      ]
+    },
+    {
+      "path": "github.com/inconshreveable/mousetrap",
+      "version": "v1.1.0",
+      "direct": false,
+      "cliTargets": [
+        "windows/amd64"
+      ],
+      "sum": "h1:wN+x4NVGpMsO7ErUn/mUI3vEoE6Jt13X2s0bqwp9tc8=",
+      "goModSum": "h1:vpF70FUmC8bwa3OWnCshd2FqLfsEA9PFc4w1p2J65bw=",
+      "notices": [
+        {
+          "file": "LICENSE",
+          "sha256": "4819582701f150b28a563a6cd8ed0bf5a754e3c67b90ad38d78ba4131bf77795"
+        }
+      ]
+    },
+    {
+      "path": "github.com/keybase/go-keychain",
+      "version": "v0.0.1",
+      "direct": false,
+      "cliTargets": [],
+      "sum": "h1:way+bWYa6lDppZoZcgMbYsvC7GxljxrskdNInRtuthU=",
+      "goModSum": "h1:PdEILRW3i9D8JcdM+FmY6RwkHGnhHxXwkPPMeUgOK1k=",
+      "notices": [
+        {
+          "file": "LICENSE",
+          "sha256": "039c69774070226d213bced933176be4ec396c9b101cd9a13e82a2c390c6c90a"
+        }
+      ]
+    },
+    {
+      "path": "github.com/kr/pretty",
+      "version": "v0.3.1",
+      "direct": false,
+      "cliTargets": [],
+      "sum": "h1:flRD4NNwYAUpkphVc1HcthR4KEIFJ65n8Mw5qdRn3LE=",
+      "goModSum": "h1:hoEshYVHaxMs3cyo3Yncou5ZscifuDolrwPKZanG3xk=",
+      "notices": [
+        {
+          "file": "License",
+          "sha256": "283c28b781bc7487bd7bcaf453cbd811f5ee8d7ce625cfcf8dcacae6ba1f4bb5"
+        }
+      ]
+    },
+    {
+      "path": "github.com/kr/text",
+      "version": "v0.2.0",
+      "direct": false,
+      "cliTargets": [],
+      "sum": "h1:5Nx0Ya0ZqY2ygV366QzturHI13Jq95ApcVaJBhpS+AY=",
+      "goModSum": "h1:eLer722TekiGuMkidMxC/pM04lWEeraHUUmBw8l2grE=",
+      "notices": [
+        {
+          "file": "License",
+          "sha256": "283c28b781bc7487bd7bcaf453cbd811f5ee8d7ce625cfcf8dcacae6ba1f4bb5"
+        }
+      ]
+    },
+    {
+      "path": "github.com/kylelemons/godebug",
+      "version": "v1.1.0",
+      "direct": false,
+      "cliTargets": [
+        "linux/amd64",
+        "windows/amd64"
+      ],
+      "sum": "h1:RPNrshWIDI6G2gRW9EHilWtl7Z6Sb1BR0xunSBf0SNc=",
+      "goModSum": "h1:9/0rRGxNHcop5bhtWyNeEfOS8JIWk580+fNqagV/RAw=",
+      "notices": [
+        {
+          "file": "LICENSE",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+        }
+      ]
+    },
+    {
+      "path": "github.com/montanaflynn/stats",
+      "version": "v0.7.0",
+      "direct": false,
+      "cliTargets": [],
+      "sum": "h1:r3y12KyNxj/Sb/iOE46ws+3mS1+MZca1wlHQFPsY/JU=",
+      "goModSum": "h1:etXPPgVO6n31NxCd9KQUMvCM+ve0ruNzt6R8Bnaayow=",
+      "notices": [
+        {
+          "file": "LICENSE",
+          "sha256": "a4b6b141f25c13f5181715fbd5de2e295ebe618627184f12b5f466acad2b135c"
+        }
+      ]
+    },
+    {
+      "path": "github.com/pkg/browser",
+      "version": "v0.0.0-20240102092130-5ac0b6a4141c",
+      "direct": false,
+      "cliTargets": [
+        "linux/amd64",
+        "windows/amd64"
+      ],
+      "sum": "h1:+mdjkGKdHQG3305AYmdv1U2eRNDiU2ErMBj1gwrq8eQ=",
+      "goModSum": "h1:7rwL4CYBLnjLxUqIJNnCWiEdr3bn6IUYi15bNlnbCCU=",
+      "notices": [
+        {
+          "file": "LICENSE",
+          "sha256": "4801bb0c5d70b980b3e1f63d1d2df8d84fec22548e3d73f03a68df1fb808791f"
+        }
+      ]
+    },
+    {
+      "path": "github.com/pmezard/go-difflib",
+      "version": "v1.0.0",
+      "direct": false,
+      "cliTargets": [],
+      "sum": "h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=",
+      "goModSum": "h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=",
+      "notices": [
+        {
+          "file": "LICENSE",
+          "sha256": "2eb550be6801c1ea434feba53bf6d12e7c71c90253e0a9de4a4f46cf88b56477"
+        }
+      ]
+    },
+    {
+      "path": "github.com/richardlehane/mscfb",
+      "version": "v1.0.7",
+      "direct": false,
+      "cliTargets": [
+        "linux/amd64",
+        "windows/amd64"
+      ],
+      "sum": "h1:oeoiM0WE79vHwE8RpIYYvIAc8ajTH2mb6UZm55/+EB0=",
+      "goModSum": "h1:pe0+IUIc0AHh0+teNzBlJCtSyZdFOGgV4ZK9bsoV+Jo=",
+      "notices": [
+        {
+          "file": "LICENSE.txt",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+        }
+      ]
+    },
+    {
+      "path": "github.com/richardlehane/msoleps",
+      "version": "v1.0.6",
+      "direct": false,
+      "cliTargets": [
+        "linux/amd64",
+        "windows/amd64"
+      ],
+      "sum": "h1:9BvkpjvD+iUBalUY4esMwv6uBkfOip/Lzvd93jvR9gg=",
+      "goModSum": "h1:BWev5JBpU9Ko2WAgmZEuiz4/u3ZYTKbjLycmwiWUfWg=",
+      "notices": [
+        {
+          "file": "LICENSE.txt",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+        }
+      ]
+    },
+    {
+      "path": "github.com/rogpeppe/go-internal",
+      "version": "v1.12.0",
+      "direct": false,
+      "cliTargets": [],
+      "sum": "h1:exVL4IDcn6na9z1rAb56Vxr+CgyK3nn3O+epU5NdKM8=",
+      "goModSum": "h1:E+RYuTGaKKdloAfM02xzb0FW3Paa99yedzYV+kq4uf4=",
+      "notices": [
+        {
+          "file": "LICENSE",
+          "sha256": "4835612df0098ca95f8e7d9e3bffcb02358d435dbb38057c844c99d7f725eb20"
+        }
+      ]
+    },
+    {
+      "path": "github.com/russross/blackfriday/v2",
+      "version": "v2.1.0",
+      "direct": false,
+      "cliTargets": [],
+      "sum": "h1:JIOH55/0cWyOuilr9/qlrm0BSXldqnqwMsf35Ld67mk=",
+      "goModSum": "h1:+Rmxgy9KzJVeS9/2gXHxylqXiyQDYRxCVz55jmeOWTM=",
+      "notices": [
+        {
+          "file": "LICENSE.txt",
+          "sha256": "75e1ca97a84a9da6051dee0114333388216f2c4a5a028296b882ff3d57274735"
+        }
+      ]
+    },
+    {
+      "path": "github.com/spf13/cobra",
+      "version": "v1.10.2",
+      "direct": true,
+      "cliTargets": [
+        "linux/amd64",
+        "windows/amd64"
+      ],
+      "sum": "h1:DMTTonx5m65Ic0GOoRY2c16WCbHxOOw6xxezuLaBpcU=",
+      "goModSum": "h1:7C1pvHqHw5A4vrJfjNwvOdzYu0Gml16OCs2GRiTUUS4=",
+      "notices": [
+        {
+          "file": "LICENSE.txt",
+          "sha256": "5e3400b93bbb099e83e52bab885e7441750673c21f97988ca3f1240639b63283"
+        }
+      ]
+    },
+    {
+      "path": "github.com/spf13/pflag",
+      "version": "v1.0.10",
+      "direct": false,
+      "cliTargets": [
+        "linux/amd64",
+        "windows/amd64"
+      ],
+      "sum": "h1:4EBh2KAYBwaONj6b2Ye1GiHfwjqyROoF4RwYO+vPwFk=",
+      "goModSum": "h1:McXfInJRrz4CZXVZOBLb0bTZqETkiAhM9Iw0y3An2Bg=",
+      "notices": [
+        {
+          "file": "LICENSE",
+          "sha256": "b8514c577c1c4b46cee454d5a882b15fa411e72c5bd7f801f241591789fce61a"
+        }
+      ]
+    },
+    {
+      "path": "github.com/stretchr/testify",
+      "version": "v1.12.1",
+      "direct": false,
+      "cliTargets": [],
+      "sum": "h1:EuwCh5fleGS7H32xRwO3wRGT7DxrDhLAT6FF8MpWDWE=",
+      "goModSum": "h1:MDEgiDPPsNp5cuIrHPPCyornHKgEVbtFUmoNlxoYthg=",
+      "notices": [
+        {
+          "file": "LICENSE",
+          "sha256": "f8e536c1c7b695810427095dc85f5f80d44ff7c10535e8a9486cf393e2599189"
+        }
+      ]
+    },
+    {
+      "path": "github.com/tiendc/go-deepcopy",
+      "version": "v1.7.2",
+      "direct": false,
+      "cliTargets": [
+        "linux/amd64",
+        "windows/amd64"
+      ],
+      "sum": "h1:Ut2yYR7W9tWjTQitganoIue4UGxZwCcJy3orjrrIj44=",
+      "goModSum": "h1:4bKjNC2r7boYOkD2IOuZpYjmlDdzjbpTRyCx+goBCJQ=",
+      "notices": [
+        {
+          "file": "LICENSE",
+          "sha256": "790522a8c994c2adf4c35397a0bc2fe68e59feb7b59fba812586403d15692c71"
+        }
+      ]
+    },
+    {
+      "path": "github.com/xuri/efp",
+      "version": "v0.0.1",
+      "direct": false,
+      "cliTargets": [
+        "linux/amd64",
+        "windows/amd64"
+      ],
+      "sum": "h1:fws5Rv3myXyYni8uwj2qKjVaRP30PdjeYe2Y6FDsCL8=",
+      "goModSum": "h1:ybY/Jr0T0GTCnYjKqmdwxyxn2BQf2RcQIIvex5QldPI=",
+      "notices": [
+        {
+          "file": "LICENSE",
+          "sha256": "80d18b43dabef906fa55655b7bf2b6709ce7c7e0762484cf17b757a4b47590f3"
+        }
+      ]
+    },
+    {
+      "path": "github.com/xuri/excelize/v2",
+      "version": "v2.11.0",
+      "direct": true,
+      "cliTargets": [
+        "linux/amd64",
+        "windows/amd64"
+      ],
+      "sum": "h1:HxaEFl6sRN2+8J5a8HaKq+0M4FsjBGMnWWtjOCPSG88=",
+      "goModSum": "h1:jxFLbzaIwGQ5ufFNvYfUOHqXhfPaNmP14KWfmNz2Uak=",
+      "notices": [
+        {
+          "file": "LICENSE",
+          "sha256": "0b8e4f8789b88fa44dee713d934e4d36f52854b33670ab4a0ce3de69e8e224cd"
+        }
+      ]
+    },
+    {
+      "path": "github.com/xuri/nfp",
+      "version": "v0.0.2-0.20250530014748-2ddeb826f9a9",
+      "direct": false,
+      "cliTargets": [
+        "linux/amd64",
+        "windows/amd64"
+      ],
+      "sum": "h1:+C0TIdyyYmzadGaL/HBLbf3WdLgC29pgyhTjAT/0nuE=",
+      "goModSum": "h1:WwHg+CVyzlv/TX9xqBFXEZAuxOPxn2k1GNHwG41IIUQ=",
+      "notices": [
+        {
+          "file": "LICENSE",
+          "sha256": "0de3fcd687652dc103446ce5c0d2aec948fbbb1f9099b3c1958c3fd62ba941a0"
+        }
+      ]
+    },
+    {
+      "path": "go.yaml.in/yaml/v3",
+      "version": "v3.0.5",
+      "direct": false,
+      "cliTargets": [],
+      "sum": "h1:N6y/pJk8buWs9NY5ERU2HSMfm+IuD/OtfdAnq6kESPw=",
+      "goModSum": "h1:HVTZu1O7/Vkt2N+BFy8Zza+lnLsABggaTM2ZpNIGuKg=",
+      "notices": [
+        {
+          "file": "LICENSE",
+          "sha256": "d18f6323b71b0b768bb5e9616e36da390fbd39369a81807cca352de4e4e6aa0b"
+        },
+        {
+          "file": "NOTICE",
+          "sha256": "f6c2dd3a67b576eafb89b80200b8b1627230bf3821a0c14cb99a22ac19107d00"
+        }
+      ]
+    },
+    {
+      "path": "golang.org/x/crypto",
+      "version": "v0.55.0",
+      "direct": false,
+      "cliTargets": [
+        "linux/amd64",
+        "windows/amd64"
+      ],
+      "sum": "h1:+KWHjbgOaAQ66dh/YlkZKHlz9ZUlq61AFirAR9ntP8M=",
+      "goModSum": "h1:uq0V9dE/fzQuJtbnL+2EhWOE63vo164FY8xqEnV9xis=",
+      "notices": [
+        {
+          "file": "LICENSE",
+          "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad"
+        }
+      ]
+    },
+    {
+      "path": "golang.org/x/image",
+      "version": "v0.38.0",
+      "direct": false,
+      "cliTargets": [],
+      "sum": "h1:5l+q+Y9JDC7mBOMjo4/aPhMDcxEptsX+Tt3GgRQRPuE=",
+      "goModSum": "h1:/3f6vaXC+6CEanU4KJxbcUZyEePbyKbaLoDOe4ehFYY=",
+      "notices": [
+        {
+          "file": "LICENSE",
+          "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad"
+        }
+      ]
+    },
+    {
+      "path": "golang.org/x/mod",
+      "version": "v0.38.0",
+      "direct": false,
+      "cliTargets": [],
+      "sum": "h1:MECBjubtXD7yj4HrhIUcywNaGeNVUdfVnxmPajOk4yk=",
+      "goModSum": "h1:V6Xz0pq8TQ3dGqVQ1FVHuelZpAL0uNhSkk9ogYP3c40=",
+      "notices": [
+        {
+          "file": "LICENSE",
+          "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad"
+        }
+      ]
+    },
+    {
+      "path": "golang.org/x/net",
+      "version": "v0.58.0",
+      "direct": false,
+      "cliTargets": [
+        "linux/amd64",
+        "windows/amd64"
+      ],
+      "sum": "h1:ynWG7rqYi4ccpTEuPZ2QGWHktVEM9DMCj9yzDE0Q7To=",
+      "goModSum": "h1:YwCddHnFlT7eLQqVprV19OnhLGtc5xOKgE0RyqgfWAU=",
+      "notices": [
+        {
+          "file": "LICENSE",
+          "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad"
+        }
+      ]
+    },
+    {
+      "path": "golang.org/x/sync",
+      "version": "v0.22.0",
+      "direct": false,
+      "cliTargets": [
+        "linux/amd64",
+        "windows/amd64"
+      ],
+      "sum": "h1:SZjpbeLmrCk4xhRSZFNZW5gFUeCeFgjekvI/+gfScek=",
+      "goModSum": "h1:9xrNwdLfx4jkKbNva9FpL6vEN7evnE43NNNJQ2LF3+0=",
+      "notices": [
+        {
+          "file": "LICENSE",
+          "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad"
+        }
+      ]
+    },
+    {
+      "path": "golang.org/x/sys",
+      "version": "v0.47.0",
+      "direct": true,
+      "cliTargets": [
+        "windows/amd64"
+      ],
+      "sum": "h1:o7XGOvZQCADBQQ4Y7VNq2dRWQR7JmOUW8Kxx4ZsNgWs=",
+      "goModSum": "h1:4GL1E5IUh+htKOUEOaiffhrAeqysfVGipDYzABqnCmw=",
+      "notices": [
+        {
+          "file": "LICENSE",
+          "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad"
+        }
+      ]
+    },
+    {
+      "path": "golang.org/x/term",
+      "version": "v0.45.0",
+      "direct": false,
+      "cliTargets": [],
+      "sum": "h1:NwWyBmoJCbfTHpxrWoZ9C6/VxOf7ic219I8xZZFdrf0=",
+      "goModSum": "h1:9aqxs0blBcrm/n0L9QW0aRVD+ktan8ssZromtqJC43w=",
+      "notices": [
+        {
+          "file": "LICENSE",
+          "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad"
+        }
+      ]
+    },
+    {
+      "path": "golang.org/x/text",
+      "version": "v0.41.0",
+      "direct": false,
+      "cliTargets": [
+        "linux/amd64",
+        "windows/amd64"
+      ],
+      "sum": "h1:vz/seA0lnX87Othu2f/0L24RcgrXD9/YFTSuGjj3rH8=",
+      "goModSum": "h1:jvf1O8ajNzZqhSrQBPbutR/EB83Cc0CFrezNQIwbb5M=",
+      "notices": [
+        {
+          "file": "LICENSE",
+          "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad"
+        }
+      ]
+    },
+    {
+      "path": "golang.org/x/time",
+      "version": "v0.16.0",
+      "direct": true,
+      "cliTargets": [
+        "linux/amd64",
+        "windows/amd64"
+      ],
+      "sum": "h1:vMb6ptszcQMkcwiRTAuNNU50gom6++Q/6gY2hDM6VDE=",
+      "goModSum": "h1:rVKOqvZeKvrDKTQiAHJ7wmwP0RzleSphoEA9RcdLA0s=",
+      "notices": [
+        {
+          "file": "LICENSE",
+          "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad"
+        }
+      ]
+    },
+    {
+      "path": "golang.org/x/tools",
+      "version": "v0.48.0",
+      "direct": false,
+      "cliTargets": [],
+      "sum": "h1:3+hClM1aLL5mjMKm5ovokw9epgRXPuu2tILgismM6RE=",
+      "goModSum": "h1:08xX0orndb/F7jJxGDicx061tyd5pcMto75YMAXr6lk=",
+      "notices": [
+        {
+          "file": "LICENSE",
+          "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad"
+        }
+      ]
+    },
+    {
+      "path": "gopkg.in/check.v1",
+      "version": "v1.0.0-20201130134442-10cb98267c6c",
+      "direct": false,
+      "cliTargets": [],
+      "sum": "h1:Hei/4ADfdWqJk1ZMxUNpqntNwaWcugrBjAiHlqqRiVk=",
+      "goModSum": "h1:JHkPIbrfpd72SG/EVd6muEfDQjcINNoR0C8j2r3qZ4Q=",
+      "notices": [
+        {
+          "file": "LICENSE",
+          "sha256": "69ce77f2b1c9c608d27f2d749b0e7d0c13960ed3b0dc07b973ac940e362e5d9c"
+        }
+      ]
+    },
+    {
+      "path": "gopkg.in/yaml.v2",
+      "version": "v2.4.0",
+      "direct": false,
+      "cliTargets": [],
+      "sum": "h1:D8xgwECY7CYvx+Y2n4sBz93Jn9JRvxdiyyo8CTfuKaY=",
+      "goModSum": "h1:RDklbk79AGWmwhnvt/jBztapEOGDOx6ZbXqjP6csGnQ=",
+      "notices": [
+        {
+          "file": "LICENSE",
+          "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+        },
+        {
+          "file": "LICENSE.libyaml",
+          "sha256": "a94710b55e03b5285f77d048c5ba61bb9d6ee04a06c0eb90e68821e11b0c707a"
+        },
+        {
+          "file": "NOTICE",
+          "sha256": "f6c2dd3a67b576eafb89b80200b8b1627230bf3821a0c14cb99a22ac19107d00"
+        }
+      ]
+    },
+    {
+      "path": "gopkg.in/yaml.v3",
+      "version": "v3.0.1",
+      "direct": true,
+      "cliTargets": [
+        "linux/amd64",
+        "windows/amd64"
+      ],
+      "sum": "h1:fxVm/GzAzEWqLHuvctI91KS9hhNmmWOoWu0XTYJS7CA=",
+      "goModSum": "h1:K4uyk7z7BCEPqu6E+C64Yfv1cQ7kz7rIZviUmN+EgEM=",
+      "notices": [
+        {
+          "file": "LICENSE",
+          "sha256": "d18f6323b71b0b768bb5e9616e36da390fbd39369a81807cca352de4e4e6aa0b"
+        },
+        {
+          "file": "NOTICE",
+          "sha256": "f6c2dd3a67b576eafb89b80200b8b1627230bf3821a0c14cb99a22ac19107d00"
+        }
+      ]
+    }
+  ],
+  "bundledContent": [
+    {
+      "name": "APRL normal catalog",
+      "path": "internal/rules/upstream/aprl/azure-resources",
+      "revision": "60eaddda76541f6adbc1c5ffa686829807e55e29"
+    },
+    {
+      "name": "AOR snapshot",
+      "path": "internal/rules/upstream/orphan-resources",
+      "revision": "a3ff1cafbc0a74ea4e4d2cc5aa2812f7c1dab9f5"
+    },
+    {
+      "name": "Custom reference rules",
+      "path": "internal/rules/custom/azure-resources",
+      "revision": "674b9b3dcb443ce6dc445b48e1db47e4a0ca7082"
+    },
+    {
+      "name": "Known SKU snapshot",
+      "path": "internal/skus/known_skus.yaml",
+      "sha256": "538caba43a5bb114287656966049a3d240dfbfd861a665c295b5327e94a9a44c"
+    }
+  ],
+  "standardLibraryNotices": [
+    {
+      "file": "LICENSE",
+      "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad"
+    },
+    {
+      "file": "PATENTS",
+      "sha256": "96f408bfae65bf137fc2525d3ecb030271c50c1e90799f87abf8846d8dd505cc"
+    }
+  ]
+}

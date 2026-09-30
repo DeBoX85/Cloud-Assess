@@ -1,6 +1,6 @@
 # Cloud Assess Roadmap
 
-Status: working execution roadmap, reviewed 2026-09-30 against `bootstrap/core-v1` at `108ac4d16acc8f66fdac0ad91ab27fbd55b94cb6`
+Status: working execution roadmap, reviewed 2026-09-30 against `bootstrap/core-v1` at `532c95aa3b3fdfe4015d66567be5e57c501809fc`
 
 Active development branch: `bootstrap/core-v1`
 
@@ -22,7 +22,7 @@ These are coarse planning estimates, not measured coverage or quality-gate decis
 |---|---:|---|
 | Generic core scan on exercised Azure scopes | About 80% | The executable, stage health, reports and comparator work, with many exact live passes. Non-empty Policy/Defender Recommendations, Arc SQL numeric `vcores`, remaining scope/filter cases and warning classification are missing. |
 | Core-v1 acceptance against the agreed first-release scope | About 65% | Quality Gate 004 is planned, with open negative paths, evidence gaps, feature-boundary decisions and deferred live nested management-group traversal (DV-001). The scope decision could change this estimate. |
-| Installable and supportable first-release toolkit | About 45% | Packaging, clean installation, dependency/license inventory, artifact provenance, operational/security review and release gate are not complete. |
+| Installable and supportable first-release toolkit | About 45% | Packaging, clean installation, release-specific dependency/license review, artifact provenance, operational/security review and release gate are not complete. |
 | Full AZQR feature parity | About 55% | The common assessment path has substantial equivalence evidence, while internal plugins, scanner-specific commands and ancillary CLI surfaces remain unimplemented or deliberately deferred. This is broader than the current core-v1 acceptance target. |
 
 The estimates are rounded to roughly ten percentage points and must not be used as a release approval. The first Gate 004 negative-path fixture exercises the production authenticated HTTP client through the ARG query boundary for exhausted-retry HTTP 429 versus valid empty data. It passed Linux and Windows CI in PR #43; see the ledger for the initial fixture correction and exact run IDs. PR #45 then validated failed Graph stage health and persisted JSON across coordinator and application, using an injected operation error. The fixtures are separate. PR #47 validated process exits 0/1/2/3 and persisted JSON using the test executable, production dispatcher and synthetic assessments on Linux and Windows (run `36715889734`). PR #49 validated in-flight ARG caller cancellation/deadline and Advisor interruption/persistence fixtures on Linux and Windows (run `36718219604`). The HTTP `OperationTimeout` remediation now applies a positive per-call total deadline through retries and body consumption; focused fixtures passed Linux/Windows CI in PR #51 (run `36720076461`). Whole-scan budgeting and default retry sequencing remain open. Built/installed CLI validation, other adapters and failure paths, remaining paired filter interactions and non-empty optional-stage evidence follow. No Azure access was needed for these deterministic fixtures. Do not scan the production-containing `Advisory` parent to advance DV-001.
@@ -65,6 +65,8 @@ A one-time review of the earlier project conversation identified three requireme
 - **Access model:** The earlier specification separated ordinary read-oriented resource access from Cost data visibility and required a Cost access failure to remain distinct from a valid zero-cost result. Document the actual stage-specific permissions, billing prerequisites, and failure behavior as part of the release operations review. Verify current Azure role guidance against official documentation before publishing concrete role recommendations. Plugin permissions need their own entries when plugins are supported.
 
 These items do not change the Phase S tag-filter result or close its separate-run Advisor timing limit. Paired exclusions of `Environment: dev`, the known Dev resource group and one observed VM recommendation were exercised in Phases T, U and V, each with an explicit warning limit. Keep the existing Gate 004 and release-gate criteria in force.
+
+The current dependency/license evidence inventory covers all 49 selected Go modules, the Go 1.26.8 standard library/toolchain notices and bundled rule/SKU pins. Linux and Windows CLI membership is recorded separately. CI checks freshness and failure paths; see [DEPENDENCIES.md](DEPENDENCIES.md). Platform artifact review, release notice packaging and licensing sign-off remain open. The next autonomous checkpoint is a deterministic built-CLI/report inspection before distribution packaging.
 
 ## Execution order and completion gates
 

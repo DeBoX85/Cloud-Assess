@@ -43,6 +43,7 @@ Record user-visible instruction errors and errors that affected code, tests, evi
 - **Prevention:** Inventory paths before reading an unfamiliar package; use symbol search to locate implementations.
 - **Recurrence, 2026-09-30 QA expansion:** Tried reading nonexistent `internal/equivalence/compare_test.go` even though the inventory showed `projection_test.go`. Corrected through symbol search. Strengthened prevention: use the enumerated path exactly, and search test function names before guessing a test filename. No product files were changed by the failed read.
 - **Recurrence, optional-stage checkpoint:** Guessed `internal/assessment/assessment.go` and then repeated the already recorded `stage.go` path during inspection. Neither exists. Located `types.go` using the file inventory. No product mutation resulted; the prevention rule was not followed and remains required.
+- **Recurrence, dependency inventory:** Guessed nonexistent `internal/rules/README.md` despite the path-inventory rule. Corrected by reading the enumerated provenance and embed files. No product change resulted.
 - **Evidence:** CLI process-test and QA expansion inspection sessions. **Status:** Corrected; recurrences recorded in this entry.
 
 ## FN-005: Windows ACL fixture inherited another PowerShell module path
@@ -94,3 +95,11 @@ Record user-visible instruction errors and errors that affected code, tests, evi
 - **Date:** 2026-09-30. The first local generation suite passed from a full-history checkout, but CI checks out depth one. Final review reproduced the fixture bootstrap push failure with a depth-one file-URL clone: the disposable bare remote rejected it with `shallow update not allowed`. No GitHub or Azure refs were changed by the reproducer.
 - **Correction:** Generation fixtures now always clone depth one and explicitly allow a shallow bootstrap in their disposable bare remote. This setting is never applied to origin/GitHub or the project repository. The proposal/base-ref assertions remain unchanged. Unexpected fixture-command failures now include bounded captured stderr in the test failure to expose the underlying Git error.
 - **Prevention:** Match CI checkout depth and fixture-server assumptions during local recipe tests; do not infer hosted readiness from full-history fixture results. Check this register when a bootstrap push fails. Original PR #59 run `36738474726` failed Linux job `109966302312` during fixture bootstrap pushes; Windows passed. The corrected six-case suite passed locally with depth-one fixtures and Go 1.26.8. Corrected code head `620de86e8756007598f1e6565c8855e923fa7d6a` passed required Linux/Windows run `36739045844`, including all six generation cases. **Status:** Corrected and verified locally and in required hosted CI.
+
+## FN-012: Inventory package listing initially hid VCS-status errors
+
+- **Date:** 2026-09-30.
+- **Mistake:** Initial package-list command used implicit VCS stamping, which failed with `error obtaining VCS status: exit status 128`. The first Python wrapper exposed only the command exit, withholding useful stderr. No evidence files were produced.
+- **Correction:** Package dependency listing uses `-buildvcs=false` because its purpose is target membership; source pins are checked explicitly through Git. Command failures now report bounded stderr and have a five-minute timeout. This does not disable stamping in product builds or change repository ownership settings.
+- **Prevention:** Do not rely on incidental executable stamping to determine dependency membership. Preserve command diagnostics, validate source pins separately, and check that failed collection retains previous inventory files.
+- **Evidence:** Local initial inventory collection and corrected generation, plus retention fixture. **Status:** Corrected for inventory collection; underlying local VCS-stamping environment issue is not claimed resolved.

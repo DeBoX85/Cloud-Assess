@@ -82,4 +82,4 @@ SOFTWARE.
 
 ## Dependency inventory
 
-Go dependency notices are separate from the incorporated source/rule material above. Before a release or redistribution, generate a dependency/license inventory from the actual release dependency graph and review it together with this file and `NOTICE.md`.
+Go dependency notices are separate from the incorporated source/rule material above. The reproducible [inventory procedure](docs/DEPENDENCIES.md), [selected module manifest](docs/dependencies/inventory.json), and [generated full notices](docs/dependencies/NOTICES.md) preserve current evidence. Before release or redistribution, regenerate on the actual release tree and toolchain, review platform/artifact contents, and distribute the required notices together with this file and `NOTICE.md`.

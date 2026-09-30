@@ -74,6 +74,12 @@ jobs:
           go mod tidy
           git diff --exit-code -- go.mod go.sum
 
+      - name: Test dependency inventory safeguards
+        run: python3 scripts/tests/dependency-inventory.py
+
+      - name: Verify dependency and license inventory freshness
+        run: python3 scripts/dependency-inventory.py --check
+
       - name: Verify product branding boundaries
         shell: bash
         run: |
