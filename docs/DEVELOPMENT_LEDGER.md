@@ -1478,6 +1478,16 @@ This is not a built or installed Azure CLI test and does not exercise production
 
 Recorded two mistaken inspection paths and their recurrence prevention as FN-004 in [FAILURE_NOTES.md](FAILURE_NOTES.md).
 
+### Gate 004 in-flight interruption checkpoint
+
+**Date:** 2026-09-30.
+
+Added local TLS endpoint fixtures through the production authenticated HTTP client, ARG HTTP transport and query client. The endpoint confirms receipt before cancellation; a separate caller deadline expires while the response is pending. Both must preserve context error identity, return no result and stop after one request with retries explicitly disabled. These tests do not establish default retry timing or automatic operation timeout behavior.
+
+A separate coordinator/application fixture interrupts the noncritical Advisor stage after healthy inventory and Graph findings. It verifies exit 1, failed completeness, specific cancellation/deadline stage codes, skipped Defender, preserved JSON inventory/findings and no fabricated Advisor rows. The deadline is an expired child context created at the operation seam; this fixture does not connect the TLS request to the coordinator or test OS signals. No Azure requests are made. Required Linux and Windows CI is pending; local Go is unavailable.
+
+**Inspection issue:** `HTTPClientOptions.OperationTimeout` is assigned by `DefaultHTTPClientOptions` but never consumed by the HTTP implementation. Its advertised value therefore does not impose a total operation deadline. Existing caller contexts and per-attempt `Timeout` remain separate mechanisms. Track an explicit implementation/removal decision and bounded retry/body-read tests before making total-duration claims. No production timeout behavior is changed in this checkpoint.
+
 ## Current boundary
 
 The generic core scan, deterministic equivalence tooling, reproducible live runner, default/optional/resource-group/two-subscription/leaf-management-group and separate Storage/VM, RG include/exclude, tag include/exclude, recommendation-exclude and individual-resource-exclude live passes, plus enforced development CI, are complete for the behavior exercised so far. The unfiltered two-subscription, leaf-management-group, tag-exclude, RG-exclude and individual-resource-exclude passes have explicit Diagnostics warning boundaries; the recommendation-exclude pass is also `complete_with_warnings`, without supplied warning details. Network Watcher individual-GET probes and the Phase W one-request batch probe support an explanation for earlier warnings but have not mapped the original multi-request batch responses. The missing cross-run Advisor row has unknown recorded tag scope in the tag-only target inventory; historical Azure timing remains unresolved.

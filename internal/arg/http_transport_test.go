@@ -174,3 +174,62 @@ func TestParseResetAfter(t *testing.T) {
 		t.Fatal("expected invalid reset-after value to fail")
 	}
 }
+
+func TestQueryInterruptedDuringHTTPRequestDoesNotReturnEmptySuccess(t *testing.T) {
+	for _, name := range []string{"canceled", "deadline"} {
+		t.Run(name, func(t *testing.T) {
+			started := make(chan struct{})
+			release := make(chan struct{})
+			var calls atomic.Int32
+			server := httptest.NewTLSServer(http.HandlerFunc(func(w http.ResponseWriter, request *http.Request) {
+				if calls.Add(1) == 1 {
+					close(started)
+				}
+				select {
+				case <-request.Context().Done():
+				case <-release:
+				}
+			}))
+			defer server.Close()
+			defer close(release)
+			ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+			defer cancel()
+			httpClient := azure.NewHTTPClient(argTestCredential{}, &azure.HTTPClientOptions{
+				Timeout:    10 * time.Second,
+				MaxRetries: -1,
+				Scope:      "https://management.azure.com/.default",
+				Transport:  server.Client(),
+			})
+			type outcome struct {
+				result *Result
+				err    error
+			}
+			finished := make(chan outcome, 1)
+			go func() {
+				result, err := NewClient(NewHTTPTransportWithClient(httpClient, server.URL)).Query(ctx, "resources", map[string]string{"sub": "name"})
+				finished <- outcome{result: result, err: err}
+			}()
+			select {
+			case <-started:
+			case <-ctx.Done():
+				t.Fatal("request did not reach the endpoint before deadline")
+			}
+			want := context.DeadlineExceeded
+			if name == "canceled" {
+				want = context.Canceled
+				cancel()
+			}
+			select {
+			case got := <-finished:
+				if got.result != nil || !errors.Is(got.err, want) {
+					t.Fatalf("result = %#v, error = %v; want nil result and %v", got.result, got.err, want)
+				}
+			case <-time.After(10 * time.Second):
+				t.Fatal("query did not stop after context interruption")
+			}
+			if calls.Load() != 1 {
+				t.Fatalf("requests = %d, want one interrupted request", calls.Load())
+			}
+		})
+	}
+}

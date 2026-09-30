@@ -9,6 +9,7 @@ import (
 	"path/filepath"
 	"strings"
 	"testing"
+	"time"
 
 	"github.com/DeBoX85/Cloud-Assess/internal/advisor"
 	"github.com/DeBoX85/Cloud-Assess/internal/arcsql"
@@ -22,6 +23,7 @@ import (
 	"github.com/DeBoX85/Cloud-Assess/internal/orchestration"
 	"github.com/DeBoX85/Cloud-Assess/internal/policy"
 	"github.com/DeBoX85/Cloud-Assess/internal/redact"
+	"github.com/DeBoX85/Cloud-Assess/internal/result"
 	"github.com/DeBoX85/Cloud-Assess/internal/rules"
 	"github.com/DeBoX85/Cloud-Assess/internal/stages"
 	"github.com/xuri/excelize/v2"
@@ -377,5 +379,76 @@ func operationsForEndToEndTest(t *testing.T, catalog *rules.Catalog, resource as
 		ScanCost: func(context.Context, map[string]string) (cost.Result, error) {
 			return cost.Result{}, nil
 		},
+	}
+}
+
+func TestAdvisorContextFailurePersistsHealthyDataAndStopsLaterStages(t *testing.T) {
+	for _, name := range []string{"canceled", "deadline"} {
+		t.Run(name, func(t *testing.T) {
+			resource := assessment.Resource{
+				ID:             "/subscriptions/fixture/resourceGroups/rg/providers/Microsoft.Storage/storageAccounts/store",
+				SubscriptionID: "fixture",
+				Type:           "Microsoft.Storage/storageAccounts",
+			}
+			definition := assessment.RecommendationDefinition{ID: "storage-test", ResourceType: resource.Type, Query: "resources", Source: rules.SourceCustom}
+			finding := assessment.Finding{RecommendationID: definition.ID, ResourceID: resource.ID, ResourceType: resource.Type}
+			catalog := rules.NewCatalog()
+			catalog.Add(definition)
+			operations := operationsForEndToEndTest(t, catalog, resource, finding)
+			ctx, cancel := context.WithCancel(context.Background())
+			defer cancel()
+			operations.ScanAdvisor = func(ctx context.Context, _ map[string]string, _ *config.AssessmentFilter) (advisor.Result, error) {
+				if name == "canceled" {
+					cancel()
+				} else {
+					// Expire a real child context only after the healthy stages finish.
+					var stop context.CancelFunc
+					ctx, stop = context.WithDeadline(ctx, time.Now().Add(-time.Second))
+					defer stop()
+				}
+				<-ctx.Done()
+				return advisor.Result{}, ctx.Err()
+			}
+			defenderCalled := false
+			operations.ScanDefenderStatus = func(context.Context, map[string]string, *config.AssessmentFilter) (defender.StatusResult, error) {
+				defenderCalled = true
+				return defender.StatusResult{}, nil
+			}
+			base := filepath.Join(t.TempDir(), "interrupted")
+			outcome, err := NewRunner(orchestration.NewCoordinator(operations)).Run(ctx, ScanOptions{
+				Assessment: orchestration.Request{Subscriptions: []string{resource.SubscriptionID}, ScannerKeys: []string{"st"}, Stages: stages.NewDefault()},
+				Outputs:    OutputOptions{BaseName: base, JSON: true},
+			})
+			if err == nil || outcome.ExitCode != ExitExecutionFail || defenderCalled {
+				t.Fatalf("error=%v exit=%d defenderCalled=%v", err, outcome.ExitCode, defenderCalled)
+			}
+			data, err := os.ReadFile(base + ".json")
+			if err != nil {
+				t.Fatal(err)
+			}
+			var report result.AssessmentResult
+			if err := json.Unmarshal(data, &report); err != nil {
+				t.Fatal(err)
+			}
+			if report.Completeness != assessment.CompletenessFailed || len(report.Resources) != 1 || len(report.Findings) != 1 || report.Findings[0].RecommendationID != definition.ID || len(report.Advisor) != 0 {
+				t.Fatalf("interrupted report lost healthy data or invented Advisor rows: %+v", report)
+			}
+			wantCode := "assessment_canceled"
+			if name == "deadline" {
+				wantCode = "assessment_deadline_exceeded"
+			}
+			advisorFailed, defenderSkipped := false, false
+			for _, stage := range report.Stages {
+				if stage.Name == stages.Advisor {
+					advisorFailed = stage.Status == assessment.StageFailed && stage.Error != nil && stage.Error.Code == wantCode
+				}
+				if stage.Name == stages.Defender {
+					defenderSkipped = stage.Status == assessment.StageSkipped
+				}
+			}
+			if !advisorFailed || !defenderSkipped {
+				t.Fatalf("interruption stage health missing: %+v", report.Stages)
+			}
+		})
 	}
 }
