@@ -68,6 +68,8 @@ Record user-visible instruction errors and errors that affected code, tests, evi
 
 - **Tool-helper recurrence, optional-stage checkpoint:** Workflow discovery returned an empty run list immediately after an update; the helper attempted to store an undefined run ID and was rejected. No repository mutation resulted from the failed lookup. Guard empty lists and repeat read-only discovery before storing or querying a run ID.
 
+- **Inspection-output recurrence, decoder checkpoint:** Printed the complete recursive reference tree when only three source paths were needed, causing output truncation. Retrieved and filtered the metadata before emitting it on the follow-up. No content was published from the truncated output. Use path-filtered metadata and bounded source reads.
+
 ## FN-008: Toolchain availability was inferred from PATH alone
 
 - **Date:** 2026-09-30. Earlier checkpoints said local Go was unavailable after checking PATH. A later source search found an existing Go 1.26.0 toolchain outside PATH, which successfully selected/downloaded Go 1.26.8. Earlier executable verification was performed in CI, not locally.
@@ -77,3 +79,10 @@ Record user-visible instruction errors and errors that affected code, tests, evi
 
 - **Date:** 2026-09-30. An evidence-update tree was constructed from shell output without first verifying complete content. The ledger exceeded the output limit, so the remote tree differed from the local staged tree. Detected before creating a commit or branch; the incomplete tree was never published.
 - **Correction/prevention:** Read large files in bounded chunks and require exact local/remote tree equality before publishing. **Status:** Corrected after the tree equality check.
+
+## FN-010: Time-bounded decoder fuzz run failed at its budget boundary
+
+- **Date:** 2026-09-30. The first local Go 1.26.8 decoder fuzz command (`-fuzztime 10s -parallel 2`) reached 148,697 executions and exited 1 with `context deadline exceeded` at 10.31 seconds. No property assertion or saved failing input was reported. Focused race tests and seed cases had passed. No previous fuzz deadline entry was found in this register.
+- **Assessment:** Inspected the selected Go toolchain's fuzz coordinator cancellation/error handling. A coordinator time-budget termination issue is a hypothesis; its exact cause is unconfirmed. The failed run is not counted as a pass or evidence of a decoder defect.
+- **Mitigation and evidence:** Use an explicit execution-count budget (`-fuzztime 100000x`) with a separate 60-second test timeout and two workers for the new CI target. It passed locally with exactly 100,000 executions, including the retained interesting-input cache, in 7.485 seconds. Property assertions and decoder production code are unchanged. Required Linux/Windows run `36733195533` on PR #57 code head `bde30f36c834fb41766b0821c6b9966e48094926` also passed, including count-bounded fuzzing. Do not suppress command failures or retry until green; keep time-bound failure visible if it recurs.
+- **Status:** Execution-count control verified locally and in required hosted CI; original time-bound termination cause remains unresolved.

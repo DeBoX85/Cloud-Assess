@@ -30,6 +30,10 @@ Replacement uses Go `os.Rename`; atomic replacement on every operating system an
 
 CSV prefixes potentially formula-like cells with an apostrophe, including leading whitespace/control characters and fullwidth formula prefixes. This changes human CSV cell representation, including negative numeric strings. Canonical JSON preserves original values and is the machine-data interface. XLSX untrusted ordinary cells must be stored as text; intentional escaped HTTP hyperlinks remain separate. Spreadsheet consumers and re-save behavior vary, so neutralization is not a universal consumer security guarantee.
 
+## Decoder feedback checks
+
+The row-decoder fuzz target uses a 100,000-execution budget, a separate 60-second test timeout, two workers and an 8 KiB input bound. Seed/shape cases also run in ordinary Linux/Windows tests. Keep failures as failures; a time-budget termination without an assertion/corpus is distinct from a property counterexample and requires investigation (FN-010). Literal stage projection expectations must have reviewed source/schema provenance and explicitly distinguish fabricated rows from live captures.
+
 ## Remaining acceptance work
 
 Continue adapter denial/malformed-response checks, decoder fuzzing, workload concurrency/cancellation bounds and independent summary invariants where existing tests lack them. Maintenance no-change/changed-output execution, full built-CLI artifact inspection, and arbitrary-directory Windows ACL review remain open. Release artifacts additionally require clean installs, dependency/license review, checksums, build provenance verification and an approved pilot. This process does not silently choose release scope or supported platforms.
