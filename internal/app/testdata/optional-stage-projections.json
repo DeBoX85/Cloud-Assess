@@ -1,0 +1,91 @@
+{
+  "policy": {
+    "row": {
+      "subscriptionId": "11111111-2222-3333-4444-555555555555",
+      "subscriptionName": "Projected Subscription",
+      "resourceId": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/rg/providers/Microsoft.Storage/storageAccounts/store",
+      "policyDefinitionDisplayName": "Audit storage encryption",
+      "policyDescription": "Require encryption",
+      "timestamp": "2026-09-30T10:00:00Z",
+      "policyDefinitionName": "audit-storage",
+      "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/fixture",
+      "policyAssignmentName": "assignment",
+      "policyAssignmentId": "/subscriptions/11111111-2222-3333-4444-555555555555/providers/Microsoft.Authorization/policyAssignments/fixture",
+      "complianceState": "NonCompliant"
+    },
+    "malformedRow": {
+      "subscriptionId": 5
+    },
+    "expected": [
+      {
+        "subscriptionId": "11111111-2222-3333-4444-555555555555",
+        "subscriptionName": "Projected Subscription",
+        "resourceId": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/rg/providers/Microsoft.Storage/storageAccounts/store",
+        "policyDescription": "Require encryption",
+        "timestamp": "2026-09-30T10:00:00Z",
+        "policyDefinitionName": "audit-storage",
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/fixture",
+        "policyAssignmentName": "assignment",
+        "policyAssignmentId": "/subscriptions/11111111-2222-3333-4444-555555555555/providers/Microsoft.Authorization/policyAssignments/fixture",
+        "complianceState": "NonCompliant",
+        "resourceGroup": "rg",
+        "resourceType": "Microsoft.Storage/storageAccounts",
+        "resourceName": "store",
+        "policyDisplayName": "Audit storage encryption"
+      }
+    ]
+  },
+  "defender": {
+    "row": {
+      "SubscriptionId": "11111111-2222-3333-4444-555555555555",
+      "SubscriptionName": "Projected Subscription",
+      "Name": "StorageAccounts",
+      "Tier": "Standard"
+    },
+    "malformedRow": {
+      "SubscriptionId": 5
+    },
+    "expected": [
+      {
+        "subscriptionId": "11111111-2222-3333-4444-555555555555",
+        "subscriptionName": "Projected Subscription",
+        "name": "StorageAccounts",
+        "tier": "Standard"
+      }
+    ]
+  },
+  "defender-recommendations": {
+    "row": {
+      "SubscriptionId": "11111111-2222-3333-4444-555555555555",
+      "ResourceGroupName": "rg",
+      "ResourceType": "Microsoft.Storage",
+      "ResourceName": "store",
+      "Category": "Data",
+      "RecommendationSeverity": "High",
+      "RecommendationName": "Encrypt storage",
+      "ActionDescription": "Enable encryption",
+      "RemediationDescription": "Configure encryption",
+      "AzPortalLink": "portal.azure.com/#fixture",
+      "ResourceId": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/rg/providers/Microsoft.Storage/storageAccounts/store"
+    },
+    "malformedRow": {
+      "SubscriptionId": 5
+    },
+    "expected": [
+      {
+        "subscriptionId": "11111111-2222-3333-4444-555555555555",
+        "subscriptionName": "Test Subscription",
+        "resourceGroup": "rg",
+        "resourceType": "Microsoft.Storage",
+        "resourceName": "store",
+        "category": "Data",
+        "recommendationSeverity": "High",
+        "recommendationName": "Encrypt storage",
+        "actionDescription": "Enable encryption",
+        "remediationDescription": "Configure encryption",
+        "azurePortalLink": "https://portal.azure.com/#fixture",
+        "resourceId": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/rg/providers/Microsoft.Storage/storageAccounts/store"
+      }
+    ]
+  }
+}

@@ -132,12 +132,13 @@ jobs:
           echo "Total statement coverage: ${total}%"
           awk -v total="$total" 'BEGIN { if ((total + 0) < 75.0) exit 1 }'
 
-      - name: Bounded comparator and scope fuzzing
+      - name: Bounded comparator, scope and row-decoder fuzzing
         shell: bash
         run: |
           set -euo pipefail
           go test -run '^$' -fuzz '^FuzzCompareFieldSymmetry$' -fuzztime 10s -parallel 2 ./internal/equivalence
           go test -run '^$' -fuzz '^FuzzExactResourceExclusionPreservesOtherResource$' -fuzztime 10s -parallel 2 ./internal/config
+          go test -run '^$' -fuzz '^FuzzDecodeRowsIsolationAndAccounting$' -fuzztime 100000x -timeout 60s -parallel 2 ./internal/arg
 
       - name: Verify comparator tests reject selected mutations
         run: python3 scripts/tests/qa-mutation.py

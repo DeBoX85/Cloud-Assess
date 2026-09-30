@@ -1536,7 +1536,17 @@ Continuation review confirmed PRs #53/#54/#55 are merged and retained the open G
 
 Failed retrieval must persist a failed optional stage, zero optional records, partial completeness and exit 2 while retaining healthy inventory/findings. Successful empty retrieval must persist a completed zero-record stage with complete status and exit 0. The endpoint checks authentication, query, selected subscription, POST query endpoint/version and exactly one request with retries explicitly disabled. These envelopes are fabricated contract fixtures, not recordings from Azure; they do not establish non-empty row projection, default retry sequencing, management-group discovery or complete read-only assurance.
 
-Focused `go test -race -count=1 ./internal/app -run TestOptionalStageHTTPHealthPersistsReport` passed all cases. Full local `go test -race -count=1 ./...` also passed. Required Linux/Windows CI passed in PR #56, run `36730447316` on code head `f1e7358731f20e9b2f2430276656eeb1cfa90795`. The final documentation update must also pass both required checks before merge. No Azure calls or laptop action are needed. Inspection path-assumption recurrence is recorded in FN-004.
+Focused `go test -race -count=1 ./internal/app -run TestOptionalStageHTTPHealthPersistsReport` passed all cases. Full local `go test -race -count=1 ./...` also passed. Required Linux/Windows CI passed in PR #56, run `36730447316` on code head `f1e7358731f20e9b2f2430276656eeb1cfa90795`. The final documentation revision passed required run `36731029675` and PR #56 merged at `951b49c99d841aa45124d41f30e4b1cfa8095b36`. No Azure calls or laptop action are needed. Inspection path-assumption recurrence is recorded in FN-004.
+
+### Row-decoder properties and source-shaped optional-stage projections
+
+**Date:** 2026-09-30. **Starting branch:** `bootstrap/core-v1` at `951b49c99d841aa45124d41f30e4b1cfa8095b36`.
+
+Inspected the pinned reference Policy/Defender row builders and `graph.UnmarshalRows`. Added twelve explicit decoder shape cases and a fuzz property checking row-count conservation, partition equivalence, healthy-neighbor isolation and caller-byte ownership, with an 8 KiB input bound. Null, empty objects and null fields remain accepted zero-valued rows under the source-compatible JSON decoder; this is type tolerance, not business-record validity. No production decoder behavior changed. Existing Arc SQL numeric `vcores` rejection characterization remains; the response-shape resolution is still open.
+
+Extended the optional-stage HTTP-to-report fixture from twelve to twenty-one cases. Literal source-reviewed expected JSON now checks one representative non-empty row per Policy/Defender stage. Mixed valid/malformed data retains the correct row and explicit malformed-row warning; all-malformed data retains a visible warning and `complete_with_warnings`, rather than a warning-free empty success. This does not execute KQL, independently run the source scanner or establish live non-empty equivalence. Fixture provenance and exact limits are in `internal/app/testdata/README.md`.
+
+Focused race tests passed. The initial ten-second local fuzz run failed at its deadline without a property assertion or failing corpus; FN-010 retains this unresolved termination cause. An execution-count bound of 100,000 with a separate 60-second timeout passed locally. The new CI target uses that bound; existing fuzz targets are unchanged. Full local `go test -race -count=1 ./...` passed after the final fixture changes. Required Linux/Windows checks follow before merge. FN-007 records the oversized inspection-output correction. No Azure calls or laptop action are required; Gate 004 remains open.
 
 ## Current boundary
 

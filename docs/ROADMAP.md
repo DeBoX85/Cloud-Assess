@@ -1,6 +1,6 @@
 # Cloud Assess Roadmap
 
-Status: working execution roadmap, reviewed 2026-09-30 against `bootstrap/core-v1` at `869dd3b03458ffc6ecde3a28115e8d600b314955`
+Status: working execution roadmap, reviewed 2026-09-30 against `bootstrap/core-v1` at `951b49c99d841aa45124d41f30e4b1cfa8095b36`
 
 Active development branch: `bootstrap/core-v1`
 
@@ -32,6 +32,8 @@ The estimates are rounded to roughly ten percentage points and must not be used 
 [QA_PROCESS.md](QA_PROCESS.md) defines final-diff review, failure recurrence handling, independent expected results, fixture boundaries and evidence updates. Comparator guards, bounded fuzzing, isolated mutation checks, staged output failure/privacy checks, large-subscription batching and read-oriented ARG/Diagnostics request contracts passed Linux/Windows CI in PR #53 (run `36726089065`). Windows existing-DACL preservation during replacement passed both required jobs in PR #54 (run `36728008504`); arbitrary-directory ACL review remains open.
 
 A synthetic optional-stage HTTP-to-report matrix now covers Policy, Defender plan status and Defender Recommendations for access denial (403), throttling (429) with retries disabled, missing-data envelopes and valid empty data. Local focused/full race tests and required Linux/Windows CI passed in PR #56, run `36730447316` on head `f1e7358731f20e9b2f2430276656eeb1cfa90795`. This does not close non-empty row projection, default retries or other adapters.
+
+The next checkpoint adds decoder isolation/accounting properties and extends the optional-stage matrix to twenty-one cases, including source-reviewed literal non-empty projections and mixed/all-malformed warnings. Local focused checks and count-bounded decoder fuzzing pass; required hosted CI is pending. Live non-empty equivalence and business-schema validation remain open.
 
 Continue without Azure/laptop access: remaining adapter errors and decoder properties, missing stage projections grounded in source/schema fixtures, deterministic filter interactions, maintenance fixture execution, dependency/license inventory and documentation reconciliation. Existing canonical result tests independently verify summary counts and caller-data ownership. Extend them for uncovered cases rather than duplicate them. Live scans, historical batch correlation, release scope decisions and production pilot remain separate dependencies. Do not claim release readiness from the autonomous backlog.
 

@@ -8,6 +8,7 @@ import (
 	"net/http/httptest"
 	"os"
 	"path/filepath"
+	"reflect"
 	"strings"
 	"sync/atomic"
 	"testing"
@@ -33,25 +34,65 @@ func (optionalStageCredential) GetToken(context.Context, azpolicy.TokenRequestOp
 	return azcore.AccessToken{Token: "synthetic-token", ExpiresOn: time.Now().Add(time.Hour)}, nil
 }
 
-// These synthetic HTTP envelopes test retrieval health, not non-empty Azure row
-// projection or default retry sequencing. Only the optional adapter is real;
+// These synthetic HTTP envelopes test retrieval health and source-shaped row
+// projections, not live Azure query execution or default retry sequencing. Only the optional adapter is real;
 // healthy scope/inventory/Graph operations use the existing coordinator fixture.
 func TestOptionalStageHTTPHealthPersistsReport(t *testing.T) {
+	fixtureBytes, err := os.ReadFile(filepath.Join("testdata", "optional-stage-projections.json"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	var fixtures map[string]struct {
+		Row          json.RawMessage  `json:"row"`
+		MalformedRow json.RawMessage  `json:"malformedRow"`
+		Expected     []map[string]any `json:"expected"`
+	}
+	if err := json.Unmarshal(fixtureBytes, &fixtures); err != nil {
+		t.Fatal(err)
+	}
 	for _, stageName := range []string{stages.Policy, stages.Defender, stages.DefenderRecommendations} {
 		for _, tc := range []struct {
-			name   string
-			status int
-			body   string
-			failed bool
-			reason string
+			name      string
+			status    int
+			body      string
+			failed    bool
+			reason    string
+			projected bool
+			malformed bool
 		}{
-			{"denied", http.StatusForbidden, `{"error":{"code":"AuthorizationFailed","message":"synthetic denial"}}`, true, "AuthorizationFailed"},
-			{"throttled", http.StatusTooManyRequests, `{"error":{"code":"TooManyRequests","message":"synthetic throttle"}}`, true, "TooManyRequests"},
-			{"missing-data", http.StatusOK, `{"count":0}`, true, "missing or null data array"},
-			{"valid-empty", http.StatusOK, `{"data":[]}`, false, ""},
+			{name: "denied", status: http.StatusForbidden, body: `{"error":{"code":"AuthorizationFailed","message":"synthetic denial"}}`, failed: true, reason: "AuthorizationFailed"},
+			{name: "throttled", status: http.StatusTooManyRequests, body: `{"error":{"code":"TooManyRequests","message":"synthetic throttle"}}`, failed: true, reason: "TooManyRequests"},
+			{name: "missing-data", status: http.StatusOK, body: `{"count":0}`, failed: true, reason: "missing or null data array"},
+			{name: "valid-empty", status: http.StatusOK, body: `{"data":[]}`},
+			{name: "non-empty", status: http.StatusOK, projected: true},
+			{name: "mixed-malformed", status: http.StatusOK, projected: true, malformed: true},
+			{name: "all-malformed", status: http.StatusOK, malformed: true},
 		} {
 			t.Run(stageName+"/"+tc.name, func(t *testing.T) {
 				const sub = "11111111-2222-3333-4444-555555555555"
+				payload := tc.body
+				wantRecords := 0
+				if tc.projected || tc.malformed {
+					fixture, ok := fixtures[stageName]
+					if !ok || len(fixture.Expected) != 1 {
+						t.Fatal("missing projection fixture")
+					}
+					data := []json.RawMessage{}
+					if tc.projected {
+						data = append(data, fixture.Row)
+						wantRecords = 1
+					}
+					if tc.malformed {
+						data = append(data, fixture.MalformedRow)
+					}
+					envelope, err := json.Marshal(struct {
+						Data []json.RawMessage `json:"data"`
+					}{data})
+					if err != nil {
+						t.Fatal(err)
+					}
+					payload = string(envelope)
+				}
 				expectedQuery := policy.Query
 				if stageName == stages.Defender {
 					expectedQuery = defender.StatusQuery
@@ -74,7 +115,7 @@ func TestOptionalStageHTTPHealthPersistsReport(t *testing.T) {
 					}
 					w.Header().Set("Content-Type", "application/json")
 					w.WriteHeader(tc.status)
-					_, _ = io.WriteString(w, tc.body)
+					_, _ = io.WriteString(w, payload)
 				}))
 				defer server.Close()
 				client := azure.NewHTTPClient(optionalStageCredential{}, &azure.HTTPClientOptions{Timeout: 2 * time.Second, MaxRetries: -1, Scope: "https://management.azure.com/.default", Transport: server.Client()})
@@ -114,6 +155,9 @@ func TestOptionalStageHTTPHealthPersistsReport(t *testing.T) {
 				if tc.failed {
 					wantExit, wantCompleteness, wantStatus = ExitPartial, assessment.CompletenessPartial, assessment.StageFailed
 				}
+				if tc.malformed {
+					wantCompleteness, wantStatus = assessment.CompletenessCompleteWithWarnings, assessment.StageCompletedWithWarnings
+				}
 				if (runErr != nil) != tc.failed || outcome.ExitCode != wantExit {
 					t.Fatalf("error=%v exit=%d want failed=%v exit=%d", runErr, outcome.ExitCode, tc.failed, wantExit)
 				}
@@ -131,15 +175,42 @@ func TestOptionalStageHTTPHealthPersistsReport(t *testing.T) {
 				if report.Completeness != wantCompleteness || len(report.Resources) != 1 || len(report.Findings) != 1 || report.Findings[0].RecommendationID != definition.ID {
 					t.Fatalf("healthy data or completeness lost: %+v", report)
 				}
-				if len(report.AzurePolicy)+len(report.Defender)+len(report.DefenderRecommendations) != 0 {
+				if len(report.AzurePolicy)+len(report.Defender)+len(report.DefenderRecommendations) != wantRecords {
 					t.Fatal("retrieval fabricated optional records")
+				}
+				if tc.projected {
+					var document map[string]json.RawMessage
+					if err := json.Unmarshal(encoded, &document); err != nil {
+						t.Fatal(err)
+					}
+					dataset := map[string]string{stages.Policy: "azurePolicy", stages.Defender: "defender", stages.DefenderRecommendations: "defenderRecommendations"}[stageName]
+					var actual []map[string]any
+					if err := json.Unmarshal(document[dataset], &actual); err != nil {
+						t.Fatal(err)
+					}
+					if !reflect.DeepEqual(actual, fixtures[stageName].Expected) {
+						t.Fatalf("projection mismatch: got %+v want %+v", actual, fixtures[stageName].Expected)
+					}
 				}
 				found := false
 				for _, stage := range report.Stages {
 					if stage.Name == stageName {
 						found = true
-						if stage.Status != wantStatus || stage.Records != 0 || (stage.Error != nil) != tc.failed {
+						if stage.Status != wantStatus || stage.Records != wantRecords || (stage.Error != nil) != tc.failed {
 							t.Fatalf("incorrect persisted stage health: %+v", stage)
+						}
+						wantWarnings := 0
+						if tc.malformed {
+							wantWarnings = 1
+						}
+						if len(stage.Warnings) != wantWarnings {
+							t.Fatalf("warnings=%+v want count=%d", stage.Warnings, wantWarnings)
+						}
+						if tc.malformed {
+							code := map[string]string{stages.Policy: "policy_malformed_arg_rows", stages.Defender: "defender_status_malformed_arg_rows", stages.DefenderRecommendations: "defender_recommendations_malformed_arg_rows"}[stageName]
+							if stage.Warnings[0].Code != code || !strings.Contains(stage.Warnings[0].Message, "skipped 1 malformed") {
+								t.Fatalf("incorrect malformed-row warning: %+v", stage.Warnings)
+							}
 						}
 						if tc.failed && (stage.Error.Code != "stage_failed" || !strings.Contains(stage.Error.Message, tc.reason)) {
 							t.Fatalf("unexpected failure code: %+v", stage.Error)
