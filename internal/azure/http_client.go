@@ -29,6 +29,9 @@ var sharedTransport = &http.Transport{
 	ForceAttemptHTTP2:   true,
 }
 
+// HTTPClientOptions configures per-attempt and total-operation limits.
+// OperationTimeout includes retries and body reads. Non-positive values add no
+// deadline; caller and per-attempt limits still apply.
 type HTTPClientOptions struct {
 	Timeout          time.Duration
 	MaxRetries       int32
@@ -47,7 +50,8 @@ func DefaultHTTPClientOptions(timeout time.Duration) *HTTPClientOptions {
 }
 
 type HTTPClient struct {
-	pipeline runtime.Pipeline
+	pipeline         runtime.Pipeline
+	operationTimeout time.Duration
 }
 
 func NewHTTPClient(credential azcore.TokenCredential, options *HTTPClientOptions) *HTTPClient {
@@ -82,7 +86,7 @@ func NewHTTPClient(credential azcore.TokenCredential, options *HTTPClientOptions
 		},
 		clientOptions,
 	)
-	return &HTTPClient{pipeline: pipeline}
+	return &HTTPClient{pipeline: pipeline, operationTimeout: options.OperationTimeout}
 }
 
 func (c *HTTPClient) Get(ctx context.Context, url string) ([]byte, error) {
@@ -94,8 +98,16 @@ func (c *HTTPClient) Post(ctx context.Context, url string, body io.ReadSeekClose
 	return c.doRequest(ctx, http.MethodPost, url, body)
 }
 
-// PostStream returns an unread response body. The caller must close it.
+// PostStream returns a response body. The caller must close it.
+// Its operation deadline remains active until the body is read or closed.
 func (c *HTTPClient) PostStream(ctx context.Context, url string, body io.ReadSeekCloser) (*http.Response, error) {
+	ctx, cancel := c.operationContext(ctx)
+	transferred := false
+	defer func() {
+		if !transferred {
+			cancel()
+		}
+	}()
 	request, err := runtime.NewRequest(ctx, http.MethodPost, url)
 	if err != nil {
 		return nil, fmt.Errorf("create request: %w", err)
@@ -111,6 +123,8 @@ func (c *HTTPClient) PostStream(ctx context.Context, url string, body io.ReadSee
 		return nil, fmt.Errorf("execute request: %w", err)
 	}
 	if response.StatusCode >= 200 && response.StatusCode < 300 {
+		response.Body = &operationResponseBody{ReadCloser: response.Body, cancel: cancel}
+		transferred = true
 		return response, nil
 	}
 
@@ -125,6 +139,8 @@ func (c *HTTPClient) PostStream(ctx context.Context, url string, body io.ReadSee
 }
 
 func (c *HTTPClient) doRequest(ctx context.Context, method, url string, body io.ReadSeekCloser) ([]byte, *http.Response, error) {
+	ctx, cancel := c.operationContext(ctx)
+	defer cancel()
 	request, err := runtime.NewRequest(ctx, method, url)
 	if err != nil {
 		return nil, nil, fmt.Errorf("create request: %w", err)
@@ -151,4 +167,29 @@ func (c *HTTPClient) doRequest(ctx context.Context, method, url string, body io.
 		return responseBody, response, runtime.NewResponseError(response)
 	}
 	return responseBody, response, nil
+}
+
+func (c *HTTPClient) operationContext(ctx context.Context) (context.Context, context.CancelFunc) {
+	if c.operationTimeout > 0 {
+		return context.WithTimeout(ctx, c.operationTimeout)
+	}
+	return ctx, func() {}
+}
+
+type operationResponseBody struct {
+	io.ReadCloser
+	cancel context.CancelFunc
+}
+
+func (b *operationResponseBody) Read(p []byte) (int, error) {
+	n, err := b.ReadCloser.Read(p)
+	if err != nil {
+		b.cancel()
+	}
+	return n, err
+}
+
+func (b *operationResponseBody) Close() error {
+	defer b.cancel()
+	return b.ReadCloser.Close()
 }
