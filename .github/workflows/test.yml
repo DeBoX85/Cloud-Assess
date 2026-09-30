@@ -143,6 +143,9 @@ jobs:
       - name: Test maintenance proposal publication
         run: python3 scripts/tests/maintenance-publication.py
 
+      - name: Test maintenance generation recipes
+        run: python3 scripts/tests/maintenance-generation.py
+
       - name: Verify comparator tests reject selected mutations
         run: python3 scripts/tests/qa-mutation.py
 

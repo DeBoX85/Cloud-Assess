@@ -1,6 +1,6 @@
 # Cloud Assess Roadmap
 
-Status: working execution roadmap, reviewed 2026-09-30 against `bootstrap/core-v1` at `05657daadc0e840d86b981f88547e2fcc4d01d72`
+Status: working execution roadmap, reviewed 2026-09-30 against `bootstrap/core-v1` at `108ac4d16acc8f66fdac0ad91ab27fbd55b94cb6`
 
 Active development branch: `bootstrap/core-v1`
 
@@ -35,7 +35,7 @@ A synthetic optional-stage HTTP-to-report matrix now covers Policy, Defender pla
 
 The next checkpoint adds decoder isolation/accounting properties and extends the optional-stage matrix to twenty-one cases, including source-reviewed literal non-empty projections and mixed/all-malformed warnings. Local focused/full race checks and count-bounded decoder fuzzing pass; PR #57 passed required Linux/Windows run `36733195533` on code head `bde30f36c834fb41766b0821c6b9966e48094926`. Live non-empty equivalence and business-schema validation remain open.
 
-Maintenance publication is now shared between the tidy/import workflows. Seven local bare-remote tests validate no-change and proposal changes, including scope/identity/gitlink preservation and rejected/divergent push failures; required Linux/Windows run `36735297259` passed in PR #58 on code head `29bce11cc613df3578b9f6410672a65a3337c25e`. Complete generator/dispatch/token/PR execution remains open.
+Maintenance publication is now shared between the tidy/import workflows. Seven local bare-remote tests validate no-change and proposal changes, including scope/identity/gitlink preservation and rejected/divergent push failures; required Linux/Windows run `36735297259` passed in PR #58 on code head `29bce11cc613df3578b9f6410672a65a3337c25e`. Six generator recipe fixtures now verify exact pinned regeneration, corrupted-rule repair, invalid archive/layout/hash rejection and actual tidy stabilization; local Go 1.26.8 checks and corrected Linux/Windows CI passed in PR #59 (run `36739045844`). See [MAINTENANCE.md](MAINTENANCE.md). Complete hosted dispatch/token/PR execution remains open.
 
 Continue without Azure/laptop access: remaining adapter errors and decoder properties, missing stage projections grounded in source/schema fixtures, deterministic filter interactions, maintenance fixture execution, dependency/license inventory and documentation reconciliation. Existing canonical result tests independently verify summary counts and caller-data ownership. Extend them for uncovered cases rather than duplicate them. Live scans, historical batch correlation, release scope decisions and production pilot remain separate dependencies. Do not claim release readiness from the autonomous backlog.
 
