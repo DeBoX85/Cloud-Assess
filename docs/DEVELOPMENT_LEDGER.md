@@ -1474,7 +1474,7 @@ A cross-package test injects a critical Graph query error at the coordinator ope
 
 Added `runWithExecutor` around the existing command executor seam; normal `run` continues to select `executeScan`. A test-executable subprocess runs the production command dispatcher and application renderer against deterministic assessment fixtures. The parent checks actual process exits 0 (complete), 1 (execution failure), 2 (severity gate), and 3 (partial), then verifies persisted JSON completeness, retained inventory, and expected findings after the child exits.
 
-This is not a built or installed Azure CLI test and does not exercise production credentials or join the HTTP 429 fixture to the coordinator. Other adapter failures, default retry timing, cancellation and release artifact checks remain open. No Azure requests are made. The runtime has no Go toolchain; required Linux and Windows CI must pass before merging. The PR and its required checks retain executable evidence. Gate 004 remains planned.
+This is not a built or installed Azure CLI test and does not exercise production credentials or join the HTTP 429 fixture to the coordinator. Other adapter failures, default retry timing, cancellation and release artifact checks remain open. No Azure requests are made. The runtime has no Go toolchain. PR #47 passed required `quality` and `windows-validation` jobs in run `36715889734` on commit `768004c7458ab858ce1769d9d0c755e6f434981f`, then merged at `d3aaf1092233ee406dcc0123e4d3d49ad67c39a3`. Local `git diff --check` also passed. Gate 004 remains planned.
 
 Recorded two mistaken inspection paths and their recurrence prevention as FN-004 in [FAILURE_NOTES.md](FAILURE_NOTES.md).
 
