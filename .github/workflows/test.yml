@@ -140,6 +140,9 @@ jobs:
           go test -run '^$' -fuzz '^FuzzExactResourceExclusionPreservesOtherResource$' -fuzztime 10s -parallel 2 ./internal/config
           go test -run '^$' -fuzz '^FuzzDecodeRowsIsolationAndAccounting$' -fuzztime 100000x -timeout 60s -parallel 2 ./internal/arg
 
+      - name: Test maintenance proposal publication
+        run: python3 scripts/tests/maintenance-publication.py
+
       - name: Verify comparator tests reject selected mutations
         run: python3 scripts/tests/qa-mutation.py
 

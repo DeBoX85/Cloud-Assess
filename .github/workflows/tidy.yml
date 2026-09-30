@@ -14,6 +14,7 @@ permissions:
 jobs:
   tidy:
     runs-on: ubuntu-24.04
+    timeout-minutes: 20
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -33,17 +34,4 @@ jobs:
 
       - name: Publish dependency lock update branch
         shell: bash
-        run: |
-          set -euo pipefail
-          git add go.mod go.sum
-          if git diff --cached --quiet; then
-            echo "go.mod and go.sum already tidy"
-            exit 0
-          fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          branch="maintenance/tidy-${GITHUB_RUN_ID}"
-          git switch -c "$branch"
-          git commit -m "build: refresh Go dependency lock"
-          git push origin "HEAD:refs/heads/$branch"
-          echo "Open a PR for the dependency update: https://github.com/${GITHUB_REPOSITORY}/compare/bootstrap/core-v1...${branch}?expand=1" >> "$GITHUB_STEP_SUMMARY"
+        run: bash scripts/publish-maintenance.sh tidy

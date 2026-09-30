@@ -1,6 +1,6 @@
 # Cloud Assess Roadmap
 
-Status: working execution roadmap, reviewed 2026-09-30 against `bootstrap/core-v1` at `951b49c99d841aa45124d41f30e4b1cfa8095b36`
+Status: working execution roadmap, reviewed 2026-09-30 against `bootstrap/core-v1` at `05657daadc0e840d86b981f88547e2fcc4d01d72`
 
 Active development branch: `bootstrap/core-v1`
 
@@ -34,6 +34,8 @@ The estimates are rounded to roughly ten percentage points and must not be used 
 A synthetic optional-stage HTTP-to-report matrix now covers Policy, Defender plan status and Defender Recommendations for access denial (403), throttling (429) with retries disabled, missing-data envelopes and valid empty data. Local focused/full race tests and required Linux/Windows CI passed in PR #56, run `36730447316` on head `f1e7358731f20e9b2f2430276656eeb1cfa90795`. This does not close non-empty row projection, default retries or other adapters.
 
 The next checkpoint adds decoder isolation/accounting properties and extends the optional-stage matrix to twenty-one cases, including source-reviewed literal non-empty projections and mixed/all-malformed warnings. Local focused/full race checks and count-bounded decoder fuzzing pass; PR #57 passed required Linux/Windows run `36733195533` on code head `bde30f36c834fb41766b0821c6b9966e48094926`. Live non-empty equivalence and business-schema validation remain open.
+
+Maintenance publication is now shared between the tidy/import workflows. Seven local bare-remote tests validate no-change and proposal changes, including scope/identity/gitlink preservation and rejected/divergent push failures; required hosted CI is pending. Complete generator/dispatch/token/PR execution remains open.
 
 Continue without Azure/laptop access: remaining adapter errors and decoder properties, missing stage projections grounded in source/schema fixtures, deterministic filter interactions, maintenance fixture execution, dependency/license inventory and documentation reconciliation. Existing canonical result tests independently verify summary counts and caller-data ownership. Extend them for uncovered cases rather than duplicate them. Live scans, historical batch correlation, release scope decisions and production pilot remain separate dependencies. Do not claim release readiness from the autonomous backlog.
 
