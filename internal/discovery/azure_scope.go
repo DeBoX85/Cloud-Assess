@@ -24,9 +24,13 @@ func NewAzureScopeClient(credential azcore.TokenCredential, options *arm.ClientO
 	if credential == nil {
 		return nil, fmt.Errorf("Azure scope discovery credential is nil")
 	}
-	if options == nil {
-		options = &arm.ClientOptions{}
+	// Keep scope discovery read-oriented even with caller-supplied SDK options.
+	clientOptions := arm.ClientOptions{}
+	if options != nil {
+		clientOptions = *options
 	}
+	clientOptions.DisableRPRegistration = true
+	options = &clientOptions
 
 	subscriptions, err := armsubscription.NewSubscriptionsClient(credential, options)
 	if err != nil {

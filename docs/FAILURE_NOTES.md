@@ -159,3 +159,12 @@ Record user-visible instruction errors and errors that affected code, tests, evi
 - **Correction:** Exclude inline commands explicitly belonging to Azure CLI from the Cloud Assess flag set. Eight actual Cloud Assess flags and the PowerShell snippet then passed local help/parser checks. No scan ran.
 - **Prevention:** Attribute examples to their command before validating syntax/options; do not suppress specific unknown flags to force a pass. The checker has a bounded authored-document scope, not a claim of universal Markdown understanding.
 - **Recurrence check:** FN-004 also applied during SDK review: an unversioned online page and guessed module layout did not match the selected cache. Read go.mod and enumerate pinned SDK files before inspection; only v1.23.1 source and pinned documentation support implementation claims.
+
+## FN-019: Read-oriented review omitted SDK automatic-registration middleware
+
+- **Date:** 2026-10-01 (Europe/Oslo).
+- **Mistake:** Reviewing explicitly called GET/query methods did not account for the ARM SDK's default provider-registration policy. Shared ARM options did not set DisableRPRegistration, allowing an implicit write attempt after certain service errors. No evidence of historical Azure mutation is asserted.
+- **Reproduction:** Synthetic valid ARM-resource GET through the actual shared SDK options returned 409 MissingSubscriptionRegistration; the pipeline attempted POST /subscriptions/sub-fixture/providers/Microsoft.Test/register. The desired regression failed with two requests and one injected/rejected write. No real credential or network was used.
+- **Correction:** Explicitly disable registration in shared ARM options and in scope-client construction, using a copy so caller options remain unchanged. The pipeline now returns its original 409 with one GET/no POST. Three scope pager failure fixtures confirm typed original error, one read request and no caller-option mutation.
+- **Prevention:** Audit middleware and SDK defaults as well as explicit endpoint verbs; pin implicit remediation/registration off for assessment clients and test registration-required negative paths. This differs from FN-017 destination validation and complements its credential-boundary checks.
+- **Evidence/status:** Initial failing and corrected focused fixtures, rerun full local race/vet checks; exact updated final CI must pass before merge. Registration configuration is a deliberate target hardening correction, not a claim about pinned-reference adversarial behavior.
