@@ -105,3 +105,30 @@ func TestWriteValidatesInputsAndPropagatesCreateErrors(t *testing.T) {
 		t.Fatal("expected file creation error")
 	}
 }
+
+func TestCSVSpreadsheetValuesAreTextAndSourceRowsStayUnchanged(t *testing.T) {
+	values := []string{"=1+1", "+SUM(1,2)", "-1", "@SUM(1)", "\t=1", "\r=1", "\n=1", "  =1", "＝1", "ordinary", "value,with,commas", "quote\"value"}
+	rows := [][]string{append([]string(nil), values...)}
+	path := filepath.Join(t.TempDir(), "safe.csv")
+	if err := writeTable(path, rows); err != nil {
+		t.Fatal(err)
+	}
+	file, err := os.Open(path)
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer file.Close()
+	got, err := encodingcsv.NewReader(file).Read()
+	if err != nil {
+		t.Fatal(err)
+	}
+	for i, original := range values {
+		want := original
+		if i < 9 {
+			want = "'" + original
+		}
+		if got[i] != want || rows[0][i] != original {
+			t.Fatalf("cell %d=%q source=%q, want text %q", i, got[i], rows[0][i], want)
+		}
+	}
+}

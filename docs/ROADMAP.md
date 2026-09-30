@@ -1,6 +1,6 @@
 # Cloud Assess Roadmap
 
-Status: working execution roadmap, reviewed 2026-09-29 against `bootstrap/core-v1` at `ef3bd8b3ae5832ef6b6354f26e45725a3d4e8fea`
+Status: working execution roadmap, reviewed 2026-09-30 against `bootstrap/core-v1` at `a54ca1ac5f2c2c069fdeeb076eb40e9ff9fd0561`
 
 Active development branch: `bootstrap/core-v1`
 
@@ -26,6 +26,12 @@ These are coarse planning estimates, not measured coverage or quality-gate decis
 | Full AZQR feature parity | About 55% | The common assessment path has substantial equivalence evidence, while internal plugins, scanner-specific commands and ancillary CLI surfaces remain unimplemented or deliberately deferred. This is broader than the current core-v1 acceptance target. |
 
 The estimates are rounded to roughly ten percentage points and must not be used as a release approval. The first Gate 004 negative-path fixture exercises the production authenticated HTTP client through the ARG query boundary for exhausted-retry HTTP 429 versus valid empty data. It passed Linux and Windows CI in PR #43; see the ledger for the initial fixture correction and exact run IDs. PR #45 then validated failed Graph stage health and persisted JSON across coordinator and application, using an injected operation error. The fixtures are separate. PR #47 validated process exits 0/1/2/3 and persisted JSON using the test executable, production dispatcher and synthetic assessments on Linux and Windows (run `36715889734`). PR #49 validated in-flight ARG caller cancellation/deadline and Advisor interruption/persistence fixtures on Linux and Windows (run `36718219604`). The HTTP `OperationTimeout` remediation now applies a positive per-call total deadline through retries and body consumption; focused fixtures passed Linux/Windows CI in PR #51 (run `36720076461`). Whole-scan budgeting and default retry sequencing remain open. Built/installed CLI validation, other adapters and failure paths, remaining paired filter interactions and non-empty optional-stage evidence follow. No Azure access was needed for these deterministic fixtures. Do not scan the production-containing `Advisory` parent to advance DV-001.
+
+## Autonomous QA work and feedback
+
+[QA_PROCESS.md](QA_PROCESS.md) defines final-diff review, failure recurrence handling, independent expected results, fixture boundaries and evidence updates. Comparator guards, bounded fuzzing, isolated mutation checks, staged output failure/privacy checks, large-subscription batching and read-oriented ARG/Diagnostics request contracts are added in the current checkpoint; required CI is pending.
+
+Continue without Azure/laptop access: remaining adapter errors and decoder properties, missing stage projections grounded in source/schema fixtures, deterministic filter interactions, maintenance fixture execution, dependency/license inventory and documentation reconciliation. Existing canonical result tests independently verify summary counts and caller-data ownership. Extend them for uncovered cases rather than duplicate them. Live scans, historical batch correlation, release scope decisions and production pilot remain separate dependencies. Do not claim release readiness from the autonomous backlog.
 
 ## Starting point
 

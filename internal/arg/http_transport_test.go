@@ -127,7 +127,7 @@ func TestQueryDistinguishesThrottlingFromValidEmptyARGResponse(t *testing.T) {
 			var calls atomic.Int32
 			server := httptest.NewTLSServer(http.HandlerFunc(func(w http.ResponseWriter, request *http.Request) {
 				calls.Add(1)
-				if request.Method != http.MethodPost || request.Header.Get("Authorization") != "Bearer test-token" {
+				if request.Method != http.MethodPost || request.URL.Path != "/" || request.Header.Get("Authorization") != "Bearer test-token" {
 					t.Errorf("unexpected ARG request method or authentication: %s", request.Method)
 				}
 				w.Header().Set("Content-Type", "application/json")
@@ -231,5 +231,12 @@ func TestQueryInterruptedDuringHTTPRequestDoesNotReturnEmptySuccess(t *testing.T
 				t.Fatalf("requests = %d, want one interrupted request", calls.Load())
 			}
 		})
+	}
+}
+
+func TestResourceGraphProductionEndpointIsQueryOnly(t *testing.T) {
+	endpoint := resourceGraphEndpoint()
+	if !strings.HasSuffix(endpoint, "/providers/Microsoft.ResourceGraph/resources?api-version=2024-04-01") {
+		t.Fatalf("unexpected production query endpoint: %s", endpoint)
 	}
 }

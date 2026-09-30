@@ -26,6 +26,12 @@ Every row must be marked **PASS**, **ACCEPTED LIMITATION** with scope and impact
 
 The live parent-to-child management-group pass is deferred as [DV-001](DEFERRED_VALIDATION.md#dv-001-live-nested-management-group-traversal). Deferral does not itself constitute an accepted limitation. Resolve its release impact explicitly at this gate if no safe live test scope becomes available.
 
+## Additional QA controls
+
+Use [QA_PROCESS.md](QA_PROCESS.md) and the PR template for material changes. Comparator guard/mutation/property tests protect the equivalence decision; normalization exceptions keep their dedicated regressions. Independent filter and existing summary invariants complement source parity. Report tests cover staged replacement failures, CSV/XLSX formula-like inputs, and controlled Windows ACL inheritance. ARG/Diagnostics request contracts and synthetic workload bounds exercise selected read-oriented paths. Bounded fuzz runs and failure-corpus retention strengthen development CI. Required CI for this expansion is pending.
+
+These do not prove all adapters read-oriented, arbitrary-directory Windows privacy, whole-scan bounds, live optional data, historical API timing or release artifact provenance. Keep those acceptance limits explicit. Do not add a numeric coverage or mutation threshold as a substitute for behavioral evidence.
+
 ## Continuous checks supporting this decision
 
 The Go quality workflow checks pinned provenance, formatting, module graph, branding, PowerShell validation helpers, build/help/version, race-enabled tests, aggregate statement coverage, vet and reachable known vulnerabilities. The Windows validation job adds native Windows PowerShell 5.1 parser/helper checks plus Go tests and executable help/version smoke tests. An active ruleset now requires pull requests and both job contexts on `bootstrap/core-v1`; the enforced development CI is not a Gate 004 or release PASS.

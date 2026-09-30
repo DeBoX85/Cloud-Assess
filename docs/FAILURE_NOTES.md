@@ -41,4 +41,5 @@ Record user-visible instruction errors and errors that affected code, tests, evi
 - **Mistake and recurrence:** Tried reading nonexistent `cmd/cloud-assess/scan.go`, then repeated the path assumption with `internal/assessment/stage.go`. Both were inspection errors; no files were changed by the failed reads.
 - **Correction:** Used `rg --files` and read `command.go` and `types.go`.
 - **Prevention:** Inventory paths before reading an unfamiliar package; use symbol search to locate implementations.
-- **Evidence:** CLI process-test inspection session. **Status:** Corrected; recurrence recorded in this entry.
+- **Recurrence, 2026-09-30 QA expansion:** Tried reading nonexistent `internal/equivalence/compare_test.go` even though the inventory showed `projection_test.go`. Corrected through symbol search. Strengthened prevention: use the enumerated path exactly, and search test function names before guessing a test filename. No product files were changed by the failed read.
+- **Evidence:** CLI process-test and QA expansion inspection sessions. **Status:** Corrected; recurrences recorded in this entry.
