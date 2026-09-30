@@ -28,9 +28,9 @@ def command(args):
     return r.stdout
 
 
-def source(path):
+def source(path, revision='HEAD'):
     # Read committed bytes, avoiding checkout line-ending transformations.
-    return command(['git', 'show', 'HEAD:' + path])
+    return command(['git', 'show', revision + ':' + path])
 
 
 def validate_info(info, inventory, revision, target):
@@ -61,26 +61,26 @@ def package(binary, version, output, go):
     if command(['git', 'status', '--porcelain', '--untracked-files=normal']).strip():
         raise ValueError('candidate packaging requires a clean source checkout')
     revision = command(['git', 'rev-parse', 'HEAD']).decode().strip()
-    tree = command(['git', 'rev-parse', 'HEAD^{tree}']).decode().strip()
+    tree = command(['git', 'rev-parse', revision + '^{tree}']).decode().strip()
     target = ('windows' if os.name == 'nt' else 'linux') + '/amd64'
-    inventory_bytes = source('docs/dependencies/inventory.json')
+    inventory_bytes = source('docs/dependencies/inventory.json', revision)
     inventory = json.loads(inventory_bytes)
     if target not in inventory['targets']:
         raise ValueError('target has no reviewed inventory')
     for path, expected in inventory['inputs'].items():
-        if sha(source(path)) != expected:
+        if sha(source(path, revision)) != expected:
             raise ValueError('stale committed inventory input: ' + path)
     info = json.loads(command([go, 'version', '-m', '-json', str(binary)]))
     validate_info(info, inventory, revision, target)
     if command([str(binary), '--version']).decode().strip() != 'cloud-assess version ' + version:
         raise ValueError('candidate version does not match executable')
     executable = 'cloud-assess.exe' if os.name == 'nt' else 'cloud-assess'
-    payload = {executable: binary.read_bytes(), 'LICENSE': source('LICENSE'), 'NOTICE.md': source('NOTICE.md'),
-               'THIRD_PARTY_LICENSES.md': source('THIRD_PARTY_LICENSES.md'),
-               'DEPENDENCY_NOTICES.md': source('docs/dependencies/NOTICES.md'),
+    payload = {executable: binary.read_bytes(), 'LICENSE': source('LICENSE', revision), 'NOTICE.md': source('NOTICE.md', revision),
+               'THIRD_PARTY_LICENSES.md': source('THIRD_PARTY_LICENSES.md', revision),
+               'DEPENDENCY_NOTICES.md': source('docs/dependencies/NOTICES.md', revision),
                'dependency-inventory.json': inventory_bytes,
                'BUILD_INFO.json': (json.dumps(info, indent=2) + '\n').encode(),
-               'INSTALL.md': source('docs/PACKAGE_INSTALL.md')}
+               'INSTALL.md': source('docs/PACKAGE_INSTALL.md', revision)}
     manifest = {'schemaVersion': 1, 'status': 'development-candidate-not-release-approved',
                 'version': version, 'target': target, 'sourceCommit': revision, 'sourceTree': tree,
                 'referencePins': inventory['referencePins'],
@@ -91,7 +91,7 @@ def package(binary, version, output, go):
     checksum = output / (root + '.zip.sha256')
     if archive.exists() or checksum.exists():
         raise ValueError('refusing to overwrite an existing candidate')
-    timestamp = int(command(['git', 'show', '-s', '--format=%ct', 'HEAD']).strip())
+    timestamp = int(command(['git', 'show', '-s', '--format=%ct', revision]).strip())
     dt = datetime.datetime.fromtimestamp(timestamp, datetime.timezone.utc)
     date_time = (max(1980, dt.year), dt.month, dt.day, dt.hour, dt.minute, dt.second)
     output.mkdir(parents=True, exist_ok=True)
