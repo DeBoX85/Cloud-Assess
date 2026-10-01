@@ -142,3 +142,48 @@ func TestScopePagerCanceledBeforeListingSendsNoRequest(t *testing.T) {
 		}
 	}
 }
+
+type terminalCancelScopeTransport struct {
+	cancel context.CancelFunc
+	calls  int
+}
+
+func (f *terminalCancelScopeTransport) Do(r *http.Request) (*http.Response, error) {
+	f.calls++
+	f.cancel()
+	body := `{"value":[{"subscriptionId":"fixture","name":"fixture","type":"Microsoft.Management/managementGroups"}]}`
+	return &http.Response{StatusCode: 200, Header: make(http.Header), Request: r, Body: io.NopCloser(strings.NewReader(body))}, nil
+}
+func TestScopePagersCanceledDuringFinalPageDiscardRows(t *testing.T) {
+	for _, op := range []string{"subscriptions", "group-subscriptions", "descendants"} {
+		t.Run(op, func(t *testing.T) {
+			ctx, cancel := context.WithCancel(context.Background())
+			defer cancel()
+			transport := &terminalCancelScopeTransport{cancel: cancel}
+			options := &arm.ClientOptions{ClientOptions: azcore.ClientOptions{Transport: transport}}
+			options.Retry.MaxRetries = -1
+			client, err := NewAzureScopeClient(fixtureCredential{}, options)
+			if err != nil {
+				t.Fatal(err)
+			}
+			count := 0
+			switch op {
+			case "subscriptions":
+				var rows []Subscription
+				rows, err = client.ListSubscriptions(ctx)
+				count = len(rows)
+			case "group-subscriptions":
+				var rows []Subscription
+				rows, err = client.SubscriptionsUnderManagementGroup(ctx, "fixture")
+				count = len(rows)
+			case "descendants":
+				var rows []string
+				rows, err = client.DescendantManagementGroups(ctx, "fixture")
+				count = len(rows)
+			}
+			if !errors.Is(err, context.Canceled) || count != 0 || transport.calls != 1 {
+				t.Fatalf("error=%v rows=%d calls=%d", err, count, transport.calls)
+			}
+		})
+	}
+}

@@ -107,6 +107,9 @@ func (c *Client) Query(
 			if err != nil {
 				return nil, fmt.Errorf("failed to run resource graph query: %w", err)
 			}
+			if err := ctx.Err(); err != nil {
+				return nil, fmt.Errorf("resource graph query canceled: %w", err)
+			}
 			if response == nil {
 				return nil, fmt.Errorf("failed to run resource graph query: transport returned nil response")
 			}
