@@ -81,7 +81,7 @@ class BuiltCLITests(unittest.TestCase):
                 self.assertIn(expected, result.stdout)
                 self.assertEqual(result.stderr, '')
         help_text = self.execute(['scan', '--help']).stdout
-        for flag in ('--json', '--xlsx', '--csv', '--sarif', '--stdout', '--filters', '--fail-on', '--stages'):
+        for flag in ('--json', '--xlsx', '--csv', '--sarif', '--stdout', '--filters', '--fail-on', '--stages', '--assessment-timeout'):
             self.assertIn(flag, help_text)
         self.assertIn('SARIF retains stable resource identities', help_text)
         self.assertEqual(list(self.directory.iterdir()), [self.executable], 'help/version created files')
@@ -94,6 +94,8 @@ class BuiltCLITests(unittest.TestCase):
         valid = self.directory / 'valid.yml'
         valid.write_text('assessment:\n  include:\n    tags:\n      Environment: dev\n')
         cases = [
+            ('negative-timeout', ['scan', '--assessment-timeout=-1s'], 'assessment timeout cannot be negative'),
+            ('malformed-timeout', ['scan', '--assessment-timeout=forever'], 'invalid argument'),
             ('unknown-command', ['no-such-command'], 'unknown command'),
             ('unknown-flag', ['scan', '--no-such-flag'], 'unknown flag'),
             ('unexpected-position', ['scan', 'extra'], 'unknown command'),

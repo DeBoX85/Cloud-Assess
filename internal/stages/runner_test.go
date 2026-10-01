@@ -191,3 +191,22 @@ func TestPartialOutranksWarnings(t *testing.T) {
 		t.Fatalf("completeness = %q, want partial", result.Completeness)
 	}
 }
+
+func TestRunnerHonorsContextBeforeAndAfterTask(t *testing.T) {
+	for _, before := range []bool{true, false} {
+		ctx, cancel := context.WithCancel(context.Background())
+		calls := 0
+		if before {
+			cancel()
+		}
+		run := NewRunner().Execute(ctx, []Task{{Name: "graph", Enabled: true, Run: func(context.Context) (Outcome, error) { calls++; cancel(); return Outcome{Records: 1}, nil }}, {Name: "advisor", Enabled: true, Run: func(context.Context) (Outcome, error) { t.Fatal("later task started"); return Outcome{}, nil }}})
+		cancel()
+		wantCalls := 1
+		if before {
+			wantCalls = 0
+		}
+		if calls != wantCalls || run.Completeness != assessment.CompletenessFailed || run.Stages[0].Error == nil || run.Stages[0].Error.Code != "assessment_canceled" || run.Stages[1].Status != assessment.StageSkipped {
+			t.Fatalf("cancellation misreported: calls=%d result=%+v", calls, run)
+		}
+	}
+}

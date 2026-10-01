@@ -201,3 +201,11 @@ Record user-visible instruction errors and errors that affected code, tests, evi
 - **Reproduction:** Explicit custom audience differed from endpoint; ResourceManagerScope still requested the endpoint scope, contrary to the SDK audience contract.
 - **Correction:** Use configured ARM audience for OAuth scope; retain endpoint fallback when absent. Named-cloud, custom audience and fallback regressions pass. This is an intentional authentication correction with no live sovereign/private deployment claim.
 - **Prevention:** Test audience and endpoint as distinct values, compare shared HTTP adapters with SDK options, and do not equate environment parsing tests with actual authentication validation. See ALIGNMENT_REVIEW for remaining custom-cloud limits.
+
+## FN-024: SDK continuation cycles and cancellation boundaries
+
+- **Date:** 2026-10-01 (Europe/Oslo).
+- **Reproduction:** All three SDK scope pagers followed one/two-link cycles until the synthetic seven-request tripwire. Existing ARG/Advisor checks did not cover these pagers. Temporarily restoring the old stage invocation also failed a new cancellation/later-task tripwire: a nil task error could report success and start another task despite canceled context.
+- **Correction:** Per-listing normalized continuation sets reject cycles without partial listing or URL leakage. Context checks between SDK/Advisor pages and before/after stage tasks preserve cancellation. Opt-in assessment timeout derives an earlier context deadline and preserves failed reports; no arbitrary default or page ceiling is assumed.
+- **Prevention:** Exercise the actual SDK pager and coordinator/application report path, use independent finite call counts and bounded runaway fixtures, test healthy paging/opaque values/earlier caller deadline/zero compatibility, and inspect actual CLI preflight. See PAGINATION_LIFECYCLE for precise limits and remaining AR-02 work. Do not mistake deadline propagation for preemption of injected context-ignoring code.
+- **Review note:** A combined read again exceeded the requested output limit; follow-up bounded reads supplied required stage/application context. No unseen text is treated as reviewed evidence (FN-007).

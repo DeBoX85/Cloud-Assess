@@ -1,6 +1,6 @@
 # Cloud Assess Roadmap
 
-Status: working execution roadmap, reviewed 2026-10-01 (Europe/Oslo); dependency review starts from merged `bootstrap/core-v1` at `8f76c46ad407f202a7aa2d9e8ae7eb8931ffaf35`
+Status: working execution roadmap, reviewed 2026-10-01 (Europe/Oslo); pagination/lifecycle review starts from merged `bootstrap/core-v1` at `a23c122a381aed0acd2f4e7daba9e6731e3540b7`
 
 Active development branch: `bootstrap/core-v1`
 
@@ -189,3 +189,7 @@ Post-registration-hardening checkpoint `a531237eae3bc8d4bec80bcfb6518698f1d61b9d
 ## Dependency advisory checkpoint
 
 [DEPENDENCY_ADVISORY_REVIEW.md](DEPENDENCY_ADVISORY_REVIEW.md) closes the bounded AR-01 investigation with x/crypto v0.56.0 for two SSH advisories and an explicit remaining module-only OpenPGP advisory (no fixed version, no current imports). Inventory/notices are regenerated; native final CI remains mandatory. Next autonomous work is AR-02 pagination/cycle/total-lifecycle bounds. Release security/licensing, branding, feature parity and deferred live evidence remain open; readiness estimates are unchanged.
+
+## Pagination/lifecycle checkpoint
+
+[PAGINATION_LIFECYCLE.md](PAGINATION_LIFECYCLE.md) records SDK cycle rejection, page/stage cancellation checks and opt-in assessment timeout with retained failure evidence. AR-02 remains partial: default/load/volume bounds and context-ignoring injected code are not certified. The next autonomous slice reviews remaining pagination/cancellation bounds before any page/volume policy. Branding and feature-parity work, historical/live evidence and release approval remain open.

@@ -43,9 +43,10 @@ type OutputOptions struct {
 }
 
 type ScanOptions struct {
-	Assessment orchestration.Request
-	Outputs    OutputOptions
-	FailOn     string
+	AssessmentTimeout time.Duration
+	Assessment        orchestration.Request
+	Outputs           OutputOptions
+	FailOn            string
 }
 
 type Outcome struct {
@@ -83,6 +84,9 @@ func (r *Runner) Run(ctx context.Context, options ScanOptions) (Outcome, error) 
 		r.now = time.Now
 	}
 
+	if options.AssessmentTimeout < 0 {
+		return outcome, fmt.Errorf("assessment timeout cannot be negative")
+	}
 	var criterion gate.Criterion
 	gateEnabled := options.FailOn != ""
 	if gateEnabled {
@@ -100,7 +104,15 @@ func (r *Runner) Run(ctx context.Context, options ScanOptions) (Outcome, error) 
 		baseName = defaultBaseName(r.now())
 	}
 
+	cancelAssessment := func() {}
+	if options.AssessmentTimeout > 0 {
+		var cancel context.CancelFunc
+		ctx, cancel = context.WithTimeout(ctx, options.AssessmentTimeout)
+		cancelAssessment = cancel
+		defer cancel()
+	}
 	assessmentResult, executionErr := r.assessment.Run(ctx, options.Assessment)
+	cancelAssessment()
 	outcome.Assessment = assessmentResult
 	if assessmentResult == nil {
 		if executionErr != nil {
