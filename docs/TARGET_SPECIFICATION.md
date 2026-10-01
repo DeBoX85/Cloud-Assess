@@ -42,7 +42,7 @@ Intentional changes include:
 
 ## Branding adjustment requirement
 
-Product identity is centralized in `internal/branding`, but current defaults require a source change and rebuild. A supported, consistently tested customization workflow remains an open user requirement. This review does not prescribe a configuration file format or mark that requirement complete.
+Product identity is centralized in `internal/branding`, but current defaults require a source change and rebuild. A supported, consistently tested customization workflow remains an open user requirement. The subsequent [branding review](BRANDING_REVIEW.md) proposes a validated build profile and defines CLI/report/package acceptance checks. It is a design proposal; the profile format/builder is not implemented and this requirement remains open.
 
 ## Core v1 scope
 

@@ -320,3 +320,5 @@ The [alignment sanity review](ALIGNMENT_REVIEW.md) compares these implementation
 The [pagination/lifecycle checkpoint](PAGINATION_LIFECYCLE.md) adds SDK cycle errors, context checks and an opt-in cooperative assessment budget without declaring universal scan/load bounds. Zero timeout preserves existing behavior; report persistence remains outside the budget.
 
 The [ARG completeness checkpoint](ARG_COMPLETENESS.md) implements two documented target corrections: service-contract page size 1000 and explicit tokenless-truncation failure. Normal query text, subscription batching, valid continuation behavior and empty-result handling are preserved; metadata/load and live large-result limits remain open.
+
+The [branding design review](BRANDING_REVIEW.md) supplies a concrete offline implementation batch and acceptance checks. Five fields have presentation consumers; four remain unused. Supported customization and profile-aware distribution are still unimplemented, so no branding milestone is marked complete.
