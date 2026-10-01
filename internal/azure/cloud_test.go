@@ -1,6 +1,7 @@
 package azure
 
 import (
+	"strings"
 	"testing"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
@@ -65,5 +66,32 @@ func TestIncompleteCustomCloudFallsBackToNamedCloud(t *testing.T) {
 	}))
 	if got, want := configuration.Services[cloud.ResourceManager].Endpoint, cloud.AzureGovernment.Services[cloud.ResourceManager].Endpoint; got != want {
 		t.Fatalf("ARM endpoint = %q, want %q", got, want)
+	}
+}
+
+func TestResourceManagerScopeUsesConfiguredAudience(t *testing.T) {
+	t.Setenv(EnvAzureAuthorityHost, "https://login.example.test/")
+	t.Setenv(EnvAzureResourceManagerEndpoint, "https://management.example.test/")
+	t.Setenv(EnvAzureResourceManagerAudience, "https://audience.example.test/")
+	if got := ResourceManagerScope(); got != "https://audience.example.test/.default" {
+		t.Fatalf("scope=%q; configured audience ignored", got)
+	}
+}
+
+func TestResourceManagerScopeNamedCloudAndFallback(t *testing.T) {
+	t.Setenv(EnvAzureAuthorityHost, "")
+	t.Setenv(EnvAzureResourceManagerEndpoint, "")
+	t.Setenv(EnvAzureResourceManagerAudience, "")
+	for _, name := range []string{"public", "government", "china"} {
+		t.Setenv(EnvAzureCloud, name)
+		service := CloudConfiguration().Services[cloud.ResourceManager]
+		if got, want := ResourceManagerScope(), strings.TrimRight(service.Audience, "/")+"/.default"; got != want {
+			t.Fatalf("%s: scope=%q want=%q", name, got, want)
+		}
+	}
+	t.Setenv(EnvAzureAuthorityHost, "https://login.example.test/")
+	t.Setenv(EnvAzureResourceManagerEndpoint, "https://management.example.test/")
+	if got := ResourceManagerScope(); got != "https://management.example.test/.default" {
+		t.Fatalf("missing-audience fallback=%q", got)
 	}
 }

@@ -40,6 +40,10 @@ Intentional changes include:
 - assessment completeness is separate from finding severity
 - subscription-ID masking is described explicitly as redaction rather than general anonymization
 
+## Branding adjustment requirement
+
+Product identity is centralized in `internal/branding`, but current defaults require a source change and rebuild. A supported, consistently tested customization workflow remains an open user requirement. This review does not prescribe a configuration file format or mark that requirement complete.
+
 ## Core v1 scope
 
 Core v1 includes:
@@ -209,7 +213,7 @@ The production authenticated HTTP client applies a positive `OperationTimeout` t
 
 ARM SDK assessment clients explicitly disable automatic resource-provider registration. A registration-required read error must remain an error, without a registration POST; caller-supplied scope options are copied before enforcing this assessment boundary.
 
-The default shared HTTP transport does not follow redirects. Advisor metadata continuation URLs must remain on the configured HTTPS host/port, contain no user information or fragment, and not repeat. Unsafe pagination fails the Advisor stage rather than sending the ARM credential to another origin or reporting a truncated successful metadata result. These are target security corrections for unsafe response paths; injected transports and SDK-owned pagers retain separate policy boundaries.
+The default shared HTTP transport does not follow redirects. Advisor metadata continuation URLs must remain on the configured HTTPS host/port, contain no user information or fragment, and not repeat. Unsafe pagination fails the Advisor stage rather than sending the ARM credential to another origin or reporting a truncated successful metadata result. These are target security corrections for unsafe response paths; scope SDK pagers now validate configured HTTPS origin before authentication and refuse redirects in their default transport. Injected transports/policies remain trusted code with separate internal redirect/destination obligations; same-origin pagination budgets remain open. Shared HTTP adapters use configured ARM audience for token scope separately from endpoint. See [ALIGNMENT_REVIEW.md](ALIGNMENT_REVIEW.md).
 
 ## Failure model
 
