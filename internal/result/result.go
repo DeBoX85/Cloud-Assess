@@ -17,6 +17,7 @@ type AssessmentResult struct {
 	SchemaVersion           string                                `json:"schemaVersion"`
 	GeneratedAt             time.Time                             `json:"generatedAt"`
 	ScopeID                 string                                `json:"scopeId"`
+	Scope                   *assessment.ScopeResolution           `json:"scope,omitempty"`
 	Completeness            assessment.Completeness               `json:"completeness"`
 	Stages                  []assessment.StageExecution           `json:"stages"`
 	Recommendations         []assessment.RecommendationDefinition `json:"recommendations"`
@@ -36,6 +37,7 @@ type AssessmentResult struct {
 type Input struct {
 	GeneratedAt             time.Time
 	ScopeID                 string
+	Scope                   *assessment.ScopeResolution
 	Completeness            assessment.Completeness
 	Stages                  []assessment.StageExecution
 	Recommendations         []assessment.RecommendationDefinition
@@ -57,6 +59,7 @@ func Build(input Input) *AssessmentResult {
 		SchemaVersion:           SchemaVersion,
 		GeneratedAt:             input.GeneratedAt.UTC(),
 		ScopeID:                 input.ScopeID,
+		Scope:                   cloneScope(input.Scope),
 		Completeness:            input.Completeness,
 		Stages:                  cloneStages(input.Stages),
 		Recommendations:         cloneRecommendations(input.Recommendations),

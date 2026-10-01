@@ -63,6 +63,31 @@ func sampleResult() *result.AssessmentResult {
 	})
 }
 
+func TestRedactionIncludesScopeOnlyIDsEvenWithoutResourceRows(t *testing.T) {
+	ids := []string{"11111111-2222-3333-4444-555555555555", "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee", "bbbbbbbb-cccc-dddd-eeee-ffffffffffff", "cccccccc-dddd-eeee-ffff-aaaaaaaaaaaa", "dddddddd-eeee-ffff-aaaa-bbbbbbbbbbbb"}
+	data := result.Build(result.Input{Scope: &assessment.ScopeResolution{
+		RequestedSubscriptionIDs: []string{ids[0]}, IncludedSubscriptionIDs: []string{ids[1]},
+		ExcludedSubscriptionIDs: []string{ids[2]}, UnresolvedSubscriptionIDs: []string{ids[3]},
+		ResolvedSubscriptions: []assessment.ScopeSubscription{{SubscriptionID: ids[4]}},
+	}})
+	masked, err := MarshalWithOptions(data, Options{RedactSubscriptionIDs: true})
+	if err != nil {
+		t.Fatal(err)
+	}
+	raw, err := Marshal(data)
+	if err != nil {
+		t.Fatal(err)
+	}
+	for _, id := range ids {
+		if strings.Contains(string(masked), id) || !strings.Contains(string(masked), redact.SubscriptionID(id, true)) || !strings.Contains(string(raw), id) {
+			t.Fatalf("scope-only ID redaction failed for %s", id)
+		}
+	}
+	if data.Scope.RequestedSubscriptionIDs[0] != ids[0] {
+		t.Fatal("renderer mutated canonical scope")
+	}
+}
+
 func TestMarshalIncludesCanonicalAssessmentState(t *testing.T) {
 	encoded, err := Marshal(sampleResult())
 	if err != nil {

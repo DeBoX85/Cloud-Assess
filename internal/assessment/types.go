@@ -30,6 +30,24 @@ type AssessmentError struct {
 	Message string `json:"message"`
 }
 
+// ScopeResolution records selection and discovery evidence, not an RBAC or estate audit.
+// Not-completed resolution must not be interpreted as a successful empty subscription set.
+type ScopeResolution struct {
+	Selection                 string              `json:"selection"`
+	Status                    string              `json:"status"`
+	RequestedSubscriptionIDs  []string            `json:"requestedSubscriptionIds"`
+	RequestedManagementGroups []string            `json:"requestedManagementGroups"`
+	IncludedSubscriptionIDs   []string            `json:"includedSubscriptionIds"`
+	ExcludedSubscriptionIDs   []string            `json:"excludedSubscriptionIds"`
+	ResolvedSubscriptions     []ScopeSubscription `json:"resolvedSubscriptions"`
+	UnresolvedSubscriptionIDs []string            `json:"unresolvedSubscriptionIds"`
+}
+
+type ScopeSubscription struct {
+	SubscriptionID   string `json:"subscriptionId"`
+	SubscriptionName string `json:"subscriptionName"`
+}
+
 type StageExecution struct {
 	Name       string              `json:"name"`
 	Status     StageStatus         `json:"status"`
