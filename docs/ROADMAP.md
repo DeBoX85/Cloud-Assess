@@ -1,6 +1,6 @@
 # Cloud Assess Roadmap
 
-Status: working execution roadmap, reviewed 2026-10-01 (Europe/Oslo); branding profile implementation starts from merged `bootstrap/core-v1` at `c00b01489c7bd61fe0bbc9a9d6b31cad01b975f6`
+Status: working execution roadmap, reviewed 2026-10-01 (Europe/Oslo); paired branding report acceptance starts from merged `bootstrap/core-v1` at `9cb3cfe0ff639d80e2cde8bbb8996208ed757adb`
 
 Active development branch: `bootstrap/core-v1`
 
@@ -197,3 +197,5 @@ Post-registration-hardening checkpoint `a531237eae3bc8d4bec80bcfb6518698f1d61b9d
 ## Branding design checkpoint
 
 [BRANDING_REVIEW.md](BRANDING_REVIEW.md) completes the AR-03 propagation/design review: five active fields, four unused placeholders, neutral data outputs, stable SARIF identities and fixed package assumptions are mapped explicitly. Recommended next offline batch implements a validated build profile, actual default/custom executable and report tests, and profile-aware package evidence/installation. The [immutable profile and native builder](BRANDING_PROFILES.md) now implement parsing and actual default/custom executable identity checks. AR-03 remains open until custom report/data and profile-aware native package propagation passes. Readiness estimates and release decisions remain unchanged; no Azure/laptop input is needed for the next implementation batch.
+
+The next AR-03 acceptance slice adds [paired report checks](BRANDING_REPORT_QA.md) for all twelve sheets/tables, JSON/stdout, SARIF records/provenance, default/explicit output paths and concurrent rendering. Next implement profile-aware native package evidence, installation and tampering checks. Readiness estimates and release decisions remain unchanged; no Azure/laptop input is needed.

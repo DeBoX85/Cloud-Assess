@@ -56,3 +56,5 @@ Local comparator count-bounded runs passed exactly 100000 executions twice (6.68
 ## Implementation checkpoint
 
 The first two steps are now implemented in [BRANDING_PROFILES.md](BRANDING_PROFILES.md): validated immutable profiles, native development builder and actual default/custom executable checks. The historical audit above describes the PR #71 baseline. Runtime profile inspection now exists via the `branding` command. Custom report/data acceptance and profile-aware packaging remain the next work; AR-03 and release approval are still open.
+
+Step 3 now has [paired report acceptance](BRANDING_REPORT_QA.md), with actual production application/renderers under synthetic input, independent XLSX XML inspection, canonical byte comparisons and stable emitted SARIF identity checks. Profile-aware native packaging is next; AR-03 remains partial.

@@ -81,7 +81,9 @@ jobs:
         run: python3 scripts/dependency-inventory.py --check
 
       - name: Validate branding builder and actual native executables
-        run: python3 scripts/tests/branding.py
+        run: |
+          python3 scripts/tests/branding.py
+          python3 scripts/tests/branding-reports.py
 
       - name: Verify product branding boundaries
         shell: bash
@@ -245,7 +247,9 @@ jobs:
         run: python scripts/tests/documentation.py --binary .build/cloud-assess.exe --powershell powershell
 
       - name: Validate branding builder and actual native executables
-        run: python scripts/tests/branding.py
+        run: |
+          python scripts/tests/branding.py
+          python scripts/tests/branding-reports.py
 
       - name: Test Windows candidate package integrity and isolated installation
         run: python scripts/tests/package-candidate.py --binary .build/cloud-assess.exe
