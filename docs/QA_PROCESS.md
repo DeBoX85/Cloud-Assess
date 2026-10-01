@@ -20,7 +20,7 @@ Stop dependent merge/claims, check FAILURE_NOTES for recurrence, reproduce, dist
 
 ## After merge and at a gate
 
-Record tested head, CI run and merge SHA in the ledger for material checkpoints. Update roadmap and gate evidence only to the extent demonstrated. Check documentation against final behavior. Gate review records the exact candidate and all PASS, ACCEPTED LIMITATION or BLOCKED decisions. DV-001 and other live-evidence gaps remain open without the operator's environment; do not infer closure from synthetic data.
+Record tested head, CI run and merge SHA in the ledger for material checkpoints. Final run/merge evidence can first be retained in the PR and indexed in the next ledger checkpoint, avoiding a self-referential documentation/CI loop. Every changed final head still requires both blocking jobs. Update roadmap and gate evidence only to the extent demonstrated. Check documentation against final behavior and review current-tense status separately from historical checkpoints. Gate review records the exact candidate and all PASS, ACCEPTED LIMITATION or BLOCKED decisions. DV-001 and other live-evidence gaps remain open without the operator's environment; do not infer closure from synthetic data.
 
 ## Report guarantees and limits
 
@@ -54,7 +54,7 @@ The [inventory generator](DEPENDENCIES.md) collects versioned module checksums a
 
 ## Remaining acceptance work
 
-Continue adapter denial/malformed-response checks, decoder fuzzing, workload concurrency/cancellation bounds and independent summary invariants where existing tests lack them. Maintenance no-change/changed-output execution, full built-CLI artifact inspection, and arbitrary-directory Windows ACL review remain open. Release artifacts additionally require clean installs, dependency/license review, checksums, build provenance verification and an approved pilot. This process does not silently choose release scope or supported platforms.
+Continue adapter denial/malformed-response checks, decoder fuzzing, workload concurrency/cancellation bounds and independent summary invariants where existing tests lack them. Hosted maintenance dispatch/token/PR execution remains open; local no-change/changed-output publication and generation fixtures have passed. Actual built-CLI preflight/module inspection and candidate ZIP integrity/extraction have passed on Linux and Windows; successful installed Azure scans, fresh-OS operation and arbitrary-directory Windows ACL review remain open. Release artifacts additionally require release-specific dependency/license review, publisher provenance and an approved pilot. This process does not silently choose release scope or supported platforms.
 
 ## Development guidance
 

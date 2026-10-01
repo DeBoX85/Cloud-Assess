@@ -1,6 +1,6 @@
 # Cloud Assess Roadmap
 
-Status: working execution roadmap, reviewed 2026-10-01 (Europe/Oslo) against `bootstrap/core-v1` at `dd3cc8309b799502ba92c9d43559b776eb8b3918`
+Status: working execution roadmap, audited 2026-10-01 (Europe/Oslo) against merged `bootstrap/core-v1` at `6138e6e8dba4a3867c9e7b9c66c13ebaf8b2a79b`
 
 Active development branch: `bootstrap/core-v1`
 
@@ -33,7 +33,7 @@ The estimates have roughly ten percentage points of planning uncertainty and mus
 
 A synthetic optional-stage HTTP-to-report matrix now covers Policy, Defender plan status and Defender Recommendations for access denial (403), throttling (429) with retries disabled, missing-data envelopes and valid empty data. Local focused/full race tests and required Linux/Windows CI passed in PR #56, run `36730447316` on head `f1e7358731f20e9b2f2430276656eeb1cfa90795`. This does not close non-empty row projection, default retries or other adapters.
 
-The next checkpoint adds decoder isolation/accounting properties and extends the optional-stage matrix to twenty-one cases, including source-reviewed literal non-empty projections and mixed/all-malformed warnings. Local focused/full race checks and count-bounded decoder fuzzing pass; PR #57 passed required Linux/Windows run `36733195533` on code head `bde30f36c834fb41766b0821c6b9966e48094926`. Live non-empty equivalence and business-schema validation remain open.
+The completed PR #57 checkpoint added decoder isolation/accounting properties and extended the optional-stage matrix to twenty-one cases, including source-reviewed literal non-empty projections and mixed/all-malformed warnings. Local focused/full race checks and count-bounded decoder fuzzing passed; PR #57 passed required Linux/Windows run `36733195533` on code head `bde30f36c834fb41766b0821c6b9966e48094926`. Live non-empty equivalence and business-schema validation remain open.
 
 Maintenance publication is now shared between the tidy/import workflows. Seven local bare-remote tests validate no-change and proposal changes, including scope/identity/gitlink preservation and rejected/divergent push failures; required Linux/Windows run `36735297259` passed in PR #58 on code head `29bce11cc613df3578b9f6410672a65a3337c25e`. Six generator recipe fixtures now verify exact pinned regeneration, corrupted-rule repair, invalid archive/layout/hash rejection and actual tidy stabilization; local Go 1.26.8 checks and corrected Linux/Windows CI passed in PR #59 (run `36739045844`). See [MAINTENANCE.md](MAINTENANCE.md). Complete hosted dispatch/token/PR execution remains open.
 
@@ -180,4 +180,4 @@ Offline shortlist code checkpoint: PR #64 head `b447ec46c3eee232259e7df3621227f8
 
 Final SDK middleware review added explicit automatic-provider-registration suppression to shared ARM options and scope construction, with a pre-fix synthetic POST reproduction and corrected no-write/original-error regressions (FN-019). The earlier code-checkpoint CI result predates this final correction; both required jobs must pass on the updated head. SDK-owned pagination destination review remains open.
 
-Post-registration-hardening checkpoint `a531237eae3bc8d4bec80bcfb6518698f1d61b9d` passed both required jobs in run `36793880867`, with all fourteen native package cases/no skips, successful documentation checks, zero reachable/imported-package findings and 79.8% Linux statement coverage. Final evidence revision must pass both jobs before merge. The eight-task offline QA work is complete for this bounded review; remaining acceptance and release decisions are unchanged.
+Post-registration-hardening checkpoint `a531237eae3bc8d4bec80bcfb6518698f1d61b9d` passed both required jobs in run `36793880867`, with all fourteen native package cases/no skips, successful documentation checks, zero reachable/imported-package findings and 79.8% Linux statement coverage. Final PR #64 evidence head `e19470f17447fcc6573ccdbccf1c178de9588da6` then passed both required jobs in run `36794408500` and merged as `6138e6e8dba4a3867c9e7b9c66c13ebaf8b2a79b`. The eight-task offline QA work is complete for this bounded review; remaining acceptance and release decisions are unchanged. The subsequent eight-task audit independently retested that merged revision and corrected stale planning/evidence wording; see OFFLINE_QA_REVIEW and FN-020.
