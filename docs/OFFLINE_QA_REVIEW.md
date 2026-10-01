@@ -49,6 +49,10 @@ Local focused tests and full `go test -race -count=1 ./...` passed with pinned G
 
 Required Linux/Windows code-checkpoint run `36792517368` passed PR #64 head `b447ec46c3eee232259e7df3621227f840106451`. Native logs on both hosts show all fourteen package cases with no integration skip, 89 file destinations, eight flags and one parsed snippet. Both native vulnerability scans reported zero reachable/imported-package findings and three module-only findings. Linux aggregate statement coverage was 79.4%, above the 75% regression floor; this is not behavioral completeness. That run predates the final SDK registration correction. Focused and full local race tests plus vet were rerun after the correction; the exact updated final head must pass both jobs before merge.
 
+
+
+Final implementation checkpoint: PR #64 head `a531237eae3bc8d4bec80bcfb6518698f1d61b9d`, including SDK registration suppression, passed required Linux/Windows run `36793880867`. Inspected both native logs: all fourteen package cases with no skips, 89 file destinations/eight flags/one snippet, and zero reachable/imported-package vulnerabilities. Linux aggregate statement coverage was 79.8%. The post-correction isolated clean Linux package suite also completed all fourteen cases at local checkpoint `dc0a04d` (temporary candidate SHA-256 `33f0be8de2dbf6c1af27004b8c2d55703d9d46a3db19af1d5aa601857965b194`). No artifact was published. Final evidence-documentation revision must pass both required jobs before merge; Gate 004/release decisions remain open.
+
 The development ledger records code-head/run evidence after verification. No Azure scan, role assignment, provider registration, production pilot or release publication occurred.
 
 ## Primary guidance
