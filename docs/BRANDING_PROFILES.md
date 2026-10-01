@@ -1,6 +1,6 @@
 # Immutable branding profiles: development builder
 
-Date: 2026-10-01 (Europe/Oslo). This implements the first two steps of [BRANDING_REVIEW.md](BRANDING_REVIEW.md): strict profile parsing, a supported native development builder and actual executable identity checks. AR-03 remains open. Paired custom report/data checks are now implemented in [BRANDING_REPORT_QA.md](BRANDING_REPORT_QA.md); profile-aware distribution is the next acceptance step. Existing candidate packaging still expects cloud-assess and rejects custom identities; do not bypass that validation or describe custom executables as release-approved packages.
+Date: 2026-10-01 (Europe/Oslo). This implements the first two steps of [BRANDING_REVIEW.md](BRANDING_REVIEW.md): strict profile parsing, a supported native development builder and actual executable identity checks. AR-03 remains open. Paired custom report/data checks are now implemented in [BRANDING_REPORT_QA.md](BRANDING_REPORT_QA.md); profile-aware distribution is the next acceptance step. Profile-aware candidate packaging is now implemented in [BRANDED_PACKAGES.md](BRANDED_PACKAGES.md), pending final native acceptance; candidates remain unapproved for release.
 
 ## Build and inspect
 

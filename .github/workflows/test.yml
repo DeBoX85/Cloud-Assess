@@ -77,6 +77,9 @@ jobs:
       - name: Test dependency inventory safeguards
         run: python3 scripts/tests/dependency-inventory.py
 
+      - name: Verify Windows workflow native-command failure propagation
+        run: python3 scripts/tests/workflow-command-failures.py
+
       - name: Verify dependency and license inventory freshness
         run: python3 scripts/dependency-inventory.py --check
 
@@ -140,7 +143,9 @@ jobs:
         run: python3 scripts/tests/documentation.py --binary .build/cloud-assess --powershell pwsh
 
       - name: Test candidate package integrity and isolated installation
-        run: python3 scripts/tests/package-candidate.py --binary .build/cloud-assess
+        run: |
+          python3 scripts/tests/package-candidate.py --binary .build/cloud-assess
+          python3 scripts/tests/branded-package.py
 
       - name: Test with race detector
         run: go test -race -count=1 ./...
@@ -222,6 +227,9 @@ jobs:
         shell: powershell
         run: ./scripts/tests/live-equivalence.tests.ps1
 
+      - name: Verify Windows workflow native-command failure propagation
+        run: python scripts/tests/workflow-command-failures.py
+
       - name: Test Go packages on Windows
         run: go test ./...
 
@@ -249,10 +257,16 @@ jobs:
       - name: Validate branding builder and actual native executables
         run: |
           python scripts/tests/branding.py
+          if ($LASTEXITCODE -ne 0) { throw 'Native branding CLI checks failed.' }
           python scripts/tests/branding-reports.py
+          if ($LASTEXITCODE -ne 0) { throw 'Native branding report checks failed.' }
 
       - name: Test Windows candidate package integrity and isolated installation
-        run: python scripts/tests/package-candidate.py --binary .build/cloud-assess.exe
+        run: |
+          python scripts/tests/package-candidate.py --binary .build/cloud-assess.exe
+          if ($LASTEXITCODE -ne 0) { throw 'Default native package checks failed.' }
+          python scripts/tests/branded-package.py
+          if ($LASTEXITCODE -ne 0) { throw 'Custom native package checks failed.' }
 
       - name: Check Windows reachable vulnerabilities
         run: go run golang.org/x/vuln/cmd/govulncheck@v1.8.0 ./...

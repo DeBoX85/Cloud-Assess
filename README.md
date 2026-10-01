@@ -92,4 +92,4 @@ QA review and evidence rules: [QA_PROCESS.md](docs/QA_PROCESS.md).
 
 The [project alignment review](docs/ALIGNMENT_REVIEW.md) records current feature-parity limits, branding customization work, security corrections and the autonomous resume checkpoint.
 
-Validated build-time presentation profiles and the native development builder are documented in [Branding profiles](docs/BRANDING_PROFILES.md). Custom report/package acceptance remains in progress; custom executables are not yet supported by candidate packaging.
+Validated build-time presentation profiles and the native development builder are documented in [Branding profiles](docs/BRANDING_PROFILES.md). Paired report checks and [profile-aware candidate packaging](docs/BRANDED_PACKAGES.md) extend this workflow. Final native acceptance is required; development candidates are not approved releases.

@@ -42,7 +42,7 @@ Intentional changes include:
 
 ## Branding adjustment requirement
 
-Product identity is centralized in `internal/branding`. The [immutable branding profile builder](BRANDING_PROFILES.md) now supports validated build-time presentation identity without source edits. The [branding review](BRANDING_REVIEW.md) defines the acceptance checks; [paired synthetic report evidence](BRANDING_REPORT_QA.md) now implements the custom report/data checks, while profile-aware packaging remains open. This requirement remains open until coherent native CLI/report/package propagation passes; a development builder alone is not completion.
+Product identity is centralized in `internal/branding`. The [immutable branding profile builder](BRANDING_PROFILES.md) now supports validated build-time presentation identity without source edits. The [branding review](BRANDING_REVIEW.md) defines the acceptance checks; [paired synthetic report evidence](BRANDING_REPORT_QA.md) now implements the custom report/data checks, and [profile-aware candidate packages](BRANDED_PACKAGES.md) implement distribution checks pending final native acceptance. This requirement remains open until coherent native CLI/report/package propagation passes; a development builder alone is not completion.
 
 ## Core v1 scope
 

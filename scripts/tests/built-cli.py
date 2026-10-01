@@ -16,6 +16,7 @@ ROOT = Path(__file__).resolve().parents[2]
 BINARY = None
 GO = None
 EXPECTED_VERSION = "dev"
+EXPECTED_BRANDING = {"productName": "Cloud Assess", "cliName": "cloud-assess"}
 
 
 class BuiltCLITests(unittest.TestCase):
@@ -65,21 +66,23 @@ class BuiltCLITests(unittest.TestCase):
 
     def execute(self, args):
         return subprocess.run([str(self.executable)] + args, cwd=self.directory, env=self.env,
-                              capture_output=True, text=True, timeout=15)
+                              capture_output=True, text=True, encoding='utf-8', timeout=15)
 
     def snapshot(self):
         return {str(p.relative_to(self.directory)): 'directory' if p.is_dir() else hashlib.sha256(p.read_bytes()).hexdigest()
                 for p in self.directory.rglob('*')}
 
     def test_help_version_and_documented_output_contract(self):
-        cases = [([], 'Cloud Assess'), (['--help'], 'cloud-assess'),
-                 (['scan', '--help'], '--redact-subscription-ids'), (['--version'], 'cloud-assess version ' + EXPECTED_VERSION)]
+        cases = [([], EXPECTED_BRANDING['productName']), (['--help'], EXPECTED_BRANDING['cliName']),
+                 (['scan', '--help'], '--redact-subscription-ids'), (['--version'], EXPECTED_BRANDING['cliName'] + ' version ' + EXPECTED_VERSION)]
         for args, expected in cases:
             with self.subTest(args=args):
                 result = self.execute(args)
                 self.assertEqual(result.returncode, 0, result.stderr)
                 self.assertIn(expected, result.stdout)
                 self.assertEqual(result.stderr, '')
+        if 'schemaVersion' in EXPECTED_BRANDING:
+            self.assertEqual(json.loads(self.execute(['branding']).stdout), EXPECTED_BRANDING)
         help_text = self.execute(['scan', '--help']).stdout
         for flag in ('--json', '--xlsx', '--csv', '--sarif', '--stdout', '--filters', '--fail-on', '--stages', '--assessment-timeout'):
             self.assertIn(flag, help_text)
@@ -158,9 +161,12 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--binary', required=True)
     parser.add_argument('--expected-version', default='dev')
+    parser.add_argument('--expected-branding-file', type=Path)
     parser.add_argument('--go', default=os.environ.get('QA_GO', 'go'))
     args, rest = parser.parse_known_args()
     BINARY = Path(args.binary).resolve(strict=True)
     GO = args.go
     EXPECTED_VERSION = args.expected_version
+    if args.expected_branding_file:
+        EXPECTED_BRANDING = json.loads(args.expected_branding_file.read_bytes())
     unittest.main(argv=[__file__] + rest)
