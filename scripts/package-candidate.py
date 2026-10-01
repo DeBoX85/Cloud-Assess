@@ -24,11 +24,11 @@ profile_module = importlib.util.module_from_spec(profile_spec)
 profile_spec.loader.exec_module(profile_module)
 
 
-def installation(profile, version, target):
+def installation(profile, version, target, revision):
     name = profile['cliName']
     executable = name + ('.exe' if target.startswith('windows/') else '')
     root = name + '-' + version + '-' + target.replace('/', '-')
-    return (source('docs/PACKAGE_INSTALL.md').decode('utf-8').replace('cloud-assess', name).encode('utf-8') +
+    return (source('docs/PACKAGE_INSTALL.md', revision).decode('utf-8').replace('cloud-assess', name).encode('utf-8') +
             ('\n## This candidate\n\nExecutable: `' + executable + '`. Archive: `' + root + '.zip`.\n'
              'Inspect the embedded profile with `' + executable + ' branding`.\n'
              'From the extracted directory: `./' + executable + ' --version` (Linux) or '
@@ -101,7 +101,7 @@ def package(binary, version, output, go):
                'DEPENDENCY_NOTICES.md': source('docs/dependencies/NOTICES.md', revision),
                'dependency-inventory.json': inventory_bytes,
                'BUILD_INFO.json': (json.dumps(info, indent=2) + '\n').encode(),
-               'INSTALL.md': installation(profile, version, target),
+               'INSTALL.md': installation(profile, version, target, revision),
                'BRANDING_PROFILE.json': profile_bytes}
     manifest = {'schemaVersion': 2, 'status': 'development-candidate-not-release-approved',
                 'version': version, 'target': target, 'sourceCommit': revision, 'sourceTree': tree,
