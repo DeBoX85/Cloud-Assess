@@ -51,7 +51,7 @@ The existing gates are suitable for their stated bounded historical/development 
 | ID | Follow-up | Can proceed without user Azure/laptop? | Closure evidence |
 |---|---|---|---|
 | AR-01 | Investigation/remediation recorded in [DEPENDENCY_ADVISORY_REVIEW.md](DEPENDENCY_ADVISORY_REVIEW.md); x/crypto upgrade and explicit residual advisory decision | Yes | Inventory and local scans complete; exact-head native CI required before merge; release review remains open |
-| AR-02 | SDK cycle/page cancellation and opt-in assessment timeout implemented; see [PAGINATION_LIFECYCLE.md](PAGINATION_LIFECYCLE.md) | Yes | Partial: default/volume/load bounds and further adapter evidence remain open |
+| AR-02 | SDK cycle/page cancellation, ARG/Advisor terminal cancellation and opt-in assessment timeout implemented; see [PAGINATION_LIFECYCLE.md](PAGINATION_LIFECYCLE.md) | Yes | Partial: default/volume/load bounds and ARG service-completeness characterization remain open |
 | AR-03 | Define and implement branding adjustment workflow | Design/prototype yes; unresolved product choices recorded before acceptance | CLI/all-report propagation, safe filenames/identity metadata and docs |
 | AR-04 | Complete source feature characterization for external extensions, six plugins and missing command surfaces | Yes for characterization and implementation | Source/target matrix, explicit permissions/stage health and executable fixtures |
 | AR-05 | Reconcile historical Diagnostics warnings, recommendation-exclusion warning and Advisor cross-run uncertainty | Partly; historical raw evidence or suitable later live pass required | No inference from counts or later uncorrelated probes; preserve warning status |

@@ -64,6 +64,10 @@ func (c *MetadataClient) RecommendationTypes(ctx context.Context) (map[string]st
 			return nil, fmt.Errorf("list Advisor recommendation metadata: %w", err)
 		}
 
+		if err := ctx.Err(); err != nil {
+			return nil, err
+		}
+
 		var page metadataListResult
 		if err := json.Unmarshal(body, &page); err != nil {
 			return nil, fmt.Errorf("decode Advisor recommendation metadata: %w", err)
