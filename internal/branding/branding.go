@@ -14,8 +14,8 @@ type Branding struct {
 	LogoAltText      string
 }
 
-// Default returns the working Cloud Assess branding.
-func Default() Branding {
+// defaults returns the unchanged built-in identity.
+func defaults() Branding {
 	return Branding{
 		ProductName:      "Cloud Assess",
 		ShortName:        "Cloud Assess",
@@ -26,4 +26,13 @@ func Default() Branding {
 		SupportURL:       "https://github.com/DeBoX85/Cloud-Assess/issues",
 		LogoAltText:      "Cloud Assess logo",
 	}
+}
+
+// Default returns a copy of the immutable identity resolved at process startup.
+// CLI startup checks EmbeddedError before constructing commands or authenticating.
+func Default() Branding {
+	if embeddedErr != nil {
+		panic(embeddedErr)
+	}
+	return embeddedBrand
 }

@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "productName": "Example Cloud Toolkit",
+  "cliName": "example-cloud",
+  "reportTitle": "Example Cloud Assessment",
+  "reportFilePrefix": "example_report",
+  "websiteURL": "https://example.test/tool"
+}

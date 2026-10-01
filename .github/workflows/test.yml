@@ -80,6 +80,9 @@ jobs:
       - name: Verify dependency and license inventory freshness
         run: python3 scripts/dependency-inventory.py --check
 
+      - name: Validate branding builder and actual native executables
+        run: python3 scripts/tests/branding.py
+
       - name: Verify product branding boundaries
         shell: bash
         run: |
@@ -240,6 +243,9 @@ jobs:
 
       - name: Verify Windows documentation and operator examples
         run: python scripts/tests/documentation.py --binary .build/cloud-assess.exe --powershell powershell
+
+      - name: Validate branding builder and actual native executables
+        run: python scripts/tests/branding.py
 
       - name: Test Windows candidate package integrity and isolated installation
         run: python scripts/tests/package-candidate.py --binary .build/cloud-assess.exe

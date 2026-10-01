@@ -5,6 +5,8 @@ import (
 	"os"
 	"os/signal"
 	"syscall"
+
+	"github.com/DeBoX85/Cloud-Assess/internal/branding"
 )
 
 var version = "dev"
@@ -18,6 +20,10 @@ func run(args []string) int {
 }
 
 func runWithExecutor(args []string, executor scanExecutor) int {
+	if err := branding.EmbeddedError(); err != nil {
+		fmt.Fprintln(os.Stderr, err)
+		return 1
+	}
 	root := newRootCommand(executor)
 	ctx, stop := signal.NotifyContext(root.Context(), os.Interrupt, syscall.SIGTERM)
 	defer stop()

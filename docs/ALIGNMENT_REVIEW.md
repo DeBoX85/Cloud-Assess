@@ -25,7 +25,7 @@ The implemented common assessment path remains aligned with the intended functio
 | Plugin discovery and metadata | Source commands/plugins.go list/info and registry; target rejects explicit plugin stage before authentication | Not implemented; explicit failure is safer than false support but does not satisfy parity |
 | Scanner-specific CLI and rules listing | Source commands/scanners.go and rules.go; target currently root/scan | Generic scanner filtering exists, specialized commands/rules surface still missing |
 | Compare, alternative VM SKU, MCP | Source commands/compare.go, alternative_vm_sku.go, mcpserver.go | Source features deferred beyond core; retain eventual parity work separately from non-source web UI/site enhancements |
-| Easily adjustable branding | internal/branding consumed by CLI/report layers | Centralized source defaults require rebuild; supported customization workflow and complete propagation tests remain open |
+| Easily adjustable branding | internal/branding consumed by CLI/report layers | Validated immutable profile and native builder now available; custom report/data and profile-aware package acceptance remain open |
 | Packaging, security and operations | Candidate ZIP, inventory/notices, strict stamped builds and blocking native jobs | Development evidence only; signed publication, fresh OS, license/security decisions and controlled pilot remain open |
 
 ## Confirmed defects and narrowly scoped remediation
@@ -52,7 +52,7 @@ The existing gates are suitable for their stated bounded historical/development 
 |---|---|---|---|
 | AR-01 | Investigation/remediation recorded in [DEPENDENCY_ADVISORY_REVIEW.md](DEPENDENCY_ADVISORY_REVIEW.md); x/crypto upgrade and explicit residual advisory decision | Yes | Inventory and local scans complete; exact-head native CI required before merge; release review remains open |
 | AR-02 | SDK cycle/page cancellation, ARG/Advisor terminal cancellation and opt-in assessment timeout implemented; see [PAGINATION_LIFECYCLE.md](PAGINATION_LIFECYCLE.md) | Yes | Partial: documented page size/explicit tokenless truncation corrected; default/volume/load bounds and broader metadata/live completeness remain open |
-| AR-03 | Define and implement branding adjustment workflow | Design review complete; implementation next, no Azure required | See [BRANDING_REVIEW.md](BRANDING_REVIEW.md); custom CLI/report/package propagation, safe filenames and identity tests still open |
+| AR-03 | Define and implement branding adjustment workflow | Validated profile/builder implemented; report/package acceptance next, no Azure required | See [BRANDING_REVIEW.md](BRANDING_REVIEW.md); custom CLI/report/package propagation, safe filenames and identity tests still open |
 | AR-04 | Complete source feature characterization for external extensions, six plugins and missing command surfaces | Yes for characterization and implementation | Source/target matrix, explicit permissions/stage health and executable fixtures |
 | AR-05 | Reconcile historical Diagnostics warnings, recommendation-exclusion warning and Advisor cross-run uncertainty | Partly; historical raw evidence or suitable later live pass required | No inference from counts or later uncorrelated probes; preserve warning status |
 | AR-06 | DV-001 nested non-production management-group equivalence | No suitable live scope currently available | Explicit deferred validation record; synthetic hierarchy is not live closure |
