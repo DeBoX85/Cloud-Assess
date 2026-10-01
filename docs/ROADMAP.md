@@ -1,6 +1,6 @@
 # Cloud Assess Roadmap
 
-Status: working execution roadmap, reviewed 2026-10-02 (Europe/Oslo); current-branch QA/profile-aware packaging starts from merged `bootstrap/core-v1` at `5c0ec9e5b3d12340c7113c153df99db95f8df0e1`
+Status: working execution roadmap, reviewed 2026-10-02 (Europe/Oslo); feature characterization starts from merged `bootstrap/core-v1` at `9a022a62444b0940b3f016dc58e850b1599c6fa6`
 
 Active development branch: `bootstrap/core-v1`
 
@@ -60,7 +60,7 @@ The same-RG include/exclude precedence pass matched with three selected Dev reso
 
 A one-time review of the earlier project conversation identified three requirements to resolve before the first-release boundary. That history is design context, not evidence that current behavior is defective or that later decisions were never made:
 
-- **Adjustable branding:** The original request called for a simple way to change product branding. `internal/branding` centralizes the current identity, but changing its defaults requires a code change and rebuild. Decide the supported adjustment workflow, verify that the CLI and all report formats use it consistently, and document it. A YAML branding file was an illustration in the earlier conversation, not an agreed format.
+- **Adjustable branding:** The original request called for a simple way to change product branding. PR #75 completed the bounded immutable five-field JSON build workflow with executable, report and installed-package acceptance. Runtime profiles, logos/themes and release approval remain separate. A YAML branding file was an illustration in the earlier conversation, not an agreed format.
 - **Extension versus built-in plugin scope:** YAML/KQL recommendation extensions were named in the original core-v1 scope. Full behavioral parity for built-in plugins was deferred. Production external/YAML plugin execution is still open, so decide and document its first-release status separately from each built-in plugin. The named historical inventory for the eventual parity matrix is AI Governance, Carbon, Region Selection, Service Health, SQL EOL, and Zone Mapping; verify the pinned-source names and behavior when building that matrix.
 - **Access model:** The earlier specification separated ordinary read-oriented resource access from Cost data visibility and required a Cost access failure to remain distinct from a valid zero-cost result. Document the actual stage-specific permissions, billing prerequisites, and failure behavior as part of the release operations review. Verify current Azure role guidance against official documentation before publishing concrete role recommendations. Plugin permissions need their own entries when plugins are supported.
 
@@ -200,4 +200,8 @@ Post-registration-hardening checkpoint `a531237eae3bc8d4bec80bcfb6518698f1d61b9d
 
 The next AR-03 acceptance slice adds [paired report checks](BRANDING_REPORT_QA.md) for all twelve sheets/tables, JSON/stdout, SARIF records/provenance, default/explicit output paths and concurrent rendering. Next implement profile-aware native package evidence, installation and tampering checks. Readiness estimates and release decisions remain unchanged; no Azure/laptop input is needed.
 
-Current-branch QA and [profile-aware packages](BRANDED_PACKAGES.md) implement the remaining bounded five-field development workflow. Final exact-head native acceptance remains blocking. Resume with pinned-source external YAML/KQL and missing CLI/plugin characterization (AR-04) after acceptance; release/Gate 004 and Azure deferrals remain open. Older checkpoint descriptions above are chronological, not additional unfinished profile/report tasks.
+Current-branch QA and [profile-aware packages](BRANDED_PACKAGES.md) implement the remaining bounded five-field development workflow. PR #75 final native run `36940456214` passed on head `c5748a4c549c5b925a4d1b51394e155be300aabf`, merged as `9a022a62444b0940b3f016dc58e850b1599c6fa6`; bounded AR-03 is accepted. Resume with pinned-source external YAML/KQL and missing CLI/plugin characterization (AR-04); release/Gate 004 and Azure deferrals remain open. Older checkpoint descriptions above are chronological, not additional unfinished profile/report tasks.
+
+## Feature characterization checkpoint
+
+[FEATURE_PARITY_CHARACTERIZATION.md](FEATURE_PARITY_CHARACTERIZATION.md) distinguishes automatically discovered YAML Graph recommendations from explicitly selected internal table plugins, maps source command placement/selection and six migration dependencies, and records source failure/flag/containment caveats. This is inspected source behavior, not plugin execution acceptance. Next implement offline `rules` inspection, followed by scanner subcommands, bounded YAML Graph support and the common plugin table/health path. Native branding acceptance is complete for AR-03; older future-work checkpoint statements above are historical. Estimates, Gate 004/release and live deferrals remain unchanged. No Azure/laptop input is needed for the next command slice.
