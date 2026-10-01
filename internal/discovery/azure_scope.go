@@ -8,6 +8,7 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/arm"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/managementgroups/armmanagementgroups"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/subscription/armsubscription"
+	"github.com/DeBoX85/Cloud-Assess/internal/azure"
 )
 
 // AzureScopeClient implements subscription and management-group discovery with Azure SDK clients.
@@ -24,13 +25,11 @@ func NewAzureScopeClient(credential azcore.TokenCredential, options *arm.ClientO
 	if credential == nil {
 		return nil, fmt.Errorf("Azure scope discovery credential is nil")
 	}
-	// Keep scope discovery read-oriented even with caller-supplied SDK options.
-	clientOptions := arm.ClientOptions{}
-	if options != nil {
-		clientOptions = *options
+	var err error
+	options, err = azure.ScopeARMOptions(options)
+	if err != nil {
+		return nil, err
 	}
-	clientOptions.DisableRPRegistration = true
-	options = &clientOptions
 
 	subscriptions, err := armsubscription.NewSubscriptionsClient(credential, options)
 	if err != nil {

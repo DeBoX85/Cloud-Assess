@@ -58,5 +58,9 @@ func ResourceManagerEndpoint() string {
 
 // ResourceManagerScope returns the OAuth scope used by ARM-backed APIs.
 func ResourceManagerScope() string {
+	configuration := CloudConfiguration()
+	if service, ok := configuration.Services[cloud.ResourceManager]; ok && service.Audience != "" {
+		return strings.TrimRight(service.Audience, "/") + "/.default"
+	}
 	return ResourceManagerEndpoint() + "/.default"
 }

@@ -1,6 +1,6 @@
 # Cloud Assess Roadmap
 
-Status: working execution roadmap, reviewed 2026-10-01 (Europe/Oslo); scope-reporting checkpoint starts from merged `bootstrap/core-v1` at `7bbd1f661fcf49b824180599df493a13d31d78db`
+Status: working execution roadmap, reviewed 2026-10-01 (Europe/Oslo); alignment review starts from merged `bootstrap/core-v1` at `0df39bd9c3a8a0e2062f54772ac9e29750b3409b`
 
 Active development branch: `bootstrap/core-v1`
 
@@ -181,3 +181,7 @@ Offline shortlist code checkpoint: PR #64 head `b447ec46c3eee232259e7df3621227f8
 Final SDK middleware review added explicit automatic-provider-registration suppression to shared ARM options and scope construction, with a pre-fix synthetic POST reproduction and corrected no-write/original-error regressions (FN-019). The earlier code-checkpoint CI result predates this final correction; both required jobs must pass on the updated head. SDK-owned pagination destination review remains open.
 
 Post-registration-hardening checkpoint `a531237eae3bc8d4bec80bcfb6518698f1d61b9d` passed both required jobs in run `36793880867`, with all fourteen native package cases/no skips, successful documentation checks, zero reachable/imported-package findings and 79.8% Linux statement coverage. Final PR #64 evidence head `e19470f17447fcc6573ccdbccf1c178de9588da6` then passed both required jobs in run `36794408500` and merged as `6138e6e8dba4a3867c9e7b9c66c13ebaf8b2a79b`. The eight-task offline QA work is complete for this bounded review; remaining acceptance and release decisions are unchanged. The subsequent eight-task audit independently retested that merged revision and corrected stale planning/evidence wording; see OFFLINE_QA_REVIEW and FN-020.
+
+## Alignment sanity-review checkpoint
+
+[ALIGNMENT_REVIEW.md](ALIGNMENT_REVIEW.md) records the paused/resume state, source feature matrix, reproduced SDK pager/token-audience fixes and a separate AR-01 through AR-08 follow-up register. Normal recommendation sources remain APRL/AOR/CUSTOM (renamed AZQR); external extensions, six built-in plugins and ancillary CLI features are eventual parity obligations. Branding defaults requiring rebuild do not complete the adjustment requirement. SDK scope origin validation is now implemented; injected transports remain trusted code, same-origin pagination budgets remain open, and dependency advisory maintenance is the next autonomous checkpoint. Readiness estimates and Gate 004/release status are unchanged.

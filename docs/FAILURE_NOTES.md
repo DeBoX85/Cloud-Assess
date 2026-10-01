@@ -186,3 +186,18 @@ Record user-visible instruction errors and errors that affected code, tests, evi
 - **Prevention:** Verify scope independently of data-bearing rows, include zero-data subscriptions, preserve failed-listing versus valid-empty states, and apply privacy tests to every new ID-bearing field. Independently reconcile MG/filter-only intended membership; resolved discovery does not certify complete access.
 - **Evidence/status:** Offline coordinator fixtures drive the real subscription discovery helper for absent, disabled/deleted and valid filtered cases; application fixtures assert failed JSON/exit 1 and no inventory query. A compiling removal of the guard must fail the resource-query tripwire. Canonical ownership/order and JSON scope-only redaction tests cover the new metadata. Required exact-head Linux/Windows checks remain blocking.
 - **Execution recurrence:** After runtime refresh the prior /tmp clone was absent; restored a worktree from the live branch instead of trusting old local state. FN-004 path guessing recurred in two read commands; actual file inventory supplied the correct files. An initial focused test invocation preceded APRL submodule initialization and failed setup; initialized the unchanged pinned gitlink and reran the checks. No incomplete setup run counts as passing QA. Full race checks were rerun after the final code edits; toolchain flags only accommodate the known local VCS context, not production packaging.
+
+## FN-022: SDK scope next links bypassed the application origin boundary
+
+- **Date:** 2026-10-01 (Europe/Oslo).
+- **Reproduction:** In-memory real SDK subscription pager followed a foreign HTTPS nextLink with a synthetic bearer header (`calls=2 foreignBearer=1`). No real token/network used. Advisor-specific safeguards did not cover SDK-owned pagers; search FN-017 when continuation or credential-boundary work recurs.
+- **Correction:** Copied scope options prepend an origin guard before SDK authentication; reject unsafe HTTPS destinations and use a redirect-refusing default client. Fifteen pager cases plus named/custom origin and caller-ownership fixtures cover the boundary. Injected policies/transports remain trusted and must enforce their internal behavior; this is not a universal network sandbox.
+- **Prevention/status:** Inspect actual SDK request construction and policy order, reproduce with synthetic bearer tripwires and test all pager entry points. Same-origin paging budget/cycles remain AR-02. Full local race suite passes; final native jobs remain required.
+- **Review execution recurrence:** Some batched reads exceeded output limits and guessed module/plugin paths were absent (FN-004/FN-007). Follow-up reads used bounded source regions and actual file inventory. Unseen/truncated text is not treated as evidence; review claims are limited to inspected paths and explicit tests.
+
+## FN-023: Shared ARM HTTP token scope ignored explicit audience
+
+- **Date:** 2026-10-01 (Europe/Oslo).
+- **Reproduction:** Explicit custom audience differed from endpoint; ResourceManagerScope still requested the endpoint scope, contrary to the SDK audience contract.
+- **Correction:** Use configured ARM audience for OAuth scope; retain endpoint fallback when absent. Named-cloud, custom audience and fallback regressions pass. This is an intentional authentication correction with no live sovereign/private deployment claim.
+- **Prevention:** Test audience and endpoint as distinct values, compare shared HTTP adapters with SDK options, and do not equate environment parsing tests with actual authentication validation. See ALIGNMENT_REVIEW for remaining custom-cloud limits.
