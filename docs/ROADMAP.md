@@ -1,6 +1,6 @@
 # Cloud Assess Roadmap
 
-Status: working execution roadmap, audited 2026-10-01 (Europe/Oslo) against merged `bootstrap/core-v1` at `6138e6e8dba4a3867c9e7b9c66c13ebaf8b2a79b`
+Status: working execution roadmap, reviewed 2026-10-01 (Europe/Oslo); scope-reporting checkpoint starts from merged `bootstrap/core-v1` at `7bbd1f661fcf49b824180599df493a13d31d78db`
 
 Active development branch: `bootstrap/core-v1`
 
@@ -174,7 +174,7 @@ Historical-report comparison, alternative VM SKU selection, MCP integration, a p
 
 The agreed shortlist is executed in [OFFLINE_QA_REVIEW.md](OFFLINE_QA_REVIEW.md): documentation consistency, acceptance/test mapping, combined filter fixtures, actual-CLI/PowerShell example checks, remaining request contracts, default retry counts, sensitive-output review and interrupted package publication. Review found and fixed an Advisor continuation credential-boundary defect (FN-017), added redirect refusal in the default shared transport, and corrected an initial multi-CLI documentation-check assumption (FN-018). This advances QA evidence, not the coarse readiness percentages or release approval. PR #63 final head `9e177fe98e2a7ea9e1221811fbf6e4d80058f50f` passed required run `36789582586`, merged as `dd3cc8309b799502ba92c9d43559b776eb8b3918`.
 
-Next autonomous checkpoints: resolve the intended-versus-visible scope reporting contract against the specification, review SDK-owned pager/injected-transport credential boundaries, and review module-only security advisories during a pinned dependency refresh. DV-001, non-empty live stage evidence, historical warning/Advisor uncertainty, first-release feature decisions, fresh-OS installation and the production pilot remain open. No Azure/laptop action is required for this offline checkpoint.
+The scope-reporting checkpoint now implements explicit requested/resolved JSON evidence and fail-closed handling of missing explicit subscriptions with offline coordinator/application/privacy tests; see [SCOPE_REPORTING.md](SCOPE_REPORTING.md). Next autonomous checkpoints: review SDK-owned pager/injected-transport credential boundaries, then review module-only security advisories during a pinned dependency refresh. DV-001, non-empty live stage evidence, historical warning/Advisor uncertainty, first-release feature decisions, fresh-OS installation and the production pilot remain open. No Azure/laptop action is required for this offline checkpoint.
 
 Offline shortlist code checkpoint: PR #64 head `b447ec46c3eee232259e7df3621227f840106451` passed required Linux/Windows run `36792517368`. Both native package suites completed all fourteen cases and documentation/vulnerability checks passed; no reachable/imported-package findings, three module-only advisories. Final evidence head must pass both jobs before merge. Readiness estimates remain unchanged because outstanding acceptance/release boundaries remain.
 

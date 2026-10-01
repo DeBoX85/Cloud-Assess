@@ -201,7 +201,7 @@ Assessment completeness is separately represented as:
 - `partial`
 - `failed`
 
-Execution completeness applies to resolved/visible data; it does not independently certify intended estate visibility. The current discovery implementation may silently omit explicitly requested subscription IDs absent from visible listing, and ARG can omit inaccessible resources. How missing intended scopes are classified against the fatal unresolved-scope expectation below remains an acceptance decision, including intentional filters and zero-data subscriptions. Gate 004 tracks independent scope evidence and operator-verifiable reporting; see [ACCESS_MODEL.md](ACCESS_MODEL.md) and [OPERATIONS.md](OPERATIONS.md).
+Execution completeness applies to resolved/visible data; it does not independently certify intended estate visibility. Canonical JSON now records requested scope, effective subscription filters, resolved subscriptions (including zero-data subscriptions) and unresolved explicit subscription IDs. A successfully discovered scope missing any explicit CLI/library subscription fails before resource queries, persists failed status evidence when possible and returns exit 1. This is a deliberate target correction to silent subset discovery. All-visible/MG and filter-only successful empty scopes retain source behavior; ARG can still omit inaccessible resources. See [SCOPE_REPORTING.md](SCOPE_REPORTING.md), [ACCESS_MODEL.md](ACCESS_MODEL.md) and [OPERATIONS.md](OPERATIONS.md). Independent membership/RBAC and restricted-identity live evidence remain Gate 004 requirements.
 
 ## HTTP operation limits
 

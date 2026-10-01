@@ -1,6 +1,6 @@
 # Operator runbook
 
-Status: current core-v1 candidate guidance, reviewed 2026-09-30. Gate 004 and release approval remain open. See [ACCESS_MODEL.md](ACCESS_MODEL.md) before using an identity or approving scope.
+Status: current core-v1 candidate guidance, reviewed 2026-10-01. Gate 004 and release approval remain open. See [ACCESS_MODEL.md](ACCESS_MODEL.md) before using an identity or approving scope.
 
 ## Prepare a bounded assessment
 
@@ -37,7 +37,7 @@ Capture `$LASTEXITCODE` immediately. For a child management group replace the su
 | 2 | Configured finding severity threshold reached | Reports are rendered before this exit. Review findings; this is different from a failed retrieval. |
 | 3 | A requested noncritical stage failed, leaving a partial assessment | Reports are rendered before this exit. Inspect failed stages and retain healthy data with explicit partial labeling. |
 
-Inspect canonical JSON `completeness` and `stages` (`name`, `status`, `records`, `warnings`) alongside the process exit. Skipped opt-in stages are not assessed. `complete_with_warnings` requires classification of every warning relevant to the decision. Stage records are stage-specific, not a universal count of Azure resources. Output rendering is not one transaction across all formats; an earlier report can exist when a later renderer fails. Do not silently reuse a previous run's file as evidence for the failed run.
+Inspect canonical JSON `scope`, `completeness` and `stages` (`name`, `status`, `records`, `warnings`) alongside the process exit. `scope.resolvedSubscriptions` includes zero-data subscriptions; compare private unredacted IDs with the approved scope. `not_completed` distinguishes failed discovery from an empty successfully resolved set. An unresolved explicit subscription produces failed scope/exit 1 before resource queries; inspect `unresolvedSubscriptionIds` without assuming the cause. Filter-only includes are selectors rather than required membership. See [SCOPE_REPORTING.md](SCOPE_REPORTING.md). Skipped opt-in stages are not assessed. `complete_with_warnings` requires classification of every warning relevant to the decision. Stage records are stage-specific, not a universal count of Azure resources. Output rendering is not one transaction across all formats; an earlier report can exist when a later renderer fails. Do not silently reuse a previous run's file as evidence for the failed run.
 
 ## Troubleshooting without widening scope
 

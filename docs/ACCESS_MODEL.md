@@ -1,6 +1,6 @@
 # Azure access model
 
-Status: source and Microsoft documentation review, 2026-09-30. This is practical operator guidance for the current core-v1 build, not a live-certified minimum custom role or production approval.
+Status: source and Microsoft documentation review, 2026-10-01. This is practical operator guidance for the current core-v1 build, not a live-certified minimum custom role or production approval.
 
 ## Identity and scope
 
@@ -32,9 +32,9 @@ Graph, Diagnostics, Advisor and Defender plan status are enabled by default. Pol
 
 ## Coverage is separate from execution health
 
-Microsoft documents that ARG can return only accessible subscriptions/resources without indicating partial results when some requested subscriptions are accessible. Current subscription discovery intersects requested IDs with visible active subscriptions and filters; an explicit ID absent from listing is silently absent from the resolved set. This behavior is characterized, not changed by this review. A missing ID may reflect authorization, subscription state, tenant/session context or filtering; the scanner cannot infer the cause from absence alone.
+Microsoft documents that ARG can return only accessible subscriptions/resources without indicating partial results when some requested subscriptions are accessible. Underlying subscription discovery intersects requested IDs with visible active subscriptions and filters. The coordinator now fails before resource queries if any explicit CLI/library subscription is absent from the resolved set. Filter-only selectors and all-visible/MG successful empty discovery retain existing behavior; see [SCOPE_REPORTING.md](SCOPE_REPORTING.md). A missing ID may reflect authorization, subscription state, tenant/session context or filtering; the scanner cannot infer the cause from absence alone.
 
-`complete` and exit 0 describe execution against resolved/visible data. They do not prove every intended subscription, resource or security/policy row was visible. Independently record the approved subscription set and applicable permissions before accepting estate-wide conclusions. The canonical result exposes a hashed `scopeId` and a scope-stage record count, not a list of every resolved subscription. Subscription IDs in data identify subscriptions that returned records; a subscription with zero records cannot be proven absent or present from those rows alone. Redacted output further limits identity comparison. A new intended-versus-resolved reporting contract and representative live visibility evidence remain Gate 004/release review work.
+`complete` and exit 0 describe execution against resolved/visible data. They do not prove every intended subscription, resource or security/policy row was visible. Independently record the approved subscription set and applicable permissions before accepting estate-wide conclusions. Canonical JSON exposes `scope` with requested inputs, effective subscription filter lists, resolved subscriptions and unresolved explicit IDs, alongside the existing hash/count. Resolved entries include subscriptions with zero resource rows. A failed listing is `not_completed`, distinct from successful empty resolution. Redacted output limits exact identity comparison; use private unredacted JSON for independent scope reconciliation. The reporting contract has offline coverage; representative restricted-identity live visibility evidence remains Gate 004/release work.
 
 Successful empty data, exact source equivalence and read-only roles do not independently close that coverage boundary. ARG indexing is eventually consistent, so comparisons between different times also require caution.
 

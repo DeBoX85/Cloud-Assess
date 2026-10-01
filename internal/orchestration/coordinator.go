@@ -52,6 +52,7 @@ func NewCoordinator(operations Operations) *Coordinator {
 type scanState struct {
 	subscriptions           map[string]string
 	scopeID                 string
+	scope                   *assessment.ScopeResolution
 	inventory               *discovery.ResourceInventory
 	resourceTypes           []assessment.ResourceTypeCount
 	recommendations         []assessment.RecommendationDefinition
@@ -85,7 +86,7 @@ func (c *Coordinator) Run(ctx context.Context, request Request) (*result.Assessm
 		c.now = time.Now
 	}
 
-	state := &scanState{}
+	state := &scanState{scope: newScopeResolution(prepared)}
 	tasks := c.tasks(prepared, state)
 	run := c.runner.Execute(ctx, tasks)
 
@@ -96,6 +97,7 @@ func (c *Coordinator) Run(ctx context.Context, request Request) (*result.Assessm
 	assessmentResult := result.Build(result.Input{
 		GeneratedAt:             c.now().UTC(),
 		ScopeID:                 state.scopeID,
+		Scope:                   state.scope,
 		Completeness:            run.Completeness,
 		Stages:                  run.Stages,
 		Recommendations:         state.recommendations,
@@ -134,6 +136,13 @@ type preparedRequest struct {
 }
 
 func prepareRequest(request Request) (preparedRequest, error) {
+	for _, ids := range [][]string{request.Subscriptions, request.ManagementGroups} {
+		for _, id := range ids {
+			if strings.TrimSpace(id) == "" {
+				return preparedRequest{}, fmt.Errorf("explicit scope identifier cannot be empty")
+			}
+		}
+	}
 	if len(request.ManagementGroups) > 0 && (len(request.Subscriptions) > 0 || len(request.ResourceGroups) > 0) {
 		return preparedRequest{}, fmt.Errorf("management group name cannot be used with a subscription ID or resource group name")
 	}
@@ -198,6 +207,10 @@ func (c *Coordinator) tasks(request preparedRequest, state *scanState) []stages.
 				}
 				state.subscriptions = subscriptions
 				state.scopeID = discovery.ScopeID(subscriptions)
+				resolveScope(state.scope, subscriptions)
+				if len(state.scope.UnresolvedSubscriptionIDs) > 0 {
+					return stages.Outcome{Records: len(subscriptions)}, fmt.Errorf("scope_requested_subscription_unresolved: %d explicitly requested subscription(s) could not be resolved after active-state and filter selection", len(state.scope.UnresolvedSubscriptionIDs))
+				}
 				return stages.Outcome{Records: len(subscriptions)}, nil
 			},
 		},

@@ -117,6 +117,16 @@ func collectSubscriptionIDs(data *result.AssessmentResult) []string {
 			ids = append(ids, value)
 		}
 	}
+	if scope := data.Scope; scope != nil {
+		for _, ids := range [][]string{scope.RequestedSubscriptionIDs, scope.IncludedSubscriptionIDs, scope.ExcludedSubscriptionIDs, scope.UnresolvedSubscriptionIDs} {
+			for _, id := range ids {
+				add(id)
+			}
+		}
+		for _, subscription := range scope.ResolvedSubscriptions {
+			add(subscription.SubscriptionID)
+		}
+	}
 	for _, item := range data.Findings {
 		add(item.SubscriptionID)
 	}

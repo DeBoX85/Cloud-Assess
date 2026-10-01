@@ -22,7 +22,7 @@ Paths below refer to the repository root. They identify concrete evidence, not a
 | Gate/release concern | Existing or added tests | Still open |
 |---|---|---|
 | Comparable semantic inputs | `internal/equivalence/compare_guard_test.go`, `projection_test.go`; bounded fuzz and selected mutation checks | Live missing scenarios, accepted normalization/uncertainty review |
-| Scope and filter behavior | `internal/config/filters_test.go`; `internal/discovery/resources_test.go`, `subscriptions_test.go`, `azure_scope_test.go` | Intended-versus-resolved reporting contract, restricted identities, DV-001 live nested hierarchy |
+| Scope and filter behavior | `internal/config/filters_test.go`; `internal/discovery/resources_test.go`, `subscriptions_test.go`, `azure_scope_test.go` | Reporting now has offline scope/coordinator/application/privacy checks; independent membership, restricted-identity live evidence and DV-001 remain open |
 | Failed retrieval versus valid empty data | `internal/app/optional_stage_http_test.go`, `e2e_test.go`; ARG continuation/envelope tests | Non-empty live optional stages, all adapter combinations |
 | Exit codes/report persistence | `cmd/cloud-assess/process_test.go`; `internal/app/scan_test.go`, `e2e_test.go` | Successful installed CLI Azure scan on each selected platform |
 | Query destinations and credential boundary | ARG/Diagnostics request contracts; `internal/advisor/metadata_http_test.go`; `internal/cost/http_contract_test.go`; `internal/azure/http_client_test.go` | SDK-owned pager/injected transport policies, whole adapter/security review |
