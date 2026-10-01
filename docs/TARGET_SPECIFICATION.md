@@ -42,7 +42,7 @@ Intentional changes include:
 
 ## Branding adjustment requirement
 
-Product identity is centralized in `internal/branding`, but current defaults require a source change and rebuild. A supported, consistently tested customization workflow remains an open user requirement. The subsequent [branding review](BRANDING_REVIEW.md) proposes a validated build profile and defines CLI/report/package acceptance checks. It is a design proposal; the profile format/builder is not implemented and this requirement remains open.
+Product identity is centralized in `internal/branding`. The [immutable branding profile builder](BRANDING_PROFILES.md) now supports validated build-time presentation identity without source edits. The [branding review](BRANDING_REVIEW.md) defines the remaining custom report/data and profile-aware package acceptance checks. This requirement remains open until coherent native CLI/report/package propagation passes; a development builder alone is not completion.
 
 ## Core v1 scope
 

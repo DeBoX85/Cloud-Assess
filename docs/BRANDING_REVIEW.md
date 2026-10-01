@@ -52,3 +52,7 @@ Focused existing CLI/application/XLSX/SARIF race tests and authored-document che
 The first PR #72 native quality run failed comparator duration-bounded fuzzing at its shutdown boundary, without a property assertion or saved failing input. FN-010 records exact failed head/run/job and retained artifact; the failure is not counted as passing. The existing decoder execution-count mitigation is applied to the comparator target only, preserving its assertions and two-worker parallelism with 100000 executions and a separate 60-second timeout. This is a QA workflow correction discovered during the review, not a branding or comparator production change. Both native jobs must pass the updated final head before merge.
 
 Local comparator count-bounded runs passed exactly 100000 executions twice (6.688s, then 7.389s with the retained 49-input baseline cache); focused comparator race tests also passed. This verifies the mitigation locally, not the root cause or final native result.
+
+## Implementation checkpoint
+
+The first two steps are now implemented in [BRANDING_PROFILES.md](BRANDING_PROFILES.md): validated immutable profiles, native development builder and actual default/custom executable checks. The historical audit above describes the PR #71 baseline. Runtime profile inspection now exists via the `branding` command. Custom report/data acceptance and profile-aware packaging remain the next work; AR-03 and release approval are still open.
