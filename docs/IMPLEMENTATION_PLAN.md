@@ -316,3 +316,5 @@ The eight-task offline QA checkpoint adds a requirement-to-test map, combined sc
 SDK middleware review also disables automatic provider registration in shared ARM/scope configuration. Synthetic registration-required errors must preserve failed retrieval with no write attempt; this correction and its regressions are logged as FN-019.
 
 The [alignment sanity review](ALIGNMENT_REVIEW.md) compares these implementation milestones with eventual full AZQR parity and records SDK origin/token-audience corrections. Core implementation is not a claim that every source command or plugin is complete.
+
+The [pagination/lifecycle checkpoint](PAGINATION_LIFECYCLE.md) adds SDK cycle errors, context checks and an opt-in cooperative assessment budget without declaring universal scan/load bounds. Zero timeout preserves existing behavior; report persistence remains outside the budget.

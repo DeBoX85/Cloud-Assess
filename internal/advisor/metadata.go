@@ -47,6 +47,9 @@ func (c *MetadataClient) RecommendationTypes(ctx context.Context) (map[string]st
 	recommendationTypes := map[string]string{}
 	seen := map[string]bool{}
 	for nextURL != "" {
+		if err := ctx.Err(); err != nil {
+			return nil, err
+		}
 		var err error
 		nextURL, err = c.resolveNextLink(nextURL)
 		if err != nil {

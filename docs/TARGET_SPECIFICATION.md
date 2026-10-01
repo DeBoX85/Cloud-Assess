@@ -207,6 +207,10 @@ Assessment completeness is separately represented as:
 
 Execution completeness applies to resolved/visible data; it does not independently certify intended estate visibility. Canonical JSON now records requested scope, effective subscription filters, resolved subscriptions (including zero-data subscriptions) and unresolved explicit subscription IDs. A successfully discovered scope missing any explicit CLI/library subscription fails before resource queries, persists failed status evidence when possible and returns exit 1. This is a deliberate target correction to silent subset discovery. All-visible/MG and filter-only successful empty scopes retain source behavior; ARG can still omit inaccessible resources. See [SCOPE_REPORTING.md](SCOPE_REPORTING.md), [ACCESS_MODEL.md](ACCESS_MODEL.md) and [OPERATIONS.md](OPERATIONS.md). Independent membership/RBAC and restricted-identity live evidence remain Gate 004 requirements.
 
+## Assessment lifecycle limits
+
+An opt-in `--assessment-timeout` / application AssessmentTimeout bounds coordinator execution through context propagation. Zero preserves the compatibility default; rendering and local CLI initialization are outside the budget. SDK scope continuation cycles now fail explicitly, and enabled stages check cancellation before/after execution. No process hard kill, universal positive default or volume cap is claimed. See [PAGINATION_LIFECYCLE.md](PAGINATION_LIFECYCLE.md).
+
 ## HTTP operation limits
 
 The production authenticated HTTP client applies a positive `OperationTimeout` to one HTTP call, covering authentication, retry waits and response-body consumption. Defaults are ten times the per-attempt timeout. Earlier caller deadlines and cancellation remain authoritative; non-positive custom values add no operation deadline. This is not a whole-scan time limit or a guarantee that custom transports ignoring context terminate. Callers of `PostStream` must close response bodies; operation context cleanup occurs on body read completion/error or close.

@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"fmt"
+	"time"
 
 	"github.com/DeBoX85/Cloud-Assess/internal/app"
 	"github.com/DeBoX85/Cloud-Assess/internal/azure"
@@ -17,6 +18,7 @@ import (
 type exitCodeContextKey struct{}
 
 type scanFlags struct {
+	assessmentTimeout     time.Duration
 	managementGroups      []string
 	subscriptions         []string
 	resourceGroups        []string
@@ -83,11 +85,15 @@ func newScanCommand(executor scanExecutor, exitCode *int) *cobra.Command {
 		"Redact subscription IDs in XLSX, CSV, JSON and stdout output; SARIF retains stable resource identities",
 	)
 	command.Flags().StringVarP(&flags.filtersFile, "filters", "e", "", "Assessment filters file (YAML)")
+	command.Flags().DurationVar(&flags.assessmentTimeout, "assessment-timeout", 0, "Total assessment deadline (e.g. 30m); 0 adds no deadline; report rendering is excluded")
 	command.Flags().StringVar(&flags.failOn, "fail-on", "", "Return exit code 2 when findings meet or exceed this impact (High, Medium, Low)")
 	return command
 }
 
 func executeScan(ctx context.Context, flags scanFlags) (int, error) {
+	if flags.assessmentTimeout < 0 {
+		return app.ExitExecutionFail, fmt.Errorf("assessment timeout cannot be negative")
+	}
 	filters, err := config.LoadFilters(flags.filtersFile)
 	if err != nil {
 		return app.ExitExecutionFail, err
@@ -122,6 +128,7 @@ func executeScan(ctx context.Context, flags scanFlags) (int, error) {
 	coordinator := orchestration.NewCoordinator(operations)
 	runner := app.NewRunner(coordinator)
 	outcome, runErr := runner.Run(ctx, app.ScanOptions{
+		AssessmentTimeout: flags.assessmentTimeout,
 		Assessment: orchestration.Request{
 			ManagementGroups: flags.managementGroups,
 			Subscriptions:    flags.subscriptions,

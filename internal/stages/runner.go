@@ -84,7 +84,14 @@ func (r *Runner) Execute(ctx context.Context, tasks []Task) RunResult {
 			continue
 		}
 
-		outcome, err := task.Run(ctx)
+		var outcome Outcome
+		err := ctx.Err()
+		if err == nil {
+			outcome, err = task.Run(ctx)
+			if err == nil {
+				err = ctx.Err()
+			}
+		}
 		finished := r.now().UTC()
 		execution := assessment.StageExecution{
 			Name:       task.Name,

@@ -53,10 +53,17 @@ func (c *AzureScopeClient) ListSubscriptions(ctx context.Context) ([]Subscriptio
 
 	pager := c.subscriptions.NewListPager(nil)
 	result := make([]Subscription, 0, 16)
+	seen := map[string]struct{}{}
 	for pager.More() {
+		if err := ctx.Err(); err != nil {
+			return nil, err
+		}
 		page, err := pager.NextPage(ctx)
 		if err != nil {
 			return nil, fmt.Errorf("list Azure subscriptions: %w", err)
+		}
+		if err := checkScopeContinuation(page.NextLink, seen); err != nil {
+			return nil, err
 		}
 		for _, item := range page.Value {
 			if item == nil || item.SubscriptionID == nil {
@@ -80,10 +87,17 @@ func (c *AzureScopeClient) SubscriptionsUnderManagementGroup(ctx context.Context
 	client := c.managementGroups.NewManagementGroupSubscriptionsClient()
 	pager := client.NewGetSubscriptionsUnderManagementGroupPager(groupID, nil)
 	result := make([]Subscription, 0, 16)
+	seen := map[string]struct{}{}
 	for pager.More() {
+		if err := ctx.Err(); err != nil {
+			return nil, err
+		}
 		page, err := pager.NextPage(ctx)
 		if err != nil {
 			return nil, fmt.Errorf("list subscriptions under management group %q: %w", groupID, err)
+		}
+		if err := checkScopeContinuation(page.NextLink, seen); err != nil {
+			return nil, err
 		}
 		for _, item := range page.Value {
 			if item == nil || item.Name == nil {
@@ -111,10 +125,17 @@ func (c *AzureScopeClient) DescendantManagementGroups(ctx context.Context, group
 	client := c.managementGroups.NewClient()
 	pager := client.NewGetDescendantsPager(groupID, nil)
 	result := make([]string, 0, 8)
+	seen := map[string]struct{}{}
 	for pager.More() {
+		if err := ctx.Err(); err != nil {
+			return nil, err
+		}
 		page, err := pager.NextPage(ctx)
 		if err != nil {
 			return nil, fmt.Errorf("list descendants for management group %q: %w", groupID, err)
+		}
+		if err := checkScopeContinuation(page.NextLink, seen); err != nil {
+			return nil, err
 		}
 		for _, item := range page.Value {
 			if item == nil || item.Type == nil || item.Name == nil {

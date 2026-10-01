@@ -21,6 +21,7 @@ $outputBase = '<private-directory>\assessment-unique-run'
 & '<verified-package-directory>\cloud-assess.exe' scan `
   --subscription-id $subscriptionId `
   --json --xlsx=false `
+  --assessment-timeout 30m `
   --output-name $outputBase
 $scanExit = $LASTEXITCODE
 Write-Host "Cloud Assess exit: $scanExit"
@@ -48,7 +49,7 @@ Inspect canonical JSON `scope`, `completeness` and `stages` (`name`, `status`, `
 | Cost unavailable/skipped | Review subscription-level cost access, agreement/policy/provider availability and `cost_subscription_skipped`. Keep the warning and affected coverage explicit; no provider registration or billing policy change is performed by the scan. |
 | Diagnostics non-success subrequest | Retain warning, HTTP status and original evidence. Historical Network Watcher probes corroborate unsupported types, but do not identify every old multi-request failed response. Follow the bounded probe procedure in [EQUIVALENCE.md](EQUIVALENCE.md); do not erase warnings based solely on another run. |
 | Unsafe continuation or redirect | Advisor rejects foreign-origin, malformed and repeated continuations; the default shared HTTP transport treats redirects as retrieval errors. Preserve stage failure and confirm the configured endpoint. Do not disable the guard or forward credentials to an unexpected host. |
-| Throttling/timeouts | Preserve request/stage failure and retry context. Positive per-call deadlines are tested, but there is no whole-scan CLI time-budget guarantee. Avoid automatic repeated full-estate scans; plan a smaller approved scope or scheduled rerun. |
+| Throttling/timeouts | Preserve request/stage failure and retry context. Use `--assessment-timeout` for a cooperative total assessment budget; zero default adds none. Report rendering/local initialization are outside it, and context-ignoring custom code cannot be forcibly stopped. See [PAGINATION_LIFECYCLE.md](PAGINATION_LIFECYCLE.md). Avoid automatic repeated full-estate scans; plan a smaller approved scope or scheduled rerun. |
 | Fewer subscriptions/resources than expected | Reconcile approved scope, tenant/session, active state, filters and RBAC. ARG may return only visible data without a partial indicator. Stop estate-wide conclusions until visibility is independently verified. |
 | Differences across runs | Compare exact pins, effective stages, filters, intended/resolved scope and timestamps. ARG indexing and service data can change. The historical RG-versus-tag Advisor difference remains unresolved; do not infer a tag defect or filtering correctness from that difference alone. |
 | Git dubious ownership in the reference checkout | Review actual ownership and the trusted repository path. Do not disable ownership protection globally or modify the pinned reference source to suppress the check. |

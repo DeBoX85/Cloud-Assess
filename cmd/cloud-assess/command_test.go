@@ -5,6 +5,7 @@ import (
 	"errors"
 	"strings"
 	"testing"
+	"time"
 )
 
 func TestScanCommandMapsFlags(t *testing.T) {
@@ -91,5 +92,21 @@ func TestExecuteScanRejectsDeferredPluginStageBeforeAzureAuthentication(t *testi
 	}
 	if !strings.Contains(err.Error(), "plugin stage is not available") {
 		t.Fatalf("unexpected error: %v", err)
+	}
+}
+
+func TestAssessmentTimeoutFlagAndPreflight(t *testing.T) {
+	var got scanFlags
+	root := newRootCommand(func(_ context.Context, f scanFlags) (int, error) { got = f; return 0, nil })
+	root.SetArgs([]string{"scan", "--assessment-timeout", "30m"})
+	if err := root.Execute(); err != nil {
+		t.Fatal(err)
+	}
+	if got.assessmentTimeout != 30*time.Minute {
+		t.Fatal("timeout flag not mapped")
+	}
+	code, err := executeScan(context.Background(), scanFlags{assessmentTimeout: -time.Second})
+	if code != 1 || err == nil || !strings.Contains(err.Error(), "timeout cannot be negative") {
+		t.Fatalf("preflight: %d %v", code, err)
 	}
 }
