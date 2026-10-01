@@ -318,3 +318,5 @@ SDK middleware review also disables automatic provider registration in shared AR
 The [alignment sanity review](ALIGNMENT_REVIEW.md) compares these implementation milestones with eventual full AZQR parity and records SDK origin/token-audience corrections. Core implementation is not a claim that every source command or plugin is complete.
 
 The [pagination/lifecycle checkpoint](PAGINATION_LIFECYCLE.md) adds SDK cycle errors, context checks and an opt-in cooperative assessment budget without declaring universal scan/load bounds. Zero timeout preserves existing behavior; report persistence remains outside the budget.
+
+The [ARG completeness checkpoint](ARG_COMPLETENESS.md) implements two documented target corrections: service-contract page size 1000 and explicit tokenless-truncation failure. Normal query text, subscription batching, valid continuation behavior and empty-result handling are preserved; metadata/load and live large-result limits remain open.

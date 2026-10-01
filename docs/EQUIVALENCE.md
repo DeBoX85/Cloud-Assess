@@ -563,3 +563,7 @@ For each pass, retain:
 - classification notes for every non-empty delta
 
 These artifacts form the reproducible evidence set for declaring core-v1 equivalence.
+
+## ARG request/completeness corrections
+
+The [ARG completeness review](ARG_COMPLETENESS.md) deliberately changes target `$top` from source-compatible 5000 to the documented 1000 maximum and rejects explicit tokenless truncation rather than returning partial query success. Successful continuation/query projection and comparator normalization remain unchanged. Offline fixtures establish request/response and failure-report behavior, not live equivalence. Future paired live evidence must record exact post-correction target commit, pinned reference, effective scope/stages/filters and classify non-empty deltas. Historical small-result PASS artifacts are not reclassified and do not validate service behavior for large results. Missing metadata, visibility and snapshot/load limits remain explicit.

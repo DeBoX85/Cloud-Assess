@@ -102,7 +102,7 @@ func TestQueryStopsBeforeTransportWhenContextIsCanceled(t *testing.T) {
 	}
 }
 
-func TestQueryUsesReferenceRequestOptions(t *testing.T) {
+func TestQueryUsesDocumentedPageSizeAndReferenceScopeOptions(t *testing.T) {
 	transport := &fakeTransport{responses: []*Response{{}}}
 	client := NewClient(transport)
 	_, err := client.Query(context.Background(), "policyresources", map[string]string{"sub": "name"}, QueryOptions{ManagementGroupScope: true})
@@ -110,7 +110,7 @@ func TestQueryUsesReferenceRequestOptions(t *testing.T) {
 		t.Fatalf("Query() error = %v", err)
 	}
 	request := transport.requests[0]
-	if request.Options.ResultFormat != ResultFormatObjectArray || request.Options.Top == nil || *request.Options.Top != 5000 {
+	if request.Options.ResultFormat != ResultFormatObjectArray || request.Options.Top == nil || *request.Options.Top != 1000 {
 		t.Fatalf("unexpected options: %+v", request.Options)
 	}
 	if request.Options.AuthorizationScopeFilter == nil || *request.Options.AuthorizationScopeFilter != "AtScopeAndAbove" {

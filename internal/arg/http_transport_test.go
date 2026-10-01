@@ -48,7 +48,7 @@ func TestHTTPTransportSerializesRequestAndParsesResponseMetadata(t *testing.T) {
 		Body: io.NopCloser(strings.NewReader(`{"data":[{"id":"one"}],"$skipToken":"next"}`)),
 	}}
 	transport := NewHTTPTransportWithClient(poster, "https://example.test/graph")
-	top := int32(5000)
+	top := int32(1000)
 	response, err := transport.Do(context.Background(), Request{
 		Subscriptions: []string{"sub"},
 		Query:         "resources",

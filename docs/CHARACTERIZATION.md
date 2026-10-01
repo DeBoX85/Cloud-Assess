@@ -59,7 +59,7 @@ This document tracks source behavior that Cloud Assess intentionally preserves o
 ### Azure Resource Graph
 
 - Up to 300 subscriptions are sent per ARG request.
-- ARG result pages request up to 5,000 rows and follow skip tokens.
+- Pinned AZQR requests 5,000 rows per ARG page. The target now requests the documented 1,000 maximum and follows skip tokens; explicit tokenless truncation fails with no partial query result. These deliberate contract corrections and remaining metadata/live limits are recorded in [ARG_COMPLETENESS.md](ARG_COMPLETENESS.md).
 - Management-group-aware authorization scope is opt-in for queries that require it.
 - Individual malformed rows are skipped rather than discarding valid rows.
 - Malformed-row counts are surfaced as target warnings; this is an observability improvement over source log-only behavior.
