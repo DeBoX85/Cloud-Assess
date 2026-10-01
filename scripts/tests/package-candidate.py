@@ -152,6 +152,9 @@ class PackageIntegrityTests(unittest.TestCase):
         data = pkg.profile_module.canonical(profile)
         self.assertEqual(pkg.profile_module.parse(data), profile)
         self.assertIn(b'\\u0026', data)
+        for uri in ('https://exa mple.test', 'https://example.test/%zz', 'https://example.test\\host', 'http://example.test', 'https://user@example.test'):
+            with self.assertRaises(ValueError):
+                pkg.profile_module.canonical(dict(profile, websiteURL=uri))
         for name in ('con', 'nul', 'lpt1', '../x', 'x/y', 'trailing.', 'Upper'):
             bad = dict(profile, cliName=name)
             with self.assertRaises(ValueError):

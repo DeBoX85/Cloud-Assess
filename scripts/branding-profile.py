@@ -39,6 +39,8 @@ def validate(profile):
     parsed = urlsplit(uri)
     if parsed.scheme != 'https' or not uri.startswith('https://') or not parsed.hostname or parsed.username is not None or parsed.password is not None:
         raise ValueError('invalid branding URL')
+    if any(c.isspace() or c in '\\<>{}' for c in parsed.netloc) or re.search(r'%(?![0-9A-Fa-f]{2})', uri):
+        raise ValueError('invalid branding URL')
     # Evaluate the port property to reject malformed supplied port syntax.
     parsed.port
     return profile
