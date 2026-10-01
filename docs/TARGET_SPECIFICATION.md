@@ -233,7 +233,8 @@ Stage-local failures such as Advisor, Policy, Defender, Cost, or optional-plugin
 ## ARG behavior to preserve
 
 - up to 300 subscriptions per request
-- 5,000 records per page
+- request at most 1,000 records per page, matching the ARG 2024-04-01 contract; this deliberately corrects the pinned source request of 5,000
+- reject explicit service truncation without a continuation token rather than publish partial query success; see [ARG_COMPLETENESS.md](ARG_COMPLETENESS.md)
 - skip-token pagination
 - bounded rule concurrency
 - malformed-row tolerance

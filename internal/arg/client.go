@@ -10,7 +10,8 @@ import (
 
 const (
 	MaxSubscriptionsPerRequest = 300
-	MaxRowsPerPage             = int32(5000)
+	// Resource Graph API 2024-04-01 documents a maximum $top of 1000.
+	MaxRowsPerPage             = int32(1000)
 	ResultFormatObjectArray    = "objectArray"
 	ManagementGroupScopeFilter = "AtScopeAndAbove"
 )
@@ -33,10 +34,11 @@ type Request struct {
 }
 
 type Response struct {
-	Data       []json.RawMessage `json:"data"`
-	SkipToken  *string           `json:"$skipToken,omitempty"`
-	Quota      int               `json:"-"`
-	RetryAfter time.Duration     `json:"-"`
+	Data            []json.RawMessage `json:"data"`
+	ResultTruncated *string           `json:"resultTruncated,omitempty"`
+	SkipToken       *string           `json:"$skipToken,omitempty"`
+	Quota           int               `json:"-"`
+	RetryAfter      time.Duration     `json:"-"`
 }
 
 type Result struct {
@@ -58,7 +60,8 @@ func NewClient(transport Transport) *Client {
 }
 
 // Query executes one KQL query over all supplied subscriptions, preserving the reference
-// batching and pagination semantics. Subscription IDs are sorted before batching to make
+// subscription batching and continuation semantics, with the documented page size and
+// explicit tokenless-truncation rejection. Subscription IDs are sorted before batching to make
 // request composition deterministic.
 func (c *Client) Query(
 	ctx context.Context,
@@ -112,6 +115,18 @@ func (c *Client) Query(
 			}
 			if response == nil {
 				return nil, fmt.Errorf("failed to run resource graph query: transport returned nil response")
+			}
+
+			if response.ResultTruncated != nil {
+				switch *response.ResultTruncated {
+				case "false":
+				case "true":
+					if response.SkipToken == nil {
+						return nil, fmt.Errorf("resource graph results truncated without a continuation token")
+					}
+				default:
+					return nil, fmt.Errorf("resource graph returned invalid truncation metadata")
+				}
 			}
 
 			result.Data = append(result.Data, response.Data...)

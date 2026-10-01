@@ -1,6 +1,6 @@
 # Cloud Assess Roadmap
 
-Status: working execution roadmap, reviewed 2026-10-01 (Europe/Oslo); terminal pagination review starts from merged `bootstrap/core-v1` at `0a2dac1257cb99c390ad35eb927ac3e17171ba7d`
+Status: working execution roadmap, reviewed 2026-10-01 (Europe/Oslo); ARG completeness review starts from merged `bootstrap/core-v1` at `b2494ca72b198d9bab6e36a8ff15b191e41a74dc`
 
 Active development branch: `bootstrap/core-v1`
 
@@ -192,4 +192,4 @@ Post-registration-hardening checkpoint `a531237eae3bc8d4bec80bcfb6518698f1d61b9d
 
 ## Pagination/lifecycle checkpoint
 
-[PAGINATION_LIFECYCLE.md](PAGINATION_LIFECYCLE.md) records SDK cycle rejection, page/stage cancellation checks and opt-in assessment timeout with retained failure evidence. AR-02 remains partial: default/load/volume bounds and context-ignoring injected code are not certified. Terminal ARG/Advisor cancellation is now rejected, SDK terminal cancellation and ARG token isolation are tested, and the page-count policy decision is explicitly deferred pending defined semantics/load evidence. Next autonomous slice characterizes ARG request-size and tokenless-truncation semantics against the matching REST contract and catalog query shapes. Branding and feature-parity work, historical/live evidence and release approval remain open.
+[PAGINATION_LIFECYCLE.md](PAGINATION_LIFECYCLE.md) records SDK cycle rejection, page/stage cancellation checks and opt-in assessment timeout with retained failure evidence. AR-02 remains partial: default/load/volume bounds and context-ignoring injected code are not certified. Terminal ARG/Advisor cancellation is now rejected, SDK terminal cancellation and ARG token isolation are tested, and the page-count policy decision is explicitly deferred pending defined semantics/load evidence. The [ARG completeness review](ARG_COMPLETENESS.md) now corrects request page size and rejects explicit tokenless truncation with coordinator/application failure evidence. Query-type, metadata, large-result live and load limits remain. Next autonomous slice is supported branding adjustment (AR-03), followed by source-feature characterization (AR-04). Branding and feature-parity work, historical/live evidence and release approval remain open.
