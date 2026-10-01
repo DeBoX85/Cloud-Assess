@@ -29,8 +29,9 @@ class PackageIntegrityTests(unittest.TestCase):
         self.directory = Path(self.temp.name)
         self.root = 'cloud-assess-dev-linux-amd64'
         self.payload = {p: b'fixture' for p in pkg.COMMON | {'cloud-assess'}}
-        self.manifest = {'schemaVersion': 1, 'status': 'development-candidate-not-release-approved',
-                         'version': 'dev', 'target': 'linux/amd64',
+        self.payload['BRANDING_PROFILE.json'] = pkg.profile_module.canonical({'schemaVersion': 1, 'productName': 'Cloud Assess', 'cliName': 'cloud-assess', 'reportTitle': 'Azure Cloud Assessment', 'reportFilePrefix': 'cloud_assessment', 'websiteURL': 'https://github.com/DeBoX85/Cloud-Assess'})
+        self.manifest = {'schemaVersion': 2, 'status': 'development-candidate-not-release-approved',
+                         'version': 'dev', 'target': 'linux/amd64', 'brandingSHA256': pkg.sha(self.payload['BRANDING_PROFILE.json']),
                          'files': {p: pkg.sha(data) for p, data in self.payload.items()}}
 
     def archive(self, mutate=None):
@@ -119,6 +120,46 @@ class PackageIntegrityTests(unittest.TestCase):
         self.manifest['target'] = 'linux/arm64'
         self.reject(None, 'unsupported candidate manifest')
 
+    def test_branding_profile_hash_mismatch(self):
+        self.manifest['brandingSHA256'] = '0' * 64
+        self.reject(None, 'branding profile checksum')
+
+    def test_unsafe_branding_even_after_rehash(self):
+        profile = json.loads(self.payload['BRANDING_PROFILE.json'])
+        profile['cliName'] = '../escape'
+        self.payload['BRANDING_PROFILE.json'] = json.dumps(profile).encode()
+        self.manifest['brandingSHA256'] = pkg.sha(self.payload['BRANDING_PROFILE.json'])
+        self.manifest['files']['BRANDING_PROFILE.json'] = self.manifest['brandingSHA256']
+        self.reject(None, 'filename component')
+
+    def test_safe_renamed_profile_cannot_disagree_with_layout(self):
+        profile = json.loads(self.payload['BRANDING_PROFILE.json'])
+        profile['cliName'] = 'other-cloud'
+        self.payload['BRANDING_PROFILE.json'] = pkg.profile_module.canonical(profile)
+        self.manifest['brandingSHA256'] = pkg.sha(self.payload['BRANDING_PROFILE.json'])
+        self.manifest['files']['BRANDING_PROFILE.json'] = self.manifest['brandingSHA256']
+        self.reject(None, 'candidate root mismatch')
+
+    def test_duplicate_profile_keys_even_after_rehash(self):
+        self.payload['BRANDING_PROFILE.json'] = self.payload['BRANDING_PROFILE.json'].replace(b'{', b'{"schemaVersion":1,', 1)
+        self.manifest['brandingSHA256'] = pkg.sha(self.payload['BRANDING_PROFILE.json'])
+        self.manifest['files']['BRANDING_PROFILE.json'] = self.manifest['brandingSHA256']
+        self.reject(None, 'duplicate JSON key')
+
+    def test_resolved_profile_canonical_encoding(self):
+        profile = json.loads(self.payload['BRANDING_PROFILE.json'])
+        profile['productName'] = 'Cloud \"<&>\" Æ Toolkit'
+        data = pkg.profile_module.canonical(profile)
+        self.assertEqual(pkg.profile_module.parse(data), profile)
+        self.assertIn(b'\\u0026', data)
+        for uri in ('https://exa mple.test', 'https://example.test/%zz', 'https://example.test\\host', 'http://example.test', 'https://user@example.test'):
+            with self.assertRaises(ValueError):
+                pkg.profile_module.canonical(dict(profile, websiteURL=uri))
+        for name in ('con', 'nul', 'lpt1', '../x', 'x/y', 'trailing.', 'Upper'):
+            bad = dict(profile, cliName=name)
+            with self.assertRaises(ValueError):
+                pkg.profile_module.canonical(bad)
+
     def test_compiled_provenance_and_dependency_rejections(self):
         inventory = {'goVersion': 'go1.26.8', 'modules': [{'path': 'example/module', 'version': 'v1', 'sum': 'h1:fixture', 'cliTargets': ['linux/amd64']}]}
         info = {'GoVersion': 'go1.26.8', 'Path': 'github.com/DeBoX85/Cloud-Assess/cmd/cloud-assess',
@@ -149,7 +190,7 @@ class ActualCandidateTests(unittest.TestCase):
             executable = pkg.verify_extract(archive, checksum, root / 'isolated install with spaces')
             self.assertEqual(executable.read_bytes(), BINARY.read_bytes())
             self.assertEqual((executable.parent / 'DEPENDENCY_NOTICES.md').read_bytes(), pkg.source('docs/dependencies/NOTICES.md'))
-            completed = subprocess.run([sys.executable, str(ROOT / 'scripts/tests/built-cli.py'), '--binary', str(executable), '--go', GO], capture_output=True, text=True, timeout=120)
+            completed = subprocess.run([sys.executable, str(ROOT / 'scripts/tests/built-cli.py'), '--binary', str(executable), '--go', GO, '--expected-branding-file', str(executable.parent / 'BRANDING_PROFILE.json')], capture_output=True, text=True, timeout=120)
             self.assertEqual(completed.returncode, 0, completed.stdout + completed.stderr)
             with self.assertRaisesRegex(ValueError, 'version does not match'):
                 pkg.package(BINARY, 'deliberately-wrong', root / 'wrong-version', GO)

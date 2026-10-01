@@ -3,18 +3,37 @@
 import argparse
 import datetime
 import hashlib
+import importlib.util
 import json
 import os
 from pathlib import Path, PurePosixPath
 import re
 import stat
 import subprocess
+import sys
 import tempfile
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
 COMMON = {'LICENSE', 'NOTICE.md', 'THIRD_PARTY_LICENSES.md', 'DEPENDENCY_NOTICES.md',
-          'dependency-inventory.json', 'BUILD_INFO.json', 'INSTALL.md'}
+          'dependency-inventory.json', 'BUILD_INFO.json', 'INSTALL.md', 'BRANDING_PROFILE.json'}
+
+sys.dont_write_bytecode = True
+profile_spec = importlib.util.spec_from_file_location('branding_profile', ROOT / 'scripts/branding-profile.py')
+profile_module = importlib.util.module_from_spec(profile_spec)
+profile_spec.loader.exec_module(profile_module)
+
+
+def installation(profile, version, target, revision):
+    name = profile['cliName']
+    executable = name + ('.exe' if target.startswith('windows/') else '')
+    root = name + '-' + version + '-' + target.replace('/', '-')
+    return (source('docs/PACKAGE_INSTALL.md', revision).decode('utf-8').replace('cloud-assess', name).encode('utf-8') +
+            ('\n## This candidate\n\nExecutable: `' + executable + '`. Archive: `' + root + '.zip`.\n'
+             'Inspect the embedded profile with `' + executable + ' branding`.\n'
+             'From the extracted directory: `./' + executable + ' --version` (Linux) or '
+             '`.\\' + executable + ' --version` (PowerShell).\n'
+             'BRANDING_PROFILE.json records the canonical public profile; the manifest records its SHA-256.\n').encode())
 
 
 def sha(data):
@@ -72,21 +91,24 @@ def package(binary, version, output, go):
             raise ValueError('stale committed inventory input: ' + path)
     info = json.loads(command([go, 'version', '-m', '-json', str(binary)]))
     validate_info(info, inventory, revision, target)
-    if command([str(binary), '--version']).decode().strip() != 'cloud-assess version ' + version:
+    profile_bytes = command([str(binary), 'branding']).rstrip(b'\r\n')
+    profile = profile_module.parse(profile_bytes)
+    if command([str(binary), '--version']).decode().strip() != profile['cliName'] + ' version ' + version:
         raise ValueError('candidate version does not match executable')
-    executable = 'cloud-assess.exe' if os.name == 'nt' else 'cloud-assess'
+    executable = profile['cliName'] + ('.exe' if os.name == 'nt' else '')
     payload = {executable: binary.read_bytes(), 'LICENSE': source('LICENSE', revision), 'NOTICE.md': source('NOTICE.md', revision),
                'THIRD_PARTY_LICENSES.md': source('THIRD_PARTY_LICENSES.md', revision),
                'DEPENDENCY_NOTICES.md': source('docs/dependencies/NOTICES.md', revision),
                'dependency-inventory.json': inventory_bytes,
                'BUILD_INFO.json': (json.dumps(info, indent=2) + '\n').encode(),
-               'INSTALL.md': source('docs/PACKAGE_INSTALL.md', revision)}
-    manifest = {'schemaVersion': 1, 'status': 'development-candidate-not-release-approved',
+               'INSTALL.md': installation(profile, version, target, revision),
+               'BRANDING_PROFILE.json': profile_bytes}
+    manifest = {'schemaVersion': 2, 'status': 'development-candidate-not-release-approved',
                 'version': version, 'target': target, 'sourceCommit': revision, 'sourceTree': tree,
-                'referencePins': inventory['referencePins'],
+                'referencePins': inventory['referencePins'], 'brandingSHA256': sha(profile_bytes),
                 'files': {p: sha(data) for p, data in sorted(payload.items())}}
     payload['PACKAGE_MANIFEST.json'] = (json.dumps(manifest, indent=2) + '\n').encode()
-    root = 'cloud-assess-' + version + '-' + target.replace('/', '-')
+    root = profile['cliName'] + '-' + version + '-' + target.replace('/', '-')
     archive = output / (root + '.zip')
     checksum = output / (root + '.zip.sha256')
     if archive.exists() or checksum.exists():
@@ -143,17 +165,26 @@ def verify_extract(archive, checksum, destination):
             modes[parts[1]] = (e.external_attr >> 16) & 0o777
         if len(roots) != 1 or 'PACKAGE_MANIFEST.json' not in payload:
             raise ValueError('invalid candidate layout')
-        manifest = json.loads(payload['PACKAGE_MANIFEST.json'])
+        manifest = profile_module.strict_json(payload['PACKAGE_MANIFEST.json'])
+        if not isinstance(manifest, dict):
+            raise ValueError('unsupported candidate manifest')
         target = manifest.get('target')
-        if target not in ('linux/amd64', 'windows/amd64') or manifest.get('schemaVersion') != 1 or manifest.get('status') != 'development-candidate-not-release-approved':
+        if target not in ('linux/amd64', 'windows/amd64') or type(manifest.get('schemaVersion')) is not int or manifest.get('schemaVersion') != 2 or manifest.get('status') != 'development-candidate-not-release-approved':
             raise ValueError('unsupported candidate manifest')
         version = manifest.get('version', '')
-        if not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._-]{0,63}', version):
+        if not isinstance(version, str) or not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._-]{0,63}', version):
             raise ValueError('invalid manifest version')
-        expected_root = 'cloud-assess-' + version + '-' + target.replace('/', '-')
+        if 'BRANDING_PROFILE.json' not in payload:
+            raise ValueError('missing branding profile')
+        profile = profile_module.parse(payload['BRANDING_PROFILE.json'])
+        if manifest.get('brandingSHA256') != sha(payload['BRANDING_PROFILE.json']):
+            raise ValueError('branding profile checksum mismatch')
+        expected_root = profile['cliName'] + '-' + version + '-' + target.replace('/', '-')
         if roots != {expected_root}:
             raise ValueError('candidate root mismatch')
-        executable = 'cloud-assess.exe' if target.startswith('windows/') else 'cloud-assess'
+        executable = profile['cliName'] + ('.exe' if target.startswith('windows/') else '')
+        if not isinstance(manifest.get('files'), dict):
+            raise ValueError('invalid payload checksum map')
         if set(payload) != COMMON | {executable, 'PACKAGE_MANIFEST.json'} or set(manifest['files']) != COMMON | {executable}:
             raise ValueError('missing/unexpected candidate payload')
         for name in payload:
