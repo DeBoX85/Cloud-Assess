@@ -2,6 +2,7 @@ package discovery
 
 import (
 	"context"
+	"errors"
 	"io"
 	"net/http"
 	"strings"
@@ -118,5 +119,48 @@ func TestValueAndSubscriptionState(t *testing.T) {
 	}
 	if got := subscriptionState(nil); got != "" {
 		t.Fatalf("subscriptionState(nil) = %q, want empty", got)
+	}
+}
+
+type registrationFailureTransport struct{ calls, writes int }
+
+func (f *registrationFailureTransport) Do(r *http.Request) (*http.Response, error) {
+	f.calls++
+	if r.Method != http.MethodGet {
+		f.writes++
+	}
+	return &http.Response{StatusCode: 409, Header: make(http.Header), Request: r, Body: io.NopCloser(strings.NewReader(`{"error":{"code":"MissingSubscriptionRegistration","message":"synthetic"}}`))}, nil
+}
+func TestAzureScopeRegistrationFailureIsNotAutoRemediated(t *testing.T) {
+	for _, operation := range []struct {
+		name string
+		run  func(*AzureScopeClient) error
+	}{
+		{"subscriptions", func(c *AzureScopeClient) error { _, err := c.ListSubscriptions(context.Background()); return err }},
+		{"group subscriptions", func(c *AzureScopeClient) error {
+			_, err := c.SubscriptionsUnderManagementGroup(context.Background(), "root")
+			return err
+		}},
+		{"descendants", func(c *AzureScopeClient) error {
+			_, err := c.DescendantManagementGroups(context.Background(), "root")
+			return err
+		}},
+	} {
+		t.Run(operation.name, func(t *testing.T) {
+			transport := &registrationFailureTransport{}
+			options := &arm.ClientOptions{ClientOptions: azcore.ClientOptions{Transport: transport, Retry: policy.RetryOptions{MaxRetries: -1}}}
+			client, err := NewAzureScopeClient(fixtureCredential{}, options)
+			if err != nil {
+				t.Fatal(err)
+			}
+			err = operation.run(client)
+			var responseError *azcore.ResponseError
+			if !errors.As(err, &responseError) || responseError.ErrorCode != "MissingSubscriptionRegistration" || transport.calls != 1 || transport.writes != 0 {
+				t.Fatalf("scope read error=%v requests=%d writes=%d", err, transport.calls, transport.writes)
+			}
+			if options.DisableRPRegistration {
+				t.Fatal("scope constructor mutated caller's options")
+			}
+		})
 	}
 }

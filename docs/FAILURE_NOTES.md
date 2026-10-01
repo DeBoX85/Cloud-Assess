@@ -143,3 +143,28 @@ Record user-visible instruction errors and errors that affected code, tests, evi
 - **Correction:** Reconcile the overview with PR #62's final passing evidence and partial packaging boundary. Preserve open fresh-OS, publication, license/security/operations and release decisions; do not present packaging tests as release approval.
 - **Prevention:** When logging a milestone, review the top-level status, progress basis, current boundary and next tasks together. Search this register for documentation drift before reporting progress.
 - **Evidence/status:** Confirmed by source review at `ab0cc3b761956b5ea4712717b96a97d5a98f6567`; corrected in the access/operations review change. Existing FN-007 retrieval-output limits were also reviewed: bounded follow-up source reads replace truncated batches; no unseen lines support claims. A later spec-edit command omitted its heredoc terminator and failed Python parsing before writes. Corrected the command delimiter and reran the staged checks; check heredoc closure before dispatching multiline commands.
+
+## FN-017: Advisor continuation URLs crossed the credential boundary
+
+- **Date:** 2026-10-01 (Europe/Oslo).
+- **Confirmed defect:** Advisor metadata trusted arbitrary absolute HTTPS nextLink values. A controlled synthetic transport received the ARM canary header on a foreign-host second request. Historical successful scans do not establish that this boundary was safe. No actual credential/network disclosure was performed.
+- **Correction:** Parse URLs and require the configured HTTPS host/port; reject credentials, fragments, malformed/protocol-relative links and repeated continuation URLs without echoing their content. Add authenticated foreign-origin/cycle/normal-pagination regressions. The default shared HTTP transport additionally refuses redirects; a two-local-TLS-server fixture checks no forwarded request. Caller-injected transports and SDK-owned pagers remain separate review boundaries.
+- **Prevention:** Treat service-provided URLs as data requiring destination validation before authentication/transport. Check continuation and HTTP redirect policies together, preserving custom configured endpoints rather than hardcoding public Azure. Do not equate read-oriented verbs with safe credential destinations.
+- **Evidence/status:** Foreign-host/port/userinfo/protocol-relative/fragment regressions failed before remediation and pass after it; all local race tests pass. Required final CI evidence is indexed in the ledger. Adversarial-response hardening is a deliberate target correction; no claim of pinned-reference adversarial parity.
+
+## FN-018: Runbook flag checker initially mixed different CLIs
+
+- **Date:** 2026-10-01 (Europe/Oslo).
+- **Mistake:** The initial checker compared every runbook flag against Cloud Assess help, including `--all` from the separately documented `az account list` command. It failed locally before publication.
+- **Correction:** Exclude inline commands explicitly belonging to Azure CLI from the Cloud Assess flag set. Eight actual Cloud Assess flags and the PowerShell snippet then passed local help/parser checks. No scan ran.
+- **Prevention:** Attribute examples to their command before validating syntax/options; do not suppress specific unknown flags to force a pass. The checker has a bounded authored-document scope, not a claim of universal Markdown understanding.
+- **Recurrence check:** FN-004 also applied during SDK review: an unversioned online page and guessed module layout did not match the selected cache. Read go.mod and enumerate pinned SDK files before inspection; only v1.23.1 source and pinned documentation support implementation claims.
+
+## FN-019: Read-oriented review omitted SDK automatic-registration middleware
+
+- **Date:** 2026-10-01 (Europe/Oslo).
+- **Mistake:** Reviewing explicitly called GET/query methods did not account for the ARM SDK's default provider-registration policy. Shared ARM options did not set DisableRPRegistration, allowing an implicit write attempt after certain service errors. No evidence of historical Azure mutation is asserted.
+- **Reproduction:** Synthetic valid ARM-resource GET through the actual shared SDK options returned 409 MissingSubscriptionRegistration; the pipeline attempted POST /subscriptions/sub-fixture/providers/Microsoft.Test/register. The desired regression failed with two requests and one injected/rejected write. No real credential or network was used.
+- **Correction:** Explicitly disable registration in shared ARM options and in scope-client construction, using a copy so caller options remain unchanged. The pipeline now returns its original 409 with one GET/no POST. Three scope pager failure fixtures confirm typed original error, one read request and no caller-option mutation.
+- **Prevention:** Audit middleware and SDK defaults as well as explicit endpoint verbs; pin implicit remediation/registration off for assessment clients and test registration-required negative paths. This differs from FN-017 destination validation and complements its credential-boundary checks.
+- **Evidence/status:** Initial failing and corrected focused fixtures, rerun full local race/vet checks; exact updated final CI must pass before merge. Registration configuration is a deliberate target hardening correction, not a claim about pinned-reference adversarial behavior.

@@ -72,7 +72,9 @@ func NewHTTPClient(credential azcore.TokenCredential, options *HTTPClientOptions
 	} else {
 		transport = &http.Client{
 			Transport: sharedTransport,
-			Timeout:   options.Timeout + 5*time.Second,
+			// ARM retrievals must not redirect outside the validated request boundary.
+			CheckRedirect: func(*http.Request, []*http.Request) error { return http.ErrUseLastResponse },
+			Timeout:       options.Timeout + 5*time.Second,
 		}
 	}
 

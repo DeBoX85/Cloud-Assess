@@ -12,6 +12,7 @@ import (
 	"time"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
+	sdklog "github.com/Azure/azure-sdk-for-go/sdk/azcore/log"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
 )
 
@@ -260,5 +261,104 @@ func TestHTTPClientRecoversTransientFailureWithoutDuplicatingResult(t *testing.T
 	data, err := client.Get(ctx, "https://example.test")
 	if err != nil || string(data) != `{"data":[{"id":"one"}]}` || calls.Load() != 2 {
 		t.Fatalf("retry recovery data=%q error=%v calls=%d", data, err, calls.Load())
+	}
+}
+
+// Retry count uses production defaults. A server millisecond retry hint avoids
+// changing the configured policy or spending minutes in exponential backoff.
+func TestHTTPClientDefaultRetryBudgetAndNonRetriableStatus(t *testing.T) {
+	for _, tc := range []struct {
+		name      string
+		status    int
+		recoverOn int
+		wantCalls int
+	}{
+		{"throttling exhausted", 429, 0, 6},
+		{"server failure exhausted", 503, 0, 6},
+		{"last attempt succeeds", 429, 6, 6},
+		{"permission denied is not retried", 403, 0, 1},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			calls := 0
+			transport := operationTransportFunc(func(r *http.Request) (*http.Response, error) {
+				calls++
+				status := tc.status
+				body := `{"error":{"code":"FixtureFailure","message":"synthetic"}}`
+				if calls == tc.recoverOn {
+					status = 200
+					body = `{"ok":true}`
+				}
+				return &http.Response{StatusCode: status, Header: http.Header{"X-Ms-Retry-After-Ms": []string{"1"}}, Body: io.NopCloser(strings.NewReader(body)), Request: r}, nil
+			})
+			options := DefaultHTTPClientOptions(2 * time.Second)
+			options.Transport = transport
+			client := NewHTTPClient(&mockCredential{token: "synthetic-retry-token"}, options)
+			body, err := client.Get(context.Background(), "https://management.azure.com/providers/Fixture/read")
+			if calls != tc.wantCalls {
+				t.Fatalf("calls=%d want %d", calls, tc.wantCalls)
+			}
+			if tc.recoverOn > 0 {
+				if err != nil || string(body) != `{"ok":true}` {
+					t.Fatalf("recovery body=%q err=%v", body, err)
+				}
+			} else if err == nil {
+				t.Fatal("exhausted/denied retrieval represented as success")
+			}
+		})
+	}
+}
+
+func TestHTTPClientSDKLogsAndResponseErrorDoNotExposeBearerHeader(t *testing.T) {
+	const canary = "synthetic-secret-bearer-canary"
+	var messages []string
+	sdklog.SetEvents(sdklog.EventRequest, sdklog.EventResponse, sdklog.EventResponseError, sdklog.EventRetryPolicy)
+	sdklog.SetListener(func(_ sdklog.Event, message string) { messages = append(messages, message) })
+	defer func() { sdklog.SetListener(nil); sdklog.SetEvents() }()
+	transport := operationTransportFunc(func(r *http.Request) (*http.Response, error) {
+		if r.Header.Get("Authorization") != "Bearer "+canary {
+			t.Error("fixture did not exercise bearer authentication")
+		}
+		return &http.Response{StatusCode: 403, Header: make(http.Header), Request: r, Body: io.NopCloser(strings.NewReader(`{"error":{"code":"AuthorizationFailed","message":"resource-id-is-sensitive"}}`))}, nil
+	})
+	options := DefaultHTTPClientOptions(time.Second)
+	options.Transport = transport
+	_, err := NewHTTPClient(&mockCredential{token: canary}, options).Get(context.Background(), "https://management.azure.com/providers/Fixture/read")
+	if err == nil || len(messages) == 0 {
+		t.Fatal("fixture must exercise response error and enabled SDK logs")
+	}
+	if strings.Contains(err.Error(), canary) || strings.Contains(strings.Join(messages, "\n"), canary) {
+		t.Fatal("bearer header exposed in error/SDK diagnostic output")
+	}
+	// Azure error content is not general anonymization: retain and document this boundary.
+	if !strings.Contains(err.Error(), "resource-id-is-sensitive") {
+		t.Fatal("fixture no longer demonstrates raw upstream error-message boundary")
+	}
+}
+
+func TestHTTPClientDefaultTransportDoesNotFollowRedirect(t *testing.T) {
+	var redirected atomic.Int32
+	foreign := httptest.NewTLSServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		redirected.Add(1)
+		w.WriteHeader(http.StatusOK)
+	}))
+	defer foreign.Close()
+	first := httptest.NewTLSServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if r.Header.Get("Authorization") != "Bearer redirect-canary" {
+			t.Error("initial fixture request was not authenticated")
+		}
+		http.Redirect(w, r, foreign.URL+"/outside", http.StatusTemporaryRedirect)
+	}))
+	defer first.Close()
+	// Trust only the local fixture's certificate without changing production trust.
+	previous := sharedTransport
+	fixtureTransport := first.Client().Transport.(*http.Transport).Clone()
+	sharedTransport = fixtureTransport
+	defer func() { sharedTransport = previous; fixtureTransport.CloseIdleConnections() }()
+	options := DefaultHTTPClientOptions(time.Second)
+	options.MaxRetries = -1
+	_, err := NewHTTPClient(&mockCredential{token: "redirect-canary"}, options).Get(context.Background(), first.URL)
+	var responseError *azcore.ResponseError
+	if !errors.As(err, &responseError) || responseError.StatusCode != http.StatusTemporaryRedirect || redirected.Load() != 0 {
+		t.Fatalf("redirect escaped request boundary: status error=%v forwarded requests=%d", err, redirected.Load())
 	}
 }

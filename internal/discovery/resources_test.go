@@ -132,3 +132,54 @@ func TestCountResourcesByTypeAndSubscriptionIsDeterministic(t *testing.T) {
 		t.Fatalf("unexpected second count: %+v", counts[1])
 	}
 }
+
+func TestCombinedSubscriptionRGTagScopeKeepsNearestRecordedChildDecision(t *testing.T) {
+	const parent = "/subscriptions/sub-a/resourceGroups/keep/providers/Microsoft.Test/widgets/parent"
+	const child = parent + "/slots/child"
+	const other = "/subscriptions/sub-b/resourceGroups/keep/providers/Microsoft.Test/widgets/other"
+	rows := []struct{ id, sub, rg, env string }{
+		{parent, "sub-a", "keep", "dev"}, {child, "sub-a", "keep", "prod"},
+		{other, "sub-b", "keep", "dev"},
+		{"/subscriptions/sub-a/resourceGroups/drop/providers/Microsoft.Test/widgets/outside", "sub-a", "drop", "dev"},
+		{"/subscriptions/sub-c/resourceGroups/keep/providers/Microsoft.Test/widgets/outside", "sub-c", "keep", "dev"},
+	}
+	filters := config.NewFilters()
+	filters.Assessment.Include.Subscriptions = []string{"SUB-A", "sub-b"}
+	filters.Assessment.Exclude.Subscriptions = []string{"sub-a"}
+	filters.Assessment.Include.ResourceGroups = []string{"/subscriptions/sub-a/resourceGroups/keep", "/subscriptions/sub-b/resourceGroups/keep"}
+	filters.Assessment.Exclude.ResourceGroups = []string{"/subscriptions/sub-a/resourceGroups/keep"}
+	filters.Assessment.Include.Tags = map[string]string{"Environment": "dev"}
+	filters.RebuildIndexes()
+	filters.Assessment.SetAllowedResourceTypes([]string{"Microsoft.Test/widgets"})
+	resolved, err := DiscoverSubscriptions(context.Background(), &fakeSubscriptionLister{subscriptions: []Subscription{
+		{ID: "sub-a", State: "Enabled"}, {ID: "sub-b", State: "Enabled"}, {ID: "sub-c", State: "Enabled"},
+	}}, nil, filters)
+	if err != nil || len(resolved) != 2 {
+		t.Fatalf("combined subscription precedence err=%v resolved=%#v", err, resolved)
+	}
+	q := &fakeResourceQuerier{result: &arg.Result{}}
+	for _, row := range rows {
+		raw, err := json.Marshal(map[string]any{"id": row.id, "subscriptionId": row.sub, "resourceGroup": row.rg, "type": "Microsoft.Test/widgets", "tags": map[string]string{"ENVIRONMENT": row.env}})
+		if err != nil {
+			t.Fatal(err)
+		}
+		q.result.Data = append(q.result.Data, raw)
+	}
+	inventory, err := DiscoverResources(context.Background(), q, resolved, filters)
+	if err != nil || len(inventory.Included) != 2 || len(inventory.Excluded) != 3 {
+		t.Fatalf("combined partition: error=%v inventory=%#v", err, inventory)
+	}
+	selected := map[string]bool{}
+	for _, r := range inventory.Included {
+		selected[r.ID] = true
+	}
+	if !selected[parent] || !selected[other] || selected[child] {
+		t.Fatalf("unexpected combined selected IDs: %#v", selected)
+	}
+	if filters.Assessment.IsServiceExcluded(parent + "/slots/unrecorded") {
+		t.Fatal("unrecorded child lost selected parent decision")
+	}
+	if !filters.Assessment.IsServiceExcluded(child) || !filters.Assessment.IsServiceExcluded(child+"/extensions/nested") {
+		t.Fatal("excluded child's nearest recorded decision lost to selected ancestor")
+	}
+}

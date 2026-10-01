@@ -67,6 +67,14 @@ class PackageIntegrityTests(unittest.TestCase):
         if os.name != 'nt':
             self.assertEqual(executable.stat().st_mode & 0o777, 0o755)
 
+    def test_missing_checksum_rejects_before_extraction(self):
+        archive, checksum = self.archive()
+        checksum.unlink()
+        destination = self.directory / 'missing-checksum-extraction'
+        with self.assertRaises(FileNotFoundError):
+            pkg.verify_extract(archive, checksum, destination)
+        self.assertFalse(destination.exists())
+
     def test_bad_archive_checksum_before_writes(self):
         archive, checksum = self.archive()
         checksum.write_text('0' * 64 + '  candidate.zip\n')
@@ -160,6 +168,23 @@ class ActualCandidateTests(unittest.TestCase):
             raced = next((root / 'race').glob('*.zip'))
             self.assertEqual(raced.read_bytes(), b'concurrent publisher bytes')
             self.assertFalse(list((root / 'race').glob('*.sha256')))
+            def fail_checksum_publish(source, target):
+                if str(target).endswith('.sha256'):
+                    raise OSError('synthetic checksum publication failure')
+                return original_link(source, target)
+            with patch.object(pkg.os, 'link', side_effect=fail_checksum_publish):
+                with self.assertRaisesRegex(OSError, 'checksum publication failure'):
+                    pkg.package(BINARY, 'dev', root / 'interrupted', GO)
+            orphan = next((root / 'interrupted').glob('*.zip'))
+            self.assertFalse(list((root / 'interrupted').glob('*.sha256')))
+            rejected_destination = root / 'reject incomplete bundle'
+            with self.assertRaises(FileNotFoundError):
+                pkg.verify_extract(orphan, orphan.with_suffix('.zip.sha256'), rejected_destination)
+            self.assertFalse(rejected_destination.exists())
+            orphan_bytes = orphan.read_bytes()
+            with self.assertRaisesRegex(ValueError, 'overwrite'):
+                pkg.package(BINARY, 'dev', root / 'interrupted', GO)
+            self.assertEqual(orphan.read_bytes(), orphan_bytes)
             print('Candidate ZIP verified:', archive.name, 'sha256:', pkg.sha(archive.read_bytes()))
 
 

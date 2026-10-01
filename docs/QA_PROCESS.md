@@ -66,3 +66,11 @@ Continue adapter denial/malformed-response checks, decoder fuzzing, workload con
 - [Microsoft PSModulePath guidance](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_psmodulepath?view=powershell-7.5): isolate module paths when a Go/Python intermediate process starts Windows PowerShell from PowerShell 7.
 
 - [GitHub GITHUB_TOKEN event guidance](https://docs.github.com/en/actions/concepts/security/github_token): proposal pushes and subsequent quality workflow execution are separate evidence.
+
+## Documentation and credential-boundary feedback
+
+Both required jobs run `scripts/tests/documentation.py`: authored local file destinations, documented Cloud Assess flags against real built help and operator PowerShell snippets through the parser (Linux PowerShell 7 and Windows PowerShell 5.1). Snippets are never executed. This detects structural drift; it does not replace semantic review, check all external/anchor links or anonymize retained notices.
+
+Use synthetic bearer canaries when reviewing service-provided continuations, redirects and diagnostic output. Destination changes must be validated before sending credentials; do not trust a query-style request's verb alone. The current Advisor/default shared-client guards and their explicit SDK/injected-transport limits are recorded in [OFFLINE_QA_REVIEW.md](OFFLINE_QA_REVIEW.md). Native Linux and Windows jobs run reachable-vulnerability scans; record module-only advisories separately rather than calling the graph advisory-free.
+
+Include SDK middleware defaults in read-oriented review. Shared ARM and scope options now disable automatic provider registration; registration-required error fixtures must confirm no implicit POST. An explicit GET in adapter source is insufficient evidence if its SDK pipeline can remediate by writing. Record such corrections separately from successful-response equivalence (FN-019).

@@ -73,6 +73,7 @@ The generic scan path is suitable for controlled test-environment validation. It
 - [Execution roadmap](docs/ROADMAP.md)
 - [Azure access model](docs/ACCESS_MODEL.md)
 - [Operator runbook](docs/OPERATIONS.md)
+- [Offline QA checkpoint and test evidence map](docs/OFFLINE_QA_REVIEW.md)
 - [Deferred validation register](docs/DEFERRED_VALIDATION.md)
 - [Characterization baseline](docs/CHARACTERIZATION.md)
 - [Source-versus-target equivalence runbook](docs/EQUIVALENCE.md)

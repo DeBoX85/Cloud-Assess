@@ -195,3 +195,21 @@ func TestARGFailureIsReturned(t *testing.T) {
 		t.Fatalf("expected ARG error, got %v", err)
 	}
 }
+
+func TestMetadataPaginationCycleFailsBeforeRepeatedRequest(t *testing.T) {
+	const first = "https://management.azure.com/providers/Microsoft.Advisor/metadata?api-version=2020-01-01"
+	const second = "https://management.azure.com/next-page"
+	for _, next := range []string{first, second} {
+		getter := &fakeGetter{pages: map[string][]byte{
+			first:  mustJSON(t, metadataListResult{NextLink: next}),
+			second: mustJSON(t, metadataListResult{NextLink: first}),
+		}}
+		got, err := NewMetadataClient(getter, "https://management.azure.com").RecommendationTypes(context.Background())
+		if err == nil || got != nil || !strings.Contains(err.Error(), "repeated") {
+			t.Fatalf("cycle not rejected: result=%#v err=%v", got, err)
+		}
+		if len(getter.urls) > 2 {
+			t.Fatalf("cycle made %d requests", len(getter.urls))
+		}
+	}
+}

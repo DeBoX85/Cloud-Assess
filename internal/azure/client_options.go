@@ -11,6 +11,8 @@ import (
 // NewARMClientOptions returns the shared ARM SDK configuration used by production Azure adapters.
 func NewARMClientOptions() *arm.ClientOptions {
 	return &arm.ClientOptions{
+		// Assessments must not let the SDK remediate registration-required errors.
+		DisableRPRegistration: true,
 		ClientOptions: policy.ClientOptions{
 			Retry: policy.RetryOptions{
 				RetryDelay:    4 * time.Second,

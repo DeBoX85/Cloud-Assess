@@ -207,6 +207,10 @@ Execution completeness applies to resolved/visible data; it does not independent
 
 The production authenticated HTTP client applies a positive `OperationTimeout` to one HTTP call, covering authentication, retry waits and response-body consumption. Defaults are ten times the per-attempt timeout. Earlier caller deadlines and cancellation remain authoritative; non-positive custom values add no operation deadline. This is not a whole-scan time limit or a guarantee that custom transports ignoring context terminate. Callers of `PostStream` must close response bodies; operation context cleanup occurs on body read completion/error or close.
 
+ARM SDK assessment clients explicitly disable automatic resource-provider registration. A registration-required read error must remain an error, without a registration POST; caller-supplied scope options are copied before enforcing this assessment boundary.
+
+The default shared HTTP transport does not follow redirects. Advisor metadata continuation URLs must remain on the configured HTTPS host/port, contain no user information or fragment, and not repeat. Unsafe pagination fails the Advisor stage rather than sending the ARM credential to another origin or reporting a truncated successful metadata result. These are target security corrections for unsafe response paths; injected transports and SDK-owned pagers retain separate policy boundaries.
+
 ## Failure model
 
 Assessment-fatal examples:
