@@ -1,6 +1,6 @@
 # Cloud Assess Roadmap
 
-Status: working execution roadmap, reviewed 2026-10-01 (Europe/Oslo); alignment review starts from merged `bootstrap/core-v1` at `0df39bd9c3a8a0e2062f54772ac9e29750b3409b`
+Status: working execution roadmap, reviewed 2026-10-01 (Europe/Oslo); dependency review starts from merged `bootstrap/core-v1` at `8f76c46ad407f202a7aa2d9e8ae7eb8931ffaf35`
 
 Active development branch: `bootstrap/core-v1`
 
@@ -174,7 +174,7 @@ Historical-report comparison, alternative VM SKU selection, MCP integration, a p
 
 The agreed shortlist is executed in [OFFLINE_QA_REVIEW.md](OFFLINE_QA_REVIEW.md): documentation consistency, acceptance/test mapping, combined filter fixtures, actual-CLI/PowerShell example checks, remaining request contracts, default retry counts, sensitive-output review and interrupted package publication. Review found and fixed an Advisor continuation credential-boundary defect (FN-017), added redirect refusal in the default shared transport, and corrected an initial multi-CLI documentation-check assumption (FN-018). This advances QA evidence, not the coarse readiness percentages or release approval. PR #63 final head `9e177fe98e2a7ea9e1221811fbf6e4d80058f50f` passed required run `36789582586`, merged as `dd3cc8309b799502ba92c9d43559b776eb8b3918`.
 
-The scope-reporting checkpoint now implements explicit requested/resolved JSON evidence and fail-closed handling of missing explicit subscriptions with offline coordinator/application/privacy tests; see [SCOPE_REPORTING.md](SCOPE_REPORTING.md). Next autonomous checkpoints: review SDK-owned pager/injected-transport credential boundaries, then review module-only security advisories during a pinned dependency refresh. DV-001, non-empty live stage evidence, historical warning/Advisor uncertainty, first-release feature decisions, fresh-OS installation and the production pilot remain open. No Azure/laptop action is required for this offline checkpoint.
+The scope-reporting checkpoint now implements explicit requested/resolved JSON evidence and fail-closed handling of missing explicit subscriptions with offline coordinator/application/privacy tests; see [SCOPE_REPORTING.md](SCOPE_REPORTING.md). The subsequent alignment review covers SDK scope origin policy and trusted injected-transport limits; the advisory refresh is recorded below. Next autonomous checkpoint is same-origin pagination/lifecycle bounds (AR-02). DV-001, non-empty live stage evidence, historical warning/Advisor uncertainty, first-release feature decisions, fresh-OS installation and the production pilot remain open. No Azure/laptop action is required for this offline checkpoint.
 
 Offline shortlist code checkpoint: PR #64 head `b447ec46c3eee232259e7df3621227f840106451` passed required Linux/Windows run `36792517368`. Both native package suites completed all fourteen cases and documentation/vulnerability checks passed; no reachable/imported-package findings, three module-only advisories. Final evidence head must pass both jobs before merge. Readiness estimates remain unchanged because outstanding acceptance/release boundaries remain.
 
@@ -184,4 +184,8 @@ Post-registration-hardening checkpoint `a531237eae3bc8d4bec80bcfb6518698f1d61b9d
 
 ## Alignment sanity-review checkpoint
 
-[ALIGNMENT_REVIEW.md](ALIGNMENT_REVIEW.md) records the paused/resume state, source feature matrix, reproduced SDK pager/token-audience fixes and a separate AR-01 through AR-08 follow-up register. Normal recommendation sources remain APRL/AOR/CUSTOM (renamed AZQR); external extensions, six built-in plugins and ancillary CLI features are eventual parity obligations. Branding defaults requiring rebuild do not complete the adjustment requirement. SDK scope origin validation is now implemented; injected transports remain trusted code, same-origin pagination budgets remain open, and dependency advisory maintenance is the next autonomous checkpoint. Readiness estimates and Gate 004/release status are unchanged.
+[ALIGNMENT_REVIEW.md](ALIGNMENT_REVIEW.md) records the paused/resume state, source feature matrix, reproduced SDK pager/token-audience fixes and a separate AR-01 through AR-08 follow-up register. Normal recommendation sources remain APRL/AOR/CUSTOM (renamed AZQR); external extensions, six built-in plugins and ancillary CLI features are eventual parity obligations. Branding defaults requiring rebuild do not complete the adjustment requirement. SDK scope origin validation is now implemented; injected transports remain trusted code, same-origin pagination budgets remain open, and the subsequent dependency advisory review is recorded below. Readiness estimates and Gate 004/release status are unchanged.
+
+## Dependency advisory checkpoint
+
+[DEPENDENCY_ADVISORY_REVIEW.md](DEPENDENCY_ADVISORY_REVIEW.md) closes the bounded AR-01 investigation with x/crypto v0.56.0 for two SSH advisories and an explicit remaining module-only OpenPGP advisory (no fixed version, no current imports). Inventory/notices are regenerated; native final CI remains mandatory. Next autonomous work is AR-02 pagination/cycle/total-lifecycle bounds. Release security/licensing, branding, feature parity and deferred live evidence remain open; readiness estimates are unchanged.

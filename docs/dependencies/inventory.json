@@ -13,8 +13,8 @@
     "CustomRulesSnapshotTree": "674b9b3dcb443ce6dc445b48e1db47e4a0ca7082"
   },
   "inputs": {
-    "go.mod": "67adbf31349c78bb99ae06f9819134886970c8661162feede517428defa5d507",
-    "go.sum": "267090bb707cefe178ccb90988df8ab08280b7b67eda582ef47c87f07b7a85ba",
+    "go.mod": "4f081be3a524847fff95a6a3e53b6528b5d1a466feeee64c38aec4da684cfda3",
+    "go.sum": "22e96a676c84d0dadad07ea114cb0e5873c3825217c89d5cf13aaf954296ffed",
     "internal/rules/embedded.go": "1715ec6e108b5d62490b4a0c91b904e1fc018ea39df82947fdc628a8ffa71f19",
     "internal/skus/skus.go": "9036aee8cd274afbf9034bed8f3b7ab1e19d52de5da481c370008a2493f259a3"
   },
@@ -585,14 +585,14 @@
     },
     {
       "path": "golang.org/x/crypto",
-      "version": "v0.55.0",
+      "version": "v0.56.0",
       "direct": false,
       "cliTargets": [
         "linux/amd64",
         "windows/amd64"
       ],
-      "sum": "h1:+KWHjbgOaAQ66dh/YlkZKHlz9ZUlq61AFirAR9ntP8M=",
-      "goModSum": "h1:uq0V9dE/fzQuJtbnL+2EhWOE63vo164FY8xqEnV9xis=",
+      "sum": "h1:GUh5Ii4J5jtcseSMiRqr1jXCNHoxjeV9Fmekc2oLy6Y=",
+      "goModSum": "h1:OMW5y6CY9l38uPLmxU6l6pwcXp1obtLo3e6gT7gQR2I=",
       "notices": [
         {
           "file": "LICENSE",
