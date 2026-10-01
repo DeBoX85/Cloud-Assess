@@ -153,7 +153,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          go test -run '^$' -fuzz '^FuzzCompareFieldSymmetry$' -fuzztime 10s -parallel 2 ./internal/equivalence
+          go test -run '^$' -fuzz '^FuzzCompareFieldSymmetry$' -fuzztime 100000x -timeout 60s -parallel 2 ./internal/equivalence
           go test -run '^$' -fuzz '^FuzzExactResourceExclusionPreservesOtherResource$' -fuzztime 10s -parallel 2 ./internal/config
           go test -run '^$' -fuzz '^FuzzDecodeRowsIsolationAndAccounting$' -fuzztime 100000x -timeout 60s -parallel 2 ./internal/arg
 

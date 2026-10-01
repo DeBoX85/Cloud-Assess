@@ -46,3 +46,9 @@ No input from Denis is required to implement this default-preserving proposal. A
 ## Validation and resume
 
 Focused existing CLI/application/XLSX/SARIF race tests and authored-document checks passed before publication (139 destinations); final exact-head native quality/windows-validation remain blocking. Their broader QA does not certify custom branding that is not yet implemented. Final CI/head/tree/merge evidence stays in the PR and is indexed at the next ledger checkpoint. Readiness estimates, AR-02 metadata/load/live limits, AR-04 feature parity, DV-001 and Gate 004/release status are unchanged. Resume with the concrete five-step offline branding implementation batch above.
+
+## QA execution follow-up
+
+The first PR #72 native quality run failed comparator duration-bounded fuzzing at its shutdown boundary, without a property assertion or saved failing input. FN-010 records exact failed head/run/job and retained artifact; the failure is not counted as passing. The existing decoder execution-count mitigation is applied to the comparator target only, preserving its assertions and two-worker parallelism with 100000 executions and a separate 60-second timeout. This is a QA workflow correction discovered during the review, not a branding or comparator production change. Both native jobs must pass the updated final head before merge.
+
+Local comparator count-bounded runs passed exactly 100000 executions twice (6.688s, then 7.389s with the retained 49-input baseline cache); focused comparator race tests also passed. This verifies the mitigation locally, not the root cause or final native result.
