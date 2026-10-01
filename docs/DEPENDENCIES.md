@@ -27,3 +27,5 @@ For each release candidate, regenerate on the exact release tree/toolchain, conf
 Generated NOTICES.md intentionally preserves upstream line endings and trailing whitespace. Its path-specific Git attributes disable text conversion and whitespace diagnostics for that file only; authored files retain ordinary checks. Notice SHA-256 values and freshness checks verify retained evidence.
 
 The module graph/download semantics follow the [official Go Modules Reference](https://go.dev/ref/mod#go-mod-download); package-list semantics follow the [Go command documentation](https://pkg.go.dev/cmd/go#hdr-List_packages_or_modules).
+
+The [dependency advisory review](DEPENDENCY_ADVISORY_REVIEW.md) records the selected x/crypto v0.56.0 upgrade, unchanged license evidence and residual module-only OpenPGP advisory. Native reachability checks remain mandatory; absence of reachable findings does not certify an advisory-free module graph or release security.

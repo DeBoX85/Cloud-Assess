@@ -1936,7 +1936,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 
 
-## golang.org/x/crypto@v0.55.0 / LICENSE
+## golang.org/x/crypto@v0.56.0 / LICENSE
 
 SHA-256: 911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad
 
