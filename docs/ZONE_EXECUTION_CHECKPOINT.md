@@ -59,3 +59,57 @@ Offline list/info advertises implemented internal zone plus currently discovered
 This proposal is a checkpoint only, not an implementation merge or full B3 QA claim. Accepted core-v1 remains the verified baseline. Recover/rebuild WIP with source/pins/toolchain checked; no background continuation is promised after a turn ends. No user laptop/Azure input or credentials are needed for the next offline task.
 
 For an accepted merged slice, rollback is a reviewed revert on current history with dependencies and intended parent 1 checked, never reset/force or reference changes. DV-001, nonempty live optional stages, actual zone/plugin comparison, restricted visibility/load, release/maintenance/operations and existing advisory remain separately open.
+
+## Reconciliation and recovery QA, 2026-10-02
+
+This section supersedes the earlier runtime BLOCKED status. File execution is available again. The original B3c workspace is absent; its uncommitted code and the unknown last patch cannot be inspected or recovered from this checkpoint. A fresh, clean clone at the accepted baseline is available for reconstruction. No unpublished B3c implementation is accepted, merged or claimed backed up.
+
+### Intended versus completed work
+
+| Intended slice | Reconciled state | Remaining boundary |
+| --- | --- | --- |
+| B2 bounded YAML Graph plugins | VERIFIED OFFLINE, PR79 merged; exact native heads/jobs rechecked | Live plugin equivalence deferred |
+| B3a zone adapter | VERIFIED OFFLINE, PR80 merged; source capture hash retained | Adapter is not CLI execution acceptance |
+| B3b canonical tables/health/reporting | VERIFIED OFFLINE, PR81 merged; final evidence independently rechecked | Synthetic service-health-shaped rows do not implement a second adapter |
+| B3c zone coordinator, mixed/plugin-only CLI, list/info | IN PROGRESS design only; unfinished local implementation lost | Reconstruct, review and test from accepted baseline |
+| B3 second real adapter | NOT STARTED acceptance | Implement after zone integration |
+| Gate 004 / release / Azure-dependent queue | OPEN or DEFERRED as individually recorded | No promotion from these offline checks |
+
+Remote core-v1 still equals `634aa083981fc327fe5c2cc7b42815793eb197fd`, tree `4729d848509dccf13f221359add14a1ef3cf8edc`. Fresh clone is clean and its merge parents are `0b76ad6b2870432357e5a38c1e8fe73d5214f11b` and `8b1365218743d5b34fb934d24354699bf55465e2`. Author identity is Denis Bogunic <134433647+DeBoX85@users.noreply.github.com>. The current CLI still explicitly rejects the internal plugin stage; no zone command is exposed by the accepted slice.
+
+The retained original AZQR checkout remains clean at `8e4f0577f3615e6c9014c031bcad079f235369cc`. Fresh APRL checkout is `60eaddda76541f6adbc1c5ffa686829807e55e29`. YAML and zone source captures match their hashes recorded above. Reference source was not edited.
+
+### Verification performed after interruption
+
+- Read live PR79/80/81 merge/head state and all six workflow job conclusions; each matches the table above and is completed SUCCESS.
+- Retrieved and reinspected all six native logs for executable/package/documentation, fuzz and vulnerability evidence. These are the existing exact-head native runs, not newly executed Windows acceptance. Existing module-only advisory remains open.
+- Fresh accepted-baseline Linux Go 1.26.8 full `go test -race ./...` passed after restoring required pinned APRL input.
+- Fresh `go vet ./...` passed with no diagnostics; strict clean-checkout native build with `-trimpath -mod=readonly -buildvcs=true` passed.
+- Actual built CLI suite: six tests passed. Built artifact SHA-256 `d8c9a0adac82a46a397e7058da489be797ca6b93b8b000ffa2caa6c6cdb83988`, Linux/amd64, 24 modules.
+- Documentation checks: 223 local destinations, nine actual help flags, one PowerShell parse-only snippet passed; no scan executed. Clean working tree and diff whitespace verified.
+- Reviewed execution-plan interruption/unknown-outcome/rollback rules and checked current implementation boundaries against the recorded resume contract.
+
+No new product defect was demonstrated by this bounded recovery QA. This is reconciliation and regression QA of the last accepted work, not a fresh comprehensive security audit, full functional parity certification, live validation or B3c acceptance.
+
+### Incident and process corrections (FN-037 recovery record)
+
+The environment stall is not evidence of a product bug. The missing scratch directory is confirmed; the cause/timing of its disappearance is not established. The process gap is that substantial unfinished code was not remotely checkpointed before the stall. The design checkpoint enabled reconstruction but cannot recover exact lost edits.
+
+During this recovery I launched tests before initializing the fresh clone's required APRL submodule. The test log reported missing embedded `upstream/aprl/azure-resources` input, not a failing product assertion. Restored the exact pinned submodule, reran the full suite, and retained the distinction between setup failure and successful product checks. Prevention: validate source-data pins and required embedded paths before build/test on every reconstructed checkout. Initial failed workdir inspection also confirmed the old workspace was absent; it supplied no code-review evidence. Large inspection output was truncated; no missing text was used to support the reconciliation.
+
+Index this incident in FAILURE_NOTES and the final PR81 acceptance in DEVELOPMENT_LEDGER with the next material implementation. Preserve this checkpoint until that index is durable.
+
+### Required durable checkpoint cadence from this point
+
+1. At the start, read core-v1 and the latest proposal/checkpoint; record base/head/tree, source pins, task scope and exact next action.
+2. After each coherent implementation slice, before changing task or ending a session, publish a task-owned WIP code commit when GitHub is available. Include new files and a resume note. Verify remote commit/tree/parent and identity by read-back; an intended upload is not a backup.
+3. Mark every check as pending, failed with cause, or passed on an exact commit. A WIP backup may be unaccepted; it must stay unmerged. Do not put secrets, credentials or raw Azure evidence in a checkpoint.
+4. After a timeout, reconcile remote outcome before retrying. If GitHub is unavailable, retain a local commit/diff and explicitly report that durable backup is unavailable; never imply outage-proof recovery.
+5. On recovery, inspect actual ref/files/status before retrying an uncertain edit. If code is absent, reconstruct from the last verified remote baseline and contract, then rerun all applicable checks.
+6. Accepted code still requires exact-final-head native Linux/Windows QA and expected-head protected merge. Rollback stays a reviewed revert with dependencies/mainline verified.
+
+### Exact continuation point
+
+Start a new isolated B3c proposal from `634aa083981fc327fe5c2cc7b42815793eb197fd`. Reconstruct stage cloning/plugin-only validation, typed zone projection, lazy operation and coordinator integration first; prove them with focused tests and publish a coherent unmerged code checkpoint. Then reconstruct the shared CLI/preflight and offline list/info and complete the acceptance cases in the resume procedure above. Do not restore the unknown patch blindly or reuse early green results as final acceptance.
+
+No laptop, Azure login, credentials or user specification is needed for this next offline slice. Live deferrals and release limitations remain unchanged.
