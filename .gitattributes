@@ -1,2 +1,4 @@
 # Preserve collected third-party notice bytes, including upstream whitespace.
 docs/dependencies/NOTICES.md -text -whitespace
+# Keep the independently captured executable JSON bytes identical on Windows.
+cmd/cloud-assess/testdata/rules-reference.json -text

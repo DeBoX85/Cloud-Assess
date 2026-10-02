@@ -1736,6 +1736,16 @@ The inspection identified source-only caveats to handle explicitly: logged/skipp
 
 No production code, dependencies, pins, normalization or Azure requests changed. Source HEAD was verified at `8e4f0577f3615e6c9014c031bcad079f235369cc`; reference checkout remains read-only. Documentation/link and source-fact checks precede exact-head required native CI; final head/tree/run/merge retained in the PR and indexed next checkpoint. FN-031 records inspection recurrences and the corrected early plugin-output assumption. Resume at offline rules inspection, then scanner subcommands, bounded YAML integration and plugin table/health infrastructure. No Azure/laptop input required. Gate 004, release, readiness estimates and deferred live evidence remain open.
 
+### Offline rules command and independent reference executable capture
+
+Date: 2026-10-02 (Europe/Oslo). Baseline PR #76 merged `fd60dd635acb7c3156a264640810a4bd8d92b59d`, reviewed/merged tree `14e08250648ec3977b4c55d517eca7d9cc440047`; final head `ef7fd526410bb10f0ea9c080b9ad7f8e20e260d9`, run `36941892097`, quality job `110635076067`, Windows job `110635075872`, both passed with inspected logs. Each platform ran nineteen default and nineteen custom package cases without skips; documentation 170 destinations/nine flags/one PowerShell snippet; Linux coverage 79.6%, bounded fuzz/mutation/race/vet passed; zero reachable/imported findings and unchanged one module-only advisory open. This indexes completed source characterization, not implemented plugin parity.
+
+[Offline rules inspection](RULES_INSPECTION.md) implements AR-04 slice 1: source-selected scanner-supported embedded and Diagnostics recommendations, global ID replacement, sorted six-field JSON, Markdown output and local json/j flag without Azure/scan execution. The independent full pinned AZQR executable capture has 380 rows and 107 catalog types; target JSON matches its bytes exactly. Fixture hash `77d7574232a32062d87dc32f6f9fc216f6f509921cc4d75621aa3a0c5279ed08` is retained with provenance/notices. Existing reference checkout lacked APRL files, so a separate clean temporary source copy populated both exact pins for the executable capture; original source and target submodule checkouts were unchanged. FN-032 records failed preparation runs, not accepted evidence.
+
+Literal selection/precedence/empty-guidance fixtures, complete reference-byte command tests, Markdown table escaping, invalid arguments and writer-error tests supplement actual built and installed CLI checks with HTTP/auth tripwires, all source JSON rows, exit/stderr validation and unchanged filesystem snapshots. A compiling removal of the selection predicate was rejected by independent expected rows; restored code passed focused race tests. No scan behavior, dependencies, source pins, canonical assessment schema or equivalence normalization changed, and no Azure requests occurred. Markdown formatting/safe missing guidance and reuse of the target case-insensitive marker guard are explicit limits/corrections; current pinned JSON still matches fully.
+
+Local complete tests and exact-head required native QA precede merge; final head/tree/run/merge evidence remains in the PR for next checkpoint indexing. Existing required jobs now protect actual rules execution including default/custom package installs; another numbered gate is unnecessary. Resume at scanner-specific subcommands, then YAML Graph integration and internal plugin table/health infrastructure. No Azure/laptop input required; Gate 004/release, readiness estimates and live deferrals remain open.
+
 ## Current boundary
 
 The generic core scan, deterministic equivalence tooling, reproducible live runner, default/optional/resource-group/two-subscription/leaf-management-group and separate Storage/VM, RG include/exclude, tag include/exclude, recommendation-exclude and individual-resource-exclude live passes, plus enforced development CI, are complete for the behavior exercised so far. The unfiltered two-subscription, leaf-management-group, tag-exclude, RG-exclude and individual-resource-exclude passes have explicit Diagnostics warning boundaries; the recommendation-exclude pass is also `complete_with_warnings`, without supplied warning details. Network Watcher individual-GET probes and the Phase W one-request batch probe support an explanation for earlier warnings but have not mapped the original multi-request batch responses. The missing cross-run Advisor row has unknown recorded tag scope in the tag-only target inventory; historical Azure timing remains unresolved.
@@ -1769,7 +1779,6 @@ The following are not forgotten; they remain intentionally open:
 - production external/YAML plugin execution
 - internal plugin migration/parity
 - scanner-specific CLI commands
-- `rules` CLI command
 - `plugins list/info` CLI
 - packaging/distribution
 - release-specific dependency/license inventory review and distribution notices

@@ -51,6 +51,7 @@ func newRootCommand(executor scanExecutor) *cobra.Command {
 	}
 	root.SetContext(ctx)
 	root.AddCommand(newScanCommand(executor, &exitCode))
+	root.AddCommand(newRulesCommand())
 	root.AddCommand(&cobra.Command{
 		Use: "branding", Short: "Print the immutable build branding profile", Args: cobra.NoArgs,
 		RunE: func(command *cobra.Command, _ []string) error {
