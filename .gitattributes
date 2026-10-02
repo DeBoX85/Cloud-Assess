@@ -3,3 +3,4 @@ docs/dependencies/NOTICES.md -text -whitespace
 # Keep the independently captured executable JSON bytes identical on Windows.
 cmd/cloud-assess/testdata/rules-reference.json -text
 internal/plugins/zone/testdata/source-rows.json -text
+internal/plugins/servicehealth/testdata/source-output.json -text

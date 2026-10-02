@@ -237,3 +237,7 @@ PR83 handover accepted through head `ed081d5fff7e24f40bb44cf3927dea482ec7c112`, 
 ## Current checkpoint: coordinator accepted, CLI/registry proposal
 
 PR84 accepted on head `88d7452df8942341513cc62a49d9df24a32e167e`, run `37061985911`, merged `6a920caa76576e61708717a647d67124ebb6ede6`, tree `85365fd1ab7440b4f4d19ce335f188bcbd9f6983`. Both required jobs and exact merged state verified. Current CLI/list-info proposal adds shared preflight, zone-only/mixed commands and honest bounded offline metadata. Fourteen raw/masked synthetic authenticated command-to-application cases and compiling unused-discovery control passed; clean built/native acceptance remains pending. Next real service-health abstraction check after acceptance. Successful live/installed Azure plugin execution, second adapter, Gate004/release and existing limits remain open. SESSION_HANDOVER is current entry point.
+
+## Current checkpoint: PR85 accepted, second adapter active (2026-10-02)
+
+Zone execution/CLI/list-info VERIFIED OFFLINE through PR85, merge `2f88e9d5b8dca309c0f27ccb6ec4ed54787bcebb`; exact head/run/jobs and postmerge state are indexed in SESSION_HANDOVER and the ledger. Next is [SERVICE_HEALTH.md](SERVICE_HEALTH.md), a source-grounded library adapter followed by separate coordinator/CLI/report integration; synthetic second-shaped fixtures do not count as it. No Azure/laptop dependency for this work. Gate004/release/full parity and recorded live gaps remain open.
