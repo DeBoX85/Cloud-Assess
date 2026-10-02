@@ -1,0 +1,73 @@
+[
+  {
+    "metadata": {
+      "Name": "carbon-emissions",
+      "Version": "1.0.0",
+      "Description": "Analyzes carbon emissions by Azure resource type",
+      "Author": "Azure Quick Review Team",
+      "License": "MIT",
+      "Type": 1,
+      "CommandPath": "",
+      "ColumnMetadata": [
+        {
+          "name": "Period From"
+        },
+        {
+          "name": "Period To"
+        },
+        {
+          "name": "Resource Type"
+        },
+        {
+          "name": "Latest Month Emissions"
+        },
+        {
+          "name": "Previous Month Emissions"
+        },
+        {
+          "name": "Month-over-Month Change Ratio"
+        },
+        {
+          "name": "Monthly Change Value"
+        },
+        {
+          "name": "Unit"
+        }
+      ]
+    },
+    "sheet_name": "Carbon Emissions",
+    "description": "Analysis of carbon emissions by Azure resource type for the previous month",
+    "table": [
+      [
+        "Period From",
+        "Period To",
+        "Resource Type",
+        "Latest Month Emissions",
+        "Previous Month Emissions",
+        "Month-over-Month Change Ratio",
+        "Monthly Change Value",
+        "Unit"
+      ],
+      [
+        "2026-03-31",
+        "2026-03-31",
+        "Microsoft.Compute/virtualMachines",
+        "100.00",
+        "100.00",
+        "0.00%",
+        "-20.00",
+        "kgCO2e"
+      ],
+      [
+        "2026-03-31",
+        "2026-03-31",
+        "Microsoft.Storage/storageAccounts",
+        "75.00",
+        "",
+        "",
+        "",
+        "kgCO2e"
+      ]
+    ]
+  }
+]

@@ -256,3 +256,8 @@ Current advance (2026-10-03): SQL EOL library and empty-fragment correction acce
 
 
 Current SQL execution candidate (2026-10-03): 24 synthetic authenticated all-format cases, ownership/filter/concurrency/partial/context checks and compiling metadata control pass; restored full race/vet pass. Ten built CLI checks and docs plus exact native acceptance are the next steps, then B5 carbon emissions characterization. This is offline source-functional migration, not live SQL pricing/KQL validation or Gate004 closure.
+
+
+## Current checkpoint: B4 accepted offline, B5 carbon core active (2026-10-03)
+
+SQL standalone/normal/scanner execution accepted through PR89 merge `735cedfe68a9b91a17ec120bafd320edb8629d1e`, both native gates/logs and exact postmerge verified; see SQL_EOL/ledger. B5 starts with actual carbon source scanner/calculation captures and bounded pure aggregation core under CARBON_EMISSIONS. Focused race passes; full/build/native acceptance next, then separate authenticated request/access/pagination adapter, then registry/CLI/report integration. AI governance and region selection follow separately; B6/B7 and all live/release limits remain open. Pure calculations are not a complete carbon plugin or API access proof. Earlier SQL pending paragraphs are historical.

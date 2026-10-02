@@ -1,0 +1,59 @@
+package carbon
+
+import (
+ "context"
+ "encoding/json"
+ "fmt"
+ "io"
+ "net/http"
+ "net/http/httptest"
+ "os"
+ "sort"
+ "testing"
+ "time"
+ "github.com/Azure/azqr/internal/models"
+ "github.com/Azure/azqr/internal/az"
+ "github.com/Azure/azure-sdk-for-go/sdk/azcore"
+ "github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
+)
+type captureCredential struct{}
+func (captureCredential) GetToken(context.Context,policy.TokenRequestOptions)(azcore.AccessToken,error){return azcore.AccessToken{Token:"synthetic-carbon-source",ExpiresOn:time.Now().Add(time.Hour)},nil}
+func TestCaptureCarbonActualSource(t *testing.T){
+ oldScanners:=models.ScannerList
+ models.ScannerList=map[string][]models.IAzureScanner{"fixture":{models.NewBaseScanner("fixture","Microsoft.Compute/virtualMachines","Microsoft.Storage/storageAccounts")},"compute":{models.NewBaseScanner("fixture","Microsoft.Compute/virtualMachines")}}
+ defer func(){models.ScannerList=oldScanners}()
+ report:=`{"value":[{"dataType":"ItemDetailsData","categoryType":"ResourceType","itemName":"Microsoft.Compute/virtualMachines","latestMonthEmissions":80,"previousMonthEmissions":100,"monthlyEmissionsChangeValue":-20,"monthOverMonthEmissionsChangeRatio":999},{"dataType":"ItemDetailsData","categoryType":"ResourceType","itemName":"Microsoft.Compute/virtualMachines","latestMonthEmissions":20,"previousMonthEmissions":0},{"dataType":"ItemDetailsData","categoryType":"ResourceType","itemName":"Microsoft.Storage/storageAccounts","latestMonthEmissions":75,"previousMonthEmissions":0,"monthlyEmissionsChangeValue":0}],"skipToken":"source-ignores-this-token"}`
+ mode:="all"; rangeCalls,reportCalls:=0,0
+ server:=httptest.NewTLSServer(http.HandlerFunc(func(w http.ResponseWriter,r *http.Request){
+ if r.Method!="POST" || r.URL.Query().Get("api-version")!="2025-04-01" || r.Header.Get("Authorization")!="Bearer synthetic-carbon-source"{t.Error("source request/auth");w.WriteHeader(400);return}
+ w.Header().Set("Content-Type","application/json")
+ switch r.URL.Path {
+ case "/providers/Microsoft.Carbon/queryCarbonEmissionDataAvailableDateRange": rangeCalls++;io.WriteString(w,`{"startDate":"2026-01-01","endDate":"2026-03-31"}`)
+ case "/providers/Microsoft.Carbon/carbonEmissionReports":
+ reportCalls++
+ var q struct{ReportType string `json:"reportType"`; SubscriptionList []string `json:"subscriptionList"`; CarbonScopeList []string `json:"carbonScopeList"`; DateRange struct{Start,End string} `json:"dateRange"`;CategoryType,OrderBy,SortDirection string;PageSize int;SkipToken string}
+ if json.NewDecoder(r.Body).Decode(&q)!=nil||q.ReportType!="ItemDetailsReport"||len(q.SubscriptionList)>100||len(q.SubscriptionList)==0||q.DateRange.Start!="2026-03-31"||q.DateRange.End!="2026-03-31"||q.PageSize!=1000||q.SkipToken!=""||q.CategoryType!="ResourceType"||q.OrderBy!="LatestMonthEmissions"||q.SortDirection!="Desc"||fmt.Sprint(q.CarbonScopeList)!="[Scope1 Scope2 Scope3]"{t.Errorf("source body: %+v",q)}
+ if mode=="denied"{w.WriteHeader(403);io.WriteString(w,`{"error":{"code":"Denied","message":"synthetic-denied"}}`);return};io.WriteString(w,report)
+ default:t.Error("unexpected source path");w.WriteHeader(404)
+ }
+ }))
+ defer server.Close();az.CaptureTransport(server.Client().Transport.(*http.Transport));oldTransport:=http.DefaultTransport;http.DefaultTransport=server.Client().Transport;defer func(){http.DefaultTransport=oldTransport}()
+ t.Setenv("AZURE_RESOURCE_MANAGER_AUDIENCE", "https://management.invalid/");t.Setenv("AZURE_AUTHORITY_HOST","https://login.invalid");t.Setenv("AZURE_RESOURCE_MANAGER_ENDPOINT",server.URL)
+ for _,kind:=range []string{"all","filtered","batched","empty","denied"}{
+ mode=kind;rangeCalls,reportCalls=0,0
+ subs:=map[string]string{"11111111-1111-4111-8111-111111111111":"A"}; keys:=[]string{"fixture"}
+ if kind=="filtered"{keys=[]string{"compute"}}
+ if kind=="batched"{subs=map[string]string{};for i:=0;i<101;i++{subs[fmt.Sprintf("%08x-1111-4111-8111-111111111111",i)]="fixture"}}
+ if kind=="empty"{subs=map[string]string{}}
+ ctx,cancel:=context.WithTimeout(context.Background(),20*time.Second);defer cancel();value,err:=NewScanner().Scan(ctx,captureCredential{},subs,&models.ScanParams{Filters:models.LoadFilters("",keys)});if err!=nil||len(value)!=1{t.Fatalf("source scan %s: %v",kind,err)}
+ table:=value[0].Table;sort.Slice(table[1:],func(i,j int)bool{return table[i+1][2]<table[j+1][2]})
+ wantReports:=1;if kind=="empty"{wantReports=0};if kind=="batched"{wantReports=2};if rangeCalls!=1||reportCalls!=wantReports{t.Fatalf("source calls %s %d %d",kind,rangeCalls,reportCalls)}
+ if kind=="all"&&(len(table)!=3||table[1][3]!="100.00"||table[1][5]!="0.00%"||table[1][6]!="-20.00"||table[2][4]!=""){t.Fatalf("source aggregate: %+v",table)}
+ if kind=="batched"&&(len(table)!=3||table[1][3]!="200.00"||table[1][4]!="200.00"){t.Fatal("source batching aggregate")}
+ if (kind=="empty"||kind=="denied")&&len(table)!=1{t.Fatal("source header-only empty/denied")}
+ b,_:=json.MarshalIndent(value,"","  ");if err=os.WriteFile("/workspace/scratch/d726e08ce991/carbon-source-"+kind+".json",append(b,'\n'),0600);err!=nil{t.Fatal(err)}
+ }
+ var calculations []struct{Latest,Previous,Change float64; Row []string}
+ for _,a:=range []aggregatedEmissions{{150,100,50},{80,100,-20},{75,0,0},{1,-2,-3},{0,0,0},{1.005,1,0.005}}{from:=time.Date(2026,3,31,0,0,0,0,time.UTC); calculations=append(calculations,struct{Latest,Previous,Change float64;Row []string}{a.latestMonth,a.previousMonth,a.monthlyChangeValue,buildEmissionRow(from,from,"Microsoft.Compute/virtualMachines",a)})}
+ b,_:=json.MarshalIndent(calculations,"","  ");if err:=os.WriteFile("/workspace/scratch/d726e08ce991/carbon-source-calculations.json",append(b,'\n'),0600);err!=nil{t.Fatal(err)}
+}
