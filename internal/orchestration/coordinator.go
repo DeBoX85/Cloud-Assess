@@ -2,6 +2,7 @@ package orchestration
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"sort"
 	"strings"
@@ -11,6 +12,7 @@ import (
 	"github.com/DeBoX85/Cloud-Assess/internal/assessment"
 	"github.com/DeBoX85/Cloud-Assess/internal/config"
 	"github.com/DeBoX85/Cloud-Assess/internal/discovery"
+	"github.com/DeBoX85/Cloud-Assess/internal/plugins"
 	"github.com/DeBoX85/Cloud-Assess/internal/result"
 	"github.com/DeBoX85/Cloud-Assess/internal/rules"
 	"github.com/DeBoX85/Cloud-Assess/internal/scanners"
@@ -25,6 +27,8 @@ const (
 // Request contains assessment-engine inputs. Rendering and process-exit behavior are
 // intentionally handled by the application layer rather than the coordinator.
 type Request struct {
+	InternalPlugins     []string
+	PluginOnly          bool
 	ManagementGroups    []string
 	Subscriptions       []string
 	ResourceGroups      []string
@@ -51,6 +55,7 @@ func NewCoordinator(operations Operations) *Coordinator {
 }
 
 type scanState struct {
+	pluginTables            []assessment.PluginTable
 	subscriptions           map[string]string
 	scopeID                 string
 	scope                   *assessment.ScopeResolution
@@ -80,6 +85,9 @@ func (c *Coordinator) Run(ctx context.Context, request Request) (*result.Assessm
 	if err := validateOperations(c.operations); err != nil {
 		return nil, err
 	}
+	if len(prepared.pluginNames) > 0 && c.operations.ScanZoneMapping == nil {
+		return nil, fmt.Errorf("zone mapping operation is not configured")
+	}
 	if c.runner == nil {
 		c.runner = stages.NewRunner()
 	}
@@ -88,6 +96,9 @@ func (c *Coordinator) Run(ctx context.Context, request Request) (*result.Assessm
 	}
 
 	state := &scanState{scope: newScopeResolution(prepared)}
+	if len(prepared.pluginNames) > 0 {
+		state.pluginTables = []assessment.PluginTable{plugins.PendingZoneTable()}
+	}
 	tasks := c.tasks(prepared, state)
 	run := c.runner.Execute(ctx, tasks)
 
@@ -95,7 +106,7 @@ func (c *Coordinator) Run(ctx context.Context, request Request) (*result.Assessm
 	if inventory == nil {
 		inventory = &discovery.ResourceInventory{}
 	}
-	assessmentResult := result.Build(result.Input{
+	assessmentResult, buildErr := result.BuildWithPluginTables(result.Input{
 		GeneratedAt:             c.now().UTC(),
 		ScopeID:                 state.scopeID,
 		Scope:                   state.scope,
@@ -112,7 +123,10 @@ func (c *Coordinator) Run(ctx context.Context, request Request) (*result.Assessm
 		AzurePolicy:             state.policy,
 		ArcSQL:                  state.arcSQL,
 		Costs:                   state.costs,
-	})
+	}, state.pluginTables)
+	if buildErr != nil {
+		return nil, buildErr
+	}
 
 	if run.Completeness == assessment.CompletenessFailed {
 		if ctxErr := ctx.Err(); ctxErr != nil {
@@ -129,6 +143,8 @@ func (c *Coordinator) Run(ctx context.Context, request Request) (*result.Assessm
 }
 
 type preparedRequest struct {
+	pluginNames         []string
+	pluginOnly          bool
 	managementGroups    []string
 	subscriptions       []string
 	selectedKeys        []string
@@ -175,15 +191,38 @@ func prepareRequest(request Request) (preparedRequest, error) {
 	selectedKeys := scanners.SelectedKeys(scannerKeys, filters.Assessment.Include.ResourceTypes)
 	filters.Assessment.SetAllowedResourceTypes(scanners.ResourceTypes(selectedKeys))
 
-	stageConfig := request.Stages
+	stageConfig := request.Stages.Clone()
 	if stageConfig == nil {
-		stageConfig = stages.NewDefault()
+		if request.PluginOnly {
+			stageConfig = stages.NewPluginOnly()
+		} else {
+			stageConfig = stages.NewDefault()
+		}
 	}
-	if err := stageConfig.Validate(); err != nil {
+	pluginNames, err := plugins.ValidateNames(append([]string(nil), request.InternalPlugins...))
+	if err != nil {
+		return preparedRequest{}, err
+	}
+	if len(pluginNames) > 0 {
+		_ = stageConfig.Set(stages.Plugin, true)
+	}
+	if (stageConfig.IsEnabled(stages.Plugin) || request.PluginOnly) && len(pluginNames) == 0 {
+		return preparedRequest{}, fmt.Errorf("plugin stage requires at least one named selection")
+	}
+	if len(pluginNames) > 0 && stageConfig.Options(stages.Plugin)["target-regions"] != nil && stageConfig.Options(stages.Plugin)["target-regions"] != "" {
+		return preparedRequest{}, fmt.Errorf("zone mapping does not use plugin.target-regions")
+	}
+	if request.PluginOnly {
+		err = stageConfig.ValidatePluginOnly()
+	} else {
+		err = stageConfig.Validate()
+	}
+	if err != nil {
 		return preparedRequest{}, err
 	}
 
 	return preparedRequest{
+		pluginNames: pluginNames, pluginOnly: request.PluginOnly,
 		managementGroups:    append([]string(nil), request.ManagementGroups...),
 		subscriptions:       append([]string(nil), request.Subscriptions...),
 		selectedKeys:        selectedKeys,
@@ -218,7 +257,7 @@ func (c *Coordinator) tasks(request preparedRequest, state *scanState) []stages.
 			},
 		},
 		{
-			Name: StageResourceInventory, Enabled: true, Critical: true,
+			Name: StageResourceInventory, Enabled: !request.pluginOnly, Critical: true,
 			Run: func(ctx context.Context) (stages.Outcome, error) {
 				inventory, err := c.operations.DiscoverResources(ctx, state.subscriptions, request.filters)
 				if err != nil {
@@ -317,7 +356,30 @@ func (c *Coordinator) tasks(request preparedRequest, state *scanState) []stages.
 		},
 		{
 			Name: stages.Plugin, Enabled: request.stages.IsEnabled(stages.Plugin), Critical: false,
-			Run: nil,
+			Run: func(ctx context.Context) (stages.Outcome, error) {
+				subscriptions := make(map[string]string, len(state.subscriptions))
+				for id, name := range state.subscriptions {
+					subscriptions[id] = name
+				}
+				started := c.now()
+				value, scanErr := c.operations.ScanZoneMapping(ctx, subscriptions)
+				table := plugins.ZoneTable(value, scanErr, started, c.now())
+				state.pluginTables = []assessment.PluginTable{table}
+				outcome := stages.Outcome{Records: table.Health.Records, Warnings: table.Health.Warnings}
+				if ctx.Err() != nil {
+					return outcome, ctx.Err()
+				}
+				if errors.Is(scanErr, context.Canceled) {
+					return outcome, context.Canceled
+				}
+				if errors.Is(scanErr, context.DeadlineExceeded) {
+					return outcome, context.DeadlineExceeded
+				}
+				if table.Health.Status == assessment.StageFailed {
+					return outcome, fmt.Errorf("zone mapping returned incomplete data")
+				}
+				return outcome, nil
+			},
 		},
 	}
 }

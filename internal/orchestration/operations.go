@@ -2,6 +2,7 @@ package orchestration
 
 import (
 	"context"
+	"time"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	"github.com/DeBoX85/Cloud-Assess/internal/advisor"
@@ -14,6 +15,7 @@ import (
 	"github.com/DeBoX85/Cloud-Assess/internal/defender"
 	"github.com/DeBoX85/Cloud-Assess/internal/diagnostics"
 	"github.com/DeBoX85/Cloud-Assess/internal/discovery"
+	"github.com/DeBoX85/Cloud-Assess/internal/plugins/zone"
 	"github.com/DeBoX85/Cloud-Assess/internal/policy"
 	"github.com/DeBoX85/Cloud-Assess/internal/rules"
 )
@@ -21,6 +23,7 @@ import (
 // Operations is the Azure-facing dependency set used by the coordinator. Keeping these
 // functions explicit lets orchestration tests exercise the real control flow without Azure.
 type Operations struct {
+	ScanZoneMapping             func(context.Context, map[string]string) (zone.Result, error)
 	DiscoverSubscriptions       func(context.Context, []string, *config.Filters) (map[string]string, error)
 	DiscoverManagementGroups    func(context.Context, []string, *config.Filters) (map[string]string, error)
 	DiscoverResources           func(context.Context, map[string]string, *config.Filters) (*discovery.ResourceInventory, error)
@@ -49,7 +52,16 @@ func NewAzureOperations(credential azcore.TokenCredential) (Operations, error) {
 	arcSQLScanner := arcsql.New(credential)
 	costScanner := cost.New(credential)
 
+	zoneEndpoint := azure.ResourceManagerEndpoint()
+	zoneOptions := azure.DefaultHTTPClientOptions(30 * time.Second)
 	return Operations{
+		ScanZoneMapping: func(ctx context.Context, subscriptions map[string]string) (zone.Result, error) {
+			scanner, err := zone.NewScanner(zoneEndpoint, azure.NewHTTPClient(credential, zoneOptions))
+			if err != nil {
+				return zone.Result{}, err
+			}
+			return scanner.Scan(ctx, subscriptions)
+		},
 		DiscoverSubscriptions: func(ctx context.Context, requested []string, filters *config.Filters) (map[string]string, error) {
 			return discovery.DiscoverSubscriptions(ctx, scopeClient, requested, filters)
 		},
