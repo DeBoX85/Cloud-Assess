@@ -2,6 +2,8 @@
 
 Applies to material changes on `bootstrap/core-v1`. These controls support Gate 004 and the later release decision; they do not create a new PASS or replace missing live evidence.
 
+See [DEVELOPMENT_EXECUTION_PLAN.md](DEVELOPMENT_EXECUTION_PLAN.md) for ordered batches, scope boundaries, durable checkpoints, GitHub interruption recovery and reviewed rollback.
+
 ## Before changing behavior
 
 Identify the affected specification contract, concrete failure, expected behavior and evidence needed. Search existing tests, the development ledger and FAILURE_NOTES before adding overlapping checks. Independently specify expected records/counts instead of deriving the oracle from the implementation under test or assuming AZQR is always correct. Document any pinned-source correction separately from successful-response equivalence.

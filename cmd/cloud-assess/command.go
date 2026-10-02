@@ -11,6 +11,7 @@ import (
 	"github.com/DeBoX85/Cloud-Assess/internal/config"
 	"github.com/DeBoX85/Cloud-Assess/internal/gate"
 	"github.com/DeBoX85/Cloud-Assess/internal/orchestration"
+	"github.com/DeBoX85/Cloud-Assess/internal/scanners"
 	"github.com/DeBoX85/Cloud-Assess/internal/stages"
 	"github.com/spf13/cobra"
 )
@@ -18,6 +19,7 @@ import (
 type exitCodeContextKey struct{}
 
 type scanFlags struct {
+	scannerKeys           []string
 	assessmentTimeout     time.Duration
 	managementGroups      []string
 	subscriptions         []string
@@ -79,27 +81,56 @@ func newScanCommand(executor scanExecutor, exitCode *int) *cobra.Command {
 		},
 	}
 
-	command.Flags().StringSliceVar(&flags.managementGroups, "management-group-id", nil, "Azure Management Group ID")
-	command.Flags().StringSliceVarP(&flags.subscriptions, "subscription-id", "s", nil, "Azure Subscription ID")
-	command.Flags().StringSliceVarP(&flags.resourceGroups, "resource-group", "g", nil, "Azure Resource Group (use with one --subscription-id)")
-	command.Flags().StringSliceVar(&flags.stageNames, "stages", nil, "Control assessment stages (advisor, defender, defender-recommendations, arc, policy, cost, diagnostics)")
-	command.Flags().StringArrayVar(&flags.stageParams, "stage-param", nil, "Stage option in the form stage.key=value (repeatable)")
-	command.Flags().BoolVar(&flags.xlsx, "xlsx", true, "Create Excel report")
-	command.Flags().BoolVar(&flags.json, "json", false, "Create canonical JSON report")
-	command.Flags().BoolVar(&flags.csv, "csv", false, "Create CSV report files")
-	command.Flags().BoolVar(&flags.stdout, "stdout", false, "Write canonical JSON to stdout")
-	command.Flags().BoolVar(&flags.sarif, "sarif", false, "Create SARIF 2.1.0 report")
-	command.Flags().StringVarP(&flags.outputName, "output-name", "o", "", "Output base filename without extension")
-	command.Flags().BoolVar(
+	command.PersistentFlags().StringSliceVar(&flags.managementGroups, "management-group-id", nil, "Azure Management Group ID")
+	command.PersistentFlags().StringSliceVarP(&flags.subscriptions, "subscription-id", "s", nil, "Azure Subscription ID")
+	command.PersistentFlags().StringSliceVarP(&flags.resourceGroups, "resource-group", "g", nil, "Azure Resource Group (use with one --subscription-id)")
+	command.PersistentFlags().StringSliceVar(&flags.stageNames, "stages", nil, "Control assessment stages (advisor, defender, defender-recommendations, arc, policy, cost, diagnostics)")
+	command.PersistentFlags().StringArrayVar(&flags.stageParams, "stage-param", nil, "Stage option in the form stage.key=value (repeatable)")
+	command.PersistentFlags().BoolVar(&flags.xlsx, "xlsx", true, "Create Excel report")
+	command.PersistentFlags().BoolVar(&flags.json, "json", false, "Create canonical JSON report")
+	command.PersistentFlags().BoolVar(&flags.csv, "csv", false, "Create CSV report files")
+	command.PersistentFlags().BoolVar(&flags.stdout, "stdout", false, "Write canonical JSON to stdout")
+	command.PersistentFlags().BoolVar(&flags.sarif, "sarif", false, "Create SARIF 2.1.0 report")
+	command.PersistentFlags().StringVarP(&flags.outputName, "output-name", "o", "", "Output base filename without extension")
+	command.PersistentFlags().BoolVar(
 		&flags.redactSubscriptionIDs,
 		"redact-subscription-ids",
 		true,
 		"Redact subscription IDs in XLSX, CSV, JSON and stdout output; SARIF retains stable resource identities",
 	)
-	command.Flags().StringVarP(&flags.filtersFile, "filters", "e", "", "Assessment filters file (YAML)")
-	command.Flags().DurationVar(&flags.assessmentTimeout, "assessment-timeout", 0, "Total assessment deadline (e.g. 30m); 0 adds no deadline; report rendering is excluded")
-	command.Flags().StringVar(&flags.failOn, "fail-on", "", "Return exit code 2 when findings meet or exceed this impact (High, Medium, Low)")
+	command.PersistentFlags().StringVarP(&flags.filtersFile, "filters", "e", "", "Assessment filters file (YAML)")
+	command.PersistentFlags().DurationVar(&flags.assessmentTimeout, "assessment-timeout", 0, "Total assessment deadline (e.g. 30m); 0 adds no deadline; report rendering is excluded")
+	command.PersistentFlags().StringVar(&flags.failOn, "fail-on", "", "Return exit code 2 when findings meet or exceed this impact (High, Medium, Low)")
+	for _, key := range scanners.Keys() {
+		services := scanners.ByKey(key)
+		if len(services) == 0 {
+			continue
+		}
+		command.AddCommand(&cobra.Command{
+			Use:   key,
+			Short: fmt.Sprintf("Scan %s", services[0].Name),
+			Args:  cobra.NoArgs,
+			RunE: func(command *cobra.Command, _ []string) error {
+				selected := flags
+				selected.scannerKeys = []string{key}
+				code, err := executor(command.Context(), selected)
+				*exitCode = code
+				return err
+			},
+		})
+	}
 	return command
+}
+
+func assessmentRequest(flags scanFlags, filters *config.Filters, stageConfig *stages.Config) orchestration.Request {
+	return orchestration.Request{
+		ManagementGroups: flags.managementGroups,
+		Subscriptions:    flags.subscriptions,
+		ResourceGroups:   flags.resourceGroups,
+		ScannerKeys:      append([]string(nil), flags.scannerKeys...),
+		Filters:          filters,
+		Stages:           stageConfig,
+	}
 }
 
 func executeScan(ctx context.Context, flags scanFlags) (int, error) {
@@ -141,13 +172,7 @@ func executeScan(ctx context.Context, flags scanFlags) (int, error) {
 	runner := app.NewRunner(coordinator)
 	outcome, runErr := runner.Run(ctx, app.ScanOptions{
 		AssessmentTimeout: flags.assessmentTimeout,
-		Assessment: orchestration.Request{
-			ManagementGroups: flags.managementGroups,
-			Subscriptions:    flags.subscriptions,
-			ResourceGroups:   flags.resourceGroups,
-			Filters:          filters,
-			Stages:           stageConfig,
-		},
+		Assessment:        assessmentRequest(flags, filters, stageConfig),
 		Outputs: app.OutputOptions{
 			BaseName:              flags.outputName,
 			XLSX:                  flags.xlsx,
