@@ -13,6 +13,7 @@ import (
 	"github.com/DeBoX85/Cloud-Assess/internal/config"
 	"github.com/DeBoX85/Cloud-Assess/internal/discovery"
 	"github.com/DeBoX85/Cloud-Assess/internal/plugins"
+	"github.com/DeBoX85/Cloud-Assess/internal/plugins/servicehealth"
 	"github.com/DeBoX85/Cloud-Assess/internal/result"
 	"github.com/DeBoX85/Cloud-Assess/internal/rules"
 	"github.com/DeBoX85/Cloud-Assess/internal/scanners"
@@ -85,8 +86,13 @@ func (c *Coordinator) Run(ctx context.Context, request Request) (*result.Assessm
 	if err := validateOperations(c.operations); err != nil {
 		return nil, err
 	}
-	if len(prepared.pluginNames) > 0 && c.operations.ScanZoneMapping == nil {
-		return nil, fmt.Errorf("zone mapping operation is not configured")
+	for _, name := range prepared.pluginNames {
+		if name == plugins.ZoneMapping && c.operations.ScanZoneMapping == nil {
+			return nil, fmt.Errorf("zone mapping operation is not configured")
+		}
+		if name == servicehealth.Name && c.operations.ScanServiceHealth == nil {
+			return nil, fmt.Errorf("service-health operation is not configured")
+		}
 	}
 	if c.runner == nil {
 		c.runner = stages.NewRunner()
@@ -96,8 +102,8 @@ func (c *Coordinator) Run(ctx context.Context, request Request) (*result.Assessm
 	}
 
 	state := &scanState{scope: newScopeResolution(prepared)}
-	if len(prepared.pluginNames) > 0 {
-		state.pluginTables = []assessment.PluginTable{plugins.PendingZoneTable()}
+	for _, name := range prepared.pluginNames {
+		state.pluginTables = append(state.pluginTables, plugins.PendingTable(name))
 	}
 	tasks := c.tasks(prepared, state)
 	run := c.runner.Execute(ctx, tasks)
@@ -210,7 +216,7 @@ func prepareRequest(request Request) (preparedRequest, error) {
 		return preparedRequest{}, fmt.Errorf("plugin stage requires at least one named selection")
 	}
 	if len(pluginNames) > 0 && stageConfig.Options(stages.Plugin)["target-regions"] != nil && stageConfig.Options(stages.Plugin)["target-regions"] != "" {
-		return preparedRequest{}, fmt.Errorf("zone mapping does not use plugin.target-regions")
+		return preparedRequest{}, fmt.Errorf("selected internal plugins do not use plugin.target-regions")
 	}
 	if request.PluginOnly {
 		err = stageConfig.ValidatePluginOnly()
@@ -357,26 +363,46 @@ func (c *Coordinator) tasks(request preparedRequest, state *scanState) []stages.
 		{
 			Name: stages.Plugin, Enabled: request.stages.IsEnabled(stages.Plugin), Critical: false,
 			Run: func(ctx context.Context) (stages.Outcome, error) {
-				subscriptions := make(map[string]string, len(state.subscriptions))
-				for id, name := range state.subscriptions {
-					subscriptions[id] = name
+				outcome := stages.Outcome{}
+				failed := false
+				for i, name := range request.pluginNames {
+					subscriptions := make(map[string]string, len(state.subscriptions))
+					for id, n := range state.subscriptions {
+						subscriptions[id] = n
+					}
+					started := c.now()
+					var table assessment.PluginTable
+					var scanErr error
+					switch name {
+					case plugins.ZoneMapping:
+						value, err := c.operations.ScanZoneMapping(ctx, subscriptions)
+						scanErr = err
+						table = plugins.ZoneTable(value, scanErr, started, c.now())
+					case servicehealth.Name:
+						filter := cloneFilters(request.filters)
+						filter.Assessment.SetAllowedResourceTypes(scanners.ResourceTypes(request.selectedKeys))
+						value, err := c.operations.ScanServiceHealth(ctx, subscriptions, filter.Assessment)
+						scanErr = err
+						table = plugins.ServiceHealthTable(value, scanErr, state.subscriptions, started, c.now())
+					}
+					state.pluginTables[i] = table
+					outcome.Records += table.Health.Records
+					outcome.Warnings = append(outcome.Warnings, table.Health.Warnings...)
+					if ctx.Err() != nil {
+						return outcome, ctx.Err()
+					}
+					if errors.Is(scanErr, context.Canceled) {
+						return outcome, context.Canceled
+					}
+					if errors.Is(scanErr, context.DeadlineExceeded) {
+						return outcome, context.DeadlineExceeded
+					}
+					if table.Health.Status == assessment.StageFailed {
+						failed = true
+					}
 				}
-				started := c.now()
-				value, scanErr := c.operations.ScanZoneMapping(ctx, subscriptions)
-				table := plugins.ZoneTable(value, scanErr, started, c.now())
-				state.pluginTables = []assessment.PluginTable{table}
-				outcome := stages.Outcome{Records: table.Health.Records, Warnings: table.Health.Warnings}
-				if ctx.Err() != nil {
-					return outcome, ctx.Err()
-				}
-				if errors.Is(scanErr, context.Canceled) {
-					return outcome, context.Canceled
-				}
-				if errors.Is(scanErr, context.DeadlineExceeded) {
-					return outcome, context.DeadlineExceeded
-				}
-				if table.Health.Status == assessment.StageFailed {
-					return outcome, fmt.Errorf("zone mapping returned incomplete data")
+				if failed {
+					return outcome, fmt.Errorf("selected internal plugins returned incomplete data")
 				}
 				return outcome, nil
 			},

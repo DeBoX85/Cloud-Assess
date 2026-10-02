@@ -241,3 +241,7 @@ PR84 accepted on head `88d7452df8942341513cc62a49d9df24a32e167e`, run `370619859
 ## Current checkpoint: PR85 accepted, second adapter active (2026-10-02)
 
 Zone execution/CLI/list-info VERIFIED OFFLINE through PR85, merge `2f88e9d5b8dca309c0f27ccb6ec4ed54787bcebb`; exact head/run/jobs and postmerge state are indexed in SESSION_HANDOVER and the ledger. Next is [SERVICE_HEALTH.md](SERVICE_HEALTH.md), a source-grounded library adapter followed by separate coordinator/CLI/report integration; synthetic second-shaped fixtures do not count as it. No Azure/laptop dependency for this work. Gate004/release/full parity and recorded live gaps remain open.
+
+Current advance: service-health library VERIFIED OFFLINE through PR86, merge `a6b790ce143bc70fac8f4aa3199225ee92b0660d`. Execution integration is active under SERVICE_HEALTH on that baseline. Public service-health selection remains unaccepted until its separate exact native request/report/CLI gates. SQL EOL follows; live tasks remain deferred.
+
+Current interruption checkpoint: execution candidate is implemented, with eighteen authenticated synthetic raw/masked report cases and focused QA. Projection review, restored full race/vet and compiling metadata negative control passed; clean real CLI/docs, remote code checkpoint and exact native acceptance precede SQL EOL. Accepted core remains PR86; user laptop/Azure input is not needed for these steps.

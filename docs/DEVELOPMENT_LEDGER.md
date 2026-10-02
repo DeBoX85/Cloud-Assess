@@ -1832,6 +1832,18 @@ PR85 accepted zone command, named mixed selection, bounded plugin list/info and 
 
 Next: [service-health](SERVICE_HEALTH.md), separate library adapter before public integration. The real library scanner/shared bounded POST are now locally implemented; source capture/hash, full restored race/vet and compiled page-limit control passed. Native proposal acceptance is pending, not advertised as an executable adapter. Source inspection confirmed no date cutoff despite 90-day description/2,160-hour denominator; preserve and document, do not silently invent a temporal correction. Current specification unavailability prose is being reconciled with accepted zone behavior; full internal-plugin parity remains open.
 
+### Service-health library acceptance and integration start (2026-10-02)
+
+PR86 tested head `e38db1400a6f06ac4fd837f24f0e4fc9074f7a28`, tree `b818c79829c50609ff55e7e698bcf462b2fb0b36`, run `37066186931`, Linux/Windows jobs `111034429914` / `111034430064` passed; actual logs inspected. Merge `a6b790ce143bc70fac8f4aa3199225ee92b0660d`, exact tree/ordered parents/current ref and clean fetched state verified. Eight built CLI and nineteen default plus nineteen custom package cases per host without acceptance skips; 264 documentation destinations/nine flags/one PowerShell snippet, 78.9% coverage, required safety/provenance/race/vet/fuzz/mutation/maintenance scans passed; existing module-only advisory remains open. Final [PR86](https://github.com/DeBoX85/Cloud-Assess/pull/86) retains evidence and rollback. Library-only acceptance does not expose the adapter or establish live parity.
+
+Next: SERVICE_HEALTH integration contract on that accepted merge, real command/coordinator/request/report tests before public availability. FN041 records command-name prose error and path-inventory recurrence; actual command remains `zone-mapping`.
+
+### Service-health execution candidate and accidental-stop reconciliation (2026-10-02)
+
+Reverified core-v1 at PR86 merge `a6b790ce143bc70fac8f4aa3199225ee92b0660d`, PR85/86 exact successful native runs and both job results, preserved uncommitted integration diff and unchanged pinned AZQR checkout. No uncertain remote mutation was retried. [SERVICE_HEALTH.md](SERVICE_HEALTH.md) records the implementation/request/filter/report contract and evidence limits; SESSION_HANDOVER records the resume point.
+
+Implemented source-ordered service-health/zone dispatch, optional captured-cloud operation, owned scope/type filters, strict/sanitized table projection, standalone and mixed/scanner commands and honest registry. Eighteen synthetic authenticated command-to-application report cases passed; review adds repeated/concurrent differing scope/type isolation and stricter operation-boundary label checks matching the scanner. Restored full race/vet and compiling metadata-boundary control passed: removing exact metadata equality compiled and failed the named source_metadata projection assertion. Clean actual executable/documentation and exact native jobs remain required before acceptance. The candidate is not accepted live evidence. Existing gate/release/temporal-query and laptop deferrals remain open. FN041 records fixture/prose corrections; no source pin/dependency/normalization changes.
+
 ## Current boundary
 
 The generic core scan, deterministic equivalence tooling, reproducible live runner, default/optional/resource-group/two-subscription/leaf-management-group and separate Storage/VM, RG include/exclude, tag include/exclude, recommendation-exclude and individual-resource-exclude live passes, plus enforced development CI, are complete for the behavior exercised so far. The unfiltered two-subscription, leaf-management-group, tag-exclude, RG-exclude and individual-resource-exclude passes have explicit Diagnostics warning boundaries; the recommendation-exclude pass is also `complete_with_warnings`, without supplied warning details. Network Watcher individual-GET probes and the Phase W one-request batch probe support an explanation for earlier warnings but have not mapped the original multi-request batch responses. The missing cross-run Advisor row has unknown recorded tag scope in the tag-only target inventory; historical Azure timing remains unresolved.
@@ -1864,7 +1876,7 @@ The following are not forgotten; they remain intentionally open:
 - Arc SQL numeric `vcores` response-shape resolution
 - live YAML/KQL extension validation on a suitable environment
 - internal plugin migration/parity
-- `plugins list/info` CLI
+- remaining internal adapters and live plugin execution (bounded list/info implemented through PR85)
 - packaging/distribution
 - release-specific dependency/license inventory review and distribution notices
 - final release-level security and operational review

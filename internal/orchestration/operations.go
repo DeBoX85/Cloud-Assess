@@ -15,6 +15,7 @@ import (
 	"github.com/DeBoX85/Cloud-Assess/internal/defender"
 	"github.com/DeBoX85/Cloud-Assess/internal/diagnostics"
 	"github.com/DeBoX85/Cloud-Assess/internal/discovery"
+	"github.com/DeBoX85/Cloud-Assess/internal/plugins/servicehealth"
 	"github.com/DeBoX85/Cloud-Assess/internal/plugins/zone"
 	"github.com/DeBoX85/Cloud-Assess/internal/policy"
 	"github.com/DeBoX85/Cloud-Assess/internal/rules"
@@ -23,6 +24,7 @@ import (
 // Operations is the Azure-facing dependency set used by the coordinator. Keeping these
 // functions explicit lets orchestration tests exercise the real control flow without Azure.
 type Operations struct {
+	ScanServiceHealth           func(context.Context, map[string]string, *config.AssessmentFilter) (assessment.PluginTable, error)
 	ScanZoneMapping             func(context.Context, map[string]string) (zone.Result, error)
 	DiscoverSubscriptions       func(context.Context, []string, *config.Filters) (map[string]string, error)
 	DiscoverManagementGroups    func(context.Context, []string, *config.Filters) (map[string]string, error)
@@ -52,11 +54,18 @@ func NewAzureOperations(credential azcore.TokenCredential) (Operations, error) {
 	arcSQLScanner := arcsql.New(credential)
 	costScanner := cost.New(credential)
 
-	zoneEndpoint := azure.ResourceManagerEndpoint()
-	zoneOptions := azure.DefaultHTTPClientOptions(30 * time.Second)
+	pluginEndpoint := azure.ResourceManagerEndpoint()
+	pluginOptions := azure.DefaultHTTPClientOptions(30 * time.Second)
 	return Operations{
+		ScanServiceHealth: func(ctx context.Context, subscriptions map[string]string, filter *config.AssessmentFilter) (assessment.PluginTable, error) {
+			scanner, err := servicehealth.NewWithHTTPClient(pluginEndpoint, azure.NewHTTPClient(credential, pluginOptions))
+			if err != nil {
+				return servicehealth.PendingTable(), err
+			}
+			return scanner.Scan(ctx, subscriptions, filter)
+		},
 		ScanZoneMapping: func(ctx context.Context, subscriptions map[string]string) (zone.Result, error) {
-			scanner, err := zone.NewScanner(zoneEndpoint, azure.NewHTTPClient(credential, zoneOptions))
+			scanner, err := zone.NewScanner(pluginEndpoint, azure.NewHTTPClient(credential, pluginOptions))
 			if err != nil {
 				return zone.Result{}, err
 			}
