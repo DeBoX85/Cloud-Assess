@@ -73,6 +73,8 @@ The generic scan path is suitable for controlled test-environment validation. It
 - [Development ledger](docs/DEVELOPMENT_LEDGER.md)
 - [Development failure notes](docs/FAILURE_NOTES.md)
 - [Execution roadmap](docs/ROADMAP.md)
+- [Development, QA and recovery plan](docs/DEVELOPMENT_EXECUTION_PLAN.md)
+- [Scanner commands](docs/SCANNER_COMMANDS.md)
 - [Azure access model](docs/ACCESS_MODEL.md)
 - [Operator runbook](docs/OPERATIONS.md)
 - [Requested/resolved scope reporting](docs/SCOPE_REPORTING.md)

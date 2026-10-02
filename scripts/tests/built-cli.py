@@ -72,6 +72,26 @@ class BuiltCLITests(unittest.TestCase):
         return {str(p.relative_to(self.directory)): 'directory' if p.is_dir() else hashlib.sha256(p.read_bytes()).hexdigest()
                 for p in self.directory.rglob('*')}
 
+    def test_scanner_commands_and_preflight(self):
+        expected = json.loads((ROOT / 'cmd/cloud-assess/testdata/scanner-keys-reference.json').read_text(encoding='utf-8'))
+        help_result = self.execute(['scan', '--help'])
+        self.assertEqual(help_result.returncode, 0, help_result.stderr)
+        import re
+        keys = re.findall(r'^  ([a-z0-9]+) +Scan ', help_result.stdout, re.MULTILINE)
+        self.assertEqual(keys, expected)
+        before = self.snapshot()
+        for key in ('st', 'vm', 'redis', 'resource', 'arc'):
+            with self.subTest(key=key):
+                result = self.execute(['scan', key, '--help'])
+                self.assertEqual(result.returncode, 0, result.stderr)
+                for flag in ('--subscription-id', '--management-group-id', '--resource-group', '--filters', '--assessment-timeout', '--json', '--redact-subscription-ids'):
+                    self.assertIn(flag, result.stdout)
+                for args in ([key, 'extra'], [key, '--stages', 'plugin'], [key, '--assessment-timeout=-1s']):
+                    result = self.execute(['scan'] + args)
+                    self.assertNotEqual(result.returncode, 0)
+                    self.assertEqual(result.stdout, '')
+        self.assertEqual(self.snapshot(), before, 'scanner help/preflight changed filesystem')
+
     def test_help_version_and_documented_output_contract(self):
         cases = [([], EXPECTED_BRANDING['productName']), (['--help'], EXPECTED_BRANDING['cliName']),
                  (['scan', '--help'], '--redact-subscription-ids'), (['--version'], EXPECTED_BRANDING['cliName'] + ' version ' + EXPECTED_VERSION)]

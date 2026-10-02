@@ -1746,6 +1746,16 @@ Literal selection/precedence/empty-guidance fixtures, complete reference-byte co
 
 Local complete tests and exact-head required native QA precede merge; final head/tree/run/merge evidence remains in the PR for next checkpoint indexing. Existing required jobs now protect actual rules execution including default/custom package installs; another numbered gate is unnecessary. Resume at scanner-specific subcommands, then YAML Graph integration and internal plugin table/health infrastructure. No Azure/laptop input required; Gate 004/release, readiness estimates and live deferrals remain open.
 
+### Development execution plan and scanner-specific commands
+
+Date: 2026-10-02 (Europe/Oslo). PR #77 rules acceptance: head `d41f0d67a7c3c938ce6d5bf03e4e4c649be42651`, tree `f2c99952554e11042d90ff0dd0597bda07b70e4d`, run `36944379293`, quality `110642961367`, Windows `110642961131`; both passed with inspected logs. Merge `c79c2ffc9bfcec66da9f24dab631eb6bef6d1836` matches the reviewed tree and verified GitHub identity. Each host ran nineteen default and nineteen custom package cases without skips; four actual CLI checks; documentation 181 destinations/nine flags/one PowerShell snippet; Linux coverage 79.9%; race/vet/bounded fuzz/four comparator mutations passed. Zero reachable/imported vulnerabilities; unchanged one module-only advisory remains open.
+
+[DEVELOPMENT_EXECUTION_PLAN.md](DEVELOPMENT_EXECUTION_PLAN.md) records B1-B7 dependencies/acceptance/fallbacks, per-slice alignment records, security and honest evidence boundaries, mandatory exact-head native QA, durable proposal checkpoints, unknown-outcome GitHub reconciliation, interruption recovery and reviewed revert rollback. This reduces risk without guaranteeing zero defects, durable scratch or unavailable live validation. Scope/pins/dependencies/gates are not silently relaxed; Azure/laptop tasks stay explicitly deferred. Independent-person review is only claimed when actually performed, never substituted by self-review wording.
+
+[SCANNER_COMMANDS.md](SCANNER_COMMANDS.md) implements B1: independently captured 87 pinned AZQR command keys, inherited scan flags, copied single-key selection and production request mapping. Existing generic orchestration handles filtering/stages/output. Literal CLI-to-coordinator storage-specific versus generic VM-filter fixtures verify executed definitions and included/excluded inventory; disabled operations are guarded. All keys, extra arguments, exit errors, repeated-root selection isolation and installed help/preflight tripwires are checked. Removing request key mapping compiled but failed the expected definition assertion; restored focused race checks passed. FN-033 records preparation errors and recurrence prevention.
+
+No dependencies, pins, assessment schemas, normalization, generic defaults or Azure requests changed. Exact final-head native run/merge evidence is retained in the PR and indexed at the next material checkpoint. After B1 acceptance, resume B2 bounded source-schema YAML Graph integration, then canonical plugin table/health and individual migrations. Gate 004/release, progress estimates and deferred live evidence remain open. No laptop or Azure input is currently needed.
+
 ## Current boundary
 
 The generic core scan, deterministic equivalence tooling, reproducible live runner, default/optional/resource-group/two-subscription/leaf-management-group and separate Storage/VM, RG include/exclude, tag include/exclude, recommendation-exclude and individual-resource-exclude live passes, plus enforced development CI, are complete for the behavior exercised so far. The unfiltered two-subscription, leaf-management-group, tag-exclude, RG-exclude and individual-resource-exclude passes have explicit Diagnostics warning boundaries; the recommendation-exclude pass is also `complete_with_warnings`, without supplied warning details. Network Watcher individual-GET probes and the Phase W one-request batch probe support an explanation for earlier warnings but have not mapped the original multi-request batch responses. The missing cross-run Advisor row has unknown recorded tag scope in the tag-only target inventory; historical Azure timing remains unresolved.
@@ -1778,7 +1788,6 @@ The following are not forgotten; they remain intentionally open:
 - Arc SQL numeric `vcores` response-shape resolution
 - production external/YAML plugin execution
 - internal plugin migration/parity
-- scanner-specific CLI commands
 - `plugins list/info` CLI
 - packaging/distribution
 - release-specific dependency/license inventory review and distribution notices

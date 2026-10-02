@@ -108,7 +108,6 @@ Outstanding work includes:
 - resolution of the live Arc SQL `vcores` response shape
 - external/YAML plugin execution in production orchestration
 - internal plugin migration/parity
-- scanner-specific CLI commands
 - `plugins list/info` CLI surface
 - final release-specific dependency/license review and packaged notices
 - packaging/release artifacts
@@ -325,3 +324,5 @@ The [branding design review](BRANDING_REVIEW.md) supplies the implementation bat
 The [source-feature characterization](FEATURE_PARITY_CHARACTERIZATION.md) now maps separate YAML Graph versus internal table execution, missing commands and six plugin dependencies. Next implement offline rules inspection. Production plugin/command parity and live validation remain open; source failure swallowing and unforwarded region history flags require explicit target decisions and regressions, not silent copying.
 
 [Offline rules inspection](RULES_INSPECTION.md) now implements the source-selected catalog/Diagnostics command with an independent 380-row reference executable capture, Markdown safety, invalid-argument/writer-error tests and actual installed CLI tripwires. Next implement scanner-specific subcommands; external/internal plugin execution and release/live evidence remain open. Exact-head native acceptance remains mandatory before merge.
+
+The [development execution plan](DEVELOPMENT_EXECUTION_PLAN.md) now defines bounded batches, scope controls, exact-head QA, failure feedback, durable proposal checkpoints and reviewed rollback. [Scanner commands](SCANNER_COMMANDS.md) implement B1 through existing orchestration with independent 87-key source capture and offline selection/preflight checks. After native acceptance, resume B2 bounded YAML Graph integration; no Azure/laptop tasks are required now. Earlier next-task statements are historical checkpoints.

@@ -314,7 +314,7 @@ Redaction is not full anonymization: resource names, resource groups, tags, subs
 Deferred until after core v1 equivalence:
 
 - production external/YAML plugin execution and full internal-plugin parity
-- scanner-specific CLI commands and the `plugins list/info` command surfaces
+- the `plugins list/info` command surface
 - MCP server
 - historical report compare
 - alternative VM SKU utility
@@ -329,3 +329,5 @@ Core v1 is complete when Cloud Assess can reproduce the pinned reference impleme
 ## Offline recommendation inspection
 
 The `rules` command now lists source-selected pinned embedded and Diagnostics recommendations without Azure access, with Markdown by default and local --json/-j output. It does not load external YAML plugins or accept scan scope/report flags. JSON matches the independently captured pinned source output; Markdown escaping and safe absent-guidance handling are documented target presentation corrections. See [RULES_INSPECTION.md](RULES_INSPECTION.md). Live execution, estate coverage and full feature/release acceptance remain separate.
+
+Scanner-specific commands now follow the pinned source command keys and reuse generic orchestration; see [SCANNER_COMMANDS.md](SCANNER_COMMANDS.md). This is offline command/selection evidence, not live validation of every service.

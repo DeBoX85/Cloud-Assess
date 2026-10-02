@@ -209,3 +209,7 @@ Current-branch QA and [profile-aware packages](BRANDED_PACKAGES.md) implement th
 ## Offline rules implementation checkpoint
 
 [Rules inspection](RULES_INSPECTION.md) now implements the first AR-04 command slice, with byte-identical JSON for all 380 independently captured pinned reference rows, safe Markdown and actual executable/installed offline checks. Final native acceptance remains required before merge; source build preparation and native build-profile mistakes are logged in FN-032. Next implement scanner-specific scan subcommands through existing orchestration, then bounded YAML Graph support and common plugin table/health execution. Readiness estimates, Gate 004/release and deferred live evidence remain unchanged. No Azure/laptop input needed for the scanner-command slice.
+
+## Development execution and scanner checkpoint
+
+Follow [DEVELOPMENT_EXECUTION_PLAN.md](DEVELOPMENT_EXECUTION_PLAN.md) for batches B1-B7, their acceptance/fallbacks, scope alignment, security, logging, interruption recovery and rollback. [Scanner commands](SCANNER_COMMANDS.md) implement B1 with 87 source-captured keys, shared orchestration and actual installed offline checks. Rules PR #77 final native run `36944379293` passed on `d41f0d67a7c3c938ce6d5bf03e4e4c649be42651`, merged `c79c2ffc9bfcec66da9f24dab631eb6bef6d1836`. B1 acceptance requires the new final-head native jobs; after acceptance resume B2 bounded source-schema YAML Graph execution. Gate 004/release, estimates and deferred live evidence remain unchanged. Current work does not need Azure or laptop access.
