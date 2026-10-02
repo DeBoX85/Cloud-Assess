@@ -73,7 +73,7 @@ Core v1 includes:
 - post-report severity gate
 - plugin architecture
 
-Exact behavioral parity for internal plugins is deferred until after the core engine is equivalent. The current core-v1 executable therefore rejects explicit plugin-stage execution before Azure authentication rather than advertising a stage that cannot yet run.
+Full internal-plugin parity remains open. Zone mapping execution, the standalone `zone` command, named mixed selection and honest `plugins list/info` are verified offline through PR84/85; see [ZONE_EXECUTION.md](ZONE_EXECUTION.md). Unnamed or unavailable plugin selections reject before Azure authentication. Other internal adapters and live extension equivalence remain separate acceptance boundaries.
 
 ## Output strategy
 
@@ -314,7 +314,7 @@ Redaction is not full anonymization: resource names, resource groups, tags, subs
 Deferred until after core v1 equivalence:
 
 - full internal-plugin parity and remaining live extension validation
-- the `plugins list/info` command surface
+- remaining internal adapters and live validation (bounded `plugins list/info` is accepted offline through PR85)
 - MCP server
 - historical report compare
 - alternative VM SKU utility
@@ -332,8 +332,8 @@ The `rules` command now lists source-selected pinned embedded and Diagnostics re
 
 Scanner-specific commands now follow the pinned source command keys and reuse generic orchestration; see [SCANNER_COMMANDS.md](SCANNER_COMMANDS.md). This is offline command/selection evidence, not live validation of every service.
 
-Bounded [YAML Graph plugin execution](YAML_GRAPH_PLUGINS.md) now joins ordinary scan orchestration after input validation before authentication. This preserves healthy source schema, precedence and external-rule filtering while applying explicit bounded/strict input protections. Internal table-plugin execution is still unavailable; external queries do not depend on that stage. Offline parser/transport/report checks do not establish live plugin equivalence.
+Bounded [YAML Graph plugin execution](YAML_GRAPH_PLUGINS.md) now joins ordinary scan orchestration after input validation before authentication. This preserves healthy source schema, precedence and external-rule filtering while applying explicit bounded/strict input protections. Explicit zone table-plugin execution is now available; external queries do not depend on that stage. Offline parser/transport/report checks do not establish live plugin equivalence.
 
-[Zone mapping](ZONE_MAPPING.md) begins internal-plugin migration with a bounded, unexposed adapter. It preserves source rows while following documented safe continuations and returning explicit partial-failure information. Canonical table/schema/health/privacy/report and actual plugin command integration remain required before availability is advertised. This does not change the existing explicit plugin-stage rejection or claim live/internal-plugin parity.
+[Zone mapping](ZONE_MAPPING.md) preserves source rows while following documented safe continuations and returning explicit partial-failure information. [Execution/CLI integration](ZONE_EXECUTION.md) is accepted offline with canonical table/schema/health/privacy/report checks. Live zone and full internal-plugin parity remain open.
 
-[Canonical plugin tables](PLUGIN_TABLES.md) provide library/report infrastructure with additive schema 1.1 for explicitly constructed plugin-bearing assessments; ordinary assessments retain schema 1.0. Source-visible metadata/columns/rows remain reconstructable, with explicit owned identities and honest health. Actual plugin-stage/CLI wiring remains unavailable until its separate acceptance; no full internal-plugin or live parity is claimed.
+[Canonical plugin tables](PLUGIN_TABLES.md) provide library/report infrastructure with additive schema 1.1 for explicitly constructed plugin-bearing assessments; ordinary assessments retain schema 1.0. Source-visible metadata/columns/rows remain reconstructable, with explicit owned identities and honest health. Zone plugin-stage/CLI wiring is accepted through PR84/85; no full internal-plugin or live parity is claimed. [Service-health](SERVICE_HEALTH.md) is the next source-grounded adapter, with its temporal-query limitation documented explicitly.
