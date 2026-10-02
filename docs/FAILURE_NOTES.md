@@ -376,3 +376,10 @@ Service integration publication attempted one large JSON output; the tool trunca
 ## FN-043: Empty fragment endpoint validation edge case
 
 Date: 2026-10-03 (Europe/Oslo). Verified current SQL draft and accepted service-health constructor accepted https://host# because url.Parse reports an empty Fragment. Appending the ARG path to the original string would place the intended path after the fragment delimiter. Independently added constructor regression cases failed before correction. Reject any literal # in these root origins before HTTP construction; focused restored tests pass, and native gates remain mandatory. No endpoint call to Azure occurred, no credential exfiltration/resource write is demonstrated. Parsed-URL zone construction is not affected by this raw concatenation mechanism. Review delimiter presence as well as parsed values before raw URL concatenation; prefer structured construction when a future shared helper is justified.
+
+
+## FN-044: SQL integration fixture validation and repeated read-path correction
+
+Date: 2026-10-03 (Europe/Oslo). The initial SQL coordinator filter fixture supplied the unqualified resource group name unrelated; existing preflight correctly rejected it. Corrected the test to a full subscription/resourceGroups ID, preserving the production validation and SQL subscription-only behavior. Restored focused/full race and vet passed. Inspect config validation before constructing orchestration fixtures; a setup failure is not a product semantic defect.
+
+A target read again guessed assessment/resource.go and result/assessment.go; inventories provided actual types.go and the needed existing files. These failed reads supplied no evidence. This repeats FN040-042: choosing one actual inventory path does not justify appending another guessed path. A larger combined documentation read was truncated; bounded reads established the relevant current contracts. Use inventory-selected bounded reads consistently. Intentional compiling metadata-boundary mutation was detected and restored; it is a negative control, not an accidental product change.
