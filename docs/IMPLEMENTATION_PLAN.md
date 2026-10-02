@@ -338,3 +338,6 @@ Current B4 advance (2026-10-03): service-health accepted through PR87, SQL EOL l
 
 
 B4 SQL execution accepted offline through PR89 after exact native/postmerge verification. B5 current carbon core includes actual source scanner/calculation captures and pure bounded aggregation; see CARBON_EMISSIONS and SESSION_HANDOVER. Finish its full/built/native gates, then separately implement bounded authenticated request/access/pagination and public execution/report integration. This is not live emissions/API permission validation.
+
+
+Carbon pure aggregation core accepted offline through PR90; exact next request-adapter contract/acceptance matrix in CARBON_EMISSIONS. Implement authenticated date/report library, then separate public command/registry/report integration. Verified pure calculations do not establish service authorization/completeness or a finished carbon plugin.
