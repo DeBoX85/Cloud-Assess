@@ -47,10 +47,11 @@ type rawLearnMore struct {
 // Catalog contains normalized recommendations grouped by lower-case resource type and recommendation ID.
 type Catalog struct {
 	byResourceType map[string]map[string]assessment.RecommendationDefinition
+	pluginOrigins  map[string]map[string]bool
 }
 
 func NewCatalog() *Catalog {
-	return &Catalog{byResourceType: map[string]map[string]assessment.RecommendationDefinition{}}
+	return &Catalog{byResourceType: map[string]map[string]assessment.RecommendationDefinition{}, pluginOrigins: map[string]map[string]bool{}}
 }
 
 // Add inserts or replaces a recommendation. Later providers therefore have higher precedence.
@@ -63,6 +64,7 @@ func (c *Catalog) Add(definition assessment.RecommendationDefinition) {
 		c.byResourceType[resourceType] = map[string]assessment.RecommendationDefinition{}
 	}
 	c.byResourceType[resourceType][definition.ID] = definition
+	delete(c.pluginOrigins[resourceType], definition.ID)
 }
 
 func (c *Catalog) AddAll(definitions []assessment.RecommendationDefinition) {
@@ -207,4 +209,39 @@ func scalarString(value any) string {
 
 func normalize(value string) string {
 	return strings.ToLower(strings.TrimSpace(value))
+}
+
+// WithPluginDefinitions overlays independently owned plugin definitions on a fresh
+// catalog. It never mutates the retained provider catalog or caller slices.
+func WithPluginDefinitions(base *Catalog, definitions []assessment.RecommendationDefinition) *Catalog {
+	catalog := NewCatalog()
+	if base != nil {
+		for _, definition := range base.All() {
+			catalog.Add(cloneDefinition(definition))
+			if base.IsPlugin(definition) {
+				catalog.markPlugin(definition)
+			}
+		}
+	}
+	for _, definition := range definitions {
+		catalog.Add(cloneDefinition(definition))
+		catalog.markPlugin(definition)
+	}
+	return catalog
+}
+
+func (c *Catalog) markPlugin(definition assessment.RecommendationDefinition) {
+	resourceType := normalize(definition.ResourceType)
+	if resourceType == "" || strings.TrimSpace(definition.ID) == "" {
+		return
+	}
+	if c.pluginOrigins[resourceType] == nil {
+		c.pluginOrigins[resourceType] = map[string]bool{}
+	}
+	c.pluginOrigins[resourceType][definition.ID] = true
+}
+
+// IsPlugin retains selection origin separately from public recommendation fields.
+func (c *Catalog) IsPlugin(definition assessment.RecommendationDefinition) bool {
+	return c.pluginOrigins[normalize(definition.ResourceType)][definition.ID]
 }

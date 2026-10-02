@@ -108,3 +108,9 @@ Every item stays separately tracked in [DEFERRED_VALIDATION.md](DEFERRED_VALIDAT
 - [SLSA requirements](https://slsa.dev/spec/v1.2/requirements): release provenance is a separate evidence boundary; no achieved SLSA level is claimed.
 
 These controls reduce risk and improve auditability/recovery. They cannot guarantee defect-free code, independent reviewer availability, continuous connectivity, durable unpublished scratch work or unavailable live evidence. Broader authorization should reduce handoffs, not remove acceptance boundaries.
+
+## Ongoing authorization and execution checkpoint
+
+The user confirmed continuation through this plan without routine “continue” handoffs. Proceed with independently reviewable steps under existing QA/protected-merge authority; stop for genuine missing specifications, input-dependent decisions, critical blockers or major flaws. Defer laptop/Azure-dependent acceptance and continue independent offline work. This does not authorize new live scopes, credentials, Azure mutations or weakening gates, and does not promise background operation after the active session ends.
+
+B1 is VERIFIED OFFLINE through PR #78, native run `36947056761`, merged `50fbaee905e7be7a7c99e174f35ea69247eb16bb`; B2 follows [YAML_GRAPH_PLUGINS.md](YAML_GRAPH_PLUGINS.md). A fresh source recovery from that remote merge replaced the lost scratch checkout. Source, pins, mandatory gates and live deferrals were rechecked before implementation.

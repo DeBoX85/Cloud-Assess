@@ -1,0 +1,37 @@
+{
+  "Metadata": {
+    "Name": "tenant-checks",
+    "Version": "1.0.0",
+    "Description": "Operator query library",
+    "Author": "Test Engineer",
+    "License": "MIT",
+    "Type": 0,
+    "CommandPath": "<fixture-path>",
+    "ColumnMetadata": null
+  },
+  "Recommendations": [
+    {
+      "RecommendationID": "sample-id",
+      "Recommendation": "Enable the control",
+      "Category": "Security",
+      "Impact": "High",
+      "ResourceType": "Microsoft.Storage/storageAccounts",
+      "MetadataState": "disabled",
+      "LongDescription": "Details",
+      "PotentialBenefits": "Protection",
+      "PgVerified": true,
+      "AutomationAvailable": "false",
+      "Tags": [
+        "test"
+      ],
+      "GraphQuery": "resources | where false // under-development\n",
+      "LearnMoreLink": [
+        {
+          "Name": "Guide",
+          "Url": "https://example.test/guide"
+        }
+      ],
+      "Source": "tenant-checks"
+    }
+  ]
+}

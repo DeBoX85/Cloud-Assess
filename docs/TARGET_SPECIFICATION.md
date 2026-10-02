@@ -313,7 +313,7 @@ Redaction is not full anonymization: resource names, resource groups, tags, subs
 
 Deferred until after core v1 equivalence:
 
-- production external/YAML plugin execution and full internal-plugin parity
+- full internal-plugin parity and remaining live extension validation
 - the `plugins list/info` command surface
 - MCP server
 - historical report compare
@@ -331,3 +331,5 @@ Core v1 is complete when Cloud Assess can reproduce the pinned reference impleme
 The `rules` command now lists source-selected pinned embedded and Diagnostics recommendations without Azure access, with Markdown by default and local --json/-j output. It does not load external YAML plugins or accept scan scope/report flags. JSON matches the independently captured pinned source output; Markdown escaping and safe absent-guidance handling are documented target presentation corrections. See [RULES_INSPECTION.md](RULES_INSPECTION.md). Live execution, estate coverage and full feature/release acceptance remain separate.
 
 Scanner-specific commands now follow the pinned source command keys and reuse generic orchestration; see [SCANNER_COMMANDS.md](SCANNER_COMMANDS.md). This is offline command/selection evidence, not live validation of every service.
+
+Bounded [YAML Graph plugin execution](YAML_GRAPH_PLUGINS.md) now joins ordinary scan orchestration after input validation before authentication. This preserves healthy source schema, precedence and external-rule filtering while applying explicit bounded/strict input protections. Internal table-plugin execution is still unavailable; external queries do not depend on that stage. Offline parser/transport/report checks do not establish live plugin equivalence.

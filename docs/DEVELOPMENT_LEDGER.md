@@ -1756,6 +1756,20 @@ Date: 2026-10-02 (Europe/Oslo). PR #77 rules acceptance: head `d41f0d67a7c3c938c
 
 No dependencies, pins, assessment schemas, normalization, generic defaults or Azure requests changed. Exact final-head native run/merge evidence is retained in the PR and indexed at the next material checkpoint. After B1 acceptance, resume B2 bounded source-schema YAML Graph integration, then canonical plugin table/health and individual migrations. Gate 004/release, progress estimates and deferred live evidence remain open. No laptop or Azure input is currently needed.
 
+### Bounded YAML Graph execution and uninterrupted development authority
+
+Date: 2026-10-02 (Europe/Oslo). B1 final acceptance: PR #78 head `c3907d252b1d9cb48079efe618db1e55028a47e2`, run `36947056761`, quality job `110651469372`, Windows job `110651469128`, both SUCCESS with inspected logs. Merge `50fbaee905e7be7a7c99e174f35ea69247eb16bb`, tree `19da2f901ccd93af27add84da1b93bb13d12a4cc`, agrees with local/uploaded/preview contents and expected parents/identity; fetched working tree was clean. Each host executed five actual CLI checks and nineteen default plus nineteen custom package cases without skips, documentation 199 destinations/nine flags/one PowerShell snippet, twelve paired XLSX/CSV report tables. Linux coverage 79.9%; full race/vet/bounded fuzz/four comparator mutations and maintenance controls passed. Windows failure propagation passed six controls. Zero reachable/imported vulnerabilities; unchanged one module-only advisory stays open.
+
+The user authorized continued execution through the agreed plan without routine continuation prompts. [DEVELOPMENT_EXECUTION_PLAN.md](DEVELOPMENT_EXECUTION_PLAN.md) records that scope and its genuine input/blocker/major-flaw boundaries. Laptop/Azure acceptance remains deferred, and no background operation beyond an active session is promised. Lost scratch was recovered from the accepted remote checkpoint; original reference remains unchanged.
+
+B2 [YAML_GRAPH_PLUGINS.md](YAML_GRAPH_PLUGINS.md) records the pre-implementation source contract, limits/trust decisions, targeted files, acceptance and reviewed rollback. Distinct source-object parsing/discovery preserves home/current precedence, first duplicate name, sorted same-type-ID override, queryFile precedence, configured attribution and normal Graph enablement. Input byte/count/depth bounds, strict ambiguity/schema rejection, reserved names and confined regular UTF-8 query-file access are explicit target protections. Safe Unicode/space labels remain supported. Existing service-identity scans do not require a resolvable home; no substitute relative home is invented.
+
+The unchanged pinned AZQR loader executed the literal full-field fixture in a separate temporary source checkout. Source capture SHA-256 `dbd0ba34d2aff68c8ff8dd28eb353e2906085fa43821bea24becd3188856772c` normalizes only temporary CommandPath. Complete mapped output matches target conversion, including the source recommendationTypeId omission. Literal parser/precedence/metadata/portable path/bounds tests supplement it. Catalog overlays copy caller metadata and never mutate the base; external origin remains private and uses the source plugin exclusion predicate rather than embedded disabled/development filtering.
+
+Synthetic file-to-ARG transport serialization/decoder/executor-to-coordinator-to-JSON checks pass for healthy, excluded and denied queries, including persisted failed Graph health and absent-guidance safety. Actual built/installed CLI preflight checks were added for current/home default/custom discovery, malformed/schema/parent paths, unchanged prior reports and no observed HTTP/auth traffic; rules/help remain offline. Critical origin-removal and raised-file-limit controls compiled and failed named independent assertions; restored focused race checks passed. FN-034 records preparation/review corrections. Full final-head native acceptance and post-merge evidence remain required and are retained in the PR for the next material checkpoint.
+
+No dependency, source pin, canonical assessment schema, normalization, internal-plugin stage enablement or Azure request changed during development. Next B3 implements real zone-mapping with canonical internal-plugin table/health/report infrastructure, then a second plugin checks shared design. Gate 004/release, estimates and live/deferred limitations remain open. No laptop/Azure input is currently required.
+
 ## Current boundary
 
 The generic core scan, deterministic equivalence tooling, reproducible live runner, default/optional/resource-group/two-subscription/leaf-management-group and separate Storage/VM, RG include/exclude, tag include/exclude, recommendation-exclude and individual-resource-exclude live passes, plus enforced development CI, are complete for the behavior exercised so far. The unfiltered two-subscription, leaf-management-group, tag-exclude, RG-exclude and individual-resource-exclude passes have explicit Diagnostics warning boundaries; the recommendation-exclude pass is also `complete_with_warnings`, without supplied warning details. Network Watcher individual-GET probes and the Phase W one-request batch probe support an explanation for earlier warnings but have not mapped the original multi-request batch responses. The missing cross-run Advisor row has unknown recorded tag scope in the tag-only target inventory; historical Azure timing remains unresolved.
@@ -1786,7 +1800,7 @@ The following are not forgotten; they remain intentionally open:
 - nested management-group traversal equivalence
 - non-empty Policy and Defender Recommendations evidence
 - Arc SQL numeric `vcores` response-shape resolution
-- production external/YAML plugin execution
+- live YAML/KQL extension validation on a suitable environment
 - internal plugin migration/parity
 - `plugins list/info` CLI
 - packaging/distribution

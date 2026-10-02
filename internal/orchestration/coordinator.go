@@ -25,12 +25,13 @@ const (
 // Request contains assessment-engine inputs. Rendering and process-exit behavior are
 // intentionally handled by the application layer rather than the coordinator.
 type Request struct {
-	ManagementGroups []string
-	Subscriptions    []string
-	ResourceGroups   []string
-	ScannerKeys      []string
-	Filters          *config.Filters
-	Stages           *stages.Config
+	ManagementGroups    []string
+	Subscriptions       []string
+	ResourceGroups      []string
+	ScannerKeys         []string
+	YAMLRecommendations []assessment.RecommendationDefinition
+	Filters             *config.Filters
+	Stages              *stages.Config
 }
 
 // Coordinator composes the independently characterized assessment subsystems into one
@@ -128,11 +129,12 @@ func (c *Coordinator) Run(ctx context.Context, request Request) (*result.Assessm
 }
 
 type preparedRequest struct {
-	managementGroups []string
-	subscriptions    []string
-	selectedKeys     []string
-	filters          *config.Filters
-	stages           *stages.Config
+	managementGroups    []string
+	subscriptions       []string
+	selectedKeys        []string
+	yamlRecommendations []assessment.RecommendationDefinition
+	filters             *config.Filters
+	stages              *stages.Config
 }
 
 func prepareRequest(request Request) (preparedRequest, error) {
@@ -182,11 +184,12 @@ func prepareRequest(request Request) (preparedRequest, error) {
 	}
 
 	return preparedRequest{
-		managementGroups: append([]string(nil), request.ManagementGroups...),
-		subscriptions:    append([]string(nil), request.Subscriptions...),
-		selectedKeys:     selectedKeys,
-		filters:          filters,
-		stages:           stageConfig,
+		managementGroups:    append([]string(nil), request.ManagementGroups...),
+		subscriptions:       append([]string(nil), request.Subscriptions...),
+		selectedKeys:        selectedKeys,
+		yamlRecommendations: rules.CopyDefinitions(request.YAMLRecommendations),
+		filters:             filters,
+		stages:              stageConfig,
 	}, nil
 }
 
@@ -240,6 +243,7 @@ func (c *Coordinator) tasks(request preparedRequest, state *scanState) []stages.
 				if err != nil {
 					return stages.Outcome{}, err
 				}
+				catalog = rules.WithPluginDefinitions(catalog, request.yamlRecommendations)
 				phaseOneTypes := scanners.ResourceTypes(request.selectedKeys)
 				state.recommendations = executableDefinitions(catalog, phaseOneTypes, request.filters.Assessment)
 
@@ -335,7 +339,7 @@ func executableDefinitions(catalog *rules.Catalog, resourceTypes []string, filte
 			if filter != nil {
 				excluded = filter.IsRecommendationExcluded
 			}
-			if rules.IsExecutableEmbedded(definition, excluded) {
+			if (catalog.IsPlugin(definition) && rules.IsExecutablePlugin(definition, excluded)) || (!catalog.IsPlugin(definition) && rules.IsExecutableEmbedded(definition, excluded)) {
 				definitions = append(definitions, definition)
 			}
 		}
