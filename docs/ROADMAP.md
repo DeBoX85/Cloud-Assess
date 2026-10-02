@@ -1,6 +1,6 @@
 # Cloud Assess Roadmap
 
-Status: working execution roadmap, reviewed 2026-10-02 (Europe/Oslo); offline rules implementation starts from merged `bootstrap/core-v1` at `fd60dd635acb7c3156a264640810a4bd8d92b59d`
+Status: working execution roadmap, reviewed 2026-10-02 (Europe/Oslo). Current implementation baseline: PR81 merge `634aa083981fc327fe5c2cc7b42815793eb197fd`. Start with [SESSION_HANDOVER.md](SESSION_HANDOVER.md); older checkpoint paragraphs below are chronological.
 
 Active development branch: `bootstrap/core-v1`
 
@@ -225,3 +225,7 @@ B2 is VERIFIED OFFLINE through PR #79, head `6842c50c6aa12ec10a7472483a6b528fc69
 ## Current checkpoint: B3a accepted, B3b table/report infrastructure
 
 B3a is VERIFIED OFFLINE through PR #80, head `63bb1c08b5de838af291a591d45bcbef9c060489`, run `36966029765`, merged `0b76ad6b2870432357e5a38c1e8fe73d5214f11b`, tree `1e6bed9f4f19b4848a6f35a9d1098c4bfccb2370`; both native jobs passed with logs inspected. [Canonical plugin tables](PLUGIN_TABLES.md) now supply bounded owned schema/health and JSON/CSV/Excel infrastructure with synthetic report/privacy/partial-exit evidence. Native acceptance remains mandatory before merge. Next wire zone through coordinator and actual mixed/plugin-only CLI plus honest discovery, then a second real adapter. B3 overall, Gate 004/release, live deferrals and estimates remain open. No laptop/Azure input needed.
+
+## Current checkpoint: recovery reconciled, fresh-session handover
+
+PR81 is VERIFIED OFFLINE: tested head `8b1365218743d5b34fb934d24354699bf55465e2`, native run `36968213639`, Linux/Windows jobs `110716475829` / `110716476011`, merged `634aa083981fc327fe5c2cc7b42815793eb197fd`, tree `4729d848509dccf13f221359add14a1ef3cf8edc`. Recovery independently rechecked PR79-81 evidence and passed fresh accepted-baseline Linux race/vet/build/CLI/documentation QA. Unpublished B3c code was lost, not accepted. Resume reconstruction of zone coordinator and mixed/plugin-only CLI/list-info from the accepted baseline, then a second real adapter. [SESSION_HANDOVER.md](SESSION_HANDOVER.md) and root AGENTS.md define the entry point, proactive remote code checkpoint cadence and complete risk/dependency map. PR82 recovery content is retained in [ZONE_EXECUTION_CHECKPOINT.md](ZONE_EXECUTION_CHECKPOINT.md). Gate 004/release, live deferrals and prior estimate limitations remain open. No laptop/Azure input needed for the next slice.

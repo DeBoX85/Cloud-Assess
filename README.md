@@ -6,13 +6,15 @@ Cloud Assess is a new Azure assessment engine built from a clean repository whil
 
 ## Current status
 
+**New session or interruption: start with [the session handover](docs/SESSION_HANDOVER.md).** It identifies the verified implementation, active work, evidence, constraints and exact restart procedure.
+
 The core generic `cloud-assess scan` path is implemented and covered by deterministic, cross-package, race-enabled, and executable smoke tests.
 
 The current core path includes Azure authentication, subscription and management-group discovery, resource inventory, filtering, scanner pruning, pinned recommendation execution, Diagnostics, Advisor, Defender, Azure Policy, Arc SQL, Cost, stage health/completeness, severity gating, and XLSX/JSON/CSV/SARIF/stdout rendering.
 
 The project is **not yet release-complete**. The deterministic semantic source-versus-target harness has produced equivalent live baselines for default stages, optional Policy/Defender Recommendations/Cost execution, resource-group and two-subscription scopes, a leaf management group, and separate Storage/VM, resource-group and tag-include filters. Cost and Defender plan status have non-empty live evidence; Policy and Defender Recommendations have empty-result evidence only. Unfiltered Diagnostics HTTP 400 batch warnings remain uncorrelated. A local check classified the Advisor row absent from the later tag-only pass as having unknown recorded tag scope; whether Azure returned that row to both separate scans remains unverified. Parent-to-child management-group traversal, Arc SQL and other scenarios absent from the test environment remain to be validated.
 
-External/plugin execution, scanner-specific CLI commands, `plugins` CLI surfaces, release-specific dependency/license review and final release/security review remain outstanding. [Development candidate ZIP packaging](docs/PACKAGE_BUILDS.md) now includes notices, checksums and isolated extraction checks; release publication and fresh-OS installation validation remain open. A generated [dependency and license evidence inventory](docs/DEPENDENCIES.md) is available and checked for freshness in CI; it is not release approval.
+Scanner-specific commands and bounded YAML Graph plugins are implemented. The zone adapter and canonical plugin-table infrastructure are accepted; real internal-plugin CLI/coordinator execution, `plugins` list/info, other internal migrations, ancillary parity commands, release-specific dependency/license review and final release/security review remain outstanding. [Development candidate ZIP packaging](docs/PACKAGE_BUILDS.md) now includes notices, checksums and isolated extraction checks; release publication and fresh-OS installation validation remain open. A generated [dependency and license evidence inventory](docs/DEPENDENCIES.md) is available and checked for freshness in CI; it is not release approval.
 
 Offline [rules inspection](docs/RULES_INSPECTION.md) now lists supported pinned embedded and Diagnostics recommendations as Markdown or JSON without Azure access. It matches the pinned reference's 380 JSON rows; it does not imply live estate or full feature coverage.
 
@@ -68,6 +70,7 @@ The generic scan path is suitable for controlled test-environment validation. It
 
 ## Documentation
 
+- [Fresh-session handover and recovery](docs/SESSION_HANDOVER.md)
 - [Target specification](docs/TARGET_SPECIFICATION.md)
 - [Implementation plan](docs/IMPLEMENTATION_PLAN.md)
 - [Development ledger](docs/DEVELOPMENT_LEDGER.md)

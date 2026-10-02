@@ -2,6 +2,10 @@
 
 Date: 2026-10-02 (Europe/Oslo). Starting accepted branch: `bootstrap/core-v1` at `c79c2ffc9bfcec66da9f24dab631eb6bef6d1836`, tree `f2c99952554e11042d90ff0dd0597bda07b70e4d`, merged PR #77. This plan governs future implementation batches; it does not declare Gate 004, release readiness or full feature parity. [TARGET_SPECIFICATION.md](TARGET_SPECIFICATION.md) remains the product contract, [ROADMAP.md](ROADMAP.md) orders work, and [QA_PROCESS.md](QA_PROCESS.md) defines existing mandatory checks.
 
+## Current-state entry point
+
+Read [SESSION_HANDOVER.md](SESSION_HANDOVER.md) before work. Its live-ref reconciliation and ordered resume point supersede this plan's starting-baseline description, while this plan continues to govern batch acceptance. Root AGENTS.md requires proactive handover and verified remote code-checkpoint updates after coherent slices, material decisions/failures/merges, changed next actions and before task switches/session end when tools are available. A design-only or local checkpoint does not preserve unpublished code.
+
 ## Goal, scope and authority
 
 Deliver functional equivalence to pinned AZQR with independently adjustable branding, preserving APRL/AOR/CUSTOM recommendation libraries and validated generic assessment meaning. Equivalent features do not require identical architecture or every source defect. Every deliberate difference must be source-grounded, documented and tested. The five-active-field immutable branding workflow and offline rules command are accepted bounded milestones; they do not certify the entire toolkit.

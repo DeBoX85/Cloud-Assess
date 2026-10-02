@@ -4,6 +4,10 @@ Applies to material changes on `bootstrap/core-v1`. These controls support Gate 
 
 See [DEVELOPMENT_EXECUTION_PLAN.md](DEVELOPMENT_EXECUTION_PLAN.md) for ordered batches, scope boundaries, durable checkpoints, GitHub interruption recovery and reviewed rollback.
 
+## Session continuity check
+
+Start with [SESSION_HANDOVER.md](SESSION_HANDOVER.md), verify current refs/proposals and reconcile accepted versus pending work. Maintain that record with code and evidence after coherent slices and material changes, not only at the final response. Before ending or switching tasks, verify remote code-checkpoint read-back when available; explicitly identify unpublished work at risk otherwise. A fresh-session review must identify goal, source pins, accepted baseline, next task, mandatory checks and unresolved evidence without relying on chat.
+
 ## Before changing behavior
 
 Identify the affected specification contract, concrete failure, expected behavior and evidence needed. Search existing tests, the development ledger and FAILURE_NOTES before adding overlapping checks. Independently specify expected records/counts instead of deriving the oracle from the implementation under test or assuming AZQR is always correct. Document any pinned-source correction separately from successful-response equivalence.
