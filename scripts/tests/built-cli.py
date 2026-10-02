@@ -54,7 +54,8 @@ class BuiltCLITests(unittest.TestCase):
         self.executable = self.directory / BINARY.name
         shutil.copy2(BINARY, self.executable)
         self.env = {k: v for k, v in os.environ.items() if not k.upper().startswith('AZURE_')}
-        self.env.update({'AZURE_CONFIG_DIR': str(self.directory / 'isolated-azure-config'),
+        self.env.update({'HOME': str(self.directory / 'isolated-home'), 'USERPROFILE': str(self.directory / 'isolated-home'),
+                         'AZURE_CONFIG_DIR': str(self.directory / 'isolated-azure-config'),
                          'HTTP_PROXY': self.endpoint, 'HTTPS_PROXY': self.endpoint,
                          'http_proxy': self.endpoint, 'https_proxy': self.endpoint,
                          'NO_PROXY': '', 'no_proxy': '', 'MSI_ENDPOINT': self.endpoint,
@@ -71,6 +72,34 @@ class BuiltCLITests(unittest.TestCase):
     def snapshot(self):
         return {str(p.relative_to(self.directory)): 'directory' if p.is_dir() else hashlib.sha256(p.read_bytes()).hexdigest()
                 for p in self.directory.rglob('*')}
+
+    def test_yaml_candidates_fail_before_authentication_and_preserve_reports(self):
+        home = self.directory / 'isolated-home' / ('.' + EXPECTED_BRANDING['cliName']) / 'plugins'
+        current = self.directory / 'plugins'
+        valid = "name: operator-checks\nqueries:\n  - aprlGuid: sample\n    description: Control\n    recommendationResourceType: Microsoft.Storage/storageAccounts\n    query: resources\n"
+        for directory in (home, current):
+            directory.mkdir(parents=True)
+            candidate = directory / 'control.yaml'
+            for text in (valid + 'unexpected: secret-payload\n',
+                         valid + "    queryFile: '../outside.kql'\n",
+                         valid + 'name: duplicate\n'):
+                with self.subTest(location=directory.name, text=text[-40:]):
+                    candidate.write_text(text, encoding='utf-8')
+                    (self.directory / 'retained.json').write_text('previous report', encoding='utf-8')
+                    before = self.snapshot()
+                    for args in (['scan', '--json', '--xlsx=false', '--output-name', 'retained'],
+                                 ['scan', 'st', '--json', '--xlsx=false', '--output-name', 'retained']):
+                        result = self.execute(args)
+                        self.assertNotEqual(result.returncode, 0)
+                        self.assertIn('YAML plugin preflight', result.stderr)
+                        self.assertNotIn('secret-payload', result.stderr)
+                        self.assertEqual(result.stdout, '')
+                        self.assertEqual(self.snapshot(), before)
+                    for args in (['rules', '--json'], ['scan', 'st', '--help']):
+                        result = self.execute(args)
+                        self.assertEqual(result.returncode, 0, result.stderr)
+                        self.assertEqual(self.snapshot(), before)
+            candidate.unlink()
 
     def test_scanner_commands_and_preflight(self):
         expected = json.loads((ROOT / 'cmd/cloud-assess/testdata/scanner-keys-reference.json').read_text(encoding='utf-8'))

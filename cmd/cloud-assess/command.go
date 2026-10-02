@@ -6,20 +6,25 @@ import (
 	"time"
 
 	"github.com/DeBoX85/Cloud-Assess/internal/app"
+	"github.com/DeBoX85/Cloud-Assess/internal/assessment"
 	"github.com/DeBoX85/Cloud-Assess/internal/azure"
 	"github.com/DeBoX85/Cloud-Assess/internal/branding"
 	"github.com/DeBoX85/Cloud-Assess/internal/config"
 	"github.com/DeBoX85/Cloud-Assess/internal/gate"
 	"github.com/DeBoX85/Cloud-Assess/internal/orchestration"
+	"github.com/DeBoX85/Cloud-Assess/internal/rules"
 	"github.com/DeBoX85/Cloud-Assess/internal/scanners"
 	"github.com/DeBoX85/Cloud-Assess/internal/stages"
 	"github.com/spf13/cobra"
+	"os"
+	"path/filepath"
 )
 
 type exitCodeContextKey struct{}
 
 type scanFlags struct {
 	scannerKeys           []string
+	yamlRecommendations   []assessment.RecommendationDefinition
 	assessmentTimeout     time.Duration
 	managementGroups      []string
 	subscriptions         []string
@@ -124,12 +129,13 @@ func newScanCommand(executor scanExecutor, exitCode *int) *cobra.Command {
 
 func assessmentRequest(flags scanFlags, filters *config.Filters, stageConfig *stages.Config) orchestration.Request {
 	return orchestration.Request{
-		ManagementGroups: flags.managementGroups,
-		Subscriptions:    flags.subscriptions,
-		ResourceGroups:   flags.resourceGroups,
-		ScannerKeys:      append([]string(nil), flags.scannerKeys...),
-		Filters:          filters,
-		Stages:           stageConfig,
+		ManagementGroups:    flags.managementGroups,
+		Subscriptions:       flags.subscriptions,
+		ResourceGroups:      flags.resourceGroups,
+		ScannerKeys:         append([]string(nil), flags.scannerKeys...),
+		YAMLRecommendations: rules.CopyDefinitions(flags.yamlRecommendations),
+		Filters:             filters,
+		Stages:              stageConfig,
 	}
 }
 
@@ -160,6 +166,16 @@ func executeScan(ctx context.Context, flags scanFlags) (int, error) {
 		}
 	}
 
+	home, _ := os.UserHomeDir()
+	directories := []string{"plugins"}
+	if home != "" {
+		directories = append([]string{filepath.Join(home, "."+branding.Default().CLIName, "plugins")}, directories...)
+	}
+	plugins, err := rules.DiscoverYAMLPlugins(directories)
+	if err != nil {
+		return app.ExitExecutionFail, fmt.Errorf("YAML plugin preflight: %w", err)
+	}
+	flags.yamlRecommendations = rules.PluginDefinitions(plugins)
 	credential, err := azure.NewCredential()
 	if err != nil {
 		return app.ExitExecutionFail, err

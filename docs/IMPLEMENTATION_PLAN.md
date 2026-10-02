@@ -59,7 +59,7 @@ Observe source behavior
 
 ## Current completion boundary
 
-Steps 1-27 have the generic-path implementation described below; step 2 now has the accepted bounded immutable five-field customization workflow (PR #75). Production external YAML/KQL extensions and plugin execution remain gaps. Step 28 is in progress, with equivalent live baselines recorded for default stages, optional Policy/Defender Recommendations/Cost execution, resource-group and two-subscription scopes, a leaf management group, separate scanner, RG and tag include/exclude, same-RG include/exclude precedence, recommendation-exclude and exact-resource-exclude filters. Several passes retain Diagnostics warning limits. The missing Advisor row has unknown recorded tag scope in the tag-only target report, but the separate runs cannot establish unchanged Azure state. Step 29 has enforced Linux and Windows CI jobs plus development-candidate ZIP packaging and isolated extraction checks for their amd64 targets. Release publication, fresh-OS installation and release approval remain incomplete. These numbered steps are not equal-sized progress units; see the dated estimates and limitations in [ROADMAP.md](ROADMAP.md#progress-estimate-and-next-checkpoint).
+Steps 1-27 have the generic-path implementation described below; step 2 now has the accepted bounded immutable five-field customization workflow (PR #75). Bounded YAML/KQL Graph extensions are implemented with offline evidence; internal table plugins and remaining live extension validation remain gaps. Step 28 is in progress, with equivalent live baselines recorded for default stages, optional Policy/Defender Recommendations/Cost execution, resource-group and two-subscription scopes, a leaf management group, separate scanner, RG and tag include/exclude, same-RG include/exclude precedence, recommendation-exclude and exact-resource-exclude filters. Several passes retain Diagnostics warning limits. The missing Advisor row has unknown recorded tag scope in the tag-only target report, but the separate runs cannot establish unchanged Azure state. Step 29 has enforced Linux and Windows CI jobs plus development-candidate ZIP packaging and isolated extraction checks for their amd64 targets. Release publication, fresh-OS installation and release approval remain incomplete. These numbered steps are not equal-sized progress units; see the dated estimates and limitations in [ROADMAP.md](ROADMAP.md#progress-estimate-and-next-checkpoint).
 
 The ordered remaining work, evidence gates, and release-scope decisions are maintained in [ROADMAP.md](ROADMAP.md).
 
@@ -106,14 +106,14 @@ Outstanding work includes:
 - parent-to-child management-group live regression against the pinned reference; the leaf pass is complete
 - non-empty live or targeted-fixture evidence for Policy and Defender Recommendations
 - resolution of the live Arc SQL `vcores` response shape
-- external/YAML plugin execution in production orchestration
+- live YAML/KQL extension equivalence on a suitable environment
 - internal plugin migration/parity
 - `plugins list/info` CLI surface
 - final release-specific dependency/license review and packaged notices
 - packaging/release artifacts
 - security and operational review at distributable-product level
 
-Until plugin execution is implemented, explicitly enabling the plugin stage in the core-v1 CLI returns a clear configuration error before Azure authentication.
+Until internal table-plugin execution is implemented, explicitly enabling the plugin stage in the core-v1 CLI returns a clear configuration error before Azure authentication.
 
 ## Characterization levels
 
@@ -326,3 +326,5 @@ The [source-feature characterization](FEATURE_PARITY_CHARACTERIZATION.md) now ma
 [Offline rules inspection](RULES_INSPECTION.md) now implements the source-selected catalog/Diagnostics command with an independent 380-row reference executable capture, Markdown safety, invalid-argument/writer-error tests and actual installed CLI tripwires. Next implement scanner-specific subcommands; external/internal plugin execution and release/live evidence remain open. Exact-head native acceptance remains mandatory before merge.
 
 The [development execution plan](DEVELOPMENT_EXECUTION_PLAN.md) now defines bounded batches, scope controls, exact-head QA, failure feedback, durable proposal checkpoints and reviewed rollback. [Scanner commands](SCANNER_COMMANDS.md) implement B1 through existing orchestration with independent 87-key source capture and offline selection/preflight checks. After native acceptance, resume B2 bounded YAML Graph integration; no Azure/laptop tasks are required now. Earlier next-task statements are historical checkpoints.
+
+B2 [bounded YAML Graph plugins](YAML_GRAPH_PLUGINS.md) now implements source-object parsing, deterministic discovery, independent catalog overlays and normal Graph execution. Exact-head native acceptance remains mandatory. Next B3 integrates a real zone-mapping plugin with canonical tables/health/reports, then verifies the shared path against a second plugin. Routine handoffs are not needed under the ongoing authorization recorded in the execution plan. Laptop/Azure acceptance stays deferred.

@@ -73,3 +73,5 @@ Subsequent checkpoint: [dependency advisory review](DEPENDENCY_ADVISORY_REVIEW.m
 Subsequent AR-04 implementation: [offline rules inspection](RULES_INSPECTION.md) now matches all 380 pinned reference JSON rows and adds actual CLI/package checks. Its exact-head native acceptance is retained in the PR; remaining plugin migrations and live/ancillary parity are unchanged.
 
 The [development execution plan](DEVELOPMENT_EXECUTION_PLAN.md) governs future batches. [Scanner commands](SCANNER_COMMANDS.md) now implement source command registration and scanner-key selection using existing orchestration; final native acceptance is required, and all plugin/live/ancillary boundaries remain open.
+
+B2 [YAML Graph implementation](YAML_GRAPH_PLUGINS.md) preserves discovered query integration, metadata conversion, sorted override and external filtering, with explicit strict/bounded input and confinement differences from the pinned source. The actual pinned loader capture and synthetic ARG-to-report fixtures are offline evidence. Internal table plugins, ancillary commands and live/release boundaries remain open; source characterization tables above describe their starting state.
