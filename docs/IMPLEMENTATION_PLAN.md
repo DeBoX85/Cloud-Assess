@@ -6,7 +6,7 @@ Reference implementation: `DeBoX85/azqr`
 
 Reference commit: `8e4f0577f3615e6c9014c031bcad079f235369cc`
 
-Current implementation milestone: the generic core scan path and deterministic semantic source-versus-target equivalence harness are implemented. Live Azure regression is in progress: default-stage, optional-stage, resource-group-scoped, two-subscription, leaf-management-group, scanner selection, RG/tag include/exclude, observed recommendation exclusion and exact-resource exclusion passes are equivalent for the data compared. Several Diagnostics batch warnings remain uncorrelated. A local check classified the missing cross-run Advisor row as having unknown recorded tag scope in the target inventory, while historical Azure timing remains unresolved. Parent-to-child management-group traversal and non-empty evidence for currently absent datasets remain next.
+Current implementation milestone: the generic core scan path and deterministic semantic source-versus-target equivalence harness are implemented. Live Azure regression is in progress: default-stage, optional-stage, resource-group-scoped, two-subscription, leaf-management-group, scanner selection, RG/tag include/exclude, observed recommendation exclusion and exact-resource exclusion passes are equivalent for the data compared. Several Diagnostics batch warnings remain uncorrelated. A local check classified the missing cross-run Advisor row as having unknown recorded tag scope in the target inventory, while historical Azure timing remains unresolved. Parent-to-child management-group traversal is explicitly deferred as DV-001; non-empty evidence for currently absent datasets remains open. Current offline milestones also include scanner commands, YAML Graph execution, zone/service-health/SQL EOL execution and carbon pure aggregation through PR90. Next is the bounded carbon request adapter under CARBON_EMISSIONS, followed by separate public execution; live tasks remain deferred while the operator is unavailable.
 
 ## Principle
 
@@ -338,3 +338,6 @@ Current B4 advance (2026-10-03): service-health accepted through PR87, SQL EOL l
 
 
 B4 SQL execution accepted offline through PR89 after exact native/postmerge verification. B5 current carbon core includes actual source scanner/calculation captures and pure bounded aggregation; see CARBON_EMISSIONS and SESSION_HANDOVER. Finish its full/built/native gates, then separately implement bounded authenticated request/access/pagination and public execution/report integration. This is not live emissions/API permission validation.
+
+
+Carbon pure aggregation core accepted offline through PR90; exact next request-adapter contract/acceptance matrix in CARBON_EMISSIONS. Implement authenticated date/report library, then separate public command/registry/report integration. Verified pure calculations do not establish service authorization/completeness or a finished carbon plugin.
