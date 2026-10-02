@@ -96,3 +96,42 @@ func (c *Config) EnabledStages() []string {
 	sort.Strings(out)
 	return out
 }
+
+// NewPluginOnly retains discovery while disabling every regular assessment stage.
+func NewPluginOnly() *Config {
+	c := NewDefault()
+	for name := range c.enabled {
+		c.enabled[name] = name == Plugin
+	}
+	return c
+}
+
+// Clone owns configuration maps. Registered option values are immutable scalars.
+func (c *Config) Clone() *Config {
+	if c == nil {
+		return nil
+	}
+	out := &Config{enabled: map[string]bool{}, options: map[string]map[string]any{}}
+	for name, value := range c.enabled {
+		out.enabled[name] = value
+	}
+	for name, values := range c.options {
+		out.options[name] = map[string]any{}
+		for key, value := range values {
+			out.options[name][key] = value
+		}
+	}
+	return out
+}
+
+func (c *Config) ValidatePluginOnly() error {
+	if !c.IsEnabled(Plugin) {
+		return fmt.Errorf("plugin stage is mandatory for plugin-only scans")
+	}
+	for _, name := range c.EnabledStages() {
+		if name != Plugin {
+			return fmt.Errorf("regular stage %q cannot be enabled in plugin-only scans", name)
+		}
+	}
+	return nil
+}
