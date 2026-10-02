@@ -83,6 +83,9 @@ func Marshal(data *result.AssessmentResult, version string) ([]byte, error) {
 	if data == nil {
 		return nil, fmt.Errorf("assessment result is nil")
 	}
+	if err := data.ValidatePluginExtension(); err != nil {
+		return nil, err
+	}
 	if data.Summary == nil {
 		return nil, fmt.Errorf("SARIF rendering requires a findings summary")
 	}

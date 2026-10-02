@@ -31,7 +31,14 @@ func Build(data *result.AssessmentResult, opts Options) ([]Table, error) {
 	if data == nil {
 		return nil, fmt.Errorf("assessment result is nil")
 	}
-	return []Table{
+	if err := data.ValidatePluginExtension(); err != nil {
+		return nil, err
+	}
+	mask, err := pluginMasker(data, opts.RedactSubscriptionIDs)
+	if err != nil {
+		return nil, err
+	}
+	projected := []Table{
 		{Key: "assessmentStatus", SheetName: "Assessment Status", Rows: assessmentStatus(data)},
 		{Key: "recommendations", SheetName: "Recommendations", Stage: stages.Graph, Rows: recommendations(data)},
 		{Key: "impacted", SheetName: "ImpactedResources", Stage: stages.Graph, Rows: impacted(data, opts)},
@@ -44,7 +51,9 @@ func Build(data *result.AssessmentResult, opts Options) ([]Table, error) {
 		{Key: "defender", SheetName: "Defender", Stage: stages.Defender, Rows: defender(data, opts)},
 		{Key: "outofscope", SheetName: "OutOfScope", Stage: stages.Graph, Rows: resources(data, data.OutOfScope, opts)},
 		{Key: "costs", SheetName: "Costs", Stage: stages.Cost, Rows: costs(data, opts)},
-	}, nil
+	}
+	projected[0].Rows = append(projected[0].Rows, pluginStatusRows(data, mask)...)
+	return append(projected, pluginTables(data, mask)...), nil
 }
 
 // ShouldRender preserves stage-gated report behavior while allowing a failed requested stage

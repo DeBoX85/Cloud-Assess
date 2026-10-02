@@ -32,6 +32,7 @@ type AssessmentResult struct {
 	AzurePolicy             []assessment.PolicyNonCompliance      `json:"azurePolicy"`
 	ArcSQL                  []assessment.ArcSQLRecord             `json:"arcSQL"`
 	Costs                   []assessment.CostRecord               `json:"costs"`
+	PluginTables            []assessment.PluginTable              `json:"pluginTables,omitempty"`
 }
 
 type Input struct {
