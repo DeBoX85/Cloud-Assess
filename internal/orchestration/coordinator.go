@@ -14,6 +14,7 @@ import (
 	"github.com/DeBoX85/Cloud-Assess/internal/discovery"
 	"github.com/DeBoX85/Cloud-Assess/internal/plugins"
 	"github.com/DeBoX85/Cloud-Assess/internal/plugins/servicehealth"
+	"github.com/DeBoX85/Cloud-Assess/internal/plugins/sqleol"
 	"github.com/DeBoX85/Cloud-Assess/internal/result"
 	"github.com/DeBoX85/Cloud-Assess/internal/rules"
 	"github.com/DeBoX85/Cloud-Assess/internal/scanners"
@@ -92,6 +93,9 @@ func (c *Coordinator) Run(ctx context.Context, request Request) (*result.Assessm
 		}
 		if name == servicehealth.Name && c.operations.ScanServiceHealth == nil {
 			return nil, fmt.Errorf("service-health operation is not configured")
+		}
+		if name == sqleol.Name && c.operations.ScanSQLEOL == nil {
+			return nil, fmt.Errorf("sql-eol operation is not configured")
 		}
 	}
 	if c.runner == nil {
@@ -384,6 +388,11 @@ func (c *Coordinator) tasks(request preparedRequest, state *scanState) []stages.
 						value, err := c.operations.ScanServiceHealth(ctx, subscriptions, filter.Assessment)
 						scanErr = err
 						table = plugins.ServiceHealthTable(value, scanErr, state.subscriptions, started, c.now())
+					case sqleol.Name:
+						filter := cloneFilters(request.filters)
+						value, err := c.operations.ScanSQLEOL(ctx, subscriptions, filter.Assessment)
+						scanErr = err
+						table = plugins.SQLEOLTable(value, scanErr, state.subscriptions, started, c.now())
 					}
 					state.pluginTables[i] = table
 					outcome.Records += table.Health.Records

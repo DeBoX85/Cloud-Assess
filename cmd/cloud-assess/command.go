@@ -15,6 +15,7 @@ import (
 	"github.com/DeBoX85/Cloud-Assess/internal/orchestration"
 	"github.com/DeBoX85/Cloud-Assess/internal/plugins"
 	"github.com/DeBoX85/Cloud-Assess/internal/plugins/servicehealth"
+	"github.com/DeBoX85/Cloud-Assess/internal/plugins/sqleol"
 	"github.com/DeBoX85/Cloud-Assess/internal/rules"
 	"github.com/DeBoX85/Cloud-Assess/internal/scanners"
 	"github.com/DeBoX85/Cloud-Assess/internal/stages"
@@ -66,6 +67,7 @@ func newRootCommand(executor scanExecutor) *cobra.Command {
 	root.AddCommand(newRulesCommand())
 	root.AddCommand(newZoneCommand(executor, &exitCode))
 	root.AddCommand(newInternalPluginCommand(servicehealth.Name, servicehealth.Metadata().Description, executor, &exitCode))
+	root.AddCommand(newInternalPluginCommand(sqleol.Name, sqleol.Metadata().Description, executor, &exitCode))
 	root.AddCommand(newPluginsCommand())
 	root.AddCommand(&cobra.Command{
 		Use: "branding", Short: "Print the immutable build branding profile", Args: cobra.NoArgs,
@@ -95,7 +97,7 @@ func newScanCommand(executor scanExecutor, exitCode *int) *cobra.Command {
 	}
 
 	bindScanFlags(command, &flags)
-	command.PersistentFlags().StringSliceVar(&flags.internalPlugins, "plugin", nil, "Select implemented internal table plugins (service-health, zone-mapping)")
+	command.PersistentFlags().StringSliceVar(&flags.internalPlugins, "plugin", nil, "Select implemented internal table plugins (service-health, sql-eol, zone-mapping)")
 	for _, key := range scanners.Keys() {
 		services := scanners.ByKey(key)
 		if len(services) == 0 {

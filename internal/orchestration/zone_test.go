@@ -164,7 +164,7 @@ func TestZoneCoordinatorPreflightAndConcurrentRuns(t *testing.T) {
 	unnamed := stages.NewPluginOnly()
 	regions := stages.NewPluginOnly()
 	_ = regions.ApplyParams([]string{"plugin.target-regions=westus"})
-	for _, req := range []Request{{InternalPlugins: []string{"sql-eol"}}, {PluginOnly: true, Stages: unnamed}, {PluginOnly: true, InternalPlugins: []string{plugins.ZoneMapping}, Stages: stages.NewDefault()}, {InternalPlugins: []string{plugins.ZoneMapping}, Stages: regions}} {
+	for _, req := range []Request{{InternalPlugins: []string{"carbon-emissions"}}, {PluginOnly: true, Stages: unnamed}, {PluginOnly: true, InternalPlugins: []string{plugins.ZoneMapping}, Stages: stages.NewDefault()}, {InternalPlugins: []string{plugins.ZoneMapping}, Stages: regions}} {
 		if _, err := prepareRequest(req); err == nil {
 			t.Fatal("invalid plugin request accepted")
 		}
