@@ -398,3 +398,14 @@ FN045 recurrence follow-up: a later SDK inspection appended target-only internal
 ## FN-046: Stale current-state wording found during final documentation QA
 
 Date: 2026-10-03 (Europe/Oslo). Final bounded first-paragraph review found ROADMAP still labelled PR81 as the current baseline, while later appended checkpoints correctly recorded PR90. Its original percentage table was also under an unqualified progress heading and could be mistaken for a fresh assessment despite later implemented scanner/plugin features. Corrected the top baseline/date, explicitly labelled retained estimates historical (no invented replacement percentages/ETA), and reconciled IMPLEMENTATION_PLAN's immediate next task/DV-001 deferral. This was documentation drift, not a runtime code change. Structural link/flag checks alone did not detect it; inspect current-tense first summaries separately from chronological evidence before each handover. The correction creates a new final proposal head, requiring both native jobs again; old-head success is not new-head acceptance.
+
+
+## FN-047: Execution workspace offline during postmerge reconciliation
+
+Date: 2026-10-03 (Europe/Oslo). Environment failure, not a demonstrated product defect. PR89/90/91 exact native acceptance and remote merge/tree/parents/ref were verified; final local fetch/readback stalled. Stopped the pending orchestration sequence and read actual state before retry. Terminal then returned environment_offline / Environment is not connected (409); GitHub remained available. Local final fetch/switch/pin acknowledgement is missing, so it is not accepted evidence. PR91 readback confirmed its unacknowledged final postmerge note had not been written. Preserve remote accepted code plus this outage checkpoint, restore workspace, inspect current state and only then resume local operations. Code checkpoint/handover protects reconstruction, not automatic workspace reconnection. No unpublished carbon request code was at risk.
+
+Verification precaution: future-dependent mutations must require a terminal's completed zero exit, not merely a yielded session or an awaited tool object. The aborted sequence did not publish an unverified clean-fetch claim. Earlier yielded fetches were subsequently completed/read back successfully; do not generalize them to this outage.
+
+## FN-048: GitHub content fetch returned decoded Markdown
+
+Date: 2026-10-03 (Europe/Oslo). The outage read attempted to JSON.parse a GitHub contents response assuming raw REST base64 metadata, but the connector returned decoded Markdown. Parsing failed before any mutation. Read the exact accepted blob URL, verified Markdown shape and used returned content directly. Do not infer output shape solely from URL; inspect the connector's actual structured content before decoding. No repository data or test oracle changed due to the failed parse.
