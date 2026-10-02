@@ -78,7 +78,7 @@ func NewHTTPClient(credential azcore.TokenCredential, options *HTTPClientOptions
 		}
 	}
 
-	clientOptions := &policy.ClientOptions{Retry: retryOptions, Transport: transport}
+	clientOptions := &policy.ClientOptions{Retry: retryOptions, Transport: boundedTransport{next: transport}}
 	authPolicy := runtime.NewBearerTokenPolicy(credential, []string{options.Scope}, nil)
 	pipeline := runtime.NewPipeline(
 		"cloud-assess-http-client",
