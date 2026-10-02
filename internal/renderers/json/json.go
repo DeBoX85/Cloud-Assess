@@ -31,6 +31,9 @@ func MarshalWithOptions(data *result.AssessmentResult, opts Options) ([]byte, er
 	if data == nil {
 		return nil, fmt.Errorf("assessment result is nil")
 	}
+	if err := data.ValidatePluginExtension(); err != nil {
+		return nil, err
+	}
 	encoded, err := stdjson.MarshalIndent(data, "", "\t")
 	if err != nil {
 		return nil, err
@@ -115,6 +118,11 @@ func collectSubscriptionIDs(data *result.AssessmentResult) []string {
 	add := func(value string) {
 		if strings.TrimSpace(value) != "" {
 			ids = append(ids, value)
+		}
+	}
+	for _, table := range data.PluginTables {
+		for _, row := range table.Rows {
+			add(row.SubscriptionID)
 		}
 	}
 	if scope := data.Scope; scope != nil {

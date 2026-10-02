@@ -76,6 +76,8 @@ The generic scan path is suitable for controlled test-environment validation. It
 - [Development, QA and recovery plan](docs/DEVELOPMENT_EXECUTION_PLAN.md)
 - [Scanner commands](docs/SCANNER_COMMANDS.md)
 - [YAML Graph plugins and input protections](docs/YAML_GRAPH_PLUGINS.md)
+- [Internal zone adapter migration boundary](docs/ZONE_MAPPING.md)
+- [Canonical plugin-table schema, health and report protections](docs/PLUGIN_TABLES.md)
 - [Azure access model](docs/ACCESS_MODEL.md)
 - [Operator runbook](docs/OPERATIONS.md)
 - [Requested/resolved scope reporting](docs/SCOPE_REPORTING.md)
