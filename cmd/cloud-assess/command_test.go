@@ -82,7 +82,7 @@ func TestScanDefaultsToExcelAndRedaction(t *testing.T) {
 	}
 }
 
-func TestExecuteScanRejectsDeferredPluginStageBeforeAzureAuthentication(t *testing.T) {
+func TestExecuteScanRejectsUnnamedPluginStageBeforeAzureAuthentication(t *testing.T) {
 	code, err := executeScan(context.Background(), scanFlags{stageNames: []string{"plugin"}})
 	if err == nil {
 		t.Fatal("expected plugin availability error")
@@ -90,7 +90,7 @@ func TestExecuteScanRejectsDeferredPluginStageBeforeAzureAuthentication(t *testi
 	if code != 1 {
 		t.Fatalf("exit code = %d, want 1", code)
 	}
-	if !strings.Contains(err.Error(), "plugin stage is not available") {
+	if !strings.Contains(err.Error(), "plugin stage requires at least one --plugin selection") {
 		t.Fatalf("unexpected error: %v", err)
 	}
 }

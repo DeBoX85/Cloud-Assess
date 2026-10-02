@@ -159,6 +159,46 @@ class BuiltCLITests(unittest.TestCase):
             self.assertEqual(result.stdout, '')
         self.assertEqual(self.snapshot(), before, 'rules inspection created or changed files')
 
+    def test_zone_only_skips_unused_yaml_discovery(self):
+        directory = self.directory / 'plugins'
+        directory.mkdir()
+        (directory / 'broken.yml').write_text('broken: [')
+        self.env['AZURE_TOKEN_CREDENTIALS'] = 'invalid-synthetic-selection'
+        zone = self.execute(['zone-mapping'])
+        self.assertNotEqual(zone.returncode, 0)
+        self.assertIn('invalid AZURE_TOKEN_CREDENTIALS', zone.stderr)
+        self.assertNotIn('YAML plugin preflight', zone.stderr)
+        normal = self.execute(['scan', '--plugin', 'zone-mapping'])
+        self.assertNotEqual(normal.returncode, 0)
+        self.assertIn('YAML plugin preflight', normal.stderr)
+
+    def test_plugin_registry_is_offline_and_honest(self):
+        listed = self.execute(['plugins', 'list', '--json'])
+        self.assertEqual(listed.returncode, 0, listed.stderr)
+        rows = json.loads(listed.stdout)
+        self.assertEqual([r['name'] for r in rows], ['zone-mapping'])
+        self.assertTrue(rows[0]['scannerAvailable'])
+        detail = self.execute(['plugins', 'info', 'zone-mapping', '--json'])
+        self.assertEqual(detail.returncode, 0, detail.stderr)
+        self.assertEqual(json.loads(detail.stdout), rows[0])
+        for args in (['plugins', 'info', 'service-health'], ['plugins', 'list', 'extra']):
+            rejected = self.execute(args)
+            self.assertNotEqual(rejected.returncode, 0)
+            self.assertEqual(rejected.stdout, '')
+        for args, message in (
+            (['scan', '--plugin', 'service-health'], 'unavailable'),
+            (['scan', '--plugin', 'zone-mapping', '--stages=-plugin'], 'conflicts'),
+            (['zone-mapping', '--stages=graph'], 'plugin-only'),
+            (['zone-mapping', '--stage-param', 'plugin.target-regions=westus'], 'does not use'),
+        ):
+            rejected = self.execute(args)
+            self.assertNotEqual(rejected.returncode, 0)
+            self.assertIn(message, rejected.stderr)
+            self.assertEqual(rejected.stdout, '')
+        helped = self.execute(['zone-mapping', '--help'])
+        self.assertEqual(helped.returncode, 0, helped.stderr)
+        self.assertIn('--management-group-id', helped.stdout)
+
     def test_preflight_rejections_preserve_reports(self):
         malformed = self.directory / 'malformed.yml'
         malformed.write_text('assessment: [unterminated\n')
@@ -175,7 +215,7 @@ class BuiltCLITests(unittest.TestCase):
             ('malformed-boolean', ['scan', '--json=perhaps'], 'invalid argument'),
             ('unknown-stage', ['scan', '--stages', 'nonexistent'], 'unknown stage name'),
             ('mandatory-graph', ['scan', '--stages=-graph'], 'graph stage is mandatory'),
-            ('deferred-plugin', ['scan', '--stages', 'plugin'], 'plugin stage is not available'),
+            ('deferred-plugin', ['scan', '--stages', 'plugin'], 'plugin stage requires at least one --plugin selection'),
             ('malformed-stage-param', ['scan', '--stage-param', 'broken'], 'stage param must be in the form'),
             ('unknown-stage-param', ['scan', '--stage-param', 'nonexistent.key=value'], 'unknown stage:'),
             ('unknown-option', ['scan', '--stage-param', 'plugin.unknown=value'], 'unknown option'),
@@ -183,7 +223,7 @@ class BuiltCLITests(unittest.TestCase):
             ('missing-filter', ['scan', '--filters', str(self.directory / 'missing.yml')], 'read filter file'),
             ('malformed-filter', ['scan', '--filters', str(malformed)], 'parse filter YAML'),
             ('invalid-filter-scope', ['scan', '--filters', str(invalid_scope)], 'validate filter file'),
-            ('valid-filter-deferred-stage', ['scan', '--filters', str(valid), '--stages', 'plugin'], 'plugin stage is not available'),
+            ('valid-filter-deferred-stage', ['scan', '--filters', str(valid), '--stages', 'plugin'], 'plugin stage requires at least one --plugin selection'),
         ]
         base = self.directory / 'existing report'
         for suffix in ('.json', '.xlsx', '.sarif', '_Recommendations.csv'):

@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"fmt"
+	"strings"
 	"time"
 
 	"github.com/DeBoX85/Cloud-Assess/internal/app"
@@ -12,6 +13,7 @@ import (
 	"github.com/DeBoX85/Cloud-Assess/internal/config"
 	"github.com/DeBoX85/Cloud-Assess/internal/gate"
 	"github.com/DeBoX85/Cloud-Assess/internal/orchestration"
+	"github.com/DeBoX85/Cloud-Assess/internal/plugins"
 	"github.com/DeBoX85/Cloud-Assess/internal/rules"
 	"github.com/DeBoX85/Cloud-Assess/internal/scanners"
 	"github.com/DeBoX85/Cloud-Assess/internal/stages"
@@ -23,6 +25,8 @@ import (
 type exitCodeContextKey struct{}
 
 type scanFlags struct {
+	internalPlugins       []string
+	pluginOnly            bool
 	scannerKeys           []string
 	yamlRecommendations   []assessment.RecommendationDefinition
 	assessmentTimeout     time.Duration
@@ -59,6 +63,8 @@ func newRootCommand(executor scanExecutor) *cobra.Command {
 	root.SetContext(ctx)
 	root.AddCommand(newScanCommand(executor, &exitCode))
 	root.AddCommand(newRulesCommand())
+	root.AddCommand(newZoneCommand(executor, &exitCode))
+	root.AddCommand(newPluginsCommand())
 	root.AddCommand(&cobra.Command{
 		Use: "branding", Short: "Print the immutable build branding profile", Args: cobra.NoArgs,
 		RunE: func(command *cobra.Command, _ []string) error {
@@ -86,26 +92,8 @@ func newScanCommand(executor scanExecutor, exitCode *int) *cobra.Command {
 		},
 	}
 
-	command.PersistentFlags().StringSliceVar(&flags.managementGroups, "management-group-id", nil, "Azure Management Group ID")
-	command.PersistentFlags().StringSliceVarP(&flags.subscriptions, "subscription-id", "s", nil, "Azure Subscription ID")
-	command.PersistentFlags().StringSliceVarP(&flags.resourceGroups, "resource-group", "g", nil, "Azure Resource Group (use with one --subscription-id)")
-	command.PersistentFlags().StringSliceVar(&flags.stageNames, "stages", nil, "Control assessment stages (advisor, defender, defender-recommendations, arc, policy, cost, diagnostics)")
-	command.PersistentFlags().StringArrayVar(&flags.stageParams, "stage-param", nil, "Stage option in the form stage.key=value (repeatable)")
-	command.PersistentFlags().BoolVar(&flags.xlsx, "xlsx", true, "Create Excel report")
-	command.PersistentFlags().BoolVar(&flags.json, "json", false, "Create canonical JSON report")
-	command.PersistentFlags().BoolVar(&flags.csv, "csv", false, "Create CSV report files")
-	command.PersistentFlags().BoolVar(&flags.stdout, "stdout", false, "Write canonical JSON to stdout")
-	command.PersistentFlags().BoolVar(&flags.sarif, "sarif", false, "Create SARIF 2.1.0 report")
-	command.PersistentFlags().StringVarP(&flags.outputName, "output-name", "o", "", "Output base filename without extension")
-	command.PersistentFlags().BoolVar(
-		&flags.redactSubscriptionIDs,
-		"redact-subscription-ids",
-		true,
-		"Redact subscription IDs in XLSX, CSV, JSON and stdout output; SARIF retains stable resource identities",
-	)
-	command.PersistentFlags().StringVarP(&flags.filtersFile, "filters", "e", "", "Assessment filters file (YAML)")
-	command.PersistentFlags().DurationVar(&flags.assessmentTimeout, "assessment-timeout", 0, "Total assessment deadline (e.g. 30m); 0 adds no deadline; report rendering is excluded")
-	command.PersistentFlags().StringVar(&flags.failOn, "fail-on", "", "Return exit code 2 when findings meet or exceed this impact (High, Medium, Low)")
+	bindScanFlags(command, &flags)
+	command.PersistentFlags().StringSliceVar(&flags.internalPlugins, "plugin", nil, "Select implemented internal table plugins (zone-mapping)")
 	for _, key := range scanners.Keys() {
 		services := scanners.ByKey(key)
 		if len(services) == 0 {
@@ -127,8 +115,91 @@ func newScanCommand(executor scanExecutor, exitCode *int) *cobra.Command {
 	return command
 }
 
+func bindScanFlags(command *cobra.Command, flags *scanFlags) {
+	command.PersistentFlags().StringSliceVar(&flags.managementGroups, "management-group-id", nil, "Azure Management Group ID")
+	command.PersistentFlags().StringSliceVarP(&flags.subscriptions, "subscription-id", "s", nil, "Azure Subscription ID")
+	command.PersistentFlags().StringSliceVarP(&flags.resourceGroups, "resource-group", "g", nil, "Azure Resource Group (use with one --subscription-id)")
+	command.PersistentFlags().StringSliceVar(&flags.stageNames, "stages", nil, "Control assessment stages (advisor, defender, defender-recommendations, arc, policy, cost, diagnostics)")
+	command.PersistentFlags().StringArrayVar(&flags.stageParams, "stage-param", nil, "Stage option in the form stage.key=value (repeatable)")
+	command.PersistentFlags().BoolVar(&flags.xlsx, "xlsx", true, "Create Excel report")
+	command.PersistentFlags().BoolVar(&flags.json, "json", false, "Create canonical JSON report")
+	command.PersistentFlags().BoolVar(&flags.csv, "csv", false, "Create CSV report files")
+	command.PersistentFlags().BoolVar(&flags.stdout, "stdout", false, "Write canonical JSON to stdout")
+	command.PersistentFlags().BoolVar(&flags.sarif, "sarif", false, "Create SARIF 2.1.0 report")
+	command.PersistentFlags().StringVarP(&flags.outputName, "output-name", "o", "", "Output base filename without extension")
+	command.PersistentFlags().BoolVar(
+		&flags.redactSubscriptionIDs,
+		"redact-subscription-ids",
+		true,
+		"Redact subscription IDs in XLSX, CSV, JSON and stdout output; SARIF retains stable resource identities",
+	)
+	command.PersistentFlags().StringVarP(&flags.filtersFile, "filters", "e", "", "Assessment filters file (YAML)")
+	command.PersistentFlags().DurationVar(&flags.assessmentTimeout, "assessment-timeout", 0, "Total assessment deadline (e.g. 30m); 0 adds no deadline; report rendering is excluded")
+	command.PersistentFlags().StringVar(&flags.failOn, "fail-on", "", "Return exit code 2 when findings meet or exceed this impact (High, Medium, Low)")
+}
+
+func newZoneCommand(executor scanExecutor, exitCode *int) *cobra.Command {
+	flags := scanFlags{pluginOnly: true, internalPlugins: []string{plugins.ZoneMapping}}
+	command := &cobra.Command{Use: "zone-mapping", Short: "Report logical-to-physical availability zone mappings", Args: cobra.NoArgs, RunE: func(command *cobra.Command, _ []string) error {
+		code, err := executor(command.Context(), flags)
+		*exitCode = code
+		return err
+	}}
+	bindScanFlags(command, &flags)
+	return command
+}
+
+func configureStages(flags scanFlags) (*stages.Config, error) {
+	names, err := plugins.ValidateNames(flags.internalPlugins)
+	if err != nil {
+		return nil, err
+	}
+	cfg := stages.NewDefault()
+	if flags.pluginOnly {
+		cfg = stages.NewPluginOnly()
+	}
+	if err := cfg.Apply(flags.stageNames); err != nil {
+		return nil, err
+	}
+	if err := cfg.ApplyParams(flags.stageParams); err != nil {
+		return nil, fmt.Errorf("apply stage parameters: %w", err)
+	}
+	if len(names) > 0 {
+		for _, value := range flags.stageNames {
+			for _, token := range strings.Split(value, ",") {
+				if strings.ToLower(strings.TrimSpace(token)) == "-plugin" {
+					return nil, fmt.Errorf("selected plugin conflicts with disabled plugin stage")
+				}
+			}
+		}
+		_ = cfg.Set(stages.Plugin, true)
+	}
+	if cfg.IsEnabled(stages.Plugin) && len(names) == 0 {
+		return nil, fmt.Errorf("plugin stage requires at least one --plugin selection")
+	}
+	if len(names) > 0 && cfg.Options(stages.Plugin)["target-regions"] != nil && cfg.Options(stages.Plugin)["target-regions"] != "" {
+		return nil, fmt.Errorf("zone mapping does not use plugin.target-regions")
+	}
+	if flags.pluginOnly {
+		err = cfg.ValidatePluginOnly()
+	} else {
+		err = cfg.Validate()
+	}
+	return cfg, err
+}
+
+func discoverYAMLPlugins() ([]rules.YAMLPlugin, error) {
+	home, _ := os.UserHomeDir()
+	directories := []string{"plugins"}
+	if home != "" {
+		directories = append([]string{filepath.Join(home, "."+branding.Default().CLIName, "plugins")}, directories...)
+	}
+	return rules.DiscoverYAMLPlugins(directories)
+}
+
 func assessmentRequest(flags scanFlags, filters *config.Filters, stageConfig *stages.Config) orchestration.Request {
 	return orchestration.Request{
+		InternalPlugins: append([]string(nil), flags.internalPlugins...), PluginOnly: flags.pluginOnly,
 		ManagementGroups:    flags.managementGroups,
 		Subscriptions:       flags.subscriptions,
 		ResourceGroups:      flags.resourceGroups,
@@ -147,18 +218,9 @@ func executeScan(ctx context.Context, flags scanFlags) (int, error) {
 	if err != nil {
 		return app.ExitExecutionFail, err
 	}
-	stageConfig := stages.NewDefault()
-	if err := stageConfig.Apply(flags.stageNames); err != nil {
+	stageConfig, err := configureStages(flags)
+	if err != nil {
 		return app.ExitExecutionFail, err
-	}
-	if err := stageConfig.ApplyParams(flags.stageParams); err != nil {
-		return app.ExitExecutionFail, fmt.Errorf("apply stage parameters: %w", err)
-	}
-	if err := stageConfig.Validate(); err != nil {
-		return app.ExitExecutionFail, err
-	}
-	if stageConfig.IsEnabled(stages.Plugin) {
-		return app.ExitExecutionFail, fmt.Errorf("plugin stage is not available in the current core-v1 build")
 	}
 	if flags.failOn != "" {
 		if _, err := gate.Parse(flags.failOn); err != nil {
@@ -166,16 +228,13 @@ func executeScan(ctx context.Context, flags scanFlags) (int, error) {
 		}
 	}
 
-	home, _ := os.UserHomeDir()
-	directories := []string{"plugins"}
-	if home != "" {
-		directories = append([]string{filepath.Join(home, "."+branding.Default().CLIName, "plugins")}, directories...)
+	if !flags.pluginOnly {
+		yamlPlugins, err := discoverYAMLPlugins()
+		if err != nil {
+			return app.ExitExecutionFail, fmt.Errorf("YAML plugin preflight: %w", err)
+		}
+		flags.yamlRecommendations = rules.PluginDefinitions(yamlPlugins)
 	}
-	plugins, err := rules.DiscoverYAMLPlugins(directories)
-	if err != nil {
-		return app.ExitExecutionFail, fmt.Errorf("YAML plugin preflight: %w", err)
-	}
-	flags.yamlRecommendations = rules.PluginDefinitions(plugins)
 	credential, err := azure.NewCredential()
 	if err != nil {
 		return app.ExitExecutionFail, err

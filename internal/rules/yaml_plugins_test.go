@@ -53,7 +53,7 @@ func TestYAMLPluginLiteralSourceMapping(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	expected := []YAMLPlugin{{Name: "tenant-checks", Version: "1.0.0", Description: "Operator query library", Author: "Test Engineer", License: "MIT", Definitions: []assessment.RecommendationDefinition{{
+	expected := []YAMLPlugin{{SourceFile: filepath.Join(root, "plugin.yml"), Name: "tenant-checks", Version: "1.0.0", Description: "Operator query library", Author: "Test Engineer", License: "MIT", Definitions: []assessment.RecommendationDefinition{{
 		ID: "sample-id", Recommendation: "Enable the control", Category: "Security", Impact: "High", ResourceType: "Microsoft.Storage/storageAccounts", State: "disabled", LongDescription: "Details", PotentialBenefits: "Protection", PGVerified: true, AutomationAvailable: "false", Tags: []string{"test"}, LearnMore: []assessment.LearnMoreLink{{Name: "Guide", URL: "https://example.test/guide"}}, Query: "resources | where false // under-development\n", Source: "tenant-checks", ValidationMechanism: ValidationARG,
 	}}}}
 	if !reflect.DeepEqual(plugins, expected) {
