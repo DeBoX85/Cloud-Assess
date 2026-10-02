@@ -30,6 +30,7 @@ const (
 
 // YAMLPlugin is local configuration, not an executable internal table plugin.
 type YAMLPlugin struct {
+	SourceFile  string
 	Name        string
 	Version     string
 	Description string
@@ -99,6 +100,7 @@ func DiscoverYAMLPlugins(directories []string) ([]YAMLPlugin, error) {
 				return fmt.Errorf("plugin %q: %w", relative, err)
 			}
 			if !seen[plugin.Name] {
+				plugin.SourceFile = filepath.Join(directory, relative)
 				seen[plugin.Name] = true
 				plugins = append(plugins, plugin)
 			}
