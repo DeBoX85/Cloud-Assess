@@ -245,3 +245,9 @@ Zone execution/CLI/list-info VERIFIED OFFLINE through PR85, merge `2f88e9d5b8dca
 Current advance: service-health library VERIFIED OFFLINE through PR86, merge `a6b790ce143bc70fac8f4aa3199225ee92b0660d`. Execution integration is active under SERVICE_HEALTH on that baseline. Public service-health selection remains unaccepted until its separate exact native request/report/CLI gates. SQL EOL follows; live tasks remain deferred.
 
 Current interruption checkpoint: execution candidate is implemented, with eighteen authenticated synthetic raw/masked report cases and focused QA. Projection review, restored full race/vet and compiling metadata negative control passed; clean real CLI/docs, remote code checkpoint and exact native acceptance precede SQL EOL. Accepted core remains PR86; user laptop/Azure input is not needed for these steps.
+
+## Current checkpoint: service-health accepted, SQL EOL active
+
+PR87 accepted offline on merge `c892227a440f431363acd626add999e32c152c0e`; exact run/head/jobs and verification are indexed in SERVICE_HEALTH/SESSION_HANDOVER. Next [SQL_EOL.md](SQL_EOL.md): bounded source-query library and full 32-column source capture before separate execution integration. No laptop/Azure input is required; query-engine arithmetic/clock and live estimates remain explicitly unvalidated. Gate004/release/full parity and prior deferrals remain open.
+
+SQL EOL library candidate checkpoint (2026-10-03): source query/all-column captures retained, real bounded scanner implemented, focused race/authenticated failure/size/ownership tests and compiling subscription-filter control pass. Empty-fragment constructor defect reproduced/corrected in SQL/service; final full/built/native gates precede acceptance. Public SQL command still unavailable; separate integration follows, with all laptop-dependent validation deferred.

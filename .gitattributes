@@ -4,3 +4,5 @@ docs/dependencies/NOTICES.md -text -whitespace
 cmd/cloud-assess/testdata/rules-reference.json -text
 internal/plugins/zone/testdata/source-rows.json -text
 internal/plugins/servicehealth/testdata/source-output.json -text
+internal/plugins/sqleol/testdata/source-*.json -text
+internal/plugins/sqleol/query.kql -text

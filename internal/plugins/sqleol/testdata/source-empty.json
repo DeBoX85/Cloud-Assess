@@ -1,0 +1,149 @@
+[
+  {
+    "metadata": {
+      "Name": "sql-eol",
+      "Version": "0.6.0-beta",
+      "Description": "Analyzes SQL Server End-of-Life and Extended Security Update status with host-level ESU billing (once per OSE, per version, at the highest edition), full cost breakdown (VM compute, SQL license, ESU), migration recommendations with conservative GP-only SQL MI cost estimates, and unified SQL MI migration savings and verdict",
+      "Author": "Azure Quick Review Team",
+      "License": "MIT",
+      "Type": 1,
+      "CommandPath": "",
+      "ColumnMetadata": [
+        {
+          "name": "Subscription"
+        },
+        {
+          "name": "Resource Group"
+        },
+        {
+          "name": "Name"
+        },
+        {
+          "name": "Location"
+        },
+        {
+          "name": "Arc Server Name"
+        },
+        {
+          "name": "Cloud Type"
+        },
+        {
+          "name": "Service Type"
+        },
+        {
+          "name": "SQL Version"
+        },
+        {
+          "name": "Edition"
+        },
+        {
+          "name": "EOL Status"
+        },
+        {
+          "name": "ESU Applicable"
+        },
+        {
+          "name": "ESU Enabled"
+        },
+        {
+          "name": "ESU Start Date"
+        },
+        {
+          "name": "ESU End Date"
+        },
+        {
+          "name": "Migration Target Tier"
+        },
+        {
+          "name": "Migration Recommendation"
+        },
+        {
+          "name": "vCores"
+        },
+        {
+          "name": "Billable Cores"
+        },
+        {
+          "name": "ESU Monthly Cost/Core"
+        },
+        {
+          "name": "SQL License Type"
+        },
+        {
+          "name": "SQL License Cost/Core/Month"
+        },
+        {
+          "name": "SQL License Monthly Cost"
+        },
+        {
+          "name": "VM Cost/Core/Month"
+        },
+        {
+          "name": "Est VM Compute Monthly Cost"
+        },
+        {
+          "name": "Est ESU Monthly Cost"
+        },
+        {
+          "name": "ESU Cost Basis"
+        },
+        {
+          "name": "Patch Ops Monthly Cost"
+        },
+        {
+          "name": "Current Monthly Cost"
+        },
+        {
+          "name": "Consolidation Ratio"
+        },
+        {
+          "name": "Est SQL MI Monthly Cost"
+        },
+        {
+          "name": "Est SQL MI Monthly Saving"
+        },
+        {
+          "name": "SQL MI Migration Verdict"
+        }
+      ]
+    },
+    "sheet_name": "SQL EOL",
+    "description": "SQL Server End-of-Life and Extended Security Update status with cost analysis",
+    "table": [
+      [
+        "Subscription",
+        "Resource Group",
+        "Name",
+        "Location",
+        "Arc Server Name",
+        "Cloud Type",
+        "Service Type",
+        "SQL Version",
+        "Edition",
+        "EOL Status",
+        "ESU Applicable",
+        "ESU Enabled",
+        "ESU Start Date",
+        "ESU End Date",
+        "Migration Target Tier",
+        "Migration Recommendation",
+        "vCores",
+        "Billable Cores",
+        "ESU Monthly Cost/Core",
+        "SQL License Type",
+        "SQL License Cost/Core/Month",
+        "SQL License Monthly Cost",
+        "VM Cost/Core/Month",
+        "Est VM Compute Monthly Cost",
+        "Est ESU Monthly Cost",
+        "ESU Cost Basis",
+        "Patch Ops Monthly Cost",
+        "Current Monthly Cost",
+        "Consolidation Ratio",
+        "Est SQL MI Monthly Cost",
+        "Est SQL MI Monthly Saving",
+        "SQL MI Migration Verdict"
+      ]
+    ]
+  }
+]

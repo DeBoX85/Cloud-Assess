@@ -276,7 +276,7 @@ func TestAuthenticatedReadOnlyPOSTSovereignAudienceAndClosure(t *testing.T) {
 			}
 		})
 	}
-	for _, endpoint := range []string{"http://evil.invalid", "https://user:secret@evil.invalid", "https://example.test/path", "https://example.test?next=x", "https://example.test#fragment", "https://example.test?", "https://example.test/%2f"} {
+	for _, endpoint := range []string{"http://evil.invalid", "https://user:secret@evil.invalid", "https://example.test/path", "https://example.test?next=x", "https://example.test#fragment", "https://example.test#", "https://example.test?", "https://example.test/%2f"} {
 		if _, err := NewWithHTTPClient(endpoint, azure.NewHTTPClient(&credential{}, nil)); err == nil {
 			t.Fatal("unsafe origin accepted")
 		}
