@@ -172,24 +172,53 @@ class BuiltCLITests(unittest.TestCase):
         self.assertNotEqual(normal.returncode, 0)
         self.assertIn('YAML plugin preflight', normal.stderr)
 
+    def test_service_health_registry_preflight_and_unused_discovery(self):
+        detail = self.execute(['plugins', 'info', 'service-health', '--json'])
+        self.assertEqual(detail.returncode, 0, detail.stderr)
+        metadata = json.loads(detail.stdout)
+        self.assertEqual(metadata['name'], 'service-health')
+        self.assertEqual(metadata['version'], '0.1.0-beta')
+        self.assertEqual(metadata['author'], 'Azure Quick Review Team')
+        self.assertEqual(metadata['license'], 'MIT')
+        self.assertTrue(metadata['scannerAvailable'])
+        helped = self.execute(['service-health', '--help'])
+        self.assertEqual(helped.returncode, 0, helped.stderr)
+        self.assertIn('--management-group-id', helped.stdout)
+        for args, message in ((['service-health', '--stages=graph'], 'plugin-only'),
+                              (['service-health', '--stage-param', 'plugin.target-regions=westus'], 'do not use'),
+                              (['scan', '--plugin', 'service-health,zone-mapping', '--stages=-plugin'], 'conflicts')):
+            rejected = self.execute(args)
+            self.assertNotEqual(rejected.returncode, 0)
+            self.assertIn(message, rejected.stderr)
+            self.assertEqual(rejected.stdout, '')
+        directory = self.directory / 'plugins'
+        directory.mkdir()
+        (directory / 'broken.yml').write_text('broken: [')
+        self.env['AZURE_TOKEN_CREDENTIALS'] = 'invalid-synthetic-selection'
+        only = self.execute(['service-health'])
+        self.assertIn('invalid AZURE_TOKEN_CREDENTIALS', only.stderr)
+        self.assertNotIn('YAML plugin preflight', only.stderr)
+        mixed = self.execute(['scan', '--plugin', 'service-health'])
+        self.assertIn('YAML plugin preflight', mixed.stderr)
+
     def test_plugin_registry_is_offline_and_honest(self):
         listed = self.execute(['plugins', 'list', '--json'])
         self.assertEqual(listed.returncode, 0, listed.stderr)
         rows = json.loads(listed.stdout)
-        self.assertEqual([r['name'] for r in rows], ['zone-mapping'])
-        self.assertTrue(rows[0]['scannerAvailable'])
+        self.assertEqual([r['name'] for r in rows], ['service-health', 'zone-mapping'])
+        self.assertTrue(all(r['scannerAvailable'] for r in rows))
         detail = self.execute(['plugins', 'info', 'zone-mapping', '--json'])
         self.assertEqual(detail.returncode, 0, detail.stderr)
-        self.assertEqual(json.loads(detail.stdout), rows[0])
-        for args in (['plugins', 'info', 'service-health'], ['plugins', 'list', 'extra']):
+        self.assertEqual(json.loads(detail.stdout), rows[1])
+        for args in (['plugins', 'info', 'sql-eol'], ['plugins', 'list', 'extra']):
             rejected = self.execute(args)
             self.assertNotEqual(rejected.returncode, 0)
             self.assertEqual(rejected.stdout, '')
         for args, message in (
-            (['scan', '--plugin', 'service-health'], 'unavailable'),
+            (['scan', '--plugin', 'sql-eol'], 'unavailable'),
             (['scan', '--plugin', 'zone-mapping', '--stages=-plugin'], 'conflicts'),
             (['zone-mapping', '--stages=graph'], 'plugin-only'),
-            (['zone-mapping', '--stage-param', 'plugin.target-regions=westus'], 'does not use'),
+            (['zone-mapping', '--stage-param', 'plugin.target-regions=westus'], 'do not use'),
         ):
             rejected = self.execute(args)
             self.assertNotEqual(rejected.returncode, 0)

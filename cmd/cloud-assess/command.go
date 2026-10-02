@@ -14,6 +14,7 @@ import (
 	"github.com/DeBoX85/Cloud-Assess/internal/gate"
 	"github.com/DeBoX85/Cloud-Assess/internal/orchestration"
 	"github.com/DeBoX85/Cloud-Assess/internal/plugins"
+	"github.com/DeBoX85/Cloud-Assess/internal/plugins/servicehealth"
 	"github.com/DeBoX85/Cloud-Assess/internal/rules"
 	"github.com/DeBoX85/Cloud-Assess/internal/scanners"
 	"github.com/DeBoX85/Cloud-Assess/internal/stages"
@@ -64,6 +65,7 @@ func newRootCommand(executor scanExecutor) *cobra.Command {
 	root.AddCommand(newScanCommand(executor, &exitCode))
 	root.AddCommand(newRulesCommand())
 	root.AddCommand(newZoneCommand(executor, &exitCode))
+	root.AddCommand(newInternalPluginCommand(servicehealth.Name, servicehealth.Metadata().Description, executor, &exitCode))
 	root.AddCommand(newPluginsCommand())
 	root.AddCommand(&cobra.Command{
 		Use: "branding", Short: "Print the immutable build branding profile", Args: cobra.NoArgs,
@@ -93,7 +95,7 @@ func newScanCommand(executor scanExecutor, exitCode *int) *cobra.Command {
 	}
 
 	bindScanFlags(command, &flags)
-	command.PersistentFlags().StringSliceVar(&flags.internalPlugins, "plugin", nil, "Select implemented internal table plugins (zone-mapping)")
+	command.PersistentFlags().StringSliceVar(&flags.internalPlugins, "plugin", nil, "Select implemented internal table plugins (service-health, zone-mapping)")
 	for _, key := range scanners.Keys() {
 		services := scanners.ByKey(key)
 		if len(services) == 0 {
@@ -139,8 +141,12 @@ func bindScanFlags(command *cobra.Command, flags *scanFlags) {
 }
 
 func newZoneCommand(executor scanExecutor, exitCode *int) *cobra.Command {
-	flags := scanFlags{pluginOnly: true, internalPlugins: []string{plugins.ZoneMapping}}
-	command := &cobra.Command{Use: "zone-mapping", Short: "Report logical-to-physical availability zone mappings", Args: cobra.NoArgs, RunE: func(command *cobra.Command, _ []string) error {
+	return newInternalPluginCommand(plugins.ZoneMapping, "Report logical-to-physical availability zone mappings", executor, exitCode)
+}
+
+func newInternalPluginCommand(name, description string, executor scanExecutor, exitCode *int) *cobra.Command {
+	flags := scanFlags{pluginOnly: true, internalPlugins: []string{name}}
+	command := &cobra.Command{Use: name, Short: description, Args: cobra.NoArgs, RunE: func(command *cobra.Command, _ []string) error {
 		code, err := executor(command.Context(), flags)
 		*exitCode = code
 		return err
@@ -178,7 +184,7 @@ func configureStages(flags scanFlags) (*stages.Config, error) {
 		return nil, fmt.Errorf("plugin stage requires at least one --plugin selection")
 	}
 	if len(names) > 0 && cfg.Options(stages.Plugin)["target-regions"] != nil && cfg.Options(stages.Plugin)["target-regions"] != "" {
-		return nil, fmt.Errorf("zone mapping does not use plugin.target-regions")
+		return nil, fmt.Errorf("selected internal plugins do not use plugin.target-regions")
 	}
 	if flags.pluginOnly {
 		err = cfg.ValidatePluginOnly()

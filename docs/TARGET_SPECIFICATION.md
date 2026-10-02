@@ -73,7 +73,7 @@ Core v1 includes:
 - post-report severity gate
 - plugin architecture
 
-Full internal-plugin parity remains open. Zone mapping execution, the standalone `zone` command, named mixed selection and honest `plugins list/info` are verified offline through PR84/85; see [ZONE_EXECUTION.md](ZONE_EXECUTION.md). Unnamed or unavailable plugin selections reject before Azure authentication. Other internal adapters and live extension equivalence remain separate acceptance boundaries.
+Full internal-plugin parity remains open. Zone mapping execution, the standalone `zone-mapping` command, named mixed selection and honest `plugins list/info` are verified offline through PR84/85; see [ZONE_EXECUTION.md](ZONE_EXECUTION.md). Unnamed or unavailable plugin selections reject before Azure authentication. Other internal adapters and live extension equivalence remain separate acceptance boundaries.
 
 ## Output strategy
 
@@ -336,4 +336,4 @@ Bounded [YAML Graph plugin execution](YAML_GRAPH_PLUGINS.md) now joins ordinary 
 
 [Zone mapping](ZONE_MAPPING.md) preserves source rows while following documented safe continuations and returning explicit partial-failure information. [Execution/CLI integration](ZONE_EXECUTION.md) is accepted offline with canonical table/schema/health/privacy/report checks. Live zone and full internal-plugin parity remain open.
 
-[Canonical plugin tables](PLUGIN_TABLES.md) provide library/report infrastructure with additive schema 1.1 for explicitly constructed plugin-bearing assessments; ordinary assessments retain schema 1.0. Source-visible metadata/columns/rows remain reconstructable, with explicit owned identities and honest health. Zone plugin-stage/CLI wiring is accepted through PR84/85; no full internal-plugin or live parity is claimed. [Service-health](SERVICE_HEALTH.md) is the next source-grounded adapter, with its temporal-query limitation documented explicitly.
+[Canonical plugin tables](PLUGIN_TABLES.md) provide library/report infrastructure with additive schema 1.1 for explicitly constructed plugin-bearing assessments; ordinary assessments retain schema 1.0. Source-visible metadata/columns/rows remain reconstructable, with explicit owned identities and honest health. Zone plugin-stage/CLI wiring is accepted through PR84/85; no full internal-plugin or live parity is claimed. [Service-health](SERVICE_HEALTH.md) has an accepted source-grounded library; standalone/mixed execution is implemented in the current candidate, pending separate native acceptance. Its temporal-query limitation is documented explicitly.
