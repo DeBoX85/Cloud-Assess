@@ -109,7 +109,6 @@ Outstanding work includes:
 - external/YAML plugin execution in production orchestration
 - internal plugin migration/parity
 - scanner-specific CLI commands
-- `rules` CLI command
 - `plugins list/info` CLI surface
 - final release-specific dependency/license review and packaged notices
 - packaging/release artifacts
@@ -324,3 +323,5 @@ The [ARG completeness checkpoint](ARG_COMPLETENESS.md) implements two documented
 The [branding design review](BRANDING_REVIEW.md) supplies the implementation batch and acceptance checks. The first two steps now have a [validated profile and native development builder](BRANDING_PROFILES.md), with real default/custom executable checks. Five fields have presentation consumers; four remain unused. The subsequent [paired report checks](BRANDING_REPORT_QA.md) implement custom report/data acceptance using production renderers and synthetic input. [Profile-aware development candidate packages](BRANDED_PACKAGES.md) passed final native acceptance in PR #75 for the bounded immutable five-field development workflow. Release distribution and approval remain separate.
 
 The [source-feature characterization](FEATURE_PARITY_CHARACTERIZATION.md) now maps separate YAML Graph versus internal table execution, missing commands and six plugin dependencies. Next implement offline rules inspection. Production plugin/command parity and live validation remain open; source failure swallowing and unforwarded region history flags require explicit target decisions and regressions, not silent copying.
+
+[Offline rules inspection](RULES_INSPECTION.md) now implements the source-selected catalog/Diagnostics command with an independent 380-row reference executable capture, Markdown safety, invalid-argument/writer-error tests and actual installed CLI tripwires. Next implement scanner-specific subcommands; external/internal plugin execution and release/live evidence remain open. Exact-head native acceptance remains mandatory before merge.

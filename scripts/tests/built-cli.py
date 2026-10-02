@@ -89,6 +89,27 @@ class BuiltCLITests(unittest.TestCase):
         self.assertIn('SARIF retains stable resource identities', help_text)
         self.assertEqual(list(self.directory.iterdir()), [self.executable], 'help/version created files')
 
+    def test_rules_inspection_is_offline_and_matches_pinned_reference(self):
+        before = self.snapshot()
+        expected = json.loads((ROOT / 'cmd/cloud-assess/testdata/rules-reference.json').read_bytes())
+        self.assertEqual(len(expected), 380)
+        for flag in ('--json', '-j'):
+            result = self.execute(['rules', flag])
+            self.assertEqual(result.returncode, 0, result.stderr)
+            self.assertEqual(result.stderr, '')
+            self.assertEqual(json.loads(result.stdout), expected)
+        result = self.execute(['rules'])
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(result.stderr, '')
+        self.assertIn('Total Supported Azure Resource Types: 107', result.stdout)
+        self.assertEqual(sum(line.startswith('| ') for line in result.stdout.splitlines()), 382)
+        for args in (['rules', 'extra'], ['rules', '--subscription-id', 'unused'], ['rules', '--json=invalid']):
+            result = self.execute(args)
+            self.assertEqual(result.returncode, 1)
+            self.assertNotEqual(result.stderr, '')
+            self.assertEqual(result.stdout, '')
+        self.assertEqual(self.snapshot(), before, 'rules inspection created or changed files')
+
     def test_preflight_rejections_preserve_reports(self):
         malformed = self.directory / 'malformed.yml'
         malformed.write_text('assessment: [unterminated\n')

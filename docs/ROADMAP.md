@@ -1,6 +1,6 @@
 # Cloud Assess Roadmap
 
-Status: working execution roadmap, reviewed 2026-10-02 (Europe/Oslo); feature characterization starts from merged `bootstrap/core-v1` at `9a022a62444b0940b3f016dc58e850b1599c6fa6`
+Status: working execution roadmap, reviewed 2026-10-02 (Europe/Oslo); offline rules implementation starts from merged `bootstrap/core-v1` at `fd60dd635acb7c3156a264640810a4bd8d92b59d`
 
 Active development branch: `bootstrap/core-v1`
 
@@ -126,7 +126,7 @@ The target specification places external/YAML plugin execution and internal-plug
 | External/YAML plugins | Load and validate definitions; execute them through production orchestration with bounded scope, stage health, and canonical results | Executable plugin fixture, malformed-input/failure tests, report projection, and read-only live test where feasible |
 | Internal plugins | Migrate selected pinned-source plugins only after the common plugin path works | Named plugin parity matrix and source/target evidence for each included plugin |
 | Scanner-specific CLI commands | Reuse generic orchestration without changing established assessment meaning | Help/flag behavior and end-to-end command tests |
-| `rules` CLI | Expose catalog inspection with consistent provenance and neutral naming | CLI tests against the pinned catalog and documented output |
+| `rules` CLI | Implemented offline source-selected embedded/Diagnostics inspection; see [RULES_INSPECTION.md](RULES_INSPECTION.md) | Independent full pinned executable JSON, literal selection fixtures, writer errors and actual installed CLI tripwires; exact-head native acceptance required |
 | `plugins list/info` CLI | Describe available plugins and enablement state honestly | CLI tests for list, lookup, errors, and plugin metadata |
 
 Keep the current early error for explicit plugin-stage requests until a working production plugin path exists. Do not present internal-plugin parity as already achieved.
@@ -205,3 +205,7 @@ Current-branch QA and [profile-aware packages](BRANDED_PACKAGES.md) implement th
 ## Feature characterization checkpoint
 
 [FEATURE_PARITY_CHARACTERIZATION.md](FEATURE_PARITY_CHARACTERIZATION.md) distinguishes automatically discovered YAML Graph recommendations from explicitly selected internal table plugins, maps source command placement/selection and six migration dependencies, and records source failure/flag/containment caveats. This is inspected source behavior, not plugin execution acceptance. Next implement offline `rules` inspection, followed by scanner subcommands, bounded YAML Graph support and the common plugin table/health path. Native branding acceptance is complete for AR-03; older future-work checkpoint statements above are historical. Estimates, Gate 004/release and live deferrals remain unchanged. No Azure/laptop input is needed for the next command slice.
+
+## Offline rules implementation checkpoint
+
+[Rules inspection](RULES_INSPECTION.md) now implements the first AR-04 command slice, with byte-identical JSON for all 380 independently captured pinned reference rows, safe Markdown and actual executable/installed offline checks. Final native acceptance remains required before merge; source build preparation and native build-profile mistakes are logged in FN-032. Next implement scanner-specific scan subcommands through existing orchestration, then bounded YAML Graph support and common plugin table/health execution. Readiness estimates, Gate 004/release and deferred live evidence remain unchanged. No Azure/laptop input needed for the scanner-command slice.
