@@ -1,0 +1,92 @@
+[
+  {
+    "Latest": 150,
+    "Previous": 100,
+    "Change": 50,
+    "Row": [
+      "2026-03-31",
+      "2026-03-31",
+      "Microsoft.Compute/virtualMachines",
+      "150.00",
+      "100.00",
+      "50.00%",
+      "50.00",
+      "kgCO2e"
+    ]
+  },
+  {
+    "Latest": 80,
+    "Previous": 100,
+    "Change": -20,
+    "Row": [
+      "2026-03-31",
+      "2026-03-31",
+      "Microsoft.Compute/virtualMachines",
+      "80.00",
+      "100.00",
+      "-20.00%",
+      "-20.00",
+      "kgCO2e"
+    ]
+  },
+  {
+    "Latest": 75,
+    "Previous": 0,
+    "Change": 0,
+    "Row": [
+      "2026-03-31",
+      "2026-03-31",
+      "Microsoft.Compute/virtualMachines",
+      "75.00",
+      "",
+      "",
+      "",
+      "kgCO2e"
+    ]
+  },
+  {
+    "Latest": 1,
+    "Previous": -2,
+    "Change": -3,
+    "Row": [
+      "2026-03-31",
+      "2026-03-31",
+      "Microsoft.Compute/virtualMachines",
+      "1.00",
+      "",
+      "-150.00%",
+      "-3.00",
+      "kgCO2e"
+    ]
+  },
+  {
+    "Latest": 0,
+    "Previous": 0,
+    "Change": 0,
+    "Row": [
+      "2026-03-31",
+      "2026-03-31",
+      "Microsoft.Compute/virtualMachines",
+      "0.00",
+      "",
+      "",
+      "",
+      "kgCO2e"
+    ]
+  },
+  {
+    "Latest": 1.005,
+    "Previous": 1,
+    "Change": 0.005,
+    "Row": [
+      "2026-03-31",
+      "2026-03-31",
+      "Microsoft.Compute/virtualMachines",
+      "1.00",
+      "1.00",
+      "0.50%",
+      "0.01",
+      "kgCO2e"
+    ]
+  }
+]

@@ -335,3 +335,6 @@ B3a is VERIFIED OFFLINE through PR #80 (merge `0b76ad6b2870432357e5a38c1e8fe73d5
 
 
 Current B4 advance (2026-10-03): service-health accepted through PR87, SQL EOL library through PR88. SQL execution candidate preserves source subscription-only/string projection across standalone/normal/scanner paths and three-plugin dispatch. Restored local race/vet and independent mutation checks passed; clean built/native acceptance precedes B5 carbon, AI governance and region selection migrations. See SQL_EOL and SESSION_HANDOVER for exact current checks and live deferrals.
+
+
+B4 SQL execution accepted offline through PR89 after exact native/postmerge verification. B5 current carbon core includes actual source scanner/calculation captures and pure bounded aggregation; see CARBON_EMISSIONS and SESSION_HANDOVER. Finish its full/built/native gates, then separately implement bounded authenticated request/access/pagination and public execution/report integration. This is not live emissions/API permission validation.
