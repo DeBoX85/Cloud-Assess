@@ -1,6 +1,6 @@
 # Cloud Assess Roadmap
 
-Status: working execution roadmap, reviewed 2026-10-02 (Europe/Oslo). Current implementation baseline: PR81 merge `634aa083981fc327fe5c2cc7b42815793eb197fd`. Start with [SESSION_HANDOVER.md](SESSION_HANDOVER.md); older checkpoint paragraphs below are chronological.
+Status: working execution roadmap, reviewed 2026-10-03 (Europe/Oslo). Current accepted runtime baseline: PR90 merge `ea0aabfca055899e18baa54af24b53df90a57d98`. Start with [SESSION_HANDOVER.md](SESSION_HANDOVER.md); older checkpoint paragraphs below are chronological.
 
 Active development branch: `bootstrap/core-v1`
 
@@ -14,9 +14,9 @@ The [failure notes](FAILURE_NOTES.md) index confirmed mistakes and their prevent
 
 The environment-dependent nested management-group pass is tracked separately as [DV-001](DEFERRED_VALIDATION.md#dv-001-live-nested-management-group-traversal). Deferral keeps other work moving but does not mark that evidence row passed.
 
-## Progress estimate and next checkpoint
+## Historical planning estimates (superseded by dated checkpoints)
 
-These are coarse planning estimates, not measured coverage or quality-gate decisions. The 31 implementation-plan steps have unequal size: steps 1-27 are coded, step 28 has partial live evidence, step 29 has enforced CI and tested candidate ZIP packaging, with release distribution still open, and steps 30-31 remain incomplete or subject to the first-release scope decision. Counting coded steps as 27/31 would therefore exaggerate readiness.
+These retained estimates predate the later accepted scanner/YAML/internal-plugin milestones. They are historical, not a current percentage assessment. No new measured percentage or reliable calendar ETA is established; use the latest checkpoint and handover. They are not measured coverage or quality-gate decisions. The 31 implementation-plan steps have unequal size: steps 1-27 are coded, step 28 has partial live evidence, step 29 has enforced CI and tested candidate ZIP packaging, with release distribution still open, and steps 30-31 remain incomplete or subject to the first-release scope decision. Counting coded steps as 27/31 would therefore exaggerate readiness.
 
 | Outcome | Estimate | Basis and largest remaining limits |
 |---|---:|---|

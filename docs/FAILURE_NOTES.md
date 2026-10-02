@@ -393,3 +393,8 @@ Read-path recurrence continued during source/target/SDK investigation (target ex
 
 
 FN045 recurrence follow-up: a later SDK inspection appended target-only internal/azure/cloud.go in the SDK workdir. That read failed and was excluded; the actual target file was read separately. This confirms the inventory/workdir safeguard was not yet followed consistently, rather than a new product defect. Future reads must keep target/source/SDK calls separate and include only known files for that workdir.
+
+
+## FN-046: Stale current-state wording found during final documentation QA
+
+Date: 2026-10-03 (Europe/Oslo). Final bounded first-paragraph review found ROADMAP still labelled PR81 as the current baseline, while later appended checkpoints correctly recorded PR90. Its original percentage table was also under an unqualified progress heading and could be mistaken for a fresh assessment despite later implemented scanner/plugin features. Corrected the top baseline/date, explicitly labelled retained estimates historical (no invented replacement percentages/ETA), and reconciled IMPLEMENTATION_PLAN's immediate next task/DV-001 deferral. This was documentation drift, not a runtime code change. Structural link/flag checks alone did not detect it; inspect current-tense first summaries separately from chronological evidence before each handover. The correction creates a new final proposal head, requiring both native jobs again; old-head success is not new-head acceptance.
