@@ -1,6 +1,6 @@
 # Service-health migration contract
 
-Status: IN PROGRESS, library accepted through PR86; execution candidate implemented but unaccepted pending final native QA. The accepted branch remains zone-only until integration acceptance. Original library base: PR85 merge `2f88e9d5b8dca309c0f27ccb6ec4ed54787bcebb`. This is B4 and the second real adapter check for B3; do not count the same migration twice.
+Status: VERIFIED OFFLINE through PR86 library and PR87 execution integration. Standalone/mixed selection and honest registry are accepted; live Azure parity remains deferred. Original library base: PR85 merge `2f88e9d5b8dca309c0f27ccb6ec4ed54787bcebb`. This is B4 and the second real adapter check for B3; do not count the same migration twice.
 
 ## Pinned source and meaning
 
@@ -49,3 +49,7 @@ Implemented standalone `service-health`, normal/scanner named selection and sort
 Eighteen actual Cobra/shared-preflight/coordinator/application cases use a real bounded scanner and authenticated synthetic transport across healthy, mixed, dual, partial, empty, malformed, envelope, later-page and cancellation modes. Every raw/masked JSON/CSV/XLSX cell is compared; artifacts precede partial/cancel exits. Dual zone output is injected typed data; PR85 separately tested its real HTTP path. Executor/operation injection does not prove successful production DefaultAzureCredential/factory/live Azure execution. Repeated/concurrent coordinator tests use different scopes/types and returned-value mutation. Actual built CLI adds registry/help/pre-credential/discovery isolation checks to default/custom native packages. Restored full race/vet passed; compiling metadata-equality removal failed the named source_metadata assertion and was restored. Clean built/documentation and exact native acceptance remain required before merge.
 
 Accidental-stop reconciliation read actual working tree/diff, remote core ref, accepted PR85/86 runs and both job results, plus unchanged reference pin. No uncertain remote mutation or lost local integration patch was found; integration stayed unmerged. Rollback remains a protected reviewed revert on current history, not reference/history reset.
+
+## Execution acceptance (2026-10-02)
+
+[PR87](https://github.com/DeBoX85/Cloud-Assess/pull/87) exact head `6c544ea989d0948bb158027ebfc8c110c626b0a2`, tree `8a15549723926129fe151f6fe94515178aba3167`, run `37069137247`, Linux/Windows jobs `111044153941` / `111044153636` passed. Actual logs reviewed: nine real CLI and nineteen default plus nineteen custom package cases per host without acceptance skips; documentation 265 destinations/nine flags/one PowerShell snippet, coverage 79.1%. Mandatory provenance/inventory/format/module/branding/report/PowerShell/race/vet/fuzz/mutation/maintenance/security checks passed. Zero reachable/imported vulnerabilities; existing module-only advisory remains open. Merge `c892227a440f431363acd626add999e32c152c0e` exact tree, ordered parents, human identity, current ref and clean fetched state verified. This closes offline integration, not live installed credential/Azure equivalence. Resume separate SQL EOL migration.

@@ -56,7 +56,7 @@ type BoundedPoster interface {
 // NewWithHTTPClient validates the selected ARM origin before authenticated POSTs.
 func NewWithHTTPClient(endpoint string, client BoundedPoster) (*Scanner, error) {
 	u, err := url.Parse(endpoint)
-	if err != nil || u.Scheme != "https" || u.Host == "" || u.User != nil || u.RawQuery != "" || u.ForceQuery || u.RawPath != "" || u.Opaque != "" || u.Fragment != "" || (u.Path != "" && u.Path != "/") || client == nil {
+	if err != nil || u.Scheme != "https" || u.Host == "" || u.User != nil || u.RawQuery != "" || u.ForceQuery || u.RawPath != "" || u.Opaque != "" || u.Fragment != "" || strings.Contains(endpoint, "#") || (u.Path != "" && u.Path != "/") || client == nil {
 		return nil, fmt.Errorf("invalid service-health ARM endpoint or client")
 	}
 	endpoint = strings.TrimSuffix(endpoint, "/") + "/providers/Microsoft.ResourceGraph/resources?api-version=2024-04-01"
