@@ -299,8 +299,17 @@ func TestAICobraAuthenticatedFactoriesReportsSourceCells(t *testing.T) {
 						f.Assessment.SetResourceScope(cliAIID, mode != "known-exclude")
 						return &discovery.ResourceInventory{Included: []assessment.Resource{{ID: "/subscriptions/" + cliZoneSub + "/resourceGroups/other/providers/Microsoft.Compute/virtualMachines/healthy", SubscriptionID: cliZoneSub, ResourceGroup: "other", Type: "microsoft.compute/virtualmachines", Name: "healthy"}}}, nil
 					}
-					ops.LoadCatalog = func() (*rules.Catalog, error) { return rules.NewCatalog(), nil }
+					ops.LoadCatalog = func() (*rules.Catalog, error) {
+						catalog := rules.NewCatalog()
+						if mode == "mixed" || mode == "all-partial" {
+							catalog.Add(assessment.RecommendationDefinition{ID: "independent-vm-rule", ResourceType: "Microsoft.Compute/virtualMachines", Recommendation: "Independent VM check", Category: "Reliability", Impact: "High", Source: "CUSTOM", Query: "resources"})
+						}
+						return catalog, nil
+					}
 					ops.ExecuteGraph = func(context.Context, []assessment.RecommendationDefinition, map[string]string, *config.AssessmentFilter) ([]assessment.Finding, []arg.RuleWarning, error) {
+						if mode == "mixed" || mode == "all-partial" {
+							return []assessment.Finding{{RecommendationID: "independent-vm-rule", Source: "CUSTOM", Recommendation: "Independent VM check", Category: "Reliability", Impact: "High", ResourceType: "Microsoft.Compute/virtualMachines", ResourceID: "/subscriptions/" + cliZoneSub + "/resourceGroups/other/providers/Microsoft.Compute/virtualMachines/healthy", SubscriptionID: cliZoneSub, SubscriptionName: "Synthetic subscription", ResourceGroup: "other", ResourceName: "healthy"}}, nil, nil
+						}
 						return nil, nil, nil
 					}
 				}
@@ -538,6 +547,11 @@ func TestAICobraAuthenticatedFactoriesReportsSourceCells(t *testing.T) {
 				sarif, err := os.ReadFile(base + ".sarif")
 				if err != nil || strings.Contains(string(sarif), "Request Count") || strings.Contains(string(sarif), "plugin_ai-gov") {
 					t.Fatal("AI table invented SARIF findings")
+				}
+				if mode == "mixed" || mode == "all-partial" {
+					if len(report.Findings) != 1 || !strings.Contains(string(sarif), "independent-vm-rule") || !strings.Contains(string(sarif), "/subscriptions/"+cliZoneSub+"/resourceGroups/other/providers/Microsoft.Compute/virtualMachines/healthy") {
+						t.Fatal("AI partial/masked report lost independent finding or SARIF stable identity")
+					}
 				}
 			})
 		}

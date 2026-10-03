@@ -265,21 +265,67 @@ class BuiltCLITests(unittest.TestCase):
         self.assertNotEqual(mixed.returncode, 0)
         self.assertIn('YAML plugin preflight', mixed.stderr)
 
+    def test_ai_registry_help_and_cloud_preflight_before_credentials(self):
+        detail = self.execute(['plugins', 'info', 'ai-gov', '--json'])
+        self.assertEqual(detail.returncode, 0, detail.stderr)
+        row = json.loads(detail.stdout)
+        self.assertEqual((row['name'], row['version'], row['author'], row['license']),
+                         ('ai-gov', '1.0.0', 'Azure Quick Review Team', 'MIT'))
+        self.assertTrue(row['scannerAvailable'])
+        helped = self.execute(['ai-gov', '--help'])
+        self.assertEqual(helped.returncode, 0, helped.stderr)
+        self.assertIn('--management-group-id', helped.stdout)
+        self.assertIn('--assessment-timeout', helped.stdout)
+        keys = ('AZURE_AUTHORITY_HOST', 'AZURE_RESOURCE_MANAGER_ENDPOINT', 'AZURE_RESOURCE_MANAGER_AUDIENCE')
+        values = ('https://login.microsoftonline.com/', 'https://management.azure.com', 'https://management.core.windows.net')
+        (self.directory / 'retained.json').write_text('previous report', encoding='utf-8')
+        before = self.snapshot()
+        self.env['AZURE_TOKEN_CREDENTIALS'] = 'invalid-synthetic-selection'
+        for mask in range(1, 7):
+            for i, key in enumerate(keys):
+                self.env[key] = values[i] if mask & (1 << i) else ''
+            for args in (['ai-gov'], ['scan', '--plugin', 'ai-gov'], ['scan', 'aif', '--plugin', 'ai-gov']):
+                with self.subTest(mask=mask, args=args):
+                    rejected = self.execute(args + ['--json', '--output-name', 'retained'])
+                    self.assertNotEqual(rejected.returncode, 0)
+                    self.assertIn('complete cloud configuration required', rejected.stderr)
+                    self.assertNotIn('invalid AZURE_TOKEN_CREDENTIALS', rejected.stderr)
+                    self.assertEqual(rejected.stdout, '')
+                    self.assertEqual(self.snapshot(), before)
+        for key in keys:
+            self.env[key] = ''
+        for cloud in ('AzureChina', 'AzureGovernment', 'unrecognized'):
+            self.env['AZURE_CLOUD'] = cloud
+            rejected = self.execute(['ai-gov', '--json', '--output-name', 'retained'])
+            self.assertNotEqual(rejected.returncode, 0)
+            self.assertIn('public-cloud configuration required', rejected.stderr)
+            self.assertNotIn('invalid AZURE_TOKEN_CREDENTIALS', rejected.stderr)
+            self.assertEqual(rejected.stdout, '')
+            self.assertEqual(self.snapshot(), before)
+        self.env['AZURE_CLOUD'] = 'public'
+        for i, key in enumerate(keys):
+            self.env[key] = values[i]
+        allowed = self.execute(['ai-gov', '--json', '--output-name', 'retained'])
+        self.assertNotEqual(allowed.returncode, 0)
+        self.assertIn('invalid AZURE_TOKEN_CREDENTIALS', allowed.stderr)
+        self.assertEqual(allowed.stdout, '')
+        self.assertEqual(self.snapshot(), before)
+
     def test_plugin_registry_is_offline_and_honest(self):
         listed = self.execute(['plugins', 'list', '--json'])
         self.assertEqual(listed.returncode, 0, listed.stderr)
         rows = json.loads(listed.stdout)
-        self.assertEqual([r['name'] for r in rows], ['carbon-emissions', 'service-health', 'sql-eol', 'zone-mapping'])
+        self.assertEqual([r['name'] for r in rows], ['ai-gov', 'carbon-emissions', 'service-health', 'sql-eol', 'zone-mapping'])
         self.assertTrue(all(r['scannerAvailable'] for r in rows))
         detail = self.execute(['plugins', 'info', 'zone-mapping', '--json'])
         self.assertEqual(detail.returncode, 0, detail.stderr)
-        self.assertEqual(json.loads(detail.stdout), rows[3])
-        for args in (['plugins', 'info', 'ai-gov'], ['plugins', 'list', 'extra']):
+        self.assertEqual(json.loads(detail.stdout), rows[4])
+        for args in (['plugins', 'info', 'region-selection'], ['plugins', 'list', 'extra']):
             rejected = self.execute(args)
             self.assertNotEqual(rejected.returncode, 0)
             self.assertEqual(rejected.stdout, '')
         for args, message in (
-            (['scan', '--plugin', 'ai-gov'], 'unavailable'),
+            (['scan', '--plugin', 'region-selection'], 'unavailable'),
             (['scan', '--plugin', 'zone-mapping', '--stages=-plugin'], 'conflicts'),
             (['zone-mapping', '--stages=graph'], 'plugin-only'),
             (['zone-mapping', '--stage-param', 'plugin.target-regions=westus'], 'do not use'),
