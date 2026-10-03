@@ -15,11 +15,32 @@ def command(script, args, env=None):
                           capture_output=True, text=True, timeout=30)
 
 
+def prerequisite_env(root):
+    """Keep offline boundary fixtures independent of runner prerequisite inventory."""
+    shims = root / 'shims'
+    shims.mkdir()
+    for name in ['rg', 'gcc', 'git-remote-https']:
+        shim = shims / name
+        shim.write_text('#!/bin/sh\nexit 0\n')
+        shim.chmod(0o755)
+    git = shims / 'git'
+    git.write_text('''#!/bin/sh
+if [ "$1" = --exec-path ]; then
+  printf '%s\\n' "$BOOTSTRAP_TEST_SHIMS"
+else
+  printf 'unexpected git operation in offline fixture\\n' >&2
+  exit 98
+fi
+''')
+    git.chmod(0o755)
+    return shims, dict(os.environ, PATH=str(shims)+os.pathsep+os.environ['PATH'],
+                       BOOTSTRAP_TEST_SHIMS=str(shims))
+
+
 def assert_checksum_rejected(script):
     with tempfile.TemporaryDirectory(prefix='workspace-checksum-') as directory:
         root = Path(directory)
-        shims = root / 'shims'
-        shims.mkdir()
+        shims, env = prerequisite_env(root)
         curl = shims / 'curl'
         curl.write_text('''#!/usr/bin/env python3
 import pathlib, sys
@@ -34,13 +55,13 @@ exit 99
         tar.chmod(0o755)
         marker = root / 'extraction-reached'
         workspace = root / 'workspace with spaces'
-        env = dict(os.environ, PATH=str(shims)+os.pathsep+os.environ['PATH'],
-                   BOOTSTRAP_TEST_TAR_MARKER=str(marker))
+        env['BOOTSTRAP_TEST_TAR_MARKER'] = str(marker)
         result = command(script, [str(workspace)], env)
         if marker.exists():
             raise AssertionError('checksum fixture reached extraction')
         if result.returncode == 0 or 'FAILED' not in result.stdout:
-            raise AssertionError('checksum fixture did not fail at checksum verification')
+            raise AssertionError('checksum fixture did not fail at checksum verification: '
+                                 + result.stdout + result.stderr)
         if (workspace/'tools/go').exists() or (workspace/'target').exists():
             raise AssertionError('checksum fixture installed tools or cloned repositories')
 
@@ -53,12 +74,16 @@ class BootstrapTests(unittest.TestCase):
     def test_existing_workspace_preserved(self):
         with tempfile.TemporaryDirectory(prefix='workspace-preserve-') as directory:
             root = Path(directory)
-            retained = root/'user-file'
+            _, env = prerequisite_env(root)
+            workspace = root/'existing workspace'
+            workspace.mkdir()
+            retained = workspace/'user-file'
             retained.write_bytes(b'retained user bytes')
-            result = command(SCRIPT, [str(root)])
+            result = command(SCRIPT, [str(workspace)], env)
             self.assertNotEqual(result.returncode, 0)
             self.assertEqual(retained.read_bytes(), b'retained user bytes')
-            self.assertEqual(sorted(p.name for p in root.iterdir()), ['user-file'])
+            self.assertIn('File exists', result.stderr)
+            self.assertEqual(sorted(p.name for p in workspace.iterdir()), ['user-file'])
 
     def test_checksum_before_extraction(self):
         assert_checksum_rejected(SCRIPT)
