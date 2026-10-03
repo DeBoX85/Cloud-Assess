@@ -2,6 +2,8 @@ package config
 
 import (
 	"fmt"
+	"maps"
+	"slices"
 	"strings"
 
 	"github.com/DeBoX85/Cloud-Assess/internal/azure"
@@ -56,6 +58,44 @@ func NewFilters() *Filters {
 	}}
 	f.RebuildIndexes()
 	return f
+}
+
+// Clone owns configuration, compiled indexes and recorded inventory decisions.
+// Rebuilding indexes alone would discard the tag-scope decisions needed by AI.
+// Callers must not mutate the source concurrently with snapshot construction.
+func (f *AssessmentFilter) Clone() *AssessmentFilter {
+	if f == nil {
+		return NewFilters().Assessment
+	}
+	out := *f
+	if f.Include != nil {
+		v := *f.Include
+		v.Subscriptions = slices.Clone(v.Subscriptions)
+		v.ResourceGroups = slices.Clone(v.ResourceGroups)
+		v.ResourceTypes = slices.Clone(v.ResourceTypes)
+		v.Tags = maps.Clone(v.Tags)
+		out.Include = &v
+	}
+	if f.Exclude != nil {
+		v := *f.Exclude
+		v.Subscriptions = slices.Clone(v.Subscriptions)
+		v.ResourceGroups = slices.Clone(v.ResourceGroups)
+		v.Resources = slices.Clone(v.Resources)
+		v.Recommendations = slices.Clone(v.Recommendations)
+		v.Tags = maps.Clone(v.Tags)
+		out.Exclude = &v
+	}
+	out.includeSubscriptions = maps.Clone(f.includeSubscriptions)
+	out.includeResourceGroups = maps.Clone(f.includeResourceGroups)
+	out.includeTags = maps.Clone(f.includeTags)
+	out.excludeSubscriptions = maps.Clone(f.excludeSubscriptions)
+	out.excludeResourceGroups = maps.Clone(f.excludeResourceGroups)
+	out.excludeResources = maps.Clone(f.excludeResources)
+	out.excludeRecommendations = maps.Clone(f.excludeRecommendations)
+	out.excludeTags = maps.Clone(f.excludeTags)
+	out.resourceScope = maps.Clone(f.resourceScope)
+	out.allowedResourceTypes = maps.Clone(f.allowedResourceTypes)
+	return &out
 }
 
 func (f *Filters) RebuildIndexes() {

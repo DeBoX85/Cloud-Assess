@@ -15,6 +15,7 @@ import (
 	"github.com/DeBoX85/Cloud-Assess/internal/defender"
 	"github.com/DeBoX85/Cloud-Assess/internal/diagnostics"
 	"github.com/DeBoX85/Cloud-Assess/internal/discovery"
+	"github.com/DeBoX85/Cloud-Assess/internal/plugins/aigov"
 	"github.com/DeBoX85/Cloud-Assess/internal/plugins/carbon"
 	"github.com/DeBoX85/Cloud-Assess/internal/plugins/servicehealth"
 	"github.com/DeBoX85/Cloud-Assess/internal/plugins/sqleol"
@@ -26,6 +27,7 @@ import (
 // Operations is the Azure-facing dependency set used by the coordinator. Keeping these
 // functions explicit lets orchestration tests exercise the real control flow without Azure.
 type Operations struct {
+	ScanAIGovernance            func(context.Context, map[string]string, *config.AssessmentFilter) (assessment.PluginTable, error)
 	ScanCarbon                  func(context.Context, map[string]string, *config.AssessmentFilter) (assessment.PluginTable, error)
 	ScanSQLEOL                  func(context.Context, map[string]string, *config.AssessmentFilter) (assessment.PluginTable, error)
 	ScanServiceHealth           func(context.Context, map[string]string, *config.AssessmentFilter) (assessment.PluginTable, error)
@@ -61,6 +63,13 @@ func NewAzureOperations(credential azcore.TokenCredential) (Operations, error) {
 	pluginEndpoint := azure.ResourceManagerEndpoint()
 	pluginOptions := azure.DefaultHTTPClientOptions(30 * time.Second)
 	return Operations{
+		ScanAIGovernance: func(ctx context.Context, subscriptions map[string]string, filter *config.AssessmentFilter) (assessment.PluginTable, error) {
+			execution, err := aigov.NewExecution(credential)
+			if err != nil {
+				return aigov.PendingTable(), err
+			}
+			return execution.Scan(ctx, subscriptions, filter)
+		},
 		ScanCarbon: func(ctx context.Context, subscriptions map[string]string, filter *config.AssessmentFilter) (assessment.PluginTable, error) {
 			scanner, err := carbon.NewWithHTTPClient(pluginEndpoint, azure.NewHTTPClient(credential, pluginOptions))
 			if err != nil {

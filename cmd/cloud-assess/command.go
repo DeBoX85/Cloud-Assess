@@ -3,6 +3,8 @@ package main
 import (
 	"context"
 	"fmt"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
+	"slices"
 	"strings"
 	"time"
 
@@ -14,6 +16,7 @@ import (
 	"github.com/DeBoX85/Cloud-Assess/internal/gate"
 	"github.com/DeBoX85/Cloud-Assess/internal/orchestration"
 	"github.com/DeBoX85/Cloud-Assess/internal/plugins"
+	"github.com/DeBoX85/Cloud-Assess/internal/plugins/aigov"
 	"github.com/DeBoX85/Cloud-Assess/internal/plugins/carbon"
 	"github.com/DeBoX85/Cloud-Assess/internal/plugins/servicehealth"
 	"github.com/DeBoX85/Cloud-Assess/internal/plugins/sqleol"
@@ -70,6 +73,7 @@ func newRootCommand(executor scanExecutor) *cobra.Command {
 	root.AddCommand(newInternalPluginCommand(servicehealth.Name, servicehealth.Metadata().Description, executor, &exitCode))
 	root.AddCommand(newInternalPluginCommand(sqleol.Name, sqleol.Metadata().Description, executor, &exitCode))
 	root.AddCommand(newInternalPluginCommand(carbon.Name, carbon.Metadata().Description, executor, &exitCode))
+	root.AddCommand(newInternalPluginCommand(aigov.Name, aigov.Metadata().Description, executor, &exitCode))
 	root.AddCommand(newPluginsCommand())
 	root.AddCommand(&cobra.Command{
 		Use: "branding", Short: "Print the immutable build branding profile", Args: cobra.NoArgs,
@@ -99,7 +103,7 @@ func newScanCommand(executor scanExecutor, exitCode *int) *cobra.Command {
 	}
 
 	bindScanFlags(command, &flags)
-	command.PersistentFlags().StringSliceVar(&flags.internalPlugins, "plugin", nil, "Select implemented internal table plugins (carbon-emissions, service-health, sql-eol, zone-mapping)")
+	command.PersistentFlags().StringSliceVar(&flags.internalPlugins, "plugin", nil, "Select implemented internal table plugins (ai-gov, carbon-emissions, service-health, sql-eol, zone-mapping)")
 	for _, key := range scanners.Keys() {
 		services := scanners.ByKey(key)
 		if len(services) == 0 {
@@ -221,6 +225,11 @@ func assessmentRequest(flags scanFlags, filters *config.Filters, stageConfig *st
 }
 
 func executeScan(ctx context.Context, flags scanFlags) (int, error) {
+	return executeScanWithFactories(ctx, flags, azure.NewCredential, orchestration.NewAzureOperations)
+}
+
+// Explicit factories let tests observe real preflight ordering without a session.
+func executeScanWithFactories(ctx context.Context, flags scanFlags, credentialFactory func() (azcore.TokenCredential, error), operationsFactory func(azcore.TokenCredential) (orchestration.Operations, error)) (int, error) {
 	if flags.assessmentTimeout < 0 {
 		return app.ExitExecutionFail, fmt.Errorf("assessment timeout cannot be negative")
 	}
@@ -231,6 +240,11 @@ func executeScan(ctx context.Context, flags scanFlags) (int, error) {
 	stageConfig, err := configureStages(flags)
 	if err != nil {
 		return app.ExitExecutionFail, err
+	}
+	if slices.Contains(flags.internalPlugins, aigov.Name) {
+		if err := aigov.ValidateCloudConfiguration(); err != nil {
+			return app.ExitExecutionFail, err
+		}
 	}
 	if flags.failOn != "" {
 		if _, err := gate.Parse(flags.failOn); err != nil {
@@ -245,11 +259,11 @@ func executeScan(ctx context.Context, flags scanFlags) (int, error) {
 		}
 		flags.yamlRecommendations = rules.PluginDefinitions(yamlPlugins)
 	}
-	credential, err := azure.NewCredential()
+	credential, err := credentialFactory()
 	if err != nil {
 		return app.ExitExecutionFail, err
 	}
-	operations, err := orchestration.NewAzureOperations(credential)
+	operations, err := operationsFactory(credential)
 	if err != nil {
 		return app.ExitExecutionFail, err
 	}

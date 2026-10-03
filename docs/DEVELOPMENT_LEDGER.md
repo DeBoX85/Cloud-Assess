@@ -2073,3 +2073,12 @@ Routine commits do not need individual prose entries because the Git log already
 This makes the development process reconstructable even if the conversational history that produced it is unavailable.
 
 Discovery pre-acceptance review additionally rejects Unicode case-fold aliases in regional DNS input and fixed ARM service path/type names, preserving safe display labels and ASCII casing. Distinct-ID Kelvin-sign/long-s fixtures cannot be masked by duplicate detection; an eighth compiling control disables the DNS ASCII guard and must fail its named assertion (FN058). Earlier candidate full local/native results do not certify this correction; final revised exact-head QA remains required.
+
+
+## AI public execution WIP and interruption revalidation (2026-10-03)
+
+Live accepted baseline032740d/treebf5880/ordered parents3c4019c and9edf28a, PR100-102 merges, human identity, unchanged rules23890737 and no open proposals verified. PR102 accepted-merge push run37106303179 now passed Linux111155398115/Windows111155398010 with all required steps/logs inspected; coverage81.9%, eight controls and broad existing QA, only conditional failure upload skipped. This completes the previous distinct pending push proof.
+
+Previous scratch workspace/tools absent; accepted bootstrap recreated cloud-assess-recovery-20261003 with exact verified tools/clones/modules/source/APRL/provenance. Fresh pristine full Linux race/vet/stamped build, eleven actual CLI cases/docs307/9/1/eight controls/restored checks/5000x discovery fuzz passed on032740d. A later interruption retained all candidate files; actual inventory/status and current ref were checked before another edit.
+
+Candidate on feat/ai-public-execution adds real AI standalone/mixed/scanner/registry/report integration, owned filter decisions and sanitized16-cell tables, public-cloud pre-auth/factory/scope guard, enclosing5-minute lifecycle and truthful retained discovery failure. Focused tests and corrected58 authenticated in-memory complete-cell all-format cases pass; new ownership/control/broad/native acceptance remains pending. FN060 records actual initial fixture failures. Publish/read back code/docs WIP, then finish tests and final exact-head native/protected QA. Source/dependency/capture pins and Azure/laptop/Gate004/release deferrals unchanged; reviewed protected revert after checking dependents remains rollback.
