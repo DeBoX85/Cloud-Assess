@@ -1,0 +1,1 @@
+{"value":[{"name":"fixture-deployment","properties":{"model":{"version":"2026-01-01","format":"OpenAI"},"versionUpgradeOption":"NoAutoUpgrade","spilloverDeploymentName":""},"sku":{"capacity":42}}]}

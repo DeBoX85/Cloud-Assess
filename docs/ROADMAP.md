@@ -1,6 +1,6 @@
 # Cloud Assess Roadmap
 
-Status: working execution roadmap, reviewed 2026-10-03 (Europe/Oslo). Current accepted runtime: PR94 merge `ac32f3b116ef26704a06add686ea305d41c2a114`. Carbon public execution is VERIFIED OFFLINE. A replacement clean checkout completes local postmerge verification after executor recovery. PR95 updated recovery docs require new exact-head native acceptance before AI governance. Start with [SESSION_HANDOVER.md](SESSION_HANDOVER.md); earlier checkpoints are chronological.
+Status: working execution roadmap, reviewed 2026-10-03 (Europe/Oslo). PR95 recovery accepted at `f183755ef2e7ee9c61c555dbaa1743f3f801c457`; carbon public execution remains VERIFIED OFFLINE. Refreshed native QA and completed clean fetched verification passed. B5 AI governance pure projection/captures is IN PROGRESS under [AI_GOVERNANCE.md](AI_GOVERNANCE.md), with request/CLI/report/live acceptance separate. Start with [SESSION_HANDOVER.md](SESSION_HANDOVER.md); earlier checkpoints are chronological.
 
 Active development branch: `bootstrap/core-v1`
 
@@ -281,3 +281,6 @@ Resume: restore executor, inspect actual task-owned checkout/status/branches/pro
 
 
 Latest recovery resolution: executor returned, recent scratch checkout missing, new clean clone verified PR94 exact tree/parents/pins and fresh full race/vet/build/eleven actual CLI/docs QA. Updated PR95 reconciles the recovered state and fixes stale supplemental specification wording; obtain its new exact-head native acceptance and protected merge, then start AI governance unchanged-source captures/pure projection. The old blocked records remain historical, and the original interrupted command completion is not inferred.
+
+
+AI governance pure-core checkpoint (2026-10-03): accepted PR95 recovery baseline and exact native/postmerge evidence are indexed in the handover. The independent source capture and pure target aggregation/projection candidate proceed without laptop input. Corrected confined captures, focused/full race, vet and complete-cell assertions pass; compiling removed-correlation mutation failed named foreign/descendant assertions. Stamped CLI/docs and final native acceptance remain pending. Next bounded metrics/ARM decoder/request library, then real command/report integration; region selection follows. FN052 records a first-harness synthetic-token HTTP401 escape and containment, not live evidence. No scope/pin/dependency refresh, no production substitute or release closure.

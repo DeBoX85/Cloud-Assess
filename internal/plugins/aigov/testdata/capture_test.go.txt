@@ -1,0 +1,96 @@
+package aigov
+
+import (
+ "context"
+ "encoding/json"
+ "fmt"
+ "io"
+ "net/http"
+ "net/http/httptest"
+ "net/url"
+ "os"
+ "path/filepath"
+ "reflect"
+ "sort"
+ "strings"
+ "sync"
+ "testing"
+ "time"
+
+ "github.com/Azure/azqr/internal/az"
+ "github.com/Azure/azqr/internal/models"
+ "github.com/Azure/azure-sdk-for-go/sdk/azcore"
+ "github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
+ "github.com/Azure/azure-sdk-for-go/sdk/azcore/runtime"
+)
+const captureSub = "11111111-1111-4111-8111-111111111111"
+const captureID = "/subscriptions/"+captureSub+"/resourceGroups/fixture-rg/providers/Microsoft.CognitiveServices/accounts/fixture-ai"
+const captureID2 = "/subscriptions/"+captureSub+"/resourceGroups/fixture-rg/providers/Microsoft.CognitiveServices/accounts/fixture-empty"
+const captureMetrics = `{"values":[{"resourceid":"`+captureID+`","value":[{"timeseries":[{"metadatavalues":[{"name":{"value":"STATUSCODE"},"value":"429"},{"name":{"value":"ModelDeploymentName"},"value":"fixture-deployment"},{"name":{"value":"ModelName"},"value":"fixture-model"}],"data":[{"timeStamp":"2026-09-30T12:05:00Z","count":1.5},{"timeStamp":"2026-09-30T12:55:00Z","count":1},{"timeStamp":"2026-09-30T13:00:00+02:00","count":3},{"timeStamp":"2026-09-30T12:00:00Z"},{"count":9}]},{"metadatavalues":[{"name":{"value":"StatusCode"},"value":"200"},{"name":{"value":"ModelDeploymentName"},"value":"fixture-deployment"},{"name":{"value":"ModelName"},"value":"fixture-model"}],"data":[{"timeStamp":"2026-09-30T12:00:00Z","count":0}]},{"data":[{"timeStamp":"2026-09-30T14:00:00Z","count":4}]},{"metadatavalues":[{"name":{"value":"statuscode"},"value":"500"},{"name":{"value":"StatusCode"},"value":"503"},{"name":{"value":"ModelDeploymentName"},"value":"unmatched"},{"name":{"value":"ModelName"},"value":"other-model"}],"data":[{"timeStamp":"2026-09-30T15:00:00Z","count":2}]}]}]},{"value":[{"timeseries":[{"data":[{"timeStamp":"2026-09-30T12:00:00Z","count":100}]}]}]}]}`
+const captureDeployments = `{"value":[{"name":"fixture-deployment","properties":{"model":{"version":"2026-01-01","format":"OpenAI"},"versionUpgradeOption":"NoAutoUpgrade","spilloverDeploymentName":""},"sku":{"capacity":42}}],"nextLink":"NEXT"}`
+
+type captureCredential struct { mu sync.Mutex; scopes []string }
+func (c *captureCredential) GetToken(_ context.Context,o policy.TokenRequestOptions)(azcore.AccessToken,error){
+ c.mu.Lock();c.scopes=append(c.scopes,o.Scopes...);c.mu.Unlock()
+ for _,s:=range o.Scopes {if s!="https://management.invalid/.default" && s!="https://metrics.monitor.azure.com/.default" && !strings.HasPrefix(s,"https://127.0.0.1:"){return azcore.AccessToken{},fmt.Errorf("unexpected token scope")}}
+ return azcore.AccessToken{Token:"synthetic-ai-source",ExpiresOn:time.Now().Add(time.Hour)},nil
+}
+type captureRouter struct { t *testing.T; endpoint *url.URL; inner http.RoundTripper }
+func(c captureRouter) RoundTrip(r *http.Request)(*http.Response,error){
+ if r.URL.Host!="westeurope.metrics.monitor.azure.com" && r.URL.Host!=c.endpoint.Host{return nil,fmt.Errorf("source attempted unexpected destination")}
+ rr:=r.Clone(r.Context());u:=*r.URL;u.Scheme=c.endpoint.Scheme;u.Host=c.endpoint.Host;rr.URL=&u
+ return c.inner.RoundTrip(rr)
+}
+func writeCapture(t *testing.T,dir,name string,value any){t.Helper();b,e:=json.MarshalIndent(value,"","  ");if e!=nil{t.Fatal(e)};if e=os.WriteFile(filepath.Join(dir,name),append(b,'\n'),0600);e!=nil{t.Fatal(e)}}
+func TestCaptureAIActualSource(t *testing.T){
+ dir:=os.Getenv("AI_CAPTURE_OUTPUT");if dir==""{t.Fatal("AI_CAPTURE_OUTPUT required")};if e:=os.MkdirAll(dir,0700);e!=nil{t.Fatal(e)}
+ oldScanners:=models.ScannerList;models.ScannerList=map[string][]models.IAzureScanner{"fixture":{models.NewBaseScanner("fixture","Microsoft.CognitiveServices/accounts")}};defer func(){models.ScannerList=oldScanners}()
+ mode:="all"; var mu sync.Mutex;calls:=map[string]int{}
+ var server *httptest.Server
+ server=httptest.NewTLSServer(http.HandlerFunc(func(w http.ResponseWriter,r *http.Request){
+ mu.Lock();calls[r.URL.Path]++;mu.Unlock()
+ w.Header().Set("Content-Type","application/json")
+ if r.Header.Get("Authorization")!="Bearer synthetic-ai-source"{t.Error("source authorization");w.WriteHeader(400);return}
+ switch {
+ case r.URL.Path=="/providers/Microsoft.ResourceGraph/resources":
+ if r.Method!="POST"||r.URL.Query().Get("api-version")!="2024-04-01"{t.Error("source Graph request")}
+ var q struct{Query string;Subscriptions []string};if json.NewDecoder(r.Body).Decode(&q)!=nil||!strings.Contains(q.Query,"sku.name, sku.tier, kind")||!reflect.DeepEqual(q.Subscriptions,[]string{captureSub}){t.Error("source Graph query")}
+ if mode=="empty"{io.WriteString(w,`{"data":[]}`);return}
+ io.WriteString(w,`{"data":[{"id":"`+captureID+`","subscriptionId":"`+captureSub+`","resourceGroup":"fixture-rg","location":"westeurope","type":"Microsoft.CognitiveServices/accounts","name":"fixture-ai","sku_name":"S0","kind":"OpenAI"},{"id":"`+captureID2+`","subscriptionId":"`+captureSub+`","resourceGroup":"fixture-rg","location":"westeurope","type":"Microsoft.CognitiveServices/accounts","name":"fixture-empty"}]}`)
+ case strings.HasSuffix(r.URL.Path,"/metrics:getBatch"):
+ q:=r.URL.Query();if r.Method!="POST"||q.Get("api-version")!="2024-02-01"||q.Get("interval")!="PT1H"||q.Get("aggregation")!="Count"||q.Get("metricnames")!="AzureOpenAIRequests"||q.Get("metricnamespace")!="Microsoft.CognitiveServices/accounts"||q.Get("filter")!="StatusCode eq '*' and ModelDeploymentName eq '*' and ModelName eq '*'"{t.Error("source metrics request")}
+ start,e1:=time.Parse(time.RFC3339,q.Get("starttime"));end,e2:=time.Parse(time.RFC3339,q.Get("endtime"));if e1!=nil||e2!=nil||end.Sub(start)!=167*time.Hour{t.Error("source metrics time window")}
+ var body struct{ResourceIDs []string `json:"resourceids"`};if json.NewDecoder(r.Body).Decode(&body)!=nil||len(body.ResourceIDs)!=2{t.Error("source metrics IDs")}
+ io.WriteString(w,captureMetrics)
+ case strings.HasSuffix(r.URL.Path,"/fixture-ai/deployments"):
+ if r.Method!="GET"||r.URL.Query().Get("api-version")!="2025-06-01"{t.Error("source deployment request")}
+ if mode=="deployment-denied"{w.WriteHeader(403);io.WriteString(w,`{"error":{"code":"Denied","message":"synthetic fixture"}}`);return}
+ io.WriteString(w,strings.ReplaceAll(captureDeployments,"NEXT",server.URL+"/capture-second-page?api-version=2025-06-01"))
+ case r.URL.Path=="/capture-second-page":io.WriteString(w,`{"value":[{"name":"ignored-deployment"}]}`)
+ default:t.Errorf("unexpected source path %s",r.URL.Path);w.WriteHeader(400)
+ }
+ }))
+ defer server.Close();az.CaptureTransport(server.Client().Transport.(*http.Transport))
+ endpoint,_:=url.Parse(server.URL);router:=captureRouter{t,endpoint,server.Client().Transport};runtime.CaptureDefaultHTTPClient(&http.Client{Transport:router});if _,e:=router.RoundTrip(&http.Request{URL:&url.URL{Scheme:"https",Host:"unapproved.invalid"}});e==nil{t.Fatal("tripwire accepted foreign destination")}
+ t.Setenv("AZURE_RESOURCE_MANAGER_ENDPOINT",server.URL);t.Setenv("AZURE_RESOURCE_MANAGER_AUDIENCE","https://management.invalid");t.Setenv("AZURE_AUTHORITY_HOST","https://login.invalid")
+ cred:=&captureCredential{}
+ for _,name:=range []string{"all","empty","deployment-denied","unknown-include-tag"}{
+ mode=name;mu.Lock();calls=map[string]int{};mu.Unlock()
+ filters:=models.LoadFilters("",[]string{"fixture"})
+ if mode=="unknown-include-tag"{p:=filepath.Join(dir,"capture-filter.yml");if e:=os.WriteFile(p,[]byte("azqr:\n  include:\n    tags:\n      Environment: dev\n"),0600);e!=nil{t.Fatal(e)};filters=models.LoadFilters(p,[]string{"fixture"})}
+ ctx,cancel:=context.WithTimeout(context.Background(),20*time.Second)
+ out,err:=NewScanner().Scan(ctx,cred,map[string]string{captureSub:"Synthetic subscription"},&models.ScanParams{Filters:filters});cancel()
+ if err!=nil||len(out)!=1{t.Fatalf("source scan %s: %v",name,err)}
+ table:=out[0].Table;sort.Slice(table[1:],func(i,j int)bool{return strings.Join(table[i+1],"\x00")<strings.Join(table[j+1],"\x00")})
+ wantRows:=6;if name=="empty"||name=="unknown-include-tag"{wantRows=1};if len(table)!=wantRows{t.Fatalf("source rows %s: %v",name,table)}
+ if name=="all"{matched:=0;for _,row:=range table[1:]{if row[5]=="fixture-deployment"{matched++;if row[9]!="42"||row[11]!="Yes"||row[12]!=""{t.Fatalf("source metadata: %v",row)}}};if matched!=3{t.Fatal("source matched deployment rows")}}
+ if name=="deployment-denied" && table[1][7]!="N/A" {t.Fatal("source denied deployment default")}
+ mu.Lock();copyCalls:=map[string]int{};for k,v:=range calls{copyCalls[k]=v};mu.Unlock()
+ if name=="all"&&copyCalls["/capture-second-page"]!=1{t.Fatal("source pagination")}
+ if name=="empty"||name=="unknown-include-tag"{if len(copyCalls)!=1{t.Fatal("source empty queried metrics")}}
+ writeCapture(t,dir,"source-"+name+".json",out)
+ }
+ if !strings.Contains(strings.Join(cred.scopes,"|"),"https://metrics.monitor.azure.com/.default"){t.Fatal("source metrics token audience not observed")}
+ if e:=os.WriteFile(filepath.Join(dir,"metrics-input.json"),[]byte(captureMetrics+"\n"),0600);e!=nil{t.Fatal(e)}
+ if e:=os.WriteFile(filepath.Join(dir,"deployments-input.json"),[]byte(strings.ReplaceAll(captureDeployments,`,"nextLink":"NEXT"`,``)+"\n"),0600);e!=nil{t.Fatal(e)}
+}
