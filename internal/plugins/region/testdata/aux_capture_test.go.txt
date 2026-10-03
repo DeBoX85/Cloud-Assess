@@ -1,0 +1,86 @@
+// Copyright (c) Microsoft Corporation.
+// Synthetic characterization of unchanged MIT-licensed AZQR pure output helpers.
+package output
+
+import (
+ "encoding/json"
+ "net/http"
+ "os"
+ "path/filepath"
+ "testing"
+
+ "github.com/Azure/azqr/internal/models"
+ "github.com/Azure/azqr/internal/scanners/plugins/region/types"
+)
+
+type pureCaptureTripwire struct{}
+func (pureCaptureTripwire) RoundTrip(*http.Request) (*http.Response,error) {
+ panic("unexpected HTTP during pure region characterization")
+}
+
+func TestRegionAuxiliaryCapture(t *testing.T) {
+ http.DefaultClient = &http.Client{Transport:pureCaptureTripwire{}}
+ http.DefaultTransport = pureCaptureTripwire{}
+ dir := os.Getenv("REGION_AUX_CAPTURE_OUTPUT")
+ if dir == "" { t.Fatal("explicit capture output directory required") }
+ if err := os.MkdirAll(dir,0700);err!=nil {t.Fatal(err)}
+ inventory := &types.ResourceInventory{
+  ResourceTypes:map[string]int{"microsoft.compute/virtualmachines":4,"microsoft.custom/widgets":2,"microsoft.network/virtualnetworks":3},
+  SKUsByType:map[string]map[string]int{"microsoft.compute/virtualmachines":{"Standard_D4s_v3":2,"Standard_F4s_v2":2},"microsoft.custom/widgets":{"=Widget":2}},
+  ResourceTypesByRegion:map[string]map[string]int{"eastus":{"microsoft.compute/virtualmachines":2,"microsoft.network/virtualnetworks":3},"westeurope":{"microsoft.compute/virtualmachines":2,"microsoft.custom/widgets":2}},
+ }
+ comparisons := []types.RegionComparison{
+  {TargetRegion:"westeurope",MissingResourceTypes:[]string{"microsoft.custom/widgets"},MissingSKUs:[]string{"microsoft.compute/virtualmachines:Standard_D4s_v3"},ZoneRestrictedSKUs:[]string{"microsoft.compute/virtualmachines:Standard_F4s_v2 (zones blocked: 1,2)"},RestrictedSKUs:[]string{"microsoft.compute/virtualmachines:Standard_D4s_v3"}},
+  {TargetRegion:"eastus",MissingResourceTypes:[]string{"microsoft.network/virtualnetworks"},MissingSKUs:[]string{"microsoft.compute/virtualmachines:Standard_D4s_v3 (unknown)"}},
+ }
+ pricing := &types.CostComparisonData{
+  MeterInputs:[]types.MeterCostData{
+   {MeterID:"meter-b",MeterName:"B",ProductID:"p-b",SkuName:"=Widget",HistoricalCost:0},
+   {MeterID:"meter-a",MeterName:"A",ProductID:"p-a",SkuName:"Standard_D4s_v3",HistoricalCost:100},
+   {MeterID:"meter-missing",MeterName:"Missing",ProductID:"p-missing",SkuName:"No metadata"},
+  },
+  RegionPricing:map[string]map[string]float64{"meter-a":{"westeurope":2.76544,"eastus":1.23456},"meter-b":{"eastus":0,"westeurope":0.00009}},
+  PriceItems:[]types.RetailPriceItem{
+   {MeterName:"A",ProductID:"p-a",SkuName:"Standard_D4s_v3",ServiceName:"Virtual Machines",ProductName:"Compute product"},
+   {MeterName:"A",ProductID:"p-a",SkuName:"Standard_D4s_v3",ServiceName:"Ignored second match",ProductName:"Ignored second product"},
+   {MeterName:"B",ProductID:"p-b",SkuName:"=Widget",ServiceName:"Custom",ProductName:"Widget product"},
+  },
+ }
+ quotas := []QuotaSheetRow{
+  {Subscription:"Synthetic",Region:"eastus",QuotaType:"VM",ResourceName:"Family",Current:10,Limit:100,Available:90,HeadroomPct:90},
+  {Subscription:"Synthetic",Region:"westeurope",QuotaType:"Network",ResourceName:"Virtual Networks",Current:86,Limit:100,Available:14,HeadroomPct:14.999,IsNearLimit:true},
+  {Subscription:"Synthetic",Region:"eastus",QuotaType:"SQL",ResourceName:"Databases",Current:120,Limit:100,Available:-20,HeadroomPct:-20,IsNearLimit:true,IsOverLimit:true},
+ }
+ reservations := [][]string{
+  {"Synthetic","eastus","rg","crg","idle","Standard_D4s_v3","10","0","10","Idle"},
+  {"Synthetic","eastus","rg","crg","available","Standard_D4s_v3","10","4","6","Available"},
+  {"Synthetic","eastus","rg","crg","full","Standard_D4s_v3","10","10","0","At-Capacity"},
+  {"Synthetic","eastus","rg","crg","over","Standard_D4s_v3","10","12","-2","Over-Allocated"},
+ }
+ resources := []*models.Resource{
+  {ID:"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/virtualMachines/vm",SubscriptionID:"11111111-1111-1111-1111-111111111111",ResourceGroup:"rg",Location:"eastus",Type:"Microsoft.Compute/virtualMachines",Name:"=vm",SkuName:"Standard_D4s_v3",SkuTier:"Standard",SkuCapacity:1,Kind:""},
+  {ID:"/subscriptions/22222222-2222-2222-2222-222222222222/resourceGroups/rg/providers/Microsoft.Compute/virtualMachineScaleSets/set",SubscriptionID:"22222222-2222-2222-2222-222222222222",ResourceGroup:"rg",Location:"westeurope",Type:"Microsoft.Compute/virtualMachineScaleSets",Name:"set",SkuName:"Standard_D4s_v3",SkuTier:"Standard",SkuCapacity:2,Kind:""},
+ }
+ inputs := map[string]any{"comparisons":comparisons,"inventory":inventory,"pricing":pricing,"quotas":quotas,"reservations":reservations,"resources":resources}
+ outputs := map[string]any{
+  "service-full":BuildSvcAvailSheets(comparisons,inventory),
+  "service-nil-inventory":BuildSvcAvailSheets(comparisons,nil),
+  "service-no-results":BuildSvcAvailSheets(nil,inventory),
+  "cost-full":BuildCostComparisonSheet(pricing),
+  "cost-nil":BuildCostComparisonSheet(nil),
+  "cost-no-meters":BuildCostComparisonSheet(&types.CostComparisonData{RegionPricing:pricing.RegionPricing}),
+  "cost-no-prices":BuildCostComparisonSheet(&types.CostComparisonData{MeterInputs:pricing.MeterInputs}),
+  "quota-full":BuildQuotaSheet(quotas),
+  "quota-empty":BuildQuotaSheet(nil),
+  "reservations-full":BuildCRGSheetFromRows(reservations),
+  "reservations-empty":BuildCRGSheetFromRows(nil),
+  "inventory-raw":BuildInventorySheet(resources,false),
+  "inventory-masked":BuildInventorySheet(resources,true),
+  "inventory-empty":BuildInventorySheet(nil,true),
+ }
+ for name,value := range map[string]any{"source-aux-inputs.json":inputs,"source-aux-outputs.json":outputs} {
+  raw,err:=json.MarshalIndent(value,"","  ");if err!=nil {t.Fatal(err)}
+  if err=os.WriteFile(filepath.Join(dir,name),append(raw,'\n'),0600);err!=nil {t.Fatal(err)}
+ }
+ t.Log("Captured 14 auxiliary pure helper branches; no Scan, service client or credential invoked")
+}

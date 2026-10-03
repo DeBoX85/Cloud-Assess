@@ -102,3 +102,11 @@ Both required native jobs run [ai-execution-mutation.py](../scripts/tests/ai-exe
 
 
 Region primary projection candidate adds scripts/tests/region-primary-mutation.py to both required native jobs. Selected-identity, unknown-SKU-denominator, comparison-work-limit, aggregate-detail-work and joined-separator-bytes faults must compile and fail their named assertions; restored baselines must pass. See [REGION_SELECTION.md](REGION_SELECTION.md) for independent capture hashes, complete42-score/25-cell checks and the explicitly unavailable public feature.
+
+
+The [region source characterization runner](REGION_SOURCE_CHARACTERIZATION.md) is a separate development candidate. Its exact-head characterization job must produce complete provenance/chunks and unchanged pinned-source/APRL/module guards before promoting source fixtures. Both ordinary required quality/windows-validation jobs and reviewed protected acceptance remain mandatory; source-only execution does not certify auxiliary target behavior or live Azure.
+
+
+## PR105 review correction and observed recovery (2026-10-03)
+
+Initial source characterization37131392522/job111227049328 and required native37131392461/quality111227049234/windows111227049053 passed on7b1fdede. Review found path filters could skip the promised final-head source job on follow-up commits. Removed both path filters; fresh three-job final-head evidence and protected acceptance remain required (FN066). Recovered executor/source/tools in an isolated exact remote worktree, preserving old dirty corrections and unknown command completion. No auxiliary runtime, public region, source/dependency pin or Azure/live/Gate004/release change. Exact next step is publish correction, verify source chunks/hash/provenance and all final-head jobs, then migrate captured auxiliary tables separately.

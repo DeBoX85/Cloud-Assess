@@ -1,0 +1,36 @@
+name: Pinned region source characterization
+
+on:
+  pull_request:
+    branches:
+      - bootstrap/core-v1
+  push:
+    branches:
+      - bootstrap/core-v1
+
+permissions:
+  contents: read
+
+concurrency:
+  group: region-source-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  characterize:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - name: Checkout target
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Set up pinned Go
+        uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # v6.5.0
+        with:
+          go-version: '1.26.8'
+          cache: true
+      - name: Capture unchanged pure region source helpers
+        env:
+          GOTOOLCHAIN: local
+          GOMAXPROCS: '4'
+        run: python3 scripts/capture-region-source.py
