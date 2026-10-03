@@ -15,8 +15,15 @@ import (
 // The caller must validate the destination before calling this authenticated
 // client. Injected transports are trusted and must not follow redirects.
 func (c *HTTPClient) GetBounded(ctx context.Context, endpoint string, maxBytes int64) ([]byte, error) {
-	body, _, err := c.requestBounded(ctx, http.MethodGet, endpoint, nil, maxBytes)
+	body, _, err := c.GetBoundedWithResponse(ctx, endpoint, maxBytes)
 	return body, err
+}
+
+// GetBoundedWithResponse also exposes status/headers for APIs with exact success
+// semantics. The transport body is closed; returned bytes are owned. Callers
+// still validate destinations before authentication and do not read response.Body.
+func (c *HTTPClient) GetBoundedWithResponse(ctx context.Context, endpoint string, maxBytes int64) ([]byte, *http.Response, error) {
+	return c.requestBounded(ctx, http.MethodGet, endpoint, nil, maxBytes)
 }
 
 // PostBounded bounds every attempt before authentication/retry policies read it,
