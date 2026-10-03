@@ -547,3 +547,8 @@ Interruption recovery preserved the dirty old596f102 task checkout and fetched p
 Live readback found PR105 merged at7e4ca5c while active handover/roadmap/source records still required its acceptance. Reverified final/native and separate accepted-push jobs/full logs, complete captured chunks/provenance, exact refs/tree/parents/identity/protection; reconciled active summaries while retaining historical proof. This repeats FN059. Prevention: refresh every active authority summary from final PR/run evidence after merge before further work.
 
 Current executor is Windows, with Git/Python/PowerShell but no observed Go/ripgrep/prior Linux workspace or callable managed environment/Code Review tool. Git HTTPS failed to connect. Use authenticated GitHub/native Actions without bypassing network policy, requesting credentials, weakening checks or claiming fresh local Go/Azure evidence. Historical unknown local command outcomes remain unknown.
+
+
+## FN068: native formatter rejected two authored alignments (2026-10-03)
+
+Initial PR106 head4e50009de3862d68b54e28dc8c3a557b7665de96 was rejected by native Linux formatting run37146459704/job111271307391: two struct alignment spaces differed from gofmt. Applied the exact native gofmt diff. No test/gate was weakened; this head remains unaccepted and broad Linux checks were skipped after that failure. Corrected head requires fresh complete characterization/Linux/Windows evidence. Local Go/gofmt is unavailable; the retained failure diff supplies exact formatting correction. Prevention: keep formatting blocking and print its diff for bounded recovery, then validate every corrected head through native QA rather than hand-claiming format/test success.

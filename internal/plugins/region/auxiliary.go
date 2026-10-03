@@ -23,8 +23,8 @@ const auxTextBudget = assessment.MaxPluginTextBytes - (64 << 10)
 // QuotaRow retains decoded source values and flags. Arithmetic is not inferred.
 type QuotaRow struct {
 	SubscriptionID, Subscription, Region, QuotaType, ResourceName string
-	Current, Limit, Available                                    int64
-	HeadroomPct                                                  float64
+	Current, Limit, Available                                     int64
+	HeadroomPct                                                   float64
 	IsNearLimit, IsOverLimit                                      bool
 }
 
