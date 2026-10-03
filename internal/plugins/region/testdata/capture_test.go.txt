@@ -1,0 +1,31 @@
+// Synthetic pure-source capture. Microsoft AZQR production files remain unchanged.
+package region
+import (
+ "encoding/json"
+ "os"
+ "testing"
+ "net/http"
+ "fmt"
+ "github.com/Azure/azqr/internal/scanners/plugins/region/types"
+)
+type captureTripwire struct{}
+func (captureTripwire) RoundTrip(r *http.Request)(*http.Response,error){ panic("unexpected HTTP in pure capture") }
+func TestPrimaryCapture(t *testing.T){
+ http.DefaultClient=&http.Client{Transport:captureTripwire{}}
+ http.DefaultTransport=captureTripwire{}
+ inputPath,outputPath:=os.Getenv("REGION_CAPTURE_INPUT"),os.Getenv("REGION_CAPTURE_OUTPUT")
+ if inputPath==""||outputPath=="" {t.Fatal("explicit capture paths required")}
+ raw,err:=os.ReadFile(inputPath);if err!=nil{t.Fatal(err)}
+ var cases []struct{Case string `json:"case"`;Input types.RegionComparison `json:"input"`}
+ if err=json.Unmarshal(raw,&cases);err!=nil{t.Fatal(err)}
+ out:=[]map[string]any{}
+ for _,c:=range cases{
+  scanner:=NewScanner()
+  rows:=[]types.RegionComparison{c.Input}
+  scanner.calculateScores(rows)
+  out=append(out,map[string]any{"case":c.Case,"score":rows[0].Score,"metadata":scanner.GetMetadata(),"table":scanner.generateOutputTable(rows)})
+ }
+ data,err:=json.MarshalIndent(out,"","  ");if err!=nil{t.Fatal(err)}
+ if err=os.WriteFile(outputPath,append(data,'\n'),0600);err!=nil{t.Fatal(err)}
+ fmt.Printf("Captured %d pure comparisons; no Scan, credentials or service clients invoked\n",len(out))
+}

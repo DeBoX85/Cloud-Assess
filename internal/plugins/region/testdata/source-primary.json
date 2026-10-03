@@ -1,0 +1,6134 @@
+[
+  {
+    "case": "full",
+    "metadata": {
+      "Name": "region-selection",
+      "Version": "0.2.0-beta",
+      "Description": "Analyzes optimal Azure region selection based on service availability, network latency, and cost comparison",
+      "Author": "Azure Quick Review Team",
+      "License": "MIT",
+      "Type": 1,
+      "CommandPath": "",
+      "ColumnMetadata": [
+        {
+          "name": "Subscription"
+        },
+        {
+          "name": "Source Region"
+        },
+        {
+          "name": "Target Region"
+        },
+        {
+          "name": "Source Resource Type Count"
+        },
+        {
+          "name": "Available Resource Types"
+        },
+        {
+          "name": "Unavailable Resource Types"
+        },
+        {
+          "name": "Availability %"
+        },
+        {
+          "name": "Total SKUs Checked"
+        },
+        {
+          "name": "Available SKUs"
+        },
+        {
+          "name": "Unavailable SKUs"
+        },
+        {
+          "name": "Restricted SKUs"
+        },
+        {
+          "name": "Zone-Restricted SKUs"
+        },
+        {
+          "name": "Unknown SKUs"
+        },
+        {
+          "name": "SKU Availability %"
+        },
+        {
+          "name": "Availability Zones"
+        },
+        {
+          "name": "Target AZ Mapping"
+        },
+        {
+          "name": "Avg Latency (ms)"
+        },
+        {
+          "name": "Avg Cost Difference %"
+        },
+        {
+          "name": "Recommendation Score"
+        },
+        {
+          "name": "Score Quality"
+        },
+        {
+          "name": "Recommendation"
+        },
+        {
+          "name": "Missing Resource Types"
+        },
+        {
+          "name": "Unavailable SKUs (detail)"
+        },
+        {
+          "name": "Restricted SKUs (detail)"
+        },
+        {
+          "name": "Zone-Restricted SKUs (detail)"
+        }
+      ]
+    },
+    "score": 100,
+    "table": [
+      [
+        "Subscription",
+        "Source Region",
+        "Target Region",
+        "Source Resource Type Count",
+        "Available Resource Types",
+        "Unavailable Resource Types",
+        "Availability %",
+        "Total SKUs Checked",
+        "Available SKUs",
+        "Unavailable SKUs",
+        "Restricted SKUs",
+        "Zone-Restricted SKUs",
+        "Unknown SKUs",
+        "SKU Availability %",
+        "Availability Zones",
+        "Target AZ Mapping",
+        "Avg Latency (ms)",
+        "Avg Cost Difference %",
+        "Recommendation Score",
+        "Score Quality",
+        "Recommendation",
+        "Missing Resource Types",
+        "Unavailable SKUs (detail)",
+        "Restricted SKUs (detail)",
+        "Zone-Restricted SKUs (detail)"
+      ],
+      [
+        "Synthetic",
+        "eastus",
+        "westeurope",
+        "5",
+        "5",
+        "0",
+        "100.00%",
+        "4",
+        "4",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100.00%",
+        "3 → 3",
+        "1→west-az3, 2→west-az2, 3→west-az1",
+        "25.0",
+        "+0.00%",
+        "100.00",
+        "Full",
+        "Recommended",
+        "",
+        "",
+        "",
+        ""
+      ]
+    ]
+  },
+  {
+    "case": "weighted",
+    "metadata": {
+      "Name": "region-selection",
+      "Version": "0.2.0-beta",
+      "Description": "Analyzes optimal Azure region selection based on service availability, network latency, and cost comparison",
+      "Author": "Azure Quick Review Team",
+      "License": "MIT",
+      "Type": 1,
+      "CommandPath": "",
+      "ColumnMetadata": [
+        {
+          "name": "Subscription"
+        },
+        {
+          "name": "Source Region"
+        },
+        {
+          "name": "Target Region"
+        },
+        {
+          "name": "Source Resource Type Count"
+        },
+        {
+          "name": "Available Resource Types"
+        },
+        {
+          "name": "Unavailable Resource Types"
+        },
+        {
+          "name": "Availability %"
+        },
+        {
+          "name": "Total SKUs Checked"
+        },
+        {
+          "name": "Available SKUs"
+        },
+        {
+          "name": "Unavailable SKUs"
+        },
+        {
+          "name": "Restricted SKUs"
+        },
+        {
+          "name": "Zone-Restricted SKUs"
+        },
+        {
+          "name": "Unknown SKUs"
+        },
+        {
+          "name": "SKU Availability %"
+        },
+        {
+          "name": "Availability Zones"
+        },
+        {
+          "name": "Target AZ Mapping"
+        },
+        {
+          "name": "Avg Latency (ms)"
+        },
+        {
+          "name": "Avg Cost Difference %"
+        },
+        {
+          "name": "Recommendation Score"
+        },
+        {
+          "name": "Score Quality"
+        },
+        {
+          "name": "Recommendation"
+        },
+        {
+          "name": "Missing Resource Types"
+        },
+        {
+          "name": "Unavailable SKUs (detail)"
+        },
+        {
+          "name": "Restricted SKUs (detail)"
+        },
+        {
+          "name": "Zone-Restricted SKUs (detail)"
+        }
+      ]
+    },
+    "score": 68,
+    "table": [
+      [
+        "Subscription",
+        "Source Region",
+        "Target Region",
+        "Source Resource Type Count",
+        "Available Resource Types",
+        "Unavailable Resource Types",
+        "Availability %",
+        "Total SKUs Checked",
+        "Available SKUs",
+        "Unavailable SKUs",
+        "Restricted SKUs",
+        "Zone-Restricted SKUs",
+        "Unknown SKUs",
+        "SKU Availability %",
+        "Availability Zones",
+        "Target AZ Mapping",
+        "Avg Latency (ms)",
+        "Avg Cost Difference %",
+        "Recommendation Score",
+        "Score Quality",
+        "Recommendation",
+        "Missing Resource Types",
+        "Unavailable SKUs (detail)",
+        "Restricted SKUs (detail)",
+        "Zone-Restricted SKUs (detail)"
+      ],
+      [
+        "Synthetic",
+        "eastus",
+        "westeurope",
+        "5",
+        "4",
+        "1",
+        "80.00%",
+        "10",
+        "6",
+        "4",
+        "0",
+        "0",
+        "0",
+        "60.00%",
+        "3 → 3",
+        "1→west-az3, 2→west-az2, 3→west-az1",
+        "125.0",
+        "+10.00%",
+        "68.00",
+        "Full",
+        "Neutral",
+        "microsoft.test/missing",
+        "type:missing",
+        "",
+        ""
+      ]
+    ]
+  },
+  {
+    "case": "no-cost",
+    "metadata": {
+      "Name": "region-selection",
+      "Version": "0.2.0-beta",
+      "Description": "Analyzes optimal Azure region selection based on service availability, network latency, and cost comparison",
+      "Author": "Azure Quick Review Team",
+      "License": "MIT",
+      "Type": 1,
+      "CommandPath": "",
+      "ColumnMetadata": [
+        {
+          "name": "Subscription"
+        },
+        {
+          "name": "Source Region"
+        },
+        {
+          "name": "Target Region"
+        },
+        {
+          "name": "Source Resource Type Count"
+        },
+        {
+          "name": "Available Resource Types"
+        },
+        {
+          "name": "Unavailable Resource Types"
+        },
+        {
+          "name": "Availability %"
+        },
+        {
+          "name": "Total SKUs Checked"
+        },
+        {
+          "name": "Available SKUs"
+        },
+        {
+          "name": "Unavailable SKUs"
+        },
+        {
+          "name": "Restricted SKUs"
+        },
+        {
+          "name": "Zone-Restricted SKUs"
+        },
+        {
+          "name": "Unknown SKUs"
+        },
+        {
+          "name": "SKU Availability %"
+        },
+        {
+          "name": "Availability Zones"
+        },
+        {
+          "name": "Target AZ Mapping"
+        },
+        {
+          "name": "Avg Latency (ms)"
+        },
+        {
+          "name": "Avg Cost Difference %"
+        },
+        {
+          "name": "Recommendation Score"
+        },
+        {
+          "name": "Score Quality"
+        },
+        {
+          "name": "Recommendation"
+        },
+        {
+          "name": "Missing Resource Types"
+        },
+        {
+          "name": "Unavailable SKUs (detail)"
+        },
+        {
+          "name": "Restricted SKUs (detail)"
+        },
+        {
+          "name": "Zone-Restricted SKUs (detail)"
+        }
+      ]
+    },
+    "score": 100,
+    "table": [
+      [
+        "Subscription",
+        "Source Region",
+        "Target Region",
+        "Source Resource Type Count",
+        "Available Resource Types",
+        "Unavailable Resource Types",
+        "Availability %",
+        "Total SKUs Checked",
+        "Available SKUs",
+        "Unavailable SKUs",
+        "Restricted SKUs",
+        "Zone-Restricted SKUs",
+        "Unknown SKUs",
+        "SKU Availability %",
+        "Availability Zones",
+        "Target AZ Mapping",
+        "Avg Latency (ms)",
+        "Avg Cost Difference %",
+        "Recommendation Score",
+        "Score Quality",
+        "Recommendation",
+        "Missing Resource Types",
+        "Unavailable SKUs (detail)",
+        "Restricted SKUs (detail)",
+        "Zone-Restricted SKUs (detail)"
+      ],
+      [
+        "Synthetic",
+        "eastus",
+        "westeurope",
+        "5",
+        "5",
+        "0",
+        "100.00%",
+        "4",
+        "4",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100.00%",
+        "3 → 3",
+        "1→west-az3, 2→west-az2, 3→west-az1",
+        "25.0",
+        "N/A",
+        "100.00",
+        "no cost data",
+        "Recommended",
+        "",
+        "",
+        "",
+        ""
+      ]
+    ]
+  },
+  {
+    "case": "no-latency",
+    "metadata": {
+      "Name": "region-selection",
+      "Version": "0.2.0-beta",
+      "Description": "Analyzes optimal Azure region selection based on service availability, network latency, and cost comparison",
+      "Author": "Azure Quick Review Team",
+      "License": "MIT",
+      "Type": 1,
+      "CommandPath": "",
+      "ColumnMetadata": [
+        {
+          "name": "Subscription"
+        },
+        {
+          "name": "Source Region"
+        },
+        {
+          "name": "Target Region"
+        },
+        {
+          "name": "Source Resource Type Count"
+        },
+        {
+          "name": "Available Resource Types"
+        },
+        {
+          "name": "Unavailable Resource Types"
+        },
+        {
+          "name": "Availability %"
+        },
+        {
+          "name": "Total SKUs Checked"
+        },
+        {
+          "name": "Available SKUs"
+        },
+        {
+          "name": "Unavailable SKUs"
+        },
+        {
+          "name": "Restricted SKUs"
+        },
+        {
+          "name": "Zone-Restricted SKUs"
+        },
+        {
+          "name": "Unknown SKUs"
+        },
+        {
+          "name": "SKU Availability %"
+        },
+        {
+          "name": "Availability Zones"
+        },
+        {
+          "name": "Target AZ Mapping"
+        },
+        {
+          "name": "Avg Latency (ms)"
+        },
+        {
+          "name": "Avg Cost Difference %"
+        },
+        {
+          "name": "Recommendation Score"
+        },
+        {
+          "name": "Score Quality"
+        },
+        {
+          "name": "Recommendation"
+        },
+        {
+          "name": "Missing Resource Types"
+        },
+        {
+          "name": "Unavailable SKUs (detail)"
+        },
+        {
+          "name": "Restricted SKUs (detail)"
+        },
+        {
+          "name": "Zone-Restricted SKUs (detail)"
+        }
+      ]
+    },
+    "score": 100,
+    "table": [
+      [
+        "Subscription",
+        "Source Region",
+        "Target Region",
+        "Source Resource Type Count",
+        "Available Resource Types",
+        "Unavailable Resource Types",
+        "Availability %",
+        "Total SKUs Checked",
+        "Available SKUs",
+        "Unavailable SKUs",
+        "Restricted SKUs",
+        "Zone-Restricted SKUs",
+        "Unknown SKUs",
+        "SKU Availability %",
+        "Availability Zones",
+        "Target AZ Mapping",
+        "Avg Latency (ms)",
+        "Avg Cost Difference %",
+        "Recommendation Score",
+        "Score Quality",
+        "Recommendation",
+        "Missing Resource Types",
+        "Unavailable SKUs (detail)",
+        "Restricted SKUs (detail)",
+        "Zone-Restricted SKUs (detail)"
+      ],
+      [
+        "Synthetic",
+        "eastus",
+        "westeurope",
+        "5",
+        "5",
+        "0",
+        "100.00%",
+        "4",
+        "4",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100.00%",
+        "3 → 3",
+        "1→west-az3, 2→west-az2, 3→west-az1",
+        "N/A",
+        "+0.00%",
+        "100.00",
+        "no latency data",
+        "Recommended",
+        "",
+        "",
+        "",
+        ""
+      ]
+    ]
+  },
+  {
+    "case": "no-cost-or-latency",
+    "metadata": {
+      "Name": "region-selection",
+      "Version": "0.2.0-beta",
+      "Description": "Analyzes optimal Azure region selection based on service availability, network latency, and cost comparison",
+      "Author": "Azure Quick Review Team",
+      "License": "MIT",
+      "Type": 1,
+      "CommandPath": "",
+      "ColumnMetadata": [
+        {
+          "name": "Subscription"
+        },
+        {
+          "name": "Source Region"
+        },
+        {
+          "name": "Target Region"
+        },
+        {
+          "name": "Source Resource Type Count"
+        },
+        {
+          "name": "Available Resource Types"
+        },
+        {
+          "name": "Unavailable Resource Types"
+        },
+        {
+          "name": "Availability %"
+        },
+        {
+          "name": "Total SKUs Checked"
+        },
+        {
+          "name": "Available SKUs"
+        },
+        {
+          "name": "Unavailable SKUs"
+        },
+        {
+          "name": "Restricted SKUs"
+        },
+        {
+          "name": "Zone-Restricted SKUs"
+        },
+        {
+          "name": "Unknown SKUs"
+        },
+        {
+          "name": "SKU Availability %"
+        },
+        {
+          "name": "Availability Zones"
+        },
+        {
+          "name": "Target AZ Mapping"
+        },
+        {
+          "name": "Avg Latency (ms)"
+        },
+        {
+          "name": "Avg Cost Difference %"
+        },
+        {
+          "name": "Recommendation Score"
+        },
+        {
+          "name": "Score Quality"
+        },
+        {
+          "name": "Recommendation"
+        },
+        {
+          "name": "Missing Resource Types"
+        },
+        {
+          "name": "Unavailable SKUs (detail)"
+        },
+        {
+          "name": "Restricted SKUs (detail)"
+        },
+        {
+          "name": "Zone-Restricted SKUs (detail)"
+        }
+      ]
+    },
+    "score": 100,
+    "table": [
+      [
+        "Subscription",
+        "Source Region",
+        "Target Region",
+        "Source Resource Type Count",
+        "Available Resource Types",
+        "Unavailable Resource Types",
+        "Availability %",
+        "Total SKUs Checked",
+        "Available SKUs",
+        "Unavailable SKUs",
+        "Restricted SKUs",
+        "Zone-Restricted SKUs",
+        "Unknown SKUs",
+        "SKU Availability %",
+        "Availability Zones",
+        "Target AZ Mapping",
+        "Avg Latency (ms)",
+        "Avg Cost Difference %",
+        "Recommendation Score",
+        "Score Quality",
+        "Recommendation",
+        "Missing Resource Types",
+        "Unavailable SKUs (detail)",
+        "Restricted SKUs (detail)",
+        "Zone-Restricted SKUs (detail)"
+      ],
+      [
+        "Synthetic",
+        "eastus",
+        "westeurope",
+        "5",
+        "5",
+        "0",
+        "100.00%",
+        "4",
+        "4",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100.00%",
+        "3 → 3",
+        "1→west-az3, 2→west-az2, 3→west-az1",
+        "N/A",
+        "N/A",
+        "100.00",
+        "no cost data, no latency data",
+        "Recommended",
+        "",
+        "",
+        "",
+        ""
+      ]
+    ]
+  },
+  {
+    "case": "estimated-latency",
+    "metadata": {
+      "Name": "region-selection",
+      "Version": "0.2.0-beta",
+      "Description": "Analyzes optimal Azure region selection based on service availability, network latency, and cost comparison",
+      "Author": "Azure Quick Review Team",
+      "License": "MIT",
+      "Type": 1,
+      "CommandPath": "",
+      "ColumnMetadata": [
+        {
+          "name": "Subscription"
+        },
+        {
+          "name": "Source Region"
+        },
+        {
+          "name": "Target Region"
+        },
+        {
+          "name": "Source Resource Type Count"
+        },
+        {
+          "name": "Available Resource Types"
+        },
+        {
+          "name": "Unavailable Resource Types"
+        },
+        {
+          "name": "Availability %"
+        },
+        {
+          "name": "Total SKUs Checked"
+        },
+        {
+          "name": "Available SKUs"
+        },
+        {
+          "name": "Unavailable SKUs"
+        },
+        {
+          "name": "Restricted SKUs"
+        },
+        {
+          "name": "Zone-Restricted SKUs"
+        },
+        {
+          "name": "Unknown SKUs"
+        },
+        {
+          "name": "SKU Availability %"
+        },
+        {
+          "name": "Availability Zones"
+        },
+        {
+          "name": "Target AZ Mapping"
+        },
+        {
+          "name": "Avg Latency (ms)"
+        },
+        {
+          "name": "Avg Cost Difference %"
+        },
+        {
+          "name": "Recommendation Score"
+        },
+        {
+          "name": "Score Quality"
+        },
+        {
+          "name": "Recommendation"
+        },
+        {
+          "name": "Missing Resource Types"
+        },
+        {
+          "name": "Unavailable SKUs (detail)"
+        },
+        {
+          "name": "Restricted SKUs (detail)"
+        },
+        {
+          "name": "Zone-Restricted SKUs (detail)"
+        }
+      ]
+    },
+    "score": 89.96666666666667,
+    "table": [
+      [
+        "Subscription",
+        "Source Region",
+        "Target Region",
+        "Source Resource Type Count",
+        "Available Resource Types",
+        "Unavailable Resource Types",
+        "Availability %",
+        "Total SKUs Checked",
+        "Available SKUs",
+        "Unavailable SKUs",
+        "Restricted SKUs",
+        "Zone-Restricted SKUs",
+        "Unknown SKUs",
+        "SKU Availability %",
+        "Availability Zones",
+        "Target AZ Mapping",
+        "Avg Latency (ms)",
+        "Avg Cost Difference %",
+        "Recommendation Score",
+        "Score Quality",
+        "Recommendation",
+        "Missing Resource Types",
+        "Unavailable SKUs (detail)",
+        "Restricted SKUs (detail)",
+        "Zone-Restricted SKUs (detail)"
+      ],
+      [
+        "Synthetic",
+        "eastus",
+        "westeurope",
+        "5",
+        "5",
+        "0",
+        "100.00%",
+        "4",
+        "4",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100.00%",
+        "3 → 3",
+        "1→west-az3, 2→west-az2, 3→west-az1",
+        "125.2",
+        "+0.00%",
+        "89.97",
+        "estimated latency",
+        "Recommended",
+        "",
+        "",
+        "",
+        ""
+      ]
+    ]
+  },
+  {
+    "case": "latency-0",
+    "metadata": {
+      "Name": "region-selection",
+      "Version": "0.2.0-beta",
+      "Description": "Analyzes optimal Azure region selection based on service availability, network latency, and cost comparison",
+      "Author": "Azure Quick Review Team",
+      "License": "MIT",
+      "Type": 1,
+      "CommandPath": "",
+      "ColumnMetadata": [
+        {
+          "name": "Subscription"
+        },
+        {
+          "name": "Source Region"
+        },
+        {
+          "name": "Target Region"
+        },
+        {
+          "name": "Source Resource Type Count"
+        },
+        {
+          "name": "Available Resource Types"
+        },
+        {
+          "name": "Unavailable Resource Types"
+        },
+        {
+          "name": "Availability %"
+        },
+        {
+          "name": "Total SKUs Checked"
+        },
+        {
+          "name": "Available SKUs"
+        },
+        {
+          "name": "Unavailable SKUs"
+        },
+        {
+          "name": "Restricted SKUs"
+        },
+        {
+          "name": "Zone-Restricted SKUs"
+        },
+        {
+          "name": "Unknown SKUs"
+        },
+        {
+          "name": "SKU Availability %"
+        },
+        {
+          "name": "Availability Zones"
+        },
+        {
+          "name": "Target AZ Mapping"
+        },
+        {
+          "name": "Avg Latency (ms)"
+        },
+        {
+          "name": "Avg Cost Difference %"
+        },
+        {
+          "name": "Recommendation Score"
+        },
+        {
+          "name": "Score Quality"
+        },
+        {
+          "name": "Recommendation"
+        },
+        {
+          "name": "Missing Resource Types"
+        },
+        {
+          "name": "Unavailable SKUs (detail)"
+        },
+        {
+          "name": "Restricted SKUs (detail)"
+        },
+        {
+          "name": "Zone-Restricted SKUs (detail)"
+        }
+      ]
+    },
+    "score": 100,
+    "table": [
+      [
+        "Subscription",
+        "Source Region",
+        "Target Region",
+        "Source Resource Type Count",
+        "Available Resource Types",
+        "Unavailable Resource Types",
+        "Availability %",
+        "Total SKUs Checked",
+        "Available SKUs",
+        "Unavailable SKUs",
+        "Restricted SKUs",
+        "Zone-Restricted SKUs",
+        "Unknown SKUs",
+        "SKU Availability %",
+        "Availability Zones",
+        "Target AZ Mapping",
+        "Avg Latency (ms)",
+        "Avg Cost Difference %",
+        "Recommendation Score",
+        "Score Quality",
+        "Recommendation",
+        "Missing Resource Types",
+        "Unavailable SKUs (detail)",
+        "Restricted SKUs (detail)",
+        "Zone-Restricted SKUs (detail)"
+      ],
+      [
+        "Synthetic",
+        "eastus",
+        "westeurope",
+        "5",
+        "5",
+        "0",
+        "100.00%",
+        "4",
+        "4",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100.00%",
+        "3 → 3",
+        "1→west-az3, 2→west-az2, 3→west-az1",
+        "N/A",
+        "+0.00%",
+        "100.00",
+        "no latency data",
+        "Recommended",
+        "",
+        "",
+        "",
+        ""
+      ]
+    ]
+  },
+  {
+    "case": "latency-49.99",
+    "metadata": {
+      "Name": "region-selection",
+      "Version": "0.2.0-beta",
+      "Description": "Analyzes optimal Azure region selection based on service availability, network latency, and cost comparison",
+      "Author": "Azure Quick Review Team",
+      "License": "MIT",
+      "Type": 1,
+      "CommandPath": "",
+      "ColumnMetadata": [
+        {
+          "name": "Subscription"
+        },
+        {
+          "name": "Source Region"
+        },
+        {
+          "name": "Target Region"
+        },
+        {
+          "name": "Source Resource Type Count"
+        },
+        {
+          "name": "Available Resource Types"
+        },
+        {
+          "name": "Unavailable Resource Types"
+        },
+        {
+          "name": "Availability %"
+        },
+        {
+          "name": "Total SKUs Checked"
+        },
+        {
+          "name": "Available SKUs"
+        },
+        {
+          "name": "Unavailable SKUs"
+        },
+        {
+          "name": "Restricted SKUs"
+        },
+        {
+          "name": "Zone-Restricted SKUs"
+        },
+        {
+          "name": "Unknown SKUs"
+        },
+        {
+          "name": "SKU Availability %"
+        },
+        {
+          "name": "Availability Zones"
+        },
+        {
+          "name": "Target AZ Mapping"
+        },
+        {
+          "name": "Avg Latency (ms)"
+        },
+        {
+          "name": "Avg Cost Difference %"
+        },
+        {
+          "name": "Recommendation Score"
+        },
+        {
+          "name": "Score Quality"
+        },
+        {
+          "name": "Recommendation"
+        },
+        {
+          "name": "Missing Resource Types"
+        },
+        {
+          "name": "Unavailable SKUs (detail)"
+        },
+        {
+          "name": "Restricted SKUs (detail)"
+        },
+        {
+          "name": "Zone-Restricted SKUs (detail)"
+        }
+      ]
+    },
+    "score": 100,
+    "table": [
+      [
+        "Subscription",
+        "Source Region",
+        "Target Region",
+        "Source Resource Type Count",
+        "Available Resource Types",
+        "Unavailable Resource Types",
+        "Availability %",
+        "Total SKUs Checked",
+        "Available SKUs",
+        "Unavailable SKUs",
+        "Restricted SKUs",
+        "Zone-Restricted SKUs",
+        "Unknown SKUs",
+        "SKU Availability %",
+        "Availability Zones",
+        "Target AZ Mapping",
+        "Avg Latency (ms)",
+        "Avg Cost Difference %",
+        "Recommendation Score",
+        "Score Quality",
+        "Recommendation",
+        "Missing Resource Types",
+        "Unavailable SKUs (detail)",
+        "Restricted SKUs (detail)",
+        "Zone-Restricted SKUs (detail)"
+      ],
+      [
+        "Synthetic",
+        "eastus",
+        "westeurope",
+        "5",
+        "5",
+        "0",
+        "100.00%",
+        "4",
+        "4",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100.00%",
+        "3 → 3",
+        "1→west-az3, 2→west-az2, 3→west-az1",
+        "50.0",
+        "+0.00%",
+        "100.00",
+        "Full",
+        "Recommended",
+        "",
+        "",
+        "",
+        ""
+      ]
+    ]
+  },
+  {
+    "case": "latency-50",
+    "metadata": {
+      "Name": "region-selection",
+      "Version": "0.2.0-beta",
+      "Description": "Analyzes optimal Azure region selection based on service availability, network latency, and cost comparison",
+      "Author": "Azure Quick Review Team",
+      "License": "MIT",
+      "Type": 1,
+      "CommandPath": "",
+      "ColumnMetadata": [
+        {
+          "name": "Subscription"
+        },
+        {
+          "name": "Source Region"
+        },
+        {
+          "name": "Target Region"
+        },
+        {
+          "name": "Source Resource Type Count"
+        },
+        {
+          "name": "Available Resource Types"
+        },
+        {
+          "name": "Unavailable Resource Types"
+        },
+        {
+          "name": "Availability %"
+        },
+        {
+          "name": "Total SKUs Checked"
+        },
+        {
+          "name": "Available SKUs"
+        },
+        {
+          "name": "Unavailable SKUs"
+        },
+        {
+          "name": "Restricted SKUs"
+        },
+        {
+          "name": "Zone-Restricted SKUs"
+        },
+        {
+          "name": "Unknown SKUs"
+        },
+        {
+          "name": "SKU Availability %"
+        },
+        {
+          "name": "Availability Zones"
+        },
+        {
+          "name": "Target AZ Mapping"
+        },
+        {
+          "name": "Avg Latency (ms)"
+        },
+        {
+          "name": "Avg Cost Difference %"
+        },
+        {
+          "name": "Recommendation Score"
+        },
+        {
+          "name": "Score Quality"
+        },
+        {
+          "name": "Recommendation"
+        },
+        {
+          "name": "Missing Resource Types"
+        },
+        {
+          "name": "Unavailable SKUs (detail)"
+        },
+        {
+          "name": "Restricted SKUs (detail)"
+        },
+        {
+          "name": "Zone-Restricted SKUs (detail)"
+        }
+      ]
+    },
+    "score": 100,
+    "table": [
+      [
+        "Subscription",
+        "Source Region",
+        "Target Region",
+        "Source Resource Type Count",
+        "Available Resource Types",
+        "Unavailable Resource Types",
+        "Availability %",
+        "Total SKUs Checked",
+        "Available SKUs",
+        "Unavailable SKUs",
+        "Restricted SKUs",
+        "Zone-Restricted SKUs",
+        "Unknown SKUs",
+        "SKU Availability %",
+        "Availability Zones",
+        "Target AZ Mapping",
+        "Avg Latency (ms)",
+        "Avg Cost Difference %",
+        "Recommendation Score",
+        "Score Quality",
+        "Recommendation",
+        "Missing Resource Types",
+        "Unavailable SKUs (detail)",
+        "Restricted SKUs (detail)",
+        "Zone-Restricted SKUs (detail)"
+      ],
+      [
+        "Synthetic",
+        "eastus",
+        "westeurope",
+        "5",
+        "5",
+        "0",
+        "100.00%",
+        "4",
+        "4",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100.00%",
+        "3 → 3",
+        "1→west-az3, 2→west-az2, 3→west-az1",
+        "50.0",
+        "+0.00%",
+        "100.00",
+        "Full",
+        "Recommended",
+        "",
+        "",
+        "",
+        ""
+      ]
+    ]
+  },
+  {
+    "case": "latency-50.01",
+    "metadata": {
+      "Name": "region-selection",
+      "Version": "0.2.0-beta",
+      "Description": "Analyzes optimal Azure region selection based on service availability, network latency, and cost comparison",
+      "Author": "Azure Quick Review Team",
+      "License": "MIT",
+      "Type": 1,
+      "CommandPath": "",
+      "ColumnMetadata": [
+        {
+          "name": "Subscription"
+        },
+        {
+          "name": "Source Region"
+        },
+        {
+          "name": "Target Region"
+        },
+        {
+          "name": "Source Resource Type Count"
+        },
+        {
+          "name": "Available Resource Types"
+        },
+        {
+          "name": "Unavailable Resource Types"
+        },
+        {
+          "name": "Availability %"
+        },
+        {
+          "name": "Total SKUs Checked"
+        },
+        {
+          "name": "Available SKUs"
+        },
+        {
+          "name": "Unavailable SKUs"
+        },
+        {
+          "name": "Restricted SKUs"
+        },
+        {
+          "name": "Zone-Restricted SKUs"
+        },
+        {
+          "name": "Unknown SKUs"
+        },
+        {
+          "name": "SKU Availability %"
+        },
+        {
+          "name": "Availability Zones"
+        },
+        {
+          "name": "Target AZ Mapping"
+        },
+        {
+          "name": "Avg Latency (ms)"
+        },
+        {
+          "name": "Avg Cost Difference %"
+        },
+        {
+          "name": "Recommendation Score"
+        },
+        {
+          "name": "Score Quality"
+        },
+        {
+          "name": "Recommendation"
+        },
+        {
+          "name": "Missing Resource Types"
+        },
+        {
+          "name": "Unavailable SKUs (detail)"
+        },
+        {
+          "name": "Restricted SKUs (detail)"
+        },
+        {
+          "name": "Zone-Restricted SKUs (detail)"
+        }
+      ]
+    },
+    "score": 99.99866666666667,
+    "table": [
+      [
+        "Subscription",
+        "Source Region",
+        "Target Region",
+        "Source Resource Type Count",
+        "Available Resource Types",
+        "Unavailable Resource Types",
+        "Availability %",
+        "Total SKUs Checked",
+        "Available SKUs",
+        "Unavailable SKUs",
+        "Restricted SKUs",
+        "Zone-Restricted SKUs",
+        "Unknown SKUs",
+        "SKU Availability %",
+        "Availability Zones",
+        "Target AZ Mapping",
+        "Avg Latency (ms)",
+        "Avg Cost Difference %",
+        "Recommendation Score",
+        "Score Quality",
+        "Recommendation",
+        "Missing Resource Types",
+        "Unavailable SKUs (detail)",
+        "Restricted SKUs (detail)",
+        "Zone-Restricted SKUs (detail)"
+      ],
+      [
+        "Synthetic",
+        "eastus",
+        "westeurope",
+        "5",
+        "5",
+        "0",
+        "100.00%",
+        "4",
+        "4",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100.00%",
+        "3 → 3",
+        "1→west-az3, 2→west-az2, 3→west-az1",
+        "50.0",
+        "+0.00%",
+        "100.00",
+        "Full",
+        "Recommended",
+        "",
+        "",
+        "",
+        ""
+      ]
+    ]
+  },
+  {
+    "case": "latency-125",
+    "metadata": {
+      "Name": "region-selection",
+      "Version": "0.2.0-beta",
+      "Description": "Analyzes optimal Azure region selection based on service availability, network latency, and cost comparison",
+      "Author": "Azure Quick Review Team",
+      "License": "MIT",
+      "Type": 1,
+      "CommandPath": "",
+      "ColumnMetadata": [
+        {
+          "name": "Subscription"
+        },
+        {
+          "name": "Source Region"
+        },
+        {
+          "name": "Target Region"
+        },
+        {
+          "name": "Source Resource Type Count"
+        },
+        {
+          "name": "Available Resource Types"
+        },
+        {
+          "name": "Unavailable Resource Types"
+        },
+        {
+          "name": "Availability %"
+        },
+        {
+          "name": "Total SKUs Checked"
+        },
+        {
+          "name": "Available SKUs"
+        },
+        {
+          "name": "Unavailable SKUs"
+        },
+        {
+          "name": "Restricted SKUs"
+        },
+        {
+          "name": "Zone-Restricted SKUs"
+        },
+        {
+          "name": "Unknown SKUs"
+        },
+        {
+          "name": "SKU Availability %"
+        },
+        {
+          "name": "Availability Zones"
+        },
+        {
+          "name": "Target AZ Mapping"
+        },
+        {
+          "name": "Avg Latency (ms)"
+        },
+        {
+          "name": "Avg Cost Difference %"
+        },
+        {
+          "name": "Recommendation Score"
+        },
+        {
+          "name": "Score Quality"
+        },
+        {
+          "name": "Recommendation"
+        },
+        {
+          "name": "Missing Resource Types"
+        },
+        {
+          "name": "Unavailable SKUs (detail)"
+        },
+        {
+          "name": "Restricted SKUs (detail)"
+        },
+        {
+          "name": "Zone-Restricted SKUs (detail)"
+        }
+      ]
+    },
+    "score": 90,
+    "table": [
+      [
+        "Subscription",
+        "Source Region",
+        "Target Region",
+        "Source Resource Type Count",
+        "Available Resource Types",
+        "Unavailable Resource Types",
+        "Availability %",
+        "Total SKUs Checked",
+        "Available SKUs",
+        "Unavailable SKUs",
+        "Restricted SKUs",
+        "Zone-Restricted SKUs",
+        "Unknown SKUs",
+        "SKU Availability %",
+        "Availability Zones",
+        "Target AZ Mapping",
+        "Avg Latency (ms)",
+        "Avg Cost Difference %",
+        "Recommendation Score",
+        "Score Quality",
+        "Recommendation",
+        "Missing Resource Types",
+        "Unavailable SKUs (detail)",
+        "Restricted SKUs (detail)",
+        "Zone-Restricted SKUs (detail)"
+      ],
+      [
+        "Synthetic",
+        "eastus",
+        "westeurope",
+        "5",
+        "5",
+        "0",
+        "100.00%",
+        "4",
+        "4",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100.00%",
+        "3 → 3",
+        "1→west-az3, 2→west-az2, 3→west-az1",
+        "125.0",
+        "+0.00%",
+        "90.00",
+        "Full",
+        "Recommended",
+        "",
+        "",
+        "",
+        ""
+      ]
+    ]
+  },
+  {
+    "case": "latency-199.99",
+    "metadata": {
+      "Name": "region-selection",
+      "Version": "0.2.0-beta",
+      "Description": "Analyzes optimal Azure region selection based on service availability, network latency, and cost comparison",
+      "Author": "Azure Quick Review Team",
+      "License": "MIT",
+      "Type": 1,
+      "CommandPath": "",
+      "ColumnMetadata": [
+        {
+          "name": "Subscription"
+        },
+        {
+          "name": "Source Region"
+        },
+        {
+          "name": "Target Region"
+        },
+        {
+          "name": "Source Resource Type Count"
+        },
+        {
+          "name": "Available Resource Types"
+        },
+        {
+          "name": "Unavailable Resource Types"
+        },
+        {
+          "name": "Availability %"
+        },
+        {
+          "name": "Total SKUs Checked"
+        },
+        {
+          "name": "Available SKUs"
+        },
+        {
+          "name": "Unavailable SKUs"
+        },
+        {
+          "name": "Restricted SKUs"
+        },
+        {
+          "name": "Zone-Restricted SKUs"
+        },
+        {
+          "name": "Unknown SKUs"
+        },
+        {
+          "name": "SKU Availability %"
+        },
+        {
+          "name": "Availability Zones"
+        },
+        {
+          "name": "Target AZ Mapping"
+        },
+        {
+          "name": "Avg Latency (ms)"
+        },
+        {
+          "name": "Avg Cost Difference %"
+        },
+        {
+          "name": "Recommendation Score"
+        },
+        {
+          "name": "Score Quality"
+        },
+        {
+          "name": "Recommendation"
+        },
+        {
+          "name": "Missing Resource Types"
+        },
+        {
+          "name": "Unavailable SKUs (detail)"
+        },
+        {
+          "name": "Restricted SKUs (detail)"
+        },
+        {
+          "name": "Zone-Restricted SKUs (detail)"
+        }
+      ]
+    },
+    "score": 80.00133333333333,
+    "table": [
+      [
+        "Subscription",
+        "Source Region",
+        "Target Region",
+        "Source Resource Type Count",
+        "Available Resource Types",
+        "Unavailable Resource Types",
+        "Availability %",
+        "Total SKUs Checked",
+        "Available SKUs",
+        "Unavailable SKUs",
+        "Restricted SKUs",
+        "Zone-Restricted SKUs",
+        "Unknown SKUs",
+        "SKU Availability %",
+        "Availability Zones",
+        "Target AZ Mapping",
+        "Avg Latency (ms)",
+        "Avg Cost Difference %",
+        "Recommendation Score",
+        "Score Quality",
+        "Recommendation",
+        "Missing Resource Types",
+        "Unavailable SKUs (detail)",
+        "Restricted SKUs (detail)",
+        "Zone-Restricted SKUs (detail)"
+      ],
+      [
+        "Synthetic",
+        "eastus",
+        "westeurope",
+        "5",
+        "5",
+        "0",
+        "100.00%",
+        "4",
+        "4",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100.00%",
+        "3 → 3",
+        "1→west-az3, 2→west-az2, 3→west-az1",
+        "200.0",
+        "+0.00%",
+        "80.00",
+        "Full",
+        "Recommended",
+        "",
+        "",
+        "",
+        ""
+      ]
+    ]
+  },
+  {
+    "case": "latency-200",
+    "metadata": {
+      "Name": "region-selection",
+      "Version": "0.2.0-beta",
+      "Description": "Analyzes optimal Azure region selection based on service availability, network latency, and cost comparison",
+      "Author": "Azure Quick Review Team",
+      "License": "MIT",
+      "Type": 1,
+      "CommandPath": "",
+      "ColumnMetadata": [
+        {
+          "name": "Subscription"
+        },
+        {
+          "name": "Source Region"
+        },
+        {
+          "name": "Target Region"
+        },
+        {
+          "name": "Source Resource Type Count"
+        },
+        {
+          "name": "Available Resource Types"
+        },
+        {
+          "name": "Unavailable Resource Types"
+        },
+        {
+          "name": "Availability %"
+        },
+        {
+          "name": "Total SKUs Checked"
+        },
+        {
+          "name": "Available SKUs"
+        },
+        {
+          "name": "Unavailable SKUs"
+        },
+        {
+          "name": "Restricted SKUs"
+        },
+        {
+          "name": "Zone-Restricted SKUs"
+        },
+        {
+          "name": "Unknown SKUs"
+        },
+        {
+          "name": "SKU Availability %"
+        },
+        {
+          "name": "Availability Zones"
+        },
+        {
+          "name": "Target AZ Mapping"
+        },
+        {
+          "name": "Avg Latency (ms)"
+        },
+        {
+          "name": "Avg Cost Difference %"
+        },
+        {
+          "name": "Recommendation Score"
+        },
+        {
+          "name": "Score Quality"
+        },
+        {
+          "name": "Recommendation"
+        },
+        {
+          "name": "Missing Resource Types"
+        },
+        {
+          "name": "Unavailable SKUs (detail)"
+        },
+        {
+          "name": "Restricted SKUs (detail)"
+        },
+        {
+          "name": "Zone-Restricted SKUs (detail)"
+        }
+      ]
+    },
+    "score": 80,
+    "table": [
+      [
+        "Subscription",
+        "Source Region",
+        "Target Region",
+        "Source Resource Type Count",
+        "Available Resource Types",
+        "Unavailable Resource Types",
+        "Availability %",
+        "Total SKUs Checked",
+        "Available SKUs",
+        "Unavailable SKUs",
+        "Restricted SKUs",
+        "Zone-Restricted SKUs",
+        "Unknown SKUs",
+        "SKU Availability %",
+        "Availability Zones",
+        "Target AZ Mapping",
+        "Avg Latency (ms)",
+        "Avg Cost Difference %",
+        "Recommendation Score",
+        "Score Quality",
+        "Recommendation",
+        "Missing Resource Types",
+        "Unavailable SKUs (detail)",
+        "Restricted SKUs (detail)",
+        "Zone-Restricted SKUs (detail)"
+      ],
+      [
+        "Synthetic",
+        "eastus",
+        "westeurope",
+        "5",
+        "5",
+        "0",
+        "100.00%",
+        "4",
+        "4",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100.00%",
+        "3 → 3",
+        "1→west-az3, 2→west-az2, 3→west-az1",
+        "200.0",
+        "+0.00%",
+        "80.00",
+        "Full",
+        "Recommended",
+        "",
+        "",
+        "",
+        ""
+      ]
+    ]
+  },
+  {
+    "case": "latency-200.01",
+    "metadata": {
+      "Name": "region-selection",
+      "Version": "0.2.0-beta",
+      "Description": "Analyzes optimal Azure region selection based on service availability, network latency, and cost comparison",
+      "Author": "Azure Quick Review Team",
+      "License": "MIT",
+      "Type": 1,
+      "CommandPath": "",
+      "ColumnMetadata": [
+        {
+          "name": "Subscription"
+        },
+        {
+          "name": "Source Region"
+        },
+        {
+          "name": "Target Region"
+        },
+        {
+          "name": "Source Resource Type Count"
+        },
+        {
+          "name": "Available Resource Types"
+        },
+        {
+          "name": "Unavailable Resource Types"
+        },
+        {
+          "name": "Availability %"
+        },
+        {
+          "name": "Total SKUs Checked"
+        },
+        {
+          "name": "Available SKUs"
+        },
+        {
+          "name": "Unavailable SKUs"
+        },
+        {
+          "name": "Restricted SKUs"
+        },
+        {
+          "name": "Zone-Restricted SKUs"
+        },
+        {
+          "name": "Unknown SKUs"
+        },
+        {
+          "name": "SKU Availability %"
+        },
+        {
+          "name": "Availability Zones"
+        },
+        {
+          "name": "Target AZ Mapping"
+        },
+        {
+          "name": "Avg Latency (ms)"
+        },
+        {
+          "name": "Avg Cost Difference %"
+        },
+        {
+          "name": "Recommendation Score"
+        },
+        {
+          "name": "Score Quality"
+        },
+        {
+          "name": "Recommendation"
+        },
+        {
+          "name": "Missing Resource Types"
+        },
+        {
+          "name": "Unavailable SKUs (detail)"
+        },
+        {
+          "name": "Restricted SKUs (detail)"
+        },
+        {
+          "name": "Zone-Restricted SKUs (detail)"
+        }
+      ]
+    },
+    "score": 80,
+    "table": [
+      [
+        "Subscription",
+        "Source Region",
+        "Target Region",
+        "Source Resource Type Count",
+        "Available Resource Types",
+        "Unavailable Resource Types",
+        "Availability %",
+        "Total SKUs Checked",
+        "Available SKUs",
+        "Unavailable SKUs",
+        "Restricted SKUs",
+        "Zone-Restricted SKUs",
+        "Unknown SKUs",
+        "SKU Availability %",
+        "Availability Zones",
+        "Target AZ Mapping",
+        "Avg Latency (ms)",
+        "Avg Cost Difference %",
+        "Recommendation Score",
+        "Score Quality",
+        "Recommendation",
+        "Missing Resource Types",
+        "Unavailable SKUs (detail)",
+        "Restricted SKUs (detail)",
+        "Zone-Restricted SKUs (detail)"
+      ],
+      [
+        "Synthetic",
+        "eastus",
+        "westeurope",
+        "5",
+        "5",
+        "0",
+        "100.00%",
+        "4",
+        "4",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100.00%",
+        "3 → 3",
+        "1→west-az3, 2→west-az2, 3→west-az1",
+        "200.0",
+        "+0.00%",
+        "80.00",
+        "Full",
+        "Recommended",
+        "",
+        "",
+        "",
+        ""
+      ]
+    ]
+  },
+  {
+    "case": "latency-250",
+    "metadata": {
+      "Name": "region-selection",
+      "Version": "0.2.0-beta",
+      "Description": "Analyzes optimal Azure region selection based on service availability, network latency, and cost comparison",
+      "Author": "Azure Quick Review Team",
+      "License": "MIT",
+      "Type": 1,
+      "CommandPath": "",
+      "ColumnMetadata": [
+        {
+          "name": "Subscription"
+        },
+        {
+          "name": "Source Region"
+        },
+        {
+          "name": "Target Region"
+        },
+        {
+          "name": "Source Resource Type Count"
+        },
+        {
+          "name": "Available Resource Types"
+        },
+        {
+          "name": "Unavailable Resource Types"
+        },
+        {
+          "name": "Availability %"
+        },
+        {
+          "name": "Total SKUs Checked"
+        },
+        {
+          "name": "Available SKUs"
+        },
+        {
+          "name": "Unavailable SKUs"
+        },
+        {
+          "name": "Restricted SKUs"
+        },
+        {
+          "name": "Zone-Restricted SKUs"
+        },
+        {
+          "name": "Unknown SKUs"
+        },
+        {
+          "name": "SKU Availability %"
+        },
+        {
+          "name": "Availability Zones"
+        },
+        {
+          "name": "Target AZ Mapping"
+        },
+        {
+          "name": "Avg Latency (ms)"
+        },
+        {
+          "name": "Avg Cost Difference %"
+        },
+        {
+          "name": "Recommendation Score"
+        },
+        {
+          "name": "Score Quality"
+        },
+        {
+          "name": "Recommendation"
+        },
+        {
+          "name": "Missing Resource Types"
+        },
+        {
+          "name": "Unavailable SKUs (detail)"
+        },
+        {
+          "name": "Restricted SKUs (detail)"
+        },
+        {
+          "name": "Zone-Restricted SKUs (detail)"
+        }
+      ]
+    },
+    "score": 80,
+    "table": [
+      [
+        "Subscription",
+        "Source Region",
+        "Target Region",
+        "Source Resource Type Count",
+        "Available Resource Types",
+        "Unavailable Resource Types",
+        "Availability %",
+        "Total SKUs Checked",
+        "Available SKUs",
+        "Unavailable SKUs",
+        "Restricted SKUs",
+        "Zone-Restricted SKUs",
+        "Unknown SKUs",
+        "SKU Availability %",
+        "Availability Zones",
+        "Target AZ Mapping",
+        "Avg Latency (ms)",
+        "Avg Cost Difference %",
+        "Recommendation Score",
+        "Score Quality",
+        "Recommendation",
+        "Missing Resource Types",
+        "Unavailable SKUs (detail)",
+        "Restricted SKUs (detail)",
+        "Zone-Restricted SKUs (detail)"
+      ],
+      [
+        "Synthetic",
+        "eastus",
+        "westeurope",
+        "5",
+        "5",
+        "0",
+        "100.00%",
+        "4",
+        "4",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100.00%",
+        "3 → 3",
+        "1→west-az3, 2→west-az2, 3→west-az1",
+        "250.0",
+        "+0.00%",
+        "80.00",
+        "Full",
+        "Recommended",
+        "",
+        "",
+        "",
+        ""
+      ]
+    ]
+  },
+  {
+    "case": "cost--100",
+    "metadata": {
+      "Name": "region-selection",
+      "Version": "0.2.0-beta",
+      "Description": "Analyzes optimal Azure region selection based on service availability, network latency, and cost comparison",
+      "Author": "Azure Quick Review Team",
+      "License": "MIT",
+      "Type": 1,
+      "CommandPath": "",
+      "ColumnMetadata": [
+        {
+          "name": "Subscription"
+        },
+        {
+          "name": "Source Region"
+        },
+        {
+          "name": "Target Region"
+        },
+        {
+          "name": "Source Resource Type Count"
+        },
+        {
+          "name": "Available Resource Types"
+        },
+        {
+          "name": "Unavailable Resource Types"
+        },
+        {
+          "name": "Availability %"
+        },
+        {
+          "name": "Total SKUs Checked"
+        },
+        {
+          "name": "Available SKUs"
+        },
+        {
+          "name": "Unavailable SKUs"
+        },
+        {
+          "name": "Restricted SKUs"
+        },
+        {
+          "name": "Zone-Restricted SKUs"
+        },
+        {
+          "name": "Unknown SKUs"
+        },
+        {
+          "name": "SKU Availability %"
+        },
+        {
+          "name": "Availability Zones"
+        },
+        {
+          "name": "Target AZ Mapping"
+        },
+        {
+          "name": "Avg Latency (ms)"
+        },
+        {
+          "name": "Avg Cost Difference %"
+        },
+        {
+          "name": "Recommendation Score"
+        },
+        {
+          "name": "Score Quality"
+        },
+        {
+          "name": "Recommendation"
+        },
+        {
+          "name": "Missing Resource Types"
+        },
+        {
+          "name": "Unavailable SKUs (detail)"
+        },
+        {
+          "name": "Restricted SKUs (detail)"
+        },
+        {
+          "name": "Zone-Restricted SKUs (detail)"
+        }
+      ]
+    },
+    "score": 100,
+    "table": [
+      [
+        "Subscription",
+        "Source Region",
+        "Target Region",
+        "Source Resource Type Count",
+        "Available Resource Types",
+        "Unavailable Resource Types",
+        "Availability %",
+        "Total SKUs Checked",
+        "Available SKUs",
+        "Unavailable SKUs",
+        "Restricted SKUs",
+        "Zone-Restricted SKUs",
+        "Unknown SKUs",
+        "SKU Availability %",
+        "Availability Zones",
+        "Target AZ Mapping",
+        "Avg Latency (ms)",
+        "Avg Cost Difference %",
+        "Recommendation Score",
+        "Score Quality",
+        "Recommendation",
+        "Missing Resource Types",
+        "Unavailable SKUs (detail)",
+        "Restricted SKUs (detail)",
+        "Zone-Restricted SKUs (detail)"
+      ],
+      [
+        "Synthetic",
+        "eastus",
+        "westeurope",
+        "5",
+        "5",
+        "0",
+        "100.00%",
+        "4",
+        "4",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100.00%",
+        "3 → 3",
+        "1→west-az3, 2→west-az2, 3→west-az1",
+        "25.0",
+        "-100.00%",
+        "100.00",
+        "Full",
+        "Recommended",
+        "",
+        "",
+        "",
+        ""
+      ]
+    ]
+  },
+  {
+    "case": "cost--12.345",
+    "metadata": {
+      "Name": "region-selection",
+      "Version": "0.2.0-beta",
+      "Description": "Analyzes optimal Azure region selection based on service availability, network latency, and cost comparison",
+      "Author": "Azure Quick Review Team",
+      "License": "MIT",
+      "Type": 1,
+      "CommandPath": "",
+      "ColumnMetadata": [
+        {
+          "name": "Subscription"
+        },
+        {
+          "name": "Source Region"
+        },
+        {
+          "name": "Target Region"
+        },
+        {
+          "name": "Source Resource Type Count"
+        },
+        {
+          "name": "Available Resource Types"
+        },
+        {
+          "name": "Unavailable Resource Types"
+        },
+        {
+          "name": "Availability %"
+        },
+        {
+          "name": "Total SKUs Checked"
+        },
+        {
+          "name": "Available SKUs"
+        },
+        {
+          "name": "Unavailable SKUs"
+        },
+        {
+          "name": "Restricted SKUs"
+        },
+        {
+          "name": "Zone-Restricted SKUs"
+        },
+        {
+          "name": "Unknown SKUs"
+        },
+        {
+          "name": "SKU Availability %"
+        },
+        {
+          "name": "Availability Zones"
+        },
+        {
+          "name": "Target AZ Mapping"
+        },
+        {
+          "name": "Avg Latency (ms)"
+        },
+        {
+          "name": "Avg Cost Difference %"
+        },
+        {
+          "name": "Recommendation Score"
+        },
+        {
+          "name": "Score Quality"
+        },
+        {
+          "name": "Recommendation"
+        },
+        {
+          "name": "Missing Resource Types"
+        },
+        {
+          "name": "Unavailable SKUs (detail)"
+        },
+        {
+          "name": "Restricted SKUs (detail)"
+        },
+        {
+          "name": "Zone-Restricted SKUs (detail)"
+        }
+      ]
+    },
+    "score": 100,
+    "table": [
+      [
+        "Subscription",
+        "Source Region",
+        "Target Region",
+        "Source Resource Type Count",
+        "Available Resource Types",
+        "Unavailable Resource Types",
+        "Availability %",
+        "Total SKUs Checked",
+        "Available SKUs",
+        "Unavailable SKUs",
+        "Restricted SKUs",
+        "Zone-Restricted SKUs",
+        "Unknown SKUs",
+        "SKU Availability %",
+        "Availability Zones",
+        "Target AZ Mapping",
+        "Avg Latency (ms)",
+        "Avg Cost Difference %",
+        "Recommendation Score",
+        "Score Quality",
+        "Recommendation",
+        "Missing Resource Types",
+        "Unavailable SKUs (detail)",
+        "Restricted SKUs (detail)",
+        "Zone-Restricted SKUs (detail)"
+      ],
+      [
+        "Synthetic",
+        "eastus",
+        "westeurope",
+        "5",
+        "5",
+        "0",
+        "100.00%",
+        "4",
+        "4",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100.00%",
+        "3 → 3",
+        "1→west-az3, 2→west-az2, 3→west-az1",
+        "25.0",
+        "-12.35%",
+        "100.00",
+        "Full",
+        "Recommended",
+        "",
+        "",
+        "",
+        ""
+      ]
+    ]
+  },
+  {
+    "case": "cost-0",
+    "metadata": {
+      "Name": "region-selection",
+      "Version": "0.2.0-beta",
+      "Description": "Analyzes optimal Azure region selection based on service availability, network latency, and cost comparison",
+      "Author": "Azure Quick Review Team",
+      "License": "MIT",
+      "Type": 1,
+      "CommandPath": "",
+      "ColumnMetadata": [
+        {
+          "name": "Subscription"
+        },
+        {
+          "name": "Source Region"
+        },
+        {
+          "name": "Target Region"
+        },
+        {
+          "name": "Source Resource Type Count"
+        },
+        {
+          "name": "Available Resource Types"
+        },
+        {
+          "name": "Unavailable Resource Types"
+        },
+        {
+          "name": "Availability %"
+        },
+        {
+          "name": "Total SKUs Checked"
+        },
+        {
+          "name": "Available SKUs"
+        },
+        {
+          "name": "Unavailable SKUs"
+        },
+        {
+          "name": "Restricted SKUs"
+        },
+        {
+          "name": "Zone-Restricted SKUs"
+        },
+        {
+          "name": "Unknown SKUs"
+        },
+        {
+          "name": "SKU Availability %"
+        },
+        {
+          "name": "Availability Zones"
+        },
+        {
+          "name": "Target AZ Mapping"
+        },
+        {
+          "name": "Avg Latency (ms)"
+        },
+        {
+          "name": "Avg Cost Difference %"
+        },
+        {
+          "name": "Recommendation Score"
+        },
+        {
+          "name": "Score Quality"
+        },
+        {
+          "name": "Recommendation"
+        },
+        {
+          "name": "Missing Resource Types"
+        },
+        {
+          "name": "Unavailable SKUs (detail)"
+        },
+        {
+          "name": "Restricted SKUs (detail)"
+        },
+        {
+          "name": "Zone-Restricted SKUs (detail)"
+        }
+      ]
+    },
+    "score": 100,
+    "table": [
+      [
+        "Subscription",
+        "Source Region",
+        "Target Region",
+        "Source Resource Type Count",
+        "Available Resource Types",
+        "Unavailable Resource Types",
+        "Availability %",
+        "Total SKUs Checked",
+        "Available SKUs",
+        "Unavailable SKUs",
+        "Restricted SKUs",
+        "Zone-Restricted SKUs",
+        "Unknown SKUs",
+        "SKU Availability %",
+        "Availability Zones",
+        "Target AZ Mapping",
+        "Avg Latency (ms)",
+        "Avg Cost Difference %",
+        "Recommendation Score",
+        "Score Quality",
+        "Recommendation",
+        "Missing Resource Types",
+        "Unavailable SKUs (detail)",
+        "Restricted SKUs (detail)",
+        "Zone-Restricted SKUs (detail)"
+      ],
+      [
+        "Synthetic",
+        "eastus",
+        "westeurope",
+        "5",
+        "5",
+        "0",
+        "100.00%",
+        "4",
+        "4",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100.00%",
+        "3 → 3",
+        "1→west-az3, 2→west-az2, 3→west-az1",
+        "25.0",
+        "+0.00%",
+        "100.00",
+        "Full",
+        "Recommended",
+        "",
+        "",
+        "",
+        ""
+      ]
+    ]
+  },
+  {
+    "case": "cost-0.125",
+    "metadata": {
+      "Name": "region-selection",
+      "Version": "0.2.0-beta",
+      "Description": "Analyzes optimal Azure region selection based on service availability, network latency, and cost comparison",
+      "Author": "Azure Quick Review Team",
+      "License": "MIT",
+      "Type": 1,
+      "CommandPath": "",
+      "ColumnMetadata": [
+        {
+          "name": "Subscription"
+        },
+        {
+          "name": "Source Region"
+        },
+        {
+          "name": "Target Region"
+        },
+        {
+          "name": "Source Resource Type Count"
+        },
+        {
+          "name": "Available Resource Types"
+        },
+        {
+          "name": "Unavailable Resource Types"
+        },
+        {
+          "name": "Availability %"
+        },
+        {
+          "name": "Total SKUs Checked"
+        },
+        {
+          "name": "Available SKUs"
+        },
+        {
+          "name": "Unavailable SKUs"
+        },
+        {
+          "name": "Restricted SKUs"
+        },
+        {
+          "name": "Zone-Restricted SKUs"
+        },
+        {
+          "name": "Unknown SKUs"
+        },
+        {
+          "name": "SKU Availability %"
+        },
+        {
+          "name": "Availability Zones"
+        },
+        {
+          "name": "Target AZ Mapping"
+        },
+        {
+          "name": "Avg Latency (ms)"
+        },
+        {
+          "name": "Avg Cost Difference %"
+        },
+        {
+          "name": "Recommendation Score"
+        },
+        {
+          "name": "Score Quality"
+        },
+        {
+          "name": "Recommendation"
+        },
+        {
+          "name": "Missing Resource Types"
+        },
+        {
+          "name": "Unavailable SKUs (detail)"
+        },
+        {
+          "name": "Restricted SKUs (detail)"
+        },
+        {
+          "name": "Zone-Restricted SKUs (detail)"
+        }
+      ]
+    },
+    "score": 99.9625,
+    "table": [
+      [
+        "Subscription",
+        "Source Region",
+        "Target Region",
+        "Source Resource Type Count",
+        "Available Resource Types",
+        "Unavailable Resource Types",
+        "Availability %",
+        "Total SKUs Checked",
+        "Available SKUs",
+        "Unavailable SKUs",
+        "Restricted SKUs",
+        "Zone-Restricted SKUs",
+        "Unknown SKUs",
+        "SKU Availability %",
+        "Availability Zones",
+        "Target AZ Mapping",
+        "Avg Latency (ms)",
+        "Avg Cost Difference %",
+        "Recommendation Score",
+        "Score Quality",
+        "Recommendation",
+        "Missing Resource Types",
+        "Unavailable SKUs (detail)",
+        "Restricted SKUs (detail)",
+        "Zone-Restricted SKUs (detail)"
+      ],
+      [
+        "Synthetic",
+        "eastus",
+        "westeurope",
+        "5",
+        "5",
+        "0",
+        "100.00%",
+        "4",
+        "4",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100.00%",
+        "3 → 3",
+        "1→west-az3, 2→west-az2, 3→west-az1",
+        "25.0",
+        "+0.12%",
+        "99.96",
+        "Full",
+        "Recommended",
+        "",
+        "",
+        "",
+        ""
+      ]
+    ]
+  },
+  {
+    "case": "cost-25",
+    "metadata": {
+      "Name": "region-selection",
+      "Version": "0.2.0-beta",
+      "Description": "Analyzes optimal Azure region selection based on service availability, network latency, and cost comparison",
+      "Author": "Azure Quick Review Team",
+      "License": "MIT",
+      "Type": 1,
+      "CommandPath": "",
+      "ColumnMetadata": [
+        {
+          "name": "Subscription"
+        },
+        {
+          "name": "Source Region"
+        },
+        {
+          "name": "Target Region"
+        },
+        {
+          "name": "Source Resource Type Count"
+        },
+        {
+          "name": "Available Resource Types"
+        },
+        {
+          "name": "Unavailable Resource Types"
+        },
+        {
+          "name": "Availability %"
+        },
+        {
+          "name": "Total SKUs Checked"
+        },
+        {
+          "name": "Available SKUs"
+        },
+        {
+          "name": "Unavailable SKUs"
+        },
+        {
+          "name": "Restricted SKUs"
+        },
+        {
+          "name": "Zone-Restricted SKUs"
+        },
+        {
+          "name": "Unknown SKUs"
+        },
+        {
+          "name": "SKU Availability %"
+        },
+        {
+          "name": "Availability Zones"
+        },
+        {
+          "name": "Target AZ Mapping"
+        },
+        {
+          "name": "Avg Latency (ms)"
+        },
+        {
+          "name": "Avg Cost Difference %"
+        },
+        {
+          "name": "Recommendation Score"
+        },
+        {
+          "name": "Score Quality"
+        },
+        {
+          "name": "Recommendation"
+        },
+        {
+          "name": "Missing Resource Types"
+        },
+        {
+          "name": "Unavailable SKUs (detail)"
+        },
+        {
+          "name": "Restricted SKUs (detail)"
+        },
+        {
+          "name": "Zone-Restricted SKUs (detail)"
+        }
+      ]
+    },
+    "score": 92.5,
+    "table": [
+      [
+        "Subscription",
+        "Source Region",
+        "Target Region",
+        "Source Resource Type Count",
+        "Available Resource Types",
+        "Unavailable Resource Types",
+        "Availability %",
+        "Total SKUs Checked",
+        "Available SKUs",
+        "Unavailable SKUs",
+        "Restricted SKUs",
+        "Zone-Restricted SKUs",
+        "Unknown SKUs",
+        "SKU Availability %",
+        "Availability Zones",
+        "Target AZ Mapping",
+        "Avg Latency (ms)",
+        "Avg Cost Difference %",
+        "Recommendation Score",
+        "Score Quality",
+        "Recommendation",
+        "Missing Resource Types",
+        "Unavailable SKUs (detail)",
+        "Restricted SKUs (detail)",
+        "Zone-Restricted SKUs (detail)"
+      ],
+      [
+        "Synthetic",
+        "eastus",
+        "westeurope",
+        "5",
+        "5",
+        "0",
+        "100.00%",
+        "4",
+        "4",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100.00%",
+        "3 → 3",
+        "1→west-az3, 2→west-az2, 3→west-az1",
+        "25.0",
+        "+25.00%",
+        "92.50",
+        "Full",
+        "Recommended",
+        "",
+        "",
+        "",
+        ""
+      ]
+    ]
+  },
+  {
+    "case": "cost-49.999",
+    "metadata": {
+      "Name": "region-selection",
+      "Version": "0.2.0-beta",
+      "Description": "Analyzes optimal Azure region selection based on service availability, network latency, and cost comparison",
+      "Author": "Azure Quick Review Team",
+      "License": "MIT",
+      "Type": 1,
+      "CommandPath": "",
+      "ColumnMetadata": [
+        {
+          "name": "Subscription"
+        },
+        {
+          "name": "Source Region"
+        },
+        {
+          "name": "Target Region"
+        },
+        {
+          "name": "Source Resource Type Count"
+        },
+        {
+          "name": "Available Resource Types"
+        },
+        {
+          "name": "Unavailable Resource Types"
+        },
+        {
+          "name": "Availability %"
+        },
+        {
+          "name": "Total SKUs Checked"
+        },
+        {
+          "name": "Available SKUs"
+        },
+        {
+          "name": "Unavailable SKUs"
+        },
+        {
+          "name": "Restricted SKUs"
+        },
+        {
+          "name": "Zone-Restricted SKUs"
+        },
+        {
+          "name": "Unknown SKUs"
+        },
+        {
+          "name": "SKU Availability %"
+        },
+        {
+          "name": "Availability Zones"
+        },
+        {
+          "name": "Target AZ Mapping"
+        },
+        {
+          "name": "Avg Latency (ms)"
+        },
+        {
+          "name": "Avg Cost Difference %"
+        },
+        {
+          "name": "Recommendation Score"
+        },
+        {
+          "name": "Score Quality"
+        },
+        {
+          "name": "Recommendation"
+        },
+        {
+          "name": "Missing Resource Types"
+        },
+        {
+          "name": "Unavailable SKUs (detail)"
+        },
+        {
+          "name": "Restricted SKUs (detail)"
+        },
+        {
+          "name": "Zone-Restricted SKUs (detail)"
+        }
+      ]
+    },
+    "score": 85.0003,
+    "table": [
+      [
+        "Subscription",
+        "Source Region",
+        "Target Region",
+        "Source Resource Type Count",
+        "Available Resource Types",
+        "Unavailable Resource Types",
+        "Availability %",
+        "Total SKUs Checked",
+        "Available SKUs",
+        "Unavailable SKUs",
+        "Restricted SKUs",
+        "Zone-Restricted SKUs",
+        "Unknown SKUs",
+        "SKU Availability %",
+        "Availability Zones",
+        "Target AZ Mapping",
+        "Avg Latency (ms)",
+        "Avg Cost Difference %",
+        "Recommendation Score",
+        "Score Quality",
+        "Recommendation",
+        "Missing Resource Types",
+        "Unavailable SKUs (detail)",
+        "Restricted SKUs (detail)",
+        "Zone-Restricted SKUs (detail)"
+      ],
+      [
+        "Synthetic",
+        "eastus",
+        "westeurope",
+        "5",
+        "5",
+        "0",
+        "100.00%",
+        "4",
+        "4",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100.00%",
+        "3 → 3",
+        "1→west-az3, 2→west-az2, 3→west-az1",
+        "25.0",
+        "+50.00%",
+        "85.00",
+        "Full",
+        "Recommended",
+        "",
+        "",
+        "",
+        ""
+      ]
+    ]
+  },
+  {
+    "case": "cost-50",
+    "metadata": {
+      "Name": "region-selection",
+      "Version": "0.2.0-beta",
+      "Description": "Analyzes optimal Azure region selection based on service availability, network latency, and cost comparison",
+      "Author": "Azure Quick Review Team",
+      "License": "MIT",
+      "Type": 1,
+      "CommandPath": "",
+      "ColumnMetadata": [
+        {
+          "name": "Subscription"
+        },
+        {
+          "name": "Source Region"
+        },
+        {
+          "name": "Target Region"
+        },
+        {
+          "name": "Source Resource Type Count"
+        },
+        {
+          "name": "Available Resource Types"
+        },
+        {
+          "name": "Unavailable Resource Types"
+        },
+        {
+          "name": "Availability %"
+        },
+        {
+          "name": "Total SKUs Checked"
+        },
+        {
+          "name": "Available SKUs"
+        },
+        {
+          "name": "Unavailable SKUs"
+        },
+        {
+          "name": "Restricted SKUs"
+        },
+        {
+          "name": "Zone-Restricted SKUs"
+        },
+        {
+          "name": "Unknown SKUs"
+        },
+        {
+          "name": "SKU Availability %"
+        },
+        {
+          "name": "Availability Zones"
+        },
+        {
+          "name": "Target AZ Mapping"
+        },
+        {
+          "name": "Avg Latency (ms)"
+        },
+        {
+          "name": "Avg Cost Difference %"
+        },
+        {
+          "name": "Recommendation Score"
+        },
+        {
+          "name": "Score Quality"
+        },
+        {
+          "name": "Recommendation"
+        },
+        {
+          "name": "Missing Resource Types"
+        },
+        {
+          "name": "Unavailable SKUs (detail)"
+        },
+        {
+          "name": "Restricted SKUs (detail)"
+        },
+        {
+          "name": "Zone-Restricted SKUs (detail)"
+        }
+      ]
+    },
+    "score": 85,
+    "table": [
+      [
+        "Subscription",
+        "Source Region",
+        "Target Region",
+        "Source Resource Type Count",
+        "Available Resource Types",
+        "Unavailable Resource Types",
+        "Availability %",
+        "Total SKUs Checked",
+        "Available SKUs",
+        "Unavailable SKUs",
+        "Restricted SKUs",
+        "Zone-Restricted SKUs",
+        "Unknown SKUs",
+        "SKU Availability %",
+        "Availability Zones",
+        "Target AZ Mapping",
+        "Avg Latency (ms)",
+        "Avg Cost Difference %",
+        "Recommendation Score",
+        "Score Quality",
+        "Recommendation",
+        "Missing Resource Types",
+        "Unavailable SKUs (detail)",
+        "Restricted SKUs (detail)",
+        "Zone-Restricted SKUs (detail)"
+      ],
+      [
+        "Synthetic",
+        "eastus",
+        "westeurope",
+        "5",
+        "5",
+        "0",
+        "100.00%",
+        "4",
+        "4",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100.00%",
+        "3 → 3",
+        "1→west-az3, 2→west-az2, 3→west-az1",
+        "25.0",
+        "+50.00%",
+        "85.00",
+        "Full",
+        "Recommended",
+        "",
+        "",
+        "",
+        ""
+      ]
+    ]
+  },
+  {
+    "case": "cost-50.001",
+    "metadata": {
+      "Name": "region-selection",
+      "Version": "0.2.0-beta",
+      "Description": "Analyzes optimal Azure region selection based on service availability, network latency, and cost comparison",
+      "Author": "Azure Quick Review Team",
+      "License": "MIT",
+      "Type": 1,
+      "CommandPath": "",
+      "ColumnMetadata": [
+        {
+          "name": "Subscription"
+        },
+        {
+          "name": "Source Region"
+        },
+        {
+          "name": "Target Region"
+        },
+        {
+          "name": "Source Resource Type Count"
+        },
+        {
+          "name": "Available Resource Types"
+        },
+        {
+          "name": "Unavailable Resource Types"
+        },
+        {
+          "name": "Availability %"
+        },
+        {
+          "name": "Total SKUs Checked"
+        },
+        {
+          "name": "Available SKUs"
+        },
+        {
+          "name": "Unavailable SKUs"
+        },
+        {
+          "name": "Restricted SKUs"
+        },
+        {
+          "name": "Zone-Restricted SKUs"
+        },
+        {
+          "name": "Unknown SKUs"
+        },
+        {
+          "name": "SKU Availability %"
+        },
+        {
+          "name": "Availability Zones"
+        },
+        {
+          "name": "Target AZ Mapping"
+        },
+        {
+          "name": "Avg Latency (ms)"
+        },
+        {
+          "name": "Avg Cost Difference %"
+        },
+        {
+          "name": "Recommendation Score"
+        },
+        {
+          "name": "Score Quality"
+        },
+        {
+          "name": "Recommendation"
+        },
+        {
+          "name": "Missing Resource Types"
+        },
+        {
+          "name": "Unavailable SKUs (detail)"
+        },
+        {
+          "name": "Restricted SKUs (detail)"
+        },
+        {
+          "name": "Zone-Restricted SKUs (detail)"
+        }
+      ]
+    },
+    "score": 85,
+    "table": [
+      [
+        "Subscription",
+        "Source Region",
+        "Target Region",
+        "Source Resource Type Count",
+        "Available Resource Types",
+        "Unavailable Resource Types",
+        "Availability %",
+        "Total SKUs Checked",
+        "Available SKUs",
+        "Unavailable SKUs",
+        "Restricted SKUs",
+        "Zone-Restricted SKUs",
+        "Unknown SKUs",
+        "SKU Availability %",
+        "Availability Zones",
+        "Target AZ Mapping",
+        "Avg Latency (ms)",
+        "Avg Cost Difference %",
+        "Recommendation Score",
+        "Score Quality",
+        "Recommendation",
+        "Missing Resource Types",
+        "Unavailable SKUs (detail)",
+        "Restricted SKUs (detail)",
+        "Zone-Restricted SKUs (detail)"
+      ],
+      [
+        "Synthetic",
+        "eastus",
+        "westeurope",
+        "5",
+        "5",
+        "0",
+        "100.00%",
+        "4",
+        "4",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100.00%",
+        "3 → 3",
+        "1→west-az3, 2→west-az2, 3→west-az1",
+        "25.0",
+        "+50.00%",
+        "85.00",
+        "Full",
+        "Recommended",
+        "",
+        "",
+        "",
+        ""
+      ]
+    ]
+  },
+  {
+    "case": "cost-10000",
+    "metadata": {
+      "Name": "region-selection",
+      "Version": "0.2.0-beta",
+      "Description": "Analyzes optimal Azure region selection based on service availability, network latency, and cost comparison",
+      "Author": "Azure Quick Review Team",
+      "License": "MIT",
+      "Type": 1,
+      "CommandPath": "",
+      "ColumnMetadata": [
+        {
+          "name": "Subscription"
+        },
+        {
+          "name": "Source Region"
+        },
+        {
+          "name": "Target Region"
+        },
+        {
+          "name": "Source Resource Type Count"
+        },
+        {
+          "name": "Available Resource Types"
+        },
+        {
+          "name": "Unavailable Resource Types"
+        },
+        {
+          "name": "Availability %"
+        },
+        {
+          "name": "Total SKUs Checked"
+        },
+        {
+          "name": "Available SKUs"
+        },
+        {
+          "name": "Unavailable SKUs"
+        },
+        {
+          "name": "Restricted SKUs"
+        },
+        {
+          "name": "Zone-Restricted SKUs"
+        },
+        {
+          "name": "Unknown SKUs"
+        },
+        {
+          "name": "SKU Availability %"
+        },
+        {
+          "name": "Availability Zones"
+        },
+        {
+          "name": "Target AZ Mapping"
+        },
+        {
+          "name": "Avg Latency (ms)"
+        },
+        {
+          "name": "Avg Cost Difference %"
+        },
+        {
+          "name": "Recommendation Score"
+        },
+        {
+          "name": "Score Quality"
+        },
+        {
+          "name": "Recommendation"
+        },
+        {
+          "name": "Missing Resource Types"
+        },
+        {
+          "name": "Unavailable SKUs (detail)"
+        },
+        {
+          "name": "Restricted SKUs (detail)"
+        },
+        {
+          "name": "Zone-Restricted SKUs (detail)"
+        }
+      ]
+    },
+    "score": 85,
+    "table": [
+      [
+        "Subscription",
+        "Source Region",
+        "Target Region",
+        "Source Resource Type Count",
+        "Available Resource Types",
+        "Unavailable Resource Types",
+        "Availability %",
+        "Total SKUs Checked",
+        "Available SKUs",
+        "Unavailable SKUs",
+        "Restricted SKUs",
+        "Zone-Restricted SKUs",
+        "Unknown SKUs",
+        "SKU Availability %",
+        "Availability Zones",
+        "Target AZ Mapping",
+        "Avg Latency (ms)",
+        "Avg Cost Difference %",
+        "Recommendation Score",
+        "Score Quality",
+        "Recommendation",
+        "Missing Resource Types",
+        "Unavailable SKUs (detail)",
+        "Restricted SKUs (detail)",
+        "Zone-Restricted SKUs (detail)"
+      ],
+      [
+        "Synthetic",
+        "eastus",
+        "westeurope",
+        "5",
+        "5",
+        "0",
+        "100.00%",
+        "4",
+        "4",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100.00%",
+        "3 → 3",
+        "1→west-az3, 2→west-az2, 3→west-az1",
+        "25.0",
+        "+10000.00%",
+        "85.00",
+        "Full",
+        "Recommended",
+        "",
+        "",
+        "",
+        ""
+      ]
+    ]
+  },
+  {
+    "case": "zones-0-0",
+    "metadata": {
+      "Name": "region-selection",
+      "Version": "0.2.0-beta",
+      "Description": "Analyzes optimal Azure region selection based on service availability, network latency, and cost comparison",
+      "Author": "Azure Quick Review Team",
+      "License": "MIT",
+      "Type": 1,
+      "CommandPath": "",
+      "ColumnMetadata": [
+        {
+          "name": "Subscription"
+        },
+        {
+          "name": "Source Region"
+        },
+        {
+          "name": "Target Region"
+        },
+        {
+          "name": "Source Resource Type Count"
+        },
+        {
+          "name": "Available Resource Types"
+        },
+        {
+          "name": "Unavailable Resource Types"
+        },
+        {
+          "name": "Availability %"
+        },
+        {
+          "name": "Total SKUs Checked"
+        },
+        {
+          "name": "Available SKUs"
+        },
+        {
+          "name": "Unavailable SKUs"
+        },
+        {
+          "name": "Restricted SKUs"
+        },
+        {
+          "name": "Zone-Restricted SKUs"
+        },
+        {
+          "name": "Unknown SKUs"
+        },
+        {
+          "name": "SKU Availability %"
+        },
+        {
+          "name": "Availability Zones"
+        },
+        {
+          "name": "Target AZ Mapping"
+        },
+        {
+          "name": "Avg Latency (ms)"
+        },
+        {
+          "name": "Avg Cost Difference %"
+        },
+        {
+          "name": "Recommendation Score"
+        },
+        {
+          "name": "Score Quality"
+        },
+        {
+          "name": "Recommendation"
+        },
+        {
+          "name": "Missing Resource Types"
+        },
+        {
+          "name": "Unavailable SKUs (detail)"
+        },
+        {
+          "name": "Restricted SKUs (detail)"
+        },
+        {
+          "name": "Zone-Restricted SKUs (detail)"
+        }
+      ]
+    },
+    "score": 100,
+    "table": [
+      [
+        "Subscription",
+        "Source Region",
+        "Target Region",
+        "Source Resource Type Count",
+        "Available Resource Types",
+        "Unavailable Resource Types",
+        "Availability %",
+        "Total SKUs Checked",
+        "Available SKUs",
+        "Unavailable SKUs",
+        "Restricted SKUs",
+        "Zone-Restricted SKUs",
+        "Unknown SKUs",
+        "SKU Availability %",
+        "Availability Zones",
+        "Target AZ Mapping",
+        "Avg Latency (ms)",
+        "Avg Cost Difference %",
+        "Recommendation Score",
+        "Score Quality",
+        "Recommendation",
+        "Missing Resource Types",
+        "Unavailable SKUs (detail)",
+        "Restricted SKUs (detail)",
+        "Zone-Restricted SKUs (detail)"
+      ],
+      [
+        "Synthetic",
+        "eastus",
+        "westeurope",
+        "5",
+        "5",
+        "0",
+        "100.00%",
+        "4",
+        "4",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100.00%",
+        "0 → 0",
+        "1→west-az3, 2→west-az2, 3→west-az1",
+        "25.0",
+        "+0.00%",
+        "100.00",
+        "Full",
+        "Recommended",
+        "",
+        "",
+        "",
+        ""
+      ]
+    ]
+  },
+  {
+    "case": "zones-0-3",
+    "metadata": {
+      "Name": "region-selection",
+      "Version": "0.2.0-beta",
+      "Description": "Analyzes optimal Azure region selection based on service availability, network latency, and cost comparison",
+      "Author": "Azure Quick Review Team",
+      "License": "MIT",
+      "Type": 1,
+      "CommandPath": "",
+      "ColumnMetadata": [
+        {
+          "name": "Subscription"
+        },
+        {
+          "name": "Source Region"
+        },
+        {
+          "name": "Target Region"
+        },
+        {
+          "name": "Source Resource Type Count"
+        },
+        {
+          "name": "Available Resource Types"
+        },
+        {
+          "name": "Unavailable Resource Types"
+        },
+        {
+          "name": "Availability %"
+        },
+        {
+          "name": "Total SKUs Checked"
+        },
+        {
+          "name": "Available SKUs"
+        },
+        {
+          "name": "Unavailable SKUs"
+        },
+        {
+          "name": "Restricted SKUs"
+        },
+        {
+          "name": "Zone-Restricted SKUs"
+        },
+        {
+          "name": "Unknown SKUs"
+        },
+        {
+          "name": "SKU Availability %"
+        },
+        {
+          "name": "Availability Zones"
+        },
+        {
+          "name": "Target AZ Mapping"
+        },
+        {
+          "name": "Avg Latency (ms)"
+        },
+        {
+          "name": "Avg Cost Difference %"
+        },
+        {
+          "name": "Recommendation Score"
+        },
+        {
+          "name": "Score Quality"
+        },
+        {
+          "name": "Recommendation"
+        },
+        {
+          "name": "Missing Resource Types"
+        },
+        {
+          "name": "Unavailable SKUs (detail)"
+        },
+        {
+          "name": "Restricted SKUs (detail)"
+        },
+        {
+          "name": "Zone-Restricted SKUs (detail)"
+        }
+      ]
+    },
+    "score": 100,
+    "table": [
+      [
+        "Subscription",
+        "Source Region",
+        "Target Region",
+        "Source Resource Type Count",
+        "Available Resource Types",
+        "Unavailable Resource Types",
+        "Availability %",
+        "Total SKUs Checked",
+        "Available SKUs",
+        "Unavailable SKUs",
+        "Restricted SKUs",
+        "Zone-Restricted SKUs",
+        "Unknown SKUs",
+        "SKU Availability %",
+        "Availability Zones",
+        "Target AZ Mapping",
+        "Avg Latency (ms)",
+        "Avg Cost Difference %",
+        "Recommendation Score",
+        "Score Quality",
+        "Recommendation",
+        "Missing Resource Types",
+        "Unavailable SKUs (detail)",
+        "Restricted SKUs (detail)",
+        "Zone-Restricted SKUs (detail)"
+      ],
+      [
+        "Synthetic",
+        "eastus",
+        "westeurope",
+        "5",
+        "5",
+        "0",
+        "100.00%",
+        "4",
+        "4",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100.00%",
+        "0 → 3 ✓",
+        "1→west-az3, 2→west-az2, 3→west-az1",
+        "25.0",
+        "+0.00%",
+        "100.00",
+        "Full",
+        "Recommended",
+        "",
+        "",
+        "",
+        ""
+      ]
+    ]
+  },
+  {
+    "case": "zones-3-0",
+    "metadata": {
+      "Name": "region-selection",
+      "Version": "0.2.0-beta",
+      "Description": "Analyzes optimal Azure region selection based on service availability, network latency, and cost comparison",
+      "Author": "Azure Quick Review Team",
+      "License": "MIT",
+      "Type": 1,
+      "CommandPath": "",
+      "ColumnMetadata": [
+        {
+          "name": "Subscription"
+        },
+        {
+          "name": "Source Region"
+        },
+        {
+          "name": "Target Region"
+        },
+        {
+          "name": "Source Resource Type Count"
+        },
+        {
+          "name": "Available Resource Types"
+        },
+        {
+          "name": "Unavailable Resource Types"
+        },
+        {
+          "name": "Availability %"
+        },
+        {
+          "name": "Total SKUs Checked"
+        },
+        {
+          "name": "Available SKUs"
+        },
+        {
+          "name": "Unavailable SKUs"
+        },
+        {
+          "name": "Restricted SKUs"
+        },
+        {
+          "name": "Zone-Restricted SKUs"
+        },
+        {
+          "name": "Unknown SKUs"
+        },
+        {
+          "name": "SKU Availability %"
+        },
+        {
+          "name": "Availability Zones"
+        },
+        {
+          "name": "Target AZ Mapping"
+        },
+        {
+          "name": "Avg Latency (ms)"
+        },
+        {
+          "name": "Avg Cost Difference %"
+        },
+        {
+          "name": "Recommendation Score"
+        },
+        {
+          "name": "Score Quality"
+        },
+        {
+          "name": "Recommendation"
+        },
+        {
+          "name": "Missing Resource Types"
+        },
+        {
+          "name": "Unavailable SKUs (detail)"
+        },
+        {
+          "name": "Restricted SKUs (detail)"
+        },
+        {
+          "name": "Zone-Restricted SKUs (detail)"
+        }
+      ]
+    },
+    "score": 90,
+    "table": [
+      [
+        "Subscription",
+        "Source Region",
+        "Target Region",
+        "Source Resource Type Count",
+        "Available Resource Types",
+        "Unavailable Resource Types",
+        "Availability %",
+        "Total SKUs Checked",
+        "Available SKUs",
+        "Unavailable SKUs",
+        "Restricted SKUs",
+        "Zone-Restricted SKUs",
+        "Unknown SKUs",
+        "SKU Availability %",
+        "Availability Zones",
+        "Target AZ Mapping",
+        "Avg Latency (ms)",
+        "Avg Cost Difference %",
+        "Recommendation Score",
+        "Score Quality",
+        "Recommendation",
+        "Missing Resource Types",
+        "Unavailable SKUs (detail)",
+        "Restricted SKUs (detail)",
+        "Zone-Restricted SKUs (detail)"
+      ],
+      [
+        "Synthetic",
+        "eastus",
+        "westeurope",
+        "5",
+        "5",
+        "0",
+        "100.00%",
+        "4",
+        "4",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100.00%",
+        "3 → 0 ✗",
+        "1→west-az3, 2→west-az2, 3→west-az1",
+        "25.0",
+        "+0.00%",
+        "90.00",
+        "Full",
+        "Recommended",
+        "",
+        "",
+        "",
+        ""
+      ]
+    ]
+  },
+  {
+    "case": "zones-3-1",
+    "metadata": {
+      "Name": "region-selection",
+      "Version": "0.2.0-beta",
+      "Description": "Analyzes optimal Azure region selection based on service availability, network latency, and cost comparison",
+      "Author": "Azure Quick Review Team",
+      "License": "MIT",
+      "Type": 1,
+      "CommandPath": "",
+      "ColumnMetadata": [
+        {
+          "name": "Subscription"
+        },
+        {
+          "name": "Source Region"
+        },
+        {
+          "name": "Target Region"
+        },
+        {
+          "name": "Source Resource Type Count"
+        },
+        {
+          "name": "Available Resource Types"
+        },
+        {
+          "name": "Unavailable Resource Types"
+        },
+        {
+          "name": "Availability %"
+        },
+        {
+          "name": "Total SKUs Checked"
+        },
+        {
+          "name": "Available SKUs"
+        },
+        {
+          "name": "Unavailable SKUs"
+        },
+        {
+          "name": "Restricted SKUs"
+        },
+        {
+          "name": "Zone-Restricted SKUs"
+        },
+        {
+          "name": "Unknown SKUs"
+        },
+        {
+          "name": "SKU Availability %"
+        },
+        {
+          "name": "Availability Zones"
+        },
+        {
+          "name": "Target AZ Mapping"
+        },
+        {
+          "name": "Avg Latency (ms)"
+        },
+        {
+          "name": "Avg Cost Difference %"
+        },
+        {
+          "name": "Recommendation Score"
+        },
+        {
+          "name": "Score Quality"
+        },
+        {
+          "name": "Recommendation"
+        },
+        {
+          "name": "Missing Resource Types"
+        },
+        {
+          "name": "Unavailable SKUs (detail)"
+        },
+        {
+          "name": "Restricted SKUs (detail)"
+        },
+        {
+          "name": "Zone-Restricted SKUs (detail)"
+        }
+      ]
+    },
+    "score": 93.33333333333333,
+    "table": [
+      [
+        "Subscription",
+        "Source Region",
+        "Target Region",
+        "Source Resource Type Count",
+        "Available Resource Types",
+        "Unavailable Resource Types",
+        "Availability %",
+        "Total SKUs Checked",
+        "Available SKUs",
+        "Unavailable SKUs",
+        "Restricted SKUs",
+        "Zone-Restricted SKUs",
+        "Unknown SKUs",
+        "SKU Availability %",
+        "Availability Zones",
+        "Target AZ Mapping",
+        "Avg Latency (ms)",
+        "Avg Cost Difference %",
+        "Recommendation Score",
+        "Score Quality",
+        "Recommendation",
+        "Missing Resource Types",
+        "Unavailable SKUs (detail)",
+        "Restricted SKUs (detail)",
+        "Zone-Restricted SKUs (detail)"
+      ],
+      [
+        "Synthetic",
+        "eastus",
+        "westeurope",
+        "5",
+        "5",
+        "0",
+        "100.00%",
+        "4",
+        "4",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100.00%",
+        "3 → 1 ⚠",
+        "1→west-az3, 2→west-az2, 3→west-az1",
+        "25.0",
+        "+0.00%",
+        "93.33",
+        "Full",
+        "Recommended",
+        "",
+        "",
+        "",
+        ""
+      ]
+    ]
+  },
+  {
+    "case": "zones-3-2",
+    "metadata": {
+      "Name": "region-selection",
+      "Version": "0.2.0-beta",
+      "Description": "Analyzes optimal Azure region selection based on service availability, network latency, and cost comparison",
+      "Author": "Azure Quick Review Team",
+      "License": "MIT",
+      "Type": 1,
+      "CommandPath": "",
+      "ColumnMetadata": [
+        {
+          "name": "Subscription"
+        },
+        {
+          "name": "Source Region"
+        },
+        {
+          "name": "Target Region"
+        },
+        {
+          "name": "Source Resource Type Count"
+        },
+        {
+          "name": "Available Resource Types"
+        },
+        {
+          "name": "Unavailable Resource Types"
+        },
+        {
+          "name": "Availability %"
+        },
+        {
+          "name": "Total SKUs Checked"
+        },
+        {
+          "name": "Available SKUs"
+        },
+        {
+          "name": "Unavailable SKUs"
+        },
+        {
+          "name": "Restricted SKUs"
+        },
+        {
+          "name": "Zone-Restricted SKUs"
+        },
+        {
+          "name": "Unknown SKUs"
+        },
+        {
+          "name": "SKU Availability %"
+        },
+        {
+          "name": "Availability Zones"
+        },
+        {
+          "name": "Target AZ Mapping"
+        },
+        {
+          "name": "Avg Latency (ms)"
+        },
+        {
+          "name": "Avg Cost Difference %"
+        },
+        {
+          "name": "Recommendation Score"
+        },
+        {
+          "name": "Score Quality"
+        },
+        {
+          "name": "Recommendation"
+        },
+        {
+          "name": "Missing Resource Types"
+        },
+        {
+          "name": "Unavailable SKUs (detail)"
+        },
+        {
+          "name": "Restricted SKUs (detail)"
+        },
+        {
+          "name": "Zone-Restricted SKUs (detail)"
+        }
+      ]
+    },
+    "score": 96.66666666666667,
+    "table": [
+      [
+        "Subscription",
+        "Source Region",
+        "Target Region",
+        "Source Resource Type Count",
+        "Available Resource Types",
+        "Unavailable Resource Types",
+        "Availability %",
+        "Total SKUs Checked",
+        "Available SKUs",
+        "Unavailable SKUs",
+        "Restricted SKUs",
+        "Zone-Restricted SKUs",
+        "Unknown SKUs",
+        "SKU Availability %",
+        "Availability Zones",
+        "Target AZ Mapping",
+        "Avg Latency (ms)",
+        "Avg Cost Difference %",
+        "Recommendation Score",
+        "Score Quality",
+        "Recommendation",
+        "Missing Resource Types",
+        "Unavailable SKUs (detail)",
+        "Restricted SKUs (detail)",
+        "Zone-Restricted SKUs (detail)"
+      ],
+      [
+        "Synthetic",
+        "eastus",
+        "westeurope",
+        "5",
+        "5",
+        "0",
+        "100.00%",
+        "4",
+        "4",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100.00%",
+        "3 → 2 ⚠",
+        "1→west-az3, 2→west-az2, 3→west-az1",
+        "25.0",
+        "+0.00%",
+        "96.67",
+        "Full",
+        "Recommended",
+        "",
+        "",
+        "",
+        ""
+      ]
+    ]
+  },
+  {
+    "case": "zones-3-3",
+    "metadata": {
+      "Name": "region-selection",
+      "Version": "0.2.0-beta",
+      "Description": "Analyzes optimal Azure region selection based on service availability, network latency, and cost comparison",
+      "Author": "Azure Quick Review Team",
+      "License": "MIT",
+      "Type": 1,
+      "CommandPath": "",
+      "ColumnMetadata": [
+        {
+          "name": "Subscription"
+        },
+        {
+          "name": "Source Region"
+        },
+        {
+          "name": "Target Region"
+        },
+        {
+          "name": "Source Resource Type Count"
+        },
+        {
+          "name": "Available Resource Types"
+        },
+        {
+          "name": "Unavailable Resource Types"
+        },
+        {
+          "name": "Availability %"
+        },
+        {
+          "name": "Total SKUs Checked"
+        },
+        {
+          "name": "Available SKUs"
+        },
+        {
+          "name": "Unavailable SKUs"
+        },
+        {
+          "name": "Restricted SKUs"
+        },
+        {
+          "name": "Zone-Restricted SKUs"
+        },
+        {
+          "name": "Unknown SKUs"
+        },
+        {
+          "name": "SKU Availability %"
+        },
+        {
+          "name": "Availability Zones"
+        },
+        {
+          "name": "Target AZ Mapping"
+        },
+        {
+          "name": "Avg Latency (ms)"
+        },
+        {
+          "name": "Avg Cost Difference %"
+        },
+        {
+          "name": "Recommendation Score"
+        },
+        {
+          "name": "Score Quality"
+        },
+        {
+          "name": "Recommendation"
+        },
+        {
+          "name": "Missing Resource Types"
+        },
+        {
+          "name": "Unavailable SKUs (detail)"
+        },
+        {
+          "name": "Restricted SKUs (detail)"
+        },
+        {
+          "name": "Zone-Restricted SKUs (detail)"
+        }
+      ]
+    },
+    "score": 100,
+    "table": [
+      [
+        "Subscription",
+        "Source Region",
+        "Target Region",
+        "Source Resource Type Count",
+        "Available Resource Types",
+        "Unavailable Resource Types",
+        "Availability %",
+        "Total SKUs Checked",
+        "Available SKUs",
+        "Unavailable SKUs",
+        "Restricted SKUs",
+        "Zone-Restricted SKUs",
+        "Unknown SKUs",
+        "SKU Availability %",
+        "Availability Zones",
+        "Target AZ Mapping",
+        "Avg Latency (ms)",
+        "Avg Cost Difference %",
+        "Recommendation Score",
+        "Score Quality",
+        "Recommendation",
+        "Missing Resource Types",
+        "Unavailable SKUs (detail)",
+        "Restricted SKUs (detail)",
+        "Zone-Restricted SKUs (detail)"
+      ],
+      [
+        "Synthetic",
+        "eastus",
+        "westeurope",
+        "5",
+        "5",
+        "0",
+        "100.00%",
+        "4",
+        "4",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100.00%",
+        "3 → 3",
+        "1→west-az3, 2→west-az2, 3→west-az1",
+        "25.0",
+        "+0.00%",
+        "100.00",
+        "Full",
+        "Recommended",
+        "",
+        "",
+        "",
+        ""
+      ]
+    ]
+  },
+  {
+    "case": "zones-2-3",
+    "metadata": {
+      "Name": "region-selection",
+      "Version": "0.2.0-beta",
+      "Description": "Analyzes optimal Azure region selection based on service availability, network latency, and cost comparison",
+      "Author": "Azure Quick Review Team",
+      "License": "MIT",
+      "Type": 1,
+      "CommandPath": "",
+      "ColumnMetadata": [
+        {
+          "name": "Subscription"
+        },
+        {
+          "name": "Source Region"
+        },
+        {
+          "name": "Target Region"
+        },
+        {
+          "name": "Source Resource Type Count"
+        },
+        {
+          "name": "Available Resource Types"
+        },
+        {
+          "name": "Unavailable Resource Types"
+        },
+        {
+          "name": "Availability %"
+        },
+        {
+          "name": "Total SKUs Checked"
+        },
+        {
+          "name": "Available SKUs"
+        },
+        {
+          "name": "Unavailable SKUs"
+        },
+        {
+          "name": "Restricted SKUs"
+        },
+        {
+          "name": "Zone-Restricted SKUs"
+        },
+        {
+          "name": "Unknown SKUs"
+        },
+        {
+          "name": "SKU Availability %"
+        },
+        {
+          "name": "Availability Zones"
+        },
+        {
+          "name": "Target AZ Mapping"
+        },
+        {
+          "name": "Avg Latency (ms)"
+        },
+        {
+          "name": "Avg Cost Difference %"
+        },
+        {
+          "name": "Recommendation Score"
+        },
+        {
+          "name": "Score Quality"
+        },
+        {
+          "name": "Recommendation"
+        },
+        {
+          "name": "Missing Resource Types"
+        },
+        {
+          "name": "Unavailable SKUs (detail)"
+        },
+        {
+          "name": "Restricted SKUs (detail)"
+        },
+        {
+          "name": "Zone-Restricted SKUs (detail)"
+        }
+      ]
+    },
+    "score": 100,
+    "table": [
+      [
+        "Subscription",
+        "Source Region",
+        "Target Region",
+        "Source Resource Type Count",
+        "Available Resource Types",
+        "Unavailable Resource Types",
+        "Availability %",
+        "Total SKUs Checked",
+        "Available SKUs",
+        "Unavailable SKUs",
+        "Restricted SKUs",
+        "Zone-Restricted SKUs",
+        "Unknown SKUs",
+        "SKU Availability %",
+        "Availability Zones",
+        "Target AZ Mapping",
+        "Avg Latency (ms)",
+        "Avg Cost Difference %",
+        "Recommendation Score",
+        "Score Quality",
+        "Recommendation",
+        "Missing Resource Types",
+        "Unavailable SKUs (detail)",
+        "Restricted SKUs (detail)",
+        "Zone-Restricted SKUs (detail)"
+      ],
+      [
+        "Synthetic",
+        "eastus",
+        "westeurope",
+        "5",
+        "5",
+        "0",
+        "100.00%",
+        "4",
+        "4",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100.00%",
+        "2 → 3",
+        "1→west-az3, 2→west-az2, 3→west-az1",
+        "25.0",
+        "+0.00%",
+        "100.00",
+        "Full",
+        "Recommended",
+        "",
+        "",
+        "",
+        ""
+      ]
+    ]
+  },
+  {
+    "case": "restricted",
+    "metadata": {
+      "Name": "region-selection",
+      "Version": "0.2.0-beta",
+      "Description": "Analyzes optimal Azure region selection based on service availability, network latency, and cost comparison",
+      "Author": "Azure Quick Review Team",
+      "License": "MIT",
+      "Type": 1,
+      "CommandPath": "",
+      "ColumnMetadata": [
+        {
+          "name": "Subscription"
+        },
+        {
+          "name": "Source Region"
+        },
+        {
+          "name": "Target Region"
+        },
+        {
+          "name": "Source Resource Type Count"
+        },
+        {
+          "name": "Available Resource Types"
+        },
+        {
+          "name": "Unavailable Resource Types"
+        },
+        {
+          "name": "Availability %"
+        },
+        {
+          "name": "Total SKUs Checked"
+        },
+        {
+          "name": "Available SKUs"
+        },
+        {
+          "name": "Unavailable SKUs"
+        },
+        {
+          "name": "Restricted SKUs"
+        },
+        {
+          "name": "Zone-Restricted SKUs"
+        },
+        {
+          "name": "Unknown SKUs"
+        },
+        {
+          "name": "SKU Availability %"
+        },
+        {
+          "name": "Availability Zones"
+        },
+        {
+          "name": "Target AZ Mapping"
+        },
+        {
+          "name": "Avg Latency (ms)"
+        },
+        {
+          "name": "Avg Cost Difference %"
+        },
+        {
+          "name": "Recommendation Score"
+        },
+        {
+          "name": "Score Quality"
+        },
+        {
+          "name": "Recommendation"
+        },
+        {
+          "name": "Missing Resource Types"
+        },
+        {
+          "name": "Unavailable SKUs (detail)"
+        },
+        {
+          "name": "Restricted SKUs (detail)"
+        },
+        {
+          "name": "Zone-Restricted SKUs (detail)"
+        }
+      ]
+    },
+    "score": 92.5,
+    "table": [
+      [
+        "Subscription",
+        "Source Region",
+        "Target Region",
+        "Source Resource Type Count",
+        "Available Resource Types",
+        "Unavailable Resource Types",
+        "Availability %",
+        "Total SKUs Checked",
+        "Available SKUs",
+        "Unavailable SKUs",
+        "Restricted SKUs",
+        "Zone-Restricted SKUs",
+        "Unknown SKUs",
+        "SKU Availability %",
+        "Availability Zones",
+        "Target AZ Mapping",
+        "Avg Latency (ms)",
+        "Avg Cost Difference %",
+        "Recommendation Score",
+        "Score Quality",
+        "Recommendation",
+        "Missing Resource Types",
+        "Unavailable SKUs (detail)",
+        "Restricted SKUs (detail)",
+        "Zone-Restricted SKUs (detail)"
+      ],
+      [
+        "Synthetic",
+        "eastus",
+        "westeurope",
+        "5",
+        "5",
+        "0",
+        "100.00%",
+        "4",
+        "2",
+        "0",
+        "2",
+        "0",
+        "0",
+        "50.00%",
+        "3 → 3",
+        "1→west-az3, 2→west-az2, 3→west-az1",
+        "25.0",
+        "+0.00%",
+        "92.50",
+        "Full",
+        "Recommended",
+        "",
+        "",
+        "type:a; type:b",
+        ""
+      ]
+    ]
+  },
+  {
+    "case": "zone-restricted",
+    "metadata": {
+      "Name": "region-selection",
+      "Version": "0.2.0-beta",
+      "Description": "Analyzes optimal Azure region selection based on service availability, network latency, and cost comparison",
+      "Author": "Azure Quick Review Team",
+      "License": "MIT",
+      "Type": 1,
+      "CommandPath": "",
+      "ColumnMetadata": [
+        {
+          "name": "Subscription"
+        },
+        {
+          "name": "Source Region"
+        },
+        {
+          "name": "Target Region"
+        },
+        {
+          "name": "Source Resource Type Count"
+        },
+        {
+          "name": "Available Resource Types"
+        },
+        {
+          "name": "Unavailable Resource Types"
+        },
+        {
+          "name": "Availability %"
+        },
+        {
+          "name": "Total SKUs Checked"
+        },
+        {
+          "name": "Available SKUs"
+        },
+        {
+          "name": "Unavailable SKUs"
+        },
+        {
+          "name": "Restricted SKUs"
+        },
+        {
+          "name": "Zone-Restricted SKUs"
+        },
+        {
+          "name": "Unknown SKUs"
+        },
+        {
+          "name": "SKU Availability %"
+        },
+        {
+          "name": "Availability Zones"
+        },
+        {
+          "name": "Target AZ Mapping"
+        },
+        {
+          "name": "Avg Latency (ms)"
+        },
+        {
+          "name": "Avg Cost Difference %"
+        },
+        {
+          "name": "Recommendation Score"
+        },
+        {
+          "name": "Score Quality"
+        },
+        {
+          "name": "Recommendation"
+        },
+        {
+          "name": "Missing Resource Types"
+        },
+        {
+          "name": "Unavailable SKUs (detail)"
+        },
+        {
+          "name": "Restricted SKUs (detail)"
+        },
+        {
+          "name": "Zone-Restricted SKUs (detail)"
+        }
+      ]
+    },
+    "score": 96.25,
+    "table": [
+      [
+        "Subscription",
+        "Source Region",
+        "Target Region",
+        "Source Resource Type Count",
+        "Available Resource Types",
+        "Unavailable Resource Types",
+        "Availability %",
+        "Total SKUs Checked",
+        "Available SKUs",
+        "Unavailable SKUs",
+        "Restricted SKUs",
+        "Zone-Restricted SKUs",
+        "Unknown SKUs",
+        "SKU Availability %",
+        "Availability Zones",
+        "Target AZ Mapping",
+        "Avg Latency (ms)",
+        "Avg Cost Difference %",
+        "Recommendation Score",
+        "Score Quality",
+        "Recommendation",
+        "Missing Resource Types",
+        "Unavailable SKUs (detail)",
+        "Restricted SKUs (detail)",
+        "Zone-Restricted SKUs (detail)"
+      ],
+      [
+        "Synthetic",
+        "eastus",
+        "westeurope",
+        "5",
+        "5",
+        "0",
+        "100.00%",
+        "4",
+        "2",
+        "0",
+        "0",
+        "2",
+        "0",
+        "50.00%",
+        "3 → 3",
+        "1→west-az3, 2→west-az2, 3→west-az1",
+        "25.0",
+        "+0.00%",
+        "96.25",
+        "Full",
+        "Recommended",
+        "",
+        "",
+        "",
+        "type:c (zones blocked: 1,2); type:d"
+      ]
+    ]
+  },
+  {
+    "case": "combined-sku-states",
+    "metadata": {
+      "Name": "region-selection",
+      "Version": "0.2.0-beta",
+      "Description": "Analyzes optimal Azure region selection based on service availability, network latency, and cost comparison",
+      "Author": "Azure Quick Review Team",
+      "License": "MIT",
+      "Type": 1,
+      "CommandPath": "",
+      "ColumnMetadata": [
+        {
+          "name": "Subscription"
+        },
+        {
+          "name": "Source Region"
+        },
+        {
+          "name": "Target Region"
+        },
+        {
+          "name": "Source Resource Type Count"
+        },
+        {
+          "name": "Available Resource Types"
+        },
+        {
+          "name": "Unavailable Resource Types"
+        },
+        {
+          "name": "Availability %"
+        },
+        {
+          "name": "Total SKUs Checked"
+        },
+        {
+          "name": "Available SKUs"
+        },
+        {
+          "name": "Unavailable SKUs"
+        },
+        {
+          "name": "Restricted SKUs"
+        },
+        {
+          "name": "Zone-Restricted SKUs"
+        },
+        {
+          "name": "Unknown SKUs"
+        },
+        {
+          "name": "SKU Availability %"
+        },
+        {
+          "name": "Availability Zones"
+        },
+        {
+          "name": "Target AZ Mapping"
+        },
+        {
+          "name": "Avg Latency (ms)"
+        },
+        {
+          "name": "Avg Cost Difference %"
+        },
+        {
+          "name": "Recommendation Score"
+        },
+        {
+          "name": "Score Quality"
+        },
+        {
+          "name": "Recommendation"
+        },
+        {
+          "name": "Missing Resource Types"
+        },
+        {
+          "name": "Unavailable SKUs (detail)"
+        },
+        {
+          "name": "Restricted SKUs (detail)"
+        },
+        {
+          "name": "Zone-Restricted SKUs (detail)"
+        }
+      ]
+    },
+    "score": 86.875,
+    "table": [
+      [
+        "Subscription",
+        "Source Region",
+        "Target Region",
+        "Source Resource Type Count",
+        "Available Resource Types",
+        "Unavailable Resource Types",
+        "Availability %",
+        "Total SKUs Checked",
+        "Available SKUs",
+        "Unavailable SKUs",
+        "Restricted SKUs",
+        "Zone-Restricted SKUs",
+        "Unknown SKUs",
+        "SKU Availability %",
+        "Availability Zones",
+        "Target AZ Mapping",
+        "Avg Latency (ms)",
+        "Avg Cost Difference %",
+        "Recommendation Score",
+        "Score Quality",
+        "Recommendation",
+        "Missing Resource Types",
+        "Unavailable SKUs (detail)",
+        "Restricted SKUs (detail)",
+        "Zone-Restricted SKUs (detail)"
+      ],
+      [
+        "Synthetic",
+        "eastus",
+        "westeurope",
+        "5",
+        "5",
+        "0",
+        "100.00%",
+        "10",
+        "2",
+        "2",
+        "2",
+        "2",
+        "2",
+        "25.00%",
+        "3 → 3",
+        "1→west-az3, 2→west-az2, 3→west-az1",
+        "25.0",
+        "+0.00%",
+        "86.88",
+        "Full",
+        "Recommended",
+        "",
+        "type:e; type:f; type:g (unknown); type:h (unknown)",
+        "type:a; type:b",
+        "type:c; type:d"
+      ]
+    ]
+  },
+  {
+    "case": "unknown",
+    "metadata": {
+      "Name": "region-selection",
+      "Version": "0.2.0-beta",
+      "Description": "Analyzes optimal Azure region selection based on service availability, network latency, and cost comparison",
+      "Author": "Azure Quick Review Team",
+      "License": "MIT",
+      "Type": 1,
+      "CommandPath": "",
+      "ColumnMetadata": [
+        {
+          "name": "Subscription"
+        },
+        {
+          "name": "Source Region"
+        },
+        {
+          "name": "Target Region"
+        },
+        {
+          "name": "Source Resource Type Count"
+        },
+        {
+          "name": "Available Resource Types"
+        },
+        {
+          "name": "Unavailable Resource Types"
+        },
+        {
+          "name": "Availability %"
+        },
+        {
+          "name": "Total SKUs Checked"
+        },
+        {
+          "name": "Available SKUs"
+        },
+        {
+          "name": "Unavailable SKUs"
+        },
+        {
+          "name": "Restricted SKUs"
+        },
+        {
+          "name": "Zone-Restricted SKUs"
+        },
+        {
+          "name": "Unknown SKUs"
+        },
+        {
+          "name": "SKU Availability %"
+        },
+        {
+          "name": "Availability Zones"
+        },
+        {
+          "name": "Target AZ Mapping"
+        },
+        {
+          "name": "Avg Latency (ms)"
+        },
+        {
+          "name": "Avg Cost Difference %"
+        },
+        {
+          "name": "Recommendation Score"
+        },
+        {
+          "name": "Score Quality"
+        },
+        {
+          "name": "Recommendation"
+        },
+        {
+          "name": "Missing Resource Types"
+        },
+        {
+          "name": "Unavailable SKUs (detail)"
+        },
+        {
+          "name": "Restricted SKUs (detail)"
+        },
+        {
+          "name": "Zone-Restricted SKUs (detail)"
+        }
+      ]
+    },
+    "score": 100,
+    "table": [
+      [
+        "Subscription",
+        "Source Region",
+        "Target Region",
+        "Source Resource Type Count",
+        "Available Resource Types",
+        "Unavailable Resource Types",
+        "Availability %",
+        "Total SKUs Checked",
+        "Available SKUs",
+        "Unavailable SKUs",
+        "Restricted SKUs",
+        "Zone-Restricted SKUs",
+        "Unknown SKUs",
+        "SKU Availability %",
+        "Availability Zones",
+        "Target AZ Mapping",
+        "Avg Latency (ms)",
+        "Avg Cost Difference %",
+        "Recommendation Score",
+        "Score Quality",
+        "Recommendation",
+        "Missing Resource Types",
+        "Unavailable SKUs (detail)",
+        "Restricted SKUs (detail)",
+        "Zone-Restricted SKUs (detail)"
+      ],
+      [
+        "Synthetic",
+        "eastus",
+        "westeurope",
+        "5",
+        "5",
+        "0",
+        "100.00%",
+        "4",
+        "2",
+        "0",
+        "0",
+        "0",
+        "2",
+        "100.00%",
+        "3 → 3",
+        "1→west-az3, 2→west-az2, 3→west-az1",
+        "25.0",
+        "+0.00%",
+        "100.00",
+        "Full",
+        "Recommended",
+        "",
+        "",
+        "",
+        ""
+      ]
+    ]
+  },
+  {
+    "case": "all-unknown",
+    "metadata": {
+      "Name": "region-selection",
+      "Version": "0.2.0-beta",
+      "Description": "Analyzes optimal Azure region selection based on service availability, network latency, and cost comparison",
+      "Author": "Azure Quick Review Team",
+      "License": "MIT",
+      "Type": 1,
+      "CommandPath": "",
+      "ColumnMetadata": [
+        {
+          "name": "Subscription"
+        },
+        {
+          "name": "Source Region"
+        },
+        {
+          "name": "Target Region"
+        },
+        {
+          "name": "Source Resource Type Count"
+        },
+        {
+          "name": "Available Resource Types"
+        },
+        {
+          "name": "Unavailable Resource Types"
+        },
+        {
+          "name": "Availability %"
+        },
+        {
+          "name": "Total SKUs Checked"
+        },
+        {
+          "name": "Available SKUs"
+        },
+        {
+          "name": "Unavailable SKUs"
+        },
+        {
+          "name": "Restricted SKUs"
+        },
+        {
+          "name": "Zone-Restricted SKUs"
+        },
+        {
+          "name": "Unknown SKUs"
+        },
+        {
+          "name": "SKU Availability %"
+        },
+        {
+          "name": "Availability Zones"
+        },
+        {
+          "name": "Target AZ Mapping"
+        },
+        {
+          "name": "Avg Latency (ms)"
+        },
+        {
+          "name": "Avg Cost Difference %"
+        },
+        {
+          "name": "Recommendation Score"
+        },
+        {
+          "name": "Score Quality"
+        },
+        {
+          "name": "Recommendation"
+        },
+        {
+          "name": "Missing Resource Types"
+        },
+        {
+          "name": "Unavailable SKUs (detail)"
+        },
+        {
+          "name": "Restricted SKUs (detail)"
+        },
+        {
+          "name": "Zone-Restricted SKUs (detail)"
+        }
+      ]
+    },
+    "score": 100,
+    "table": [
+      [
+        "Subscription",
+        "Source Region",
+        "Target Region",
+        "Source Resource Type Count",
+        "Available Resource Types",
+        "Unavailable Resource Types",
+        "Availability %",
+        "Total SKUs Checked",
+        "Available SKUs",
+        "Unavailable SKUs",
+        "Restricted SKUs",
+        "Zone-Restricted SKUs",
+        "Unknown SKUs",
+        "SKU Availability %",
+        "Availability Zones",
+        "Target AZ Mapping",
+        "Avg Latency (ms)",
+        "Avg Cost Difference %",
+        "Recommendation Score",
+        "Score Quality",
+        "Recommendation",
+        "Missing Resource Types",
+        "Unavailable SKUs (detail)",
+        "Restricted SKUs (detail)",
+        "Zone-Restricted SKUs (detail)"
+      ],
+      [
+        "Synthetic",
+        "eastus",
+        "westeurope",
+        "5",
+        "5",
+        "0",
+        "100.00%",
+        "4",
+        "0",
+        "0",
+        "0",
+        "0",
+        "4",
+        "100.00%",
+        "3 → 3",
+        "1→west-az3, 2→west-az2, 3→west-az1",
+        "25.0",
+        "+0.00%",
+        "100.00",
+        "Full",
+        "Recommended",
+        "",
+        "a (unknown); b (unknown); c (unknown); d (unknown)",
+        "",
+        ""
+      ]
+    ]
+  },
+  {
+    "case": "no-skus",
+    "metadata": {
+      "Name": "region-selection",
+      "Version": "0.2.0-beta",
+      "Description": "Analyzes optimal Azure region selection based on service availability, network latency, and cost comparison",
+      "Author": "Azure Quick Review Team",
+      "License": "MIT",
+      "Type": 1,
+      "CommandPath": "",
+      "ColumnMetadata": [
+        {
+          "name": "Subscription"
+        },
+        {
+          "name": "Source Region"
+        },
+        {
+          "name": "Target Region"
+        },
+        {
+          "name": "Source Resource Type Count"
+        },
+        {
+          "name": "Available Resource Types"
+        },
+        {
+          "name": "Unavailable Resource Types"
+        },
+        {
+          "name": "Availability %"
+        },
+        {
+          "name": "Total SKUs Checked"
+        },
+        {
+          "name": "Available SKUs"
+        },
+        {
+          "name": "Unavailable SKUs"
+        },
+        {
+          "name": "Restricted SKUs"
+        },
+        {
+          "name": "Zone-Restricted SKUs"
+        },
+        {
+          "name": "Unknown SKUs"
+        },
+        {
+          "name": "SKU Availability %"
+        },
+        {
+          "name": "Availability Zones"
+        },
+        {
+          "name": "Target AZ Mapping"
+        },
+        {
+          "name": "Avg Latency (ms)"
+        },
+        {
+          "name": "Avg Cost Difference %"
+        },
+        {
+          "name": "Recommendation Score"
+        },
+        {
+          "name": "Score Quality"
+        },
+        {
+          "name": "Recommendation"
+        },
+        {
+          "name": "Missing Resource Types"
+        },
+        {
+          "name": "Unavailable SKUs (detail)"
+        },
+        {
+          "name": "Restricted SKUs (detail)"
+        },
+        {
+          "name": "Zone-Restricted SKUs (detail)"
+        }
+      ]
+    },
+    "score": 100,
+    "table": [
+      [
+        "Subscription",
+        "Source Region",
+        "Target Region",
+        "Source Resource Type Count",
+        "Available Resource Types",
+        "Unavailable Resource Types",
+        "Availability %",
+        "Total SKUs Checked",
+        "Available SKUs",
+        "Unavailable SKUs",
+        "Restricted SKUs",
+        "Zone-Restricted SKUs",
+        "Unknown SKUs",
+        "SKU Availability %",
+        "Availability Zones",
+        "Target AZ Mapping",
+        "Avg Latency (ms)",
+        "Avg Cost Difference %",
+        "Recommendation Score",
+        "Score Quality",
+        "Recommendation",
+        "Missing Resource Types",
+        "Unavailable SKUs (detail)",
+        "Restricted SKUs (detail)",
+        "Zone-Restricted SKUs (detail)"
+      ],
+      [
+        "Synthetic",
+        "eastus",
+        "westeurope",
+        "5",
+        "5",
+        "0",
+        "100.00%",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "N/A",
+        "3 → 3",
+        "",
+        "25.0",
+        "+0.00%",
+        "100.00",
+        "Full",
+        "Recommended",
+        "",
+        "",
+        "",
+        ""
+      ]
+    ]
+  },
+  {
+    "case": "empty-types",
+    "metadata": {
+      "Name": "region-selection",
+      "Version": "0.2.0-beta",
+      "Description": "Analyzes optimal Azure region selection based on service availability, network latency, and cost comparison",
+      "Author": "Azure Quick Review Team",
+      "License": "MIT",
+      "Type": 1,
+      "CommandPath": "",
+      "ColumnMetadata": [
+        {
+          "name": "Subscription"
+        },
+        {
+          "name": "Source Region"
+        },
+        {
+          "name": "Target Region"
+        },
+        {
+          "name": "Source Resource Type Count"
+        },
+        {
+          "name": "Available Resource Types"
+        },
+        {
+          "name": "Unavailable Resource Types"
+        },
+        {
+          "name": "Availability %"
+        },
+        {
+          "name": "Total SKUs Checked"
+        },
+        {
+          "name": "Available SKUs"
+        },
+        {
+          "name": "Unavailable SKUs"
+        },
+        {
+          "name": "Restricted SKUs"
+        },
+        {
+          "name": "Zone-Restricted SKUs"
+        },
+        {
+          "name": "Unknown SKUs"
+        },
+        {
+          "name": "SKU Availability %"
+        },
+        {
+          "name": "Availability Zones"
+        },
+        {
+          "name": "Target AZ Mapping"
+        },
+        {
+          "name": "Avg Latency (ms)"
+        },
+        {
+          "name": "Avg Cost Difference %"
+        },
+        {
+          "name": "Recommendation Score"
+        },
+        {
+          "name": "Score Quality"
+        },
+        {
+          "name": "Recommendation"
+        },
+        {
+          "name": "Missing Resource Types"
+        },
+        {
+          "name": "Unavailable SKUs (detail)"
+        },
+        {
+          "name": "Restricted SKUs (detail)"
+        },
+        {
+          "name": "Zone-Restricted SKUs (detail)"
+        }
+      ]
+    },
+    "score": 65,
+    "table": [
+      [
+        "Subscription",
+        "Source Region",
+        "Target Region",
+        "Source Resource Type Count",
+        "Available Resource Types",
+        "Unavailable Resource Types",
+        "Availability %",
+        "Total SKUs Checked",
+        "Available SKUs",
+        "Unavailable SKUs",
+        "Restricted SKUs",
+        "Zone-Restricted SKUs",
+        "Unknown SKUs",
+        "SKU Availability %",
+        "Availability Zones",
+        "Target AZ Mapping",
+        "Avg Latency (ms)",
+        "Avg Cost Difference %",
+        "Recommendation Score",
+        "Score Quality",
+        "Recommendation",
+        "Missing Resource Types",
+        "Unavailable SKUs (detail)",
+        "Restricted SKUs (detail)",
+        "Zone-Restricted SKUs (detail)"
+      ],
+      [
+        "Synthetic",
+        "eastus",
+        "westeurope",
+        "0",
+        "0",
+        "0",
+        "0.00%",
+        "4",
+        "4",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100.00%",
+        "3 → 3",
+        "1→west-az3, 2→west-az2, 3→west-az1",
+        "25.0",
+        "+0.00%",
+        "65.00",
+        "Full",
+        "Neutral",
+        "",
+        "",
+        "",
+        ""
+      ]
+    ]
+  },
+  {
+    "case": "band-80",
+    "metadata": {
+      "Name": "region-selection",
+      "Version": "0.2.0-beta",
+      "Description": "Analyzes optimal Azure region selection based on service availability, network latency, and cost comparison",
+      "Author": "Azure Quick Review Team",
+      "License": "MIT",
+      "Type": 1,
+      "CommandPath": "",
+      "ColumnMetadata": [
+        {
+          "name": "Subscription"
+        },
+        {
+          "name": "Source Region"
+        },
+        {
+          "name": "Target Region"
+        },
+        {
+          "name": "Source Resource Type Count"
+        },
+        {
+          "name": "Available Resource Types"
+        },
+        {
+          "name": "Unavailable Resource Types"
+        },
+        {
+          "name": "Availability %"
+        },
+        {
+          "name": "Total SKUs Checked"
+        },
+        {
+          "name": "Available SKUs"
+        },
+        {
+          "name": "Unavailable SKUs"
+        },
+        {
+          "name": "Restricted SKUs"
+        },
+        {
+          "name": "Zone-Restricted SKUs"
+        },
+        {
+          "name": "Unknown SKUs"
+        },
+        {
+          "name": "SKU Availability %"
+        },
+        {
+          "name": "Availability Zones"
+        },
+        {
+          "name": "Target AZ Mapping"
+        },
+        {
+          "name": "Avg Latency (ms)"
+        },
+        {
+          "name": "Avg Cost Difference %"
+        },
+        {
+          "name": "Recommendation Score"
+        },
+        {
+          "name": "Score Quality"
+        },
+        {
+          "name": "Recommendation"
+        },
+        {
+          "name": "Missing Resource Types"
+        },
+        {
+          "name": "Unavailable SKUs (detail)"
+        },
+        {
+          "name": "Restricted SKUs (detail)"
+        },
+        {
+          "name": "Zone-Restricted SKUs (detail)"
+        }
+      ]
+    },
+    "score": 80,
+    "table": [
+      [
+        "Subscription",
+        "Source Region",
+        "Target Region",
+        "Source Resource Type Count",
+        "Available Resource Types",
+        "Unavailable Resource Types",
+        "Availability %",
+        "Total SKUs Checked",
+        "Available SKUs",
+        "Unavailable SKUs",
+        "Restricted SKUs",
+        "Zone-Restricted SKUs",
+        "Unknown SKUs",
+        "SKU Availability %",
+        "Availability Zones",
+        "Target AZ Mapping",
+        "Avg Latency (ms)",
+        "Avg Cost Difference %",
+        "Recommendation Score",
+        "Score Quality",
+        "Recommendation",
+        "Missing Resource Types",
+        "Unavailable SKUs (detail)",
+        "Restricted SKUs (detail)",
+        "Zone-Restricted SKUs (detail)"
+      ],
+      [
+        "Synthetic",
+        "eastus",
+        "westeurope",
+        "100",
+        "100",
+        "0",
+        "100.00%",
+        "4",
+        "4",
+        "0",
+        "0",
+        "0",
+        "0",
+        "100.00%",
+        "3 → 3",
+        "1→west-az3, 2→west-az2, 3→west-az1",
+        "200.0",
+        "+0.00%",
+        "80.00",
+        "Full",
+        "Recommended",
+        "",
+        "",
+        "",
+        ""
+      ]
+    ]
+  },
+  {
+    "case": "band-60",
+    "metadata": {
+      "Name": "region-selection",
+      "Version": "0.2.0-beta",
+      "Description": "Analyzes optimal Azure region selection based on service availability, network latency, and cost comparison",
+      "Author": "Azure Quick Review Team",
+      "License": "MIT",
+      "Type": 1,
+      "CommandPath": "",
+      "ColumnMetadata": [
+        {
+          "name": "Subscription"
+        },
+        {
+          "name": "Source Region"
+        },
+        {
+          "name": "Target Region"
+        },
+        {
+          "name": "Source Resource Type Count"
+        },
+        {
+          "name": "Available Resource Types"
+        },
+        {
+          "name": "Unavailable Resource Types"
+        },
+        {
+          "name": "Availability %"
+        },
+        {
+          "name": "Total SKUs Checked"
+        },
+        {
+          "name": "Available SKUs"
+        },
+        {
+          "name": "Unavailable SKUs"
+        },
+        {
+          "name": "Restricted SKUs"
+        },
+        {
+          "name": "Zone-Restricted SKUs"
+        },
+        {
+          "name": "Unknown SKUs"
+        },
+        {
+          "name": "SKU Availability %"
+        },
+        {
+          "name": "Availability Zones"
+        },
+        {
+          "name": "Target AZ Mapping"
+        },
+        {
+          "name": "Avg Latency (ms)"
+        },
+        {
+          "name": "Avg Cost Difference %"
+        },
+        {
+          "name": "Recommendation Score"
+        },
+        {
+          "name": "Score Quality"
+        },
+        {
+          "name": "Recommendation"
+        },
+        {
+          "name": "Missing Resource Types"
+        },
+        {
+          "name": "Unavailable SKUs (detail)"
+        },
+        {
+          "name": "Restricted SKUs (detail)"
+        },
+        {
+          "name": "Zone-Restricted SKUs (detail)"
+        }
+      ]
+    },
+    "score": 60,
+    "table": [
+      [
+        "Subscription",
+        "Source Region",
+        "Target Region",
+        "Source Resource Type Count",
+        "Available Resource Types",
+        "Unavailable Resource Types",
+        "Availability %",
+        "Total SKUs Checked",
+        "Available SKUs",
+        "Unavailable SKUs",
+        "Restricted SKUs",
+        "Zone-Restricted SKUs",
+        "Unknown SKUs",
+        "SKU Availability %",
+        "Availability Zones",
+        "Target AZ Mapping",
+        "Avg Latency (ms)",
+        "Avg Cost Difference %",
+        "Recommendation Score",
+        "Score Quality",
+        "Recommendation",
+        "Missing Resource Types",
+        "Unavailable SKUs (detail)",
+        "Restricted SKUs (detail)",
+        "Zone-Restricted SKUs (detail)"
+      ],
+      [
+        "Synthetic",
+        "eastus",
+        "westeurope",
+        "100",
+        "100",
+        "0",
+        "100.00%",
+        "4",
+        "0",
+        "4",
+        "0",
+        "0",
+        "0",
+        "0.00%",
+        "3 → 3",
+        "1→west-az3, 2→west-az2, 3→west-az1",
+        "125.0",
+        "+0.00%",
+        "60.00",
+        "Full",
+        "Neutral",
+        "",
+        "",
+        "",
+        ""
+      ]
+    ]
+  },
+  {
+    "case": "below-60",
+    "metadata": {
+      "Name": "region-selection",
+      "Version": "0.2.0-beta",
+      "Description": "Analyzes optimal Azure region selection based on service availability, network latency, and cost comparison",
+      "Author": "Azure Quick Review Team",
+      "License": "MIT",
+      "Type": 1,
+      "CommandPath": "",
+      "ColumnMetadata": [
+        {
+          "name": "Subscription"
+        },
+        {
+          "name": "Source Region"
+        },
+        {
+          "name": "Target Region"
+        },
+        {
+          "name": "Source Resource Type Count"
+        },
+        {
+          "name": "Available Resource Types"
+        },
+        {
+          "name": "Unavailable Resource Types"
+        },
+        {
+          "name": "Availability %"
+        },
+        {
+          "name": "Total SKUs Checked"
+        },
+        {
+          "name": "Available SKUs"
+        },
+        {
+          "name": "Unavailable SKUs"
+        },
+        {
+          "name": "Restricted SKUs"
+        },
+        {
+          "name": "Zone-Restricted SKUs"
+        },
+        {
+          "name": "Unknown SKUs"
+        },
+        {
+          "name": "SKU Availability %"
+        },
+        {
+          "name": "Availability Zones"
+        },
+        {
+          "name": "Target AZ Mapping"
+        },
+        {
+          "name": "Avg Latency (ms)"
+        },
+        {
+          "name": "Avg Cost Difference %"
+        },
+        {
+          "name": "Recommendation Score"
+        },
+        {
+          "name": "Score Quality"
+        },
+        {
+          "name": "Recommendation"
+        },
+        {
+          "name": "Missing Resource Types"
+        },
+        {
+          "name": "Unavailable SKUs (detail)"
+        },
+        {
+          "name": "Restricted SKUs (detail)"
+        },
+        {
+          "name": "Zone-Restricted SKUs (detail)"
+        }
+      ]
+    },
+    "score": 59.65,
+    "table": [
+      [
+        "Subscription",
+        "Source Region",
+        "Target Region",
+        "Source Resource Type Count",
+        "Available Resource Types",
+        "Unavailable Resource Types",
+        "Availability %",
+        "Total SKUs Checked",
+        "Available SKUs",
+        "Unavailable SKUs",
+        "Restricted SKUs",
+        "Zone-Restricted SKUs",
+        "Unknown SKUs",
+        "SKU Availability %",
+        "Availability Zones",
+        "Target AZ Mapping",
+        "Avg Latency (ms)",
+        "Avg Cost Difference %",
+        "Recommendation Score",
+        "Score Quality",
+        "Recommendation",
+        "Missing Resource Types",
+        "Unavailable SKUs (detail)",
+        "Restricted SKUs (detail)",
+        "Zone-Restricted SKUs (detail)"
+      ],
+      [
+        "Synthetic",
+        "eastus",
+        "westeurope",
+        "100",
+        "99",
+        "1",
+        "99.00%",
+        "4",
+        "0",
+        "4",
+        "0",
+        "0",
+        "0",
+        "0.00%",
+        "3 → 3",
+        "1→west-az3, 2→west-az2, 3→west-az1",
+        "125.0",
+        "+0.00%",
+        "59.65",
+        "Full",
+        "Not Recommended",
+        "",
+        "",
+        "",
+        ""
+      ]
+    ]
+  },
+  {
+    "case": "formula-unicode",
+    "metadata": {
+      "Name": "region-selection",
+      "Version": "0.2.0-beta",
+      "Description": "Analyzes optimal Azure region selection based on service availability, network latency, and cost comparison",
+      "Author": "Azure Quick Review Team",
+      "License": "MIT",
+      "Type": 1,
+      "CommandPath": "",
+      "ColumnMetadata": [
+        {
+          "name": "Subscription"
+        },
+        {
+          "name": "Source Region"
+        },
+        {
+          "name": "Target Region"
+        },
+        {
+          "name": "Source Resource Type Count"
+        },
+        {
+          "name": "Available Resource Types"
+        },
+        {
+          "name": "Unavailable Resource Types"
+        },
+        {
+          "name": "Availability %"
+        },
+        {
+          "name": "Total SKUs Checked"
+        },
+        {
+          "name": "Available SKUs"
+        },
+        {
+          "name": "Unavailable SKUs"
+        },
+        {
+          "name": "Restricted SKUs"
+        },
+        {
+          "name": "Zone-Restricted SKUs"
+        },
+        {
+          "name": "Unknown SKUs"
+        },
+        {
+          "name": "SKU Availability %"
+        },
+        {
+          "name": "Availability Zones"
+        },
+        {
+          "name": "Target AZ Mapping"
+        },
+        {
+          "name": "Avg Latency (ms)"
+        },
+        {
+          "name": "Avg Cost Difference %"
+        },
+        {
+          "name": "Recommendation Score"
+        },
+        {
+          "name": "Score Quality"
+        },
+        {
+          "name": "Recommendation"
+        },
+        {
+          "name": "Missing Resource Types"
+        },
+        {
+          "name": "Unavailable SKUs (detail)"
+        },
+        {
+          "name": "Restricted SKUs (detail)"
+        },
+        {
+          "name": "Zone-Restricted SKUs (detail)"
+        }
+      ]
+    },
+    "score": 96.25,
+    "table": [
+      [
+        "Subscription",
+        "Source Region",
+        "Target Region",
+        "Source Resource Type Count",
+        "Available Resource Types",
+        "Unavailable Resource Types",
+        "Availability %",
+        "Total SKUs Checked",
+        "Available SKUs",
+        "Unavailable SKUs",
+        "Restricted SKUs",
+        "Zone-Restricted SKUs",
+        "Unknown SKUs",
+        "SKU Availability %",
+        "Availability Zones",
+        "Target AZ Mapping",
+        "Avg Latency (ms)",
+        "Avg Cost Difference %",
+        "Recommendation Score",
+        "Score Quality",
+        "Recommendation",
+        "Missing Resource Types",
+        "Unavailable SKUs (detail)",
+        "Restricted SKUs (detail)",
+        "Zone-Restricted SKUs (detail)"
+      ],
+      [
+        "=Synthetic €",
+        "eastus",
+        "westeurope",
+        "5",
+        "5",
+        "0",
+        "100.00%",
+        "4",
+        "3",
+        "0",
+        "1",
+        "0",
+        "0",
+        "75.00%",
+        "3 → 3",
+        "10→west-az10, 2→west-az2",
+        "25.0",
+        "+0.00%",
+        "96.25",
+        "Full",
+        "Recommended",
+        "",
+        "",
+        "type:+a",
+        ""
+      ]
+    ]
+  }
+]
