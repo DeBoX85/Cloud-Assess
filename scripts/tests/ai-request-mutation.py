@@ -7,6 +7,7 @@ import tempfile
 
 ROOT = Path(__file__).resolve().parents[2]
 MUTATIONS = (
+    ("partial-cloud-audience", "scanner.go", "authoritySet != endpointSet || authoritySet != audienceSet", "authoritySet != endpointSet", "TestProductionPartialCloudFailsBeforeAuthentication"),
     ("foreign-continuation", "scanner.go", "!strings.EqualFold(u.Host, s.origin.Host)", "false", "TestDeploymentContinuationBeforeAuthentication"),
     ("foreign-metrics", "decoder.go", 'scope[key] == "" || reported[key]', "reported[key]", "TestMetricCoverageCorrelationAndErrors"),
     ("discard-metrics-on-enrichment-limit", "scanner.go", "projectionErr != nil && len(enrichment) != 0", "false", "TestRequestEnrichmentLimitRetainsAllValidMetrics"),

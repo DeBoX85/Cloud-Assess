@@ -1,6 +1,6 @@
 # Cloud Assess Roadmap
 
-Status: working execution roadmap, reviewed 2026-10-03 (Europe/Oslo). PR96 pure AI governance core VERIFIED OFFLINE at `9c6d0e79d05d06559fb4b543406b928013aed835`, final native/postmerge verified. Current B5 slice: [AI_GOVERNANCE_REQUESTS.md](AI_GOVERNANCE_REQUESTS.md), strict decoding/bounded metrics and deployment retrieval. Public execution/report/live acceptance remains separate; carbon and three earlier public plugins remain accepted offline. Start with [SESSION_HANDOVER.md](SESSION_HANDOVER.md); earlier checkpoints are chronological.
+Status: working execution roadmap, reviewed 2026-10-03 (Europe/Oslo). PR96 pure AI governance core VERIFIED OFFLINE at `9c6d0e79d05d06559fb4b543406b928013aed835`, final native/postmerge verified. Current B5 slice: [AI_GOVERNANCE_REQUESTS.md](AI_GOVERNANCE_REQUESTS.md), strict decoding/bounded metrics and deployment retrieval. Public execution/report/live acceptance remains separate; carbon and three earlier public plugins remain accepted offline. PR97 review confirmed a partial-cloud audience gap despite earlier green CI; the current focused correction requires fresh native gates and four compiling mutation checks (FN055). Further discovery/public integration needs a restored development executor (FN056), separately from deferred Azure/laptop evidence. Start with [SESSION_HANDOVER.md](SESSION_HANDOVER.md); earlier checkpoints are chronological.
 
 Active development branch: `bootstrap/core-v1`
 

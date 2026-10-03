@@ -83,6 +83,43 @@ func TestProductionConstructionUsesDistinctAudiences(t *testing.T) {
 	}
 }
 
+func TestProductionPartialCloudFailsBeforeAuthentication(t *testing.T) {
+	keys := []string{azure.EnvAzureAuthorityHost, azure.EnvAzureResourceManagerEndpoint, azure.EnvAzureResourceManagerAudience}
+	values := []string{"https://login.microsoftonline.com/", "https://management.azure.com", "https://management.core.windows.net"}
+	for mask := 1; mask < 7; mask++ {
+		t.Run(fmt.Sprintf("overrides-%d", mask), func(t *testing.T) {
+			t.Setenv(azure.EnvAzureCloud, "AzurePublic")
+			for i, key := range keys {
+				value := ""
+				if mask&(1<<i) != 0 {
+					value = values[i]
+				}
+				t.Setenv(key, value)
+			}
+			credential := &requestCredential{}
+			var calls atomic.Int64
+			scanner, err := newWithTransport(credential, requestTransport(func(*http.Request) (*http.Response, error) {
+				calls.Add(1)
+				return nil, errors.New("partial cloud transport tripwire")
+			}), time.Now)
+			if scanner != nil || err == nil || credential.calls.Load() != 0 || calls.Load() != 0 {
+				t.Fatal("partial cloud configuration accepted before authentication")
+			}
+		})
+	}
+	t.Run("complete-public", func(t *testing.T) {
+		t.Setenv(azure.EnvAzureCloud, "AzurePublic")
+		for i, key := range keys {
+			t.Setenv(key, values[i])
+		}
+		credential := &requestCredential{}
+		scanner, err := New(credential)
+		if err != nil || scanner == nil || scanner.origin.Host != "management.azure.com" || credential.calls.Load() != 0 {
+			t.Fatal("complete public cloud configuration rejected or authenticated prematurely")
+		}
+	})
+}
+
 func (c *requestCredential) GetToken(ctx context.Context, o policy.TokenRequestOptions) (azcore.AccessToken, error) {
 	c.calls.Add(1)
 	if !reflect.DeepEqual(o.Scopes, []string{c.scope}) {

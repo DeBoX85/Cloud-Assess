@@ -85,7 +85,10 @@ func newWithTransport(credential azcore.TokenCredential, transport policy.Transp
 	if cloudName != "" && cloudName != "public" && cloudName != "azurepublic" {
 		return nil, fmt.Errorf("AI governance metrics public-cloud configuration required")
 	}
-	if (os.Getenv(azure.EnvAzureAuthorityHost) == "") != (os.Getenv(azure.EnvAzureResourceManagerEndpoint) == "") {
+	authoritySet := os.Getenv(azure.EnvAzureAuthorityHost) != ""
+	endpointSet := os.Getenv(azure.EnvAzureResourceManagerEndpoint) != ""
+	audienceSet := os.Getenv(azure.EnvAzureResourceManagerAudience) != ""
+	if authoritySet != endpointSet || authoritySet != audienceSet {
 		return nil, fmt.Errorf("AI governance complete cloud configuration required")
 	}
 	configuration := azure.CloudConfiguration()

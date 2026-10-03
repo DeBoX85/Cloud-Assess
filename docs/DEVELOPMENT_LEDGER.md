@@ -95,6 +95,13 @@ These rules have governed the reconstruction effort:
 
 ## Development chronology
 
+### 2026-10-03: Fresh-session PR97 review and cloud-boundary correction
+
+Verified live core-v1 PR96 merge 9c6d0e79d05d06559fb4b543406b928013aed835/tree b032e44ef99aec0b2214e65ace3f15194c842a72, ordered parents/identity and only open PR97. Previous request head563c973/tree d72948606ba4f2b6921f9c379b530670585978db passed run37091739775, quality111113344322/Windows111113344512; mandatory steps/full logs read, including three AI mutations, eleven real CLI and nineteen default/nineteen custom cases per host, coverage81.4%. Existing module-only advisory is unchanged. Green CI did not cover the actual automated review's lone-audience override finding, so no merge was attempted.
+
+FN055 correction requires all three cloud overrides or none, six partial cases with rejection/zero token/transport counts, complete-public acceptance and fourth compiling mutation. Fresh native gates remain mandatory on the corrected exact head. No source pin, fixture expectation, dependency or public plugin change. FN056 records missing current local Go/Git HTTPS/download capabilities and disabled Code Review MCP; local build/clean fetched proof cannot be claimed. Publish the focused correction through authenticated GitHub, retain dependent discovery/public implementation until a suitable executor is restored; Azure/laptop/Gate004/release deferrals remain open. Final run/merge proof belongs in PR97 and the next coherent checkpoint.
+
+
 ### Phase A: Repository and target architecture
 
 **Objective**
