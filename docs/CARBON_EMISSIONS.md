@@ -1,6 +1,6 @@
 # Carbon emissions migration contract
 
-Status: source characterization and pure aggregation/projection VERIFIED OFFLINE through PR90, merge `ea0aabfca055899e18baa54af24b53df90a57d98`. HTTP/access/pagination library is VERIFIED OFFLINE through PR93; public execution is the next unaccepted slice; carbon remains unavailable in registry/CLI. Pure completed projection health is not service/scope/access completeness. Earlier candidate paragraphs are historical.
+Status: carbon pure aggregation, bounded request library and public command/report execution are VERIFIED OFFLINE through PR90/93/94. Latest runtime merge `ac32f3b116ef26704a06add686ea305d41c2a114`; final native and remote verification passed. Local postmerge fetch verification is blocked by executor outage. Completed projection health is not live service/scope/access completeness; earlier candidate/unavailable paragraphs are historical.
 
 ## Source and independent evidence
 
@@ -77,3 +77,12 @@ Rollback: premerge reject leaves core-v1 at PR93. After merge use a reviewed rev
 
 
 Final operator-documentation review corrected ACCESS_MODEL's stale all-plugins-unavailable wording and documented implemented read-oriented requests, subscription aggregate/filter limits and plugin-only Graph exception. Existing role/service/live boundaries remain open; final mandatory gates run on this updated documentation head, not the earlier candidate.
+
+
+## Accepted public execution and outage boundary
+
+PR94 tested head `0ee0f59f1fea4de3690b47bdd8f514e4a0ee9b6b`, tree `80f7734522e7c7f00f7c0992cb73bb5b1a22a266`, native run `37083743138`, Linux quality `111089620311` / windows-validation `111089620449` actual PASS. Required steps/full logs inspected: eleven real CLI, nineteen default/nineteen custom package cases per host without acceptance skips, docs278/9/1, coverage80.7%, mandatory provenance/format/module/inventory/branding/PowerShell/race/fuzz/maintenance/mutation/vet checks passed. Zero reachable/imported findings; existing one module-only advisory stays open. Protected merge `ac32f3b116ef26704a06add686ea305d41c2a114`, exact tree and ordered parents (`f5cae2b515481f8215b483e6c6792a85ff8c1b62`, `0ee0f59f1fea4de3690b47bdd8f514e4a0ee9b6b`), current remote ref/merged PR/human author/GitHub committer verified. Source/APRL pins and captures unchanged.
+
+Local postmerge fetch/switch verification is BLOCKED by an execution-service transport disconnect. The combined fetch/switch command completion is UNKNOWN. A bounded read-only pwd retry stalled and was terminated; no further code edit was attempted. Do not infer a clean checkout, current local branch or successful fetch from remote merge success. GitHub remains available and this code/docs checkpoint is remotely preserved. No Azure/laptop/credential action is needed from the operator.
+
+Resume: restore executor, inspect actual task-owned checkout/status/branches/processes before replaying anything, preserve unrelated work, fetch live core-v1 and verify expected head/tree/ordered parents/pins, reconcile the possibly-created feat/ai-governance-core branch without reset/force, complete clean fetched verification. Re-read current handover/PR94/this recovery proposal and active rules. Then begin independent B5 AI governance source captures/pure projection, followed by bounded authenticated request library and separate public execution. Region selection follows separately; B6/B7/live/Gate004/release remain open. No speculative runtime change while local verification is unavailable.

@@ -1,6 +1,6 @@
 # Cloud Assess Roadmap
 
-Status: working execution roadmap, reviewed 2026-10-03 (Europe/Oslo). Current accepted runtime baseline: PR93 merge `f5cae2b515481f8215b483e6c6792a85ff8c1b62`. Carbon bounded request library is VERIFIED OFFLINE; public carbon execution is the unaccepted B5 candidate. Start with [SESSION_HANDOVER.md](SESSION_HANDOVER.md); older checkpoints below are chronological.
+Status: working execution roadmap, reviewed 2026-10-03 (Europe/Oslo). Current accepted runtime: PR94 merge `ac32f3b116ef26704a06add686ea305d41c2a114`. Carbon public execution is VERIFIED OFFLINE. Local postmerge fetch/switch verification is BLOCKED by executor outage; recover actual state before AI governance. Start with [SESSION_HANDOVER.md](SESSION_HANDOVER.md); earlier checkpoints are chronological.
 
 Active development branch: `bootstrap/core-v1`
 
@@ -269,3 +269,12 @@ Latest resume (2026-10-03): carbon pure core VERIFIED OFFLINE through PR90 merge
 ## Current checkpoint: carbon request library accepted, public execution active
 
 PR93 exact native and protected postmerge evidence is indexed in CARBON_EMISSIONS and handover. Current carbon command/registry/coordinator/projection/report candidate preserves all eight source cells, type-selection semantics, aggregate identity and explicit failure corrections. Focused/full local race/vet, compiling isolated projection control, clean strict build, eleven actual CLI checks and docs passed; final native/protected acceptance remains required. Next independent B5 task after that acceptance: AI governance source characterization, then region selection separately. No Azure/laptop dependency for current engineering; all earlier live/release/advisory/Gate004 limits remain open.
+
+
+## Latest resume: PR94 accepted, recover executor before B5 AI governance
+
+PR94 tested head `0ee0f59f1fea4de3690b47bdd8f514e4a0ee9b6b`, tree `80f7734522e7c7f00f7c0992cb73bb5b1a22a266`, native run `37083743138`, Linux quality `111089620311` / windows-validation `111089620449` actual PASS. Required steps/full logs inspected: eleven real CLI, nineteen default/nineteen custom package cases per host without acceptance skips, docs278/9/1, coverage80.7%, mandatory provenance/format/module/inventory/branding/PowerShell/race/fuzz/maintenance/mutation/vet checks passed. Zero reachable/imported findings; existing one module-only advisory stays open. Protected merge `ac32f3b116ef26704a06add686ea305d41c2a114`, exact tree and ordered parents (`f5cae2b515481f8215b483e6c6792a85ff8c1b62`, `0ee0f59f1fea4de3690b47bdd8f514e4a0ee9b6b`), current remote ref/merged PR/human author/GitHub committer verified. Source/APRL pins and captures unchanged.
+
+Local postmerge fetch/switch verification is BLOCKED by an execution-service transport disconnect. The combined fetch/switch command completion is UNKNOWN. A bounded read-only pwd retry stalled and was terminated; no further code edit was attempted. Do not infer a clean checkout, current local branch or successful fetch from remote merge success. GitHub remains available and this code/docs checkpoint is remotely preserved. No Azure/laptop/credential action is needed from the operator.
+
+Resume: restore executor, inspect actual task-owned checkout/status/branches/processes before replaying anything, preserve unrelated work, fetch live core-v1 and verify expected head/tree/ordered parents/pins, reconcile the possibly-created feat/ai-governance-core branch without reset/force, complete clean fetched verification. Re-read current handover/PR94/this recovery proposal and active rules. Then begin independent B5 AI governance source captures/pure projection, followed by bounded authenticated request library and separate public execution. Region selection follows separately; B6/B7/live/Gate004/release remain open. No speculative runtime change while local verification is unavailable.
