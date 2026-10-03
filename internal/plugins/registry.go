@@ -11,6 +11,7 @@ import (
 	"unicode"
 
 	"github.com/DeBoX85/Cloud-Assess/internal/assessment"
+	"github.com/DeBoX85/Cloud-Assess/internal/plugins/carbon"
 	"github.com/DeBoX85/Cloud-Assess/internal/plugins/servicehealth"
 	"github.com/DeBoX85/Cloud-Assess/internal/plugins/sqleol"
 	"github.com/DeBoX85/Cloud-Assess/internal/plugins/zone"
@@ -21,19 +22,19 @@ const ZoneMapping = "zone-mapping"
 // InternalMetadata advertises implemented adapters, not the full source registry.
 // Execution/CLI availability remains a separate acceptance boundary.
 func InternalMetadata() []assessment.PluginMetadata {
-	return []assessment.PluginMetadata{{Name: ZoneMapping, Version: "1.0.0", Description: "Retrieves logical-to-physical availability zone mappings for all Azure regions in each subscription", Author: "Azure Quick Review Team", License: "MIT", Type: "internal"}, servicehealth.Metadata(), sqleol.Metadata()}
+	return []assessment.PluginMetadata{{Name: ZoneMapping, Version: "1.0.0", Description: "Retrieves logical-to-physical availability zone mappings for all Azure regions in each subscription", Author: "Azure Quick Review Team", License: "MIT", Type: "internal"}, servicehealth.Metadata(), sqleol.Metadata(), carbon.Metadata()}
 }
 
 func ValidateNames(names []string) ([]string, error) {
 	selected := map[string]bool{}
 	for _, name := range names {
-		if name != ZoneMapping && name != servicehealth.Name && name != sqleol.Name {
+		if name != ZoneMapping && name != servicehealth.Name && name != sqleol.Name && name != carbon.Name {
 			return nil, fmt.Errorf("internal plugin %q is unavailable", name)
 		}
 		selected[name] = true
 	}
 	result := []string{}
-	for _, name := range []string{servicehealth.Name, sqleol.Name, ZoneMapping} {
+	for _, name := range []string{carbon.Name, servicehealth.Name, sqleol.Name, ZoneMapping} {
 		if selected[name] {
 			result = append(result, name)
 		}
@@ -42,6 +43,9 @@ func ValidateNames(names []string) ([]string, error) {
 }
 
 func PendingTable(name string) assessment.PluginTable {
+	if name == carbon.Name {
+		return carbon.PendingTable()
+	}
 	if name == servicehealth.Name {
 		return servicehealth.PendingTable()
 	}

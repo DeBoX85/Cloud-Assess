@@ -35,7 +35,7 @@ func PendingTable() assessment.PluginTable {
 
 // Item is decoded resource-type data, not a per-subscription row. Optional
 // numeric pointers preserve missing versus zero input without inventing totals.
-// HTTP shape/access/pagination validation belongs to the future request adapter.
+// HTTP shape/access/pagination validation belongs to the bounded request adapter.
 type Item struct {
 	ResourceType string
 	Latest       *float64
