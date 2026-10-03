@@ -4,17 +4,9 @@ on:
   pull_request:
     branches:
       - bootstrap/core-v1
-    paths:
-      - '.github/workflows/region-source-characterization.yml'
-      - 'scripts/capture-region-source.py'
-      - 'internal/plugins/region/testdata/aux_capture_test.go.txt'
   push:
     branches:
       - bootstrap/core-v1
-    paths:
-      - '.github/workflows/region-source-characterization.yml'
-      - 'scripts/capture-region-source.py'
-      - 'internal/plugins/region/testdata/aux_capture_test.go.txt'
 
 permissions:
   contents: read
