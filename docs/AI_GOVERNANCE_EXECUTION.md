@@ -1,10 +1,10 @@
 # AI governance discovery and public execution plan
 
-Status: implementation not started. This is the next B5 contract after request-library PR97 acceptance, not evidence that ai-gov is publicly executable. Start with [SESSION_HANDOVER.md](SESSION_HANDOVER.md); source/cell contracts are in [AI_GOVERNANCE.md](AI_GOVERNANCE.md) and [AI_GOVERNANCE_REQUESTS.md](AI_GOVERNANCE_REQUESTS.md). No laptop/Azure test is needed for the planned deterministic engineering.
+Status: bounded Graph discovery IN PROGRESS as an unaccepted library proposal after accepted workspace PR100. The pure/request libraries are accepted through PR96/97; ai-gov remains unavailable publicly. Start with [SESSION_HANDOVER.md](SESSION_HANDOVER.md); source/cell contracts are in [AI_GOVERNANCE.md](AI_GOVERNANCE.md) and [AI_GOVERNANCE_REQUESTS.md](AI_GOVERNANCE_REQUESTS.md). No laptop/Azure test is needed for the planned deterministic engineering.
 
 ## Exact next implementation slice
 
-First implement and independently accept bounded source-specific Graph account discovery, preserving truthful partial data and recorded filter decisions. Keep ai-gov unavailable in CLI/registry during that library slice. Then integrate actual standalone, mixed and scanner execution plus all-format reports as a separate reviewable slice. Do not combine region selection, dependency updates, release work or new network services.
+The candidate implements bounded source-specific Graph account discovery in internal/plugins/aigov/discovery.go; independently accept it after final native QA, preserving truthful partial data and recorded filter decisions. Keep ai-gov unavailable in CLI/registry during that library slice. Then integrate actual standalone, mixed and scanner execution plus all-format reports as a separate reviewable slice. Do not combine region selection, dependency updates, release work or new network services.
 
 Pinned source: DeBoX85/azqr at 8e4f0577f3615e6c9014c031bcad079f235369cc, internal/scanners/plugins/aigov/aigov.go, discoverOpenAIResources/Scan/processBatch. Fresh-session read verified the exact query and source mapping. Retained capture_test.go.txt already exercises actual unchanged source Scan with synthetic Graph rows, metrics/deployments, empty and unknown-include-tag branches; its captures remain independent source evidence. No new source capture or local execution is claimed by this plan.
 
@@ -30,7 +30,7 @@ Microsoft [large-result guidance](https://learn.microsoft.com/en-us/azure/govern
 
 ## Concrete discovery limits and response acceptance
 
-This is a proposed implementation contract, independently specified before code. These limits belong only to AI discovery; existing normal ARG queries and accepted metrics/deployment budgets remain unchanged. They are target safety limits, not Azure capacity guarantees or measured load acceptance.
+This contract was independently specified before code in PR99. It is implemented by the current unaccepted discovery candidate. These limits belong only to AI discovery; existing normal ARG queries and accepted metrics/deployment budgets remain unchanged. They are target safety limits, not Azure capacity guarantees or measured load acceptance.
 
 | Work | Limit and accounting |
 | --- | --- |
@@ -56,7 +56,7 @@ Return an independently owned account slice plus explicit discovery health and e
 
 ## Independent discovery acceptance cases
 
-These are acceptance obligations, not implemented or passed tests.
+The current discovery tests exercise these synthetic obligations; final exact-head native/protected acceptance remains pending. This is not public/report or live equivalence evidence.
 
 | Case | Observable oracle |
 | --- | --- |
@@ -69,7 +69,7 @@ These are acceptance obligations, not implemented or passed tests.
 | Ownership/concurrency | Mutating returned fields cannot change a subsequent result or caller scope/filter snapshot; two concurrent runs with disjoint literal accounts/tokens share no state, including seen IDs, budgets and warnings. |
 | Compiling controls | Remove batch-ownership validation, stop on false despite a token, and discard prefix on a later failure in isolated copies. Each must compile and fail its named behavioral assertion; clean/restored cases pass. Keep four earlier request controls. |
 
-Use existing captured source outputs for source defaults/tag semantics and the immutable official examples for wire paging; construct new explicitly synthetic discovery fixtures with reviewed literal expectations. Do not generate expected results from the target decoder. Add focused race/vet and bounded decoder fuzz feedback after a working executor is restored, then all mandatory exact-head native jobs, stamped CLI/package/docs/provenance checks and protected merge. No new capture hash, test PASS, discovery implementation or public execution is claimed here.
+Use existing captured source outputs for source defaults/tag semantics and the immutable official examples for wire paging; construct new explicitly synthetic discovery fixtures with reviewed literal expectations. Do not generate expected results from the target decoder. Focused discovery race tests, independently literal mapping/request/filter/prefix cases, scope/page/request/raw-row/body/text boundary/excess checks, three compiling discovery controls/restored baselines and5000x decoder fuzz passed in the restored Linux workspace. Preserve the four earlier request controls. Final broad/stamped/native jobs, package/docs/provenance and protected acceptance remain required. No new capture or public execution/live PASS is claimed.
 
 ## Filter and ownership contract
 
@@ -91,6 +91,14 @@ Require authenticated synthetic command-to-coordinator-to-JSON/CSV/XLSX checks f
 
 Publish coherent code/tests/docs WIP on a new task branch, verifying tree/ordered parent/human identity and every changed file. Discovery guards need compiling named negative controls and restored baselines; broad native Linux/Windows jobs, full race/vet/build/package/docs/provenance/source hashes and reviewed exact-head logs remain mandatory. Final public integration additionally needs actual compiled command/help/preflight and all-format synthetic execution. No synthetic case closes live roles/models/metric totals/volume/sovereign evidence, Gate004 or release.
 
-Historical FN056 Windows/tool disconnect is retained in the failure notes. Its local development dependency is now resolved by a fresh isolated Ubuntu24.04 workspace with checksum-verified Go1.26.8/PowerShell7.6.6, Git HTTPS, clean accepted target/pinned AZQR and actual APRL, verified modules and full local Linux QA. [DEVELOPMENT_WORKSPACE.md](DEVELOPMENT_WORKSPACE.md) supplies the actual recipe/paths/proof boundaries. Finish that tooling proposal's independent native/protected acceptance, re-read live refs/proposals and inspect actual local state before implementing discovery. Never reset unrelated work, request credentials or weaken a gate. Executor readiness is separate from deferred operator laptop/Azure tests and does not certify Windows-native/live/Gate004/release evidence.
+Historical FN056 Windows/tool disconnect is retained in the failure notes. Its local development dependency is now resolved by a fresh isolated Ubuntu24.04 workspace with checksum-verified Go1.26.8/PowerShell7.6.6, Git HTTPS, clean accepted target/pinned AZQR and actual APRL, verified modules and full local Linux QA. [DEVELOPMENT_WORKSPACE.md](DEVELOPMENT_WORKSPACE.md) supplies the actual recipe/paths/proof boundaries. PR100 independent native/protected acceptance and clean fetched source/target proof completed at ca7fc301de421f24f62c6b976fe2d79c0bfe6780; its separate merge-push native run37103646003 also passed. Current discovery acceptance must use its own final head and evidence. Never reset unrelated work, request credentials or weaken a gate. Executor readiness is separate from deferred operator laptop/Azure tests and does not certify Windows-native/live/Gate004/release evidence.
 
 Rollback: reviewed protected revert of each isolated slice after checking current dependencies and intended first parent. Preserve existing pure/request libraries, source captures and four earlier public plugins. The remaining order is discovery, public AI execution, then separately characterized region selection, B6 and B7.
+
+## Current library implementation and limits
+
+NewDiscovery uses the same public-cloud guard as accepted metrics construction, capturing only ARM scope; no constructor requests a token. Discover owns normalized sorted subscription membership before callbacks, uses per-call seen IDs/tokens/counters and returns owned LocatedAccount values plus StageExecution. Invalid scope/empty scope performs no request. Production transport enforces per-attempt bodies/closure/redirects/retries; injected client/filter code is trusted and must cooperate with deadlines and confinement. Callers must supply a stable, owned filter snapshot; this interface cannot sandbox or clone arbitrary callbacks. The library never changes recorded inventory decisions or returns provider payload/token text in health/errors.
+
+Strict page metadata and continuation checks precede admitting any current-page account. Invalid sibling rows and normalized duplicates are skipped visibly, while later request/page/coverage/cancellation/budget failure retains accepted accounts with failed health. All received rows count before filtering; projected text includes rejected fields and unused sku_tier. Exact16MiB decoded-text/one-byte excess fixtures use independently sized literal strings, including rejected oversized tiers, scope labels and tokens. Successful-body exact2MiB/16MiB and one excess are separate from retry/error-body limits. Metrics/deployment budgets remain separate, and public integration must propagate discovery failure even after successful enrichment. No whole-public-run budget or Azure snapshot/estate visibility is certified.
+
+Self-review found an initial unaccepted row decoder did not charge rejected projected string bytes. It was corrected before publication and now has the independent exact/excess text fixture; FN057 records prevention. Normal Graph behavior, source/capture bytes/pins/dependencies, CLI availability and reports are unchanged. Reviewed protected revert remains the rollback route after dependency inspection.

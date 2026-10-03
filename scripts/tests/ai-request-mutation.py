@@ -7,6 +7,9 @@ import tempfile
 
 ROOT = Path(__file__).resolve().parents[2]
 MUTATIONS = (
+    ("discovery-batch-ownership", "discovery.go", "!batch[strings.ToLower(account.SubscriptionID)]", "false", "TestDiscoveryBatchOwnershipBeforeFilter"),
+    ("discovery-false-with-token", "discovery.go", 'if page.token == "" {\n\t\t\t\tbreak', 'if true {\n\t\t\t\tbreak', "TestDiscoveryFalseTokenFollowsFixedBatch"),
+    ("discovery-discard-prefix", "discovery.go", 'if code != "" {', 'if code != "" {\n\t\t\tout.Accounts = []LocatedAccount{}', "TestDiscoveryLaterFailureRetainsPrefix"),
     ("partial-cloud-audience", "scanner.go", "authoritySet != endpointSet || authoritySet != audienceSet", "authoritySet != endpointSet || audienceSet && false", "TestProductionPartialCloudFailsBeforeAuthentication"),
     ("foreign-continuation", "scanner.go", "!strings.EqualFold(u.Host, s.origin.Host)", "false", "TestDeploymentContinuationBeforeAuthentication"),
     ("foreign-metrics", "decoder.go", 'scope[key] == "" || reported[key]', "reported[key]", "TestMetricCoverageCorrelationAndErrors"),
@@ -25,7 +28,7 @@ with tempfile.TemporaryDirectory(prefix="cloud-assess-ai-mutations-") as tempora
     directory = Path(temporary)
     for name in ("go.mod", "go.sum"):
         shutil.copyfile(ROOT / name, directory / name)
-    for name in ("assessment", "azure", "throttling", "plugins/aigov"):
+    for name in ("assessment", "azure", "config", "throttling", "plugins/aigov"):
         shutil.copytree(ROOT / "internal" / name, directory / "internal" / name)
     for name, filename, before, after, test in MUTATIONS:
         baseline = run(directory, test)
