@@ -11,6 +11,7 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+	"os"
 	"regexp"
 	"sort"
 	"strings"
@@ -20,6 +21,7 @@ import (
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
 	"github.com/DeBoX85/Cloud-Assess/internal/assessment"
 	"github.com/DeBoX85/Cloud-Assess/internal/azure"
 )
@@ -71,6 +73,21 @@ func NewWithClients(armEndpoint string, metrics BoundedPoster, deployments Bound
 	return &Scanner{origin: origin, metrics: metrics, deployments: deployments, now: now}, nil
 }
 func New(credential azcore.TokenCredential) (*Scanner, error) {
+	return newWithTransport(credential, nil, time.Now)
+}
+
+// Private seam exercises the production cloud/audience construction using an
+// explicit in-memory transport; production retains the guarded shared client.
+func newWithTransport(credential azcore.TokenCredential, transport policy.Transporter, now func() time.Time) (*Scanner, error) {
+	// The shared cloud helper intentionally defaults unknown names to public.
+	// This adapter must not silently cross an unverified metrics cloud boundary.
+	cloudName := strings.ToLower(strings.TrimSpace(os.Getenv(azure.EnvAzureCloud)))
+	if cloudName != "" && cloudName != "public" && cloudName != "azurepublic" {
+		return nil, fmt.Errorf("AI governance metrics public-cloud configuration required")
+	}
+	if (os.Getenv(azure.EnvAzureAuthorityHost) == "") != (os.Getenv(azure.EnvAzureResourceManagerEndpoint) == "") {
+		return nil, fmt.Errorf("AI governance complete cloud configuration required")
+	}
 	configuration := azure.CloudConfiguration()
 	public := cloud.AzurePublic
 	arm := azure.ResourceManagerEndpoint()
@@ -80,9 +97,11 @@ func New(credential azcore.TokenCredential) (*Scanner, error) {
 	}
 	armOptions := azure.DefaultHTTPClientOptions(30 * time.Second)
 	armOptions.Scope = scope
+	armOptions.Transport = transport
 	metricOptions := azure.DefaultHTTPClientOptions(30 * time.Second)
 	metricOptions.Scope = "https://metrics.monitor.azure.com/.default"
-	return NewWithClients(arm, azure.NewHTTPClient(credential, metricOptions), azure.NewHTTPClient(credential, armOptions), time.Now)
+	metricOptions.Transport = transport
+	return NewWithClients(arm, azure.NewHTTPClient(credential, metricOptions), azure.NewHTTPClient(credential, armOptions), now)
 }
 
 type requestBudget struct {
@@ -198,6 +217,10 @@ func (s *Scanner) Scan(ctx context.Context, subscriptions map[string]string, loc
 		region := strings.ToLower(a.Region)
 		if !regionName.MatchString(region) {
 			mark("ai_region_invalid", nil)
+			return finish()
+		}
+		if strings.ContainsAny(a.ID, "%?#\\") || a.Name == "." || a.Name == ".." || a.ResourceGroup == "." || a.ResourceGroup == ".." {
+			mark("ai_account_path_invalid", nil)
 			return finish()
 		}
 		a.Region = region

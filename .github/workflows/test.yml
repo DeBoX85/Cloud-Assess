@@ -166,6 +166,7 @@ jobs:
           go test -run '^$' -fuzz '^FuzzCompareFieldSymmetry$' -fuzztime 100000x -timeout 60s -parallel 2 ./internal/equivalence
           go test -run '^$' -fuzz '^FuzzExactResourceExclusionPreservesOtherResource$' -fuzztime 10s -parallel 2 ./internal/config
           go test -run '^$' -fuzz '^FuzzDecodeRowsIsolationAndAccounting$' -fuzztime 100000x -timeout 60s -parallel 2 ./internal/arg
+          go test -run '^$' -fuzz '^FuzzBoundedAIWire$' -fuzztime 5000x -timeout 60s -parallel 2 ./internal/plugins/aigov
 
       - name: Test maintenance proposal publication
         run: python3 scripts/tests/maintenance-publication.py
@@ -175,6 +176,9 @@ jobs:
 
       - name: Verify comparator tests reject selected mutations
         run: python3 scripts/tests/qa-mutation.py
+
+      - name: Verify AI request boundary tests reject selected mutations
+        run: python3 scripts/tests/ai-request-mutation.py
 
       - name: Vet
         run: go vet ./...
@@ -232,6 +236,9 @@ jobs:
 
       - name: Test Go packages on Windows
         run: go test ./...
+
+      - name: Verify Windows AI request boundary tests reject selected mutations
+        run: python scripts/tests/ai-request-mutation.py
 
       - name: Build and smoke-test Windows CLI
         env:

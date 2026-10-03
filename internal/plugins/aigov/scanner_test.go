@@ -31,6 +31,58 @@ type requestCredential struct {
 	scope string
 }
 
+type dualAudienceCredential struct {
+	mu     sync.Mutex
+	scopes map[string]int
+}
+
+func (c *dualAudienceCredential) GetToken(ctx context.Context, o policy.TokenRequestOptions) (azcore.AccessToken, error) {
+	if len(o.Scopes) != 1 || (o.Scopes[0] != "https://metrics.monitor.azure.com/.default" && o.Scopes[0] != "https://management.core.windows.net/.default") {
+		return azcore.AccessToken{}, errors.New("incorrect production audience")
+	}
+	c.mu.Lock()
+	c.scopes[o.Scopes[0]]++
+	c.mu.Unlock()
+	return azcore.AccessToken{Token: "synthetic-canary", ExpiresOn: time.Now().Add(time.Hour)}, ctx.Err()
+}
+
+func TestProductionConstructionUsesDistinctAudiences(t *testing.T) {
+	for _, key := range []string{azure.EnvAzureCloud, azure.EnvAzureAuthorityHost, azure.EnvAzureResourceManagerEndpoint, azure.EnvAzureResourceManagerAudience} {
+		t.Setenv(key, "")
+	}
+	credential := &dualAudienceCredential{scopes: map[string]int{}}
+	var closes, calls atomic.Int64
+	s, e := newWithTransport(credential, requestTransport(func(r *http.Request) (*http.Response, error) {
+		calls.Add(1)
+		if r.Header.Get("Authorization") != "Bearer synthetic-canary" {
+			t.Error("wrong synthetic credential")
+		}
+		switch r.URL.Host {
+		case "westeurope.metrics.monitor.azure.com":
+			if r.Method != "POST" {
+				t.Error("metrics method")
+			}
+			return response(r, 200, metricWire(fixtureID, oneSeries), &closes), nil
+		case "management.azure.com":
+			if r.Method != "GET" || r.URL.Path != fixtureID+"/deployments" {
+				t.Error("ARM destination")
+			}
+			return response(r, 200, `{"value":[]}`, &closes), nil
+		default:
+			t.Error("production destination escaped explicit transport contract")
+			return nil, errors.New("tripwire")
+		}
+	}), func() time.Time { return time.Date(2026, 10, 3, 12, 0, 0, 0, time.UTC) })
+	if e != nil {
+		t.Fatal(e)
+	}
+	table, e := s.Scan(context.Background(), fixtureScope(), locatedFixture(), nil)
+	valid(t, table)
+	if e != nil || table.Health.Status != assessment.StageCompleted || len(table.Rows) != 1 || calls.Load() != 2 || closes.Load() != 2 || !reflect.DeepEqual(credential.scopes, map[string]int{"https://metrics.monitor.azure.com/.default": 1, "https://management.core.windows.net/.default": 1}) {
+		t.Fatalf("production scopes=%v result=%v", credential.scopes, e)
+	}
+}
+
 func (c *requestCredential) GetToken(ctx context.Context, o policy.TokenRequestOptions) (azcore.AccessToken, error) {
 	c.calls.Add(1)
 	if !reflect.DeepEqual(o.Scopes, []string{c.scope}) {
@@ -179,13 +231,18 @@ func TestRequestEmptyPreflightAndCloud(t *testing.T) {
 		t.Setenv(key, "")
 	}
 	credential := &requestCredential{}
-	for _, name := range []string{"AzureGovernment", "AzureChina"} {
+	for _, name := range []string{"AzureGovernment", "AzureChina", "UnknownCloud"} {
 		t.Setenv(azure.EnvAzureCloud, name)
 		if _, e := New(credential); e == nil {
 			t.Fatal("unsupported cloud silently public")
 		}
 	}
 	t.Setenv(azure.EnvAzureCloud, "AzurePublic")
+	t.Setenv(azure.EnvAzureAuthorityHost, "https://authority.test")
+	if _, e := New(credential); e == nil || credential.calls.Load() != 0 {
+		t.Fatal("partial cloud silently public")
+	}
+	t.Setenv(azure.EnvAzureAuthorityHost, "")
 	s, e := New(credential)
 	if e != nil || s.origin.Host != "management.azure.com" || credential.calls.Load() != 0 {
 		t.Fatal("public construction or premature auth")
@@ -195,6 +252,179 @@ func TestRequestEmptyPreflightAndCloud(t *testing.T) {
 	t.Setenv(azure.EnvAzureResourceManagerAudience, "https://arm.test")
 	if _, e := New(credential); e == nil || credential.calls.Load() != 0 {
 		t.Fatal("custom cloud reached authentication")
+	}
+}
+
+func metricMany(ids []string, data string) string {
+	rows := []json.RawMessage{}
+	for _, id := range ids {
+		var root struct {
+			Values []json.RawMessage `json:"values"`
+		}
+		_ = json.Unmarshal([]byte(metricWire(id, `[{"data":`+data+`}]`)), &root)
+		rows = append(rows, root.Values...)
+	}
+	b, _ := json.Marshal(map[string]any{"values": rows})
+	return string(b)
+}
+func requestAccounts(n int) []LocatedAccount {
+	result := []LocatedAccount{}
+	for i := 0; i < n; i++ {
+		a := fixtureAccounts()[0]
+		a.Name = fmt.Sprintf("fixture-%d", i)
+		a.ID = strings.Replace(fixtureID, "fixture-ai", a.Name, 1)
+		result = append(result, LocatedAccount{a, "westus"})
+	}
+	return result
+}
+
+func TestRequestEnrichmentLimitRetainsAllValidMetrics(t *testing.T) {
+	// Independent metric oracle: two accounts, each18000 identical count-one
+	// points. Enrichment text plus repeated metric identities exceeds the pure
+	// input budget although wire bodies fit request budgets. All metrics survive
+	// with default cells and failed health, not a partial enriched prefix.
+	accounts := requestAccounts(2)
+	ids := []string{accounts[0].ID, accounts[1].ID}
+	point := `{"timeStamp":"2026-09-30T12:00:00Z","count":1}`
+	data := "[" + strings.TrimSuffix(strings.Repeat(point+",", 18000), ",") + "]"
+	metric := metricMany(ids, data)
+	long := strings.Repeat("x", 500)
+	d := map[string]any{"name": long, "properties": map[string]any{"model": map[string]string{"version": long, "format": long}, "versionUpgradeOption": long, "spilloverDeploymentName": long}}
+	values := make([]any, 450)
+	for i := range values {
+		values[i] = d
+	}
+	var h *requestHarness
+	h = harness(t, func(r *http.Request) (*http.Response, error) { return response(r, 200, metric, &h.closed), nil }, func(r *http.Request) (*http.Response, error) {
+		page := 1
+		if q := r.URL.Query().Get("skiptoken"); q != "" {
+			if _, e := fmt.Sscan(q, &page); e != nil {
+				return nil, e
+			}
+		}
+		body := map[string]any{"value": values}
+		if page < 5 {
+			body["nextLink"] = fmt.Sprintf("https://arm.test%s?api-version=2025-06-01&skiptoken=%d", r.URL.Path, page+1)
+		}
+		b, _ := json.Marshal(body)
+		return response(r, 200, string(b), &h.closed), nil
+	})
+	table, e := h.scanner.Scan(context.Background(), fixtureScope(), accounts, nil)
+	valid(t, table)
+	if e == nil || table.Health.Status != assessment.StageFailed || table.Health.Error.Code != "ai_text_limit" || len(table.Rows) != 2 || h.deployments.Load() != 10 {
+		t.Fatalf("retention/budget regression: %+v %v requests=%d", table.Health, e, h.deployments.Load())
+	}
+	for _, row := range table.Rows {
+		if row.Cells[15] != "18000" || row.Cells[7] != "N/A" {
+			t.Fatalf("valid metrics lost or enrichment claimed: %v", row.Cells)
+		}
+	}
+}
+
+func TestRequestDeploymentEntryBudgetAcrossWorkers(t *testing.T) {
+	accounts := requestAccounts(10)
+	ids := []string{}
+	for _, a := range accounts {
+		ids = append(ids, a.ID)
+	}
+	values := make([]any, 1000)
+	for i := range values {
+		values[i] = map[string]any{"name": "x"}
+	}
+	var h *requestHarness
+	h = harness(t, func(r *http.Request) (*http.Response, error) {
+		return response(r, 200, metricMany(ids, `[{"timeStamp":"2026-09-30T12:00:00Z","count":1}]`), &h.closed), nil
+	}, func(r *http.Request) (*http.Response, error) {
+		page := 1
+		if q := r.URL.Query().Get("skiptoken"); q != "" {
+			if _, e := fmt.Sscan(q, &page); e != nil {
+				return nil, e
+			}
+		}
+		body := map[string]any{"value": values}
+		if page < 7 {
+			body["nextLink"] = fmt.Sprintf("https://arm.test%s?api-version=2025-06-01&skiptoken=%d", r.URL.Path, page+1)
+		}
+		b, _ := json.Marshal(body)
+		return response(r, 200, string(b), &h.closed), nil
+	})
+	table, e := h.scanner.Scan(context.Background(), fixtureScope(), accounts, nil)
+	valid(t, table)
+	if e == nil || table.Health.Error.Code != "ai_deployment_limit" || len(table.Rows) != 10 || h.deployments.Load() > 70 {
+		t.Fatalf("global entries: %+v %v calls=%d", table.Health, e, h.deployments.Load())
+	}
+	for _, row := range table.Rows {
+		if row.Cells[15] != "1" {
+			t.Fatal("metric lost at global enrichment bound")
+		}
+	}
+}
+
+func TestRequestWorkerBoundAndPathPreflight(t *testing.T) {
+	accounts := requestAccounts(6)
+	ids := []string{}
+	for _, a := range accounts {
+		ids = append(ids, a.ID)
+	}
+	started := make(chan struct{}, 6)
+	release := make(chan struct{})
+	var active, maximum atomic.Int64
+	var h *requestHarness
+	h = harness(t, func(r *http.Request) (*http.Response, error) {
+		return response(r, 200, metricMany(ids, `[{"timeStamp":"2026-09-30T12:00:00Z","count":1}]`), &h.closed), nil
+	}, func(r *http.Request) (*http.Response, error) {
+		n := active.Add(1)
+		defer active.Add(-1)
+		for old := maximum.Load(); n > old && !maximum.CompareAndSwap(old, n); old = maximum.Load() {
+		}
+		started <- struct{}{}
+		select {
+		case <-release:
+		case <-r.Context().Done():
+			return nil, r.Context().Err()
+		}
+		return response(r, 200, `{"value":[]}`, &h.closed), nil
+	})
+	done := make(chan error, 1)
+	go func() {
+		table, e := h.scanner.Scan(context.Background(), fixtureScope(), accounts, nil)
+		if e == nil && (len(table.Rows) != 6 || table.Health.Status != assessment.StageCompleted) {
+			e = errors.New("worker output missing")
+		}
+		done <- e
+	}()
+	timer := time.NewTimer(5 * time.Second)
+	defer timer.Stop()
+	for i := 0; i < 5; i++ {
+		select {
+		case <-started:
+		case <-timer.C:
+			close(release)
+			t.Fatal("five workers did not start")
+		}
+	}
+	select {
+	case <-started:
+		close(release)
+		t.Fatal("sixth worker started before release")
+	default:
+	}
+	close(release)
+	if e := <-done; e != nil {
+		t.Fatal(e)
+	}
+	if maximum.Load() != 5 {
+		t.Fatal("worker bound not exercised")
+	}
+	for _, name := range []string{"..", ".", "account%2fchild", "account#fragment", "account?query", "account\\child"} {
+		a := fixtureAccounts()[0]
+		a.Name = name
+		a.ID = strings.Replace(fixtureID, "fixture-ai", name, 1)
+		before := h.metrics.Load()
+		table, e := h.scanner.Scan(context.Background(), fixtureScope(), []LocatedAccount{{a, "westus"}}, nil)
+		if e == nil || table.Health.Status != assessment.StageFailed || h.metrics.Load() != before {
+			t.Fatal("ambiguous discovery path reached credentials")
+		}
 	}
 }
 
@@ -416,5 +646,67 @@ func TestRequestAndResponseBudgets(t *testing.T) {
 	table, e := h.scanner.Scan(context.Background(), fixtureScope(), locatedFixture(), nil)
 	if e != nil || h.deployments.Load() != MaxPages || len(table.Rows) != 1 || !hasWarning(table, "ai_deployment_requests_failed") {
 		t.Fatal("page bound/retention missing")
+	}
+}
+
+func TestRequestLaterBatchAndAggregateBodyFailures(t *testing.T) {
+	t.Run("later batch", func(t *testing.T) {
+		accounts := requestAccounts(51)
+		var h *requestHarness
+		h = harness(t, func(r *http.Request) (*http.Response, error) {
+			if h.metrics.Load() == 2 {
+				return response(r, 403, `{"error":{"code":"Denied"}}`, &h.closed), nil
+			}
+			var b struct {
+				IDs []string `json:"resourceids"`
+			}
+			if e := json.NewDecoder(r.Body).Decode(&b); e != nil {
+				return nil, e
+			}
+			return response(r, 200, metricMany(b.IDs, `[{"timeStamp":"2026-09-30T12:00:00Z","count":1}]`), &h.closed), nil
+		}, func(r *http.Request) (*http.Response, error) { return response(r, 200, `{"value":[]}`, &h.closed), nil })
+		table, e := h.scanner.Scan(context.Background(), fixtureScope(), accounts, nil)
+		valid(t, table)
+		if e == nil || len(table.Rows) != 50 || h.metrics.Load() != 2 || h.deployments.Load() != 50 || !hasWarning(table, "ai_metrics_incomplete") {
+			t.Fatal("later metrics failure discarded prior batch")
+		}
+	})
+	t.Run("aggregate bodies", func(t *testing.T) {
+		var h *requestHarness
+		h = harness(t, func(r *http.Request) (*http.Response, error) {
+			return response(r, 200, metricWire(fixtureID, oneSeries), &h.closed), nil
+		}, func(r *http.Request) (*http.Response, error) {
+			base := fmt.Sprintf(`{"value":[{"name":"fixture-deployment","properties":{"model":{"version":"kept"}}}],"nextLink":"https://arm.test%s?api-version=2025-06-01&skiptoken=%d","padding":""}`, r.URL.Path, h.deployments.Load())
+			body := strings.TrimSuffix(base, `"}`) + strings.Repeat("x", MaxPageBytes-len(base)) + `"}`
+			return response(r, 200, body, &h.closed), nil
+		})
+		table, e := h.scanner.Scan(context.Background(), fixtureScope(), locatedFixture(), nil)
+		valid(t, table)
+		if e == nil || table.Health.Error.Code != "ai_response_limit" || h.deployments.Load() != 8 || len(table.Rows) != 1 || table.Rows[0].Cells[7] != "kept" {
+			t.Fatalf("body budget/retention: %+v %v calls=%d", table.Health, e, h.deployments.Load())
+		}
+	})
+	for _, cause := range []error{context.Canceled, context.DeadlineExceeded} {
+		ctx, cancel := context.WithCancel(context.Background())
+		if cause == context.Canceled {
+			cancel()
+		} else {
+			cancel()
+			var deadlineCancel context.CancelFunc
+			ctx, deadlineCancel = context.WithDeadline(context.Background(), time.Now().Add(-time.Second))
+			defer deadlineCancel()
+		}
+		h := harness(t, func(*http.Request) (*http.Response, error) {
+			t.Error("cancelled scan authenticated")
+			return nil, errors.New("tripwire")
+		}, func(*http.Request) (*http.Response, error) {
+			t.Error("cancelled scan enriched")
+			return nil, errors.New("tripwire")
+		})
+		table, e := h.scanner.Scan(ctx, fixtureScope(), locatedFixture(), nil)
+		valid(t, table)
+		if !errors.Is(e, cause) || h.metricCredential.calls.Load() != 0 || h.metrics.Load() != 0 {
+			t.Fatal("preflight context boundary")
+		}
 	}
 }

@@ -95,3 +95,17 @@ func TestBoundedGETInvalidLimitBeforeTransport(t *testing.T) {
 		}
 	}
 }
+
+func TestBoundedGETExposesStatusAndClosedOwnedBody(t *testing.T) {
+	for _, status := range []int{200, 202, 204} {
+		var read, closes atomic.Int64
+		options := testHTTPOptions(operationTransportFunc(func(r *http.Request) (*http.Response, error) {
+			return &http.Response{StatusCode: status, Header: http.Header{"X-Fixture": {"kept"}}, Body: countedBody{strings.NewReader("owned"), &read, &closes}, Request: r}, nil
+		}))
+		options.MaxRetries = -1
+		b, r, e := NewHTTPClient(&mockCredential{token: "canary"}, options).GetBoundedWithResponse(context.Background(), "https://example.test", 10)
+		if e != nil || r == nil || r.StatusCode != status || r.Header.Get("X-Fixture") != "kept" || string(b) != "owned" || closes.Load() != 1 {
+			t.Fatalf("status/body closure %v %v", r, e)
+		}
+	}
+}
