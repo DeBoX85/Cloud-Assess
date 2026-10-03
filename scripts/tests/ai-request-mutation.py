@@ -7,6 +7,7 @@ import tempfile
 
 ROOT = Path(__file__).resolve().parents[2]
 MUTATIONS = (
+    ("discovery-unicode-dns", "discovery.go", "strings.IndexFunc(values[3], func(r rune) bool { return r > 127 }) >= 0", "strings.IndexFunc(values[3], func(r rune) bool { return r > 127 }) >= 0 && false", "TestDiscoveryRejectUnicodeServiceAndRegionAliases"),
     ("discovery-batch-ownership", "discovery.go", "!batch[strings.ToLower(account.SubscriptionID)]", "false", "TestDiscoveryBatchOwnershipBeforeFilter"),
     ("discovery-false-with-token", "discovery.go", 'if page.token == "" {\n\t\t\t\tbreak', 'if true {\n\t\t\t\tbreak', "TestDiscoveryFalseTokenFollowsFixedBatch"),
     ("discovery-discard-prefix", "discovery.go", 'if code != "" {', 'if code != "" {\n\t\t\tout.Accounts = []LocatedAccount{}', "TestDiscoveryLaterFailureRetainsPrefix"),

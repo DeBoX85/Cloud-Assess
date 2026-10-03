@@ -174,7 +174,13 @@ func decodeDiscoveryAccount(raw json.RawMessage, batch map[string]bool) (Located
 	}
 	account = LocatedAccount{Account: Account{ID: values[0], SubscriptionID: values[1], ResourceGroup: values[2], Name: values[5], SKU: values[6], Kind: values[8]}, Region: strings.ToLower(values[3])}
 	match := accountID.FindStringSubmatch(account.ID)
-	if len(match) != 4 || !batch[strings.ToLower(account.SubscriptionID)] || !strings.EqualFold(match[1], account.SubscriptionID) || !strings.EqualFold(match[2], account.ResourceGroup) || !strings.EqualFold(match[3], account.Name) || !strings.EqualFold(values[4], "Microsoft.CognitiveServices/accounts") || !regionName.MatchString(account.Region) || strings.ContainsAny(account.ID, "%?#\\") || account.ResourceGroup == "." || account.ResourceGroup == ".." || account.Name == "." || account.Name == ".." {
+	parts := strings.Split(account.ID, "/")
+	// ARM structural names and regional DNS keys permit ASCII casing, not
+	// Unicode case-fold aliases (for example long-s or the Kelvin sign).
+	if len(parts) != 9 || strings.ToLower(parts[1]) != "subscriptions" || strings.ToLower(parts[3]) != "resourcegroups" || strings.ToLower(parts[5]) != "providers" || strings.ToLower(parts[6]) != "microsoft.cognitiveservices" || strings.ToLower(parts[7]) != "accounts" || strings.ToLower(values[4]) != "microsoft.cognitiveservices/accounts" || len(values[3]) > 64 || strings.IndexFunc(values[3], func(r rune) bool { return r > 127 }) >= 0 {
+		return account, text, false
+	}
+	if len(match) != 4 || !batch[strings.ToLower(account.SubscriptionID)] || !strings.EqualFold(match[1], account.SubscriptionID) || !strings.EqualFold(match[2], account.ResourceGroup) || !strings.EqualFold(match[3], account.Name) || !regionName.MatchString(account.Region) || strings.ContainsAny(account.ID, "%?#\\") || account.ResourceGroup == "." || account.ResourceGroup == ".." || account.Name == "." || account.Name == ".." {
 		return account, text, false
 	}
 	kind := strings.ToLower(account.Kind)

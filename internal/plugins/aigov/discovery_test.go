@@ -256,6 +256,15 @@ func TestDiscoveryInvalidSiblingRowsAndDuplicate(t *testing.T) {
 	}
 }
 
+func TestDiscoveryRejectUnicodeServiceAndRegionAliases(t *testing.T) {
+	rows := []string{discoveryRow, strings.ReplaceAll(strings.Replace(discoveryRow, "WestEurope", "\u212aest", 1), "fixture-ai", "region-alias"), strings.ReplaceAll(strings.ReplaceAll(discoveryRow, "Microsoft", "Micro\u017foft"), "microsoft", "micro\u017foft"), strings.Replace(discoveryRow, "/subscriptions/", "/\u017fubscriptions/", 1)}
+	calls := 0
+	out, err := runDiscoveryBody(t, discoveryWire(strings.Join(rows, ","), 4, 4, ""), discoveryFilter(func(string) bool { calls++; return false }))
+	if err != nil || calls != 1 || len(out.Accounts) != 1 || out.Health.Status != assessment.StageCompletedWithWarnings || out.Health.Warnings[0].Message != "skipped 3 invalid or duplicate AI account rows" {
+		t.Fatal("Unicode DNS or fixed ARM service alias reached filter")
+	}
+}
+
 func TestDiscoveryLaterFailureRetainsPrefix(t *testing.T) {
 	for _, failure := range []string{"denied", "metadata", "total", "cycle", "cancel", "body"} {
 		t.Run(failure, func(t *testing.T) {
