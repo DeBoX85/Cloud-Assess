@@ -56,7 +56,14 @@ func TestPluginRegistryPrecedenceSourcePathAndTerminalSafety(t *testing.T) {
 				}
 				rows = []pluginInfo{row}
 			}
-			if rows[0].Name != "operator-checks" || rows[0].Version != "1.0" || rows[0].SourceFile != path || rows[0].Recommendations != 1 || len(rows[0].ResourceTypes) != 1 || rows[0].ScannerAvailable {
+			var selected *pluginInfo
+			for i := range rows {
+				if rows[i].Name == "operator-checks" {
+					selected = &rows[i]
+					break
+				}
+			}
+			if selected == nil || selected.Version != "1.0" || selected.SourceFile != path || selected.Recommendations != 1 || len(selected.ResourceTypes) != 1 || selected.ScannerAvailable {
 				t.Fatalf("wrong discovery/capability: %#v", rows)
 			}
 		} else if strings.Contains(out.String(), "\x1b") || !strings.Contains(out.String(), `safe\n\x1b[31m`) {

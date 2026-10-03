@@ -1,6 +1,6 @@
 # Cloud Assess Roadmap
 
-Status: working execution roadmap, reviewed 2026-10-03 (Europe/Oslo). Current accepted runtime baseline: PR90 merge `ea0aabfca055899e18baa54af24b53df90a57d98`. Carbon request library is an unaccepted B5 candidate; its public execution is still unavailable. PR92 restored-session QA is accepted; see handover for exact evidence. Start with [SESSION_HANDOVER.md](SESSION_HANDOVER.md); older checkpoint paragraphs below are chronological.
+Status: working execution roadmap, reviewed 2026-10-03 (Europe/Oslo). Current accepted runtime baseline: PR93 merge `f5cae2b515481f8215b483e6c6792a85ff8c1b62`. Carbon bounded request library is VERIFIED OFFLINE; public carbon execution is the unaccepted B5 candidate. Start with [SESSION_HANDOVER.md](SESSION_HANDOVER.md); older checkpoints below are chronological.
 
 Active development branch: `bootstrap/core-v1`
 
@@ -264,3 +264,8 @@ SQL standalone/normal/scanner execution accepted through PR89 merge `735cedfe68a
 
 
 Latest resume (2026-10-03): carbon pure core VERIFIED OFFLINE through PR90 merge `ea0aabfca055899e18baa54af24b53df90a57d98`; exact native/postmerge evidence indexed in CARBON_EMISSIONS/handover/ledger. Next implement bounded authenticated date/report request library with independent access/pagination/partial/privacy/ownership checks, then separate public execution/report acceptance. No adapter/CLI code yet. This supersedes earlier core pending wording. Existing live/Gate004/release/advisory constraints remain open; offline engineering needs no user laptop.
+
+
+## Current checkpoint: carbon request library accepted, public execution active
+
+PR93 exact native and protected postmerge evidence is indexed in CARBON_EMISSIONS and handover. Current carbon command/registry/coordinator/projection/report candidate preserves all eight source cells, type-selection semantics, aggregate identity and explicit failure corrections. Focused/full local race/vet, compiling isolated projection control, clean strict build, eleven actual CLI checks and docs passed; final native/protected acceptance remains required. Next independent B5 task after that acceptance: AI governance source characterization, then region selection separately. No Azure/laptop dependency for current engineering; all earlier live/release/advisory/Gate004 limits remain open.

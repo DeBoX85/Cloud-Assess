@@ -13,6 +13,7 @@ import (
 	"github.com/DeBoX85/Cloud-Assess/internal/config"
 	"github.com/DeBoX85/Cloud-Assess/internal/discovery"
 	"github.com/DeBoX85/Cloud-Assess/internal/plugins"
+	"github.com/DeBoX85/Cloud-Assess/internal/plugins/carbon"
 	"github.com/DeBoX85/Cloud-Assess/internal/plugins/servicehealth"
 	"github.com/DeBoX85/Cloud-Assess/internal/plugins/sqleol"
 	"github.com/DeBoX85/Cloud-Assess/internal/result"
@@ -88,6 +89,9 @@ func (c *Coordinator) Run(ctx context.Context, request Request) (*result.Assessm
 		return nil, err
 	}
 	for _, name := range prepared.pluginNames {
+		if name == carbon.Name && c.operations.ScanCarbon == nil {
+			return nil, fmt.Errorf("carbon emissions operation is not configured")
+		}
 		if name == plugins.ZoneMapping && c.operations.ScanZoneMapping == nil {
 			return nil, fmt.Errorf("zone mapping operation is not configured")
 		}
@@ -378,6 +382,12 @@ func (c *Coordinator) tasks(request preparedRequest, state *scanState) []stages.
 					var table assessment.PluginTable
 					var scanErr error
 					switch name {
+					case carbon.Name:
+						filter := cloneFilters(request.filters)
+						filter.Assessment.SetAllowedResourceTypes(scanners.ResourceTypes(request.selectedKeys))
+						value, err := c.operations.ScanCarbon(ctx, subscriptions, filter.Assessment)
+						scanErr = err
+						table = plugins.CarbonTable(value, scanErr, state.subscriptions, started, c.now())
 					case plugins.ZoneMapping:
 						value, err := c.operations.ScanZoneMapping(ctx, subscriptions)
 						scanErr = err

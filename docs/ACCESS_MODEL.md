@@ -1,6 +1,6 @@
 # Azure access model
 
-Status: source and Microsoft documentation review, 2026-10-01. This is practical operator guidance for the current core-v1 build, not a live-certified minimum custom role or production approval.
+Status: source and Microsoft documentation review, 2026-10-01; plugin implementation guidance reconciled 2026-10-03. This is practical operator guidance for the current core-v1 build, not a live-certified minimum custom role or production approval.
 
 ## Identity and scope
 
@@ -26,9 +26,20 @@ The following describes implemented request semantics, not a claim that every ad
 | Arc SQL | Query Arc SQL server instances, machines and extensions through ARG | Control-plane read visibility. No SQL database connection or extension deployment. Numeric `vcores` response-shape validation remains open. |
 | Cost | POST subscription `Microsoft.CostManagement/query`, API `2021-10-01` | Cost Management Reader, or equivalent effective cost-query access, at each resolved subscription plus billing-agreement prerequisites. EA charge-view policy and CSP enablement may matter. Queries previous completed UTC month ActualCost grouped by ServiceName. |
 
-Graph, Diagnostics, Advisor and Defender plan status are enabled by default. Policy, Defender recommendations, Arc and Cost are opt-in. Plugin execution remains unavailable in this core-v1 build. `--stages` changes the defaults; it is not an exclusive allowlist. Graph remains mandatory.
+Graph, Diagnostics, Advisor and Defender plan status are enabled by default. Policy, Defender recommendations, Arc and Cost are opt-in. Named zone-mapping, service-health and sql-eol execution is accepted offline; carbon request-library execution is accepted offline through PR93, with public carbon command/report integration still the candidate described in [CARBON_EMISSIONS.md](CARBON_EMISSIONS.md). AI governance and region selection remain unavailable. `--stages` changes ordinary defaults; it is not an exclusive allowlist. Graph remains mandatory in ordinary scans; standalone implemented-plugin commands use subscription discovery plus the selected plugin and skip ordinary inventory/Graph.
 
 **Cost scope:** resource-group, resource-ID and tag selection do not narrow the Cost query to those resources. Cost is aggregated across each resolved subscription. Do not label it RG-only or tag-only spend. Disable Cost when subscription-wide billing data is outside the approved evidence scope.
+
+## Internal plugin request and access boundaries
+
+| Plugin | Implemented read-oriented operation | Access and interpretation boundary |
+| --- | --- | --- |
+| zone-mapping | ARM subscription locations GET, API 2022-12-01 | Subscription location/mapping visibility. RG/tag/type filters do not narrow subscription mappings. |
+| service-health | Resource Graph POST using the retained HealthResources source query | Visibility of service-health resource data. Selected scanner/type filters apply; source time-window description is not proof of an actual 90-day query cutoff. |
+| sql-eol | Resource Graph POST using the retained source SQL lifecycle KQL | Visibility of SQL/VM/inventory properties queried by the source. Subscription selection applies; source projection ignores RG/tag/type narrowing. Prices/model strings are not a certified live cost estimate. |
+| carbon-emissions | Microsoft.Carbon date-range/report POST, API 2025-04-01, selected subscriptions in batches of 100, scopes1/2/3 | Carbon service authorization/availability is separate from ordinary resource Reader visibility. Current public integration remains unaccepted; source-grounded aggregate math and bounded HTTP/access handling are accepted offline. Selected scanner/type filters apply; aggregate rows do not provide per-resource, RG or tag attribution. |
+
+These table/query POSTs do not configure resources. No provider registration, role change or remediation is added by the plugins. Use each plugin's source contract and independent scope evidence before interpreting estate coverage. Carbon validates returned Allowed/Denied decisions against each selected batch; missing/incomplete decisions produce warnings and explicit denial fails while retaining prior valid aggregates. Rows do not establish which subscription contributed. Do not infer a guaranteed minimum role or sovereign-service availability from synthetic tests; [carbon contract](CARBON_EMISSIONS.md) records provisional permission references and separate live deferrals. Implemented plugins are opt-in; ordinary unselected assessments do not call them. Injected implementations remain trusted code, not a security sandbox.
 
 ## Coverage is separate from execution health
 
@@ -48,7 +59,7 @@ Advisor metadata continuations are restricted to the configured HTTPS host/port 
 
 ## Sources and validation boundary
 
-Reviewed implementation: `internal/azure`, `internal/discovery`, `internal/arg`, `internal/diagnostics`, `internal/advisor`, `internal/defender`, `internal/policy`, `internal/arcsql`, `internal/cost`, stage configuration and CLI dispatch. SDK credential selection is grounded in pinned module source `azidentity@v1.14.1/default_azure_credential.go`.
+Reviewed implementation: `internal/plugins`, `internal/azure`, `internal/discovery`, `internal/arg`, `internal/diagnostics`, `internal/advisor`, `internal/defender`, `internal/policy`, `internal/arcsql`, `internal/cost`, stage configuration and CLI dispatch. SDK credential selection is grounded in pinned module source `azidentity@v1.14.1/default_azure_credential.go`.
 
 Microsoft references, checked 2026-09-30:
 

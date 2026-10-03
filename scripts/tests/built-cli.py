@@ -233,21 +233,53 @@ class BuiltCLITests(unittest.TestCase):
         self.assertNotEqual(mixed.returncode, 0)
         self.assertIn('YAML plugin preflight', mixed.stderr)
 
+    def test_carbon_registry_preflight_and_unused_discovery(self):
+        detail = self.execute(['plugins', 'info', 'carbon-emissions', '--json'])
+        self.assertEqual(detail.returncode, 0, detail.stderr)
+        metadata = json.loads(detail.stdout)
+        self.assertEqual(metadata['name'], 'carbon-emissions')
+        self.assertEqual(metadata['version'], '1.0.0')
+        self.assertEqual(metadata['author'], 'Azure Quick Review Team')
+        self.assertEqual(metadata['license'], 'MIT')
+        self.assertTrue(metadata['scannerAvailable'])
+        helped = self.execute(['carbon-emissions', '--help'])
+        self.assertEqual(helped.returncode, 0, helped.stderr)
+        self.assertIn('--management-group-id', helped.stdout)
+        self.assertIn('--output-name', helped.stdout)
+        for args, message in ((['carbon-emissions', '--stages=graph'], 'plugin-only'),
+                              (['carbon-emissions', '--stage-param', 'plugin.target-regions=westus'], 'do not use'),
+                              (['scan', '--plugin', 'zone-mapping,carbon-emissions,service-health', '--stages=-plugin'], 'conflicts')):
+            rejected = self.execute(args)
+            self.assertNotEqual(rejected.returncode, 0)
+            self.assertIn(message, rejected.stderr)
+            self.assertEqual(rejected.stdout, '')
+        directory = self.directory / 'plugins'
+        directory.mkdir()
+        (directory / 'broken.yml').write_text('broken: [')
+        self.env['AZURE_TOKEN_CREDENTIALS'] = 'invalid-synthetic-selection'
+        only = self.execute(['carbon-emissions'])
+        self.assertNotEqual(only.returncode, 0)
+        self.assertIn('invalid AZURE_TOKEN_CREDENTIALS', only.stderr)
+        self.assertNotIn('YAML plugin preflight', only.stderr)
+        mixed = self.execute(['scan', '--plugin', 'carbon-emissions'])
+        self.assertNotEqual(mixed.returncode, 0)
+        self.assertIn('YAML plugin preflight', mixed.stderr)
+
     def test_plugin_registry_is_offline_and_honest(self):
         listed = self.execute(['plugins', 'list', '--json'])
         self.assertEqual(listed.returncode, 0, listed.stderr)
         rows = json.loads(listed.stdout)
-        self.assertEqual([r['name'] for r in rows], ['service-health', 'sql-eol', 'zone-mapping'])
+        self.assertEqual([r['name'] for r in rows], ['carbon-emissions', 'service-health', 'sql-eol', 'zone-mapping'])
         self.assertTrue(all(r['scannerAvailable'] for r in rows))
         detail = self.execute(['plugins', 'info', 'zone-mapping', '--json'])
         self.assertEqual(detail.returncode, 0, detail.stderr)
-        self.assertEqual(json.loads(detail.stdout), rows[2])
-        for args in (['plugins', 'info', 'carbon-emissions'], ['plugins', 'list', 'extra']):
+        self.assertEqual(json.loads(detail.stdout), rows[3])
+        for args in (['plugins', 'info', 'ai-gov'], ['plugins', 'list', 'extra']):
             rejected = self.execute(args)
             self.assertNotEqual(rejected.returncode, 0)
             self.assertEqual(rejected.stdout, '')
         for args, message in (
-            (['scan', '--plugin', 'carbon-emissions'], 'unavailable'),
+            (['scan', '--plugin', 'ai-gov'], 'unavailable'),
             (['scan', '--plugin', 'zone-mapping', '--stages=-plugin'], 'conflicts'),
             (['zone-mapping', '--stages=graph'], 'plugin-only'),
             (['zone-mapping', '--stage-param', 'plugin.target-regions=westus'], 'do not use'),

@@ -73,7 +73,7 @@ Core v1 includes:
 - post-report severity gate
 - plugin architecture
 
-Full internal-plugin parity remains open. Zone mapping execution, the standalone `zone-mapping` command, named mixed selection and honest `plugins list/info` are verified offline through PR84/85, service-health execution through PR87 and SQL EOL execution through PR89; see [ZONE_EXECUTION.md](ZONE_EXECUTION.md). Unnamed or unavailable plugin selections reject before Azure authentication. Other internal adapters and live extension equivalence remain separate acceptance boundaries.
+Full internal-plugin parity remains open. Zone mapping execution, the standalone `zone-mapping` command, named mixed selection and honest `plugins list/info` are verified offline through PR84/85, service-health execution through PR87 and SQL EOL execution through PR89 and the bounded carbon request library through PR93 (public carbon execution remains unaccepted); see [ZONE_EXECUTION.md](ZONE_EXECUTION.md). Unnamed or unavailable plugin selections reject before Azure authentication. Other internal adapters and live extension equivalence remain separate acceptance boundaries.
 
 ## Output strategy
 
