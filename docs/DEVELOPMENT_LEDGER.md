@@ -95,6 +95,17 @@ These rules have governed the reconstruction effort:
 
 ## Development chronology
 
+### 2026-10-03: PR97 request library accepted, next discovery contract preserved
+
+Final tested head `f58895fcb9cd51817d49b83f26f71b7073443739`, tree `eeb4313c18fedb890363777e095631fcb017e78f`, [run37092703311](https://github.com/DeBoX85/Cloud-Assess/actions/runs/37092703311), quality111116220428/Windows111116220521 PASS. Required steps/full logs inspected: eleven real CLI, nineteen default/nineteen custom package cases per host without acceptance skips, docs291/9/1, coverage81.4%, four compiling AI mutations/restored baselines, full Linux race/vet/fuzz and mandatory provenance/module/inventory/branding/maintenance/comparator checks. Reachable scans reported no findings; existing module-only advisory remains open. FN055 retains ignored lone audience override and failed noncompiling mutation run37092489006; neither earlier green nor failed run certifies acceptance.
+
+Rules23890737 active with both required checks/no bypass; current base/head/clean preview exact tree/ordered parents verified. Expected-head protected merge `aadd0d03b13a093a9ec3b9e69e3f70208d1e1714`, ordered parents9c6d0e79d05d06559fb4b543406b928013aed835 and `f58895fcb9cd51817d49b83f26f71b7073443739`; remote ref/PR/tree/parents/human author/GitHub committer verified. Source/APRL/AOR/CUSTOM/SKU pins/dependencies/source-capture bytes unchanged. Request library only; public AI is unavailable. Native push run37093027663 is separate postmerge evidence, pending at this checkpoint preparation; fresh local fetched/source/build proof is blocked by FN056.
+
+[AI_GOVERNANCE_EXECUTION.md](AI_GOVERNANCE_EXECUTION.md) records exact next bounded discovery query/wire/filter/security/health acceptance and separate public all-format integration, based on a fresh pinned-source read and primary Microsoft paging documentation. Existing ARG Client lacks total page/row/body bounds and loses prefix results on query errors, so unchecked reuse is not accepted discovery design. Source query has no tags: unknown include-tag decisions fail closed, exclude-only unknown decisions remain included; mixed scans use recorded inventory decisions. Preserve independent source expectations and no invented tags.
+
+Handover/roadmap/specification/implementation/request/core/QA summaries reconciled to accepted PR97. Restore an isolated development executor/clean pinned source and actual submodule/toolchain before implementation; no user laptop/Azure test needed. All code and next contract remotely preserved. Discovery/public integration/region/B6/B7, live/Gate004/release/advisory boundaries remain open. This documentation proposal requires its own exact-head native gates and protected acceptance; final proof belongs in its PR without a self-referential documentation loop.
+
+
 ### 2026-10-03: PR97 compiling-negative-control repair
 
 Correction1945da7/run37092489006 passed production package tests but failed both new mutation gates, Linux111115580824/Windows111115580893, because the removed guard made audienceSet unused. FN055 records the harness mistake and unchanged requirement that a compiling fault fail the named behavioral assertion. Use a false term referencing audienceSet; fresh complete native gates are required. No production change, acceptance skip or weakened test oracle.

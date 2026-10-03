@@ -1,6 +1,6 @@
 # AI governance: source contract and pure projection
 
-Status: pure aggregation/projection core VERIFIED OFFLINE through PR96 merge `9c6d0e79d05d06559fb4b543406b928013aed835`, tree `b032e44ef99aec0b2214e65ace3f15194c842a72`, final native and completed clean fetched verification passed. B5 continues under [AI_GOVERNANCE_REQUESTS.md](AI_GOVERNANCE_REQUESTS.md). `ai-gov` remains unavailable in registry/CLI; request/discovery/report/live obligations are separate. The pure core implements no authenticated request, Graph discovery, wire decoder or deployment pager. Carbon and three earlier public plugins remain accepted offline. See [SESSION_HANDOVER.md](SESSION_HANDOVER.md).
+Status: pure aggregation/projection core VERIFIED OFFLINE through PR96 merge `9c6d0e79d05d06559fb4b543406b928013aed835`, tree `b032e44ef99aec0b2214e65ace3f15194c842a72`, final native and completed clean fetched verification passed. The separate bounded request library is VERIFIED OFFLINE through PR97; B5 now resumes at [AI_GOVERNANCE_EXECUTION.md](AI_GOVERNANCE_EXECUTION.md). `ai-gov` remains unavailable in registry/CLI; discovery/report/live obligations are separate. The pure core implements no authenticated request, Graph discovery, wire decoder or deployment pager. Carbon and three earlier public plugins remain accepted offline. See [SESSION_HANDOVER.md](SESSION_HANDOVER.md).
 
 ## Pinned source and actual captures
 
