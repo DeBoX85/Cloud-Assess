@@ -77,6 +77,11 @@ jobs:
       - name: Test dependency inventory safeguards
         run: python3 scripts/tests/dependency-inventory.py
 
+      - name: Verify offline workspace bootstrap boundaries
+        run: |
+          bash -n scripts/bootstrap-workspace.sh
+          python3 scripts/tests/bootstrap-workspace.py
+
       - name: Verify Windows workflow native-command failure propagation
         run: python3 scripts/tests/workflow-command-failures.py
 
