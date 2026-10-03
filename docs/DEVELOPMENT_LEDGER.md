@@ -2133,3 +2133,8 @@ Prepared pure ProjectQuota/ProjectReservations, independent exact captured-cell/
 ### PR106 initial native failure and corrected checkpoint
 
 Initial PR106 head4e50009de3862d68b54e28dc8c3a557b7665de96 was rejected by native Linux formatting run37146459704/job111271307391: two struct alignment spaces differed from gofmt. Applied the exact native gofmt diff. No test/gate was weakened; this head remains unaccepted and broad Linux checks were skipped after that failure. Corrected head requires fresh complete characterization/Linux/Windows evidence. All fourteen initial published files read back exactly; tree31397358d52673a5f4cd37214d8ec918745dc76b, direct parent7e4ca5c and human author/committer verified. Scope/capture/runtime boundaries unchanged.
+
+
+### PR106 fixture topology correction
+
+PR106 native Windows run37146544096/job111271573338 rejected the authored fixture loader: decoding all fourteen output branches as single tables failed on the service-availability array. Fixed the test loader to retain all14 raw JSON branches and decode only the four quota/reservation table-or-null branches; complete capture hashes and all cell/guard assertions remain unchanged. No production or captured-source byte correction. Fresh final-head native validation is required.

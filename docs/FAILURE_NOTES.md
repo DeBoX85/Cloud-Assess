@@ -552,3 +552,8 @@ Current executor is Windows, with Git/Python/PowerShell but no observed Go/ripgr
 ## FN068: native formatter rejected two authored alignments (2026-10-03)
 
 Initial PR106 head4e50009de3862d68b54e28dc8c3a557b7665de96 was rejected by native Linux formatting run37146459704/job111271307391: two struct alignment spaces differed from gofmt. Applied the exact native gofmt diff. No test/gate was weakened; this head remains unaccepted and broad Linux checks were skipped after that failure. Corrected head requires fresh complete characterization/Linux/Windows evidence. Local Go/gofmt is unavailable; the retained failure diff supplies exact formatting correction. Prevention: keep formatting blocking and print its diff for bounded recovery, then validate every corrected head through native QA rather than hand-claiming format/test success.
+
+
+## FN069: mixed auxiliary source branches decoded as one shape (2026-10-03)
+
+PR106 native Windows run37146544096/job111271573338 rejected the authored fixture loader: decoding all fourteen output branches as single tables failed on the service-availability array. Fixed the test loader to retain all14 raw JSON branches and decode only the four quota/reservation table-or-null branches; complete capture hashes and all cell/guard assertions remain unchanged. No production or captured-source byte correction. Fresh final-head native validation is required. Prevention: inspect each retained branch's actual JSON topology before defining a typed loader; unrelated future branches remain raw until their migration. Do not rewrite source captures or loosen comparison counts to compensate for an authored fixture bug.

@@ -33,8 +33,8 @@ func auxiliaryFixtures(t *testing.T) ([]QuotaRow, []ReservationRow, map[string]*
 		Quotas       []QuotaRow
 		Reservations [][]string
 	}
-	var outputs map[string]*auxiliaryCapturedTable
-	for name, target := range map[string]any{"source-aux-inputs.json": &inputs, "source-aux-outputs.json": &outputs} {
+	var rawOutputs map[string]json.RawMessage
+	for name, target := range map[string]any{"source-aux-inputs.json": &inputs, "source-aux-outputs.json": &rawOutputs} {
 		raw, err := os.ReadFile("testdata/" + name)
 		if err != nil {
 			t.Fatal(err)
@@ -43,8 +43,16 @@ func auxiliaryFixtures(t *testing.T) ([]QuotaRow, []ReservationRow, map[string]*
 			t.Fatal(err)
 		}
 	}
-	if len(inputs.Quotas) != 3 || len(inputs.Reservations) != 4 || len(outputs) != 14 {
+	if len(inputs.Quotas) != 3 || len(inputs.Reservations) != 4 || len(rawOutputs) != 14 {
 		t.Fatal("independent auxiliary fixture shape changed")
+	}
+	outputs := make(map[string]*auxiliaryCapturedTable, 4)
+	for _, name := range []string{"quota-full", "quota-empty", "reservations-full", "reservations-empty"} {
+		var output *auxiliaryCapturedTable
+		if err := json.Unmarshal(rawOutputs[name], &output); err != nil {
+			t.Fatal(err)
+		}
+		outputs[name] = output
 	}
 	for i := range inputs.Quotas {
 		inputs.Quotas[i].SubscriptionID = auxSubscription
