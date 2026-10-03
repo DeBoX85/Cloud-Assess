@@ -294,3 +294,42 @@ func TestPrimaryWorkLimits(t *testing.T) {
 		t.Fatal("aggregate text budget should fail without partial rows")
 	}
 }
+
+func TestPrimaryAggregateDetailWorkRejectedBeforeProjection(t *testing.T) {
+	in, _ := fixtures(t)
+	base := in[0].Input
+	base.TotalSKUsChecked, base.AvailableSKUs, base.UnavailableSKUs, base.UnknownSKUs = MaxDetails*2, 0, 0, 0
+	base.SKUAvailabilityPercent = 0
+	base.RestrictedSKUs = make([]string, MaxDetails)
+	base.ZoneRestrictedSKUs = make([]string, MaxDetails)
+	base.MissingResourceTypes = make([]string, MaxDetails)
+	base.MissingSKUs = make([]string, MaxDetails)
+	input := make([]Comparison, 5)
+	for i := range input {
+		input[i] = base
+		input[i].SourceRegion = fmt.Sprintf("source%d", i)
+	}
+	scope := map[string]string{base.SubscriptionID: base.SubscriptionName}
+	failed, err := Project(context.Background(), scope, input)
+	if err == nil || failed.Health.Error == nil || failed.Health.Error.Code != "region_input_limit" || len(failed.Rows) != 0 {
+		t.Fatal("aggregate short/empty detail work must fail before projection")
+	}
+}
+
+func TestPrimaryJoinedSeparatorsCountBeforeProjection(t *testing.T) {
+	in, _ := fixtures(t)
+	base := in[0].Input
+	base.TotalSKUsChecked, base.AvailableSKUs, base.UnavailableSKUs = 64, 0, 0
+	base.SKUAvailabilityPercent = 0
+	details := slices.Repeat([]string{strings.Repeat("s", 511)}, 32)
+	base.MissingResourceTypes, base.MissingSKUs, base.RestrictedSKUs, base.ZoneRestrictedSKUs = details, details, details, details
+	input := make([]Comparison, 256)
+	for i := range input {
+		input[i] = base
+		input[i].SourceRegion = fmt.Sprintf("source%d", i)
+	}
+	failed, err := Project(context.Background(), map[string]string{base.SubscriptionID: base.SubscriptionName}, input)
+	if err == nil || failed.Health.Error == nil || failed.Health.Error.Code != "region_text_limit" || len(failed.Rows) != 0 {
+		t.Fatal("joined separator bytes must fail aggregate budget before projection")
+	}
+}

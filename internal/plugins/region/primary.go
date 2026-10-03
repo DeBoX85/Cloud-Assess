@@ -25,6 +25,7 @@ const (
 	MaxSubscriptions = 1000
 	MaxLabelBytes    = 512
 	MaxDetails       = 4096
+	MaxDetailEntries = 65536
 	MaxCount         = 65536
 )
 
@@ -71,6 +72,7 @@ func Project(ctx context.Context, subscriptions map[string]string, input []Compa
 		return fail("region_input_limit")
 	}
 	textBytes := 0
+	detailEntries := 0
 	text := func(s string) bool {
 		textBytes += len(s)
 		return len(s) <= MaxLabelBytes && textBytes <= assessment.MaxPluginTextBytes && utf8.ValidString(s) && strings.IndexFunc(s, func(r rune) bool { return unicode.IsControl(r) || r == 0xfffd || r == 0xfffe || r == 0xffff }) < 0
@@ -145,6 +147,14 @@ func Project(ctx context.Context, subscriptions map[string]string, input []Compa
 			if len(details) > MaxDetails {
 				return fail("region_input_limit")
 			}
+			detailEntries += len(details)
+			if detailEntries > MaxDetailEntries {
+				return fail("region_input_limit")
+			}
+			textBytes += max(0, len(details)-1) * 2
+			if textBytes > assessment.MaxPluginTextBytes {
+				return fail("region_text_limit")
+			}
 			units := max(0, len(details)-1) * 2
 			for _, detail := range details {
 				if !text(detail) {
@@ -158,6 +168,14 @@ func Project(ctx context.Context, subscriptions map[string]string, input []Compa
 		}
 		if len(c.TargetZoneMappings) > MaxDetails {
 			return fail("region_input_limit")
+		}
+		detailEntries += len(c.TargetZoneMappings)
+		if detailEntries > MaxDetailEntries {
+			return fail("region_input_limit")
+		}
+		textBytes += max(0, len(c.TargetZoneMappings)-1)*2 + len(c.TargetZoneMappings)*3
+		if textBytes > assessment.MaxPluginTextBytes {
+			return fail("region_text_limit")
 		}
 		units := max(0, len(c.TargetZoneMappings)-1) * 2
 		for logical, physical := range c.TargetZoneMappings {
