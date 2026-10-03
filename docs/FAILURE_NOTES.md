@@ -540,3 +540,23 @@ Focused/full race, vet and all five compiling region controls completed successf
 PR105 automated review identified that the dedicated workflow ran only for runner/harness/workflow paths. A later documentation-only commit could therefore lack the explicit final-head characterization required by the contract, despite earlier successful output. Removed both PR and accepted-push path filters while retaining branch restrictions, read-only permissions, pinned actions and existing mandatory gates. Require a fresh successful characterization plus Linux/Windows jobs on the corrected complete head; prior7b1fdede success is not correction acceptance. Prevention: align workflow scheduling with the evidence contract, including documentation-only follow-ups, and inspect actual tested head/preview rather than relying on previous run status. No capture/source/runtime/pin change.
 
 Interruption recovery preserved the dirty old596f102 task checkout and fetched published7b1fdede into an isolated worktree with explicit remote mapping (FN061); actual source/pins/tools and acceptedc270ea22 objects were verified. Previous unknown commit/build completion remains unknown. The missing tracking-ref error was resolved with an explicit non-destructive fetch; no reset, force or protection change.
+
+
+## FN067: accepted PR105 absent from active continuity (2026-10-03)
+
+Live readback found PR105 merged at7e4ca5c while active handover/roadmap/source records still required its acceptance. Reverified final/native and separate accepted-push jobs/full logs, complete captured chunks/provenance, exact refs/tree/parents/identity/protection; reconciled active summaries while retaining historical proof. This repeats FN059. Prevention: refresh every active authority summary from final PR/run evidence after merge before further work.
+
+Current executor is Windows, with Git/Python/PowerShell but no observed Go/ripgrep/prior Linux workspace or callable managed environment/Code Review tool. Git HTTPS failed to connect. Use authenticated GitHub/native Actions without bypassing network policy, requesting credentials, weakening checks or claiming fresh local Go/Azure evidence. Historical unknown local command outcomes remain unknown.
+
+
+## FN068: native formatter rejected two authored alignments (2026-10-03)
+
+Initial PR106 head4e50009de3862d68b54e28dc8c3a557b7665de96 was rejected by native Linux formatting run37146459704/job111271307391: two struct alignment spaces differed from gofmt. Applied the exact native gofmt diff. No test/gate was weakened; this head remains unaccepted and broad Linux checks were skipped after that failure. Corrected head requires fresh complete characterization/Linux/Windows evidence. Local Go/gofmt is unavailable; the retained failure diff supplies exact formatting correction. Prevention: keep formatting blocking and print its diff for bounded recovery, then validate every corrected head through native QA rather than hand-claiming format/test success.
+
+
+## FN069: mixed auxiliary source branches decoded as one shape (2026-10-03)
+
+PR106 native Windows run37146544096/job111271573338 rejected the authored fixture loader: decoding all fourteen output branches as single tables failed on the service-availability array. Fixed the test loader to retain all14 raw JSON branches and decode only the four quota/reservation table-or-null branches; complete capture hashes and all cell/guard assertions remain unchanged. No production or captured-source byte correction. Fresh final-head native validation is required. Prevention: inspect each retained branch's actual JSON topology before defining a typed loader; unrelated future branches remain raw until their migration. Do not rewrite source captures or loosen comparison counts to compensate for an authored fixture bug.
+
+
+FN069 corroboration: repository [automated Code Review](https://github.com/DeBoX85/Cloud-Assess/pull/106#discussion_r4174461025) independently identified the same mixed-shape loader failure on initial4e50009. The RawMessage correction at e8c1cc8 preserves every source byte and comparison assertion. This is actual automated review of that earlier head, not independent-person approval or a final-head review-tool run. No callable Code Review tool is exposed locally; GitHub's configured review still operates.

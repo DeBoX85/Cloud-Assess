@@ -107,6 +107,15 @@ Region primary projection candidate adds scripts/tests/region-primary-mutation.p
 The [region source characterization runner](REGION_SOURCE_CHARACTERIZATION.md) is a separate development candidate. Its exact-head characterization job must produce complete provenance/chunks and unchanged pinned-source/APRL/module guards before promoting source fixtures. Both ordinary required quality/windows-validation jobs and reviewed protected acceptance remain mandatory; source-only execution does not certify auxiliary target behavior or live Azure.
 
 
-## PR105 review correction and observed recovery (2026-10-03)
+## Historical PR105 correction and recovery (superseded below) (2026-10-03)
 
 Initial source characterization37131392522/job111227049328 and required native37131392461/quality111227049234/windows111227049053 passed on7b1fdede. Review found path filters could skip the promised final-head source job on follow-up commits. Removed both path filters; fresh three-job final-head evidence and protected acceptance remain required (FN066). Recovered executor/source/tools in an isolated exact remote worktree, preserving old dirty corrections and unknown command completion. No auxiliary runtime, public region, source/dependency pin or Azure/live/Gate004/release change. Exact next step is publish correction, verify source chunks/hash/provenance and all final-head jobs, then migrate captured auxiliary tables separately.
+
+
+## Accepted source runner and auxiliary projection gate
+
+PR105 is VERIFIED OFFLINE at accepted merge 7e4ca5c955abb7f882591a44d8bb2f74c93ae243, tree 5c79e721d8281f04ba066006a4ff5601202abdbd, ordered parents c270ea22 / c9cc112. Final candidate run37143242571 (quality111261843942, Windows111261844116) and characterization37143242555/job111261844024 passed. Separate accepted-push quality run37143573050 (quality111262849038, Windows111262849202) and characterization37143573016/job111262848443 passed. Required steps and retrieved full logs were inspected in this recovery; only conditional failure upload skipped. Native primary/AI controls, compiled CLI/package cases, race/vet/fuzz, provenance and vulnerability scans passed; coverage81.8%, zero reachable/imported findings and the existing module-only advisory remains open. Final and accepted-push auxiliary capture chunks/provenance are complete and identical: inputs f9695cfa0bd662b2dbc52addb68a9208b57be1e60dabe31c99cb5651d2962c28, outputs efe06093eddece6b54617c806bdb74727aed5228a5a96f7300068b22bd77bc06.
+
+Prior PR105 pending prose describes preparation. The next [auxiliary contract](REGION_AUXILIARY.md) requires independent complete cells/hash checks and compiling guard controls on both required hosts. No fresh local Go or automated Code Review tool evidence is claimed in this Windows recovery.
+
+Both required hosts run [region-auxiliary-mutation.py](../scripts/tests/region-auxiliary-mutation.py): selected identity, row work and aggregate text controls must compile, fail named assertions and restore. Formatting failure now prints gofmt's diff before the unchanged failing exit, providing correction evidence when local Go is unavailable.

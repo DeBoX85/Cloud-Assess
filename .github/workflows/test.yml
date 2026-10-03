@@ -64,6 +64,7 @@ jobs:
           if [ -n "$unformatted" ]; then
             echo 'The following Go files are not gofmt-formatted:'
             echo "$unformatted"
+            gofmt -d $files
             exit 1
           fi
 
@@ -192,6 +193,9 @@ jobs:
       - name: Verify region primary tests reject selected mutations
         run: python3 scripts/tests/region-primary-mutation.py
 
+      - name: Verify region auxiliary tests reject selected mutations
+        run: python3 scripts/tests/region-auxiliary-mutation.py
+
       - name: Vet
         run: go vet ./...
 
@@ -257,6 +261,9 @@ jobs:
 
       - name: Verify Windows region primary tests reject selected mutations
         run: python scripts/tests/region-primary-mutation.py
+
+      - name: Verify Windows region auxiliary tests reject selected mutations
+        run: python scripts/tests/region-auxiliary-mutation.py
 
       - name: Build and smoke-test Windows CLI
         env:
