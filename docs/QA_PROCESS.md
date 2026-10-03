@@ -102,3 +102,6 @@ Both required native jobs run [ai-execution-mutation.py](../scripts/tests/ai-exe
 
 
 Region primary projection candidate adds scripts/tests/region-primary-mutation.py to both required native jobs. Selected-identity, unknown-SKU-denominator, comparison-work-limit, aggregate-detail-work and joined-separator-bytes faults must compile and fail their named assertions; restored baselines must pass. See [REGION_SELECTION.md](REGION_SELECTION.md) for independent capture hashes, complete42-score/25-cell checks and the explicitly unavailable public feature.
+
+
+The [region source characterization runner](REGION_SOURCE_CHARACTERIZATION.md) is a separate development candidate. Its exact-head characterization job must produce complete provenance/chunks and unchanged pinned-source/APRL/module guards before promoting source fixtures. Both ordinary required quality/windows-validation jobs and reviewed protected acceptance remain mandatory; source-only execution does not certify auxiliary target behavior or live Azure.
