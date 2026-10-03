@@ -94,6 +94,20 @@ func newWithTransport(credential azcore.TokenCredential, transport policy.Transp
 
 // Shared construction guard runs before either AI client can authenticate.
 func aiARMConfiguration(credential azcore.TokenCredential) (string, string, error) {
+	if credential == nil {
+		return "", "", fmt.Errorf("AI governance credential required")
+	}
+	return publicARMConfiguration()
+}
+
+// ValidateCloudConfiguration performs the selected public path's preflight before
+// credential construction, operations factories or subscription discovery.
+func ValidateCloudConfiguration() error {
+	_, _, err := publicARMConfiguration()
+	return err
+}
+
+func publicARMConfiguration() (string, string, error) {
 	// The shared cloud helper intentionally defaults unknown names to public.
 	// This adapter must not silently cross an unverified metrics cloud boundary.
 	cloudName := strings.ToLower(strings.TrimSpace(os.Getenv(azure.EnvAzureCloud)))
@@ -110,7 +124,7 @@ func aiARMConfiguration(credential azcore.TokenCredential) (string, string, erro
 	public := cloud.AzurePublic
 	arm := azure.ResourceManagerEndpoint()
 	scope := azure.ResourceManagerScope()
-	if credential == nil || arm != strings.TrimRight(public.Services[cloud.ResourceManager].Endpoint, "/") || scope != strings.TrimRight(public.Services[cloud.ResourceManager].Audience, "/")+"/.default" || strings.TrimRight(configuration.ActiveDirectoryAuthorityHost, "/") != strings.TrimRight(public.ActiveDirectoryAuthorityHost, "/") {
+	if arm != strings.TrimRight(public.Services[cloud.ResourceManager].Endpoint, "/") || scope != strings.TrimRight(public.Services[cloud.ResourceManager].Audience, "/")+"/.default" || strings.TrimRight(configuration.ActiveDirectoryAuthorityHost, "/") != strings.TrimRight(public.ActiveDirectoryAuthorityHost, "/") {
 		return "", "", fmt.Errorf("AI governance metrics public-cloud configuration required")
 	}
 	return arm, scope, nil

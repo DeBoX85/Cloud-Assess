@@ -186,6 +186,9 @@ jobs:
       - name: Verify AI request boundary tests reject selected mutations
         run: python3 scripts/tests/ai-request-mutation.py
 
+      - name: Verify AI public execution tests reject selected mutations
+        run: python3 scripts/tests/ai-execution-mutation.py
+
       - name: Vet
         run: go vet ./...
 
@@ -245,6 +248,9 @@ jobs:
 
       - name: Verify Windows AI request boundary tests reject selected mutations
         run: python scripts/tests/ai-request-mutation.py
+
+      - name: Verify Windows AI public execution tests reject selected mutations
+        run: python scripts/tests/ai-execution-mutation.py
 
       - name: Build and smoke-test Windows CLI
         env:

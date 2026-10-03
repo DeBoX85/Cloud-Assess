@@ -13,6 +13,7 @@ import (
 	"github.com/DeBoX85/Cloud-Assess/internal/config"
 	"github.com/DeBoX85/Cloud-Assess/internal/discovery"
 	"github.com/DeBoX85/Cloud-Assess/internal/plugins"
+	"github.com/DeBoX85/Cloud-Assess/internal/plugins/aigov"
 	"github.com/DeBoX85/Cloud-Assess/internal/plugins/carbon"
 	"github.com/DeBoX85/Cloud-Assess/internal/plugins/servicehealth"
 	"github.com/DeBoX85/Cloud-Assess/internal/plugins/sqleol"
@@ -89,6 +90,14 @@ func (c *Coordinator) Run(ctx context.Context, request Request) (*result.Assessm
 		return nil, err
 	}
 	for _, name := range prepared.pluginNames {
+		if name == aigov.Name {
+			if err := aigov.ValidateCloudConfiguration(); err != nil {
+				return nil, err
+			}
+			if c.operations.ScanAIGovernance == nil {
+				return nil, fmt.Errorf("AI governance operation is not configured")
+			}
+		}
 		if name == carbon.Name && c.operations.ScanCarbon == nil {
 			return nil, fmt.Errorf("carbon emissions operation is not configured")
 		}
@@ -382,6 +391,11 @@ func (c *Coordinator) tasks(request preparedRequest, state *scanState) []stages.
 					var table assessment.PluginTable
 					var scanErr error
 					switch name {
+					case aigov.Name:
+						filter := request.filters.Assessment.Clone()
+						value, err := c.operations.ScanAIGovernance(ctx, subscriptions, filter)
+						scanErr = err
+						table = plugins.AIGovernanceTable(value, scanErr, state.subscriptions, started, c.now())
 					case carbon.Name:
 						filter := cloneFilters(request.filters)
 						filter.Assessment.SetAllowedResourceTypes(scanners.ResourceTypes(request.selectedKeys))
