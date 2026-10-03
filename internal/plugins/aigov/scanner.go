@@ -79,24 +79,9 @@ func New(credential azcore.TokenCredential) (*Scanner, error) {
 // Private seam exercises the production cloud/audience construction using an
 // explicit in-memory transport; production retains the guarded shared client.
 func newWithTransport(credential azcore.TokenCredential, transport policy.Transporter, now func() time.Time) (*Scanner, error) {
-	// The shared cloud helper intentionally defaults unknown names to public.
-	// This adapter must not silently cross an unverified metrics cloud boundary.
-	cloudName := strings.ToLower(strings.TrimSpace(os.Getenv(azure.EnvAzureCloud)))
-	if cloudName != "" && cloudName != "public" && cloudName != "azurepublic" {
-		return nil, fmt.Errorf("AI governance metrics public-cloud configuration required")
-	}
-	authoritySet := os.Getenv(azure.EnvAzureAuthorityHost) != ""
-	endpointSet := os.Getenv(azure.EnvAzureResourceManagerEndpoint) != ""
-	audienceSet := os.Getenv(azure.EnvAzureResourceManagerAudience) != ""
-	if authoritySet != endpointSet || authoritySet != audienceSet {
-		return nil, fmt.Errorf("AI governance complete cloud configuration required")
-	}
-	configuration := azure.CloudConfiguration()
-	public := cloud.AzurePublic
-	arm := azure.ResourceManagerEndpoint()
-	scope := azure.ResourceManagerScope()
-	if credential == nil || arm != strings.TrimRight(public.Services[cloud.ResourceManager].Endpoint, "/") || scope != strings.TrimRight(public.Services[cloud.ResourceManager].Audience, "/")+"/.default" || strings.TrimRight(configuration.ActiveDirectoryAuthorityHost, "/") != strings.TrimRight(public.ActiveDirectoryAuthorityHost, "/") {
-		return nil, fmt.Errorf("AI governance metrics public-cloud configuration required")
+	arm, scope, err := aiARMConfiguration(credential)
+	if err != nil {
+		return nil, err
 	}
 	armOptions := azure.DefaultHTTPClientOptions(30 * time.Second)
 	armOptions.Scope = scope
@@ -105,6 +90,30 @@ func newWithTransport(credential azcore.TokenCredential, transport policy.Transp
 	metricOptions.Scope = "https://metrics.monitor.azure.com/.default"
 	metricOptions.Transport = transport
 	return NewWithClients(arm, azure.NewHTTPClient(credential, metricOptions), azure.NewHTTPClient(credential, armOptions), now)
+}
+
+// Shared construction guard runs before either AI client can authenticate.
+func aiARMConfiguration(credential azcore.TokenCredential) (string, string, error) {
+	// The shared cloud helper intentionally defaults unknown names to public.
+	// This adapter must not silently cross an unverified metrics cloud boundary.
+	cloudName := strings.ToLower(strings.TrimSpace(os.Getenv(azure.EnvAzureCloud)))
+	if cloudName != "" && cloudName != "public" && cloudName != "azurepublic" {
+		return "", "", fmt.Errorf("AI governance metrics public-cloud configuration required")
+	}
+	authoritySet := os.Getenv(azure.EnvAzureAuthorityHost) != ""
+	endpointSet := os.Getenv(azure.EnvAzureResourceManagerEndpoint) != ""
+	audienceSet := os.Getenv(azure.EnvAzureResourceManagerAudience) != ""
+	if authoritySet != endpointSet || authoritySet != audienceSet {
+		return "", "", fmt.Errorf("AI governance complete cloud configuration required")
+	}
+	configuration := azure.CloudConfiguration()
+	public := cloud.AzurePublic
+	arm := azure.ResourceManagerEndpoint()
+	scope := azure.ResourceManagerScope()
+	if credential == nil || arm != strings.TrimRight(public.Services[cloud.ResourceManager].Endpoint, "/") || scope != strings.TrimRight(public.Services[cloud.ResourceManager].Audience, "/")+"/.default" || strings.TrimRight(configuration.ActiveDirectoryAuthorityHost, "/") != strings.TrimRight(public.ActiveDirectoryAuthorityHost, "/") {
+		return "", "", fmt.Errorf("AI governance metrics public-cloud configuration required")
+	}
+	return arm, scope, nil
 }
 
 type requestBudget struct {

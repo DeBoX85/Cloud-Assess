@@ -1,6 +1,6 @@
 # Isolated offline development workspace
 
-Status: executor recovery verified locally on 2026-10-03; the recipe's protected PR acceptance is separately required. This supplies the missing development tools and fresh source/target checkout proof from FN056. It does not close Azure/laptop, Gate004 or release validation.
+Status: executor recovery VERIFIED OFFLINE through PR100 mergeca7fc301de421f24f62c6b976fe2d79c0bfe6780, with required exact-head and separate accepted-merge native Linux/Windows QA and clean local/source/pin readback. This supplies the missing development tools and fresh source/target checkout proof from FN056. It does not close Azure/laptop, Gate004 or release validation.
 
 ## Recreate the workspace
 
