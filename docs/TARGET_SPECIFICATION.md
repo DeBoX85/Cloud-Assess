@@ -73,7 +73,7 @@ Core v1 includes:
 - post-report severity gate
 - plugin architecture
 
-Full internal-plugin parity remains open. Zone mapping execution, the standalone `zone-mapping` command, named mixed selection and honest `plugins list/info` are verified offline through PR84/85, service-health execution through PR87 and SQL EOL execution through PR89 and the bounded carbon request library through PR93 (public carbon execution remains unaccepted); see [ZONE_EXECUTION.md](ZONE_EXECUTION.md). Unnamed or unavailable plugin selections reject before Azure authentication. Other internal adapters and live extension equivalence remain separate acceptance boundaries.
+Full internal-plugin parity remains open. Zone mapping execution, the standalone `zone-mapping` command, named mixed selection and honest `plugins list/info` are verified offline through PR84/85, service-health execution through PR87 and SQL EOL execution through PR89 and carbon request/public execution through PR93/94; see [ZONE_EXECUTION.md](ZONE_EXECUTION.md). Unnamed or unavailable plugin selections reject before Azure authentication. Other internal adapters and live extension equivalence remain separate acceptance boundaries.
 
 ## Output strategy
 
@@ -342,4 +342,4 @@ Bounded [YAML Graph plugin execution](YAML_GRAPH_PLUGINS.md) now joins ordinary 
 [SQL EOL](SQL_EOL.md) preserves the exact pinned 611-line query, source metadata and 32 string columns with subscription-only filtering. Library and standalone/normal/scanner execution accepted offline through PR88/89, including all-format partial/privacy tests. Static source model assumptions, live KQL/financial/licensing validation and Arc SQL numeric-vcores remain separate open boundaries.
 
 
-[Carbon emissions](CARBON_EMISSIONS.md) migration starts with source-captured pure aggregation, preserving service-selected latest dates, eight columns and float/conditional display. Deterministic row order and strict finite/date/label/volume health are explicit corrections. HTTP/access/pagination and public execution remain separate unimplemented boundaries; source silent failed batches cannot become target healthy empty output.
+[Carbon emissions](CARBON_EMISSIONS.md) migration starts with source-captured pure aggregation, preserving service-selected latest dates, eight columns and float/conditional display. Deterministic row order and strict finite/date/label/volume health are explicit corrections. Bounded HTTP/access/pagination and standalone/mixed/scanner command/report integration are accepted offline through PR93/94; explicit denied or failed batches retain valid prior sums with incomplete health. Live service totals/access/sovereign availability and representative load remain separate open boundaries; source silent failed batches cannot become target healthy empty output.

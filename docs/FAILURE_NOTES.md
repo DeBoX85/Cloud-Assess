@@ -426,3 +426,15 @@ Read/output recurrence (FN040/044/045/009): one pre-interruption guessed sqleol.
 
 
 FN046/FN050 follow-up: final public-carbon review found ACCESS_MODEL still claimed all plugin execution unavailable and omitted the plugin-only Graph exception. Reconciled current operator guidance to accepted zone/service/SQL and candidate public-carbon state, with read-oriented endpoints and separate aggregate/access/live limits. A target-doc read was also mistakenly batched in the pinned-source workdir; the failed paths were then read with the explicit target workdir before any conclusion/edit. Keep source inventory/reads and target documentation in separate calls; check the workdir at each call, not only initial inventory. The changed final documentation head requires fresh mandatory native checks; earlier CI is not acceptance.
+
+
+## FN-051: Execution service disconnected after verified protected merge
+
+Date: 2026-10-03. PR94 final native checks and remote postmerge identity/tree/parents/ref passed. The subsequent local fetch/switch command lost exec-server transport; its completion is unknown. A read-only retry stalled and was terminated. This is an environment/recovery failure, not evidence of a product assertion failure; retain both proven QA and unverified local state. Recurrence of FN037/047: remote code/docs WIP and final proposal preserve reconstructable accepted content; never claim an unpublished patch or completed fetch survives. Resume by inspecting actual status/branches before retry, not resetting or assuming the target branch exists. No source/Azure mutation occurred.
+
+FN050 read follow-up: source SDK paths were absent from the selected target cache and a guessed internal/az/client.go read failed; actual source inventory located client_options.go/http_client.go. No contract conclusion depended on the failed reads. Do not infer SDK API versions from current REST search results; inspect exact pinned SDK. Preliminary AI-source observations remain separate from captures/acceptance.
+
+
+FN051 recovery resolution (2026-10-03): executor is available but the recent checkout disappeared. A separate clean clone from verified PR94 plus exact PR95 fetch now completes local head/tree/parents/pins verification and fresh full race/vet/strict built CLI/docs QA. The original fetch/switch completion remains unknown; no user working tree was reset. Keep remotely verified code/docs as the reconstruction baseline rather than trying to recover a nonexistent directory.
+
+FN046 recurrence: supplemental TARGET_SPECIFICATION carbon paragraph still said HTTP/public execution unimplemented despite its earlier current summary correctly indexing PR93/94. Corrected the whole canonical feature paragraph, preserving live/access/load boundaries. Review current-tense semantic claims throughout canonical documents, including appended feature summaries, not only the first paragraph or structural links. Refresh exact native gates on the updated final docs head. One combined read exceeded the aggregate output budget; split the omitted QA_PROCESS read and inspect it fully before relying on it (FN009/FN050).
