@@ -42,7 +42,7 @@ Intentional changes include:
 
 ## Branding adjustment requirement
 
-Product identity is centralized in `internal/branding`. The [immutable branding profile builder](BRANDING_PROFILES.md) now supports validated build-time presentation identity without source edits. The [branding review](BRANDING_REVIEW.md) defines the acceptance checks; [paired synthetic report evidence](BRANDING_REPORT_QA.md) now implements the custom report/data checks, and [profile-aware candidate packages](BRANDED_PACKAGES.md) implement distribution checks pending final native acceptance. This requirement remains open until coherent native CLI/report/package propagation passes; a development builder alone is not completion.
+Product identity is centralized in `internal/branding`. The [immutable branding profile builder](BRANDING_PROFILES.md) now supports validated build-time presentation identity without source edits. The [branding review](BRANDING_REVIEW.md) defines the acceptance checks; [paired synthetic report evidence](BRANDING_REPORT_QA.md) now implements the custom report/data checks, and [profile-aware candidate packages](BRANDED_PACKAGES.md) implement distribution checks. The bounded five-field workflow passed coherent native CLI/report/package acceptance through PR75; runtime profiles, logos/themes and release approval remain separate requirements. A development builder alone would not establish completion.
 
 ## Core v1 scope
 
@@ -73,7 +73,7 @@ Core v1 includes:
 - post-report severity gate
 - plugin architecture
 
-Full internal-plugin parity remains open. Zone mapping execution, the standalone `zone-mapping` command, named mixed selection and honest `plugins list/info` are verified offline through PR84/85; see [ZONE_EXECUTION.md](ZONE_EXECUTION.md). Unnamed or unavailable plugin selections reject before Azure authentication. Other internal adapters and live extension equivalence remain separate acceptance boundaries.
+Full internal-plugin parity remains open. Zone mapping execution, the standalone `zone-mapping` command, named mixed selection and honest `plugins list/info` are verified offline through PR84/85, service-health execution through PR87 and SQL EOL execution through PR89; see [ZONE_EXECUTION.md](ZONE_EXECUTION.md). Unnamed or unavailable plugin selections reject before Azure authentication. Other internal adapters and live extension equivalence remain separate acceptance boundaries.
 
 ## Output strategy
 

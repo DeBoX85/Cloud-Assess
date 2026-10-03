@@ -1,6 +1,6 @@
 # Cloud Assess Roadmap
 
-Status: working execution roadmap, reviewed 2026-10-03 (Europe/Oslo). Current accepted runtime baseline: PR90 merge `ea0aabfca055899e18baa54af24b53df90a57d98`. Start with [SESSION_HANDOVER.md](SESSION_HANDOVER.md); older checkpoint paragraphs below are chronological.
+Status: working execution roadmap, reviewed 2026-10-03 (Europe/Oslo). Current accepted runtime baseline: PR90 merge `ea0aabfca055899e18baa54af24b53df90a57d98`. Carbon request library is an unaccepted B5 candidate; its public execution is still unavailable. PR92 restored-session QA is accepted; see handover for exact evidence. Start with [SESSION_HANDOVER.md](SESSION_HANDOVER.md); older checkpoint paragraphs below are chronological.
 
 Active development branch: `bootstrap/core-v1`
 
