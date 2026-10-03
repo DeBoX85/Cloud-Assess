@@ -1,6 +1,6 @@
 # Reproducible pinned region source characterization
 
-Status: development runner/harness/workflow candidate IN PROGRESS, based on accepted PR104 mergec270ea22b036054382f6a34ca072f9a57bcac333. Primary scoring/projection is VERIFIED OFFLINE; public region-selection remains unavailable. See [REGION_SELECTION.md](REGION_SELECTION.md) and [SESSION_HANDOVER.md](SESSION_HANDOVER.md).
+Status: VERIFIED OFFLINE through PR105 merge7e4ca5c955abb7f882591a44d8bb2f74c93ae243. Public region-selection unavailable. See [REGION_SELECTION.md](REGION_SELECTION.md).
 
 ## Purpose and bounded contract
 
@@ -20,7 +20,7 @@ Fourteen branches call only internal/scanners/plugins/region/output/output.go:
 
 The literal synthetic typed inputs are serialized by the unchanged source module alongside complete outputs. No source tables/cells/metadata are normalized. Helpers return default/absent metadata on auxiliary tables; future canonical target ownership must be documented separately. This is not full source Scan, score input completeness, service availability, price/quota/latency accuracy or live equivalence.
 
-## Evidence protocol and next acceptance
+## Evidence protocol and future runner acceptance
 
 Successful source execution emits explicit source/tree/actual APRL provenance and two UTF-8 JSON files, source-aux-inputs.json/source-aux-outputs.json. REGION_CAPTURE_JSON log records contain file name, original SHA256, ordered chunk index/count and JSON-escaped content. Reassemble only after the entire job succeeds, all chunks/provenance match and source-copy guards pass; retain exact bytes and byte attributes, then compare every independently captured cell in a separate target migration. Log chunks avoid requiring a functioning local artifact downloader; they contain only synthetic fixtures.
 
@@ -30,8 +30,15 @@ After accepted runner/captures, migrate auxiliary pure tables/calculations in bo
 
 Microsoft Learn review on2026-10-03 consulted the [Retail Prices API overview](https://learn.microsoft.com/rest/api/cost-management/retail-prices/azure-retail-prices): the public commercial API is unauthenticated, prices are retail USD without negotiated discounts, responses page at1000 with NextPageLink and filter/version/currency semantics matter. This current documentation informs later destination/auth/access guards; it does not replace pinned SDK/source behavior, refresh embedded latency/zone data or certify live prices. Sovereign support requires a separate supported-contract decision.
 
-## Interruption review and current correction (2026-10-03)
+## Historical interruption review and correction (superseded by accepted proof) (2026-10-03)
 
 Initial PR105 head7b1fdede passed source characterization run37131392522/job111227049328 and required run37131392461/quality111227049234/windows111227049053. The automated review correctly identified that path filtering could skip characterization after a documentation-only follow-up. Both PR and push path filters are removed; branch filters, permissions, pinned actions, pins and gate strength are unchanged. This new complete code/documentation head requires its own characterization and both required jobs before acceptance. Earlier green results are historical evidence only. FN066 records the defect.
 
 The executor responds again. A new isolated worktree was fetched at exact published7b1fdede without modifying the older dirty task checkout. Actual source8e4f057/APRL60eaddda, accepted mergec270ea22/tree/parents and Go1.26.8/PowerShell7.6.6 were verified locally. Earlier unknown command completion remains unknown; the recovered old edits are retained. Next reassemble final successful source output, verify hashes/provenance, accept this runner through protected merge and begin the auxiliary target migration.
+
+
+## Accepted recovery proof
+
+PR105 is VERIFIED OFFLINE at accepted merge 7e4ca5c955abb7f882591a44d8bb2f74c93ae243, tree 5c79e721d8281f04ba066006a4ff5601202abdbd, ordered parents c270ea22 / c9cc112. Final candidate run37143242571 (quality111261843942, Windows111261844116) and characterization37143242555/job111261844024 passed. Separate accepted-push quality run37143573050 (quality111262849038, Windows111262849202) and characterization37143573016/job111262848443 passed. Required steps and retrieved full logs were inspected in this recovery; only conditional failure upload skipped. Native primary/AI controls, compiled CLI/package cases, race/vet/fuzz, provenance and vulnerability scans passed; coverage81.8%, zero reachable/imported findings and the existing module-only advisory remains open. Final and accepted-push auxiliary capture chunks/provenance are complete and identical: inputs f9695cfa0bd662b2dbc52addb68a9208b57be1e60dabe31c99cb5651d2962c28, outputs efe06093eddece6b54617c806bdb74727aed5228a5a96f7300068b22bd77bc06.
+
+Prior candidate/pending paragraphs are historical; final evidence supersedes their acceptance imperatives. Next separate slice: retain exact source auxiliary fixtures and implement bounded pure Quota/Capacity Reservations under REGION_AUXILIARY.md. No service decoder/arithmetic, public region execution, live/Gate004/release closure.

@@ -2116,3 +2116,15 @@ Current source characterization task is IN PROGRESS on feat/region-source-charac
 ## PR105 review correction and observed recovery (2026-10-03)
 
 Initial source characterization37131392522/job111227049328 and required native37131392461/quality111227049234/windows111227049053 passed on7b1fdede. Review found path filters could skip the promised final-head source job on follow-up commits. Removed both path filters; fresh three-job final-head evidence and protected acceptance remain required (FN066). Recovered executor/source/tools in an isolated exact remote worktree, preserving old dirty corrections and unknown command completion. No auxiliary runtime, public region, source/dependency pin or Azure/live/Gate004/release change. Exact next step is publish correction, verify source chunks/hash/provenance and all final-head jobs, then migrate captured auxiliary tables separately.
+
+
+## Fresh-session reconciliation after PR105 (2026-10-03)
+
+PR105 is VERIFIED OFFLINE at accepted merge 7e4ca5c955abb7f882591a44d8bb2f74c93ae243, tree 5c79e721d8281f04ba066006a4ff5601202abdbd, ordered parents c270ea22 / c9cc112. Final candidate run37143242571 (quality111261843942, Windows111261844116) and characterization37143242555/job111261844024 passed. Separate accepted-push quality run37143573050 (quality111262849038, Windows111262849202) and characterization37143573016/job111262848443 passed. Required steps and retrieved full logs were inspected in this recovery; only conditional failure upload skipped. Native primary/AI controls, compiled CLI/package cases, race/vet/fuzz, provenance and vulnerability scans passed; coverage81.8%, zero reachable/imported findings and the existing module-only advisory remains open. Final and accepted-push auxiliary capture chunks/provenance are complete and identical: inputs f9695cfa0bd662b2dbc52addb68a9208b57be1e60dabe31c99cb5651d2962c28, outputs efe06093eddece6b54617c806bdb74727aed5228a5a96f7300068b22bd77bc06.
+
+Live core-v1/ref/merge/tree/parents/human identity/rules verified; no open PRs. Reconciled stale active authority summaries and preserved historical checkpoints (FN067). Next separate slice: retain exact source auxiliary fixtures and implement bounded pure Quota/Capacity Reservations under REGION_AUXILIARY.md. No service decoder/arithmetic, public region execution, live/Gate004/release closure. Local Go QA unavailable in current Windows executor; authenticated GitHub/native Actions provide final-head acceptance, separately from deferred Azure/laptop validation.
+
+
+### Auxiliary implementation checkpoint
+
+Prepared pure ProjectQuota/ProjectReservations, independent exact captured-cell/hash tests, scope/malformed/duplicate/numeric/row/text/ownership/concurrency/cancellation guards and three compiling controls required by both native jobs. No fresh local Go PASS claimed. Python control syntax and retained SHA256s checked locally; native final-head QA pending. Source captures and input contract remain separate from service decoding/arithmetic and public availability. Formatting diagnostics add gofmt diff on existing failing guard without weakening it.
