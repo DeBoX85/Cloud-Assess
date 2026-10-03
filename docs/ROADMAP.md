@@ -1,6 +1,6 @@
 # Cloud Assess Roadmap
 
-Status: working execution roadmap, reviewed 2026-10-03 (Europe/Oslo). Current accepted runtime: PR94 merge `ac32f3b116ef26704a06add686ea305d41c2a114`. Carbon public execution is VERIFIED OFFLINE. Local postmerge fetch/switch verification is BLOCKED by executor outage; recover actual state before AI governance. Start with [SESSION_HANDOVER.md](SESSION_HANDOVER.md); earlier checkpoints are chronological.
+Status: working execution roadmap, reviewed 2026-10-03 (Europe/Oslo). Current accepted runtime: PR94 merge `ac32f3b116ef26704a06add686ea305d41c2a114`. Carbon public execution is VERIFIED OFFLINE. A replacement clean checkout completes local postmerge verification after executor recovery. PR95 updated recovery docs require new exact-head native acceptance before AI governance. Start with [SESSION_HANDOVER.md](SESSION_HANDOVER.md); earlier checkpoints are chronological.
 
 Active development branch: `bootstrap/core-v1`
 
@@ -278,3 +278,6 @@ PR94 tested head `0ee0f59f1fea4de3690b47bdd8f514e4a0ee9b6b`, tree `80f7734522e7c
 Local postmerge fetch/switch verification is BLOCKED by an execution-service transport disconnect. The combined fetch/switch command completion is UNKNOWN. A bounded read-only pwd retry stalled and was terminated; no further code edit was attempted. Do not infer a clean checkout, current local branch or successful fetch from remote merge success. GitHub remains available and this code/docs checkpoint is remotely preserved. No Azure/laptop/credential action is needed from the operator.
 
 Resume: restore executor, inspect actual task-owned checkout/status/branches/processes before replaying anything, preserve unrelated work, fetch live core-v1 and verify expected head/tree/ordered parents/pins, reconcile the possibly-created feat/ai-governance-core branch without reset/force, complete clean fetched verification. Re-read current handover/PR94/this recovery proposal and active rules. Then begin independent B5 AI governance source captures/pure projection, followed by bounded authenticated request library and separate public execution. Region selection follows separately; B6/B7/live/Gate004/release remain open. No speculative runtime change while local verification is unavailable.
+
+
+Latest recovery resolution: executor returned, recent scratch checkout missing, new clean clone verified PR94 exact tree/parents/pins and fresh full race/vet/build/eleven actual CLI/docs QA. Updated PR95 reconciles the recovered state and fixes stale supplemental specification wording; obtain its new exact-head native acceptance and protected merge, then start AI governance unchanged-source captures/pure projection. The old blocked records remain historical, and the original interrupted command completion is not inferred.
