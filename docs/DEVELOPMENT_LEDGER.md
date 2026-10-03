@@ -95,6 +95,17 @@ These rules have governed the reconstruction effort:
 
 ## Development chronology
 
+### 2026-10-03: PR97 compiling-negative-control repair
+
+Correction1945da7/run37092489006 passed production package tests but failed both new mutation gates, Linux111115580824/Windows111115580893, because the removed guard made audienceSet unused. FN055 records the harness mistake and unchanged requirement that a compiling fault fail the named behavioral assertion. Use a false term referencing audienceSet; fresh complete native gates are required. No production change, acceptance skip or weakened test oracle.
+
+### 2026-10-03: Fresh-session PR97 review and cloud-boundary correction
+
+Verified live core-v1 PR96 merge 9c6d0e79d05d06559fb4b543406b928013aed835/tree b032e44ef99aec0b2214e65ace3f15194c842a72, ordered parents/identity and only open PR97. Previous request head563c973/tree d72948606ba4f2b6921f9c379b530670585978db passed run37091739775, quality111113344322/Windows111113344512; mandatory steps/full logs read, including three AI mutations, eleven real CLI and nineteen default/nineteen custom cases per host, coverage81.4%. Existing module-only advisory is unchanged. Green CI did not cover the actual automated review's lone-audience override finding, so no merge was attempted.
+
+FN055 correction requires all three cloud overrides or none, six partial cases with rejection/zero token/transport counts, complete-public acceptance and fourth compiling mutation. Fresh native gates remain mandatory on the corrected exact head. No source pin, fixture expectation, dependency or public plugin change. FN056 records missing current local Go/Git HTTPS/download capabilities and disabled Code Review MCP; local build/clean fetched proof cannot be claimed. Publish the focused correction through authenticated GitHub, retain dependent discovery/public implementation until a suitable executor is restored; Azure/laptop/Gate004/release deferrals remain open. Final run/merge proof belongs in PR97 and the next coherent checkpoint.
+
+
 ### Phase A: Repository and target architecture
 
 **Objective**
@@ -1921,6 +1932,14 @@ B5 AI governance next: actual source Scan/parser/enrichment captures on an isola
 ### AI core native Windows capture-byte finding (2026-10-03)
 
 PR96 first candidate `6b8bf43582a01e73edf57add5a0c775d4f0ad1ae`, tree `0d29fab1129e47e192dae6f655dbf430c7901b70`, run `37087387963`: Windows job `111100395209` failed TestSourceCaptureHashes because new AI JSON fixtures lacked byte-preserving Git attributes. Correct with -text for all six input/output files, preserve their original hashes/cells, reproduce isolated autocrlf=true checkout, and obtain fresh exact-head native quality/windows-validation. FN053 retains the cause/correction/prevention; no skipped or earlier-head result certifies the corrected candidate.
+
+### AI pure core accepted; bounded requests started (2026-10-03)
+
+PR96 final head `cf7e14dff431a095a06271ab560fd1934c947f6a`, tree `b032e44ef99aec0b2214e65ace3f15194c842a72`, native run `37087685383`, quality `111101249440` / windows-validation `111101249557` actual PASS with required steps/full logs inspected. Eleven actual CLI/nineteen default/nineteen custom package cases per host without acceptance skips, docs285/9/1, coverage80.9%, mandatory checks/source cells/hashes/correlation mutation passed. Zero reachable findings; existing module-only advisory remains open. Active rules/current base/head/preview tree/ordered parents verified; protected merge `9c6d0e79d05d06559fb4b543406b928013aed835` matches tree, parents `f183755ef2e7ee9c61c555dbaa1743f3f801c457` / `cf7e14dff431a095a06271ab560fd1934c947f6a`, remote human identity/ref and completed clean fetched/switch verification. Original source/APRL pins/dependencies unchanged.
+
+Next/current [AI_GOVERNANCE_REQUESTS.md](AI_GOVERNANCE_REQUESTS.md): bounded wire decoding and metrics/deployment retrieval for already discovered accounts. No Graph/CLI/report integration or public AI availability in the pure milestone; those require separate acceptance. Primary source SDK/captures establish exact API versions/audiences/window/schema, official common metrics docs corroborate batching/error meaning while their documented2023 version does not replace pinned2024-02-01. Initial production metrics contract is public cloud; different/custom ARM cloud fails before token acquisition pending separate service validation. No laptop input or live evidence claimed.
+
+Request-slice interruption recovery, 2026-10-03: actual live/local accepted PR96 base verified; earlier focused session completed zero. Unaccepted bounded decoder/request code and explicit in-memory authenticated tests are now present. Source cells and unsafe continuation-before-authentication are asserted; no network or real token is used by target tests. Candidate compilation/fixture corrections and enrichment-failure retention repair recorded FN054; aggregate/security/full/native acceptance remains pending. Initial request WIP PR97 head da88735c087db33c29f04c09e7e81232895f184d/tree a7e9ca23e2ab2469ef7f7333dafd0e84889b2a50 remotely preserves code/tests/docs with exact accepted parent and human identity read back. Follow-up aggregate enrichment retention/global entry/byte/five-worker/later-batch/context fixtures pass focused race; three compiling mutations fail their named assertions and restored fixtures pass; bounded5000x decoder fuzz passes. Recurring Linux/Windows mutation checks and Linux fuzz are added without weakening existing gates. Final local full race/vet/strict built CLI, eleven cases, docs290/9/1, three guard mutations/restored fixtures and5000x fuzz completed zero. Candidate c4dfec1a101adfa9a488cb375edac1f38a0a2bd4/tree20a7f2e197ac67e2f87891ca07508631c6792eea identity/parent verified. Semantic review reconciles stale current plan/specification wording with accepted PR95/96 and unaccepted PR97; fresh native QA on this final documentation head/protected acceptance remains required. Public ai-gov unavailable; pins/dependencies unchanged; no live/release approval.
 
 ## Current boundary
 
