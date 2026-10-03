@@ -1,0 +1,85 @@
+[
+  {
+    "metadata": {
+      "Name": "ai-gov",
+      "Version": "1.0.0",
+      "Description": "Checks AI Governance",
+      "Author": "Azure Quick Review Team",
+      "License": "MIT",
+      "Type": 1,
+      "CommandPath": "",
+      "ColumnMetadata": [
+        {
+          "name": "Subscription"
+        },
+        {
+          "name": "Resource Group"
+        },
+        {
+          "name": "Account Name"
+        },
+        {
+          "name": "Kind"
+        },
+        {
+          "name": "SKU"
+        },
+        {
+          "name": "Deployment Name"
+        },
+        {
+          "name": "Model Name"
+        },
+        {
+          "name": "Model Version"
+        },
+        {
+          "name": "Model Format"
+        },
+        {
+          "name": "SKU Capacity"
+        },
+        {
+          "name": "Version Upgrade Option"
+        },
+        {
+          "name": "Spillover Enabled"
+        },
+        {
+          "name": "Spillover Deployment"
+        },
+        {
+          "name": "Hour"
+        },
+        {
+          "name": "Status Code"
+        },
+        {
+          "name": "Request Count"
+        }
+      ]
+    },
+    "sheet_name": "AI Throttling",
+    "description": "Analysis of AI/Cognitive Services accounts by hour, model, and status code",
+    "table": [
+      [
+        "Subscription",
+        "Resource Group",
+        "Account Name",
+        "Kind",
+        "SKU",
+        "Deployment Name",
+        "Model Name",
+        "Model Version",
+        "Model Format",
+        "SKU Capacity",
+        "Version Upgrade Option",
+        "Spillover Enabled",
+        "Spillover Deployment",
+        "Hour",
+        "Status Code",
+        "Request Count"
+      ]
+    ]
+  }
+]

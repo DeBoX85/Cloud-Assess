@@ -7,3 +7,4 @@ internal/plugins/servicehealth/testdata/source-output.json -text
 internal/plugins/sqleol/testdata/source-*.json -text
 internal/plugins/sqleol/query.kql -text
 internal/plugins/carbon/testdata/source-*.json -text
+internal/plugins/aigov/testdata/*.json -text
