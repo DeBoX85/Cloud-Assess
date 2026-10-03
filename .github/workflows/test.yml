@@ -189,6 +189,9 @@ jobs:
       - name: Verify AI public execution tests reject selected mutations
         run: python3 scripts/tests/ai-execution-mutation.py
 
+      - name: Verify region primary tests reject selected mutations
+        run: python3 scripts/tests/region-primary-mutation.py
+
       - name: Vet
         run: go vet ./...
 
@@ -251,6 +254,9 @@ jobs:
 
       - name: Verify Windows AI public execution tests reject selected mutations
         run: python scripts/tests/ai-execution-mutation.py
+
+      - name: Verify Windows region primary tests reject selected mutations
+        run: python scripts/tests/region-primary-mutation.py
 
       - name: Build and smoke-test Windows CLI
         env:

@@ -1,10 +1,12 @@
 # AI governance discovery and public execution plan
 
-Status: bounded Graph discovery VERIFIED OFFLINE through [PR101](https://github.com/DeBoX85/Cloud-Assess/pull/101), merge3c4019c88c067818f1c4d72f754fc514e5712296/treeb302bc66. Final head2258f029/run37105082689 passed required native Linux/Windows with logs reviewed and clean fetched/source/pin proof. Pure/request libraries remain accepted through PR96/97. Public ai-gov execution/report integration is IN PROGRESS as an unaccepted candidate on feat/ai-public-execution; accepted public availability remains unchanged; no new live evidence.
+Current accepted status: public AI execution VERIFIED OFFLINE through [PR103](https://github.com/DeBoX85/Cloud-Assess/pull/103), merge8c8f8b9; final native and distinct accepted-push proof are indexed in SESSION_HANDOVER. Live validation remains deferred. The former candidate status below is historical.
 
-## Exact next implementation slice
+Historical status: bounded Graph discovery VERIFIED OFFLINE through [PR101](https://github.com/DeBoX85/Cloud-Assess/pull/101), merge3c4019c88c067818f1c4d72f754fc514e5712296/treeb302bc66. Final head2258f029/run37105082689 passed required native Linux/Windows with logs reviewed and clean fetched/source/pin proof. Pure/request libraries remain accepted through PR96/97. Public ai-gov execution/report integration is IN PROGRESS as an unaccepted candidate on feat/ai-public-execution; accepted public availability remains unchanged; no new live evidence.
 
-Accepted bounded source-specific Graph discovery remains in internal/plugins/aigov/discovery.go. The separate current public candidate composes actual standalone, mixed and scanner execution plus all-format reports; finish its exact-head native/protected acceptance before claiming accepted public availability. Do not combine region selection, dependency updates, release work or new network services.
+## Accepted implementation contract and historical pre-acceptance sequence
+
+Accepted bounded source-specific Graph discovery remains in internal/plugins/aigov/discovery.go. The accepted PR103 public implementation composes actual standalone, mixed and scanner execution plus all-format reports. The original sequence below is retained as contract/history; native/protected acceptance is complete and source-characterized region primary work now follows. Do not combine region selection, dependency updates, release work or new network services.
 
 Pinned source: DeBoX85/azqr at 8e4f0577f3615e6c9014c031bcad079f235369cc, internal/scanners/plugins/aigov/aigov.go, discoverOpenAIResources/Scan/processBatch. Fresh-session read verified the exact query and source mapping. Retained capture_test.go.txt already exercises actual unchanged source Scan with synthetic Graph rows, metrics/deployments, empty and unknown-include-tag branches; its captures remain independent source evidence. No new source capture or local execution is claimed by this plan.
 
