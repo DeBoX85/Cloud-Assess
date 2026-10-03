@@ -2138,3 +2138,6 @@ Initial PR106 head4e50009de3862d68b54e28dc8c3a557b7665de96 was rejected by nativ
 ### PR106 fixture topology correction
 
 PR106 native Windows run37146544096/job111271573338 rejected the authored fixture loader: decoding all fourteen output branches as single tables failed on the service-availability array. Fixed the test loader to retain all14 raw JSON branches and decode only the four quota/reservation table-or-null branches; complete capture hashes and all cell/guard assertions remain unchanged. No production or captured-source byte correction. Fresh final-head native validation is required.
+
+
+Automated Code Review discussion_r4174461025 independently reproduced FN069 on initial4e50009. Current e8c1cc8 RawMessage correction is published/read back with complete unchanged captures and human identity; final native gates remain pending. A manual Code Review tool is unavailable, but repository-configured automated review evidence is accessible.
