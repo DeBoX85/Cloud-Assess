@@ -1,10 +1,10 @@
 # AI governance discovery and public execution plan
 
-Status: bounded Graph discovery IN PROGRESS as an unaccepted library proposal after accepted workspace PR100. The pure/request libraries are accepted through PR96/97; ai-gov remains unavailable publicly. Start with [SESSION_HANDOVER.md](SESSION_HANDOVER.md); source/cell contracts are in [AI_GOVERNANCE.md](AI_GOVERNANCE.md) and [AI_GOVERNANCE_REQUESTS.md](AI_GOVERNANCE_REQUESTS.md). No laptop/Azure test is needed for the planned deterministic engineering.
+Status: bounded Graph discovery VERIFIED OFFLINE through [PR101](https://github.com/DeBoX85/Cloud-Assess/pull/101), merge3c4019c88c067818f1c4d72f754fc514e5712296/treeb302bc66. Final head2258f029/run37105082689 passed required native Linux/Windows with logs reviewed and clean fetched/source/pin proof. Pure/request libraries remain accepted through PR96/97. Public ai-gov execution/report integration is NOT STARTED and unavailable; no new live evidence.
 
 ## Exact next implementation slice
 
-The candidate implements bounded source-specific Graph account discovery in internal/plugins/aigov/discovery.go; independently accept it after final native QA, preserving truthful partial data and recorded filter decisions. Keep ai-gov unavailable in CLI/registry during that library slice. Then integrate actual standalone, mixed and scanner execution plus all-format reports as a separate reviewable slice. Do not combine region selection, dependency updates, release work or new network services.
+Accepted bounded source-specific Graph account discovery is in internal/plugins/aigov/discovery.go, preserving truthful partial data and recorded filter decisions. Keep ai-gov unavailable in CLI/registry during that library slice. Then integrate actual standalone, mixed and scanner execution plus all-format reports as a separate reviewable slice. Do not combine region selection, dependency updates, release work or new network services.
 
 Pinned source: DeBoX85/azqr at 8e4f0577f3615e6c9014c031bcad079f235369cc, internal/scanners/plugins/aigov/aigov.go, discoverOpenAIResources/Scan/processBatch. Fresh-session read verified the exact query and source mapping. Retained capture_test.go.txt already exercises actual unchanged source Scan with synthetic Graph rows, metrics/deployments, empty and unknown-include-tag branches; its captures remain independent source evidence. No new source capture or local execution is claimed by this plan.
 
@@ -30,7 +30,7 @@ Microsoft [large-result guidance](https://learn.microsoft.com/en-us/azure/govern
 
 ## Concrete discovery limits and response acceptance
 
-This contract was independently specified before code in PR99. It is implemented by the current unaccepted discovery candidate. These limits belong only to AI discovery; existing normal ARG queries and accepted metrics/deployment budgets remain unchanged. They are target safety limits, not Azure capacity guarantees or measured load acceptance.
+This contract was independently specified before code in PR99. It is implemented by the accepted discovery library. These limits belong only to AI discovery; existing normal ARG queries and accepted metrics/deployment budgets remain unchanged. They are target safety limits, not Azure capacity guarantees or measured load acceptance.
 
 | Work | Limit and accounting |
 | --- | --- |
@@ -56,7 +56,7 @@ Return an independently owned account slice plus explicit discovery health and e
 
 ## Independent discovery acceptance cases
 
-The current discovery tests exercise these synthetic obligations; final exact-head native/protected acceptance remains pending. This is not public/report or live equivalence evidence.
+The current discovery tests exercise these synthetic obligations; final exact-head native/protected acceptance passed through PR101. This is not public/report or live equivalence evidence.
 
 | Case | Observable oracle |
 | --- | --- |
@@ -91,7 +91,7 @@ Require authenticated synthetic command-to-coordinator-to-JSON/CSV/XLSX checks f
 
 Publish coherent code/tests/docs WIP on a new task branch, verifying tree/ordered parent/human identity and every changed file. Discovery guards need compiling named negative controls and restored baselines; broad native Linux/Windows jobs, full race/vet/build/package/docs/provenance/source hashes and reviewed exact-head logs remain mandatory. Final public integration additionally needs actual compiled command/help/preflight and all-format synthetic execution. No synthetic case closes live roles/models/metric totals/volume/sovereign evidence, Gate004 or release.
 
-Historical FN056 Windows/tool disconnect is retained in the failure notes. Its local development dependency is now resolved by a fresh isolated Ubuntu24.04 workspace with checksum-verified Go1.26.8/PowerShell7.6.6, Git HTTPS, clean accepted target/pinned AZQR and actual APRL, verified modules and full local Linux QA. [DEVELOPMENT_WORKSPACE.md](DEVELOPMENT_WORKSPACE.md) supplies the actual recipe/paths/proof boundaries. PR100 independent native/protected acceptance and clean fetched source/target proof completed at ca7fc301de421f24f62c6b976fe2d79c0bfe6780; its separate merge-push native run37103646003 also passed. Current discovery acceptance must use its own final head and evidence. Never reset unrelated work, request credentials or weaken a gate. Executor readiness is separate from deferred operator laptop/Azure tests and does not certify Windows-native/live/Gate004/release evidence.
+Historical FN056 Windows/tool disconnect is retained in the failure notes. Its local development dependency is now resolved by a fresh isolated Ubuntu24.04 workspace with checksum-verified Go1.26.8/PowerShell7.6.6, Git HTTPS, clean accepted target/pinned AZQR and actual APRL, verified modules and full local Linux QA. [DEVELOPMENT_WORKSPACE.md](DEVELOPMENT_WORKSPACE.md) supplies the actual recipe/paths/proof boundaries. PR100 independent native/protected acceptance and clean fetched source/target proof completed at ca7fc301de421f24f62c6b976fe2d79c0bfe6780; its separate merge-push native run37103646003 also passed. Discovery acceptance used its own final2258f029/run37105082689; separate public integration needs fresh final-head evidence. Never reset unrelated work, request credentials or weaken a gate. Executor readiness is separate from deferred operator laptop/Azure tests and does not certify Windows-native/live/Gate004/release evidence.
 
 Rollback: reviewed protected revert of each isolated slice after checking current dependencies and intended first parent. Preserve existing pure/request libraries, source captures and four earlier public plugins. The remaining order is discovery, public AI execution, then separately characterized region selection, B6 and B7.
 
@@ -104,3 +104,9 @@ Strict page metadata and continuation checks precede admitting any current-page 
 Self-review found an initial unaccepted row decoder did not charge rejected projected string bytes. It was corrected before publication and now has the independent exact/excess text fixture; FN057 records prevention. Normal Graph behavior, source/capture bytes/pins/dependencies, CLI availability and reports are unchanged. Reviewed protected revert remains the rollback route after dependency inspection.
 
 Discovery pre-acceptance review additionally rejects Unicode case-fold aliases in regional DNS input and fixed ARM service path/type names, preserving safe display labels and ASCII casing. Distinct-ID Kelvin-sign/long-s fixtures cannot be masked by duplicate detection; an eighth compiling control disables the DNS ASCII guard and must fail its named assertion (FN058). Earlier candidate full local/native results do not certify this correction; final revised exact-head QA remains required.
+
+## Discovery acceptance and actual next slice
+
+PR101 final2258f029/treeb302bc66 passed run37105082689, quality111151894191/Windows111151894026, all required steps/full logs. Tested preview1ab4b8c2 matches candidate tree and ordered baseca7fc301/final2258. Eleven actual CLI/nineteen default/nineteen branded cases per host, docs312/9/1, coverage81.9%, eight compiling controls/restored cases, new/existing fuzz, race/vet/maintenance/provenance/inventory/branding/PowerShell and reachable scans passed. Known module-only advisory remains open. Merge3c4019c/treeb302bc66/ordered parentsca7fc301/2258, human author/GitHub merge committer and clean local/source/actual APRL verified. Earlier candidate/FN057/FN058 paragraphs are historical development feedback, not current pending acceptance. Separate accepted-merge push needs its own run evidence; PR101 retains it when verified.
+
+Next implement actual CLI/coordinator/registry/report integration. Public-cloud preflight must run before credential/factory/scope discovery, not only inside the selected operation; never let a custom environment authenticate before the later library guard rejects it. The public enclosing context must preserve assessment deadlines and define its own lifecycle rather than summing independent library limits into a false shared cap. Compose accepted Discover and Scan using owned normalized scope/stable filter decisions; carry failed discovery health into retained final rows and exit behavior even if enrichment succeeds. Independently validate empty/nonempty source branches, complete sixteen-cell captures, pending/failed headers, structural/tag/mixed/scanner selection, concurrent ownership and all raw/default-masked formats through actual authenticated in-memory command-to-report execution. Unselected schema1.0/default behavior and prior public plugins stay intact. No new live capture or Azure/Gate004/release claim.
