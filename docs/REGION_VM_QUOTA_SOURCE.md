@@ -92,3 +92,34 @@ production substitution, service exposure or release. Live/load/fresh-OS/mainten
 Gate004/release/module-only advisory stay open. Self-review and independent literal
 oracles do not establish independent-person review. Preserve earlier workspaces and
 historical evidence; scratch-only work is not a verified backup.
+
+## Observed source and independent fixture record
+
+Planning50736112/treeb2a75e7d/parent28c7d996 and observatione72e9ebf/treea70511f2/
+parent50736112 were verified remotely against complete original local trees/bytes,
+ordered parents and Denis identity. [PR125](https://github.com/DeBoX85/Cloud-Assess/pull/125)
+is the exact evolving final-head/merge/push recovery index. Source37243637952/
+job111557127792 passed seven unchanged harnesses and source/module/APRL isolation,
+emitted15 files/123 contiguous chunks, then failed the declared absent-golden check.
+Classify that run as evidence gap, never source PASS. All chunks independently
+reconstructed and SHA256/full UTF8 compared; original13 unchanged. New2 match
+actual local corrected source observations. FN081/FN082 retain failed fixture and
+local-command attempts without transferring success to those attempts.
+
+| Capture | SHA256 | Bytes/chunks |
+|---|---|---|
+| source-vm-quota-inputs.json | 5b5319746110e4e86cc6753ec5b20a3306d6290d03b0e829682d2511324d3a1c | 7730/3 |
+| source-vm-quota-outputs.json | b6311db11c7a62c74818ef694c2991cd1ab46d3a8c0bf1337ed5fcd7cb480c32 | 9708/4 |
+
+Nineteen scenarios retain five arithmetic rows; case-sensitive Family containment;
+skipped missing names/value/limits and nonpositive limits; missing/localized display
+and risk fallback; nil empty; two pages; first/later400/403/404/405 and malformed
+responses; pre-cancellation; actual missing-current/null-item panics. Full literal
+records include every row/flag/percentage/risk/request/error/panic/nil distinction,
+plus exact SDK/source/options premises. Separate hashes preserve original input and
+output bytes. Five compiling controls alter family selection, source panic marker,
+unsupported-as-error, nil-empty and actual SDK request version; each must fail the
+named complete assertion with healthy/restored baselines. Local source19-case,
+focused full literals/hashes and five compiling controls/restored passed. Final-head
+native/source and accepted-push remain required; bounded oracle sensitivity does not
+certify target runtime, all source branches or source memory safety.

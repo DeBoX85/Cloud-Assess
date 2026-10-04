@@ -68,6 +68,8 @@ jobs:
         run: python3 scripts/tests/region-cost-enrichment-capture-mutation.py
       - name: Quota source oracle compiling controls
         run: python3 scripts/tests/region-quota-capture-mutation.py
+      - name: VM quota SDK source oracle compiling controls
+        run: python3 scripts/tests/region-vm-quota-capture-mutation.py
 
       - name: Verify formatting
         shell: bash
@@ -297,6 +299,8 @@ jobs:
         run: python scripts/tests/region-cost-enrichment-capture-mutation.py
       - name: Quota source oracle compiling controls
         run: python scripts/tests/region-quota-capture-mutation.py
+      - name: VM quota SDK source oracle compiling controls
+        run: python scripts/tests/region-vm-quota-capture-mutation.py
 
       - name: Test Go packages on Windows
         run: go test ./...
