@@ -1,3 +1,17 @@
+# Accepted PR124 and VM quota SDK source continuation
+
+PR124 is VERIFIED OFFLINE at accepted28c7d996bf040e3410dce5aef1cf3051dd187696/tree43eb87ddd5c89a0592f571b8f8bcaf89aba97821, ordered4f313ed5/2a76615b parents. Final candidate native37241139556/Linux111549965416/Windows111549965228 and source37241139561/job111549936476 PASS; distinct accepted-push native37241748242/Linux111551680747/Windows111551680811 and source37241748271/job111551680666 PASS. Complete mandatory steps/logs inspected. All13 source captures/116 chunks independently SHA256/UTF8 verified, original11 unchanged. Five compiling quota source-oracle controls/restored baselines pass both hosts; all earlier gates retained. Raw authored chain/signed merge and all680 clean accepted tracked blobs verified. Exact acceptance, source-test/caller clarification and historical evidence are https://github.com/DeBoX85/Cloud-Assess/pull/124. Earlier pending entries below are history.
+
+Live accepted ref/no proposals verified at continuation. VM quota SDK source characterization is IN PROGRESS, unaccepted, under [REGION_VM_QUOTA_SOURCE.md](REGION_VM_QUOTA_SOURCE.md). Invoke unchanged FetchVMQuota9d98d3d2 through strict synthetic SDK GET/audience/auth/body/request sequence and network tripwires; controlled fixture options disable retries/provider registration, not a source-default caller safety claim. Record source nil-current/null-item panic explicitly, full Family selection/arithmetic/name/nil/error/paging behavior and risk summaries. Do not substitute copied arithmetic or call panic an empty success. Preserve13 prior captures and unconditional equality; capture actual new observations before full independent literals/compiling controls/native acceptance. CRG SDK remains separate pending work, then bounded calculations/adapters/coordinator/public/all-format integration. Existing projections are not collectors.
+
+Local actual Go1.26.8/gofmt and clean pinned source/APRL are verified; no local Windows proof. No known lost work/uncertain operation. Current isolated vm-work starts from28c7d996; preserve prior worktrees. Publish coherent proposals and verify complete bytes/original local tree/ordered parent/Denis/ref before calling them backed up. Exact current PR body is evolving publication/run/acceptance recovery index, superseding historical pending entries.
+
+Laptop/Azure expected soon, NOT confirmed restored. Approved installed core/plugin live queue can resume independently after confirmed access/scope; DV001 needs wholly nonproduction hierarchy. Live/load/freshOS/maintenance/Gate004/release/module-only advisory stay open. No Azure resources/roles/fixtures/production substitution/exposure/release. Self-review and source-independent literals do not establish independent-person approval. No feature expansion beyond existing completion queue.
+
+Earlier records remain historical.
+
+---
+
 # PR124 retained REST quota source checkpoint
 
 Accepted baseline remains PR123 4f313ed5ce68856664537666607a2cd74b228331/tree d346154a1069b33b179745c3b4b3edb0d782c07e. Draft PR124 https://github.com/DeBoX85/Cloud-Assess/pull/124 is UNACCEPTED on feat/region-quota-source. REGION_QUOTA_RESERVATION records pre-edit source/target corrections and exact observed contracts. Verified planning5e1f9320/tree8fe2d225/parent4f313ed5 and observation0f622966/tree728121d5/parent5e1f9320 retain complete bytes/original local tree/Denis/ref proof.
