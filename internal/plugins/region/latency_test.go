@@ -3,6 +3,7 @@ package region
 import (
 	"bytes"
 	"context"
+	"crypto/sha256"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -145,7 +146,7 @@ func TestLatencyRuntimeDataRejection(t *testing.T) {
 	}
 	decoded, err := decodeLatency(context.Background(), bundledLatencyJSON)
 	if err != nil || !reflect.DeepEqual(decoded, data) || !bytes.Equal(bundledLatencyJSON, availabilityCapturedBytes(t, "source-latency-data.json")) {
-		t.Fatal("embedded dataset differs from independently observed complete source", err)
+		t.Fatalf("embedded dataset differs from independently observed complete source: %v; sha256=%x bytes=%d CRLF=%d", err, sha256.Sum256(bundledLatencyJSON), len(bundledLatencyJSON), bytes.Count(bundledLatencyJSON, []byte("\r\n")))
 	}
 	decoded.Matrix["eastus"]["westeurope"] = 999
 	again, err := decodeLatency(context.Background(), bundledLatencyJSON)

@@ -22,8 +22,8 @@ const (
 	MaxLatencyEntries      = 8192
 	MaxLatencyBytes        = 1 << 20
 	MaxLatencyMilliseconds = 1000000
-	latencySourceBlob       = "64a6abc72e2a54fec286cb27123175d1d6bcda61"
-	latencyDataHash         = "45e575040812ee74e006be34623cb253df24e6558f07727cefcef7e55e13326b"
+	latencySourceBlob      = "64a6abc72e2a54fec286cb27123175d1d6bcda61"
+	latencyDataHash        = "45e575040812ee74e006be34623cb253df24e6558f07727cefcef7e55e13326b"
 )
 
 //go:embed data/latency.json
