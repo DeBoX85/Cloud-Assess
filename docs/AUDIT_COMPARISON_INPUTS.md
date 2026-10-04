@@ -21,3 +21,7 @@ Draft WIP, unaccepted and unmerged. Verify live refs and exact-head native/sourc
 ## Corrected checkpoint
 
 The loader rejects missing/unsupported target schema versions, missing/unknown completeness values, and reference inputs with zero recognized core sections. Both allowed healthy completeness values and valid empty/null known sections retain their established behavior; partial/failed remain non-comparable. This deliberately closes an offline QA false-success boundary without changing assessment scanning, source pins or normalization. Full fresh Linux/Windows/source gates and tested-preview identity must be verified for the corrected head before acceptance. New supported schemas require an explicit reviewed loader update.
+
+## Review correction: additive schema compatibility
+
+Before acceptance, requirements reconciliation identified a valid second canonical schema: result.PluginSchemaVersion1.1, additive plugin tables under docs/PLUGIN_TABLES.md. The first unmerged733b9243 guard incorrectly admitted only1.0. A literal nonempty valid plugin-table command fixture now requires successful core-only comparison for1.1 against healthy empty Advisor evidence. This checkpoint changes tests/documentation only on733b9243 to obtain an independent compiling compatibility failure before correcting the guard. No accepted branch affected, no historical incidence. Future correction must allow both declared schemas without claiming generic core comparison compares plugin cells.

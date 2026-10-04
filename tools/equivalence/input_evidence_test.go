@@ -72,3 +72,29 @@ func TestAuditComparisonPreservesHealthyEmptyEvidence(t *testing.T) {
 		})
 	}
 }
+
+func TestAuditComparisonPreservesAdditivePluginSchema(t *testing.T) {
+	directory := t.TempDir()
+	reference := filepath.Join(directory, "reference.json")
+	target := filepath.Join(directory, "target.json")
+	output := filepath.Join(directory, "diff.json")
+	writeTestFile(t, reference, `{"advisor":[]}`)
+	writeTestFile(t, target, `{
+		"schemaVersion":"1.1",
+		"completeness":"complete",
+		"stages":[{"name":"advisor","status":"completed"},{"name":"plugin","status":"completed"}],
+		"pluginTables":[{
+			"schemaVersion":"1.0",
+			"id":"zones",
+			"metadata":{"name":"zone-mapping","version":"1.0.0","description":"Synthetic zone fixture","author":"Azure Quick Review Team","license":"MIT","type":"internal"},
+			"sheetName":"Zone Mapping",
+			"description":"Synthetic",
+			"columns":["Zone"],
+			"rows":[{"cells":["1"]}],
+			"health":{"name":"zone-mapping","status":"completed","records":1}
+		}]
+	}`)
+	if code := run([]string{"--reference", reference, "--target", target, "--output", output}); code != 0 {
+		t.Fatalf("valid additive schema rejected with exit code %d", code)
+	}
+}
