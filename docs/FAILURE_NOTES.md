@@ -76,6 +76,8 @@ Record user-visible instruction errors and errors that affected code, tests, evi
 
 - **Tool-argument recurrence, dependency inventory:** Initially passed `repo` instead of the connector-required `repository_full_name` when creating a tree. Binding validation rejected the request before mutation. Corrected the argument and compared the resulting Git tree exactly with the local staged tree before publishing.
 
+- PR123 transport recurrence (2026-10-04): a single large shell read truncated DEVELOPMENT_LEDGER before tree creation. Independent complete local-tree comparison rejected unreferenced tree51921255/commit238ee65c before any proposal/accepted ref pointed there. Reassembled bounded50000-character chunks, verified full tree8233f7bf and all four remote files before production edits. Existing historical bytes remain preserved. Prevention: bounded reads, reject truncation markers and compare original local full Git tree before publishing refs. This was a development/evidence transport error, not product failure or service outage. The initial missing-branch update_ref422/failed PR creation were inspected remotely and resolved with explicit create_branch; no force or uncertain outcome. Fresh runtime QA remains pending.
+
 ## FN-008: Toolchain availability was inferred from PATH alone
 
 - **Date:** 2026-09-30. Earlier checkpoints said local Go was unavailable after checking PATH. A later source search found an existing Go 1.26.0 toolchain outside PATH, which successfully selected/downloaded Go 1.26.8. Earlier executable verification was performed in CI, not locally.

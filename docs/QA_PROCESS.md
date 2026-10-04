@@ -199,3 +199,8 @@ Next: classify fresh exact-head native feedback, correct only justified failures
 ## Cost-enrichment source characterization
 
 PR122/REGION_COST_ENRICHMENT defines26 complete independent source comparisons, actual cost/types blob hashes, strict11 retained-source file equality and6 compiling fixture controls/restored semantic assertions on both mandatory native hosts. Source-only acceptance does not certify target weighted cost arithmetic, subscription/resource evidence ownership, collection completeness or public execution. Its live PR body and current SESSION_HANDOVER are exact final-head/accepted-push evidence authority. Target/runtime/collector/live obligations remain open.
+
+
+## Owned weighted cost runtime
+
+PR123/REGION_COST_RUNTIME.md implements primary weighted cost enrichment with explicit selected-subscription history and pricing evidence, separate honest cost health, bounded deterministic arithmetic and owned results. It is UNACCEPTED pending full native/source proof. Public region execution and collector completeness remain unavailable; source captures/pins remain unchanged. Mandatory gates add14 compiling runtime controls/restored baselines on both hosts, complete valid/corrected source results and independent boundary/ownership/cancellation/integration assertions. PR123 body indexes exact acceptance, not this historical pending status.

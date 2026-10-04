@@ -1,3 +1,15 @@
+# PR123 weighted cost-runtime recovery authority
+
+Accepted PR122 remains201f26921c67741a1433697d9489e6458f32bd64/tree2751881f56fe5f326826e92aeb5ca615b6f898c8; exact source-only acceptance is https://github.com/DeBoX85/Cloud-Assess/pull/122. Pure weighted EnrichCost is implemented UNACCEPTED in PR123 https://github.com/DeBoX85/Cloud-Assess/pull/123 on feat/region-cost-enrichment-runtime. Planning4597c3af/tree8233f7bf/parent201f2692 and full four-file content/local tree/Denis identity were remotely verified before production edits. REGION_COST_RUNTIME records exact pre-edit source/correction/evidence/numeric/health/bounds contracts. Twenty complete retained-source valid/corrected cases plus independent selected-subscription/numeric/status/duplicate/admission/boundary/work/deterministic-sum/ownership/concurrency/cancellation/full integration assertions and14 compiling controls are authored; Go execution is still pending. All11 captures/109 chunks/pins/dependencies/schemas remain unchanged. No prior successful tests are transferred to this head.
+
+Next inspect actual fresh exact-head Linux/Windows/source logs/mandatory steps/controls, classify failures before retries, verify complete source chunks/hash/UTF8 bytes and final diff/local tree/remote bytes/parents/Denis/base/preview/no-bypass protection, then protected expected-head merge and separate accepted-push proof. PR123 body is the exact evolving publication/run/recovery index. No uncertain remote operation; unpublished source is not backed up until verified branch publication. A preliminary unreferenced tree/commit containing truncated tool output was rejected by local-tree comparison before any branch publication; correct complete history is preserved, FN007 recurrence records prevention. Initial update_ref missing-branch422 was handled by create_branch after live outcome checks, not force or blind retry.
+
+Laptop/Azure access expected soon, not confirmed. Existing approved core/plugin live queue can resume independently after confirmed access/scope; DV001 wholly nonproduction hierarchy/live/load/freshOS/maintenance/Gate004/release/module-only advisory remain open. No Azure resources/roles/fixtures/production substitution/exposure/release. Public region still unavailable pending quota/reservation/adapters/coordinator/all-format integration. Self-review only, no independent-person approval. Local Go/pwsh/materialized APRL absent; Actions executes native proof. Older workspaces/history preserved.
+
+Earlier descriptions below are retained history, superseded by this authority and live PR indices.
+
+---
+
 # Cost-runtime continuation checkpoint
 
 PR122 source-only characterization is VERIFIED OFFLINE at accepted201f26921c67741a1433697d9489e6458f32bd64/tree2751881f56fe5f326826e92aeb5ca615b6f898c8. Final candidate and separate accepted-push Linux/Windows/source full logs passed; source11 files/109 chunks unchanged. Exact acceptance is https://github.com/DeBoX85/Cloud-Assess/pull/122. No open proposals at entry; no lost/unpublished prior authored work or uncertain operation. Previous audit/availability/latency/sheet acceptance is not repeated.
