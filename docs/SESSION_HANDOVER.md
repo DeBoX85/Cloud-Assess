@@ -1,3 +1,17 @@
+# Latest audit resume checkpoint (2026-10-04)
+
+Audit IN PROGRESS, user authorized autonomous offline work. Frozen accepted07011b63/tree72bebbf4 unchanged. PR114 documentation checkpoint contains the current report/recovery prompt; always reverify refs after interruption. No local Go; local snapshot630 hashes/tree/commit exact, APRL absent locally. Native Actions are execution authority.
+
+PR113be867a17 repaired native/source/full six captures/preview verified, feature acceptance paused. PR11523d2ce4daee7474904975156b4c97fb75c2a6843/tree7438dfd7 full native37184407342/Linux111383253100/Windows111383253050 and source37184407425/111383253548 passed; logs, four retained captures and pinned provenance read; preview87b10d5d99153cd3c731efc58c1ff60f1f9fa7eb equals candidate tree, ordered07011b63/23d2ce4d parents. AUD003 default SDK route mitigation confirmed by actual new pipeline fixture passing. Defensive library fix remains draft/unmerged, not audit-wide or live acceptance.
+
+AUD005 Cost continuation reproduced against unchanged78dd85c9 in native37184679263 on Linux111384036588/Windows111384036492, two compiling named failures, format passed. PR116 corrected8d54c0d921825996bbe9c663a8f48f1a6d95ca00/treeed772a9455cf11d490b310b6778d11977ac262a4/parent78dd85c9 verified Denis identity/3 changed remote bytes. Detect nonempty nextLink and fail closed before accepting rows; no authenticated provider URL follows/echoes and full pagination remains unimplemented. Actual Cost.Scanner -> Coordinator regression asserts failed Cost/partial assessment/healthy retained Advisor+Graph. Fresh full native/source pending.
+
+Next: inspect116 full exact-head gates and integration proof; finish requirement/test reconciliation across reviewed retrieval/model/reports/public plugins; review all AI/region/equivalence/scanner/SKU/tooling/workflow/dependency/docs areas still open. Cost missing-envelope/column contract and narrower core human report masking are questions/known distinctions, not automatically confirmed additional defects. Whole-project audit incomplete; no percentage/ETA or release/live/Gate004 closure. Keep checkpoints/ledger current and proposals unmerged until required disposition/gates. No Azure writes/roles/new fixtures/production substitution/service exposure/release.
+
+Earlier dated checkpoints follow as superseded history.
+
+---
+
 # Current audit execution checkpoint (2026-10-04)
 
 Comprehensive audit IN PROGRESS. Read PROJECT_AUDIT_REPORT_20261004.md and AUDIT_RECOVERY.md before resuming. User authorized unattended offline audit. Frozen accepted07011b63440e69f4a5acb128e0449943f759ee9c/tree72bebbf4885a15a74a5f43dfe57c68fe979c1e7c remains unchanged. Local exact630 blobs/tree/signed commit verified; APRL remotely pinned but locally absent. No local Go; native Actions execute QA.

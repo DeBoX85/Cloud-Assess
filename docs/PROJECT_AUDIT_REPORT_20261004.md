@@ -28,7 +28,8 @@ Both native vulnerability scans report zero reachable/imported-package findings 
 |---|---|---|---|
 | AUD001 / FN074 | Process, blocking PR113 native acceptance | Raw JavaScript replacement-string dollar-apostrophe expansion reproduces entire malformed27592-character test.yml from preceding e4f2f766. YAML rejects line341; truncated command/duplicated tail prevents job creation. Accepted baseline unaffected | Repaired on unmerged113 atbe867a174dbc112caba273cda620822fd9828b2e; complete remote bytes/identity/parent verified. Intended13430-character YAML parses and eight explicit Bash blocks pass bash -n. Native37183435404 quality111380420837/windows111380420966 and source37183435389/job111380420823 all mandatory steps passed; full logs inspected, preview8a040608/tree0878fc48 with ordered07011b63/be867a17 parents and identical candidate tree verified. All six captures reconstructed/hashed exactly. Merge remains paused |
 | AUD002 | Documentation/recovery, stale accepted resume point | Accepted handover/spec/plan still say aggregation preparation/PR111 despite accepted112; newer continuity was only unmerged113 | Active audit checkpoint supersedes these resume instructions. Final authoritative reconciliation pending, history retained |
-| AUD003 | Defensive library transport correction; default SDK route already mitigates | Test-only730a29e6 native37183817468 failed all eight named terminal-read assertions on Linux111381519563/Windows111381519469 against unchanged production; compilation/formatting passed | CONFIRMED injected-poster boundary. Pinned SDK bodyDownloadPolicy already protects default HTTPClient; no live false-complete claim. PR115 corrected head23d2ce4daee7474904975156b4c97fb75c2a6843/tree7438dfd7, parent730a29e6, identity and all3 bytes verified. Fresh full QA pending |
+| AUD003 | Defensive library transport correction; default SDK route already mitigates | Test-only730a29e6 native37183817468 failed all eight named terminal-read assertions on Linux111381519563/Windows111381519469 against unchanged production; compilation/formatting passed | CONFIRMED injected-poster boundary. Pinned SDK bodyDownloadPolicy already protects default HTTPClient; no live false-complete claim. PR115 corrected head23d2ce4daee7474904975156b4c97fb75c2a6843/tree7438dfd7, parent730a29e6, identity and all3 bytes verified. Native37184407342 Linux111383253100/Windows111383253050 and source37184407425/111383253548 passed. Full logs and four capture bytes/provenance inspected; preview87b10d5d/tree7438dfd7 with ordered07011b63/23d2ce4d parents verified. Remains draft/unmerged |
+| AUD005 | Product completeness, Cost adapter | Official stable2021-10-01 spec defines nextLink; native37184679263 failed two compiling named paged empty/nonempty assertions on Linux111384036588 and Windows111384036492 | CONFIRMED synthetic first-page false-success. PR116 corrected8d54c0d921825996bbe9c663a8f48f1a6d95ca00/treeed772a94 parent78dd85c9, identity/3 changed bytes verified. Fail closed before accepted costs, no provider URL followed/echoed. Actual coordinator partial/retained healthy stages fixture added; full fresh QA pending. Full pagination still unimplemented, no historical live incidence claim |
 | AUD004 | Recovery limitation | Prior availability draft existed only in transient Windows workspace/store; verified remote holds source contract but no production implementation | Recorded; reconstruct later from verified source contract, feature implementation paused |
 
 No security incident, product-wide instability, independent-person approval, live equivalence or release readiness is inferred.
@@ -41,40 +42,40 @@ Initial requirements: branding/profile/package; credential/cloud/read orientatio
 
 | Area | Production Go files | Test files | Review status |
 |---|---:|---:|---|
-| cmd/cloud-assess | 4 | 11 | NOT REVIEWED |
-| internal/advisor | 2 | 3 | NOT REVIEWED |
-| internal/app | 1 | 9 | NOT REVIEWED |
-| internal/arcsql | 1 | 1 | NOT REVIEWED |
+| cmd/cloud-assess | 4 | 11 | IN PROGRESS |
+| internal/advisor | 2 | 3 | IN PROGRESS |
+| internal/app | 1 | 9 | IN PROGRESS |
+| internal/arcsql | 1 | 1 | IN PROGRESS |
 | internal/arg | 6 | 9 | IN PROGRESS |
-| internal/assessment | 8 | 0 | NOT REVIEWED |
+| internal/assessment | 8 | 0 | IN PROGRESS |
 | internal/azure | 8 | 7 | IN PROGRESS |
-| internal/branding | 2 | 1 | NOT REVIEWED |
-| internal/config | 2 | 3 | NOT REVIEWED |
-| internal/cost | 2 | 3 | NOT REVIEWED |
-| internal/defender | 1 | 1 | NOT REVIEWED |
+| internal/branding | 2 | 1 | IN PROGRESS |
+| internal/config | 2 | 3 | IN PROGRESS |
+| internal/cost | 2 | 3 | IN PROGRESS |
+| internal/defender | 1 | 1 | IN PROGRESS |
 | internal/diagnostics | 2 | 1 | NOT REVIEWED |
 | internal/discovery | 5 | 6 | IN PROGRESS |
 | internal/equivalence | 3 | 2 | NOT REVIEWED |
-| internal/findings | 2 | 2 | NOT REVIEWED |
-| internal/gate | 1 | 1 | NOT REVIEWED |
+| internal/findings | 2 | 2 | IN PROGRESS |
+| internal/gate | 1 | 1 | IN PROGRESS |
 | internal/orchestration | 3 | 7 | IN PROGRESS |
 | internal/plugins/aigov | 5 | 5 | NOT REVIEWED |
-| internal/plugins | 4 | 5 | NOT REVIEWED |
-| internal/plugins/carbon | 2 | 2 | NOT REVIEWED |
+| internal/plugins | 4 | 5 | IN PROGRESS |
+| internal/plugins/carbon | 2 | 2 | IN PROGRESS |
 | internal/plugins/region | 6 | 7 | NOT REVIEWED |
-| internal/plugins/servicehealth | 2 | 1 | NOT REVIEWED |
-| internal/plugins/sqleol | 2 | 1 | NOT REVIEWED |
-| internal/plugins/zone | 1 | 1 | NOT REVIEWED |
+| internal/plugins/servicehealth | 2 | 1 | IN PROGRESS |
+| internal/plugins/sqleol | 2 | 1 | IN PROGRESS |
+| internal/plugins/zone | 1 | 1 | IN PROGRESS |
 | internal/policy | 1 | 1 | NOT REVIEWED |
-| internal/redact | 1 | 1 | NOT REVIEWED |
-| internal/renderers/csv | 1 | 1 | NOT REVIEWED |
-| internal/renderers/excel | 1 | 1 | NOT REVIEWED |
-| internal/renderers/json | 1 | 1 | NOT REVIEWED |
-| internal/renderers/sarif | 1 | 1 | NOT REVIEWED |
-| internal/renderers/tables | 2 | 1 | NOT REVIEWED |
-| internal/reportfile | 3 | 2 | NOT REVIEWED |
+| internal/redact | 1 | 1 | IN PROGRESS |
+| internal/renderers/csv | 1 | 1 | IN PROGRESS |
+| internal/renderers/excel | 1 | 1 | IN PROGRESS |
+| internal/renderers/json | 1 | 1 | IN PROGRESS |
+| internal/renderers/sarif | 1 | 1 | IN PROGRESS |
+| internal/renderers/tables | 2 | 1 | IN PROGRESS |
+| internal/reportfile | 3 | 2 | IN PROGRESS |
 | internal/result | 3 | 3 | NOT REVIEWED |
-| internal/rules | 5 | 4 | NOT REVIEWED |
+| internal/rules | 5 | 4 | IN PROGRESS |
 | internal/scanners | 1 | 1 | NOT REVIEWED |
 | internal/skus | 1 | 1 | NOT REVIEWED |
 | internal/stages | 3 | 3 | IN PROGRESS |
@@ -96,3 +97,11 @@ PR113 full repaired native/source logs inspected. Six capture files exactly repr
 Manual production review has covered CLI/app entry points, all Azure/discovery/stages/rules production files, ARG transport/client/executor, Advisor/Policy/Arc/Cost adapters and throttling, with selected independent fixtures. Orchestration and Defender remainder, comprehensive tests, reports/privacy, plugins, tooling, workflow security, requirements/docs/dependencies remain open. Review matrix status remains IN PROGRESS until associated tests/requirements are reconciled. Cost Management continuation/column handling is a newly identified contract question, not yet a confirmed finding; inspect official pinned API/source and independent fixtures before classification.
 
 AUD003 deliberately retains SDK buffering and all source pins. Default shared pipeline mitigation is source-grounded in azcore1.23.1 bodyDownloadPolicy and internal1.12.0 Payload. New actual pipeline fixture must verify it natively. Earlier Diagnostics inspection does not imply the same production reachability. The original eight failures are retained at immutable730a29e6. No full-project review completed, accepted branch advanced, independent-person review or live approval.
+
+## Cost and report review checkpoint
+
+AUD005 test-only78dd85c9 proved paged empty/nonempty first responses are accepted without warnings on both platforms. Guard in PR116 rejects nonempty nextLink, preserving null/empty terminal mappings and valid204. This intentionally reports partial data rather than implementing full pagination; coordinator fixture must prove failed Cost/overall partial with healthy Advisor/Graph retained. Official API snapshot inspected through Azure/azure-rest-api-specs stable2021-10-01 definitions/SubscriptionQueryGrouping example. Missing envelope/column order are still separate unconfirmed questions.
+
+Production source review extended to all canonical assessment/result/findings/gate/config/branding/redaction/reportfile/renderers and public zone/carbon/service-health/SQL-EOL adapters plus plugin projection boundary. Read core result ownership/ordering fixtures, findings fixtures, JSON embedded/scope/error-only identity tests, CSV formula/private output tests, actual XLSX text/hyperlink/workbook tests, SARIF record tests and Windows ACL inheritance/replacement fixtures. Existing native branded all-format checks also passed on115. Remaining comprehensive plugin/core integration tests, comparator/tooling/pinned-data/requirements review keep these areas IN PROGRESS, not accepted full audit completion.
+
+Documented report limitations retained: SARIF identity-bearing by design; report staging protects existing files on rendering failure but multi-file exports are not transactional and universal crash durability/atomic replacement is not claimed; Windows fixture proves controlled ACL inheritance and prior DACL preservation, not arbitrary operator-directory privacy. JSON masks known IDs in serialized related strings, core human tables preserve narrower inherited dedicated-ID masking; audit should clarify any broader operator expectation rather than claim complete anonymization. Table constructor assumes canonical Build summary for core trusted library inputs; default production always supplies it. No exploit or live failure inferred from trusted injection/malformed manual object hypotheses.
