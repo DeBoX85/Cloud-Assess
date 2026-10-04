@@ -1,3 +1,14 @@
+# Latest audit checkpoint: all first-party source reads
+
+## Complete source reads and filter proof checkpoint
+
+All 216 frozen-baseline Go files (103 production, 113 tests), all 31 scripts and four workflows are now fully read. This does not close requirement adequacy, documentation/data/dependency review or combined integration. Region tests check independently captured scores/every cell, five-map inventory arithmetic, explicit source case discrepancy, scope identity, exact literal work/text/count/UTF16 boundaries, ownership and deterministic cancellation. Service-health/SQL-EOL/zone tests exercise literal authenticated cloud destinations, bounded page/whole-query bytes, malformed/ambiguous envelopes, failed-page retention, unsafe continuations and worker isolation. No new confirmed finding arose in these remaining test reads.
+
+PR118 corrected 6e4a7758bf8f26fbbdec3f08e295defa4af9bec0 has now passed native37186686512/Linux111389986936/Windows111389986819 and source37186686517/111389986696. Full decoded logs, mandatory steps, four complete contiguous source captures with independently checked SHA256 and retained-byte equality were inspected. Preview f2ac9edb11b1e85b314f7502c5c5f398d0f0fd63 equals d8234ef734e15b4d50d571cd9b88f6aeee3f7b81 with ordered07011b63/6e4a7758 parents. Linux82.7% aggregate coverage; race/vet/bounded fuzz/selected mutations, native Windows and actual default/custom CLI/report/package validation passed. Zero imported/reachable vulnerabilities, one module-only advisory. All proposals remain unmerged; accepted07011b63 unchanged.
+
+Next: finish requirements/current-docs/data/dependency review and proposal113 final scope, reconcile material claims, then validate a combined integration candidate and accept only through protected exact-head gates. Source reads are not independent-person approval, live equivalence, representative estate load, fresh OS certification or release acceptance. No offline user input required.
+
+
 # Latest audit execution checkpoint
 
 2026-10-04: PR117 final e381d0ad complete native/source/preview/four-capture proof verified; PR metadata reconciled to final evidence. AUD007 five real-preflight invalid filter regressions compiled and failed on both hosts at test-only926ac5ce, healthy defaults controls held. Narrow strict loader correction PR1186e4a7758/treed8234ef7 published after identity/parent/ref checks and exact4 changed-byte/readback checks; full corrected QA pending. Contract docs on118 specify pre-auth rejection and preserved defaults. All production Go/scripts/workflows read;51 baseline Go test files full read, exact remaining-path manifest added. Whole-project audit remains open, accepted07011b63 unchanged; no Azure/live/release claim. Offline autonomy continues, no input required.

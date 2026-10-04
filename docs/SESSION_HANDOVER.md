@@ -1,3 +1,14 @@
+# Current audit recovery checkpoint
+
+## Complete source reads and filter proof checkpoint
+
+All 216 frozen-baseline Go files (103 production, 113 tests), all 31 scripts and four workflows are now fully read. This does not close requirement adequacy, documentation/data/dependency review or combined integration. Region tests check independently captured scores/every cell, five-map inventory arithmetic, explicit source case discrepancy, scope identity, exact literal work/text/count/UTF16 boundaries, ownership and deterministic cancellation. Service-health/SQL-EOL/zone tests exercise literal authenticated cloud destinations, bounded page/whole-query bytes, malformed/ambiguous envelopes, failed-page retention, unsafe continuations and worker isolation. No new confirmed finding arose in these remaining test reads.
+
+PR118 corrected 6e4a7758bf8f26fbbdec3f08e295defa4af9bec0 has now passed native37186686512/Linux111389986936/Windows111389986819 and source37186686517/111389986696. Full decoded logs, mandatory steps, four complete contiguous source captures with independently checked SHA256 and retained-byte equality were inspected. Preview f2ac9edb11b1e85b314f7502c5c5f398d0f0fd63 equals d8234ef734e15b4d50d571cd9b88f6aeee3f7b81 with ordered07011b63/6e4a7758 parents. Linux82.7% aggregate coverage; race/vet/bounded fuzz/selected mutations, native Windows and actual default/custom CLI/report/package validation passed. Zero imported/reachable vulnerabilities, one module-only advisory. All proposals remain unmerged; accepted07011b63 unchanged.
+
+Next: finish requirements/current-docs/data/dependency review and proposal113 final scope, reconcile material claims, then validate a combined integration candidate and accept only through protected exact-head gates. Source reads are not independent-person approval, live equivalence, representative estate load, fresh OS certification or release acceptance. No offline user input required.
+
+
 # Latest audit resume checkpoint (2026-10-04)
 
 Audit IN PROGRESS; autonomous offline work authorized. Accepted07011b63440e69f4a5acb128e0449943f759ee9c/tree72bebbf4885a15a74a5f43dfe57c68fe979c1e7c unchanged. Verify live refs and complete operation results before retries. PR114 holds report, exact path coverage and recovery prompt. Local630 blobs/tree/commit exact; APRL absent/no Go; native Actions execute QA. All production Go across41 areas,31 scripts/four workflows read;51 baseline test files fully read, remaining exact paths in AUDIT_REVIEW_COVERAGE_20261004.md. Requirements/docs/data/dependency/test-adequacy reconciliation and combined integration remain open.

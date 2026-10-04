@@ -1,6 +1,6 @@
 # Audit review coverage checkpoint
 
-Frozen accepted commit: 07011b63440e69f4a5acb128e0449943f759ee9c. Status IN PROGRESS. This file records manual source reads, not adequate testing, independent-person approval or audit completion. Native full-suite proof is documented separately. All first-party production Go files, 31 scripts and four workflows have been read. Test rows remain open until full read plus requirement/oracle reconciliation. Previously sampled tests are deliberately still marked pending full read.
+Frozen accepted commit: 07011b63440e69f4a5acb128e0449943f759ee9c. Status IN PROGRESS. This file records manual source reads, not adequate testing, independent-person approval or audit completion. Native full-suite proof is documented separately. All first-party production Go files, 31 scripts and four workflows have been read. All 103 production and 113 test Go files have now been fully read. Requirement/oracle adequacy reconciliation and combined integration remain open.
 
 | Go path | Manual source read |
 |---|---|
@@ -8,34 +8,34 @@ Frozen accepted commit: 07011b63440e69f4a5acb128e0449943f759ee9c. Status IN PROG
 | `cmd/cloud-assess/main.go` | Read, requirement/test reconciliation open |
 | `cmd/cloud-assess/plugins.go` | Read, requirement/test reconciliation open |
 | `cmd/cloud-assess/rules.go` | Read, requirement/test reconciliation open |
-| `cmd/cloud-assess/aigov_execution_test.go` | Pending full read; existing native suite passed |
-| `cmd/cloud-assess/aigov_preflight_test.go` | Pending full read; existing native suite passed |
-| `cmd/cloud-assess/carbon_execution_test.go` | Pending full read; existing native suite passed |
-| `cmd/cloud-assess/command_test.go` | Pending full read; existing native suite passed |
-| `cmd/cloud-assess/plugins_test.go` | Pending full read; existing native suite passed |
-| `cmd/cloud-assess/process_test.go` | Pending full read; existing native suite passed |
-| `cmd/cloud-assess/rules_test.go` | Pending full read; existing native suite passed |
-| `cmd/cloud-assess/scanners_test.go` | Pending full read; existing native suite passed |
-| `cmd/cloud-assess/servicehealth_execution_test.go` | Pending full read; existing native suite passed |
-| `cmd/cloud-assess/sqleol_execution_test.go` | Pending full read; existing native suite passed |
-| `cmd/cloud-assess/zone_execution_test.go` | Pending full read; existing native suite passed |
+| `cmd/cloud-assess/aigov_execution_test.go` | Read, adequacy reconciliation open |
+| `cmd/cloud-assess/aigov_preflight_test.go` | Read, adequacy reconciliation open |
+| `cmd/cloud-assess/carbon_execution_test.go` | Read, adequacy reconciliation open |
+| `cmd/cloud-assess/command_test.go` | Read, adequacy reconciliation open |
+| `cmd/cloud-assess/plugins_test.go` | Read, adequacy reconciliation open |
+| `cmd/cloud-assess/process_test.go` | Read, adequacy reconciliation open |
+| `cmd/cloud-assess/rules_test.go` | Read, adequacy reconciliation open |
+| `cmd/cloud-assess/scanners_test.go` | Read, adequacy reconciliation open |
+| `cmd/cloud-assess/servicehealth_execution_test.go` | Read, adequacy reconciliation open |
+| `cmd/cloud-assess/sqleol_execution_test.go` | Read, adequacy reconciliation open |
+| `cmd/cloud-assess/zone_execution_test.go` | Read, adequacy reconciliation open |
 | `internal/advisor/metadata.go` | Read, requirement/test reconciliation open |
 | `internal/advisor/scanner.go` | Read, requirement/test reconciliation open |
-| `internal/advisor/metadata_http_test.go` | Pending full read; existing native suite passed |
-| `internal/advisor/pagination_context_test.go` | Pending full read; existing native suite passed |
-| `internal/advisor/scanner_test.go` | Pending full read; existing native suite passed |
+| `internal/advisor/metadata_http_test.go` | Read, adequacy reconciliation open |
+| `internal/advisor/pagination_context_test.go` | Read, adequacy reconciliation open |
+| `internal/advisor/scanner_test.go` | Read, adequacy reconciliation open |
 | `internal/app/scan.go` | Read, requirement/test reconciliation open |
-| `internal/app/arg_completeness_test.go` | Pending full read; existing native suite passed |
-| `internal/app/branding_report_test.go` | Pending full read; existing native suite passed |
-| `internal/app/e2e_test.go` | Pending full read; existing native suite passed |
-| `internal/app/optional_stage_http_test.go` | Pending full read; existing native suite passed |
-| `internal/app/plugin_tables_test.go` | Pending full read; existing native suite passed |
-| `internal/app/scan_test.go` | Pending full read; existing native suite passed |
-| `internal/app/scope_test.go` | Pending full read; existing native suite passed |
-| `internal/app/timeout_test.go` | Pending full read; existing native suite passed |
-| `internal/app/yaml_plugins_test.go` | Pending full read; existing native suite passed |
+| `internal/app/arg_completeness_test.go` | Read, adequacy reconciliation open |
+| `internal/app/branding_report_test.go` | Read, adequacy reconciliation open |
+| `internal/app/e2e_test.go` | Read, adequacy reconciliation open |
+| `internal/app/optional_stage_http_test.go` | Read, adequacy reconciliation open |
+| `internal/app/plugin_tables_test.go` | Read, adequacy reconciliation open |
+| `internal/app/scan_test.go` | Read, adequacy reconciliation open |
+| `internal/app/scope_test.go` | Read, adequacy reconciliation open |
+| `internal/app/timeout_test.go` | Read, adequacy reconciliation open |
+| `internal/app/yaml_plugins_test.go` | Read, adequacy reconciliation open |
 | `internal/arcsql/scanner.go` | Read, requirement/test reconciliation open |
-| `internal/arcsql/scanner_test.go` | Pending full read; existing native suite passed |
+| `internal/arcsql/scanner_test.go` | Read, adequacy reconciliation open |
 | `internal/arg/client.go` | Read, requirement/test reconciliation open |
 | `internal/arg/errors.go` | Read, requirement/test reconciliation open |
 | `internal/arg/executor.go` | Read, requirement/test reconciliation open |
@@ -84,11 +84,11 @@ Frozen accepted commit: 07011b63440e69f4a5acb128e0449943f759ee9c. Status IN PROG
 | `internal/config/load_test.go` | Read, adequacy reconciliation open |
 | `internal/cost/period.go` | Read, requirement/test reconciliation open |
 | `internal/cost/scanner.go` | Read, requirement/test reconciliation open |
-| `internal/cost/http_contract_test.go` | Pending full read; existing native suite passed |
-| `internal/cost/period_test.go` | Pending full read; existing native suite passed |
-| `internal/cost/scanner_test.go` | Pending full read; existing native suite passed |
+| `internal/cost/http_contract_test.go` | Read, adequacy reconciliation open |
+| `internal/cost/period_test.go` | Read, adequacy reconciliation open |
+| `internal/cost/scanner_test.go` | Read, adequacy reconciliation open |
 | `internal/defender/scanner.go` | Read, requirement/test reconciliation open |
-| `internal/defender/scanner_test.go` | Pending full read; existing native suite passed |
+| `internal/defender/scanner_test.go` | Read, adequacy reconciliation open |
 | `internal/diagnostics/recommendations.go` | Read, requirement/test reconciliation open |
 | `internal/diagnostics/scanner.go` | Read, requirement/test reconciliation open |
 | `internal/diagnostics/scanner_test.go` | Read, adequacy reconciliation open |
@@ -117,59 +117,59 @@ Frozen accepted commit: 07011b63440e69f4a5acb128e0449943f759ee9c. Status IN PROG
 | `internal/orchestration/coordinator.go` | Read, requirement/test reconciliation open |
 | `internal/orchestration/operations.go` | Read, requirement/test reconciliation open |
 | `internal/orchestration/scope.go` | Read, requirement/test reconciliation open |
-| `internal/orchestration/aigov_test.go` | Pending full read; existing native suite passed |
-| `internal/orchestration/carbon_test.go` | Pending full read; existing native suite passed |
-| `internal/orchestration/coordinator_test.go` | Pending full read; existing native suite passed |
-| `internal/orchestration/scope_test.go` | Pending full read; existing native suite passed |
-| `internal/orchestration/servicehealth_test.go` | Pending full read; existing native suite passed |
-| `internal/orchestration/sqleol_test.go` | Pending full read; existing native suite passed |
-| `internal/orchestration/zone_test.go` | Pending full read; existing native suite passed |
+| `internal/orchestration/aigov_test.go` | Read, adequacy reconciliation open |
+| `internal/orchestration/carbon_test.go` | Read, adequacy reconciliation open |
+| `internal/orchestration/coordinator_test.go` | Read, adequacy reconciliation open |
+| `internal/orchestration/scope_test.go` | Read, adequacy reconciliation open |
+| `internal/orchestration/servicehealth_test.go` | Read, adequacy reconciliation open |
+| `internal/orchestration/sqleol_test.go` | Read, adequacy reconciliation open |
+| `internal/orchestration/zone_test.go` | Read, adequacy reconciliation open |
 | `internal/plugins/aigov/decoder.go` | Read, requirement/test reconciliation open |
 | `internal/plugins/aigov/discovery.go` | Read, requirement/test reconciliation open |
 | `internal/plugins/aigov/execution.go` | Read, requirement/test reconciliation open |
 | `internal/plugins/aigov/projection.go` | Read, requirement/test reconciliation open |
 | `internal/plugins/aigov/scanner.go` | Read, requirement/test reconciliation open |
-| `internal/plugins/aigov/decoder_test.go` | Pending full read; existing native suite passed |
-| `internal/plugins/aigov/discovery_test.go` | Pending full read; existing native suite passed |
-| `internal/plugins/aigov/execution_test.go` | Pending full read; existing native suite passed |
-| `internal/plugins/aigov/projection_test.go` | Pending full read; existing native suite passed |
-| `internal/plugins/aigov/scanner_test.go` | Pending full read; existing native suite passed |
+| `internal/plugins/aigov/decoder_test.go` | Read, adequacy reconciliation open |
+| `internal/plugins/aigov/discovery_test.go` | Read, adequacy reconciliation open |
+| `internal/plugins/aigov/execution_test.go` | Read, adequacy reconciliation open |
+| `internal/plugins/aigov/projection_test.go` | Read, adequacy reconciliation open |
+| `internal/plugins/aigov/scanner_test.go` | Read, adequacy reconciliation open |
 | `internal/plugins/aigov_projection.go` | Read, requirement/test reconciliation open |
 | `internal/plugins/carbon_projection.go` | Read, requirement/test reconciliation open |
 | `internal/plugins/registry.go` | Read, requirement/test reconciliation open |
 | `internal/plugins/sqleol_projection.go` | Read, requirement/test reconciliation open |
-| `internal/plugins/aigov_projection_test.go` | Pending full read; existing native suite passed |
-| `internal/plugins/carbon_projection_test.go` | Pending full read; existing native suite passed |
-| `internal/plugins/registry_test.go` | Pending full read; existing native suite passed |
-| `internal/plugins/servicehealth_projection_test.go` | Pending full read; existing native suite passed |
-| `internal/plugins/sqleol_projection_test.go` | Pending full read; existing native suite passed |
+| `internal/plugins/aigov_projection_test.go` | Read, adequacy reconciliation open |
+| `internal/plugins/carbon_projection_test.go` | Read, adequacy reconciliation open |
+| `internal/plugins/registry_test.go` | Read, adequacy reconciliation open |
+| `internal/plugins/servicehealth_projection_test.go` | Read, adequacy reconciliation open |
+| `internal/plugins/sqleol_projection_test.go` | Read, adequacy reconciliation open |
 | `internal/plugins/carbon/projection.go` | Read, requirement/test reconciliation open |
 | `internal/plugins/carbon/scanner.go` | Read, requirement/test reconciliation open |
-| `internal/plugins/carbon/projection_test.go` | Pending full read; existing native suite passed |
-| `internal/plugins/carbon/scanner_test.go` | Pending full read; existing native suite passed |
+| `internal/plugins/carbon/projection_test.go` | Read, adequacy reconciliation open |
+| `internal/plugins/carbon/scanner_test.go` | Read, adequacy reconciliation open |
 | `internal/plugins/region/auxiliary.go` | Read, requirement/test reconciliation open |
 | `internal/plugins/region/cost.go` | Read, requirement/test reconciliation open |
 | `internal/plugins/region/inventory.go` | Read, requirement/test reconciliation open |
 | `internal/plugins/region/inventory_aggregation.go` | Read, requirement/test reconciliation open |
 | `internal/plugins/region/primary.go` | Read, requirement/test reconciliation open |
 | `internal/plugins/region/service.go` | Read, requirement/test reconciliation open |
-| `internal/plugins/region/auxiliary_test.go` | Pending full read; existing native suite passed |
-| `internal/plugins/region/cost_test.go` | Pending full read; existing native suite passed |
-| `internal/plugins/region/inventory_aggregation_test.go` | Pending full read; existing native suite passed |
-| `internal/plugins/region/inventory_capture_test.go` | Pending full read; existing native suite passed |
-| `internal/plugins/region/inventory_test.go` | Pending full read; existing native suite passed |
-| `internal/plugins/region/primary_test.go` | Pending full read; existing native suite passed |
-| `internal/plugins/region/service_test.go` | Pending full read; existing native suite passed |
+| `internal/plugins/region/auxiliary_test.go` | Read, adequacy reconciliation open |
+| `internal/plugins/region/cost_test.go` | Read, adequacy reconciliation open |
+| `internal/plugins/region/inventory_aggregation_test.go` | Read, adequacy reconciliation open |
+| `internal/plugins/region/inventory_capture_test.go` | Read, adequacy reconciliation open |
+| `internal/plugins/region/inventory_test.go` | Read, adequacy reconciliation open |
+| `internal/plugins/region/primary_test.go` | Read, adequacy reconciliation open |
+| `internal/plugins/region/service_test.go` | Read, adequacy reconciliation open |
 | `internal/plugins/servicehealth/query.go` | Read, requirement/test reconciliation open |
 | `internal/plugins/servicehealth/scanner.go` | Read, requirement/test reconciliation open |
-| `internal/plugins/servicehealth/scanner_test.go` | Pending full read; existing native suite passed |
+| `internal/plugins/servicehealth/scanner_test.go` | Read, adequacy reconciliation open |
 | `internal/plugins/sqleol/query.go` | Read, requirement/test reconciliation open |
 | `internal/plugins/sqleol/scanner.go` | Read, requirement/test reconciliation open |
-| `internal/plugins/sqleol/scanner_test.go` | Pending full read; existing native suite passed |
+| `internal/plugins/sqleol/scanner_test.go` | Read, adequacy reconciliation open |
 | `internal/plugins/zone/scanner.go` | Read, requirement/test reconciliation open |
-| `internal/plugins/zone/scanner_test.go` | Pending full read; existing native suite passed |
+| `internal/plugins/zone/scanner_test.go` | Read, adequacy reconciliation open |
 | `internal/policy/scanner.go` | Read, requirement/test reconciliation open |
-| `internal/policy/scanner_test.go` | Pending full read; existing native suite passed |
+| `internal/policy/scanner_test.go` | Read, adequacy reconciliation open |
 | `internal/redact/subscription.go` | Read, requirement/test reconciliation open |
 | `internal/redact/subscription_test.go` | Read, adequacy reconciliation open |
 | `internal/renderers/csv/csv.go` | Read, requirement/test reconciliation open |
@@ -199,10 +199,10 @@ Frozen accepted commit: 07011b63440e69f4a5acb128e0449943f759ee9c. Status IN PROG
 | `internal/rules/inspection.go` | Read, requirement/test reconciliation open |
 | `internal/rules/provenance.go` | Read, requirement/test reconciliation open |
 | `internal/rules/yaml_plugins.go` | Read, requirement/test reconciliation open |
-| `internal/rules/catalog_test.go` | Pending full read; existing native suite passed |
-| `internal/rules/embedded_test.go` | Pending full read; existing native suite passed |
-| `internal/rules/inspection_test.go` | Pending full read; existing native suite passed |
-| `internal/rules/yaml_plugins_test.go` | Pending full read; existing native suite passed |
+| `internal/rules/catalog_test.go` | Read, adequacy reconciliation open |
+| `internal/rules/embedded_test.go` | Read, adequacy reconciliation open |
+| `internal/rules/inspection_test.go` | Read, adequacy reconciliation open |
+| `internal/rules/yaml_plugins_test.go` | Read, adequacy reconciliation open |
 | `internal/scanners/registry.go` | Read, requirement/test reconciliation open |
 | `internal/scanners/registry_test.go` | Read, adequacy reconciliation open |
 | `internal/skus/skus.go` | Read, requirement/test reconciliation open |
@@ -221,4 +221,4 @@ Frozen accepted commit: 07011b63440e69f4a5acb128e0449943f759ee9c. Status IN PROG
 | `tools/equivalence/main.go` | Read, requirement/test reconciliation open |
 | `tools/equivalence/main_test.go` | Read, adequacy reconciliation open |
 
-Baseline test files fully read: 51. Proposal regressions separately reviewed: PR115 body-completion/error preservation plus actual default SDK mitigation, PR116 Cost continuation and actual coordinator partial state, PR117 six malformed comparator cases plus three valid controls, PR118 five invalid filter cases plus three valid controls. Requirements/docs/data/dependency final review and combined integration are still open. New proposal production is not part of the frozen baseline.
+Baseline test files fully read: 113. Proposal regressions separately reviewed: PR115 body-completion/error preservation plus actual default SDK mitigation, PR116 Cost continuation and actual coordinator partial state, PR117 six malformed comparator cases plus three valid controls, PR118 five invalid filter cases plus three valid controls. Requirements/docs/data/dependency final review and combined integration are still open. New proposal production is not part of the frozen baseline.
