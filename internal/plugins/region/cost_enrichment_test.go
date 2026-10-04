@@ -320,6 +320,11 @@ func TestCostRuntimeWorkBudget(t *testing.T) {
 
 func TestCostRuntimeOwnershipAndCancellation(t *testing.T) {
 	input, evidence := costRuntimeInput()
+	// Exercise all four nonempty detail slices with valid matching SKU counts.
+	input[0].RestrictedSKUs = []string{"restricted"}
+	input[0].ZoneRestrictedSKUs = []string{"zone-restricted"}
+	input[0].TotalSKUsChecked = 3
+	input[0].SKUAvailabilityPercent = 0
 	evidence.PricingStatus = "partial"
 	before, _ := json.Marshal(struct {
 		Input []Comparison
@@ -425,4 +430,23 @@ func TestCostRuntimeDeterministicSum(t *testing.T) {
 	if err != nil || !reflect.DeepEqual(first, second) {
 		t.Fatal("received-order floating sum differs", first, second, err)
 	}
+}
+
+func TestCostRuntimeFreeTargetRoundoff(t *testing.T) {
+	input, evidence := costRuntimeInput()
+	weights := []float64{50472.046742886334, 48492.51122277341, 35678.99645449557, 34607.791901815486, 53847.87957378443, 62348.945279750515, 61245.246478272566, 45814.68000997244}
+	h := CostHistoryEvidence{Complete: true}
+	evidence.RegionPricing = map[string]map[string]float64{}
+	for n, w := range weights {
+		id := fmt.Sprintf("m%d", n)
+		h.Meters = append(h.Meters, HistoricalCostMeter{MeterID: id, HistoricalCost: w})
+		evidence.RegionPricing[id] = map[string]float64{"eastus": 1, "westeurope": 0}
+	}
+	evidence.History[availabilityID] = h
+	got, err := EnrichCost(context.Background(), latencyScope(), input, evidence)
+	want := []Comparison{literalCostEnrichmentComparison("eastus", "westeurope", -100, true).Comparison}
+	if err != nil || got == nil || !reflect.DeepEqual(got.Comparisons, want) {
+		t.Fatal("valid free-target lower-domain rounding rejected", got, err)
+	}
+	costHealth(t, got, 1)
 }

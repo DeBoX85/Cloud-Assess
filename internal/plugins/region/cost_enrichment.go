@@ -256,7 +256,9 @@ func EnrichCost(ctx context.Context, subscriptions map[string]string, input []Co
 				}
 			}
 			if total > 0 {
-				c.AvgCostDifference = weighted / total
+				// Nonnegative prices/weights prove the exact lower domain;
+				// IEEE754 accumulation can round an all-free mean below it.
+				c.AvgCostDifference = math.Max(-100, weighted/total)
 				c.HasCostData = true
 			} else {
 				warn("cost_no_eligible_meters")
