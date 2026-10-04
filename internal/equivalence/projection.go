@@ -57,6 +57,7 @@ func LoadReference(reader io.Reader) (Projection, error) {
 		"costs":                   DatasetCosts,
 	}
 
+	recognizedSections := 0
 	for section, datasetName := range sections {
 		payload, exists := raw[section]
 		dataset := projection.Datasets[datasetName]
@@ -65,6 +66,7 @@ func LoadReference(reader io.Reader) (Projection, error) {
 		if !exists {
 			continue
 		}
+		recognizedSections++
 		var rows []map[string]string
 		if string(payload) != "null" {
 			if err := json.Unmarshal(payload, &rows); err != nil {
@@ -74,6 +76,10 @@ func LoadReference(reader io.Reader) (Projection, error) {
 		if err := projectReferenceRows(&projection, datasetName, rows); err != nil {
 			return Projection{}, err
 		}
+	}
+
+	if recognizedSections == 0 {
+		return Projection{}, fmt.Errorf("reference JSON contains no recognized core dataset")
 	}
 
 	if _, ok := raw["externalPlugins"]; ok {
@@ -94,8 +100,8 @@ func LoadTarget(reader io.Reader) (Projection, error) {
 	if err := json.Unmarshal(content, &data); err != nil {
 		return Projection{}, fmt.Errorf("decode target JSON: %w", err)
 	}
-	if strings.TrimSpace(data.SchemaVersion) == "" {
-		return Projection{}, fmt.Errorf("target JSON is missing schemaVersion")
+	if data.SchemaVersion != result.SchemaVersion && data.SchemaVersion != result.PluginSchemaVersion {
+		return Projection{}, fmt.Errorf("target JSON schemaVersion %q is unsupported; expected %q or %q", data.SchemaVersion, result.SchemaVersion, result.PluginSchemaVersion)
 	}
 
 	projection := newProjection()
@@ -109,6 +115,10 @@ func LoadTarget(reader io.Reader) (Projection, error) {
 		projection.Notes = append(projection.Notes, "target assessment completeness is "+string(data.Completeness))
 	case assessment.CompletenessCompleteWithWarnings:
 		projection.Notes = append(projection.Notes, "target assessment completed with warnings; review Assessment Status alongside equivalence deltas")
+	case assessment.CompletenessComplete:
+		// Healthy complete evidence remains comparable, including empty datasets.
+	default:
+		return Projection{}, fmt.Errorf("target JSON completeness %q is missing or unsupported", data.Completeness)
 	}
 
 	graphFallback := len(data.Recommendations) > 0 || len(data.Findings) > 0 || len(data.Resources) > 0 || len(data.OutOfScope) > 0 || len(data.ResourceTypes) > 0

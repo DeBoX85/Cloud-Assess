@@ -1,3 +1,32 @@
+## Combined audit integration checkpoint (2026-10-04)
+
+Whole-project offline review is complete for the recovered accepted07011b63 baseline and the proposed corrections. Audit acceptance is still IN PROGRESS. PR114 is the combined, independently revertible audit candidate: source-only PR113 availability characterization plus AUD003 ARG read completion, AUD005 fail-closed Cost continuation, AUD006 comparator evidence admission, AUD007 strict neutral filter schema, and current-status/privacy documentation reconciliation. Individual proposals113/115/116/117/118 remain unmerged and retain their immutable reproduction/correction evidence. No runtime region-availability implementation has been recovered or added.
+
+All216 first-party Go files (103 production/113 tests),31 scripts/four workflows were fully read. Current requirements/operational contracts were reconciled against actual call paths and independent fixtures. Historical append-only evidence is indexed/preserved, not freshly re-executed. All630 accepted blobs/tree/original commit were independently reconstructed; source pins, APRL gitlink, fixture hashes, module inventory and59 bundled notice-section hashes verified. Third-party source is reviewed at relevant boundaries, not every upstream line or licensed as a legal approval.
+
+Next: publish/read back the combined PR114 candidate and inspect fresh exact-head full Linux quality/Windows validation/source logs, six contiguous capture files with independent SHA256/retained-byte equality, and matching base/head preview. Only then mark ready and expected-head protected merge, verify accepted commit/tree/ordered parents/live ref and distinct accepted-push evidence. If interrupted, verify actual live PR114/ref/workflow state before any retry. The latest PR114 body is the exact-head acceptance evidence index; do not repeat an uncertain mutation. No local Go; recovered review snapshot lacks materialized APRL, native Actions own execution proof.
+
+No offline user input required. Live Azure/laptop/suitable approved non-production estate, DV-001/restricted visibility/nonempty optional-stage/plugin parity/representative load/fresh OS/hosted maintenance/Gate004/release remain deferred. No Azure writes/roles/new fixtures/production substitution/exposure/release authorized. Zero imported/reachable advisories in proposal scans does not close the existing module-only advisory. Self-review plus independent oracles is not independent-person review. All earlier checkpoints below are superseded history.
+
+---
+
+# Latest audit checkpoint: all first-party source reads
+
+## Complete source reads and filter proof checkpoint
+
+All 216 frozen-baseline Go files (103 production, 113 tests), all 31 scripts and four workflows are now fully read. This does not close requirement adequacy, documentation/data/dependency review or combined integration. Region tests check independently captured scores/every cell, five-map inventory arithmetic, explicit source case discrepancy, scope identity, exact literal work/text/count/UTF16 boundaries, ownership and deterministic cancellation. Service-health/SQL-EOL/zone tests exercise literal authenticated cloud destinations, bounded page/whole-query bytes, malformed/ambiguous envelopes, failed-page retention, unsafe continuations and worker isolation. No new confirmed finding arose in these remaining test reads.
+
+PR118 corrected 6e4a7758bf8f26fbbdec3f08e295defa4af9bec0 has now passed native37186686512/Linux111389986936/Windows111389986819 and source37186686517/111389986696. Full decoded logs, mandatory steps, four complete contiguous source captures with independently checked SHA256 and retained-byte equality were inspected. Preview f2ac9edb11b1e85b314f7502c5c5f398d0f0fd63 equals d8234ef734e15b4d50d571cd9b88f6aeee3f7b81 with ordered07011b63/6e4a7758 parents. Linux82.7% aggregate coverage; race/vet/bounded fuzz/selected mutations, native Windows and actual default/custom CLI/report/package validation passed. Zero imported/reachable vulnerabilities, one module-only advisory. All proposals remain unmerged; accepted07011b63 unchanged.
+
+Next: finish requirements/current-docs/data/dependency review and proposal113 final scope, reconcile material claims, then validate a combined integration candidate and accept only through protected exact-head gates. Source reads are not independent-person approval, live equivalence, representative estate load, fresh OS certification or release acceptance. No offline user input required.
+
+
+# Latest audit execution checkpoint
+
+2026-10-04: PR117 final e381d0ad complete native/source/preview/four-capture proof verified; PR metadata reconciled to final evidence. AUD007 five real-preflight invalid filter regressions compiled and failed on both hosts at test-only926ac5ce, healthy defaults controls held. Narrow strict loader correction PR1186e4a7758/treed8234ef7 published after identity/parent/ref checks and exact4 changed-byte/readback checks; full corrected QA pending. Contract docs on118 specify pre-auth rejection and preserved defaults. All production Go/scripts/workflows read;51 baseline Go test files full read, exact remaining-path manifest added. Whole-project audit remains open, accepted07011b63 unchanged; no Azure/live/release claim. Offline autonomy continues, no input required.
+
+---
+
 # Cloud Assess Development Ledger
 
 Status: active development-process audit index
@@ -2224,3 +2253,90 @@ Distinct accepted-push native https://github.com/DeBoX85/Cloud-Assess/actions/ru
 Inventory source characterization PR111 is VERIFIED OFFLINE. The bounded owned aggregation helper is IN PROGRESS/unaccepted under [REGION_INVENTORY_AGGREGATION.md](REGION_INVENTORY_AGGREGATION.md). Public region-selection remains unavailable. Finish fresh exact-head native/source QA, review and protected acceptance, then availability/latency/cost/quota/reservation arithmetic, bounded request adapters and coordinator/public/all-format execution. Azure/laptop-dependent validation remains explicitly deferred.
 
 Prepared CalculateInventory/InventoryCounts/InventoryCalculation with seven independent focused tests, actual complete source map oracles/canonical identity correction, explicit full unsafe fixture rejection and separate literal valid subset. Ten compiling negative controls enforce isolated row/entry/decoded/projected bounds, normalization/raw-SKU/resource-count/selection/correlation guards on both hosts. Python AST and original scratch UTF8 blobs verified; no new local Go/native/source acceptance. Coherent code/docs branch publication and exact-head gates are next; source/capture/dependency/public/platform pins unchanged.
+
+
+## 2026-10-04 comprehensive project audit preparation
+
+User agreed to pause feature expansion following repeated development-process interruptions. [PROJECT_AUDIT_20261004.md](PROJECT_AUDIT_20261004.md) records the current progress, verified accepted07011b63/PR112, unmerged113/f1142c7d, source37174422877 success metadata and native37174420499 failure with no returned jobs (cause unclassified), transient unpublished availability draft limitation, full project audit phases and autonomy/input boundaries. Plan PREPARED; audit execution NOT STARTED. Historical product/runtime stability is not inferred from service interruptions. New Linux executor inventory and exact evidence reconciliation precede fixes; no acceptance/live/release claim.
+
+
+Audit outage continuity preparation: added AUDIT_RECOVERY.md with explicit checkpoint fields, unknown remote-mutation handling, live-state recovery and saved restart prompt. Protocol applies throughout audit execution, which remains NOT STARTED. No outage-proof guarantee or background work claimed.
+
+
+## 2026-10-04 comprehensive audit first execution checkpoint
+
+Recovered exact accepted07011b63 signed commit/tree/all630 blobs and verified current protection/pins, preserving missing local APRL/Go limits. Planning771919b9 full native37182711852 and source37182711928 logs/preview/contiguous captures verified. Confirmed FN074 replacement-string workflow corruption in unmerged113 and published literal correctionbe867a174dbc112caba273cda620822fd9828b2e with local YAML/eight Bash syntax and exact remote-byte proof; fresh gates pending, merge paused. PROJECT_AUDIT_REPORT_20261004.md inventories all216 Go files and remaining review scope, records stale documentation and unpublished draft limits, and flags ARG drain-error behavior for reproduction rather than premature defect claim. Whole-project audit IN PROGRESS, no new live/release acceptance.
+
+
+## Comprehensive audit retrieval and repair checkpoint (2026-10-04)
+
+Repaired PR113 full native/source proof verified onbe867a17: native37183435404 quality111380420837/windows111380420966, source37183435389/111380420823. Preview8a040608 tree0878fc48 equals candidate, ordered07011b63/be867a17 parents. All mandatory checks, six capture byte/hash/chunk proofs and exact provenance pass; feature acceptance still paused.
+
+AUD003 narrow library adapter error swallowing reproduced with eight compiling named failures on both native hosts against unchanged730a29e6. Default pinned SDK buffered pipeline mitigates actual default route, no live affected assessment claim. PR115 defensive error propagation/shared-pipeline regression head23d2ce4d/tree7438dfd7 parent730a29e6 verified identity/three bytes; full fresh QA pending. Initial recovery and selected retrieval review ongoing. Frozen07011b63 unchanged; audit-wide code/test/release/live closure not claimed. Next inspect115 QA, Cost continuation contract, remaining orchestration/Defender/test requirements and subsequent areas. Durable report/handover updated.
+
+
+## Audit ARG verification, Cost completion and report review (2026-10-04)
+
+PR11523d2ce4d full native37184407342/Linux111383253100/Windows111383253050 and source37184407425/111383253548 passed. Actual shared SDK terminal-read mitigation fixture passes; corrected injected-poster boundary no longer loses errors. Full logs, four retained capture bytes/provenance and preview87b10d5d/tree7438dfd7/ordered07011b63+23d2ce4d parents verified. Unmerged.
+
+AUD005 Cost first-page false-success confirmed by two compiling assertions on both platforms in37184679263/test-only78dd85c9. PR116 defensive fail-closed continuation guard and actual coordinator partial/retained-stage fixture published8d54c0d9/treeed772a94/parent78dd85c9 with verified identity/3 bytes. No full pagination or live incidence claimed; fresh full QA pending. Production review and selected independent fixtures now include canonical/result/findings/gate/config/branding/redaction/report replacement/all-renderers and public zone/carbon/service-health/SQL-EOL plugin boundaries; remaining tests/AI/region/tooling/requirements keep audit IN PROGRESS. Frozenaccepted07011b63 unchanged.
+
+
+## Audit Cost verification and comparator evidence checkpoint (2026-10-04)
+
+PR1168d54c0d9 full native37184879992/Linux111384624285/Windows111384624226/source37184879983/111384624557 passed. Full mandatory logs/preview9caddc01 candidate tree/ordered parents/four contiguous complete capture bytes/hash/pins verified. Actual coordinator partial/healthy retained results regression passes; no full pagination/live incidence claim. Unmerged.
+
+AI/region/equivalence/scanner/SKU production review extended; full test/requirements review still open. Suspected AUD006 unsafe comparator input acceptance now test-only PR1174cb8bd8451208e45e2551f72edef280de338e52f/tree3ae8c71f22fcb86fbe951810bd997fc7afd5db76/parent07011b63, exact Denis identity/two remote bytes verified. Six literal real-command invalid cases and two healthy empty controls, unchanged production, native reproduction pending. Next inspect negative control then tooling/Diagnostics/workflows. Accepted07011b63 unchanged; feature113 paused, no live/release/full-project acceptance.
+
+
+## Audit comparator correction and tooling coverage (2026-10-04)
+
+AUD006 test-only4cb8bd84/native37185359814 reproduced all6 compiling named command exit0 failures on Linux111386033586/Windows111386033687, healthy empty controls pass. Corrected733b924383561b300bcbcc68998c6c849cf2d3ab/tree92e1bb688222a8f86f50773a05cda5dc054dd363/parent4cb8bd84 Denis identity/three bytes verified on draft PR117; full native37185621965/source37185621953 pending. See comparison-input contract, no historical live incidence claim.
+
+Production Go inventory41 areas fully read, all4 workflows and9 production scripts examined; test/oracle/requirements/docs/dependency reconciliation still open. Read-only local execution request stalled/terminated, fallback to independently verified source bytes; no product failure or uncertain mutation inferred. Frozen07011b63/proposals113-117 remain unchanged/unmerged. No live/release/full-audit acceptance.
+
+
+## Audit additive-schema correction and full script review (2026-10-04)
+
+Requirements review caught initial117733b9243 unsupported valid1.1 additive schema. Literal test-only1bf98b7a/native37185951913 reproduced one named compiling failure on Linux111387770853/Windows111387770760, previous invalid/healthy controls pass. Finale381d0ad6e45989cf64526ac5d34131dc349e8e5/tree5e91d391cead6b74507abb6ac780817b9a42afaf/parent1bf98b7a allows both declared schemas, Denis identity/three bytes verified. Fresh final full QA pending. FN076 retains prevention, no accepted regression.
+
+All31 scripts/4 workflows read; complete Azure/discovery/config/stages/gate/throttling/findings/redaction tests read. Remaining integration/plugin/result/rules tests and specification/evidence reconciliation keep audit open. Filter unknown YAML keys/multiple documents are a new pre-auth scope question awaiting independent reproduction. Accepted07011b63 unchanged, all proposals draft/unmerged.
+
+
+### Recovered proposal history (superseded by current audit checkpoint)
+
+## PR112 inventory aggregation accepted (2026-10-04)
+
+[PR112](https://github.com/DeBoX85/Cloud-Assess/pull/112) is VERIFIED OFFLINE. Accepted commit `07011b63440e69f4a5acb128e0449943f759ee9c`, tree `72bebbf4885a15a74a5f43dfe57c68fe979c1e7c`, ordered parents `1b17cccd0bb4ff9f08627d4ea398d3e628107afb` and `8eb72c4dd49d3f8ceb400ab4ef8111d1ee04b3cf`. Denis author, GitHub merge committer and live protected ref verified.
+
+Final candidate `8eb72c4d` passed [native run37172490247](https://github.com/DeBoX85/Cloud-Assess/actions/runs/37172490247), Linux111348132665 and Windows111348132783, and [source run37172490240](https://github.com/DeBoX85/Cloud-Assess/actions/runs/37172490240), job111348132671. All mandatory steps/full logs inspected; only conditional Linux failure-evidence upload skipped. All ten compiling aggregation controls/restored baselines and all prior controls passed on both hosts, along with actual CLI/default/custom packages, docs/branding/provenance/module/inventory. Linux race/vet/bounded fuzz and82.7% total coverage passed. Zero reachable/imported vulnerability findings; existing module-only advisory remains open. Source14 auxiliary/13 inventory branches/30 normalization vectors and all four retained files reproduced exactly from complete3+4+2+4 indexed chunks, with pinned source/tree/APRL and unchanged production/module/APRL proof. All15 changed files/remote hashes, three original scratch blobs, complete scope/pins/identity/base and tested preview `3eee48d6` with identical tree/ordered parents verified. Self-review inspected actual source/target contracts and bounds; no independent-person review claimed. Inline automatic threads empty.
+
+Distinct accepted-push proof: exact07011b63440e69f4a5acb128e0449943f759ee9c passed native [37172980065](https://github.com/DeBoX85/Cloud-Assess/actions/runs/37172980065), Linux111349577702 and Windows111349577424, and source [37172980083](https://github.com/DeBoX85/Cloud-Assess/actions/runs/37172980083), job111349577747. All mandatory steps/full logs inspected, only conditional Linux failure upload skipped. Both passed ten aggregation and all prior compiling controls/restored baselines, actual CLI/default/branded package checks, docs/branding/provenance/module/inventory and the real byte-guard tests/control/restoration. Linux race/vet/bounded fuzz82.7%, zero reachable/imported vulnerability findings. Source14 auxiliary/13 inventory/30 normalization and all four retained files exactly reconstructed from contiguous3+4+2+4 chunks with pinned source-tree-APRL/isolation. Module-only advisory and Azure/laptop/live/public/load/Gate004/release remain open. No local Go/source/Azure/laptop/live/public/Gate004/release/advisory closure.
+
+Next: source-only availability arithmetic characterization under [REGION_AVAILABILITY_CALCULATIONS.md](REGION_AVAILABILITY_CALCULATIONS.md), then bounded target availability. No public execution is added. Protected reviewed revert after dependency review is the rollback route.
+
+
+## Source availability observation checkpoint (2026-10-04)
+
+Owned inventory aggregation is VERIFIED OFFLINE through [PR112](https://github.com/DeBoX85/Cloud-Assess/pull/112), accepted07011b63. Pure source availability characterization is IN PROGRESS/unaccepted under [REGION_AVAILABILITY_CALCULATIONS.md](REGION_AVAILABILITY_CALCULATIONS.md). Public region-selection remains unavailable. Retain actual new source bytes and require unconditional six-file equality, independent oracle checks and both complete native gates before protected acceptance. Then implement bounded availability, followed by latency/cost/quota/reservation arithmetic, adapters and coordinator/public/all-format execution. Azure/laptop validation remains deferred.
+
+The unchanged private calculator/provider predicate is exercised with eleven synthetic branches/eight lookup probes and pure registered SKU responses/errors, including cancellation/unknown/duplicate normalized raw keys. Exactly three source harness files, untouched production/module/APRL and pinned checkout are required. Only list-order canonicalization is applied. Initial new output observation is unaccepted; all six retained byte guards plus independent hash/topology/critical source assertions must exist and pass fresh native/source gates before acceptance. No target availability code or live/public closure.
+
+
+## PR113 observed availability bytes and strict final checkpoint (2026-10-04)
+
+Observed source run [37173444429](https://github.com/DeBoX85/Cloud-Assess/actions/runs/37173444429), job111351010132 on initialfd7dce9a, passed unchanged14 auxiliary/13 inventory/30 normalization plus new11 availability branches/eight probes. Full3+4+2+4+5+4 contiguous indexed chunks reconstructed; original four files unchanged. New input SHA25632345bea44a162a1518f9022c93dba3cf5640980c94fb1d3734e172b780cc245, outputd3e8186fb80ffc9a47191228e5cad222636ffdfea1de3c837747bf896acbaef9 verified against actual local UTF8 file bytes. Source/tree/APRL and exactly three injected harnesses/untouched production/module/APRL verified. Original harness/runner Git blobs25f3064d/afee5173 match authored local files. Complete observed outputs confirm every source counter/list/zone field, all-unknown100%, mixed unknown50%, restricted/zone denominator25%, exact-key/global provider semantics and ignored cancellation; provider call totals3+3. No fabricated/rounded output values.
+
+Both new files now retain actual observed bytes. The runner unconditionally checks all six files, including missing/changed goldens; observation-only logic is removed. Independent target tests hash both originals and compare all eleven complete source comparisons, eight literal lookup probes,3+3 provider calls and critical raw input premises. Four isolated fixture mutations must compile and fail named semantic assertions without relying on the separate digest test, then restore exact fixture bytes and pass baseline. Both mandatory native jobs require these controls plus every existing control. Fresh final-head native/source full proof and protected acceptance remain pending.
+
+
+### PR113 formatting rejection and correction
+
+PR113 recurrence (2026-10-04): final-preparation headab15f5a7 native37173740633/job111351915096 rejected ten map-entry alignment spaces in availability_capture_test.go; full native acceptance stopped. New complete semantic oracle controls had already compiled/passed that job's four named mutations/restored baselines, but do not waive formatting or missing later checks. Applied only the exact native gofmt diff; production and six source captures unchanged. Fresh corrected-head Linux/Windows/source full proof required. Strengthened prevention: avoid manually aligned groups when no formatter executor exists; use the native diff as the formatting authority and verify correction through blocking exact-head QA. This shares FN068's cause and is not a new failure ID.
+
+
+### PR113 scope-fuzz shutdown recurrence and bounded mitigation
+
+PR113 recurrence (2026-10-04): corrected heade4f2f766 native37173909405/Linux111352429239 failed FuzzExactResourceExclusionPreservesOtherResource at10.04s after263825 executions with only context deadline exceeded; no property assertion, panic or saved reproducer reported. Formatting/oracle controls/full race/coverage passed beforehand; later Linux gates were skipped, so this run remains FAILED. Windows111352429415 passed separately and does not waive Linux. The property body has only bounded256-byte string/filter checks and no context calls. Upstream [Go75804](https://github.com/golang/go/issues/75804) and [official regression](https://go.dev/src/cmd/internal/fuzztest/testdata/script/test_fuzz_fuzztime_timeout.txt) describe the same spurious fuzztime shutdown symptom; exact cause of this run remains unconfirmed. Synthetic artifact11291954125/digest23641daf6d83906e5b30ab89c5d16a18f1942c8ed319028f9b5ffd6657b511b4 was retained by Actions; upload log reports one file, with coverage output present and no saved fuzz failure announced. Connector returns a ZIP reference, but local attachment creation was denied and signed-URL shell download was network-blocked; ZIP contents were not locally inspected. Use native evidence and preserve this download limitation, not an invented artifact inventory.
+
+Apply existing count-budget mitigation only to this remaining duration-bounded target:500000x, unchanged two workers/property/corpus and explicit60s timeout. The new count exceeds the failed run's observed execution count and avoids fuzztime duration expiry; [official Go flags](https://go.dev/src/cmd/go/internal/test/test.go) define Nx as target executions. No failure suppression, blind rerun, toolchain/pin change or source assertion relaxation. Require fresh complete exact-head Linux/Windows/source proof, and investigate any genuine saved input/assertion if it appears. Strengthened prevention: keep every mandatory bounded fuzz target on an explicit count budget plus independent timeout; do not leave one duration target behind after FN010 recurrence.

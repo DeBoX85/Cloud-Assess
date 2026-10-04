@@ -58,6 +58,9 @@ jobs:
       - name: Verify retained source capture byte guard
         run: python3 scripts/tests/region-source-capture.py
 
+      - name: Verify availability source oracle mutations
+        run: python3 scripts/tests/region-availability-capture-mutation.py
+
       - name: Verify formatting
         shell: bash
         run: |
@@ -173,7 +176,7 @@ jobs:
         run: |
           set -euo pipefail
           go test -run '^$' -fuzz '^FuzzCompareFieldSymmetry$' -fuzztime 100000x -timeout 60s -parallel 2 ./internal/equivalence
-          go test -run '^$' -fuzz '^FuzzExactResourceExclusionPreservesOtherResource$' -fuzztime 10s -parallel 2 ./internal/config
+          go test -run '^$' -fuzz '^FuzzExactResourceExclusionPreservesOtherResource$' -fuzztime 500000x -timeout 60s -parallel 2 ./internal/config
           go test -run '^$' -fuzz '^FuzzDecodeRowsIsolationAndAccounting$' -fuzztime 100000x -timeout 60s -parallel 2 ./internal/arg
           go test -run '^$' -fuzz '^FuzzBoundedAIWire$' -fuzztime 5000x -timeout 60s -parallel 2 ./internal/plugins/aigov
           go test -run '^$' -fuzz '^FuzzDiscoveryEnvelope$' -fuzztime 5000x -timeout 60s -parallel 2 ./internal/plugins/aigov
@@ -267,6 +270,9 @@ jobs:
 
       - name: Verify Windows retained source capture byte guard
         run: python scripts/tests/region-source-capture.py
+
+      - name: Verify Windows availability source oracle mutations
+        run: python scripts/tests/region-availability-capture-mutation.py
 
       - name: Test Go packages on Windows
         run: go test ./...

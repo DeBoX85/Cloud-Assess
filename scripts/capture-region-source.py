@@ -19,9 +19,13 @@ CAPTURES = (
     ("inventory_capture_test.go.txt", "inventory_capture_test.go",
      "REGION_INVENTORY_CAPTURE_OUTPUT", "^TestRegionInventoryCalculationCapture$",
      "./internal/scanners/plugins/region"),
+    ("availability_capture_test.go.txt", "availability/availability_capture_test.go",
+     "REGION_AVAILABILITY_CAPTURE_OUTPUT", "^TestRegionAvailabilityCalculationCapture$",
+     "./internal/scanners/plugins/region/availability"),
 )
 FILES = ("source-aux-inputs.json", "source-aux-outputs.json",
-         "source-inventory-inputs.json", "source-inventory-outputs.json")
+         "source-inventory-inputs.json", "source-inventory-outputs.json",
+         "source-availability-inputs.json", "source-availability-outputs.json")
 
 
 def run(args, directory, timeout=240, capture=False):

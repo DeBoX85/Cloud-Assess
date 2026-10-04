@@ -1,5 +1,7 @@
 # Branding customization review and implementation boundary
 
+Current status: the bounded five-field AR-03 workflow is accepted offline through PR75. Earlier design/status snapshots below are historical; full release/licensing/operations approval remains open.
+
 Date: 2026-10-01 (Europe/Oslo). Baseline: merged PR #71, `be95679ddea30fe164e67731f9c8535f3ff3368b`. This is the completed AR-03 design review, not implemented customization or release approval. Production defaults and assessment behavior are unchanged. No Azure/laptop access is needed to implement the next offline batch.
 
 ## Current propagation, verified from code

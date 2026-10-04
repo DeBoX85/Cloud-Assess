@@ -1,5 +1,7 @@
 # Cloud Assess Target Specification
 
+Current audit reconciliation (2026-10-04): owned inventory aggregation is VERIFIED OFFLINE through PR112, accepted07011b63. All six pure region helpers are implemented; public region-selection remains unavailable. The combined PR114 candidate contains PR113 source-only availability characterization and four audited hardening corrections, pending fresh combined exact-head gates/protected acceptance. Earlier dated IN PROGRESS/next-task paragraphs are historical. SESSION_HANDOVER is the resume authority; PROJECT_AUDIT_REPORT_20261004 records review scope and residuals.
+
 Status: working canonical specification
 
 Reference implementation: `DeBoX85/azqr`
@@ -73,7 +75,7 @@ Core v1 includes:
 - post-report severity gate
 - plugin architecture
 
-Full internal-plugin parity remains open. Zone mapping execution, the standalone `zone-mapping` command, named mixed selection and honest `plugins list/info` are verified offline through PR84/85, service-health execution through PR87 and SQL EOL execution through PR89 and carbon request/public execution through PR93/94; see [ZONE_EXECUTION.md](ZONE_EXECUTION.md). Unnamed or unavailable plugin selections reject before Azure authentication. AI governance source captures/pure projection are verified offline through PR96; its bounded decoder/request library is verified offline through PR97 under [AI_GOVERNANCE_REQUESTS.md](AI_GOVERNANCE_REQUESTS.md). [AI Graph discovery](AI_GOVERNANCE_EXECUTION.md) is accepted offline through PR101; public/report integration is accepted offline through PR103, and [region selection primary scoring](REGION_SELECTION.md) is accepted offline through PR104 and source auxiliary characterization through PR105; [quota/reservation pure projections](REGION_AUXILIARY.md) are accepted offline through PR106; [service-availability pure sheets](REGION_SERVICE_AVAILABILITY.md) are accepted offline through PR108; [pure CostComparison](REGION_COST_COMPARISON.md) is accepted offline through PR109; [pure Inventory](REGION_INVENTORY.md) is accepted offline through PR110; [inventory calculations characterization](REGION_INVENTORY_CALCULATIONS.md) is accepted offline through PR111; [owned inventory aggregation](REGION_INVENTORY_AGGREGATION.md) is IN PROGRESS/unaccepted; full region execution remains unavailable; live extension equivalence is not established by these synthetic slices.
+Full internal-plugin parity remains open. Zone mapping execution, the standalone `zone-mapping` command, named mixed selection and honest `plugins list/info` are verified offline through PR84/85, service-health execution through PR87 and SQL EOL execution through PR89 and carbon request/public execution through PR93/94; see [ZONE_EXECUTION.md](ZONE_EXECUTION.md). Unnamed or unavailable plugin selections reject before Azure authentication. AI governance source captures/pure projection are verified offline through PR96; its bounded decoder/request library is verified offline through PR97 under [AI_GOVERNANCE_REQUESTS.md](AI_GOVERNANCE_REQUESTS.md). [AI Graph discovery](AI_GOVERNANCE_EXECUTION.md) is accepted offline through PR101; public/report integration is accepted offline through PR103, and [region selection primary scoring](REGION_SELECTION.md) is accepted offline through PR104 and source auxiliary characterization through PR105; [quota/reservation pure projections](REGION_AUXILIARY.md) are accepted offline through PR106; [service-availability pure sheets](REGION_SERVICE_AVAILABILITY.md) are accepted offline through PR108; [pure CostComparison](REGION_COST_COMPARISON.md) is accepted offline through PR109; [pure Inventory](REGION_INVENTORY.md) is accepted offline through PR110; [inventory calculations characterization](REGION_INVENTORY_CALCULATIONS.md) is accepted offline through PR111; [owned inventory aggregation](REGION_INVENTORY_AGGREGATION.md) is accepted offline through PR112; [source availability characterization](REGION_AVAILABILITY_CALCULATIONS.md) is IN PROGRESS/unaccepted; full region execution remains unavailable; live extension equivalence is not established by these synthetic slices.
 
 ## Output strategy
 
@@ -140,6 +142,9 @@ Filters support subscription, resource group, scanner/service selection, individ
 - unknown tag scope is excluded for include-tag filters and retained for exclude-only tag filters
 
 The target configuration root uses neutral terminology such as `assessment:` rather than the legacy product name. The target also renames the legacy `exclude.services` field to the clearer `exclude.resources`; this is an intentional configuration compatibility break, not a behavioral change.
+
+
+Filter files accept one YAML document with known neutral schema fields. Unknown or legacy keys, additional documents and a null `assessment` fail before authentication. An empty file and `assessment: {}` preserve default filter behavior. This is an intentional input correction to prevent silently discarded scope restrictions; see [AUDIT_FILTER_SCHEMA.md](AUDIT_FILTER_SCHEMA.md).
 
 ## Recommendation catalog
 
@@ -371,6 +376,13 @@ Observed source characterization preparation is accepted through PR111; full fin
 
 ## PR111 accepted and owned aggregation active (2026-10-04)
 
-Inventory source characterization PR111 is VERIFIED OFFLINE. The bounded owned aggregation helper is IN PROGRESS/unaccepted under [REGION_INVENTORY_AGGREGATION.md](REGION_INVENTORY_AGGREGATION.md). Public region-selection remains unavailable. Finish fresh exact-head native/source QA, review and protected acceptance, then availability/latency/cost/quota/reservation arithmetic, bounded request adapters and coordinator/public/all-format execution. Azure/laptop-dependent validation remains explicitly deferred.
+Owned inventory aggregation is VERIFIED OFFLINE through [PR112](https://github.com/DeBoX85/Cloud-Assess/pull/112), accepted07011b63. Pure source availability characterization is IN PROGRESS/unaccepted under [REGION_AVAILABILITY_CALCULATIONS.md](REGION_AVAILABILITY_CALCULATIONS.md). Public region-selection remains unavailable. Retain actual new source bytes and require unconditional six-file equality, independent oracle checks and both complete native gates before protected acceptance. Then implement bounded availability, followed by latency/cost/quota/reservation arithmetic, adapters and coordinator/public/all-format execution. Azure/laptop validation remains deferred.
 
 Accepted PR111 final native37170957575/source37170957525 and distinct accepted-push native37171306079/source37171306081 passed all mandatory steps/full logs on the documented exact heads; unchanged four captures/13 inventory branches/30 normalization cases and all prior controls. See SESSION_HANDOVER/REGION_INVENTORY_CALCULATIONS and [PR111](https://github.com/DeBoX85/Cloud-Assess/pull/111) for commit/tree/ordered parents/job/coverage/security proof. Current aggregation contract separately defines corrections, independent budgets, actual complete five-map oracles, valid literal subset, ownership/cancellation and ten compiling controls; no new Go/native/public/live acceptance yet.
+
+
+## Current checkpoint (2026-10-04)
+
+Owned inventory aggregation is VERIFIED OFFLINE through [PR112](https://github.com/DeBoX85/Cloud-Assess/pull/112), accepted07011b63. Pure source availability characterization is IN PROGRESS/unaccepted under [REGION_AVAILABILITY_CALCULATIONS.md](REGION_AVAILABILITY_CALCULATIONS.md). Public region-selection remains unavailable. Retain actual new source bytes and require unconditional six-file equality, independent oracle checks and both complete native gates before protected acceptance. Then implement bounded availability, followed by latency/cost/quota/reservation arithmetic, adapters and coordinator/public/all-format execution. Azure/laptop validation remains deferred.
+
+PR112 final native/source and protected merge proof: [PR112](https://github.com/DeBoX85/Cloud-Assess/pull/112), [DEVELOPMENT_LEDGER.md](DEVELOPMENT_LEDGER.md). Distinct accepted-push verification remains separately recorded there. Earlier preparation paragraphs are historical snapshots, not current unresolved gates.

@@ -245,8 +245,8 @@ This document tracks source behavior that Cloud Assess intentionally preserves o
 3. Resolve the Arc SQL `vcores` response shape with live or targeted evidence.
 4. Obtain non-empty live or targeted-fixture evidence for Policy and Defender Recommendations.
 5. Add targeted Terraform/reference fixtures for other important scenarios absent from the existing test environment.
-6. Wire external/YAML plugin execution into production orchestration and then migrate the deferred internal plugins.
-7. Complete the agreed scanner-specific, `rules`, and `plugins list/info` CLI surfaces.
+6. Bounded YAML Graph execution and zone/service-health/SQL-EOL/carbon/AI public integration are accepted offline. Complete the remaining region request/public execution and live extension validation.
+7. Scanner-specific, `rules`, and `plugins list/info` CLI surfaces are accepted offline; remaining ancillary operator-command parity is tracked in ROADMAP.
 
 ## Decoder and persisted optional-stage projection checkpoint
 

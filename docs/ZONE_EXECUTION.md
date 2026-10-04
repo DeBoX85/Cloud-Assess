@@ -1,5 +1,7 @@
 # Zone coordinator execution contract
 
+Current status: coordinator, mixed/plugin-only CLI and honest list/info execution are VERIFIED OFFLINE through PR84/85. Earlier candidate sequencing below is historical. Live/release approval remains separate.
+
 Status: B3c coordinator slice, 2026-10-02. The accepted zone adapter and canonical tables are wired through a typed coordinator request; CLI/list-info wiring remains a separate slice. This document records contract and local evidence, not final native acceptance. Final head/run/merge evidence belongs in the proposal and next material ledger index.
 
 Pinned source `8e4f0577f3615e6c9014c031bcad079f235369cc`, `internal/pipeline/builder.go:BuildPluginOnly` performs subscription discovery and plugin execution without inventory/Graph. `internal/scanners/plugins/zone/mapping.go` defines metadata, five headers, Zone Mapping sheet and its distinct description. Source skips failures/continuations; [ZONE_MAPPING.md](ZONE_MAPPING.md) records target corrections. No source/library/dependency pins or equivalence normalization change.

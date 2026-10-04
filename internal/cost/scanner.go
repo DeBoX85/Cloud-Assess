@@ -247,6 +247,10 @@ func (s *Scanner) querySubscription(
 		return nil, nil, fmt.Errorf("decode costs for subscription %s: %w", subscriptionID, err)
 	}
 
+	if response.Properties.NextLink != "" {
+		return nil, nil, fmt.Errorf("cost query for subscription %s returned an unconsumed continuation; costs are incomplete", subscriptionID)
+	}
+
 	records := make([]assessment.CostRecord, 0, len(response.Properties.Rows))
 	warnings := []assessment.AssessmentWarning{}
 	for _, row := range response.Properties.Rows {
@@ -307,4 +311,6 @@ type queryResult struct {
 
 type queryProperties struct {
 	Rows [][]any `json:"rows"`
+
+	NextLink string `json:"nextLink"`
 }

@@ -1,5 +1,7 @@
 # Offline project QA checkpoint
 
+This is a retained historical QA snapshot, not the current whole-project audit disposition. See PROJECT_AUDIT_REPORT_20261004 and SESSION_HANDOVER for current fixes and evidence. Its documented live/release/security limitations are retained.
+
 Review date: 2026-10-01 (Europe/Oslo). Starting revision: `dd3cc8309b799502ba92c9d43559b776eb8b3918` on `bootstrap/core-v1`. This bounded review executes the eight agreed autonomous tasks and the development QA workflow. It is not Gate 004 PASS, a penetration test or release/security approval.
 
 ## Eight-task outcome

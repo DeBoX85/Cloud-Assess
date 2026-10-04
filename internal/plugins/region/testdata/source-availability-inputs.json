@@ -1,0 +1,626 @@
+{
+  "cases": {
+    "cancelled-source-ignores-context": {
+      "Source": "eastus",
+      "Target": "westeurope",
+      "Inventory": {
+        "ResourceTypes": null,
+        "SKUsByType": null,
+        "LocationCounts": null,
+        "ResourceTypesByRegion": {
+          "eastus": {
+            "microsoft.capture/available": 1,
+            "microsoft.capture/failed": 1
+          }
+        },
+        "SKUsByTypeAndRegion": {
+          "microsoft.capture/available": {
+            "eastus": {
+              "Ready": 1,
+              "restricted": 1
+            }
+          },
+          "microsoft.capture/failed": {
+            "eastus": {
+              "Unknown": 1
+            }
+          }
+        }
+      },
+      "Providers": {
+        "Data": {
+          "microsoft.capture": {
+            "available": {
+              "westeurope": {}
+            },
+            "failed": {
+              "westeurope": {}
+            }
+          },
+          "microsoft.compute": {
+            "virtualmachines": {
+              "westeurope": {}
+            }
+          },
+          "microsoft.network": {
+            "privatednszones": {
+              "global": {}
+            },
+            "virtualnetworks": {
+              "eastus": {}
+            }
+          }
+        }
+      },
+      "Zones": {
+        "eastus": 3,
+        "westeurope": 2
+      },
+      "SKUEnabled": true,
+      "Cancelled": true
+    },
+    "resource-empty-providers": {
+      "Source": "eastus",
+      "Target": "westeurope",
+      "Inventory": {
+        "ResourceTypes": null,
+        "SKUsByType": null,
+        "LocationCounts": null,
+        "ResourceTypesByRegion": {
+          "eastus": {
+            "microsoft.compute/virtualmachines": 900,
+            "microsoft.custom/widgets": 7,
+            "microsoft.network/privatednszones": 0,
+            "microsoft.network/virtualnetworks": 1
+          }
+        },
+        "SKUsByTypeAndRegion": {
+          "microsoft.compute/virtualmachines": {
+            "eastus": {
+              "Standard_D4s_v3": 12
+            }
+          }
+        }
+      },
+      "Providers": {
+        "Data": null
+      },
+      "Zones": {
+        "eastus": 3,
+        "westeurope": 2
+      },
+      "SKUEnabled": false,
+      "Cancelled": false
+    },
+    "resource-mixed-no-sku": {
+      "Source": "eastus",
+      "Target": "westeurope",
+      "Inventory": {
+        "ResourceTypes": null,
+        "SKUsByType": null,
+        "LocationCounts": null,
+        "ResourceTypesByRegion": {
+          "eastus": {
+            "microsoft.compute/virtualmachines": 900,
+            "microsoft.custom/widgets": 7,
+            "microsoft.network/privatednszones": 0,
+            "microsoft.network/virtualnetworks": 1
+          }
+        },
+        "SKUsByTypeAndRegion": {
+          "microsoft.compute/virtualmachines": {
+            "eastus": {
+              "Standard_D4s_v3": 12
+            }
+          }
+        }
+      },
+      "Providers": {
+        "Data": {
+          "microsoft.capture": {
+            "available": {
+              "westeurope": {}
+            },
+            "failed": {
+              "westeurope": {}
+            }
+          },
+          "microsoft.compute": {
+            "virtualmachines": {
+              "westeurope": {}
+            }
+          },
+          "microsoft.network": {
+            "privatednszones": {
+              "global": {}
+            },
+            "virtualnetworks": {
+              "eastus": {}
+            }
+          }
+        }
+      },
+      "Zones": {
+        "eastus": 3,
+        "westeurope": 2
+      },
+      "SKUEnabled": false,
+      "Cancelled": false
+    },
+    "sku-all-states": {
+      "Source": "eastus",
+      "Target": "westeurope",
+      "Inventory": {
+        "ResourceTypes": null,
+        "SKUsByType": null,
+        "LocationCounts": null,
+        "ResourceTypesByRegion": {
+          "eastus": {
+            "microsoft.capture/available": 200,
+            "microsoft.custom/widgets": 2
+          }
+        },
+        "SKUsByTypeAndRegion": {
+          "microsoft.capture/available": {
+            "eastus": {
+              " ready ": 1,
+              "Ready": 100,
+              "absent": 1,
+              "future": 1,
+              "missing": 1,
+              "restricted": 1,
+              "zones": 1,
+              "zones-empty": 1
+            },
+            "northeurope": {
+              "not-source": 1
+            }
+          },
+          "microsoft.custom/widgets": {
+            "eastus": {
+              "ignored-provider": 1
+            }
+          }
+        }
+      },
+      "Providers": {
+        "Data": {
+          "microsoft.capture": {
+            "available": {
+              "westeurope": {}
+            },
+            "failed": {
+              "westeurope": {}
+            }
+          },
+          "microsoft.compute": {
+            "virtualmachines": {
+              "westeurope": {}
+            }
+          },
+          "microsoft.network": {
+            "privatednszones": {
+              "global": {}
+            },
+            "virtualnetworks": {
+              "eastus": {}
+            }
+          }
+        }
+      },
+      "Zones": {
+        "eastus": 3,
+        "westeurope": 2
+      },
+      "SKUEnabled": true,
+      "Cancelled": false
+    },
+    "sku-all-unknown": {
+      "Source": "eastus",
+      "Target": "westeurope",
+      "Inventory": {
+        "ResourceTypes": null,
+        "SKUsByType": null,
+        "LocationCounts": null,
+        "ResourceTypesByRegion": {
+          "eastus": {
+            "microsoft.capture/failed": 1
+          }
+        },
+        "SKUsByTypeAndRegion": {
+          "microsoft.capture/failed": {
+            "eastus": {
+              "First": 1,
+              "Second": 2
+            }
+          }
+        }
+      },
+      "Providers": {
+        "Data": {
+          "microsoft.capture": {
+            "available": {
+              "westeurope": {}
+            },
+            "failed": {
+              "westeurope": {}
+            }
+          },
+          "microsoft.compute": {
+            "virtualmachines": {
+              "westeurope": {}
+            }
+          },
+          "microsoft.network": {
+            "privatednszones": {
+              "global": {}
+            },
+            "virtualnetworks": {
+              "eastus": {}
+            }
+          }
+        }
+      },
+      "Zones": {
+        "eastus": 3,
+        "westeurope": 2
+      },
+      "SKUEnabled": true,
+      "Cancelled": false
+    },
+    "sku-disabled": {
+      "Source": "eastus",
+      "Target": "westeurope",
+      "Inventory": {
+        "ResourceTypes": null,
+        "SKUsByType": null,
+        "LocationCounts": null,
+        "ResourceTypesByRegion": {
+          "eastus": {
+            "microsoft.capture/available": 200,
+            "microsoft.custom/widgets": 2
+          }
+        },
+        "SKUsByTypeAndRegion": {
+          "microsoft.capture/available": {
+            "eastus": {
+              " ready ": 1,
+              "Ready": 100,
+              "absent": 1,
+              "future": 1,
+              "missing": 1,
+              "restricted": 1,
+              "zones": 1,
+              "zones-empty": 1
+            },
+            "northeurope": {
+              "not-source": 1
+            }
+          },
+          "microsoft.custom/widgets": {
+            "eastus": {
+              "ignored-provider": 1
+            }
+          }
+        }
+      },
+      "Providers": {
+        "Data": {
+          "microsoft.capture": {
+            "available": {
+              "westeurope": {}
+            },
+            "failed": {
+              "westeurope": {}
+            }
+          },
+          "microsoft.compute": {
+            "virtualmachines": {
+              "westeurope": {}
+            }
+          },
+          "microsoft.network": {
+            "privatednszones": {
+              "global": {}
+            },
+            "virtualnetworks": {
+              "eastus": {}
+            }
+          }
+        }
+      },
+      "Zones": {
+        "eastus": 3,
+        "westeurope": 2
+      },
+      "SKUEnabled": false,
+      "Cancelled": false
+    },
+    "sku-mixed-unknown": {
+      "Source": "eastus",
+      "Target": "westeurope",
+      "Inventory": {
+        "ResourceTypes": null,
+        "SKUsByType": null,
+        "LocationCounts": null,
+        "ResourceTypesByRegion": {
+          "eastus": {
+            "microsoft.capture/available": 1,
+            "microsoft.capture/failed": 1
+          }
+        },
+        "SKUsByTypeAndRegion": {
+          "microsoft.capture/available": {
+            "eastus": {
+              "Ready": 1,
+              "restricted": 1
+            }
+          },
+          "microsoft.capture/failed": {
+            "eastus": {
+              "Unknown": 1
+            }
+          }
+        }
+      },
+      "Providers": {
+        "Data": {
+          "microsoft.capture": {
+            "available": {
+              "westeurope": {}
+            },
+            "failed": {
+              "westeurope": {}
+            }
+          },
+          "microsoft.compute": {
+            "virtualmachines": {
+              "westeurope": {}
+            }
+          },
+          "microsoft.network": {
+            "privatednszones": {
+              "global": {}
+            },
+            "virtualnetworks": {
+              "eastus": {}
+            }
+          }
+        }
+      },
+      "Zones": {
+        "eastus": 3,
+        "westeurope": 2
+      },
+      "SKUEnabled": true,
+      "Cancelled": false
+    },
+    "source-absent": {
+      "Source": "eastus",
+      "Target": "westeurope",
+      "Inventory": {
+        "ResourceTypes": null,
+        "SKUsByType": null,
+        "LocationCounts": null,
+        "ResourceTypesByRegion": {},
+        "SKUsByTypeAndRegion": {}
+      },
+      "Providers": {
+        "Data": {
+          "microsoft.capture": {
+            "available": {
+              "westeurope": {}
+            },
+            "failed": {
+              "westeurope": {}
+            }
+          },
+          "microsoft.compute": {
+            "virtualmachines": {
+              "westeurope": {}
+            }
+          },
+          "microsoft.network": {
+            "privatednszones": {
+              "global": {}
+            },
+            "virtualnetworks": {
+              "eastus": {}
+            }
+          }
+        }
+      },
+      "Zones": {
+        "eastus": 3,
+        "westeurope": 2
+      },
+      "SKUEnabled": true,
+      "Cancelled": false
+    },
+    "source-key-exact-case": {
+      "Source": "East US",
+      "Target": "westeurope",
+      "Inventory": {
+        "ResourceTypes": null,
+        "SKUsByType": null,
+        "LocationCounts": null,
+        "ResourceTypesByRegion": {
+          "eastus": {
+            "microsoft.compute/virtualmachines": 900,
+            "microsoft.custom/widgets": 7,
+            "microsoft.network/privatednszones": 0,
+            "microsoft.network/virtualnetworks": 1
+          }
+        },
+        "SKUsByTypeAndRegion": {
+          "microsoft.compute/virtualmachines": {
+            "eastus": {
+              "Standard_D4s_v3": 12
+            }
+          }
+        }
+      },
+      "Providers": {
+        "Data": {
+          "microsoft.capture": {
+            "available": {
+              "westeurope": {}
+            },
+            "failed": {
+              "westeurope": {}
+            }
+          },
+          "microsoft.compute": {
+            "virtualmachines": {
+              "westeurope": {}
+            }
+          },
+          "microsoft.network": {
+            "privatednszones": {
+              "global": {}
+            },
+            "virtualnetworks": {
+              "eastus": {}
+            }
+          }
+        }
+      },
+      "Zones": {
+        "eastus": 3,
+        "westeurope": 2
+      },
+      "SKUEnabled": true,
+      "Cancelled": false
+    },
+    "source-present-empty": {
+      "Source": "eastus",
+      "Target": "westeurope",
+      "Inventory": {
+        "ResourceTypes": null,
+        "SKUsByType": null,
+        "LocationCounts": null,
+        "ResourceTypesByRegion": {
+          "eastus": {}
+        },
+        "SKUsByTypeAndRegion": {}
+      },
+      "Providers": {
+        "Data": {
+          "microsoft.capture": {
+            "available": {
+              "westeurope": {}
+            },
+            "failed": {
+              "westeurope": {}
+            }
+          },
+          "microsoft.compute": {
+            "virtualmachines": {
+              "westeurope": {}
+            }
+          },
+          "microsoft.network": {
+            "privatednszones": {
+              "global": {}
+            },
+            "virtualnetworks": {
+              "eastus": {}
+            }
+          }
+        }
+      },
+      "Zones": {
+        "eastus": 3,
+        "westeurope": 2
+      },
+      "SKUEnabled": true,
+      "Cancelled": false
+    },
+    "target-key-exact-case": {
+      "Source": "eastus",
+      "Target": "West Europe",
+      "Inventory": {
+        "ResourceTypes": null,
+        "SKUsByType": null,
+        "LocationCounts": null,
+        "ResourceTypesByRegion": {
+          "eastus": {
+            "microsoft.compute/virtualmachines": 900,
+            "microsoft.custom/widgets": 7,
+            "microsoft.network/privatednszones": 0,
+            "microsoft.network/virtualnetworks": 1
+          }
+        },
+        "SKUsByTypeAndRegion": {
+          "microsoft.compute/virtualmachines": {
+            "eastus": {
+              "Standard_D4s_v3": 12
+            }
+          }
+        }
+      },
+      "Providers": {
+        "Data": {
+          "microsoft.capture": {
+            "available": {
+              "westeurope": {}
+            },
+            "failed": {
+              "westeurope": {}
+            }
+          },
+          "microsoft.compute": {
+            "virtualmachines": {
+              "westeurope": {}
+            }
+          },
+          "microsoft.network": {
+            "privatednszones": {
+              "global": {}
+            },
+            "virtualnetworks": {
+              "eastus": {}
+            }
+          }
+        }
+      },
+      "Zones": {
+        "eastus": 3,
+        "westeurope": 2
+      },
+      "SKUEnabled": false,
+      "Cancelled": false
+    }
+  },
+  "sku_error": true,
+  "sku_response": {
+    " Ready ": {
+      "State": 0,
+      "BlockedZones": null
+    },
+    "future": {
+      "State": 99,
+      "BlockedZones": null
+    },
+    "missing": {
+      "State": 2,
+      "BlockedZones": null
+    },
+    "restricted": {
+      "State": 1,
+      "BlockedZones": null
+    },
+    "zones": {
+      "State": 3,
+      "BlockedZones": [
+        "3",
+        "1",
+        "3"
+      ]
+    },
+    "zones-empty": {
+      "State": 3,
+      "BlockedZones": null
+    }
+  }
+}
