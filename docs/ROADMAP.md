@@ -1,3 +1,14 @@
+# Availability reconstruction checkpoint (2026-10-04)
+
+User authorized continuing feature development after accepted audit PR119. Live bootstrap/core-v1 verified at3463a72f11912039702ee60605ec4d79830c09bc/tree3bc82d8ffd4aa19167edd4e6bf02b8d031a9939a; no open proposals at entry. Audit and source-only availability are accepted; do not repeat their review. See [REGION_AVAILABILITY_RUNTIME.md](REGION_AVAILABILITY_RUNTIME.md) for the reviewed-before-edit contract, explicit source corrections, independent oracles and mandatory acceptance. Runtime implementation/QA remain pending and public region execution remains unavailable.
+
+Laptop access is expected soon; Azure restoration is not confirmed. Continue bounded offline implementation; prepare a scoped live handoff at the natural integration transition. No Azure resources/roles/production substitution/exposure/release authorized. No local Go, APRL unmaterialized locally; native Actions executes full proof. Isolated availability-work is based on exact accepted3463; old task-owned audit workspaces are preserved. Next: implement the documented pure per-pair constructor and independent guards, publish coherent WIP and verify remotely, then complete exact-head native/source/protected acceptance. Check latest PR body for published revision/run outcomes; scratch-only code is not backed up. No uncertain remote operation or current offline input required.
+
+Earlier records below are historical and superseded where their pause/baseline/next action differs.
+
+---
+
+
 # Cloud Assess Roadmap
 
 Current audit disposition (2026-10-04): whole-project bounded offline review and hardening/source characterization are accepted through PR114, mergec33fb2eee93a2e5730f72612b351d0b838737d03, tree583496773c23902e7d7187ffc83a1c4ee6be0713. Owned inventory aggregation remains accepted through PR112; source-only availability characterization is now accepted through PR114. Runtime availability and public region-selection remain absent. Resume the separately reviewed bounded pure availability implementation after the audit disposition follow-up is accepted. Exact runtime and disposition acceptance evidence is indexed in their PR bodies; live/load/Gate004/release/advisory boundaries remain open. Earlier candidate/IN PROGRESS sequencing below is historical.
