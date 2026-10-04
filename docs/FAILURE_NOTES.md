@@ -626,3 +626,15 @@ Distinct accepted-push native https://github.com/DeBoX85/Cloud-Assess/actions/ru
 Inventory source characterization PR111 is VERIFIED OFFLINE. The bounded owned aggregation helper is IN PROGRESS/unaccepted under [REGION_INVENTORY_AGGREGATION.md](REGION_INVENTORY_AGGREGATION.md). Public region-selection remains unavailable. Finish fresh exact-head native/source QA, review and protected acceptance, then availability/latency/cost/quota/reservation arithmetic, bounded request adapters and coordinator/public/all-format execution. Azure/laptop-dependent validation remains explicitly deferred.
 
 No new confirmed PR111 implementation failure: initial source capture and complete final/native/source/accepted-push gates passed. FN059 requires current remaining work to identify aggregation, not repeat source-characterization acceptance commands. FN070 original UTF8 Git hashes/ASCII-safe transport remain enforced. FN072 controls must compile, fail the named assertion, reject panic/build failures and restore/pass baseline; ten new aggregation controls apply this explicitly. Source case/nil/logical/control observations are retained source semantics, not invented target failures. Aggregation native checks remain pending.
+
+
+## FN073: accepted-push run roles transposed (2026-10-04)
+
+- Symptom: PR112's first merge note listed source37172980065/native37172980083 without matching run names.
+- Cause and impact: run IDs were assigned by list order; actual workflow/job metadata identifies native37172980065 and source37172980083. This affected evidence links only; no false accepted-push PASS or code acceptance was based on those labels.
+- Correction: read both run names/jobs and exact merge head, corrected the PR before the next repository checkpoint. Source job111349577747 and native jobs111349577702/111349577424 are now explicit. Complete outcome/log verification remains required separately.
+- Prevention: identify evidence by workflow name, event, head and job names, never result-list order. Final-head native/source and protected merge PR112 remain verified in [PR112](https://github.com/DeBoX85/Cloud-Assess/pull/112). Earlier preparation failures remain historical.
+
+## Current checkpoint (2026-10-04)
+
+Owned inventory aggregation is VERIFIED OFFLINE through [PR112](https://github.com/DeBoX85/Cloud-Assess/pull/112), accepted07011b63. Pure source availability characterization is IN PROGRESS/unaccepted under [REGION_AVAILABILITY_CALCULATIONS.md](REGION_AVAILABILITY_CALCULATIONS.md). Public region-selection remains unavailable. Retain actual new source bytes and require unconditional six-file equality, independent oracle checks and both complete native gates before protected acceptance. Then implement bounded availability, followed by latency/cost/quota/reservation arithmetic, adapters and coordinator/public/all-format execution. Azure/laptop validation remains deferred.

@@ -19,9 +19,13 @@ CAPTURES = (
     ("inventory_capture_test.go.txt", "inventory_capture_test.go",
      "REGION_INVENTORY_CAPTURE_OUTPUT", "^TestRegionInventoryCalculationCapture$",
      "./internal/scanners/plugins/region"),
+    ("availability_capture_test.go.txt", "availability/availability_capture_test.go",
+     "REGION_AVAILABILITY_CAPTURE_OUTPUT", "^TestRegionAvailabilityCalculationCapture$",
+     "./internal/scanners/plugins/region/availability"),
 )
 FILES = ("source-aux-inputs.json", "source-aux-outputs.json",
-         "source-inventory-inputs.json", "source-inventory-outputs.json")
+         "source-inventory-inputs.json", "source-inventory-outputs.json",
+         "source-availability-inputs.json", "source-availability-outputs.json")
 
 
 def run(args, directory, timeout=240, capture=False):
@@ -74,7 +78,12 @@ with tempfile.TemporaryDirectory(prefix="cloud-assess-region-source-") as tempor
     for name in FILES:
         raw = (output / name).read_bytes()
         retained = ROOT / "internal/plugins/region/testdata" / name
-        verify_capture_bytes(raw, retained)
+        # New availability files are observed only in this unaccepted checkpoint.
+        # Acceptance replaces this temporary branch with unconditional six-file equality.
+        if name.startswith("source-availability-"):
+            print("REGION_AVAILABILITY_OBSERVATION_ONLY " + name)
+        else:
+            verify_capture_bytes(raw, retained)
         content = raw.decode("utf-8")
         pieces = [content[i:i + 3000] for i in range(0, len(content), 3000)]
         for index, piece in enumerate(pieces):
