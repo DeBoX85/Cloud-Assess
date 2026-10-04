@@ -1,6 +1,6 @@
 # Region quota and capacity reservation pure projections
 
-Status: IN PROGRESS; unaccepted candidate based on PR105 merge7e4ca5c955abb7f882591a44d8bb2f74c93ae243. Public region-selection unavailable.
+Status: VERIFIED OFFLINE through PR106 mergec4643527dc948f96a565da237662a104a084f14e. Public region-selection unavailable. Original pre-acceptance requirements below are the continuing contract; completed proof follows.
 
 ## Contract and source authority
 
@@ -23,3 +23,13 @@ Compare every quota/reservation source cell, columns, description/order and nil 
 No fresh local Go QA, Azure/laptop, quota/SKU/cost/latency fidelity, public/all-sheet integration, load/fresh-OS, Gate004/release proof. Pins/notices unchanged. Rollback: protected reviewed revert after dependency review. Next separate pure sheets: service availability/cost, inventory/calculations, then bounded service adapters and public execution.
 
 SHA256 inputs f9695cfa0bd662b2dbc52addb68a9208b57be1e60dabe31c99cb5651d2962c28; outputs efe06093eddece6b54617c806bdb74727aed5228a5a96f7300068b22bd77bc06. [Microsoft capacity documentation](https://learn.microsoft.com/en-us/dotnet/api/azure.resourcemanager.compute.models.capacityreservationutilization.currentcapacity?view=azure-dotnet) distinguishes billed reserved capacity from allocated resources; it does not justify modifying the captured helper cells or adding modern API fields here.
+
+
+## Accepted proof
+
+Quota/Capacity Reservations pure projections are VERIFIED OFFLINE through [PR106](https://github.com/DeBoX85/Cloud-Assess/pull/106), merge `c4643527dc948f96a565da237662a104a084f14e`, tree `38248bc19be95c0058377ed373a4bf90b20e4ca2`, ordered parents7e4ca5c/e7e5511. Final head e7e551104cc6e0e6dda25c389af9176eb5ed562c passed [run37146790757](https://github.com/DeBoX85/Cloud-Assess/actions/runs/37146790757), quality111272343099/Windows111272342986, all mandatory steps/full logs inspected. Both tested preview06848f39 with the identical tree/parents. Source characterization [37146790810](https://github.com/DeBoX85/Cloud-Assess/actions/runs/37146790810)/job111272298401 reproduced all14 unchanged helper branches with exact captured bytes/provenance. Both hosts passed every quota/reservation cell/empty branch, all three compiling auxiliary controls and restored assertions, existing five primary/eight AI request/four AI execution controls,12 actual CLI and19 default/19 branded packages; docs327/9/1. Linux race/vet/fuzz and82.1% coverage passed; zero reachable/imported vulnerability findings, existing module-only advisory open. Remote merge/ref/tree/parents/human author/GitHub committer verified. Fresh local Go/fetched-source evidence is unavailable in this Windows session.
+
+Next [service-availability slice](REGION_SERVICE_AVAILABILITY.md) remains NOT STARTED. Final acceptance imperatives above are fulfilled for this implementation; apply them again to future changes.
+
+
+Separate accepted-merge proof completed: [run37147153459](https://github.com/DeBoX85/Cloud-Assess/actions/runs/37147153459), quality111273357208/Windows111273357343, every mandatory step/full log inspected on exact c4643527. Source [run37147153415](https://github.com/DeBoX85/Cloud-Assess/actions/runs/37147153415)/job111273356990 reproduced all14 unchanged branches with exact hashes/provenance/bytes. Both hosts passed all existing/new controls,12 CLI/19 default/19 branded packages/docs327/9/1; Linux race/vet/fuzz/coverage82.1% and zero reachable/imported vulnerability findings. Module-only advisory stays open. This is separate accepted-push evidence, not inferred PR success or local execution.
