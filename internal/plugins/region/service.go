@@ -106,6 +106,11 @@ func ProjectServiceAvailability(ctx context.Context, subscriptions map[string]st
 	if !ok {
 		return serviceFailure("region_service_scope_invalid")
 	}
+	for _, name := range scope {
+		if name == "" {
+			return serviceFailure("region_service_scope_invalid")
+		}
+	}
 	entries := len(scope)
 	entry := func(n int) bool {
 		if n > MaxServiceEntries-entries {

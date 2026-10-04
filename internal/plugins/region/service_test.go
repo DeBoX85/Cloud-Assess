@@ -11,6 +11,7 @@ import (
 	"strings"
 	"sync"
 	"testing"
+	"unicode/utf16"
 
 	"github.com/DeBoX85/Cloud-Assess/internal/assessment"
 )
@@ -148,7 +149,7 @@ func TestServiceSelectedScope(t *testing.T) {
 		tables, err = ProjectServiceAvailability(context.Background(), scope, &copy, comparisons)
 		requireServiceFailure(t, tables, err, "region_service_scope_invalid")
 	}
-	for _, invalid := range []map[string]string{{"bad": "Synthetic"}, {auxSubscription: "private\x00"}, {auxSubscription: strings.Repeat("s", MaxLabelBytes+1)}} {
+	for _, invalid := range []map[string]string{{"bad": "Synthetic"}, {auxSubscription: ""}, {auxSubscription: "private\x00"}, {auxSubscription: strings.Repeat("s", MaxLabelBytes+1)}} {
 		tables, err = ProjectServiceAvailability(context.Background(), invalid, nil, nil)
 		requireServiceFailure(t, tables, err, "region_service_scope_invalid")
 	}
@@ -278,6 +279,21 @@ func TestServiceJoinedAndReplicatedTextBounds(t *testing.T) {
 	if err != nil || tables[0].Rows[0].Cells[4] != strings.Repeat("\U0001f600", 128) {
 		t.Fatal("bounded Unicode cell rejected")
 	}
+	// Both BMP and supplementary characters at the literal32767-unit limit.
+	// First key:512 bytes/510 units. Second:512 bytes/511 units.
+	inventory.SKUsByType[rt] = serviceSKUMap(64, 510)
+	delete(inventory.SKUsByType[rt], "000-"+strings.Repeat("s", 506))
+	delete(inventory.SKUsByType[rt], "001-"+strings.Repeat("s", 506))
+	inventory.SKUsByType[rt]["000-"+strings.Repeat("s", 504)+"\U0001f600"] = 1
+	inventory.SKUsByType[rt]["001-"+strings.Repeat("s", 506)+"\u00e9"] = 1
+	tables, err = ProjectServiceAvailability(context.Background(), scope, inventory, serviceTargets(1))
+	if err != nil || len(tables[0].Rows[0].Cells[4]) != 32770 || len(utf16.Encode([]rune(tables[0].Rows[0].Cells[4]))) != 32767 {
+		t.Fatal("mixed BMP/non-BMP UTF16 boundary confused bytes or runes with units", err)
+	}
+	delete(inventory.SKUsByType[rt], "002-"+strings.Repeat("s", 506))
+	inventory.SKUsByType[rt]["002-"+strings.Repeat("s", 507)] = 1
+	tables, err = ProjectServiceAvailability(context.Background(), scope, inventory, serviceTargets(1))
+	requireServiceFailure(t, tables, err, "region_service_text_limit")
 	// Small decoded inventory replicated into32 sheets exceeds16MiB output.
 	inventory.ResourceTypes = map[string]int64{}
 	inventory.SKUsByType = map[string]map[string]int64{}

@@ -8,6 +8,8 @@ import tempfile
 ROOT = Path(__file__).resolve().parents[2]
 FILE = 'internal/plugins/region/service.go'
 MUTATIONS = (
+    ('empty-selected-name', 'if name == "" {',
+     'if name == "" && false {', 'TestServiceSelectedScope'),
     ('comparison-selected-identity', 'if !auxiliarySelected(scope, c.SubscriptionID, c.SubscriptionName) || inventory != nil && !contributors[strings.ToLower(c.SubscriptionID)] {',
      'if false {', 'TestServiceSelectedScope'),
     ('replicated-row-limit', 'if len(inventory.ResourceTypes) > MaxServiceRows/len(targets) {',
@@ -18,6 +20,10 @@ MUTATIONS = (
      'units := 0', 'TestServiceJoinedAndReplicatedTextBounds'),
     ('replicated-text-limit', 'if *total > serviceTextBudget {',
      'if *total > serviceTextBudget && false {', 'TestServiceJoinedAndReplicatedTextBounds'),
+    ('utf16-rune-confusion', 'units += utf16Units(s)',
+     'units += len([]rune(s))', 'TestServiceJoinedAndReplicatedTextBounds'),
+    ('utf16-byte-confusion', 'units += utf16Units(s)',
+     'units += len(s)', 'TestServiceJoinedAndReplicatedTextBounds'),
     ('sheet-collision', 'if sheets[name] {',
      'if sheets[name] && false {', 'TestServiceMalformedAndCollision'),
     ('pinned-disk-provider', '"microsoft.compute/disks"',
