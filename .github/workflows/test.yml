@@ -61,6 +61,9 @@ jobs:
       - name: Verify availability source oracle mutations
         run: python3 scripts/tests/region-availability-capture-mutation.py
 
+      - name: Verify latency source oracle mutations
+        run: python3 scripts/tests/region-latency-capture-mutation.py
+
       - name: Verify formatting
         shell: bash
         run: |
@@ -276,6 +279,9 @@ jobs:
 
       - name: Verify Windows availability source oracle mutations
         run: python scripts/tests/region-availability-capture-mutation.py
+
+      - name: Verify Windows latency source oracle mutations
+        run: python scripts/tests/region-latency-capture-mutation.py
 
       - name: Test Go packages on Windows
         run: go test ./...
