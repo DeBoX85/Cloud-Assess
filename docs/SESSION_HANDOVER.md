@@ -1,3 +1,17 @@
+# PR124 retained REST quota source checkpoint
+
+Accepted baseline remains PR123 4f313ed5ce68856664537666607a2cd74b228331/tree d346154a1069b33b179745c3b4b3edb0d782c07e. Draft PR124 https://github.com/DeBoX85/Cloud-Assess/pull/124 is UNACCEPTED on feat/region-quota-source. REGION_QUOTA_RESERVATION records pre-edit source/target corrections and exact observed contracts. Verified planning5e1f9320/tree8fe2d225/parent4f313ed5 and observation0f622966/tree728121d5/parent5e1f9320 retain complete bytes/original local tree/Denis/ref proof.
+
+Source37240858706/job111549131710 executed six unchanged source harnesses and verified source/module/APRL isolation, emitted13 captures/116 contiguous chunks then failed declared absent-golden guard. Classified evidence gap, not source PASS/product/service failure. All observations independently reconstructed/SHA256/full UTF8-byte checked; original11 unchanged. New inputs804a2e6f24536be69b290be9f9d7bfc0015646ee0fc99132bcc646893150918c/8922bytes and outputs0796a14301763d7a67c9d47fef0d8827b10aca8844932ee047eddd71dff1d0ed/11100bytes are retained with complete20-scenario literal request/row/risk/error/nil-empty assertions and5 compiling source-oracle controls mandatory on both native hosts. Unconditional13-file source equality has no bypass. Local actual unchanged source harness, focused target literals/hash tests, all5 compiling controls/restored baseline and full region race suite PASS. Source byte guard four assertions/compiling control/restored PASS. These do not replace native final-head acceptance.
+
+Exact next: inspect final-head Linux/windows/source full logs and mandatory steps, independently verify all116 source chunks/hash/bytes, final complete diff/source pins/local and remote original trees/bytes/commit/parents/Denis/current base/preview/no-bypass rules, protected expected-head merge and distinct accepted-push proof. PR124 body indexes exact final revisions/runs/status and supersedes historical pending wording. Then separate VM/CRG SDK characterization, bounded quota/reservation calculations, guarded adapters/coordinator/public/all-format integration. Do not repeat accepted full audit or infer collector/live parity from source fixtures.
+
+Laptop/Azure restoration expected soon, NOT confirmed. Existing approved core/plugin live queue resumes independently after confirmed access/approved scope; DV001 wholly nonproduction hierarchy/live/load/freshOS/maintenance/Gate004/release/module-only advisory remain open. No Azure resources/roles/fixtures/production substitution/exposure/release. No independent-person approval. Local Go/source/APRL are verified; local Windows is not. Preserve all earlier workspaces/history/failed/intermediate runs. No known lost work or uncertain remote outcome; backups require complete remote verification.
+
+Earlier records remain history.
+
+---
+
 # PR124 REST quota observation checkpoint
 
 Accepted remains PR123 4f313ed5ce68856664537666607a2cd74b228331. Draft PR124 https://github.com/DeBoX85/Cloud-Assess/pull/124 is UNACCEPTED on feat/region-quota-source. Planning5e1f9320/tree8fe2d225/parent4f313ed5 and complete four-file bytes/original local tree/Denis/ref were verified before harness edits. REGION_QUOTA_RESERVATION is the source/correction/acceptance contract.

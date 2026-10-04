@@ -99,6 +99,44 @@ and live Azure evidence. No actual Azure request or credential is needed.
    all-format/default/empty/partial integration. Each accepted slice needs final-head
    Linux/windows/source proof, protected merge and distinct accepted-push evidence.
 
+## REST observation and independent acceptance record
+
+Draft [PR124](https://github.com/DeBoX85/Cloud-Assess/pull/124) is the exact evolving
+head/run/merge recovery index. Planning5e1f9320/tree8fe2d225/parent4f313ed5 and
+observation0f622966/tree728121d5/parent5e1f9320 were remotely verified against original
+local trees, complete bytes and Denis identity. Source run37240858706/job111549131710
+executed all six harnesses successfully, checked source/module/APRL isolation,
+emitted all13 captures/116 contiguous chunks, then failed the declared two absent
+goldens. This is an evidence gap, never source PASS or a product/service failure.
+All chunks were reconstructed with independently checked SHA256 and complete UTF8
+bytes. Existing eleven captures remain unchanged; new captures exactly match local
+unchanged-source observations from Go1.26.8.
+
+| Capture | SHA256 | Bytes/chunks |
+|---|---|---|
+| source-quota-inputs.json | 804a2e6f24536be69b290be9f9d7bfc0015646ee0fc99132bcc646893150918c | 8922/3 |
+| source-quota-outputs.json | 0796a14301763d7a67c9d47fef0d8827b10aca8844932ee047eddd71dff1d0ed | 11100/4 |
+
+Twenty REST scenarios cover full five-row arithmetic including exact15/below15/
+at/over/negative current and skipped limits; object/string/null/invalid names;
+all four provider filters including case variants; successful empty and paged
+results; first/later400/404/405/403; first/later malformed JSON; cancellation.
+Independent complete result literals include every request, row field, risk string,
+failure flag and nil-vs-empty distinction. A separate hash test preserves input
+premises and byte provenance. Five compiling controls alter threshold, filter,
+unsupported-prefix, denial and request expectations; each must fail the named full
+oracle, with healthy/restored checks. This is bounded source-oracle sensitivity,
+not mutation coverage of all code or production collectors.
+
+Transport accepts only the declared public ARM GET URLs in sequence, no request
+body, and a synthetic canary bearer. Synthetic token audience is exact; default
+network transport/client fail closed. These prove this harness's isolation and
+source request shape, not a target adapter allowlist, every cloud or real identity.
+No VM SDK/CRG SDK source execution is included. Input snapshots deliberately retain
+source-invalid/missing data; target admission must reject or represent it honestly.
+No production API is added by the source fixtures. Final exact-head native/source
+and separate accepted-push proof must be inspected in PR124 before acceptance.
+
 This slice changes source test harnesses, retained synthetic fixtures, test controls,
 runner registration and continuity records only. No target collector, public region
 enablement, dependency/pin/schema change or Azure write is authorized by this record.
