@@ -1,6 +1,6 @@
 # Region selection: staged source migration
 
-Status: primary PR104, source characterization PR105 and pure quota/reservations PR106 VERIFIED OFFLINE. Next service-availability pure sheets IN PROGRESS under REGION_SERVICE_AVAILABILITY.md, unaccepted. Public region-selection unavailable. SESSION_HANDOVER.md is the active recovery authority.
+Status: primary PR104, source characterization PR105 and pure quota/reservations PR106 VERIFIED OFFLINE. Service-availability pure sheets PR108 VERIFIED OFFLINE; current CostComparison IN PROGRESS and unaccepted under REGION_COST_COMPARISON.md. Public region-selection unavailable. SESSION_HANDOVER.md is the active recovery authority.
 
 ## Exact current slice
 
@@ -56,4 +56,11 @@ Quota/Capacity Reservations pure projections are VERIFIED OFFLINE through [PR106
 Service-availability/CostComparison/Inventory/calculations/request/public integration remain separate. See [next contract](REGION_SERVICE_AVAILABILITY.md).
 
 
-Service-availability pure migration is IN PROGRESS and unaccepted under REGION_SERVICE_AVAILABILITY. No public/request/remaining arithmetic migration is implied; quota/reservation pure acceptance remains complete.
+Historical PR108 preparation: service-availability pure migration was IN PROGRESS and unaccepted under REGION_SERVICE_AVAILABILITY; superseded by acceptance below. No public/request/remaining arithmetic migration is implied; quota/reservation pure acceptance remains complete.
+
+
+## Accepted service sheets and current CostComparison
+
+Service availability is VERIFIED OFFLINE through [PR108](https://github.com/DeBoX85/Cloud-Assess/pull/108), merge1957f6d71da0c257bdd4b9d118c2be4b97b1a12e/tree3ffc1b51cb9ed5e608b805a3a7e2e1c1d54ba81e, ordered3047085a/0b7c95cd parents. Final0b7c95cd6d2bb8b9c7a60149b3694a9c898fb67d native [37167296996](https://github.com/DeBoX85/Cloud-Assess/actions/runs/37167296996), quality111332833289/Windows111332833405, and source [37167296991](https://github.com/DeBoX85/Cloud-Assess/actions/runs/37167296991)/111332794154 passed. Both tested previewfefd1118 with exact candidate tree/parents. Distinct accepted-push native [37167713486](https://github.com/DeBoX85/Cloud-Assess/actions/runs/37167713486), quality111334058385/Windows111334058216, and source [37167713500](https://github.com/DeBoX85/Cloud-Assess/actions/runs/37167713500)/111334058367 passed on exact1957f6d. All mandatory steps/full logs inspected; only conditional failure upload skipped. Both hosts passed10 service/five primary/three auxiliary/eight AI request/four execution compiling controls/restored baselines,12 actual CLI/19 default/19 branded packages; Linux race/vet/fuzz and82.4% coverage, zero reachable/imported findings. Source14 branches/indexed complete chunks/exact retained hashes/bytes/source-tree-APRL provenance verified for both candidate and accepted push. Complete13-file scope/remote bytes and original scratch code/test/script Git blob hashes, human commit identity/base/head/preview/rules and protected merge/ref/tree/parents verified. FN070 Unicode transport and FN071 empty-label findings corrected before acceptance, with actual escaped BMP/non-BMP32767-unit boundaries and byte/rune controls. Automated review is earlier-head evidence, not independent-person/final manual-tool approval. No local Go/source fetch, public region, live/Gate004/release or module-only advisory closure is claimed.
+
+CostComparison is the current independent IN PROGRESS/unaccepted pure task under REGION_COST_COMPARISON; Inventory/calculations/adapters/public execution follow separately. Neither quota/reservation nor service pure acceptance is pending.
