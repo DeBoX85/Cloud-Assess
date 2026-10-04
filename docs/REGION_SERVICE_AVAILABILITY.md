@@ -1,5 +1,7 @@
 # Region service availability: bounded pure sheets
 
+Current audit disposition (2026-10-04): whole-project bounded offline review and hardening/source characterization are accepted through PR114, mergec33fb2eee93a2e5730f72612b351d0b838737d03, tree583496773c23902e7d7187ffc83a1c4ee6be0713. Owned inventory aggregation remains accepted through PR112; source-only availability characterization is now accepted through PR114. Runtime availability and public region-selection remain absent. Resume the separately reviewed bounded pure availability implementation after the audit disposition follow-up is accepted. Exact runtime and disposition acceptance evidence is indexed in their PR bodies; live/load/Gate004/release/advisory boundaries remain open. Earlier candidate/IN PROGRESS sequencing below is historical.
+
 Current status: this pure sheet helper is accepted offline through PR108; owned inventory aggregation through PR112. Earlier inventory/aggregation sequencing below is historical. Public region selection remains unavailable; availability arithmetic/request orchestration is a separate future task.
 
 Status: VERIFIED OFFLINE through PR108, merge1957f6d71da0c257bdd4b9d118c2be4b97b1a12e/tree3ffc1b51cb9ed5e608b805a3a7e2e1c1d54ba81e. Accepted dependencies: primary PR104, captured helpers PR105, quota/reservations PR106 and continuity PR107 merge3047085ab716fa012a255607a97fe4e0070bdc3a/tree3f177778d5910da763d3e7e783f35310919360dd. Public region-selection remains unavailable.

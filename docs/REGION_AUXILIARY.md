@@ -1,5 +1,7 @@
 # Region quota and capacity reservation pure projections
 
+Current audit disposition (2026-10-04): whole-project bounded offline review and hardening/source characterization are accepted through PR114, mergec33fb2eee93a2e5730f72612b351d0b838737d03, tree583496773c23902e7d7187ffc83a1c4ee6be0713. Owned inventory aggregation remains accepted through PR112; source-only availability characterization is now accepted through PR114. Runtime availability and public region-selection remain absent. Resume the separately reviewed bounded pure availability implementation after the audit disposition follow-up is accepted. Exact runtime and disposition acceptance evidence is indexed in their PR bodies; live/load/Gate004/release/advisory boundaries remain open. Earlier candidate/IN PROGRESS sequencing below is historical.
+
 Current status: pure auxiliary sheets and owned inventory aggregation are accepted offline through PR106/108/109/110/112. Earlier sequencing is historical. Availability source characterization is proposed in the combined audit candidate; runtime availability/request/public execution is still absent.
 
 Status: VERIFIED OFFLINE through PR106 mergec4643527dc948f96a565da237662a104a084f14e. Public region-selection unavailable. Original pre-acceptance requirements below are the continuing contract; completed proof follows.
