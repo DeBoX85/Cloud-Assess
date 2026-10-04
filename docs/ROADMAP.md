@@ -1,3 +1,15 @@
+# Cost-runtime continuation checkpoint
+
+PR122 source-only characterization is VERIFIED OFFLINE at accepted201f26921c67741a1433697d9489e6458f32bd64/tree2751881f56fe5f326826e92aeb5ca615b6f898c8. Final candidate and separate accepted-push Linux/Windows/source full logs passed; source11 files/109 chunks unchanged. Exact acceptance is https://github.com/DeBoX85/Cloud-Assess/pull/122. No open proposals at entry; no lost/unpublished prior authored work or uncertain operation. Previous audit/availability/latency/sheet acceptance is not repeated.
+
+[REGION_COST_RUNTIME.md](REGION_COST_RUNTIME.md) records the pre-production numeric/evidence/health contract. Current feat/region-cost-enrichment-runtime is UNACCEPTED; next implement pure bounded selected-subscription weighted enrichment, full independent source/correction/boundary/ownership/cancellation/integration tests and compiling controls in both required hosts. Publish and remotely verify coherent code checkpoints, then require complete final-head native/source evidence, protected acceptance and distinct accepted-push proof. Current PR body will index exact revisions/runs. No target runtime tests have run yet.
+
+Laptop/Azure restoration is expected soon but not confirmed. Existing approved core/plugin live queue resumes independently after confirmed access/scope. No Azure writes/resources/roles/fixtures/production substitution/exposure/release. Public region execution remains unavailable; quota/reservation/adapters/coordinator/all-format integration, DV001 wholly nonproduction nested hierarchy/live/load/freshOS/maintenance/Gate004/release/module-only advisory remain open. Self-review only; no independent-person approval. Older workspaces/history preserved; local Go/pwsh/materialized APRL absent, Actions executes native proof.
+
+Earlier checkpoint wording below is historical, superseded by this authority and live PR indices.
+
+---
+
 # PR122 cost-source characterization and recovery authority
 
 Source-only cost characterization is implemented in PR122 on feat/region-cost-enrichment-source. Its live PR body is the exact final-head/merge/accepted-push index: https://github.com/DeBoX85/Cloud-Assess/pull/122. Determine unaccepted candidate versus VERIFIED OFFLINE source-only acceptance there and from live refs. Entry accepted baseline remains PR121 fbbb819657e3fb555cef83b39a52284b59cb482f/treeaa1f68d3b72e5e0eb2d1a7f5532e602d5cefdf91; accepted audit/availability/latency/sheet review is not repeated.
