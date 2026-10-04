@@ -8,6 +8,7 @@ import tempfile
 ROOT = Path(__file__).resolve().parents[2]
 FILE = 'internal/plugins/region/cost_enrichment.go'
 MUTATIONS = (
+    ('tiny-history', 'meter.HistoricalCost > 0 && meter.HistoricalCost < MinCostWeight', '(meter.HistoricalCost > 0 && meter.HistoricalCost < MinCostWeight && false)', 'TestCostRuntimeHistoricalWeightFloor', 1, FILE),
     ('entry-budget', 'n > MaxCostEntries-entries', '(n > MaxCostEntries-entries && false)', 'TestCostRuntimeBudgets', 1, FILE),
     ('region-budget', 'len(regions) > MaxCostRegions', '(len(regions) > MaxCostRegions && false)', 'TestCostRuntimeBudgets', 1, FILE),
     ('history-completeness', '!history.Complete', '(!history.Complete && false)', 'TestCostRuntimeHealthAndSubscriptionWeights', 1, FILE),

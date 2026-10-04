@@ -450,3 +450,19 @@ func TestCostRuntimeFreeTargetRoundoff(t *testing.T) {
 	}
 	costHealth(t, got, 1)
 }
+
+func TestCostRuntimeHistoricalWeightFloor(t *testing.T) {
+	input, evidence := costRuntimeInput()
+	evidence.RegionPricing = map[string]map[string]float64{"m": {"eastus": 1, "westeurope": 1.001}}
+	evidence.History[availabilityID] = CostHistoryEvidence{Complete: true, Meters: []HistoricalCostMeter{{MeterID: "m", HistoricalCost: MinCostWeight}}}
+	got, err := EnrichCost(context.Background(), latencyScope(), input, evidence)
+	want := []Comparison{literalCostEnrichmentComparison("eastus", "westeurope", 0.09999999999998899, true).Comparison}
+	if err != nil || got == nil || !reflect.DeepEqual(got.Comparisons, want) {
+		t.Fatal("exact positive history floor rejected or arithmetic lost", got, err)
+	}
+	costHealth(t, got, 1)
+	for _, weight := range []float64{math.SmallestNonzeroFloat64, math.Nextafter(MinCostWeight, 0), 1e-100} {
+		evidence.History[availabilityID] = CostHistoryEvidence{Complete: true, Meters: []HistoricalCostMeter{{MeterID: "m", HistoricalCost: weight}}}
+		costReject(t, latencyScope(), input, evidence, "value_invalid")
+	}
+}

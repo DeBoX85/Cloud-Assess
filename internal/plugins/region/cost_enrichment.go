@@ -17,6 +17,7 @@ import (
 
 const MaxCostWork = 1048576
 const MaxCostValue = 1000000000000
+const MinCostWeight = 1e-12
 
 type HistoricalCostMeter struct {
 	MeterID string
@@ -131,7 +132,7 @@ func EnrichCost(ctx context.Context, subscriptions map[string]string, input []Co
 				return fail("duplicate_meter")
 			}
 			seen[meter.MeterID] = true
-			if !validValue(meter.HistoricalCost) {
+			if !validValue(meter.HistoricalCost) || (meter.HistoricalCost > 0 && meter.HistoricalCost < MinCostWeight) {
 				return fail("value_invalid")
 			}
 		}
