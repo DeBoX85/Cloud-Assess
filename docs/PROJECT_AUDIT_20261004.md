@@ -89,3 +89,6 @@ Governing references: [QA_PROCESS.md](QA_PROCESS.md), [DEVELOPMENT_EXECUTION_PLA
 ## Outage continuity protocol
 
 [AUDIT_RECOVERY.md](AUDIT_RECOVERY.md) defines mandatory checkpoint contents, unknown-mutation recovery, publication/readback and a complete reusable restart prompt. Apply it throughout the audit. Record progress at coherent boundaries and material events; use exact evidence and preserve unresolved work. Audit execution remains NOT STARTED at this planning revision.
+
+
+Audit execution started after explicit user instruction. Current status/coverage/findings/evidence and resume point are in [PROJECT_AUDIT_REPORT_20261004.md](PROJECT_AUDIT_REPORT_20261004.md). Earlier NOT STARTED rows are historical preparation state.

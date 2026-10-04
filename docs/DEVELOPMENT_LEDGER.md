@@ -2232,3 +2232,8 @@ User agreed to pause feature expansion following repeated development-process in
 
 
 Audit outage continuity preparation: added AUDIT_RECOVERY.md with explicit checkpoint fields, unknown remote-mutation handling, live-state recovery and saved restart prompt. Protocol applies throughout audit execution, which remains NOT STARTED. No outage-proof guarantee or background work claimed.
+
+
+## 2026-10-04 comprehensive audit first execution checkpoint
+
+Recovered exact accepted07011b63 signed commit/tree/all630 blobs and verified current protection/pins, preserving missing local APRL/Go limits. Planning771919b9 full native37182711852 and source37182711928 logs/preview/contiguous captures verified. Confirmed FN074 replacement-string workflow corruption in unmerged113 and published literal correctionbe867a174dbc112caba273cda620822fd9828b2e with local YAML/eight Bash syntax and exact remote-byte proof; fresh gates pending, merge paused. PROJECT_AUDIT_REPORT_20261004.md inventories all216 Go files and remaining review scope, records stale documentation and unpublished draft limits, and flags ARG drain-error behavior for reproduction rather than premature defect claim. Whole-project audit IN PROGRESS, no new live/release acceptance.

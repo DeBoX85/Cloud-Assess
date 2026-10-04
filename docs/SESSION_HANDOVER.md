@@ -1,3 +1,15 @@
+# Current audit execution checkpoint (2026-10-04)
+
+Comprehensive audit IN PROGRESS. Read PROJECT_AUDIT_REPORT_20261004.md and AUDIT_RECOVERY.md before resuming. User authorized starting the audit. Accepted07011b63/tree72bebbf4 remains frozen. Local exact commit/tree/all630 blobs verified; APRL is remotely pinned but not locally materialized. No Go command found, native Actions are the execution authority.
+
+PR113 workflow corruption is confirmed FN074/AUD001 and repaired on unmergedbe867a174dbc112caba273cda620822fd9828b2e. Fresh native/source gates pending; PR113 acceptance and feature expansion stay paused. Planning771919b9 native37182711852/jobs111378339400/111378339442 and source37182711928/job111378328791 succeeded, full logs inspected, preview/tree/parents verified and four source files reconstructed/hashed exactly. This is candidate evidence, not an accepted-push or complete audit PASS. Zero reachable/imported vulnerabilities, one module-only advisory remains.
+
+Next: investigate ARG body-drain error swallowing AUD003 with an independent regression before claiming product defect; finish scope/inventory review and requirement matrix, then all remaining code/tooling/report areas. Audit report's file coverage remains mostly NOT REVIEWED. Do not treat green existing tests as completed project review. Prior unpublished availability draft is unavailable; reconstruction is postponed.
+
+Previous planning/history follows, superseded where current checkpoint differs.
+
+---
+
 # Fresh-session handover: comprehensive project audit
 
 Updated2026-10-04. User agreed to pause feature expansion for a comprehensive recovery, code, requirements and QA audit. Status: plan prepared; audit execution NOT STARTED. Read [AUDIT_RECOVERY.md](AUDIT_RECOVERY.md) for outage checkpoint requirements and the reusable restart prompt. Read [PROJECT_AUDIT_20261004.md](PROJECT_AUDIT_20261004.md) first for verified current state, phases, criteria, autonomy and possible inputs.
