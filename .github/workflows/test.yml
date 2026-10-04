@@ -225,6 +225,8 @@ jobs:
 
       - name: Verify region latency tests reject selected mutations
         run: python3 scripts/tests/region-latency-mutation.py
+      - name: Verify region cost enrichment tests reject selected mutations
+        run: python3 scripts/tests/region-cost-enrichment-mutation.py
 
       - name: Vet
         run: go vet ./...
@@ -324,6 +326,9 @@ jobs:
 
       - name: Verify Windows region latency tests reject selected mutations
         run: python scripts/tests/region-latency-mutation.py
+      - name: Verify Windows region cost enrichment tests reject selected mutations
+        shell: pwsh
+        run: python scripts/tests/region-cost-enrichment-mutation.py
 
       - name: Build and smoke-test Windows CLI
         env:
