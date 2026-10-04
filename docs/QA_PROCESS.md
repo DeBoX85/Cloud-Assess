@@ -179,3 +179,6 @@ PR112 final native/source and protected merge proof: [PR112](https://github.com/
 
 
 Current availability source acceptance requires [REGION_AVAILABILITY_CALCULATIONS.md](REGION_AVAILABILITY_CALCULATIONS.md): unconditional six-file fresh equality, independent complete literal comparisons/digests and four compiling fixture controls/restored assertions on both native hosts. The controls change synthetic fixtures in an isolated copy and select semantic assertions separately from hashes. No target availability guard/collection/live proof is inferred.
+
+
+FN010 recurrence on PR113: resource-exclusion fuzz uses500000x with two workers and a separate60-second timeout. All five mandatory fuzz targets now use explicit execution counts plus independent timeouts. Properties/corpora/failure propagation remain unchanged. The failed duration run and unconfirmed toolchain-stop cause remain recorded in FAILURE_NOTES; fresh full exact-head proof is required.

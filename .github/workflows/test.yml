@@ -176,7 +176,331 @@ jobs:
         run: |
           set -euo pipefail
           go test -run '^$' -fuzz '^FuzzCompareFieldSymmetry$' -fuzztime 100000x -timeout 60s -parallel 2 ./internal/equivalence
-          go test -run '^$' -fuzz '^FuzzExactResourceExclusionPreservesOtherResource$' -fuzztime 10s -parallel 2 ./internal/config
+          go test -run '^
+          go test -run '^$' -fuzz '^FuzzDecodeRowsIsolationAndAccounting$' -fuzztime 100000x -timeout 60s -parallel 2 ./internal/arg
+          go test -run '^$' -fuzz '^FuzzBoundedAIWire$' -fuzztime 5000x -timeout 60s -parallel 2 ./internal/plugins/aigov
+          go test -run '^$' -fuzz '^FuzzDiscoveryEnvelope$' -fuzztime 5000x -timeout 60s -parallel 2 ./internal/plugins/aigov
+
+      - name: Test maintenance proposal publication
+        run: python3 scripts/tests/maintenance-publication.py
+
+      - name: Test maintenance generation recipes
+        run: python3 scripts/tests/maintenance-generation.py
+
+      - name: Verify comparator tests reject selected mutations
+        run: python3 scripts/tests/qa-mutation.py
+
+      - name: Verify AI request boundary tests reject selected mutations
+        run: python3 scripts/tests/ai-request-mutation.py
+
+      - name: Verify AI public execution tests reject selected mutations
+        run: python3 scripts/tests/ai-execution-mutation.py
+
+      - name: Verify region primary tests reject selected mutations
+        run: python3 scripts/tests/region-primary-mutation.py
+
+      - name: Verify region auxiliary tests reject selected mutations
+        run: python3 scripts/tests/region-auxiliary-mutation.py
+
+      - name: Verify region service tests reject selected mutations
+        run: python3 scripts/tests/region-service-mutation.py
+
+      - name: Verify region cost tests reject selected mutations
+        run: python3 scripts/tests/region-cost-mutation.py
+
+      - name: Verify region inventory tests reject selected mutations
+        run: python3 scripts/tests/region-inventory-mutation.py
+
+      - name: Verify region inventory aggregation tests reject selected mutations
+        run: python3 scripts/tests/region-inventory-aggregation-mutation.py
+
+      - name: Vet
+        run: go vet ./...
+
+      - name: Check reachable vulnerabilities
+        run: go run golang.org/x/vuln/cmd/govulncheck@v1.8.0 ./...
+
+      - name: Retain synthetic QA failure evidence
+        if: failure()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: synthetic-qa-failure-${{ github.run_id }}
+          path: |
+            internal/**/testdata/fuzz/**
+            .build/coverage.out
+          if-no-files-found: ignore
+          retention-days: 14
+
+  windows-validation:
+    runs-on: windows-2022
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          submodules: recursive
+
+      - name: Set up Go
+        uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # v6.5.0
+        with:
+          go-version: '1.26.8'
+          cache: true
+
+      - name: Parse scripts with Windows PowerShell 5.1
+        shell: powershell
+        run: |
+          $parseFailed = $false
+          Get-ChildItem -Path ./scripts -Include *.ps1,*.psm1 -File -Recurse | ForEach-Object {
+            $tokens = $null
+            $errors = $null
+            [System.Management.Automation.Language.Parser]::ParseFile($_.FullName, [ref]$tokens, [ref]$errors) | Out-Null
+            if ($errors.Count -gt 0) {
+              $parseFailed = $true
+              $errors | ForEach-Object { Write-Error $_.Message }
+            }
+          }
+          if ($parseFailed) { exit 1 }
+
+      - name: Test Windows PowerShell validation helpers
+        shell: powershell
+        run: ./scripts/tests/live-equivalence.tests.ps1
+
+      - name: Verify Windows workflow native-command failure propagation
+        run: python scripts/tests/workflow-command-failures.py
+
+      - name: Verify Windows retained source capture byte guard
+        run: python scripts/tests/region-source-capture.py
+
+      - name: Verify Windows availability source oracle mutations
+        run: python scripts/tests/region-availability-capture-mutation.py
+
+      - name: Test Go packages on Windows
+        run: go test ./...
+
+      - name: Verify Windows AI request boundary tests reject selected mutations
+        run: python scripts/tests/ai-request-mutation.py
+
+      - name: Verify Windows AI public execution tests reject selected mutations
+        run: python scripts/tests/ai-execution-mutation.py
+
+      - name: Verify Windows region primary tests reject selected mutations
+        run: python scripts/tests/region-primary-mutation.py
+
+      - name: Verify Windows region auxiliary tests reject selected mutations
+        run: python scripts/tests/region-auxiliary-mutation.py
+
+      - name: Verify Windows region service tests reject selected mutations
+        run: python scripts/tests/region-service-mutation.py
+
+      - name: Verify Windows region cost tests reject selected mutations
+        run: python scripts/tests/region-cost-mutation.py
+
+      - name: Verify Windows region inventory tests reject selected mutations
+        run: python scripts/tests/region-inventory-mutation.py
+
+      - name: Verify Windows region inventory aggregation tests reject selected mutations
+        run: python scripts/tests/region-inventory-aggregation-mutation.py
+
+      - name: Build and smoke-test Windows CLI
+        env:
+          CGO_ENABLED: '0'
+        shell: powershell
+        run: |
+          New-Item -ItemType Directory -Path .build -Force | Out-Null
+          go build -trimpath -buildvcs=true -o .build/cloud-assess.exe ./cmd/cloud-assess
+          if ($LASTEXITCODE -ne 0) { throw 'Windows CLI build failed.' }
+          & ./.build/cloud-assess.exe --help | Out-Null
+          if ($LASTEXITCODE -ne 0) { throw 'Windows root help failed.' }
+          & ./.build/cloud-assess.exe scan --help | Out-Null
+          if ($LASTEXITCODE -ne 0) { throw 'Windows scan help failed.' }
+          & ./.build/cloud-assess.exe --version | Out-Null
+          if ($LASTEXITCODE -ne 0) { throw 'Windows version failed.' }
+
+      - name: Verify built Windows CLI preflight and compiled dependency evidence
+        run: python scripts/tests/built-cli.py --binary .build/cloud-assess.exe
+
+      - name: Verify Windows documentation and operator examples
+        run: python scripts/tests/documentation.py --binary .build/cloud-assess.exe --powershell powershell
+
+      - name: Validate branding builder and actual native executables
+        run: |
+          python scripts/tests/branding.py
+          if ($LASTEXITCODE -ne 0) { throw 'Native branding CLI checks failed.' }
+          python scripts/tests/branding-reports.py
+          if ($LASTEXITCODE -ne 0) { throw 'Native branding report checks failed.' }
+
+      - name: Test Windows candidate package integrity and isolated installation
+        run: |
+          python scripts/tests/package-candidate.py --binary .build/cloud-assess.exe
+          if ($LASTEXITCODE -ne 0) { throw 'Default native package checks failed.' }
+          python scripts/tests/branded-package.py
+          if ($LASTEXITCODE -ne 0) { throw 'Custom native package checks failed.' }
+
+      - name: Check Windows reachable vulnerabilities
+        run: go run golang.org/x/vuln/cmd/govulncheck@v1.8.0 ./...
+ -fuzz '^FuzzExactResourceExclusionPreservesOtherResource
+          go test -run '^$' -fuzz '^FuzzDecodeRowsIsolationAndAccounting$' -fuzztime 100000x -timeout 60s -parallel 2 ./internal/arg
+          go test -run '^$' -fuzz '^FuzzBoundedAIWire$' -fuzztime 5000x -timeout 60s -parallel 2 ./internal/plugins/aigov
+          go test -run '^$' -fuzz '^FuzzDiscoveryEnvelope$' -fuzztime 5000x -timeout 60s -parallel 2 ./internal/plugins/aigov
+
+      - name: Test maintenance proposal publication
+        run: python3 scripts/tests/maintenance-publication.py
+
+      - name: Test maintenance generation recipes
+        run: python3 scripts/tests/maintenance-generation.py
+
+      - name: Verify comparator tests reject selected mutations
+        run: python3 scripts/tests/qa-mutation.py
+
+      - name: Verify AI request boundary tests reject selected mutations
+        run: python3 scripts/tests/ai-request-mutation.py
+
+      - name: Verify AI public execution tests reject selected mutations
+        run: python3 scripts/tests/ai-execution-mutation.py
+
+      - name: Verify region primary tests reject selected mutations
+        run: python3 scripts/tests/region-primary-mutation.py
+
+      - name: Verify region auxiliary tests reject selected mutations
+        run: python3 scripts/tests/region-auxiliary-mutation.py
+
+      - name: Verify region service tests reject selected mutations
+        run: python3 scripts/tests/region-service-mutation.py
+
+      - name: Verify region cost tests reject selected mutations
+        run: python3 scripts/tests/region-cost-mutation.py
+
+      - name: Verify region inventory tests reject selected mutations
+        run: python3 scripts/tests/region-inventory-mutation.py
+
+      - name: Verify region inventory aggregation tests reject selected mutations
+        run: python3 scripts/tests/region-inventory-aggregation-mutation.py
+
+      - name: Vet
+        run: go vet ./...
+
+      - name: Check reachable vulnerabilities
+        run: go run golang.org/x/vuln/cmd/govulncheck@v1.8.0 ./...
+
+      - name: Retain synthetic QA failure evidence
+        if: failure()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: synthetic-qa-failure-${{ github.run_id }}
+          path: |
+            internal/**/testdata/fuzz/**
+            .build/coverage.out
+          if-no-files-found: ignore
+          retention-days: 14
+
+  windows-validation:
+    runs-on: windows-2022
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          submodules: recursive
+
+      - name: Set up Go
+        uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # v6.5.0
+        with:
+          go-version: '1.26.8'
+          cache: true
+
+      - name: Parse scripts with Windows PowerShell 5.1
+        shell: powershell
+        run: |
+          $parseFailed = $false
+          Get-ChildItem -Path ./scripts -Include *.ps1,*.psm1 -File -Recurse | ForEach-Object {
+            $tokens = $null
+            $errors = $null
+            [System.Management.Automation.Language.Parser]::ParseFile($_.FullName, [ref]$tokens, [ref]$errors) | Out-Null
+            if ($errors.Count -gt 0) {
+              $parseFailed = $true
+              $errors | ForEach-Object { Write-Error $_.Message }
+            }
+          }
+          if ($parseFailed) { exit 1 }
+
+      - name: Test Windows PowerShell validation helpers
+        shell: powershell
+        run: ./scripts/tests/live-equivalence.tests.ps1
+
+      - name: Verify Windows workflow native-command failure propagation
+        run: python scripts/tests/workflow-command-failures.py
+
+      - name: Verify Windows retained source capture byte guard
+        run: python scripts/tests/region-source-capture.py
+
+      - name: Verify Windows availability source oracle mutations
+        run: python scripts/tests/region-availability-capture-mutation.py
+
+      - name: Test Go packages on Windows
+        run: go test ./...
+
+      - name: Verify Windows AI request boundary tests reject selected mutations
+        run: python scripts/tests/ai-request-mutation.py
+
+      - name: Verify Windows AI public execution tests reject selected mutations
+        run: python scripts/tests/ai-execution-mutation.py
+
+      - name: Verify Windows region primary tests reject selected mutations
+        run: python scripts/tests/region-primary-mutation.py
+
+      - name: Verify Windows region auxiliary tests reject selected mutations
+        run: python scripts/tests/region-auxiliary-mutation.py
+
+      - name: Verify Windows region service tests reject selected mutations
+        run: python scripts/tests/region-service-mutation.py
+
+      - name: Verify Windows region cost tests reject selected mutations
+        run: python scripts/tests/region-cost-mutation.py
+
+      - name: Verify Windows region inventory tests reject selected mutations
+        run: python scripts/tests/region-inventory-mutation.py
+
+      - name: Verify Windows region inventory aggregation tests reject selected mutations
+        run: python scripts/tests/region-inventory-aggregation-mutation.py
+
+      - name: Build and smoke-test Windows CLI
+        env:
+          CGO_ENABLED: '0'
+        shell: powershell
+        run: |
+          New-Item -ItemType Directory -Path .build -Force | Out-Null
+          go build -trimpath -buildvcs=true -o .build/cloud-assess.exe ./cmd/cloud-assess
+          if ($LASTEXITCODE -ne 0) { throw 'Windows CLI build failed.' }
+          & ./.build/cloud-assess.exe --help | Out-Null
+          if ($LASTEXITCODE -ne 0) { throw 'Windows root help failed.' }
+          & ./.build/cloud-assess.exe scan --help | Out-Null
+          if ($LASTEXITCODE -ne 0) { throw 'Windows scan help failed.' }
+          & ./.build/cloud-assess.exe --version | Out-Null
+          if ($LASTEXITCODE -ne 0) { throw 'Windows version failed.' }
+
+      - name: Verify built Windows CLI preflight and compiled dependency evidence
+        run: python scripts/tests/built-cli.py --binary .build/cloud-assess.exe
+
+      - name: Verify Windows documentation and operator examples
+        run: python scripts/tests/documentation.py --binary .build/cloud-assess.exe --powershell powershell
+
+      - name: Validate branding builder and actual native executables
+        run: |
+          python scripts/tests/branding.py
+          if ($LASTEXITCODE -ne 0) { throw 'Native branding CLI checks failed.' }
+          python scripts/tests/branding-reports.py
+          if ($LASTEXITCODE -ne 0) { throw 'Native branding report checks failed.' }
+
+      - name: Test Windows candidate package integrity and isolated installation
+        run: |
+          python scripts/tests/package-candidate.py --binary .build/cloud-assess.exe
+          if ($LASTEXITCODE -ne 0) { throw 'Default native package checks failed.' }
+          python scripts/tests/branded-package.py
+          if ($LASTEXITCODE -ne 0) { throw 'Custom native package checks failed.' }
+
+      - name: Check Windows reachable vulnerabilities
+        run: go run golang.org/x/vuln/cmd/govulncheck@v1.8.0 ./...
+ -fuzztime 500000x -timeout 60s -parallel 2 ./internal/config
           go test -run '^$' -fuzz '^FuzzDecodeRowsIsolationAndAccounting$' -fuzztime 100000x -timeout 60s -parallel 2 ./internal/arg
           go test -run '^$' -fuzz '^FuzzBoundedAIWire$' -fuzztime 5000x -timeout 60s -parallel 2 ./internal/plugins/aigov
           go test -run '^$' -fuzz '^FuzzDiscoveryEnvelope$' -fuzztime 5000x -timeout 60s -parallel 2 ./internal/plugins/aigov
