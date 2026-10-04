@@ -55,6 +55,9 @@ jobs:
 
           test "$(git -C internal/rules/upstream/aprl rev-parse HEAD)" = "$expected_aprl"
 
+      - name: Verify retained source capture byte guard
+        run: python3 scripts/tests/region-source-capture.py
+
       - name: Verify formatting
         shell: bash
         run: |
@@ -258,6 +261,9 @@ jobs:
 
       - name: Verify Windows workflow native-command failure propagation
         run: python scripts/tests/workflow-command-failures.py
+
+      - name: Verify Windows retained source capture byte guard
+        run: python scripts/tests/region-source-capture.py
 
       - name: Test Go packages on Windows
         run: go test ./...
