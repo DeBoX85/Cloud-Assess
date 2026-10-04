@@ -84,3 +84,8 @@ No credentials requested in chat; no Azure writes, fixture creation, role change
 Keep07011b63 frozen as the initial accepted audit baseline; preserve PR113 unmerged. This documentation proposal is a separate checkpoint, not audit completion and not acceptance of113. First execution action: create a verified isolated audit workspace from that revision, inventory repository paths/toolchain/rules/pins and obtain detailed evidence for native37174420499. Then build the requirements/review/test matrix before broad fixes. Preserve historical evidence and use protected expected-head merges for corrections.
 
 Governing references: [QA_PROCESS.md](QA_PROCESS.md), [DEVELOPMENT_EXECUTION_PLAN.md](DEVELOPMENT_EXECUTION_PLAN.md), [TARGET_SPECIFICATION.md](TARGET_SPECIFICATION.md), [IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md), [DEFERRED_VALIDATION.md](DEFERRED_VALIDATION.md), [QUALITY_GATE_004_PLAN.md](QUALITY_GATE_004_PLAN.md).
+
+
+## Outage continuity protocol
+
+[AUDIT_RECOVERY.md](AUDIT_RECOVERY.md) defines mandatory checkpoint contents, unknown-mutation recovery, publication/readback and a complete reusable restart prompt. Apply it throughout the audit. Record progress at coherent boundaries and material events; use exact evidence and preserve unresolved work. Audit execution remains NOT STARTED at this planning revision.

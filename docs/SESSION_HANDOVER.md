@@ -1,6 +1,6 @@
 # Fresh-session handover: comprehensive project audit
 
-Updated2026-10-04. User agreed to pause feature expansion for a comprehensive recovery, code, requirements and QA audit. Status: plan prepared; audit execution NOT STARTED. Read [PROJECT_AUDIT_20261004.md](PROJECT_AUDIT_20261004.md) first for verified current state, phases, criteria, autonomy and possible inputs.
+Updated2026-10-04. User agreed to pause feature expansion for a comprehensive recovery, code, requirements and QA audit. Status: plan prepared; audit execution NOT STARTED. Read [AUDIT_RECOVERY.md](AUDIT_RECOVERY.md) for outage checkpoint requirements and the reusable restart prompt. Read [PROJECT_AUDIT_20261004.md](PROJECT_AUDIT_20261004.md) first for verified current state, phases, criteria, autonomy and possible inputs.
 
 Live accepted bootstrap/core-v1 is PR112 merge07011b63440e69f4a5acb128e0449943f759ee9c/tree72bebbf4885a15a74a5f43dfe57c68fe979c1e7c, ordered1b17cccd/8eb72c4d parents, Denis author/GitHub committer verified. PR113 remains unmerged atf1142c7db8d9f756828bc683e1b14ec0bc480bd3. Its source37174422877/job111353968087 reports success; native37174420499 reports failure with empty returned job list, cause unclassified. Do not merge113 or resume availability implementation before the audit disposition.
 
