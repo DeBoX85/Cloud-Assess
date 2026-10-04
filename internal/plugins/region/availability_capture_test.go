@@ -87,16 +87,16 @@ func TestAvailabilityCapturedSemantics(t *testing.T) {
 	partial.RestrictedSKUs = []string{"microsoft.capture/available:restricted"}
 	want := map[string]availabilityCapturedComparison{
 		"cancelled-source-ignores-context": partial,
-		"resource-empty-providers":        noProviders,
-		"resource-mixed-no-sku":           mixed,
-		"sku-all-states":                  all,
-		"sku-all-unknown":                 unknown,
-		"sku-disabled":                    disabled,
-		"sku-mixed-unknown":               partial,
-		"source-absent":                   empty,
-		"source-key-exact-case":           caseSource,
-		"source-present-empty":            empty,
-		"target-key-exact-case":           caseTarget,
+		"resource-empty-providers":         noProviders,
+		"resource-mixed-no-sku":            mixed,
+		"sku-all-states":                   all,
+		"sku-all-unknown":                  unknown,
+		"sku-disabled":                     disabled,
+		"sku-mixed-unknown":                partial,
+		"source-absent":                    empty,
+		"source-key-exact-case":            caseSource,
+		"source-present-empty":             empty,
+		"target-key-exact-case":            caseTarget,
 	}
 	if !reflect.DeepEqual(got.Cases, want) {
 		t.Fatal("complete literal source availability comparisons changed")
