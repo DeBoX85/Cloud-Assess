@@ -1,0 +1,114 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+// Pure characterization of the unchanged pinned ApplyCostDiffs helper.
+package cost
+
+import (
+	"crypto/sha1"
+	"encoding/json"
+	"fmt"
+	"net/http"
+	"os"
+	"path/filepath"
+	"testing"
+
+	"github.com/Azure/azqr/internal/scanners/plugins/region/types"
+)
+
+type costCaptureTripwire struct{}
+func (costCaptureTripwire) RoundTrip(*http.Request) (*http.Response, error) {
+	panic("cost enrichment capture attempted HTTP")
+}
+
+type costCaptureCase struct {
+	Results []types.RegionComparison
+	Meters []types.MeterCostData
+	Shared *types.CostComparisonData
+}
+
+func TestRegionCostEnrichmentCapture(t *testing.T) {
+	output := os.Getenv("REGION_COST_ENRICHMENT_CAPTURE_OUTPUT")
+	if output == "" { t.Fatal("missing capture output") }
+	oldTransport, oldClient := http.DefaultTransport, http.DefaultClient
+	http.DefaultTransport = costCaptureTripwire{}
+	http.DefaultClient = &http.Client{Transport: costCaptureTripwire{}}
+	defer func() { http.DefaultTransport, http.DefaultClient = oldTransport, oldClient }()
+	write := func(name string, value any) {
+		raw, err := json.MarshalIndent(value, "", "  ")
+		if err != nil { t.Fatal(err) }
+		if err := os.MkdirAll(output, 0700); err != nil { t.Fatal(err) }
+		if err := os.WriteFile(filepath.Join(output, name), append(raw, '\n'), 0600); err != nil { t.Fatal(err) }
+	}
+	blob := func(path, want string) string {
+		raw, err := os.ReadFile(path)
+		if err != nil { t.Fatal(err) }
+		hash := sha1.Sum(append([]byte(fmt.Sprintf("blob %d\x00", len(raw))), raw...))
+		got := fmt.Sprintf("%x", hash)
+		if got != want { t.Fatal("pinned source helper changed", path, got) }
+		return got
+	}
+	sourceBlob := blob("cost.go", "82b357d2c00dd65c08bc5908000311664431c0e6")
+	typesBlob := blob("../types/types.go", "f9b61fb74075e5a2297be1b898067b8cb047f9b3")
+	comparison := func(source, target string) types.RegionComparison {
+		return types.RegionComparison{SubscriptionID: "11111111-1111-1111-1111-111111111111", SubscriptionName: "selected", SourceRegion: source, TargetRegion: target, SourceResourceTypeCount: 2, AvailableTypes: 1, UnavailableTypes: 1, AvailabilityPercent: 50, TotalSKUsChecked: 1, UnknownSKUs: 1, SKUAvailabilityPercent: 100, MissingResourceTypes: []string{"microsoft.custom/widgets"}, MissingSKUs: []string{"microsoft.custom/widgets:SKU (unknown)"}, RestrictedSKUs: []string{}, ZoneRestrictedSKUs: []string{}, SourceZoneCount: 3, TargetZoneCount: 2, TargetZoneMappings: map[string]string{"1": "phys1"}, AvgLatencyMs: 42, LatencyEstimated: true, HasCostData: true, AvgCostDifference: -5}
+	}
+	c := func(meters []types.MeterCostData, pricing map[string]map[string]float64) costCaptureCase {
+		return costCaptureCase{Results: []types.RegionComparison{comparison("eastus", "westeurope")}, Meters: meters, Shared: &types.CostComparisonData{RegionPricing: pricing}}
+	}
+	meters := func(values ...float64) []types.MeterCostData {
+		result := []types.MeterCostData{}
+		for i, value := range values { result = append(result, types.MeterCostData{MeterID: fmt.Sprintf("m%d", i+1), HistoricalCost: value}) }
+		return result
+	}
+	pair := func(source, target float64) map[string]float64 { return map[string]float64{"eastus": source, "westeurope": target} }
+	cases := map[string]costCaptureCase{
+		"owned-only": c(meters(10), map[string]map[string]float64{"m1": pair(10,20), "unowned": pair(10,1000)}),
+		"weighted": c(meters(3,1), map[string]map[string]float64{"m1": pair(10,20), "m2": pair(10,5)}),
+		"zero-weight": c(meters(0,3), map[string]map[string]float64{"m1": pair(10,20), "m2": pair(10,5)}),
+		"near-zero-both": c(meters(3,1), map[string]map[string]float64{"m1": pair(.00005,.00004), "m2": pair(10,20)}),
+		"near-zero-source": c(meters(3,1), map[string]map[string]float64{"m1": pair(.00005,1), "m2": pair(10,20)}),
+		"exact-threshold": c(meters(5), map[string]map[string]float64{"m1": pair(.0001,.0002)}),
+		"free-target": c(meters(5), map[string]map[string]float64{"m1": pair(10,0)}),
+		"both-free": c(meters(5), map[string]map[string]float64{"m1": pair(0,0)}),
+		"equal-prices": c(meters(5), map[string]map[string]float64{"m1": pair(10,10)}),
+		"missing-source": c(meters(5), map[string]map[string]float64{"m1": {"westeurope":20}}),
+		"missing-target": c(meters(5), map[string]map[string]float64{"m1": {"eastus":10}}),
+		"empty-pricing": c(meters(5), map[string]map[string]float64{}),
+		"empty-meters": c(meters(), map[string]map[string]float64{"m1": pair(10,20)}),
+		"unowned-only": c(meters(5), map[string]map[string]float64{"other": pair(10,20)}),
+		"negative-weight": c(meters(-1), map[string]map[string]float64{"m1": pair(10,20)}),
+		"negative-prices": c(meters(5), map[string]map[string]float64{"m1": pair(-10,-20)}),
+	}
+	for name, weights := range map[string][]float64{"duplicate-last-one": {9,1}, "duplicate-last-nine": {1,9}} {
+		fixture := c([]types.MeterCostData{{MeterID:"m1", HistoricalCost:weights[0]}, {MeterID:"m1", HistoricalCost:weights[1]}, {MeterID:"m2", HistoricalCost:1}}, map[string]map[string]float64{"m1": pair(10,20), "m2": pair(10,10)})
+		cases[name] = fixture
+	}
+	for name, regions := range map[string][]string{"logical-source": {"global","westeurope"}, "logical-target": {"eastus","europe"}, "display-names": {"East US","West Europe"}, "same-region": {"eastus","eastus"}} {
+		fixture := c(meters(5), map[string]map[string]float64{"m1": pair(10,20)})
+		fixture.Results[0] = comparison(regions[0], regions[1])
+		cases[name] = fixture
+	}
+	nilShared := c(meters(5), nil)
+	nilShared.Shared = nil
+	cases["nil-shared"] = nilShared
+	noPrior := c(meters(), nil)
+	noPrior.Shared = nil
+	noPrior.Results[0].AvgCostDifference, noPrior.Results[0].HasCostData = 0, false
+	cases["nil-without-prior"] = noPrior
+	empty := c(meters(5), map[string]map[string]float64{"m1": pair(10,20)})
+	empty.Results = []types.RegionComparison{}
+	cases["empty-results"] = empty
+	mixed := c(meters(5), map[string]map[string]float64{"m1": pair(10,20)})
+	other := comparison("eastus", "westeurope")
+	other.SubscriptionID = "22222222-2222-2222-2222-222222222222"
+	mixed.Results = append(mixed.Results, other)
+	cases["unbound-subscription"] = mixed
+	write("source-cost-enrichment-inputs.json", struct { SourceBlob string `json:"source_blob"`; TypesBlob string `json:"types_blob"`; Cases map[string]costCaptureCase `json:"cases"` }{sourceBlob,typesBlob,cases})
+	results := map[string][]types.RegionComparison{}
+	for name, input := range cases {
+		ApplyCostDiffs(input.Results, input.Meters, input.Shared)
+		results[name] = input.Results
+	}
+	write("source-cost-enrichment-outputs.json", results)
+	t.Log("Captured26 pure cost cases/26 complete comparisons; historical stale/negative/duplicate/unbound behavior retained; no credentials/client/network")
+}

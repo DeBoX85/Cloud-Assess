@@ -25,12 +25,16 @@ CAPTURES = (
     ("latency_capture_test.go.txt", "latency/latency_capture_test.go",
      "REGION_LATENCY_CAPTURE_OUTPUT", "^TestRegionLatencyCapture$",
      "./internal/scanners/plugins/region/latency"),
+    ("cost_enrichment_capture_test.go.txt", "cost/cost_enrichment_capture_test.go",
+     "REGION_COST_ENRICHMENT_CAPTURE_OUTPUT", "^TestRegionCostEnrichmentCapture$",
+     "./internal/scanners/plugins/region/cost"),
 )
 FILES = ("source-aux-inputs.json", "source-aux-outputs.json",
          "source-inventory-inputs.json", "source-inventory-outputs.json",
          "source-availability-inputs.json", "source-availability-outputs.json",
          "source-latency-inputs.json", "source-latency-outputs.json",
-         "source-latency-data.json")
+         "source-latency-data.json",
+         "source-cost-enrichment-inputs.json", "source-cost-enrichment-outputs.json")
 
 
 def run(args, directory, timeout=240, capture=False):
