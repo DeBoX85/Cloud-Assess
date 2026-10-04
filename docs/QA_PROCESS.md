@@ -182,3 +182,6 @@ Current availability source acceptance requires [REGION_AVAILABILITY_CALCULATION
 
 
 FN010 recurrence on PR113: resource-exclusion fuzz uses500000x with two workers and a separate60-second timeout. All five mandatory fuzz targets now use explicit execution counts plus independent timeouts. Properties/corpora/failure propagation remain unchanged. The failed duration run and unconfirmed toolchain-stop cause remain recorded in FAILURE_NOTES; fresh full exact-head proof is required.
+
+
+PR120 owned availability acceptance: REGION_AVAILABILITY_RUNTIME requires eight complete retained-source comparisons plus explicit health corrections, independent scope/evidence/entry/decoded-text/output/ownership/concurrency/cancellation assertions. Both native jobs run region-availability-mutation.py with ten compiling controls and restored named baselines. Source arithmetic alone is not complete provider evidence; no collection/public/live proof is inferred. Every final head requires full exact-head gates and fresh six-file source proof.

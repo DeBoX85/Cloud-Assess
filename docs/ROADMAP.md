@@ -1,3 +1,9 @@
+# Availability implementation WIP (2026-10-04)
+
+PR120 on feat/region-availability-runtime now contains the pure per-pair implementation, eight retained source-subset comparisons, independent scope/evidence/unknown/limit/ownership/cancellation assertions and ten selected compiling mutation controls in both required jobs. This is UNACCEPTED WIP; no Go execution yet. Planning checkpoint ba6164d080c820e0006d74a01edf7929cc46ffbf/treec36701200d737ec81ba685d992da4d1006bc2515 was verified remotely before production edits. See REGION_AVAILABILITY_RUNTIME.md. Next: classify exact-head native feedback, apply only justified corrections, inspect full Linux/Windows/source proof and preview/protections before acceptance. PR120 body indexes current exact revisions and runs. Local exec transport disconnected after a file edit, but inspection showed it completed; no remote mutation was uncertain and no edit was blindly retried. Scratch executor still lacks Go/materialized APRL. Laptop/Azure availability remains pending confirmation, all live/release boundaries stay open. Earlier checkpoints follow as superseded history.
+
+---
+
 # Availability reconstruction checkpoint (2026-10-04)
 
 User authorized continuing feature development after accepted audit PR119. Live bootstrap/core-v1 verified at3463a72f11912039702ee60605ec4d79830c09bc/tree3bc82d8ffd4aa19167edd4e6bf02b8d031a9939a; no open proposals at entry. Audit and source-only availability are accepted; do not repeat their review. See [REGION_AVAILABILITY_RUNTIME.md](REGION_AVAILABILITY_RUNTIME.md) for the reviewed-before-edit contract, explicit source corrections, independent oracles and mandatory acceptance. Runtime implementation/QA remain pending and public region execution remains unavailable.
