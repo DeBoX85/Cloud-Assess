@@ -1,3 +1,11 @@
+# Audit recovery notice (2026-10-04)
+
+Comprehensive project audit is now IN PROGRESS under PR114 and docs/project-audit-20261004. Feature expansion and PR113 acceptance are paused. Read that branch's PROJECT_AUDIT_20261004.md, AUDIT_RECOVERY.md and latest SESSION_HANDOVER before resuming. Accepted baseline remains PR11207011b63. Current workflow-failure correction is FN074: JavaScript replacement-string expansion corrupted unmerged f1142c7d workflow; actual YAML parsing fails before jobs. Reconstructing only the intended config fuzz command from preceding e4f2f766 with a literal callback is locally verified; fresh repaired-head native/source acceptance is required. No product runtime failure or previous fuzz-timeout diagnosis is inferred.
+
+The following availability checkpoint remains historical proposal context; its next feature action is paused pending the comprehensive audit.
+
+---
+
 # Fresh-session handover: active state and exact next task
 
 Updated2026-10-04. Verified accepted baseline PR112 merge `07011b63440e69f4a5acb128e0449943f759ee9c`, tree `72bebbf4885a15a74a5f43dfe57c68fe979c1e7c`. Fetch live refs/open proposals before resuming; later commits may advance them. Explicit user instructions prevail.
