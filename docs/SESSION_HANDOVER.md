@@ -1,5 +1,19 @@
 # Current audit execution checkpoint (2026-10-04)
 
+Comprehensive audit IN PROGRESS. Read PROJECT_AUDIT_REPORT_20261004.md and AUDIT_RECOVERY.md before resuming. User authorized unattended offline audit. Frozen accepted07011b63440e69f4a5acb128e0449943f759ee9c/tree72bebbf4885a15a74a5f43dfe57c68fe979c1e7c remains unchanged. Local exact630 blobs/tree/signed commit verified; APRL remotely pinned but locally absent. No local Go; native Actions execute QA.
+
+PR113 repaired atbe867a174dbc112caba273cda620822fd9828b2e. Native37183435404/Linux111380420837/Windows111380420966 and source37183435389/111380420823 fully passed; full logs/preview8a040608/identical tree0878fc48/orderedbase-head parents and six retained captures/contiguouschunks/SHA256 verified. FN074 raw JS replacement-string expansion confirmed. Feature acceptance remains paused.
+
+AUD003 injected-poster ARG completion error reproduced at test-only730a29e6 in native37183817468 on both platforms, eight compiling named failures. Default pinned SDK pipeline already buffers/rejects underlying error, so no live false-complete assessment claim. Defensive fix PR115 head23d2ce4daee7474904975156b4c97fb75c2a6843/tree7438dfd7f60773f7e0bd1ba06a2fd6fc03ce3a16/parent730a29e6 verified Denis identity/all3 remote bytes. Native37184407342 underway, source37184407425 metadata success, logs not yet inspected. Must inspect fresh full gates and actual shared HTTPClient mitigation fixture before acceptance. See docs/AUDIT_ARG_RESPONSE_COMPLETION.md on115.
+
+Next: finish115 exact-head proof; inspect Cost Management pinned continuation/column contract before classifying suspected omissions; finish orchestration/Defender and associated independent scope/completeness tests, then full model/reports/privacy/plugins/tooling/requirements/dependency review. Most coverage matrix areas remain open; existing green suite is not full audit closure. All fixes remain unmerged, no Azure writes/live substitutions/service exposure/release. Module-only advisory and Azure/laptop/Gate004 remain open. Prior unpublished availability draft lost, reconstruct only later after disposition.
+
+Previous checkpoints follow as dated history and are superseded by this current checkpoint.
+
+---
+
+# Current audit execution checkpoint (2026-10-04)
+
 Comprehensive audit IN PROGRESS. Read PROJECT_AUDIT_REPORT_20261004.md and AUDIT_RECOVERY.md before resuming. User authorized starting the audit. Accepted07011b63/tree72bebbf4 remains frozen. Local exact commit/tree/all630 blobs verified; APRL is remotely pinned but not locally materialized. No Go command found, native Actions are the execution authority.
 
 PR113 workflow corruption is confirmed FN074/AUD001 and repaired on unmergedbe867a174dbc112caba273cda620822fd9828b2e. Fresh native/source gates pending; PR113 acceptance and feature expansion stay paused. Planning771919b9 native37182711852/jobs111378339400/111378339442 and source37182711928/job111378328791 succeeded, full logs inspected, preview/tree/parents verified and four source files reconstructed/hashed exactly. This is candidate evidence, not an accepted-push or complete audit PASS. Zero reachable/imported vulnerabilities, one module-only advisory remains.

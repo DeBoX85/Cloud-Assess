@@ -2237,3 +2237,10 @@ Audit outage continuity preparation: added AUDIT_RECOVERY.md with explicit check
 ## 2026-10-04 comprehensive audit first execution checkpoint
 
 Recovered exact accepted07011b63 signed commit/tree/all630 blobs and verified current protection/pins, preserving missing local APRL/Go limits. Planning771919b9 full native37182711852 and source37182711928 logs/preview/contiguous captures verified. Confirmed FN074 replacement-string workflow corruption in unmerged113 and published literal correctionbe867a174dbc112caba273cda620822fd9828b2e with local YAML/eight Bash syntax and exact remote-byte proof; fresh gates pending, merge paused. PROJECT_AUDIT_REPORT_20261004.md inventories all216 Go files and remaining review scope, records stale documentation and unpublished draft limits, and flags ARG drain-error behavior for reproduction rather than premature defect claim. Whole-project audit IN PROGRESS, no new live/release acceptance.
+
+
+## Comprehensive audit retrieval and repair checkpoint (2026-10-04)
+
+Repaired PR113 full native/source proof verified onbe867a17: native37183435404 quality111380420837/windows111380420966, source37183435389/111380420823. Preview8a040608 tree0878fc48 equals candidate, ordered07011b63/be867a17 parents. All mandatory checks, six capture byte/hash/chunk proofs and exact provenance pass; feature acceptance still paused.
+
+AUD003 narrow library adapter error swallowing reproduced with eight compiling named failures on both native hosts against unchanged730a29e6. Default pinned SDK buffered pipeline mitigates actual default route, no live affected assessment claim. PR115 defensive error propagation/shared-pipeline regression head23d2ce4d/tree7438dfd7 parent730a29e6 verified identity/three bytes; full fresh QA pending. Initial recovery and selected retrieval review ongoing. Frozen07011b63 unchanged; audit-wide code/test/release/live closure not claimed. Next inspect115 QA, Cost continuation contract, remaining orchestration/Defender/test requirements and subsequent areas. Durable report/handover updated.
