@@ -199,6 +199,9 @@ jobs:
       - name: Verify region service tests reject selected mutations
         run: python3 scripts/tests/region-service-mutation.py
 
+      - name: Verify region cost tests reject selected mutations
+        run: python3 scripts/tests/region-cost-mutation.py
+
       - name: Vet
         run: go vet ./...
 
@@ -270,6 +273,9 @@ jobs:
 
       - name: Verify Windows region service tests reject selected mutations
         run: python scripts/tests/region-service-mutation.py
+
+      - name: Verify Windows region cost tests reject selected mutations
+        run: python scripts/tests/region-cost-mutation.py
 
       - name: Build and smoke-test Windows CLI
         env:
