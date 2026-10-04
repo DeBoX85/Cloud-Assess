@@ -1,3 +1,9 @@
+# Latest audit execution checkpoint
+
+2026-10-04: PR117 final e381d0ad complete native/source/preview/four-capture proof verified; PR metadata reconciled to final evidence. AUD007 five real-preflight invalid filter regressions compiled and failed on both hosts at test-only926ac5ce, healthy defaults controls held. Narrow strict loader correction PR1186e4a7758/treed8234ef7 published after identity/parent/ref checks and exact4 changed-byte/readback checks; full corrected QA pending. Contract docs on118 specify pre-auth rejection and preserved defaults. All production Go/scripts/workflows read;51 baseline Go test files full read, exact remaining-path manifest added. Whole-project audit remains open, accepted07011b63 unchanged; no Azure/live/release claim. Offline autonomy continues, no input required.
+
+---
+
 # Cloud Assess Development Ledger
 
 Status: active development-process audit index

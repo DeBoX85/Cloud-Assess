@@ -1,5 +1,19 @@
 # Latest audit resume checkpoint (2026-10-04)
 
+Audit IN PROGRESS; autonomous offline work authorized. Accepted07011b63440e69f4a5acb128e0449943f759ee9c/tree72bebbf4885a15a74a5f43dfe57c68fe979c1e7c unchanged. Verify live refs and complete operation results before retries. PR114 holds report, exact path coverage and recovery prompt. Local630 blobs/tree/commit exact; APRL absent/no Go; native Actions execute QA. All production Go across41 areas,31 scripts/four workflows read;51 baseline test files fully read, remaining exact paths in AUDIT_REVIEW_COVERAGE_20261004.md. Requirements/docs/data/dependency/test-adequacy reconciliation and combined integration remain open.
+
+PR113be867a17, PR11523d2ce4d, PR1168d54c0d9 and PR117e381d0ad complete exact-head native/source/captures/preview proof verified, remain draft/unmerged pending audit disposition. Final117 native37186108840/Linux111388234786/Windows111388234877; source37186108846/job111388235257; preview4cc3a10a156ed145e2f537a8d754054ed4e4c365/tree5e91d391cead6b74507abb6ac780817b9a42afaf ordered07011b63/e381d0ad. All four capture hashes/bytes independently verified, final Linux82.8%. Both supported schema1.0/1.1 valid controls preserved. Earlier733 omission caught before acceptance/FN076, initial proof superseded. No live incidence claim.
+
+AUD007 CONFIRMED real preflight silently discards invalid filter restrictions. Test-only PR118926ac5cedf4432b58f30a5ea76c744eb5f2ab247/tree0a89f834a3ff834a82e20296da2e6b78b64fc124 native37186278979/Linux111388751676/Windows111388751827 compiled/formatted then failed five named assertions; three healthy controls did not fail. Corrected6e4a7758bf8f26fbbdec3f08e295defa4af9bec0/treed8234ef734e15b4d50d571cd9b88f6aeee3f7b81/parent926ac5ce identity/all4 remote changed bytes/live-ref readback verified. Strict known fields/one document/non-null assessment, supported empty defaults preserved. Exact corrected full gates pending. Five total proposal paths including retained regression, contract SPEC/OPERATIONS updated. No Azure credential/transport or report produced; no historical overscan claim. See118 AUDIT_FILTER_SCHEMA.md.
+
+Next: inspect118 exact corrected full native/source proof, then finish remaining integration/plugin/rules tests and complete requirements/docs/data/dependency reconciliation. Keep feature acceptance113 paused and proposals unmerged until whole-audit disposition. Existing report questions/residuals remain accurately limited. No percentage/ETA/full-audit/independent-person/live/Gate004/release claim. No Azure writes/roles/new fixtures/production substitution/service exposure/release. No current offline user input needed. No uncertain mutation outstanding. Publish coherent checkpoints.
+
+Earlier checkpoints follow as superseded history.
+
+---
+
+# Latest audit resume checkpoint (2026-10-04)
+
 Audit IN PROGRESS, autonomous offline work authorized. Accepted07011b63440e69f4a5acb128e0449943f759ee9c/tree72bebbf4885a15a74a5f43dfe57c68fe979c1e7c unchanged. Audit PR114 holds detailed report/recovery prompt. Verify live refs before retrying interrupted operations. Local630 baseline blobs/tree/commit exact, APRL absent/no Go; native Actions are execution authority.
 
 PR113be867a17, PR11523d2ce4d and PR1168d54c0d9 full exact proposal native/source/captures/preview proof verified, remain unmerged. Refer report for every immutable run/job/tree/parent. AUD003 default SDK mitigates, AUD005 rejects unconsumed Cost continuation; full pagination unimplemented. Feature acceptance113 paused.
