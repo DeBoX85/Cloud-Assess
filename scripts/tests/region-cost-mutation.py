@@ -10,7 +10,7 @@ FILE = 'internal/plugins/region/cost.go'
 MUTATIONS = (
     ('empty-selected-name', 'if name == "" {', 'if name == "" && false {',
      'TestCostSelectedScopeAndMalformed', 1),
-    ('selected-contributor', '|| !selected ||', '|| false ||',
+    ('selected-contributor', '|| !selected ||', '|| (!selected && false) ||',
      'TestCostSelectedScopeAndMalformed', 1),
     ('meter-work-limit', 'len(input.MeterInputs) > MaxCostMeters',
      'len(input.MeterInputs) > MaxCostMeters && false', 'TestCostWorkLimits', 1),

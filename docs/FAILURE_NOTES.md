@@ -584,3 +584,8 @@ FN070 corroboration: [automated review](https://github.com/DeBoX85/Cloud-Assess/
 
 
 FN059/FN067 prevention after PR108: active handover/roadmap/specification/implementation/service/region authority sections are reconciled to exact final and distinct accepted-push acceptance, and current next task is CostComparison. Prior pending snapshots in chronological ledger/roadmap/review records remain historical. FN070 prevention: Cost code/tests/script transfer uses Python ensure_ascii JSON with original UTF8 Git blob hashes, Go Unicode escapes and complete remote byte verification. No local/native success is inferred from syntax alone.
+
+
+## FN072: Cost contributor control failed to compile (2026-10-04)
+
+PR109 initial ca16157edf4437e107e86724528184cb50ff4f49 passed formatting and package/race tests, but native37168867529/Linux111337510113 and Windows111337510437 rejected its selected-contributor mutation because replacing !selected with false left selected unused. The harness correctly refused compile failure as named-assertion proof. Corrected the control to (!selected && false), retaining the variable reference while disabling the membership guard. No production behavior/source/pin/capture changed and the failed candidate was not accepted. Subsequent vet/security/Windows build/package steps were skipped and have no success credit. Source37168867514/job111337510061 completed successfully; final-head full source/native gates and nine compiling controls/restored baselines remain mandatory. Prevention: controls must compile, fail the named test and restore passing baselines; build errors never count as behavioral evidence.

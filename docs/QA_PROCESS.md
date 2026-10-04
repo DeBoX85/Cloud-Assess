@@ -135,3 +135,6 @@ Historical preacceptance PR108 review strengthened selected-empty/null and exact
 
 
 PR108 final/accepted-push source/native/full-control proof completed and is indexed in REGION_SERVICE_AVAILABILITY. Current CostComparison candidate adds nine compiling named controls/restored baselines to both native jobs; REGION_COST_COMPARISON defines independent complete-source/received-order/float/scope/entry/text/ownership/cancellation acceptance. New complete code/docs head needs separate source/Linux/Windows QA; prior service success is not cost acceptance. Declared aggregate contributors do not prove actual selected resource ownership or complete pricing health.
+
+
+PR109 initial native37168867529 failed only at the selected-contributor mutation compile error after passing package tests (FN072); no acceptance or skipped-step success is claimed. The corrected control retains selected through (!selected && false). Production/source/capture/pins are unchanged. Fresh complete-head source/native gates and all nine compiling controls/restored baselines remain required.

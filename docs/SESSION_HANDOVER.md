@@ -76,3 +76,6 @@ Private raw evidence is outside Git, historically on the user's laptop. Ask only
 ## Fresh-session procedure
 
 Read root AGENTS.md and this record; fetch live branch/open proposals and final PR evidence. Verify exact accepted/proposal commit/tree/parents/identity, current rule/pins and actual executor inventory. Read the next task's linked authoritative source/contract; report verified state/next task before editing. Complete focused feedback plus mandatory exact-head native QA, maintain records after material changes and verify protected acceptance remotely. Final acceptance evidence may first live in PR bodies, then be indexed at the next material checkpoint to avoid self-referential commits.
+
+
+PR109 initial native37168867529 failed only at the selected-contributor mutation compile error after passing package tests (FN072); no acceptance or skipped-step success is claimed. The corrected control retains selected through (!selected && false). Production/source/capture/pins are unchanged. Fresh complete-head source/native gates and all nine compiling controls/restored baselines remain required.
