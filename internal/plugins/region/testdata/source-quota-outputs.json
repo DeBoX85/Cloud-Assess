@@ -1,0 +1,361 @@
+{
+  "arithmetic": {
+    "Entries": [
+      {
+        "ResourceName": "exact15",
+        "LocalizedName": "exact15",
+        "CurrentValue": 85,
+        "Limit": 100,
+        "Available": 15,
+        "HeadroomPct": 15,
+        "IsNearLimit": false,
+        "IsAtOrOverLimit": false
+      },
+      {
+        "ResourceName": "below15",
+        "LocalizedName": "below15",
+        "CurrentValue": 86,
+        "Limit": 100,
+        "Available": 14,
+        "HeadroomPct": 14.000000000000002,
+        "IsNearLimit": true,
+        "IsAtOrOverLimit": false
+      },
+      {
+        "ResourceName": "at",
+        "LocalizedName": "at",
+        "CurrentValue": 100,
+        "Limit": 100,
+        "Available": 0,
+        "HeadroomPct": 0,
+        "IsNearLimit": true,
+        "IsAtOrOverLimit": true
+      },
+      {
+        "ResourceName": "over",
+        "LocalizedName": "over",
+        "CurrentValue": 110,
+        "Limit": 100,
+        "Available": -10,
+        "HeadroomPct": -10,
+        "IsNearLimit": true,
+        "IsAtOrOverLimit": true
+      },
+      {
+        "ResourceName": "negative",
+        "LocalizedName": "negative",
+        "CurrentValue": -5,
+        "Limit": 100,
+        "Available": 105,
+        "HeadroomPct": 105,
+        "IsNearLimit": false,
+        "IsAtOrOverLimit": false
+      }
+    ],
+    "Risk": [
+      "below15 (86/100, 86% used)",
+      "at (100/100, 100% used)",
+      "over (110/100, 110% used)"
+    ],
+    "Failed": false,
+    "Requests": [
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Web/locations/eastus/usages?api-version=2023-01-01"
+    ]
+  },
+  "cancelled": {
+    "Entries": null,
+    "Risk": null,
+    "Failed": true,
+    "Requests": []
+  },
+  "empty": {
+    "Entries": [],
+    "Risk": null,
+    "Failed": false,
+    "Requests": [
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Web/locations/eastus/usages?api-version=2023-01-01"
+    ]
+  },
+  "http400": {
+    "Entries": null,
+    "Risk": null,
+    "Failed": false,
+    "Requests": [
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Web/locations/eastus/usages?api-version=2023-01-01"
+    ]
+  },
+  "http403": {
+    "Entries": null,
+    "Risk": null,
+    "Failed": true,
+    "Requests": [
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Web/locations/eastus/usages?api-version=2023-01-01"
+    ]
+  },
+  "http404": {
+    "Entries": null,
+    "Risk": null,
+    "Failed": false,
+    "Requests": [
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Web/locations/eastus/usages?api-version=2023-01-01"
+    ]
+  },
+  "http405": {
+    "Entries": null,
+    "Risk": null,
+    "Failed": false,
+    "Requests": [
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Web/locations/eastus/usages?api-version=2023-01-01"
+    ]
+  },
+  "invalid-name": {
+    "Entries": null,
+    "Risk": null,
+    "Failed": true,
+    "Requests": [
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Web/locations/eastus/usages?api-version=2023-01-01"
+    ]
+  },
+  "later-http400": {
+    "Entries": null,
+    "Risk": null,
+    "Failed": false,
+    "Requests": [
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Web/locations/eastus/usages?api-version=2023-01-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Web/locations/eastus/usages?api-version=2023-01-01\u0026$skiptoken=synthetic-second"
+    ]
+  },
+  "later-http403": {
+    "Entries": null,
+    "Risk": null,
+    "Failed": true,
+    "Requests": [
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Web/locations/eastus/usages?api-version=2023-01-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Web/locations/eastus/usages?api-version=2023-01-01\u0026$skiptoken=synthetic-second"
+    ]
+  },
+  "later-http404": {
+    "Entries": null,
+    "Risk": null,
+    "Failed": false,
+    "Requests": [
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Web/locations/eastus/usages?api-version=2023-01-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Web/locations/eastus/usages?api-version=2023-01-01\u0026$skiptoken=synthetic-second"
+    ]
+  },
+  "later-http405": {
+    "Entries": null,
+    "Risk": null,
+    "Failed": false,
+    "Requests": [
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Web/locations/eastus/usages?api-version=2023-01-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Web/locations/eastus/usages?api-version=2023-01-01\u0026$skiptoken=synthetic-second"
+    ]
+  },
+  "later-malformed": {
+    "Entries": null,
+    "Risk": null,
+    "Failed": true,
+    "Requests": [
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Web/locations/eastus/usages?api-version=2023-01-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Web/locations/eastus/usages?api-version=2023-01-01\u0026$skiptoken=synthetic-second"
+    ]
+  },
+  "malformed": {
+    "Entries": null,
+    "Risk": null,
+    "Failed": true,
+    "Requests": [
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Web/locations/eastus/usages?api-version=2023-01-01"
+    ]
+  },
+  "names": {
+    "Entries": [
+      {
+        "ResourceName": "Servers",
+        "LocalizedName": "SQL Servers",
+        "CurrentValue": 9,
+        "Limit": 10,
+        "Available": 1,
+        "HeadroomPct": 10,
+        "IsNearLimit": true,
+        "IsAtOrOverLimit": false
+      },
+      {
+        "ResourceName": "ElasticPools",
+        "LocalizedName": "ElasticPools",
+        "CurrentValue": 1,
+        "Limit": 10,
+        "Available": 9,
+        "HeadroomPct": 90,
+        "IsNearLimit": false,
+        "IsAtOrOverLimit": false
+      },
+      {
+        "ResourceName": "",
+        "LocalizedName": "",
+        "CurrentValue": 1,
+        "Limit": 10,
+        "Available": 9,
+        "HeadroomPct": 90,
+        "IsNearLimit": false,
+        "IsAtOrOverLimit": false
+      }
+    ],
+    "Risk": [
+      "SQL Servers (9/10, 90% used)"
+    ],
+    "Failed": false,
+    "Requests": [
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/usages?api-version=2021-11-01"
+    ]
+  },
+  "network-filter": {
+    "Entries": [
+      {
+        "ResourceName": "networkwatchers",
+        "LocalizedName": "networkwatchers",
+        "CurrentValue": 1,
+        "Limit": 10,
+        "Available": 9,
+        "HeadroomPct": 90,
+        "IsNearLimit": false,
+        "IsAtOrOverLimit": false
+      },
+      {
+        "ResourceName": "PublicIPAddresses",
+        "LocalizedName": "PublicIPAddresses",
+        "CurrentValue": 1,
+        "Limit": 10,
+        "Available": 9,
+        "HeadroomPct": 90,
+        "IsNearLimit": false,
+        "IsAtOrOverLimit": false
+      }
+    ],
+    "Risk": null,
+    "Failed": false,
+    "Requests": [
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Network/locations/eastus/usages?api-version=2022-07-01"
+    ]
+  },
+  "paged": {
+    "Entries": [
+      {
+        "ResourceName": "first",
+        "LocalizedName": "first",
+        "CurrentValue": 1,
+        "Limit": 10,
+        "Available": 9,
+        "HeadroomPct": 90,
+        "IsNearLimit": false,
+        "IsAtOrOverLimit": false
+      },
+      {
+        "ResourceName": "second",
+        "LocalizedName": "second",
+        "CurrentValue": 9,
+        "Limit": 10,
+        "Available": 1,
+        "HeadroomPct": 10,
+        "IsNearLimit": true,
+        "IsAtOrOverLimit": false
+      }
+    ],
+    "Risk": [
+      "second (9/10, 90% used)"
+    ],
+    "Failed": false,
+    "Requests": [
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Web/locations/eastus/usages?api-version=2023-01-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Web/locations/eastus/usages?api-version=2023-01-01\u0026$skiptoken=synthetic-second"
+    ]
+  },
+  "sql-filter": {
+    "Entries": [
+      {
+        "ResourceName": "dtusPerserver",
+        "LocalizedName": "dtusPerserver",
+        "CurrentValue": 1,
+        "Limit": 10,
+        "Available": 9,
+        "HeadroomPct": 90,
+        "IsNearLimit": false,
+        "IsAtOrOverLimit": false
+      },
+      {
+        "ResourceName": "Servers",
+        "LocalizedName": "Servers",
+        "CurrentValue": 1,
+        "Limit": 10,
+        "Available": 9,
+        "HeadroomPct": 90,
+        "IsNearLimit": false,
+        "IsAtOrOverLimit": false
+      }
+    ],
+    "Risk": null,
+    "Failed": false,
+    "Requests": [
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/usages?api-version=2021-11-01"
+    ]
+  },
+  "storage-filter": {
+    "Entries": [
+      {
+        "ResourceName": "totalblobs",
+        "LocalizedName": "totalblobs",
+        "CurrentValue": 1,
+        "Limit": 10,
+        "Available": 9,
+        "HeadroomPct": 90,
+        "IsNearLimit": false,
+        "IsAtOrOverLimit": false
+      },
+      {
+        "ResourceName": "StorageAccounts",
+        "LocalizedName": "StorageAccounts",
+        "CurrentValue": 1,
+        "Limit": 10,
+        "Available": 9,
+        "HeadroomPct": 90,
+        "IsNearLimit": false,
+        "IsAtOrOverLimit": false
+      }
+    ],
+    "Risk": null,
+    "Failed": false,
+    "Requests": [
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/locations/eastus/usages?api-version=2023-01-01"
+    ]
+  },
+  "web-filter": {
+    "Entries": [
+      {
+        "ResourceName": "customdomains",
+        "LocalizedName": "customdomains",
+        "CurrentValue": 1,
+        "Limit": 10,
+        "Available": 9,
+        "HeadroomPct": 90,
+        "IsNearLimit": false,
+        "IsAtOrOverLimit": false
+      },
+      {
+        "ResourceName": "Workers",
+        "LocalizedName": "Workers",
+        "CurrentValue": 1,
+        "Limit": 10,
+        "Available": 9,
+        "HeadroomPct": 90,
+        "IsNearLimit": false,
+        "IsAtOrOverLimit": false
+      }
+    ],
+    "Risk": null,
+    "Failed": false,
+    "Requests": [
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Web/locations/eastus/usages?api-version=2023-01-01"
+    ]
+  }
+}

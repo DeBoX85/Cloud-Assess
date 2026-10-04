@@ -1,0 +1,236 @@
+{
+  "Blobs": {
+    "../../../../az/http_client.go": "05d85c5a50ee81f088731160020a914af83e1ca5",
+    "appservice.go": "60ce83c4d2e7dbed133d1ac1389f9094ee1d39c9",
+    "network.go": "8dd5eaa925f65388c966b1f4d22b9c13442828e5",
+    "quota.go": "9d98d3d2c221b925fd5b4bbde4ddf78476146491",
+    "sql.go": "33d990e8016b9ee6a8088a203cb3a365bc69f357",
+    "storage.go": "62e898c9492a62bb96eef115f5ea352d0918983b"
+  },
+  "Cases": {
+    "arithmetic": {
+      "Provider": "Web",
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"exact15\",\"currentValue\":85,\"limit\":100},{\"name\":\"below15\",\"currentValue\":86,\"limit\":100},{\"name\":\"at\",\"currentValue\":100,\"limit\":100},{\"name\":\"over\",\"currentValue\":110,\"limit\":100},{\"name\":\"negative\",\"currentValue\":-5,\"limit\":100},{\"name\":\"zero-limit\",\"currentValue\":1,\"limit\":0},{\"name\":\"negative-limit\",\"currentValue\":1,\"limit\":-1}]}"
+        }
+      ],
+      "Cancelled": false
+    },
+    "cancelled": {
+      "Provider": "Web",
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[]}"
+        }
+      ],
+      "Cancelled": true
+    },
+    "empty": {
+      "Provider": "Web",
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[]}"
+        }
+      ],
+      "Cancelled": false
+    },
+    "http400": {
+      "Provider": "Web",
+      "Pages": [
+        {
+          "Status": 400,
+          "Body": "{\"error\":{\"code\":\"SyntheticQuotaError\",\"message\":\"synthetic\"}}"
+        }
+      ],
+      "Cancelled": false
+    },
+    "http403": {
+      "Provider": "Web",
+      "Pages": [
+        {
+          "Status": 403,
+          "Body": "{\"error\":{\"code\":\"SyntheticQuotaError\",\"message\":\"synthetic\"}}"
+        }
+      ],
+      "Cancelled": false
+    },
+    "http404": {
+      "Provider": "Web",
+      "Pages": [
+        {
+          "Status": 404,
+          "Body": "{\"error\":{\"code\":\"SyntheticQuotaError\",\"message\":\"synthetic\"}}"
+        }
+      ],
+      "Cancelled": false
+    },
+    "http405": {
+      "Provider": "Web",
+      "Pages": [
+        {
+          "Status": 405,
+          "Body": "{\"error\":{\"code\":\"SyntheticQuotaError\",\"message\":\"synthetic\"}}"
+        }
+      ],
+      "Cancelled": false
+    },
+    "invalid-name": {
+      "Provider": "Web",
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":42,\"currentValue\":1,\"limit\":10}]}"
+        }
+      ],
+      "Cancelled": false
+    },
+    "later-http400": {
+      "Provider": "Web",
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"first\",\"currentValue\":1,\"limit\":10}],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Web/locations/eastus/usages?api-version=2023-01-01\u0026$skiptoken=synthetic-second\"}"
+        },
+        {
+          "Status": 400,
+          "Body": "{\"error\":{\"code\":\"SyntheticQuotaError\",\"message\":\"synthetic\"}}"
+        }
+      ],
+      "Cancelled": false
+    },
+    "later-http403": {
+      "Provider": "Web",
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"first\",\"currentValue\":1,\"limit\":10}],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Web/locations/eastus/usages?api-version=2023-01-01\u0026$skiptoken=synthetic-second\"}"
+        },
+        {
+          "Status": 403,
+          "Body": "{\"error\":{\"code\":\"SyntheticQuotaError\",\"message\":\"synthetic\"}}"
+        }
+      ],
+      "Cancelled": false
+    },
+    "later-http404": {
+      "Provider": "Web",
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"first\",\"currentValue\":1,\"limit\":10}],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Web/locations/eastus/usages?api-version=2023-01-01\u0026$skiptoken=synthetic-second\"}"
+        },
+        {
+          "Status": 404,
+          "Body": "{\"error\":{\"code\":\"SyntheticQuotaError\",\"message\":\"synthetic\"}}"
+        }
+      ],
+      "Cancelled": false
+    },
+    "later-http405": {
+      "Provider": "Web",
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"first\",\"currentValue\":1,\"limit\":10}],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Web/locations/eastus/usages?api-version=2023-01-01\u0026$skiptoken=synthetic-second\"}"
+        },
+        {
+          "Status": 405,
+          "Body": "{\"error\":{\"code\":\"SyntheticQuotaError\",\"message\":\"synthetic\"}}"
+        }
+      ],
+      "Cancelled": false
+    },
+    "later-malformed": {
+      "Provider": "Web",
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"first\",\"currentValue\":1,\"limit\":10}],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Web/locations/eastus/usages?api-version=2023-01-01\u0026$skiptoken=synthetic-second\"}"
+        },
+        {
+          "Status": 200,
+          "Body": "{\"value\":"
+        }
+      ],
+      "Cancelled": false
+    },
+    "malformed": {
+      "Provider": "Web",
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":"
+        }
+      ],
+      "Cancelled": false
+    },
+    "names": {
+      "Provider": "Sql",
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":{\"value\":\"Servers\",\"localizedValue\":\"SQL Servers\"},\"currentValue\":9,\"limit\":10},{\"name\":\"ElasticPools\",\"currentValue\":1,\"limit\":10},{\"name\":null,\"currentValue\":1,\"limit\":10}]}"
+        }
+      ],
+      "Cancelled": false
+    },
+    "network-filter": {
+      "Provider": "Network",
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"NetworkWatchers\",\"currentValue\":1,\"limit\":10},{\"name\":\"RouteFilterRulesPerRouteFilter\",\"currentValue\":1,\"limit\":10},{\"name\":\"RouteFiltersPerExpressRouteBgpPeering\",\"currentValue\":1,\"limit\":10},{\"name\":\"RoutesPerExpressRouteCircuit\",\"currentValue\":1,\"limit\":10},{\"name\":\"BgpCommunityFilterRulesPerRouteFilter\",\"currentValue\":1,\"limit\":10},{\"name\":\"networkwatchers\",\"currentValue\":1,\"limit\":10},{\"name\":\"PublicIPAddresses\",\"currentValue\":1,\"limit\":10}]}"
+        }
+      ],
+      "Cancelled": false
+    },
+    "paged": {
+      "Provider": "Web",
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"first\",\"currentValue\":1,\"limit\":10}],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Web/locations/eastus/usages?api-version=2023-01-01\u0026$skiptoken=synthetic-second\"}"
+        },
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"second\",\"currentValue\":9,\"limit\":10}]}"
+        }
+      ],
+      "Cancelled": false
+    },
+    "sql-filter": {
+      "Provider": "Sql",
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"DTUsPerServer\",\"currentValue\":1,\"limit\":10},{\"name\":\"vCoresPerDatabase\",\"currentValue\":1,\"limit\":10},{\"name\":\"dtusPerserver\",\"currentValue\":1,\"limit\":10},{\"name\":\"Servers\",\"currentValue\":1,\"limit\":10}]}"
+        }
+      ],
+      "Cancelled": false
+    },
+    "storage-filter": {
+      "Provider": "Storage",
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"TotalBlobContainers\",\"currentValue\":1,\"limit\":10},{\"name\":\"TotalBlobs\",\"currentValue\":1,\"limit\":10},{\"name\":\"TotalContainers\",\"currentValue\":1,\"limit\":10},{\"name\":\"TotalFileShares\",\"currentValue\":1,\"limit\":10},{\"name\":\"TotalQueues\",\"currentValue\":1,\"limit\":10},{\"name\":\"TotalTables\",\"currentValue\":1,\"limit\":10},{\"name\":\"totalblobs\",\"currentValue\":1,\"limit\":10},{\"name\":\"StorageAccounts\",\"currentValue\":1,\"limit\":10}]}"
+        }
+      ],
+      "Cancelled": false
+    },
+    "web-filter": {
+      "Provider": "Web",
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"CustomDomains\",\"currentValue\":1,\"limit\":10},{\"name\":\"HostNameBindings\",\"currentValue\":1,\"limit\":10},{\"name\":\"SslBindings\",\"currentValue\":1,\"limit\":10},{\"name\":\"SslConnections\",\"currentValue\":1,\"limit\":10},{\"name\":\"Certificates\",\"currentValue\":1,\"limit\":10},{\"name\":\"customdomains\",\"currentValue\":1,\"limit\":10},{\"name\":\"Workers\",\"currentValue\":1,\"limit\":10}]}"
+        }
+      ],
+      "Cancelled": false
+    }
+  }
+}
