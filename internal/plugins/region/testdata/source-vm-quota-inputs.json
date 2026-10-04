@@ -1,0 +1,203 @@
+{
+  "SourceBlob": "9d98d3d2c221b925fd5b4bbde4ddf78476146491",
+  "SDKModule": "github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/compute/armcompute/v6 v6.4.0",
+  "DisableRPRegistration": true,
+  "MaxRetries": -1,
+  "Cases": {
+    "arithmetic": {
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":{\"value\":\"ExactFamily\",\"localizedValue\":\"ExactFamily\"},\"currentValue\":85,\"limit\":100},{\"name\":{\"value\":\"BelowFamily\",\"localizedValue\":\"BelowFamily\"},\"currentValue\":86,\"limit\":100},{\"name\":{\"value\":\"AtFamily\",\"localizedValue\":\"AtFamily\"},\"currentValue\":100,\"limit\":100},{\"name\":{\"value\":\"OverFamily\",\"localizedValue\":\"OverFamily\"},\"currentValue\":110,\"limit\":100},{\"name\":{\"value\":\"NegativeFamily\",\"localizedValue\":\"NegativeFamily\"},\"currentValue\":-5,\"limit\":100}]}"
+        }
+      ],
+      "Cancelled": false
+    },
+    "cancelled": {
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[]}"
+        }
+      ],
+      "Cancelled": true
+    },
+    "empty": {
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[]}"
+        }
+      ],
+      "Cancelled": false
+    },
+    "http400": {
+      "Pages": [
+        {
+          "Status": 400,
+          "Body": "{\"error\":{\"code\":\"SyntheticVMQuotaError\",\"message\":\"synthetic\"}}"
+        }
+      ],
+      "Cancelled": false
+    },
+    "http403": {
+      "Pages": [
+        {
+          "Status": 403,
+          "Body": "{\"error\":{\"code\":\"SyntheticVMQuotaError\",\"message\":\"synthetic\"}}"
+        }
+      ],
+      "Cancelled": false
+    },
+    "http404": {
+      "Pages": [
+        {
+          "Status": 404,
+          "Body": "{\"error\":{\"code\":\"SyntheticVMQuotaError\",\"message\":\"synthetic\"}}"
+        }
+      ],
+      "Cancelled": false
+    },
+    "http405": {
+      "Pages": [
+        {
+          "Status": 405,
+          "Body": "{\"error\":{\"code\":\"SyntheticVMQuotaError\",\"message\":\"synthetic\"}}"
+        }
+      ],
+      "Cancelled": false
+    },
+    "later-http400": {
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":{\"value\":\"FirstFamily\",\"localizedValue\":\"FirstFamily\"},\"currentValue\":1,\"limit\":10}],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/usages?api-version=2024-11-01\u0026$skiptoken=synthetic-second\"}"
+        },
+        {
+          "Status": 400,
+          "Body": "{\"error\":{\"code\":\"SyntheticVMQuotaError\",\"message\":\"synthetic\"}}"
+        }
+      ],
+      "Cancelled": false
+    },
+    "later-http403": {
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":{\"value\":\"FirstFamily\",\"localizedValue\":\"FirstFamily\"},\"currentValue\":1,\"limit\":10}],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/usages?api-version=2024-11-01\u0026$skiptoken=synthetic-second\"}"
+        },
+        {
+          "Status": 403,
+          "Body": "{\"error\":{\"code\":\"SyntheticVMQuotaError\",\"message\":\"synthetic\"}}"
+        }
+      ],
+      "Cancelled": false
+    },
+    "later-http404": {
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":{\"value\":\"FirstFamily\",\"localizedValue\":\"FirstFamily\"},\"currentValue\":1,\"limit\":10}],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/usages?api-version=2024-11-01\u0026$skiptoken=synthetic-second\"}"
+        },
+        {
+          "Status": 404,
+          "Body": "{\"error\":{\"code\":\"SyntheticVMQuotaError\",\"message\":\"synthetic\"}}"
+        }
+      ],
+      "Cancelled": false
+    },
+    "later-http405": {
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":{\"value\":\"FirstFamily\",\"localizedValue\":\"FirstFamily\"},\"currentValue\":1,\"limit\":10}],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/usages?api-version=2024-11-01\u0026$skiptoken=synthetic-second\"}"
+        },
+        {
+          "Status": 405,
+          "Body": "{\"error\":{\"code\":\"SyntheticVMQuotaError\",\"message\":\"synthetic\"}}"
+        }
+      ],
+      "Cancelled": false
+    },
+    "later-malformed": {
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":{\"value\":\"FirstFamily\",\"localizedValue\":\"FirstFamily\"},\"currentValue\":1,\"limit\":10}],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/usages?api-version=2024-11-01\u0026$skiptoken=synthetic-second\"}"
+        },
+        {
+          "Status": 200,
+          "Body": "{\"value\":"
+        }
+      ],
+      "Cancelled": false
+    },
+    "localized": {
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":{\"value\":\"NoLabelFamily\"},\"currentValue\":9,\"limit\":10},{\"name\":{\"value\":\"LabelFamily\",\"localizedValue\":\"VM Label\"},\"currentValue\":9,\"limit\":10}]}"
+        }
+      ],
+      "Cancelled": false
+    },
+    "malformed": {
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":"
+        }
+      ],
+      "Cancelled": false
+    },
+    "missing-current": {
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":{\"value\":\"MissingCurrentFamily\"},\"limit\":10}]}"
+        }
+      ],
+      "Cancelled": false
+    },
+    "missing-skipped": {
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"currentValue\":1,\"limit\":10},{\"name\":null,\"currentValue\":1,\"limit\":10},{\"name\":{},\"currentValue\":1,\"limit\":10},{\"name\":{\"value\":\"NoLimitFamily\"},\"currentValue\":1},{\"name\":{\"value\":\"ZeroFamily\"},\"limit\":0},{\"name\":{\"value\":\"NegativeLimitFamily\"},\"limit\":-1},{\"name\":{\"value\":\"cores\"},\"limit\":10}]}"
+        }
+      ],
+      "Cancelled": false
+    },
+    "null-item": {
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[null]}"
+        }
+      ],
+      "Cancelled": false
+    },
+    "paged": {
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":{\"value\":\"FirstFamily\",\"localizedValue\":\"FirstFamily\"},\"currentValue\":1,\"limit\":10}],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/usages?api-version=2024-11-01\u0026$skiptoken=synthetic-second\"}"
+        },
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":{\"value\":\"SecondFamily\",\"localizedValue\":\"SecondFamily\"},\"currentValue\":9,\"limit\":10}]}"
+        }
+      ],
+      "Cancelled": false
+    },
+    "selection": {
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":{\"value\":\"standardDSFamily\",\"localizedValue\":\"standardDSFamily\"},\"currentValue\":10,\"limit\":100},{\"name\":{\"value\":\"standarddsfamily\",\"localizedValue\":\"standarddsfamily\"},\"currentValue\":10,\"limit\":100},{\"name\":{\"value\":\"cores\",\"localizedValue\":\"cores\"},\"currentValue\":10,\"limit\":100},{\"name\":{\"value\":\"NotFamilySuffix\",\"localizedValue\":\"NotFamilySuffix\"},\"currentValue\":10,\"limit\":100}]}"
+        }
+      ],
+      "Cancelled": false
+    }
+  }
+}
