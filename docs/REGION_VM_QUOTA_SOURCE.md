@@ -38,6 +38,22 @@ so this observation cannot issue registrations or hide request counts. The sourc
 accepts caller options, so this is a controlled fixture policy, not evidence of its
 default caller middleware safety, every cloud or target adapter confinement.
 
+The exact default SDK synthetic scope is
+`https://management.core.windows.net//.default`: azcore v1.23.1 ARM runtime defines
+the public audience with a trailing slash and appends `/.default` in its pipeline.
+Do not normalize that observation to the REST client's explicitly supplied scope
+or infer endpoint host from the token audience. Initial local fixture asserted the
+REST scope and failed before transport (FN081); correct only the independent exact
+SDK expectation, not the production pipeline or accepted audience set.
+
+The injected credential and transport must honor context cancellation themselves.
+Initial synthetic stubs ignored context and allowed a pre-cancelled request (FN081);
+that is a fixture defect, not evidence of an SDK/source cancellation defect. Corrected
+stubs return ctx.Err before producing a token or accepting a request. The SDK also
+encodes/orders continuation queries: supplied `api-version=2024-11-01&$skiptoken=...`
+is observed as `%24skiptoken=...&api-version=2024-11-01`. Require that exact request,
+preserving the original supplied nextLink in input. Do not normalize away a mismatch.
+
 Use literal valid/filtered/missing/negative/threshold/empty/paged/malformed/denied/
 unsupported/cancelled response bodies. Recover only at the harness boundary to
 record Panicked=true for malformed source input; never call a recovered panic a

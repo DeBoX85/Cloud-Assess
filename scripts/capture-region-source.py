@@ -31,6 +31,9 @@ CAPTURES = (
     ("quota_capture_test.go.txt", "quota/quota_capture_test.go",
      "REGION_QUOTA_CAPTURE_OUTPUT", "^TestRegionQuotaCapture$",
      "./internal/scanners/plugins/region/quota"),
+    ("vm_quota_capture_test.go.txt", "quota/vm_quota_capture_test.go",
+     "REGION_VM_QUOTA_CAPTURE_OUTPUT", "^TestRegionVMQuotaCapture$",
+     "./internal/scanners/plugins/region/quota"),
 )
 FILES = ("source-aux-inputs.json", "source-aux-outputs.json",
          "source-inventory-inputs.json", "source-inventory-outputs.json",
@@ -38,7 +41,8 @@ FILES = ("source-aux-inputs.json", "source-aux-outputs.json",
          "source-latency-inputs.json", "source-latency-outputs.json",
          "source-latency-data.json",
          "source-cost-enrichment-inputs.json", "source-cost-enrichment-outputs.json",
-         "source-quota-inputs.json", "source-quota-outputs.json")
+         "source-quota-inputs.json", "source-quota-outputs.json",
+         "source-vm-quota-inputs.json", "source-vm-quota-outputs.json")
 
 
 def run(args, directory, timeout=240, capture=False):

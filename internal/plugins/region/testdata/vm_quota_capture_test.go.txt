@@ -1,0 +1,181 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+// Invoke the unchanged pinned Compute SDK FetchVMQuota with synthetic transport.
+package quota
+
+import (
+	"context"
+	"crypto/sha1"
+	"encoding/json"
+	"fmt"
+	"io"
+	"net/http"
+	"os"
+	"path/filepath"
+	"reflect"
+	"strings"
+	"testing"
+	"time"
+
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/arm"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
+)
+
+type vmQuotaCredential struct{ t *testing.T }
+
+func (c vmQuotaCredential) GetToken(ctx context.Context, o policy.TokenRequestOptions) (azcore.AccessToken, error) {
+	if !reflect.DeepEqual(o.Scopes, []string{"https://management.core.windows.net//.default"}) {
+		c.t.Fatal("unexpected synthetic VM quota audience")
+	}
+	if err := ctx.Err(); err != nil {
+		return azcore.AccessToken{}, err
+	}
+	return azcore.AccessToken{Token: "synthetic-vm-quota-canary", ExpiresOn: time.Now().Add(time.Hour)}, nil
+}
+
+type vmQuotaPage struct {
+	Status int
+	Body   string
+}
+type vmQuotaCase struct {
+	Pages     []vmQuotaPage
+	Cancelled bool
+}
+type vmQuotaResult struct {
+	Entries          []UsageEntry
+	Risk             []string
+	Failed, Panicked bool
+	Requests         []string
+}
+type vmQuotaTransport struct {
+	t        *testing.T
+	urls     []string
+	pages    []vmQuotaPage
+	requests []string
+}
+
+func (s *vmQuotaTransport) Do(r *http.Request) (*http.Response, error) {
+	if err := r.Context().Err(); err != nil {
+		return nil, err
+	}
+	i := len(s.requests)
+	if i >= len(s.urls) || r.URL.String() != s.urls[i] || r.Method != "GET" || r.Body != nil || r.Header.Get("Authorization") != "Bearer synthetic-vm-quota-canary" {
+		s.t.Fatal("unexpected synthetic VM quota request", r.Method, r.URL.String())
+	}
+	s.requests = append(s.requests, r.URL.String())
+	p := s.pages[i]
+	return &http.Response{StatusCode: p.Status, Header: http.Header{"Content-Type": []string{"application/json"}}, Body: io.NopCloser(strings.NewReader(p.Body)), Request: r}, nil
+}
+
+type vmQuotaNetworkTripwire struct{}
+
+func (vmQuotaNetworkTripwire) RoundTrip(*http.Request) (*http.Response, error) {
+	panic("VM quota capture attempted real network")
+}
+
+func TestRegionVMQuotaCapture(t *testing.T) {
+	output := os.Getenv("REGION_VM_QUOTA_CAPTURE_OUTPUT")
+	if output == "" {
+		t.Fatal("missing capture output")
+	}
+	oldTransport, oldClient := http.DefaultTransport, http.DefaultClient
+	http.DefaultTransport = vmQuotaNetworkTripwire{}
+	http.DefaultClient = &http.Client{Transport: vmQuotaNetworkTripwire{}}
+	defer func() { http.DefaultTransport, http.DefaultClient = oldTransport, oldClient }()
+	raw, err := os.ReadFile("quota.go")
+	if err != nil {
+		t.Fatal(err)
+	}
+	hash := sha1.Sum(append([]byte(fmt.Sprintf("blob %d\x00", len(raw))), raw...))
+	const sourceBlob = "9d98d3d2c221b925fd5b4bbde4ddf78476146491"
+	if fmt.Sprintf("%x", hash) != sourceBlob {
+		t.Fatal("source VM quota blob changed")
+	}
+	row := func(name string, current, limit int) string {
+		return fmt.Sprintf(`{"name":{"value":%q,"localizedValue":%q},"currentValue":%d,"limit":%d}`, name, name, current, limit)
+	}
+	envelope := func(rows ...string) string { return `{"value":[` + strings.Join(rows, ",") + `]}` }
+	one := func(body string) []vmQuotaPage { return []vmQuotaPage{{200, body}} }
+	cases := map[string]vmQuotaCase{
+		"arithmetic":      {Pages: one(envelope(row("ExactFamily", 85, 100), row("BelowFamily", 86, 100), row("AtFamily", 100, 100), row("OverFamily", 110, 100), row("NegativeFamily", -5, 100)))},
+		"selection":       {Pages: one(envelope(row("standardDSFamily", 10, 100), row("standarddsfamily", 10, 100), row("cores", 10, 100), row("NotFamilySuffix", 10, 100)))},
+		"missing-skipped": {Pages: one(`{"value":[{"currentValue":1,"limit":10},{"name":null,"currentValue":1,"limit":10},{"name":{},"currentValue":1,"limit":10},{"name":{"value":"NoLimitFamily"},"currentValue":1},{"name":{"value":"ZeroFamily"},"limit":0},{"name":{"value":"NegativeLimitFamily"},"limit":-1},{"name":{"value":"cores"},"limit":10}]}`)},
+		"localized":       {Pages: one(`{"value":[{"name":{"value":"NoLabelFamily"},"currentValue":9,"limit":10},{"name":{"value":"LabelFamily","localizedValue":"VM Label"},"currentValue":9,"limit":10}]}`)},
+		"empty":           {Pages: one(envelope())},
+		"paged":           {Pages: []vmQuotaPage{{200, ""}, {200, envelope(row("SecondFamily", 9, 10))}}},
+		"malformed":       {Pages: one(`{"value":`)},
+		"later-malformed": {Pages: []vmQuotaPage{{200, ""}, {200, `{"value":`}}},
+		"missing-current": {Pages: one(`{"value":[{"name":{"value":"MissingCurrentFamily"},"limit":10}]}`)},
+		"null-item":       {Pages: one(`{"value":[null]}`)},
+		"cancelled":       {Pages: one(envelope()), Cancelled: true},
+	}
+	for _, status := range []int{400, 404, 405, 403} {
+		p := vmQuotaPage{status, `{"error":{"code":"SyntheticVMQuotaError","message":"synthetic"}}`}
+		cases[fmt.Sprintf("http%d", status)] = vmQuotaCase{Pages: []vmQuotaPage{p}}
+		cases[fmt.Sprintf("later-http%d", status)] = vmQuotaCase{Pages: []vmQuotaPage{{200, ""}, p}}
+	}
+	const subscription = "11111111-1111-1111-1111-111111111111"
+	const start = "https://management.azure.com/subscriptions/" + subscription + "/providers/Microsoft.Compute/locations/eastus/usages?api-version=2024-11-01"
+	results := map[string]vmQuotaResult{}
+	for name, fixture := range cases {
+		urls := []string{start}
+		if len(fixture.Pages) == 2 {
+			next := start + "&$skiptoken=synthetic-second"
+			urls = append(urls, "https://management.azure.com/subscriptions/"+subscription+"/providers/Microsoft.Compute/locations/eastus/usages?%24skiptoken=synthetic-second&api-version=2024-11-01")
+			fixture.Pages[0].Body = `{"value":[` + row("FirstFamily", 1, 10) + `],"nextLink":` + fmt.Sprintf("%q", next) + `}`
+			cases[name] = fixture
+		}
+		transport := &vmQuotaTransport{t: t, urls: urls, pages: fixture.Pages, requests: []string{}}
+		opts := &arm.ClientOptions{ClientOptions: policy.ClientOptions{Transport: transport, Retry: policy.RetryOptions{MaxRetries: -1}}, DisableRPRegistration: true}
+		ctx, cancel := context.WithCancel(context.Background())
+		if fixture.Cancelled {
+			cancel()
+		}
+		result := vmQuotaResult{}
+		func() {
+			defer func() {
+				if recovered := recover(); recovered != nil {
+					result.Panicked = true
+				}
+			}()
+			var e error
+			result.Entries, e = FetchVMQuota(ctx, vmQuotaCredential{t}, opts, subscription, "eastus")
+			result.Failed = e != nil
+		}()
+		cancel()
+		// These deliberately malformed source fixtures must record a panic, not success.
+		if result.Panicked != (name == "missing-current" || name == "null-item") {
+			t.Fatal("unexpected source panic outcome", name)
+		}
+		expected := len(urls)
+		if fixture.Cancelled {
+			expected = 0
+		}
+		if len(transport.requests) != expected {
+			t.Fatal("incomplete VM source request sequence", name)
+		}
+		result.Requests = transport.requests
+		result.Risk = AtRiskSummaries(result.Entries)
+		results[name] = result
+	}
+	write := func(name string, v any) {
+		raw, err := json.MarshalIndent(v, "", "  ")
+		if err != nil {
+			t.Fatal(err)
+		}
+		if err = os.MkdirAll(output, 0700); err != nil {
+			t.Fatal(err)
+		}
+		if err = os.WriteFile(filepath.Join(output, name), append(raw, '\n'), 0600); err != nil {
+			t.Fatal(err)
+		}
+	}
+	write("source-vm-quota-inputs.json", struct {
+		SourceBlob, SDKModule string
+		DisableRPRegistration bool
+		MaxRetries            int
+		Cases                 map[string]vmQuotaCase
+	}{sourceBlob, "github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/compute/armcompute/v6 v6.4.0", true, -1, cases})
+	write("source-vm-quota-outputs.json", results)
+}
