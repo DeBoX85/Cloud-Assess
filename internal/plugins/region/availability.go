@@ -24,12 +24,12 @@ const (
 
 type AvailabilityRequest struct {
 	SubscriptionID string
-	SourceRegion string
-	TargetRegion string
+	SourceRegion   string
+	TargetRegion   string
 }
 
 type SKUAvailability struct {
-	State int
+	State        int
 	BlockedZones []string
 }
 
@@ -41,19 +41,19 @@ type SKUEvidence struct {
 }
 
 type AvailabilityEvidence struct {
-	SubscriptionID string
-	TargetRegion string
+	SubscriptionID    string
+	TargetRegion      string
 	InventoryComplete bool
 	ProvidersComplete bool
-	Locations map[string]map[string]bool
-	SKUEnabled bool
-	SKUs map[string]SKUEvidence
-	ZoneCounts map[string]int
+	Locations         map[string]map[string]bool
+	SKUEnabled        bool
+	SKUs              map[string]SKUEvidence
+	ZoneCounts        map[string]int
 }
 
 type AvailabilityCalculation struct {
 	Comparison Comparison
-	Health assessment.StageExecution
+	Health     assessment.StageExecution
 }
 
 // CalculateAvailability operates on stable, decoded per-run inputs. Health

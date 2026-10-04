@@ -16,7 +16,7 @@ MUTATIONS = (
     ('output-label', '!auxiliaryText(detail, &outputBytes)', '(!auxiliaryText(detail, &outputBytes) && false)', 'TestAvailabilityRuntimeOutputBounds', 1),
     ('raw-sku', 'identifier := key + ":" + raw', 'identifier := key + ":" + strings.ToLower(strings.TrimSpace(raw))', 'TestAvailabilityRuntimeCapturedComparisons', 1),
     ('confirmed-denominator', 'c.TotalSKUsChecked - c.UnknownSKUs', 'c.TotalSKUsChecked', 'TestAvailabilityRuntimeCapturedComparisons', 1),
-    ('unknown-health', 'warn("availability_sku_unknown")', 'warn("availability_sku_unknown_removed")', 'TestAvailabilityRuntimeUnknownAndCompleteness', 1),
+    ('unknown-health', 'warn("availability_sku_unknown")', '_ = skuEvidence', 'TestAvailabilityRuntimeUnknownAndCompleteness', 1),
     ('cancellation', 'if ctx.Err() != nil {', 'if ctx.Err() != nil && false {', 'TestAvailabilityRuntimeOwnershipAndCancellation', 5),
 )
 
