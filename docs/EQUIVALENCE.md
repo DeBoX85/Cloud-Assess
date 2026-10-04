@@ -349,7 +349,7 @@ For a meaningful live comparison:
 
 Both inputs must contain full, unredacted subscription identities. The harness detects the reference/Cloud Assess subscription mask marker and rejects redacted reports as non-comparable rather than producing misleading record deltas.
 
-The harness requires the supported canonical target schema (`1.0`) and an explicit recognized completeness value. Missing/unknown completeness or unsupported schema versions are invalid inputs. A reference report must contain at least one recognized core dataset; known empty arrays remain valid, while null, empty or unknown-only report objects cannot prove equivalence. See [AUDIT_COMPARISON_INPUTS.md](AUDIT_COMPARISON_INPUTS.md) for the independently reproduced input-validation correction.
+The harness requires the supported canonical target schema (`1.0` core or additive `1.1` plugin tables) and an explicit recognized completeness value. Missing/unknown completeness or unsupported schema versions are invalid inputs. A reference report must contain at least one recognized core dataset; known empty arrays remain valid, while null, empty or unknown-only report objects cannot prove equivalence. See [AUDIT_COMPARISON_INPUTS.md](AUDIT_COMPARISON_INPUTS.md) for the independently reproduced input-validation correction.
 
 A target assessment with overall `partial` or `failed` completeness is rejected as a valid equivalence baseline.
 

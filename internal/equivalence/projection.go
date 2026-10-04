@@ -100,8 +100,8 @@ func LoadTarget(reader io.Reader) (Projection, error) {
 	if err := json.Unmarshal(content, &data); err != nil {
 		return Projection{}, fmt.Errorf("decode target JSON: %w", err)
 	}
-	if data.SchemaVersion != result.SchemaVersion {
-		return Projection{}, fmt.Errorf("target JSON schemaVersion %q is unsupported; expected %q", data.SchemaVersion, result.SchemaVersion)
+	if data.SchemaVersion != result.SchemaVersion && data.SchemaVersion != result.PluginSchemaVersion {
+		return Projection{}, fmt.Errorf("target JSON schemaVersion %q is unsupported; expected %q or %q", data.SchemaVersion, result.SchemaVersion, result.PluginSchemaVersion)
 	}
 
 	projection := newProjection()
