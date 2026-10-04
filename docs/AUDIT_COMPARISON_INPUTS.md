@@ -1,5 +1,7 @@
 # Audit: comparison input evidence
 
+Current status: correction VERIFIED OFFLINE and accepted through combined PR114, mergec33fb2eee93a2e5730f72612b351d0b838737d03. Original individual proposal is closed/superseded; compiling failed controls and corrected proof below are retained as historical evidence. Final combined native37188397367/source37188397374 and matching tree/preview verified. Distinct accepted-push/final disposition evidence is indexed in PR114 and the disposition PR. No historical live incidence, independent-person review or release approval.
+
 ## Contract and suspected gap
 
 The canonical target contracts are internal/result/result.go schema1.0 and internal/result/plugin_tables.go additive schema1.1; assessment completeness has four declared values. docs/EQUIVALENCE.md rejects partial/failed baselines and permits complete_with_warnings with explicit review. Semantic equivalence is an evidence statement, so an unknown schema or absent/unknown completeness cannot prove a healthy assessment. Pinned-reference JSON has recognized core datasets. A reference with no recognized sections cannot supply any comparison evidence.

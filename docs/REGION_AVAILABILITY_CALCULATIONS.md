@@ -1,5 +1,7 @@
 # Region availability calculations: pinned source characterization
 
+Current audit disposition (2026-10-04): whole-project bounded offline review and hardening/source characterization are accepted through PR114, mergec33fb2eee93a2e5730f72612b351d0b838737d03, tree583496773c23902e7d7187ffc83a1c4ee6be0713. Owned inventory aggregation remains accepted through PR112; source-only availability characterization is now accepted through PR114. Runtime availability and public region-selection remain absent. Resume the separately reviewed bounded pure availability implementation after the audit disposition follow-up is accepted. Exact runtime and disposition acceptance evidence is indexed in their PR bodies; live/load/Gate004/release/advisory boundaries remain open. Earlier candidate/IN PROGRESS sequencing below is historical.
+
 Status: IN PROGRESS, unaccepted source-only checkpoint on PR112 merge `07011b63440e69f4a5acb128e0449943f759ee9c`, tree `72bebbf4885a15a74a5f43dfe57c68fe979c1e7c`. Public region-selection remains unavailable.
 
 ## Requirement, authority and before/after
