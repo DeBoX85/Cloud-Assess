@@ -1,3 +1,15 @@
+# Latency source observation checkpoint (2026-10-04)
+
+Accepted availability PR120 is VERIFIED OFFLINE: ac88f21471954e4e4bd3110e3afc540db304a83d/tree1d0a19111d6a79fd80eda13890698af969663e43, ordered3463a72f/1d0cf9da parents, Denis author/GitHub committer/signature/live ref verified. Final proposal37224574026/source37224574067 and distinct accepted-push37225071705/Linux111502938822/Windows111502938955/source37225071683/job111502938738 passed all required steps/full logs; PR120 retained all six captures exactly; local accepted checkout653 blob hashes/clean tracked status verified, APRL uninitialized/Go absent. PR120 body holds complete immutable evidence. No whole-audit repetition is needed.
+
+User reaffirmed continuing offline work and advised laptop/Azure access is expected soon, not confirmed restored. Next bounded slice is [REGION_LATENCY.md](REGION_LATENCY.md). Pinned source latency/latency.go/tests/generated-data contracts inspected; target runtime not yet added. Source-only preparation injects a fourth isolated pure harness, observes7 cases/27 comparison branches plus actual complete default matrix/clusters. Runner emits all nine files then unconditionally verifies retained bytes. Initial missing three new goldens intentionally fail after observation; declared evidence gap, never PASS or optional guard bypass. Original six captures/pins/gates remain unchanged. Exact next: inspect source run and retain actual complete indexed bytes/hashes, independently define full literals/corrections, then implement bounded owned enrichment and complete native/source/preview/protected acceptance. Live PR body/ref is the exact latest revision/run/recovery index.
+
+Natural transition: restored laptop access can resume installed core/previously available plugins' existing private validation queue while region work continues offline. Full public region execution still needs remaining calculations/adapters/coordinator/all-format/default/empty/partial-health integration. Live checks require confirmed access and approved non-production scope. DV-001 needs wholly non-production nested hierarchy; production-containing Advisory is not a substitute. No Azure writes/roles/fixtures/production substitution/exposure/release authorized. No offline input needed. Publish/read back coherent WIP; inspect uncertain remote outcomes before retrying mutations. Old workspaces are preserved.
+
+Earlier checkpoints below are historical, superseded by this authority and live PR evidence.
+
+---
+
 # PR120 availability implementation and recovery authority
 
 The bounded pure availability constructor is implemented in PR120. Its live PR body is the exact final-head/merge/accepted-push evidence index: [PR120](https://github.com/DeBoX85/Cloud-Assess/pull/120). Determine candidate versus VERIFIED OFFLINE acceptance from that index and live refs, never from a historical pending paragraph. Entry accepted baseline is audit PR119 merge3463a72f11912039702ee60605ec4d79830c09bc/tree3bc82d8ffd4aa19167edd4e6bf02b8d031a9939a. Audit and source-only availability characterization are accepted; no entire-audit repeat is needed.
