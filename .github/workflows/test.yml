@@ -196,6 +196,9 @@ jobs:
       - name: Verify region auxiliary tests reject selected mutations
         run: python3 scripts/tests/region-auxiliary-mutation.py
 
+      - name: Verify region service tests reject selected mutations
+        run: python3 scripts/tests/region-service-mutation.py
+
       - name: Vet
         run: go vet ./...
 
@@ -264,6 +267,9 @@ jobs:
 
       - name: Verify Windows region auxiliary tests reject selected mutations
         run: python scripts/tests/region-auxiliary-mutation.py
+
+      - name: Verify Windows region service tests reject selected mutations
+        run: python scripts/tests/region-service-mutation.py
 
       - name: Build and smoke-test Windows CLI
         env:

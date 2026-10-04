@@ -1,6 +1,6 @@
 # Region selection: staged source migration
 
-Status: primary PR104, source characterization PR105 and pure quota/reservations PR106 VERIFIED OFFLINE. Next separate service-availability pure sheets under REGION_SERVICE_AVAILABILITY.md. Public region-selection unavailable. SESSION_HANDOVER.md is the active recovery authority.
+Status: primary PR104, source characterization PR105 and pure quota/reservations PR106 VERIFIED OFFLINE. Next service-availability pure sheets IN PROGRESS under REGION_SERVICE_AVAILABILITY.md, unaccepted. Public region-selection unavailable. SESSION_HANDOVER.md is the active recovery authority.
 
 ## Exact current slice
 
@@ -54,3 +54,6 @@ Historical preparation checkpoint, superseded by PR105 accepted proof: source ch
 Quota/Capacity Reservations pure projections are VERIFIED OFFLINE through [PR106](https://github.com/DeBoX85/Cloud-Assess/pull/106), merge `c4643527dc948f96a565da237662a104a084f14e`, tree `38248bc19be95c0058377ed373a4bf90b20e4ca2`, ordered parents7e4ca5c/e7e5511. Final head e7e551104cc6e0e6dda25c389af9176eb5ed562c passed [run37146790757](https://github.com/DeBoX85/Cloud-Assess/actions/runs/37146790757), quality111272343099/Windows111272342986, all mandatory steps/full logs inspected. Both tested preview06848f39 with the identical tree/parents. Source characterization [37146790810](https://github.com/DeBoX85/Cloud-Assess/actions/runs/37146790810)/job111272298401 reproduced all14 unchanged helper branches with exact captured bytes/provenance. Both hosts passed every quota/reservation cell/empty branch, all three compiling auxiliary controls and restored assertions, existing five primary/eight AI request/four AI execution controls,12 actual CLI and19 default/19 branded packages; docs327/9/1. Linux race/vet/fuzz and82.1% coverage passed; zero reachable/imported vulnerability findings, existing module-only advisory open. Remote merge/ref/tree/parents/human author/GitHub committer verified. Fresh local Go/fetched-source evidence is unavailable in this Windows session.
 
 Service-availability/CostComparison/Inventory/calculations/request/public integration remain separate. See [next contract](REGION_SERVICE_AVAILABILITY.md).
+
+
+Service-availability pure migration is IN PROGRESS and unaccepted under REGION_SERVICE_AVAILABILITY. No public/request/remaining arithmetic migration is implied; quota/reservation pure acceptance remains complete.

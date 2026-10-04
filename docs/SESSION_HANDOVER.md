@@ -1,6 +1,6 @@
 # Fresh-session handover: active state and exact next task
 
-Updated 2026-10-03. Verified implementation baseline is PR106 merge `c4643527dc948f96a565da237662a104a084f14e`, tree `38248bc19be95c0058377ed373a4bf90b20e4ca2`. Later documentation commits may advance the live branch: always verify actual refs/open PRs. Explicit user instructions prevail.
+Updated 2026-10-04. Verified implementation baseline is PR106 merge `c4643527dc948f96a565da237662a104a084f14e`, tree `38248bc19be95c0058377ed373a4bf90b20e4ca2`. Later documentation commits may advance the live branch: always verify actual refs/open PRs. Explicit user instructions prevail.
 
 ## Current state
 
@@ -12,10 +12,22 @@ Separate accepted-merge proof completed: [run37147153459](https://github.com/DeB
 
 Initial PR106 formatting rejection and mixed-shape authored fixture failures are retained in FN068/069 and the PR. Exact gofmt correction and RawMessage selected-branch decoding passed final native checks. Repository automated Code Review independently identified the fixture error on earlier4e50009; its finding is corrected. The callable review tool is not exposed locally; GitHub's configured review works. No faulty candidate was accepted.
 
+
+
+## Service-availability pure projection checkpoint (2026-10-04)
+
+PR107 continuity is accepted at3047085ab716fa012a255607a97fe4e0070bdc3a, tree3f177778d5910da763d3e7e783f35310919360dd, ordered c4643527/5e4bec6e parents. Final native37147778438 quality111275191623/Windows111275191760 and source37147778423/job111275166806 passed all required steps with full logs/chunks/provenance verified; only conditional failure upload skipped. Complete eleven-file docs-only scope/commit/tree/parents/human identity/base/head/preview/protection and accepted live ref verified. Coverage82.1%,12 actual CLI/19 default/19 branded packages, all existing controls and zero reachable/imported vulnerability findings; existing module-only advisory remains open. Distinct PR107 accepted-push proof completed on exact3047085a: native run37166264029, quality111329667969/Windows111329667829, all mandatory steps/full logs inspected (conditional failure upload only skipped); source37166264028/job111329667989 reproduced all14 helper branches with indexed complete chunks, exact retained bytes/hashes and source/tree/APRL provenance. Both hosts passed12 CLI/19 default/19 branded packages/all existing controls; Linux race/vet/fuzz/coverage82.1% and zero reachable/imported vulnerability findings. Module-only advisory remains open. This is separate accepted-push evidence, not inferred PR green or local execution.
+
+Service availability is IN PROGRESS under [REGION_SERVICE_AVAILABILITY.md](REGION_SERVICE_AVAILABILITY.md), unaccepted pure ProjectServiceAvailability. Preserves every captured eight-column cell/ordering/empty branch and exact registry/restriction/case behavior, with declared selected aggregate contributors but no invented row UUID or proof of underlying ownership. Validates scope/labels/counts/duplicates/entry/replicated-row/joined-cell/global-text/sheet-collision limits and owned cancellation-safe tables. Literal independent fixture/registry/boundary/ownership16-concurrency tests and ten compiling named controls are prepared for both native jobs. Python control syntax checked; fresh Go/source/native results are pending, no local Go PASS. No runtime public availability/request/arithmetic, pin/capture/dependency or Azure/live/Gate004/release/advisory change. Finish exact published code/docs readback and fresh source/Linux/Windows QA/review/protected acceptance before separate CostComparison.
+
+FN070 records PR108's initial authored Unicode fixture transfer failure. Explicit Go Unicode escapes plus ASCII-safe JSON restore intended runtime characters; production/source/capture bytes unchanged. Corrected-head native/source/controls remain required; initial0d4b0369 has no acceptance.
+
+PR108 automated review additionally identified empty selected labels before nil input (FN071), now rejected by a service-only guard/regression/control. Mixed actual BMP/non-BMP32767-unit boundaries and byte/rune substitutions strengthen Unicode proof; ten compiling service controls require fresh final-head QA. Earlier0d4b0369/66680ee7 outcomes do not certify these corrections.
+
 ## Exact next task
 
 1. Verify live refs/open proposals against completed PR106 implementation and its distinct accepted-push proof; reconcile any new changes.
-2. Migrate **only service-availability pure sheets** under [REGION_SERVICE_AVAILABILITY.md](REGION_SERVICE_AVAILABILITY.md). Read the pinned output helper/provider registry and successful retained fixtures before production edits. No target availability implementation exists at this checkpoint.
+2. Finish **only service-availability pure sheets** under [REGION_SERVICE_AVAILABILITY.md](REGION_SERVICE_AVAILABILITY.md). Read the pinned output helper/provider registry and successful retained fixtures before production edits. ProjectServiceAvailability/code/tests/ten compiling controls are an IN PROGRESS unaccepted candidate; require exact remote code/docs readback and fresh source/native/review acceptance.
 3. Preserve every eight-column source cell/sheet/description/ordering, nil empty branches, exact provider-registry support and missing/zone-restricted detail behavior. Define bounded aggregate ownership/identity and deliberate corrections explicitly; no invented SKU status or service arithmetic.
 4. After that separately migrate CostComparison, Inventory and remaining calculations, then bounded ARM/retail adapters and actual public/all-format execution. Region remains unavailable until integrated acceptance.
 
