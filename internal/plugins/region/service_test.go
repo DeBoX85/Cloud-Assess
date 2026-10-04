@@ -50,7 +50,7 @@ func serviceFixture(t *testing.T) (*ServiceInventory, []ServiceComparison, []aux
 func requireServiceFailure(t *testing.T, tables []assessment.PluginTable, err error, code string) {
 	t.Helper()
 	if err == nil || len(tables) != 1 || len(tables[0].Rows) != 0 || len(tables[0].Columns) != 8 || tables[0].Health.Status != assessment.StageFailed || tables[0].Health.Error == nil || tables[0].Health.Error.Code != code || strings.Contains(err.Error(), "private") || assessment.ValidatePluginTables(tables) != nil {
-		t.Fatalf("unsafe input accepted, wrong guard, leaked or retained partial rows: code=%s tables=%#v err=%v", code, tables, err)
+		t.Fatalf("unsafe input accepted, wrong guard, leaked or retained partial rows: expected=%s table count=%d err=%v", code, len(tables), err)
 	}
 }
 
@@ -167,7 +167,7 @@ func TestServiceSelectedScope(t *testing.T) {
 
 func TestServiceMalformedAndCollision(t *testing.T) {
 	for _, mutate := range []func(*ServiceInventory, *[]ServiceComparison){
-		func(i *ServiceInventory, c *[]ServiceComparison) { (*c)[0].TargetRegion = "eastKus" },
+		func(i *ServiceInventory, c *[]ServiceComparison) { (*c)[0].TargetRegion = "east\u212aus" },
 		func(i *ServiceInventory, c *[]ServiceComparison) { (*c)[0].SourceRegion = "" },
 		func(i *ServiceInventory, c *[]ServiceComparison) { *c = append(*c, (*c)[0]) },
 		func(i *ServiceInventory, c *[]ServiceComparison) { i.ResourceTypes["private"] = -1 },
@@ -176,7 +176,7 @@ func TestServiceMalformedAndCollision(t *testing.T) {
 		func(i *ServiceInventory, c *[]ServiceComparison) { i.ResourceTypesByRegion["private\n"] = nil },
 		func(i *ServiceInventory, c *[]ServiceComparison) { i.ResourceTypes["private\x00"] = 1 },
 		func(i *ServiceInventory, c *[]ServiceComparison) { i.ResourceTypes[string([]byte{0xff})] = 1 },
-		func(i *ServiceInventory, c *[]ServiceComparison) { i.ResourceTypes["private?"] = 1 },
+		func(i *ServiceInventory, c *[]ServiceComparison) { i.ResourceTypes["private\ufffd"] = 1 },
 		func(i *ServiceInventory, c *[]ServiceComparison) { i.ResourceTypes[strings.Repeat("s", 513)] = 1 },
 	} {
 		inventory, comparisons, _ := serviceFixture(t)
@@ -273,9 +273,9 @@ func TestServiceJoinedAndReplicatedTextBounds(t *testing.T) {
 	tables, err = ProjectServiceAvailability(context.Background(), scope, inventory, serviceTargets(1))
 	requireServiceFailure(t, tables, err, "region_service_text_limit")
 	// Unicode UTF-16 units are counted exactly, not as twice every rune.
-	inventory.SKUsByType[rt] = map[string]int64{strings.Repeat("??", 128): 1}
+	inventory.SKUsByType[rt] = map[string]int64{strings.Repeat("\U0001f600", 128): 1}
 	tables, err = ProjectServiceAvailability(context.Background(), scope, inventory, serviceTargets(1))
-	if err != nil || tables[0].Rows[0].Cells[4] != strings.Repeat("??", 128) {
+	if err != nil || tables[0].Rows[0].Cells[4] != strings.Repeat("\U0001f600", 128) {
 		t.Fatal("bounded Unicode cell rejected")
 	}
 	// Small decoded inventory replicated into32 sheets exceeds16MiB output.

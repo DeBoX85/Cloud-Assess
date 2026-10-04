@@ -20,6 +20,8 @@ PR107 continuity is accepted at3047085ab716fa012a255607a97fe4e0070bdc3a, tree3f1
 
 Service availability is IN PROGRESS under [REGION_SERVICE_AVAILABILITY.md](REGION_SERVICE_AVAILABILITY.md), unaccepted pure ProjectServiceAvailability. Preserves every captured eight-column cell/ordering/empty branch and exact registry/restriction/case behavior, with declared selected aggregate contributors but no invented row UUID or proof of underlying ownership. Validates scope/labels/counts/duplicates/entry/replicated-row/joined-cell/global-text/sheet-collision limits and owned cancellation-safe tables. Literal independent fixture/registry/boundary/ownership16-concurrency tests and seven compiling named controls are prepared for both native jobs. Python control syntax checked; fresh Go/source/native results are pending, no local Go PASS. No runtime public availability/request/arithmetic, pin/capture/dependency or Azure/live/Gate004/release/advisory change. Finish exact published code/docs readback and fresh source/Linux/Windows QA/review/protected acceptance before separate CostComparison.
 
+FN070 records PR108's initial authored Unicode fixture transfer failure. Explicit Go Unicode escapes plus ASCII-safe JSON restore intended runtime characters; production/source/capture bytes unchanged. Corrected-head native/source/controls remain required; initial0d4b0369 has no acceptance.
+
 ## Exact next task
 
 1. Verify live refs/open proposals against completed PR106 implementation and its distinct accepted-push proof; reconcile any new changes.
