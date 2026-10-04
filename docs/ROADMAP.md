@@ -1,6 +1,6 @@
 # Cloud Assess Roadmap
 
-Status: reviewed2026-10-04. Public AI PR103, region primary PR104/captures PR105/quota-reservations PR106/service PR108/CostComparison PR109 are VERIFIED OFFLINE. Current pure Inventory IN PROGRESS and unaccepted under REGION_INVENTORY.md; remaining calculations/adapters/public execution and B6/B7 follow. Public region unavailable. All live/laptop/Azure/Gate004/release/advisory obligations stay open. SESSION_HANDOVER is the active authority; chronological sections are historical.
+Status: reviewed2026-10-04. AI PR103/region primary104/captures105/quota-reservations106/service108/CostComparison109/Inventory110 are VERIFIED OFFLINE. Current source-only inventory calculations characterization IN PROGRESS/unaccepted under REGION_INVENTORY_CALCULATIONS; target inventory/availability/latency/cost/quota/reservation calculations/adapters/public/B6/B7 follow. Public region unavailable; live/Azure/laptop/Gate004/release/advisory open. SESSION_HANDOVER/live refs are current authority; chronological snapshots are historical.
 
 Active development branch: `bootstrap/core-v1`
 
@@ -369,3 +369,12 @@ Distinct accepted-push native https://github.com/DeBoX85/Cloud-Assess/actions/ru
 
 
 REGION_INVENTORY defines the only current pure sheet task: unchanged ten source raw/masked/empty cells/order/capacity, explicit Region Inventory composition correction, selected resource identity/masking/preallocation limits and eight compiling controls/restored baselines. New Go/native/source acceptance remains pending. Remaining arithmetic/request/public/empty/coordinator health follows separately. No laptop/Azure input is required now.
+
+
+## Current source-only inventory calculations (2026-10-04)
+
+Inventory is VERIFIED OFFLINE through [PR110](https://github.com/DeBoX85/Cloud-Assess/pull/110), merge2dcd8dae924ce3fad5402890cdeca0ecbef6e01e/tree5f9e76032cb816121b97febacd19ae3e40aefe6f, ordered6dfcd1be/76ac3f8d parents. 
+
+Final76ac3f8d65acf9970305c58186e13bb19cf78ffe/tree5f9e76032cb816121b97febacd19ae3e40aefe6f, parent accepted6dfcd1be. Native https://github.com/DeBoX85/Cloud-Assess/actions/runs/37169985397 quality111340777403/Windows111340777269 passed every mandatory step; only conditional failure upload skipped, full logs inspected. Both tested preview4e8f21f81155a55383272fe7ade895896fb72db6 with identical tree/orderedbase+head parents. Eight Inventory controls/restored baselines and all9 cost/10 service/3 auxiliary/5 primary/8 request/4 execution controls passed each host;12 actual CLI/19 default/19 branded packages/docs/branding/provenance/module/inventory checks. Linux race/vet/fuzz passed; 82.7% coverage, zero reachable/imported findings; existing module-only advisory stays open. Source https://github.com/DeBoX85/Cloud-Assess/actions/runs/37169985428 /111340777428 passed full14 branches/indexed3-input4-output chunks/both retained exact bytes/hashes/source-tree-APRL provenance. Original scratch Go/test/script blobs/complete16 remote files/scope/no deleted or pinned files/commit identity/tree/parent/base/preview/rules verified. Semantic self-review checked actual source helper/mask/SKU/duplicate-skip plus explicit sheet/scope/budget/product corrections. Automated comments currently empty; no callable final manual Code Review tool or independent-person approval is claimed. No fresh local Go/source/laptop/Azure/public/Gate004/release/advisory closure. 
+ Protected acceptance/ref/tree/parents/Denis author/GitHub committer verified. Distinct accepted-push native/source remains pending.
+REGION_INVENTORY_CALCULATIONS/harness/runner characterize unchanged five-map aggregation, merge and30 normalization/predicate cases;13 expected branches are not observed proof until successful source capture. Retain actual new bytes/hashes/topology before exact final source/native/remote/protected acceptance. No target arithmetic runtime added; bounded implementation follows independently.
