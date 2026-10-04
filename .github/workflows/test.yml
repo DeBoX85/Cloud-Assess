@@ -58,6 +58,9 @@ jobs:
       - name: Verify retained source capture byte guard
         run: python3 scripts/tests/region-source-capture.py
 
+      - name: Verify availability source oracle mutations
+        run: python3 scripts/tests/region-availability-capture-mutation.py
+
       - name: Verify formatting
         shell: bash
         run: |
@@ -267,6 +270,9 @@ jobs:
 
       - name: Verify Windows retained source capture byte guard
         run: python scripts/tests/region-source-capture.py
+
+      - name: Verify Windows availability source oracle mutations
+        run: python scripts/tests/region-availability-capture-mutation.py
 
       - name: Test Go packages on Windows
         run: go test ./...

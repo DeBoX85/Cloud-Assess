@@ -78,12 +78,7 @@ with tempfile.TemporaryDirectory(prefix="cloud-assess-region-source-") as tempor
     for name in FILES:
         raw = (output / name).read_bytes()
         retained = ROOT / "internal/plugins/region/testdata" / name
-        # New availability files are observed only in this unaccepted checkpoint.
-        # Acceptance replaces this temporary branch with unconditional six-file equality.
-        if name.startswith("source-availability-"):
-            print("REGION_AVAILABILITY_OBSERVATION_ONLY " + name)
-        else:
-            verify_capture_bytes(raw, retained)
+        verify_capture_bytes(raw, retained)
         content = raw.decode("utf-8")
         pieces = [content[i:i + 3000] for i in range(0, len(content), 3000)]
         for index, piece in enumerate(pieces):
