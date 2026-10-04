@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Require compiling inventory-calculation faults and restored named assertions."""
+"""Require compiling availability-calculation faults and restored named assertions."""
 from pathlib import Path
 import shutil
 import subprocess

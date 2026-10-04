@@ -300,3 +300,30 @@ func TestAvailabilityRuntimeOwnershipAndCancellation(t *testing.T) {
 		t.Fatal("result aliases caller or previous run", err)
 	}
 }
+
+func TestAvailabilityRuntimeOwnedInventoryIntegration(t *testing.T) {
+	s, _, r, e := availabilityInputs()
+	resources := []assessment.Resource{
+		{ID: "/subscriptions/" + availabilityID + "/resourceGroups/rg/providers/Microsoft.Compute/virtualMachines/one", SubscriptionID: availabilityID, Type: "Microsoft.Compute/virtualMachines", Location: "East US", SKUName: "Ready"},
+		{ID: "/subscriptions/" + availabilityID + "/resourceGroups/rg/providers/Microsoft.Compute/virtualMachines/two", SubscriptionID: availabilityID, Type: "Microsoft.Compute/virtualMachines", Location: "East US", SKUName: " ready "},
+	}
+	inventory, err := CalculateInventory(context.Background(), s, resources)
+	if err != nil {
+		t.Fatal(err)
+	}
+	e.Locations["microsoft.compute/virtualmachines"] = map[string]bool{"westeurope": true}
+	e.SKUs["microsoft.compute/virtualmachines"] = SKUEvidence{Status: "complete", Values: map[string]SKUAvailability{" READY ": {State: SKUAvailable}}}
+	got, err := CalculateAvailability(context.Background(), s, inventory, r, e)
+	if err != nil {
+		t.Fatal(err)
+	}
+	want := Comparison{SubscriptionID: availabilityID, SubscriptionName: "selected", SourceRegion: "eastus", TargetRegion: "westeurope", SourceResourceTypeCount: 1, AvailableTypes: 1, AvailabilityPercent: 100, MissingResourceTypes: []string{}, MissingSKUs: []string{}, RestrictedSKUs: []string{}, ZoneRestrictedSKUs: []string{}, TotalSKUsChecked: 2, AvailableSKUs: 2, SKUAvailabilityPercent: 100, SourceZoneCount: 3, TargetZoneCount: 2}
+	if !reflect.DeepEqual(got.Comparison, want) || got.Health.Status != assessment.StageCompleted {
+		t.Fatal("owned inventory to availability integration changed", got)
+	}
+	e.SKUs["microsoft.compute/virtualmachines"] = SKUEvidence{Status: "complete", Values: map[string]SKUAvailability{}}
+	got, err = CalculateAvailability(context.Background(), s, inventory, r, e)
+	if err != nil || got.Comparison.AvailableSKUs != 0 || got.Comparison.UnavailableSKUs != 2 || got.Comparison.SKUAvailabilityPercent != 0 {
+		t.Fatal("new evidence reused previous response", got, err)
+	}
+}

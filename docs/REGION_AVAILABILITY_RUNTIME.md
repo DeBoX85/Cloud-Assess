@@ -1,6 +1,6 @@
 # Owned availability calculation
 
-Status: IN PROGRESS, unaccepted. User authorized resuming development after completed audit PR119. Baseline bootstrap/core-v1 3463a72f11912039702ee60605ec4d79830c09bc, tree 3bc82d8ffd4aa19167edd4e6bf02b8d031a9939a. Laptop access is expected soon and Azure access is pending confirmation; this does not authorize live requests.
+Acceptance status and exact final revision/run/merge evidence: [PR120](https://github.com/DeBoX85/Cloud-Assess/pull/120). The contract below was published before production edits. User authorized resuming development after completed audit PR119. Baseline bootstrap/core-v1 3463a72f11912039702ee60605ec4d79830c09bc, tree 3bc82d8ffd4aa19167edd4e6bf02b8d031a9939a. Laptop access is expected soon and Azure access is pending confirmation; this does not authorize live requests.
 
 ## Contract before production edits
 
@@ -25,3 +25,6 @@ Whole Comparison literals must cover empty/absent source, distinct mixed types/g
 Require full exact-head native quality/windows-validation and pinned-source characterization; inspect all mandatory steps/full logs, all six captures and hashes, source isolation/pins, diff/remote bytes, commit/tree/parents/Denis author+committer, preview tree/base/head and active no-bypass protections before expected-head protected merge. Distinct accepted-push evidence remains separate. No local Go executor is available; Actions provides compile/runtime proof. No independent-person review or live/release certification is inferred.
 
 Rollback: protected reviewed revert after dependency review; no history reset. Next after acceptance: bounded latency/cost/quota/reservation calculations and adapters, followed by coordinator/public/all-format/default/empty/partial-health integration. Live validation remains separately deferred until access and approved scope are confirmed. Recovery: verify live branch/PR state before any interrupted mutation retry, read this contract and latest handover, preserve historical failures and publish/read back coherent code checkpoints.
+
+
+Final preparation: owned availability implementation and upstream CalculateInventory integration fixture are published through PR120. Eight complete captured comparisons remain the unchanged source arithmetic oracle; source ignored-cancellation/case-invalid inputs receive explicit rejection instead. Ten selected compiling controls and restored baselines are mandatory on both hosts. Fixed-message warnings are sorted/deduplicated; missing enabled SKU declarations fail, explicit unsupported/unknown and incomplete provider/inventory/zone evidence warn. Check live PR120 before inferring acceptance. Historical checkpoints/failures are preserved in handover/ledger/FAILURE_NOTES.
