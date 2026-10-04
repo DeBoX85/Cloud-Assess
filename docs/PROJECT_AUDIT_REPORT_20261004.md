@@ -30,7 +30,7 @@ Both native vulnerability scans report zero reachable/imported-package findings 
 | AUD002 | Documentation/recovery, stale accepted resume point | Accepted handover/spec/plan still say aggregation preparation/PR111 despite accepted112; newer continuity was only unmerged113 | Active audit checkpoint supersedes these resume instructions. Final authoritative reconciliation pending, history retained |
 | AUD003 | Defensive library transport correction; default SDK route already mitigates | Test-only730a29e6 native37183817468 failed all eight named terminal-read assertions on Linux111381519563/Windows111381519469 against unchanged production; compilation/formatting passed | CONFIRMED injected-poster boundary. Pinned SDK bodyDownloadPolicy already protects default HTTPClient; no live false-complete claim. PR115 corrected head23d2ce4daee7474904975156b4c97fb75c2a6843/tree7438dfd7, parent730a29e6, identity and all3 bytes verified. Native37184407342 Linux111383253100/Windows111383253050 and source37184407425/111383253548 passed. Full logs and four capture bytes/provenance inspected; preview87b10d5d/tree7438dfd7 with ordered07011b63/23d2ce4d parents verified. Remains draft/unmerged |
 | AUD005 | Product completeness, Cost adapter | Official stable2021-10-01 spec defines nextLink; native37184679263 failed two compiling named paged empty/nonempty assertions on Linux111384036588 and Windows111384036492 | CONFIRMED synthetic first-page false-success. PR116 corrected8d54c0d921825996bbe9c663a8f48f1a6d95ca00/treeed772a94 parent78dd85c9, identity/3 changed bytes verified. Fail closed before accepted costs, no provider URL followed/echoed. Actual coordinator partial/retained healthy stages fixture passed. Native37184879992/Linux111384624285/Windows111384624226 and source37184879983/111384624557 fully passed; full logs/four contiguous capture bytes and hashes/provenance inspected. Preview9caddc01fbe6c95df1cc2766cb16c90835a9d000/treeed772a9455cf11d490b310b6778d11977ac262a4 matches candidate, ordered07011b63/8d54c0d9 parents verified. Remains draft/unmerged. Full pagination still unimplemented, no historical live incidence claim |
-| AUD006 | QA evidence validation, suspected misleading comparator success | Source inspection shows unknown schema/completeness and no recognized reference sections accepted; independent six-case real-command regression PR117 published against unchanged production | REPRODUCTION PENDING at4cb8bd8451208e45e2551f72edef280de338e52f/tree3ae8c71f22fcb86fbe951810bd997fc7afd5db76. Two healthy empty controls retained. No historical live evidence invalidation inferred |
+| AUD006 | QA evidence correctness, comparator false success | Test-only4cb8bd84/native37185359814 failed all six compiling real-command assertions on Linux111386033586 and Windows111386033687; format passed, healthy empty controls did not fail | CONFIRMED synthetic exit0 for absent/unknown completeness, unsupported schema and no recognized reference datasets. PR117 corrected733b924383561b300bcbcc68998c6c849cf2d3ab/tree92e1bb688222a8f86f50773a05cda5dc054dd363/parent4cb8bd84 Denis identity/three remote bytes verified. Fresh native37185621965/source37185621953 pending; no historical live incidence inferred |
 | AUD004 | Recovery limitation | Prior availability draft existed only in transient Windows workspace/store; verified remote holds source contract but no production implementation | Recorded; reconstruct later from verified source contract, feature implementation paused |
 
 No security incident, product-wide instability, independent-person approval, live equivalence or release readiness is inferred.
@@ -54,7 +54,7 @@ Initial requirements: branding/profile/package; credential/cloud/read orientatio
 | internal/config | 2 | 3 | IN PROGRESS |
 | internal/cost | 2 | 3 | IN PROGRESS |
 | internal/defender | 1 | 1 | IN PROGRESS |
-| internal/diagnostics | 2 | 1 | NOT REVIEWED |
+| internal/diagnostics | 2 | 1 | IN PROGRESS |
 | internal/discovery | 5 | 6 | IN PROGRESS |
 | internal/equivalence | 3 | 2 | IN PROGRESS |
 | internal/findings | 2 | 2 | IN PROGRESS |
@@ -81,15 +81,15 @@ Initial requirements: branding/profile/package; credential/cloud/read orientatio
 | internal/skus | 1 | 1 | IN PROGRESS |
 | internal/stages | 3 | 3 | IN PROGRESS |
 | internal/throttling | 1 | 1 | IN PROGRESS |
-| tools/brand-build | 1 | 0 | NOT REVIEWED |
-| tools/diagnostics-probe | 1 | 1 | NOT REVIEWED |
+| tools/brand-build | 1 | 0 | IN PROGRESS |
+| tools/diagnostics-probe | 1 | 1 | IN PROGRESS |
 | tools/equivalence | 1 | 1 | IN PROGRESS |
 
 Review coverage is an inventory, not a completed review. Initial inspection traced shared HTTP lifetime/destination boundaries, scope SDK adapters/recursion/cycle guards, intended-scope recording, inventory decoding, ARG paging/metadata and stage interruption/completeness. Critical tests were sampled against actual call paths; full package/test review remains open.
 
 ## Exact next action and publication boundary
 
-Inspect PR117 native compiling negative-control failures before classifying or correcting AUD006. Continue whole-project production/test/requirements review, especially tools, Diagnostics and scripts/workflows. PR113/115/116 have verified full proposal evidence but remain unmerged pending audit disposition; frozen accepted07011b63 unchanged. No local Go, live or release acceptance claim. Publish coherent code/docs checkpoints with exact-head evidence before switching or stopping.
+Inspect PR117 corrected exact-head native37185621965/source37185621953 and preview/capture proof. Continue whole-project production/test/requirements review, especially tools, Diagnostics and scripts/workflows. PR113/115/116 have verified full proposal evidence but remain unmerged pending audit disposition; frozen accepted07011b63 unchanged. No local Go, live or release acceptance claim. Publish coherent code/docs checkpoints with exact-head evidence before switching or stopping.
 
 ## Retrieval review checkpoint
 
@@ -114,3 +114,11 @@ All production AI-governance, six accepted region helper files, orchestration/De
 PR117 test-only negative control preserves accepted production and uses literal real-command inputs. Native failure evidence is pending; no confirmed AUD006 execution result yet. Known comparator boundary remains generic semantic comparison, not source operator-command parity or proof of identical Azure snapshots. Possible nested registry slice ownership and contradictory manually constructed stage metadata remain separate source-inspection questions, not claimed production incidents.
 
 PR116 fresh full QA and source evidence passed as above. Linux82.7% coverage, race/vet/existing fuzz/mutations, both host actual CLI/packages/docs/branding succeeded; zero imported/reachable vulnerabilities and one module-only advisory remain. This is proposal-specific QA, not project-wide review completion or new accepted-push evidence.
+
+## Comparator correction and tooling review (2026-10-04)
+
+AUD006 now reproduced/corrected as above. All first-party production Go paths in the41-area inventory have been read, including ARG finding mapping, Diagnostics support metadata/scanner, branding builder and Diagnostics/equivalence tools. This is source coverage, not test/requirements or full-audit closure. Diagnostics cancellation is guarded by the stage runner before/after execution on the default route; injected direct-scanner cancellation behavior remains a lower-level ownership question. Pinned non-success diagnostic-subrequest warnings deliberately preserve inherited missing-setting findings and historical request-correlation uncertainty, not healthy completeness.
+
+All four workflows reviewed for events/permissions/pins/native failures and proposal-only maintenance paths. Source capture isolates test-only harnesses and guards bytes/provenance. Production scripts bootstrap, maintenance publisher, branding canonicalization, package/inventory generation, PowerShell evidence/scope/stage helpers and exclusion preparation were read. Remaining31-script adequacy work concerns22 synthetic harnesses/tests plus source capture integration already examined. Native gates execute focused fixtures, not hosted-maintenance dispatch/token behavior. Packaging checksums prove integrity under a trusted artifact input, not signed publisher identity/fresh OS qualification. Live runner evidence is private/read-oriented, retains scope/pins/exits and requires the operator; it was not executed in this audit.
+
+One local read-only execution request stalled and was terminated; review continued using already verified saved source bytes and native GitHub tools. No mutation was retried blindly, no source changed, and this process observation is not a product failure.

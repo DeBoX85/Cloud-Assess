@@ -2258,3 +2258,10 @@ AUD005 Cost first-page false-success confirmed by two compiling assertions on bo
 PR1168d54c0d9 full native37184879992/Linux111384624285/Windows111384624226/source37184879983/111384624557 passed. Full mandatory logs/preview9caddc01 candidate tree/ordered parents/four contiguous complete capture bytes/hash/pins verified. Actual coordinator partial/healthy retained results regression passes; no full pagination/live incidence claim. Unmerged.
 
 AI/region/equivalence/scanner/SKU production review extended; full test/requirements review still open. Suspected AUD006 unsafe comparator input acceptance now test-only PR1174cb8bd8451208e45e2551f72edef280de338e52f/tree3ae8c71f22fcb86fbe951810bd997fc7afd5db76/parent07011b63, exact Denis identity/two remote bytes verified. Six literal real-command invalid cases and two healthy empty controls, unchanged production, native reproduction pending. Next inspect negative control then tooling/Diagnostics/workflows. Accepted07011b63 unchanged; feature113 paused, no live/release/full-project acceptance.
+
+
+## Audit comparator correction and tooling coverage (2026-10-04)
+
+AUD006 test-only4cb8bd84/native37185359814 reproduced all6 compiling named command exit0 failures on Linux111386033586/Windows111386033687, healthy empty controls pass. Corrected733b924383561b300bcbcc68998c6c849cf2d3ab/tree92e1bb688222a8f86f50773a05cda5dc054dd363/parent4cb8bd84 Denis identity/three bytes verified on draft PR117; full native37185621965/source37185621953 pending. See comparison-input contract, no historical live incidence claim.
+
+Production Go inventory41 areas fully read, all4 workflows and9 production scripts examined; test/oracle/requirements/docs/dependency reconciliation still open. Read-only local execution request stalled/terminated, fallback to independently verified source bytes; no product failure or uncertain mutation inferred. Frozen07011b63/proposals113-117 remain unchanged/unmerged. No live/release/full-audit acceptance.
