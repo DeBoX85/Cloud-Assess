@@ -220,6 +220,9 @@ jobs:
       - name: Verify region availability tests reject selected mutations
         run: python3 scripts/tests/region-availability-mutation.py
 
+      - name: Verify region latency tests reject selected mutations
+        run: python3 scripts/tests/region-latency-mutation.py
+
       - name: Vet
         run: go vet ./...
 
@@ -312,6 +315,9 @@ jobs:
 
       - name: Verify Windows region availability tests reject selected mutations
         run: python scripts/tests/region-availability-mutation.py
+
+      - name: Verify Windows region latency tests reject selected mutations
+        run: python scripts/tests/region-latency-mutation.py
 
       - name: Build and smoke-test Windows CLI
         env:

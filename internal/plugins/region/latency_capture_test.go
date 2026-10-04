@@ -82,9 +82,9 @@ func TestLatencyCapturedSemantics(t *testing.T) {
 		t.Fatal("source same-region/negative arithmetic premise changed")
 	}
 	var data struct {
-		SourceBlob string                       `json:"source_blob"`
+		SourceBlob string                        `json:"source_blob"`
 		Matrix     map[string]map[string]float64 `json:"matrix"`
-		Clusters   map[string]string            `json:"clusters"`
+		Clusters   map[string]string             `json:"clusters"`
 	}
 	if err := json.Unmarshal(availabilityCapturedBytes(t, "source-latency-data.json"), &data); err != nil {
 		t.Fatal(err)
