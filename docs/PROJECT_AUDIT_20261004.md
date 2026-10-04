@@ -1,3 +1,17 @@
+## Combined audit integration checkpoint (2026-10-04)
+
+Whole-project offline review is complete for the recovered accepted07011b63 baseline and the proposed corrections. Audit acceptance is still IN PROGRESS. PR114 is the combined, independently revertible audit candidate: source-only PR113 availability characterization plus AUD003 ARG read completion, AUD005 fail-closed Cost continuation, AUD006 comparator evidence admission, AUD007 strict neutral filter schema, and current-status/privacy documentation reconciliation. Individual proposals113/115/116/117/118 remain unmerged and retain their immutable reproduction/correction evidence. No runtime region-availability implementation has been recovered or added.
+
+All216 first-party Go files (103 production/113 tests),31 scripts/four workflows were fully read. Current requirements/operational contracts were reconciled against actual call paths and independent fixtures. Historical append-only evidence is indexed/preserved, not freshly re-executed. All630 accepted blobs/tree/original commit were independently reconstructed; source pins, APRL gitlink, fixture hashes, module inventory and59 bundled notice-section hashes verified. Third-party source is reviewed at relevant boundaries, not every upstream line or licensed as a legal approval.
+
+Next: publish/read back the combined PR114 candidate and inspect fresh exact-head full Linux quality/Windows validation/source logs, six contiguous capture files with independent SHA256/retained-byte equality, and matching base/head preview. Only then mark ready and expected-head protected merge, verify accepted commit/tree/ordered parents/live ref and distinct accepted-push evidence. If interrupted, verify actual live PR114/ref/workflow state before any retry. The latest PR114 body is the exact-head acceptance evidence index; do not repeat an uncertain mutation. No local Go; recovered review snapshot lacks materialized APRL, native Actions own execution proof.
+
+No offline user input required. Live Azure/laptop/suitable approved non-production estate, DV-001/restricted visibility/nonempty optional-stage/plugin parity/representative load/fresh OS/hosted maintenance/Gate004/release remain deferred. No Azure writes/roles/new fixtures/production substitution/exposure/release authorized. Zero imported/reachable advisories in proposal scans does not close the existing module-only advisory. Self-review plus independent oracles is not independent-person review. All earlier checkpoints below are superseded history.
+
+---
+
+Historical audit preparation plan follows. Its initial NOT STARTED/IN PROGRESS state is superseded by this checkpoint and the report.
+
 Execution update2026-10-04: audit IN PROGRESS under user authorization. Current execution/finding state lives in SESSION_HANDOVER.md and PROJECT_AUDIT_REPORT_20261004.md; the preparation snapshot below is historical. Feature expansion/PR113 acceptance remain paused. No accepted baseline change.
 
 # Project recovery checkpoint and comprehensive audit plan

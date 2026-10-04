@@ -1,5 +1,7 @@
 # Pinned-source feature parity characterization
 
+This is a historical source-gap/design snapshot. Current implemented status is reconciled in SESSION_HANDOVER and PROJECT_AUDIT_REPORT_20261004: rules/scanner/YAML surfaces and five public plugins are accepted offline through PR103; region pure helpers/owned inventory are accepted through PR112, public region execution remains unavailable. Remaining ancillary parity and live/release work stay open.
+
 Date: 2026-10-02 (Europe/Oslo). Target baseline: `9a022a62444b0940b3f016dc58e850b1599c6fa6`, merged PR #75. Source checkout verified at `8e4f0577f3615e6c9014c031bcad079f235369cc`. APRL pin remains `60eaddda76541f6adbc1c5ffa686829807e55e29`. This is AR-04 source inspection and implementation sequencing, not executable plugin acceptance, a completed quality gate or live equivalence evidence.
 
 The objective remains functional AZQR equivalence with independently adjustable branding. These features remain obligations even when a first release defers them. Architecture, CLI organization and corrected failure reporting may differ when the difference is documented and tested. No source checkout, production behavior, dependency, source pin or equivalence normalization was changed in this checkpoint.

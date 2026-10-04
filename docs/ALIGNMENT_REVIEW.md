@@ -1,5 +1,7 @@
 # Project alignment and security sanity review
 
+This register preserves historical alignment evidence and explicit deferrals. Current offline implementation/recovery status is in SESSION_HANDOVER and PROJECT_AUDIT_REPORT_20261004; historical open feature sequencing below is not a current availability declaration. Live alignment gaps remain open.
+
 Date: 2026-10-01 (Europe/Oslo). Starting live revision: `0df39bd9c3a8a0e2062f54772ac9e29750b3409b` (`bootstrap/core-v1`, merged PR #66). Reference checkout verified at `8e4f0577f3615e6c9014c031bcad079f235369cc`; APRL remains `60eaddda76541f6adbc1c5ffa686829807e55e29`. No reference repository changes, dependency refresh, Azure request, role change or release publication occurred.
 
 ## Resume checkpoint

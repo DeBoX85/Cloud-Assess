@@ -1,6 +1,8 @@
 # Cloud Assess Roadmap
 
-Status: reviewed2026-10-04. AI PR103/region primary104/captures105/quota-reservations106/service108/CostComparison109/Inventory110 are VERIFIED OFFLINE. Inventory calculation source characterization PR111 VERIFIED OFFLINE. Current owned aggregation IN PROGRESS/unaccepted under REGION_INVENTORY_AGGREGATION; availability/latency/cost/quota/reservation calculations/adapters/public/B6/B7 follow. Public region unavailable; live/Azure/laptop/Gate004/release/advisory open. SESSION_HANDOVER/live refs are current authority; chronological snapshots are historical.
+Current audit reconciliation (2026-10-04): owned inventory aggregation is VERIFIED OFFLINE through PR112, accepted07011b63. All six pure region helpers are implemented; public region-selection remains unavailable. The combined PR114 candidate contains PR113 source-only availability characterization and four audited hardening corrections, pending fresh combined exact-head gates/protected acceptance. Earlier dated IN PROGRESS/next-task paragraphs are historical. SESSION_HANDOVER is the resume authority; PROJECT_AUDIT_REPORT_20261004 records review scope and residuals.
+
+Status: reviewed2026-10-04. Inventory aggregation PR112 and preceding region source/projection slices are VERIFIED OFFLINE. Current source-only availability characterization is IN PROGRESS under REGION_AVAILABILITY_CALCULATIONS. Full region/public execution and live/Azure/laptop/Gate004/release/advisory obligations remain open. SESSION_HANDOVER and live refs govern recovery.
 
 Active development branch: `bootstrap/core-v1`
 
@@ -389,6 +391,13 @@ Observed source characterization preparation is accepted through PR111; full fin
 
 ## PR111 accepted and owned aggregation active (2026-10-04)
 
-Inventory source characterization PR111 is VERIFIED OFFLINE. The bounded owned aggregation helper is IN PROGRESS/unaccepted under [REGION_INVENTORY_AGGREGATION.md](REGION_INVENTORY_AGGREGATION.md). Public region-selection remains unavailable. Finish fresh exact-head native/source QA, review and protected acceptance, then availability/latency/cost/quota/reservation arithmetic, bounded request adapters and coordinator/public/all-format execution. Azure/laptop-dependent validation remains explicitly deferred.
+Owned inventory aggregation is VERIFIED OFFLINE through [PR112](https://github.com/DeBoX85/Cloud-Assess/pull/112), accepted07011b63. Pure source availability characterization is IN PROGRESS/unaccepted under [REGION_AVAILABILITY_CALCULATIONS.md](REGION_AVAILABILITY_CALCULATIONS.md). Public region-selection remains unavailable. Retain actual new source bytes and require unconditional six-file equality, independent oracle checks and both complete native gates before protected acceptance. Then implement bounded availability, followed by latency/cost/quota/reservation arithmetic, adapters and coordinator/public/all-format execution. Azure/laptop validation remains deferred.
 
 Accepted PR111 final native37170957575/source37170957525 and distinct accepted-push native37171306079/source37171306081 passed all mandatory steps/full logs on the documented exact heads; unchanged four captures/13 inventory branches/30 normalization cases and all prior controls. See SESSION_HANDOVER/REGION_INVENTORY_CALCULATIONS and [PR111](https://github.com/DeBoX85/Cloud-Assess/pull/111) for commit/tree/ordered parents/job/coverage/security proof. Current aggregation contract separately defines corrections, independent budgets, actual complete five-map oracles, valid literal subset, ownership/cancellation and ten compiling controls; no new Go/native/public/live acceptance yet.
+
+
+## Current checkpoint (2026-10-04)
+
+Owned inventory aggregation is VERIFIED OFFLINE through [PR112](https://github.com/DeBoX85/Cloud-Assess/pull/112), accepted07011b63. Pure source availability characterization is IN PROGRESS/unaccepted under [REGION_AVAILABILITY_CALCULATIONS.md](REGION_AVAILABILITY_CALCULATIONS.md). Public region-selection remains unavailable. Retain actual new source bytes and require unconditional six-file equality, independent oracle checks and both complete native gates before protected acceptance. Then implement bounded availability, followed by latency/cost/quota/reservation arithmetic, adapters and coordinator/public/all-format execution. Azure/laptop validation remains deferred.
+
+PR112 final native/source and protected merge proof: [PR112](https://github.com/DeBoX85/Cloud-Assess/pull/112), [DEVELOPMENT_LEDGER.md](DEVELOPMENT_LEDGER.md). Distinct accepted-push verification remains separately recorded there. Earlier preparation paragraphs are historical snapshots, not current unresolved gates.

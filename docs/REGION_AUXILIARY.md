@@ -1,5 +1,7 @@
 # Region quota and capacity reservation pure projections
 
+Current status: pure auxiliary sheets and owned inventory aggregation are accepted offline through PR106/108/109/110/112. Earlier sequencing is historical. Availability source characterization is proposed in the combined audit candidate; runtime availability/request/public execution is still absent.
+
 Status: VERIFIED OFFLINE through PR106 mergec4643527dc948f96a565da237662a104a084f14e. Public region-selection unavailable. Original pre-acceptance requirements below are the continuing contract; completed proof follows.
 
 ## Contract and source authority

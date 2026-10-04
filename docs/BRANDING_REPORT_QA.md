@@ -1,5 +1,7 @@
 # Paired immutable-profile report acceptance
 
+Current status: paired custom-brand report/package acceptance is VERIFIED OFFLINE through PR75. Pre-acceptance sequencing below is historical; release approval remains separate.
+
 Date: 2026-10-02 (Europe/Oslo). Baseline: merged PR #73, `9cb3cfe0ff639d80e2cde8bbb8996208ed757adb`. This implements step 3 of [BRANDING_REVIEW.md](BRANDING_REVIEW.md), complementing the [profile and actual CLI builder checks](BRANDING_PROFILES.md). No production code, defaults, source/dependency pins or comparator normalization changes are required by the passing report checks. AR-03 remains partial until profile-aware native packaging and installation pass.
 
 ## What is exercised

@@ -1,5 +1,7 @@
 # Canonical internal-plugin tables
 
+Current status: canonical infrastructure and actual zone coordinator/CLI/registry integration are accepted offline through PR85; service-health, SQL-EOL, carbon and AI governance have separately accepted public integration through PR103. Schema1.0/1.1 and safety contracts below remain authoritative. Pre-implementation/next-adapter sequencing is historical, not current availability.
+
 Status: B3b contract before implementation, 2026-10-02. This slice supplies canonical table/report infrastructure, not plugin-stage execution or new CLI availability. [ZONE_MAPPING.md](ZONE_MAPPING.md) is the first adapter. Service health is the second design check: its six columns include a subscription ID and use a different query/row shape. Full second-adapter execution remains separate.
 
 ## Compatibility and ownership

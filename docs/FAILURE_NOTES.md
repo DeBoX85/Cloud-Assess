@@ -666,3 +666,7 @@ Confirmed cause: target loader required only nonempty schemaVersion and rejected
 During AUD006 requirements reconciliation, initial unmerged733b9243 guard was found to accept only result.SchemaVersion1.0, despite canonical PluginSchemaVersion1.1. Test-only1bf98b7a96f7dbeb3fb397fa862b27d16731ec15 independently reproduced the one compiling valid-plugin-schema command failure on native37185951913/Linux111387770853/Windows111387770760; formatting passed, earlier invalid/healthy cases did not fail. Accepted07011b63 unaffected. Do not mistake prior733b9243 Linux PASS for final acceptance.
 
 Cause: correction scope read the core version constant without reconciling the additive builder/spec before enforcing the allowlist. Corrected finale381d0ad6e45989cf64526ac5d34131dc349e8e5 admits both declared constants, keeps literal nonempty1.1 compatibility regression and six invalid cases. Fresh exact final-head full gates pending. Prevention: enumerate every declared supported schema and actual builder before version admission changes; preserve additive core projection without claiming plugin cells are compared. New schema support requires explicit review. No historical live incidence or accepted regression.
+
+
+### Recovered proposal history (superseded by current audit checkpoint)
+

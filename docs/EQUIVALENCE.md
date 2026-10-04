@@ -345,9 +345,11 @@ For a meaningful live comparison:
 5. Run the two assessments close together and avoid making Azure changes between them.
 6. Generate JSON from both tools.
 7. Disable subscription-ID masking/redaction so full Azure resource identity is available.
-8. Do not enable reference plugins while Cloud Assess plugin execution remains deferred.
+8. This harness compares core datasets only. Do not enable reference plugins for this core-equivalence run; their separate source-table contracts are not compared here.
 
 Both inputs must contain full, unredacted subscription identities. The harness detects the reference/Cloud Assess subscription mask marker and rejects redacted reports as non-comparable rather than producing misleading record deltas.
+
+The harness requires the supported canonical target schema (`1.0` core or additive `1.1` plugin tables) and an explicit recognized completeness value. Missing/unknown completeness or unsupported schema versions are invalid inputs. A reference report must contain at least one recognized core dataset; known empty arrays remain valid, while null, empty or unknown-only report objects cannot prove equivalence. See [AUDIT_COMPARISON_INPUTS.md](AUDIT_COMPARISON_INPUTS.md) for the independently reproduced input-validation correction.
 
 A target assessment with overall `partial` or `failed` completeness is rejected as a valid equivalence baseline.
 
@@ -419,7 +421,7 @@ The harness currently compares:
 - Arc-enabled SQL
 - Cost Management
 
-External/internal plugin results are intentionally excluded until production plugin execution is implemented in Cloud Assess.
+External/internal plugin results are intentionally excluded from this core semantic comparator, including additive target schema1.1 reports. Five internal plugins have accepted offline public execution, but acceptance of the core projection does not compare their tables or prove plugin parity.
 
 ## Primary finding identity
 

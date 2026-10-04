@@ -166,6 +166,19 @@ Observed source characterization preparation is accepted through PR111; full fin
 
 ## PR111 accepted and owned aggregation active (2026-10-04)
 
-Inventory source characterization PR111 is VERIFIED OFFLINE. The bounded owned aggregation helper is IN PROGRESS/unaccepted under [REGION_INVENTORY_AGGREGATION.md](REGION_INVENTORY_AGGREGATION.md). Public region-selection remains unavailable. Finish fresh exact-head native/source QA, review and protected acceptance, then availability/latency/cost/quota/reservation arithmetic, bounded request adapters and coordinator/public/all-format execution. Azure/laptop-dependent validation remains explicitly deferred.
+Owned inventory aggregation is VERIFIED OFFLINE through [PR112](https://github.com/DeBoX85/Cloud-Assess/pull/112), accepted07011b63. Pure source availability characterization is IN PROGRESS/unaccepted under [REGION_AVAILABILITY_CALCULATIONS.md](REGION_AVAILABILITY_CALCULATIONS.md). Public region-selection remains unavailable. Retain actual new source bytes and require unconditional six-file equality, independent oracle checks and both complete native gates before protected acceptance. Then implement bounded availability, followed by latency/cost/quota/reservation arithmetic, adapters and coordinator/public/all-format execution. Azure/laptop validation remains deferred.
 
 Accepted PR111 final native37170957575/source37170957525 and distinct accepted-push native37171306079/source37171306081 passed all mandatory steps/full logs on the documented exact heads; unchanged four captures/13 inventory branches/30 normalization cases and all prior controls. See SESSION_HANDOVER/REGION_INVENTORY_CALCULATIONS and [PR111](https://github.com/DeBoX85/Cloud-Assess/pull/111) for commit/tree/ordered parents/job/coverage/security proof. Current aggregation contract separately defines corrections, independent budgets, actual complete five-map oracles, valid literal subset, ownership/cancellation and ten compiling controls; no new Go/native/public/live acceptance yet.
+
+
+## Current checkpoint (2026-10-04)
+
+Owned inventory aggregation is VERIFIED OFFLINE through [PR112](https://github.com/DeBoX85/Cloud-Assess/pull/112), accepted07011b63. Pure source availability characterization is IN PROGRESS/unaccepted under [REGION_AVAILABILITY_CALCULATIONS.md](REGION_AVAILABILITY_CALCULATIONS.md). Public region-selection remains unavailable. Retain actual new source bytes and require unconditional six-file equality, independent oracle checks and both complete native gates before protected acceptance. Then implement bounded availability, followed by latency/cost/quota/reservation arithmetic, adapters and coordinator/public/all-format execution. Azure/laptop validation remains deferred.
+
+PR112 final native/source and protected merge proof: [PR112](https://github.com/DeBoX85/Cloud-Assess/pull/112), [DEVELOPMENT_LEDGER.md](DEVELOPMENT_LEDGER.md). Distinct accepted-push verification remains separately recorded there. Earlier preparation paragraphs are historical snapshots, not current unresolved gates.
+
+
+Current availability source acceptance requires [REGION_AVAILABILITY_CALCULATIONS.md](REGION_AVAILABILITY_CALCULATIONS.md): unconditional six-file fresh equality, independent complete literal comparisons/digests and four compiling fixture controls/restored assertions on both native hosts. The controls change synthetic fixtures in an isolated copy and select semantic assertions separately from hashes. No target availability guard/collection/live proof is inferred.
+
+
+FN010 recurrence on PR113: resource-exclusion fuzz uses500000x with two workers and a separate60-second timeout. All five mandatory fuzz targets now use explicit execution counts plus independent timeouts. Properties/corpora/failure propagation remain unchanged. The failed duration run and unconfirmed toolchain-stop cause remain recorded in FAILURE_NOTES; fresh full exact-head proof is required.

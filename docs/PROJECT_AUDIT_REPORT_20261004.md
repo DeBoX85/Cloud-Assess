@@ -1,6 +1,6 @@
 # Comprehensive project audit: progress and findings
 
-Started2026-10-04. Status IN PROGRESS. Feature expansion paused. This is an incremental audit record, not project acceptance.
+Started2026-10-04. Status: OFFLINE REVIEW COMPLETE; combined exact-head integration/acceptance IN PROGRESS. Feature expansion remains paused until acceptance. This report records bounded review evidence, not live or release approval.
 
 ## Frozen baseline and recovered workspace
 
@@ -27,7 +27,7 @@ Both native vulnerability scans report zero reachable/imported-package findings 
 | ID | Category / impact | Evidence | Status |
 |---|---|---|---|
 | AUD001 / FN074 | Process, blocking PR113 native acceptance | Raw JavaScript replacement-string dollar-apostrophe expansion reproduces entire malformed27592-character test.yml from preceding e4f2f766. YAML rejects line341; truncated command/duplicated tail prevents job creation. Accepted baseline unaffected | Repaired on unmerged113 atbe867a174dbc112caba273cda620822fd9828b2e; complete remote bytes/identity/parent verified. Intended13430-character YAML parses and eight explicit Bash blocks pass bash -n. Native37183435404 quality111380420837/windows111380420966 and source37183435389/job111380420823 all mandatory steps passed; full logs inspected, preview8a040608/tree0878fc48 with ordered07011b63/be867a17 parents and identical candidate tree verified. All six captures reconstructed/hashed exactly. Merge remains paused |
-| AUD002 | Documentation/recovery, stale accepted resume point | Accepted handover/spec/plan still say aggregation preparation/PR111 despite accepted112; newer continuity was only unmerged113 | Active audit checkpoint supersedes these resume instructions. Final authoritative reconciliation pending, history retained |
+| AUD002 | Documentation/recovery, stale accepted resume point | Accepted handover/spec/plan still say aggregation preparation/PR111 despite accepted112; newer continuity was only unmerged113 | Active audit checkpoint supersedes these resume instructions. Current implementation/access/privacy wording reconciled in combined candidate; historical evidence retained, combined acceptance pending |
 | AUD003 | Defensive library transport correction; default SDK route already mitigates | Test-only730a29e6 native37183817468 failed all eight named terminal-read assertions on Linux111381519563/Windows111381519469 against unchanged production; compilation/formatting passed | CONFIRMED injected-poster boundary. Pinned SDK bodyDownloadPolicy already protects default HTTPClient; no live false-complete claim. PR115 corrected head23d2ce4daee7474904975156b4c97fb75c2a6843/tree7438dfd7, parent730a29e6, identity and all3 bytes verified. Native37184407342 Linux111383253100/Windows111383253050 and source37184407425/111383253548 passed. Full logs and four capture bytes/provenance inspected; preview87b10d5d/tree7438dfd7 with ordered07011b63/23d2ce4d parents verified. Remains draft/unmerged |
 | AUD005 | Product completeness, Cost adapter | Official stable2021-10-01 spec defines nextLink; native37184679263 failed two compiling named paged empty/nonempty assertions on Linux111384036588 and Windows111384036492 | CONFIRMED synthetic first-page false-success. PR116 corrected8d54c0d921825996bbe9c663a8f48f1a6d95ca00/treeed772a94 parent78dd85c9, identity/3 changed bytes verified. Fail closed before accepted costs, no provider URL followed/echoed. Actual coordinator partial/retained healthy stages fixture passed. Native37184879992/Linux111384624285/Windows111384624226 and source37184879983/111384624557 fully passed; full logs/four contiguous capture bytes and hashes/provenance inspected. Preview9caddc01fbe6c95df1cc2766cb16c90835a9d000/treeed772a9455cf11d490b310b6778d11977ac262a4 matches candidate, ordered07011b63/8d54c0d9 parents verified. Remains draft/unmerged. Full pagination still unimplemented, no historical live incidence claim |
 | AUD006 | QA evidence correctness, comparator false success | Test-only4cb8bd84/native37185359814 failed all six compiling real-command assertions on Linux111386033586 and Windows111386033687; format passed, healthy empty controls did not fail | CONFIRMED synthetic exit0 for absent/unknown completeness, unsupported schema and no recognized reference datasets. PR117 final correctione381d0ad6e45989cf64526ac5d34131dc349e8e5/tree5e91d391cead6b74507abb6ac780817b9a42afaf/parent1bf98b7a Denis identity/three remote bytes verified. Both supported schemas1.0/1.1 retained; final native37186108840/Linux111388234786/Windows111388234877 and source37186108846/111388235257 passed all mandatory gates. Full logs, four contiguous retained capture bytes and independently verified SHA256 checked. Preview4cc3a10a156ed145e2f537a8d754054ed4e4c365 equals tree5e91d391 with ordered07011b63/e381d0ad parents. Remains draft/unmerged; no historical live incidence inferred |
@@ -38,55 +38,55 @@ No security incident, product-wide instability, independent-person approval, liv
 
 ## Requirement and review matrix
 
-The review inventory below covers all216 first-party Go files. Status NOT REVIEWED means code review remains open even when existing tests passed. Tests and code inventory alone do not establish adequate coverage. Scripts31, workflows4, docs58, bundled rule/source/fixture data and root legal/configuration/build files are separately in scope.
+The review inventory below covers all216 first-party Go files, all fully read with their test contracts. REVIEWED OFFLINE means source/tests/contracts were assessed; it is not independent-person approval, exhaustive input coverage or live validation. Tests and code inventory alone do not establish correctness. Scripts31, workflows4, docs58, bundled rule/source/fixture data and root legal/configuration/build files are separately in scope.
 
 Initial requirements: branding/profile/package; credential/cloud/read orientation; discovery/intended scope/filtering; inventory/catalog/scanners; Graph/Diagnostics/Advisor/Defender/Policy/Arc/Cost; stage completeness/lifecycle/exits; canonical model/summaries; every report/privacy/replacement contract; YAML/internal plugins; operator tooling; maintenance/provenance/dependencies; live/release scope/deferrals. Reconcile each to specification, code, independent tests and exact evidence during phaseB.
 
 | Area | Production Go files | Test files | Review status |
 |---|---:|---:|---|
-| cmd/cloud-assess | 4 | 11 | IN PROGRESS |
-| internal/advisor | 2 | 3 | IN PROGRESS |
-| internal/app | 1 | 9 | IN PROGRESS |
-| internal/arcsql | 1 | 1 | IN PROGRESS |
-| internal/arg | 6 | 9 | IN PROGRESS |
-| internal/assessment | 8 | 0 | IN PROGRESS |
-| internal/azure | 8 | 7 | IN PROGRESS |
-| internal/branding | 2 | 1 | IN PROGRESS |
-| internal/config | 2 | 3 | IN PROGRESS |
-| internal/cost | 2 | 3 | IN PROGRESS |
-| internal/defender | 1 | 1 | IN PROGRESS |
-| internal/diagnostics | 2 | 1 | IN PROGRESS |
-| internal/discovery | 5 | 6 | IN PROGRESS |
-| internal/equivalence | 3 | 2 | IN PROGRESS |
-| internal/findings | 2 | 2 | IN PROGRESS |
-| internal/gate | 1 | 1 | IN PROGRESS |
-| internal/orchestration | 3 | 7 | IN PROGRESS |
-| internal/plugins/aigov | 5 | 5 | IN PROGRESS |
-| internal/plugins | 4 | 5 | IN PROGRESS |
-| internal/plugins/carbon | 2 | 2 | IN PROGRESS |
-| internal/plugins/region | 6 | 7 | IN PROGRESS |
-| internal/plugins/servicehealth | 2 | 1 | IN PROGRESS |
-| internal/plugins/sqleol | 2 | 1 | IN PROGRESS |
-| internal/plugins/zone | 1 | 1 | IN PROGRESS |
-| internal/policy | 1 | 1 | IN PROGRESS |
-| internal/redact | 1 | 1 | IN PROGRESS |
-| internal/renderers/csv | 1 | 1 | IN PROGRESS |
-| internal/renderers/excel | 1 | 1 | IN PROGRESS |
-| internal/renderers/json | 1 | 1 | IN PROGRESS |
-| internal/renderers/sarif | 1 | 1 | IN PROGRESS |
-| internal/renderers/tables | 2 | 1 | IN PROGRESS |
-| internal/reportfile | 3 | 2 | IN PROGRESS |
-| internal/result | 3 | 3 | IN PROGRESS |
-| internal/rules | 5 | 4 | IN PROGRESS |
-| internal/scanners | 1 | 1 | IN PROGRESS |
-| internal/skus | 1 | 1 | IN PROGRESS |
-| internal/stages | 3 | 3 | IN PROGRESS |
-| internal/throttling | 1 | 1 | IN PROGRESS |
-| tools/brand-build | 1 | 0 | IN PROGRESS |
-| tools/diagnostics-probe | 1 | 1 | IN PROGRESS |
-| tools/equivalence | 1 | 1 | IN PROGRESS |
+| cmd/cloud-assess | 4 | 11 | REVIEWED OFFLINE |
+| internal/advisor | 2 | 3 | REVIEWED OFFLINE |
+| internal/app | 1 | 9 | REVIEWED OFFLINE |
+| internal/arcsql | 1 | 1 | REVIEWED OFFLINE |
+| internal/arg | 6 | 9 | REVIEWED OFFLINE |
+| internal/assessment | 8 | 0 | REVIEWED OFFLINE |
+| internal/azure | 8 | 7 | REVIEWED OFFLINE |
+| internal/branding | 2 | 1 | REVIEWED OFFLINE |
+| internal/config | 2 | 3 | REVIEWED OFFLINE |
+| internal/cost | 2 | 3 | REVIEWED OFFLINE |
+| internal/defender | 1 | 1 | REVIEWED OFFLINE |
+| internal/diagnostics | 2 | 1 | REVIEWED OFFLINE |
+| internal/discovery | 5 | 6 | REVIEWED OFFLINE |
+| internal/equivalence | 3 | 2 | REVIEWED OFFLINE |
+| internal/findings | 2 | 2 | REVIEWED OFFLINE |
+| internal/gate | 1 | 1 | REVIEWED OFFLINE |
+| internal/orchestration | 3 | 7 | REVIEWED OFFLINE |
+| internal/plugins/aigov | 5 | 5 | REVIEWED OFFLINE |
+| internal/plugins | 4 | 5 | REVIEWED OFFLINE |
+| internal/plugins/carbon | 2 | 2 | REVIEWED OFFLINE |
+| internal/plugins/region | 6 | 7 | REVIEWED OFFLINE |
+| internal/plugins/servicehealth | 2 | 1 | REVIEWED OFFLINE |
+| internal/plugins/sqleol | 2 | 1 | REVIEWED OFFLINE |
+| internal/plugins/zone | 1 | 1 | REVIEWED OFFLINE |
+| internal/policy | 1 | 1 | REVIEWED OFFLINE |
+| internal/redact | 1 | 1 | REVIEWED OFFLINE |
+| internal/renderers/csv | 1 | 1 | REVIEWED OFFLINE |
+| internal/renderers/excel | 1 | 1 | REVIEWED OFFLINE |
+| internal/renderers/json | 1 | 1 | REVIEWED OFFLINE |
+| internal/renderers/sarif | 1 | 1 | REVIEWED OFFLINE |
+| internal/renderers/tables | 2 | 1 | REVIEWED OFFLINE |
+| internal/reportfile | 3 | 2 | REVIEWED OFFLINE |
+| internal/result | 3 | 3 | REVIEWED OFFLINE |
+| internal/rules | 5 | 4 | REVIEWED OFFLINE |
+| internal/scanners | 1 | 1 | REVIEWED OFFLINE |
+| internal/skus | 1 | 1 | REVIEWED OFFLINE |
+| internal/stages | 3 | 3 | REVIEWED OFFLINE |
+| internal/throttling | 1 | 1 | REVIEWED OFFLINE |
+| tools/brand-build | 1 | 0 | REVIEWED OFFLINE |
+| tools/diagnostics-probe | 1 | 1 | REVIEWED OFFLINE |
+| tools/equivalence | 1 | 1 | REVIEWED OFFLINE |
 
-Review coverage is an inventory, not a completed review. Initial inspection traced shared HTTP lifetime/destination boundaries, scope SDK adapters/recursion/cycle guards, intended-scope recording, inventory decoding, ARG paging/metadata and stage interruption/completeness. Critical tests were sampled against actual call paths; full package/test review remains open.
+The final current review status supersedes the initial sampled checkpoints below. Review traced shared HTTP lifetime/destination boundaries, scope SDK adapters/recursion/cycle guards, intended-scope recording, inventory decoding, ARG paging/metadata and stage interruption/completeness. All first-party package/test files were subsequently read; requirements and independent-fixture adequacy are reconciled below. Combined candidate acceptance remains open.
 
 ## Historical next action (superseded by latest checkpoint)
 
@@ -148,3 +148,35 @@ PR118 corrected 6e4a7758bf8f26fbbdec3f08e295defa4af9bec0 has now passed native37
 
 Next: finish requirements/current-docs/data/dependency review and proposal113 final scope, reconcile material claims, then validate a combined integration candidate and accept only through protected exact-head gates. Source reads are not independent-person approval, live equivalence, representative estate load, fresh OS certification or release acceptance. No offline user input required.
 
+
+
+## Combined audit integration checkpoint (2026-10-04)
+
+Whole-project offline review is complete for the recovered accepted07011b63 baseline and the proposed corrections. Audit acceptance is still IN PROGRESS. PR114 is the combined, independently revertible audit candidate: source-only PR113 availability characterization plus AUD003 ARG read completion, AUD005 fail-closed Cost continuation, AUD006 comparator evidence admission, AUD007 strict neutral filter schema, and current-status/privacy documentation reconciliation. Individual proposals113/115/116/117/118 remain unmerged and retain their immutable reproduction/correction evidence. No runtime region-availability implementation has been recovered or added.
+
+All216 first-party Go files (103 production/113 tests),31 scripts/four workflows were fully read. Current requirements/operational contracts were reconciled against actual call paths and independent fixtures. Historical append-only evidence is indexed/preserved, not freshly re-executed. All630 accepted blobs/tree/original commit were independently reconstructed; source pins, APRL gitlink, fixture hashes, module inventory and59 bundled notice-section hashes verified. Third-party source is reviewed at relevant boundaries, not every upstream line or licensed as a legal approval.
+
+Next: publish/read back the combined PR114 candidate and inspect fresh exact-head full Linux quality/Windows validation/source logs, six contiguous capture files with independent SHA256/retained-byte equality, and matching base/head preview. Only then mark ready and expected-head protected merge, verify accepted commit/tree/ordered parents/live ref and distinct accepted-push evidence. If interrupted, verify actual live PR114/ref/workflow state before any retry. The latest PR114 body is the exact-head acceptance evidence index; do not repeat an uncertain mutation. No local Go; recovered review snapshot lacks materialized APRL and retains task-owned PR115 ARG edits/untracked test/doc, native Actions own execution proof. Frozen accepted identity is its Git HEAD/object inventory, not a claim of a clean working tree.
+
+No offline user input required. Live Azure/laptop/suitable approved non-production estate, DV-001/restricted visibility/nonempty optional-stage/plugin parity/representative load/fresh OS/hosted maintenance/Gate004/release remain deferred. No Azure writes/roles/new fixtures/production substitution/exposure/release authorized. Zero imported/reachable advisories in proposal scans does not close the existing module-only advisory. Self-review plus independent oracles is not independent-person review. All earlier checkpoints below are superseded history.
+
+## Final requirement and evidence disposition
+
+| Requirement group | Review and independent evidence | Remaining boundary |
+|---|---|---|
+| Branding/build/packages | Immutable five-field identity, exact executable/profile/report/package comparisons; strict stamping/native/read-only modules/checksums/notices | Fresh OS, signed release and licensing approval |
+| Identity/cloud/request destination | Default credential/cloud/audience/provider-registration/redirect policies, actual authenticated fake-service requests and token tripwires, checked continuations | Live roles/service authorization/sovereign availability |
+| Scope/discovery/filtering | Intended/resolved scope, explicit missing IDs, hierarchy cycles/paging, actual pre-auth controls; AUD007 closes silently ignored filter restrictions | Restricted visibility and suitable nested non-production MG (DV-001) |
+| Inventory/ARG/catalog/YAML | Independent query/catalog/scanner captures, actual HTTP paging/failure/cancellation/row ownership, bounded confined YAML overlays; AUD003 closes injected terminal-read boundary | ARG visibility/indexing and representative service/load |
+| Optional stages/completeness | Advisor/Diagnostics/Policy/Defender/Arc/Cost actual adapter/coordinator fixtures and honest failed/partial/warning exits; AUD005 rejects unconsumed Cost pages | Full Cost pagination not implemented; nonempty live Policy/Recommendations, Arc numeric shape, Diagnostics/Advisor correlation |
+| Canonical model/reports/privacy | Ownership/order, complete literal cells, real JSON/CSV/XLSX/SARIF, formula protection, private staging and controlled ACL tests; corrected narrow core human masking wording | SARIF identity-bearing; multi-file nontransactional; arbitrary-directory privacy/crash durability not certified |
+| Plugin schema/orchestration | Both1.0/1.1 supported, metadata/health/budgets/per-run isolation, mixed/standalone/all-format independent fixtures for five public plugins | Actual plugin Azure totals/access/live parity and load |
+| Region pure/source contracts | Six accepted helpers and owned aggregation; independent full-map/cell oracle/selected compiling mutations. Final PR113 scope reviewed,11 source availability branches/eight probes/six byte guards | Runtime availability/calculation requests/public region selection absent; lost draft reconstructed only in a future feature slice |
+| Comparator/operator tools | Actual CLI literals, healthy empty and nonempty additive1.1 controls; AUD006 rejects unknown/absent evidence. Core projection retained | Not full schema validation, plugin-table comparator or source ancillary-command parity |
+| Workflows/maintenance/security | All scripts/workflows read, permissions/pins/proposal policies, isolated recipe/publisher mutations and source provenance | Hosted token dispatch/production pilot not executed; one module-only advisory remains |
+| Data/dependencies/notices |630 baseline blob identities/all trees, pinned source/APRL/catalog/SKU hashes, module inventory,59 bundled notice-section byte hashes | No full upstream-code audit or legal approval; no incidental pin/dependency change |
+| Recovery/QA authority | Published verified proposal objects/bytes, retained compiling failed controls and corrected exact-head native evidence, outage-safe retry protocol | No outage-proof guarantee/background work or independent-person signoff |
+
+Coverage82.7-82.8% on individual proposals is a regression signal. Selected mutation guards do not cover every branch. Full review found no additional confirmed blocking defect in the remaining first-party paths; that does not prove defect-free software. Trusted injected application implementations and manually constructed canonical objects remain trusted library boundaries. Cost missing-envelope/column-order, nested registry slice ownership and direct-scanner cancellation hypotheses were not established as default-route incidents and are not falsely reported as confirmed defects.
+
+Offline audit acceptance requires the fresh combined evidence described above. Existing historical live passes retain their recorded scope/uncertainty and are not reclassified by synthetic fixes. Completion permits resuming the planned bounded offline region implementation; it does not grant Gate004, production, live parity or release approval. Final combined/merge/accepted-push SHAs and runs are indexed in PR114 to avoid endless evidence-only commits.

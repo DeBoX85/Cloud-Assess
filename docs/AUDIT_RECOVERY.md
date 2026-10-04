@@ -1,3 +1,15 @@
+# Latest audit recovery authority
+
+PR114 now holds the combined audit candidate on docs/project-audit-20261004. Read the latest SESSION_HANDOVER and PROJECT_AUDIT_REPORT_20261004 plus PR114 body before continuing. All earlier pointers below are historical and must be reverified. Review is complete, combined integration/acceptance pending. Original proposals113/115-118 remain evidence sources and must not be independently merged without reconciliation.
+
+Restart prompt:
+
+> Resume the Cloud-Assess comprehensive audit for DeBoX85/Cloud-Assess. Read AGENTS.md, the latest remote PR114/docs/project-audit-20261004 SESSION_HANDOVER.md, PROJECT_AUDIT_REPORT_20261004.md, AUDIT_RECOVERY.md and PR114 body. Verify live bootstrap/core-v1 and proposal refs, commits/trees/parents/identities, workflow state and any uncertain mutation before retrying. Offline whole-project review is complete; continue combined exact-head Linux/Windows/source-capture/preview QA, authorized expected-head protected acceptance and postmerge verification as recorded. Preserve immutable failed controls, source pins, historical evidence and explicit deferrals. Proceed autonomously within existing repository authorization, publish verified coherent checkpoints, ask only for genuinely necessary input. No Azure writes/roles/new fixtures/production substitution/service exposure/release approval; no independent-person/live/full-release claim. If accepted state already advanced, reconcile the actual accepted tree and evidence instead of repeating a merge. Do not claim background continuation or outage-proof recovery.
+
+---
+
+Historical recovery protocol follows and remains applicable where consistent with the current checkpoint.
+
 # Audit interruption recovery and restart prompt
 
 Date2026-10-04. Governs the comprehensive project audit under [PROJECT_AUDIT_20261004.md](PROJECT_AUDIT_20261004.md). This protocol reduces recoverable-work loss; it cannot guarantee outage-proof storage or background execution.

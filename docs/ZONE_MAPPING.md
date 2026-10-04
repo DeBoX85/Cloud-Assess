@@ -1,5 +1,7 @@
 # Zone mapping migration contract
 
+Current status: the bounded zone adapter and actual coordinator/CLI/registry integration are VERIFIED OFFLINE through PR80/85. Earlier candidate sequencing below is historical. Live restricted-identity/sovereign/load validation remains deferred.
+
 Status: B3 adapter implementation in progress, 2026-10-02. This first slice is an internal adapter, not a CLI command or a completed plugin migration. Canonical table/schema, report privacy, mixed/plugin-only execution and honest plugin discovery are subsequent B3 acceptance steps. Existing CLI plugin availability remains unchanged.
 
 ## Source and API evidence
