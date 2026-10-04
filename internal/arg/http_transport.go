@@ -74,7 +74,9 @@ func (t *HTTPTransport) Do(ctx context.Context, request Request) (*Response, err
 	if queryResponse.Data == nil {
 		return nil, fmt.Errorf("decode ARG response: missing or null data array")
 	}
-	_, _ = io.Copy(io.Discard, response.Body)
+	if _, err := io.Copy(io.Discard, response.Body); err != nil {
+		return nil, fmt.Errorf("read ARG response body: %w", err)
+	}
 	return queryResponse, nil
 }
 

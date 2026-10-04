@@ -1,21 +1,23 @@
-# Audit ARG response completion investigation
+# Audit ARG response completion correction
 
-Date2026-10-04. Audit finding AUD003. Test-only reproduction candidate, production unchanged. Accepted base07011b63440e69f4a5acb128e0449943f759ee9c. Comprehensive audit PR114 and feature pause remain authoritative.
+Date: 2026-10-04. Audit finding AUD003. Frozen accepted base: 07011b63440e69f4a5acb128e0449943f759ee9c. Comprehensive audit PR114 and feature pause remain active.
 
-## Trigger and expected behavior
+## Confirmed boundary and impact
 
-Actual internal/arg/http_transport.go decodes one JSON response and then ignores both values returned by io.Copy(io.Discard,response.Body). A valid empty or nonempty JSON value followed by a non-EOF body read error may therefore produce a successful ARG query. This remains a suspected completeness defect until the real compiling regression is observed failing against unchanged production code.
+The actual ARG HTTPTransport decoded one JSON response and then ignored io.Copy drain errors. Test-only head 730a29e6eed02d82283803931aa50ca599bb9706 reproduced successful results after terminal non-EOF body failure in all eight named assertions on both native Linux and Windows. Run [37183817468](https://github.com/DeBoX85/Cloud-Assess/actions/runs/37183817468), jobs111381519563 and111381519469, compiled successfully; formatting passed. Literal empty/nonempty JSON followed by sentinel read error, unexpected EOF, cancellation or deadline returned success. Healthy EOF controls did not fail.
 
-Independent fixtures provide literal valid empty/nonempty JSON, then separately signal a synthetic read error, unexpected EOF, cancellation or deadline. The original caller context is healthy, so result rejection must arise from the operation/body failure. Client.Query plus actual HTTPTransport.Do must return no successful result, retain errors.Is identity, and close the body once. Healthy terminal EOF must preserve exact zero/one rows and one closure. The fixture reader owns a named strings.Reader field rather than embedding it, preventing io.Copy from selecting a promoted WriterTo that would bypass the failure.
+This is a confirmed library adapter contract gap with an injected streamPoster. It is not evidence of a default live Azure false-complete assessment. The pinned azcore v1.23.1 runtime.NewPipeline inserts bodyDownloadPolicy; this project's PostStream does not call SkipBodyDownload. That middleware reads the complete underlying body before returning and already rejects these errors. The additional independent shared HTTPClient fixture verifies this mitigation through the actual authenticated pipeline with one transport call and one underlying closure.
 
-This tests the library transport boundary with an injected streamPoster. It is not a live Azure comparison or a claim about SDK middleware ordering. Follow with production shared-client/coordinator evidence if needed to establish reachability and report consequences.
+Pinned AZQR8e4f0577 internal/graph/graph.go contains the same ignored io.Copy pattern. The correction is an intentional defensive difference from that source, not a newly introduced fork regression. Adjacent Diagnostics uses the same default buffered pipeline; its inspection does not establish a corresponding live defect.
 
-## Plan and gates
+## Correction and independent regression
 
-First publish the regression against unchanged production code and require a compiling named assertion failure in native Linux/Windows tests, with healthy EOF fixtures passing. Classify unexpected compile/format/test results rather than accepting them as reproduction.
+Propagate non-EOF drain errors with wrapping, retaining errors.Is identity and returning no successful response. Keep deferred closure and healthy EOF behavior. Do not change SDK body buffering, endpoints, query semantics, quotas, source pins or global timeout policy.
 
-If confirmed, propagate terminal body errors with wrapping instead of discarding them; retain error identity, nil successful candidate and closure. Inspect Diagnostics' adjacent streaming decoder and inherited pinned-source behavior. Record a deliberate safety correction and avoid unrelated schema/normalization/volume changes.
+The independent reader owns a named strings.Reader field, preventing a promoted WriterTo from bypassing its terminal Read error. The original caller context remains healthy. Tests exercise actual Client.Query plus HTTPTransport.Do and cover empty/nonempty JSON, four errors, exact closure, and successful zero/one-row EOF controls. A separate fixture uses actual azure.HTTPClient, credentials and SDK policy pipeline; it verifies the default route's existing rejection, not production reachability of the injected-poster defect.
 
-Fresh full native/source checks on the corrected head, diff/source-contract review and protected expected-head merge remain required. Do not claim audit completion, Azure/live/Gate004/release closure or independent-person review. Rollback is a reviewed revert after dependency review.
+## Gates and remaining work
 
-Primary contracts: [io.Copy](https://pkg.go.dev/io#Copy) returns non-EOF copy failures, while [json.Decoder.Decode](https://pkg.go.dev/encoding/json#Decoder.Decode) reads one JSON value. TARGET_SPECIFICATION requires visible failed retrieval and HTTP operation budgets covering body consumption. Existing interrupted-request tests do not exercise a failure after a valid JSON value.
+Fresh native Linux/Windows and pinned-source QA on the corrected head remain pending. Record complete logs, preview commit/tree/parents, provenance and capture evidence before considering acceptance. The compiling failing reproduction is retained at the immutable test-only commit. No audit-wide, independent-person, Azure/live, Gate004 or release closure is claimed. Rollback is a reviewed revert after dependency review.
+
+Primary contracts: [io.Copy](https://pkg.go.dev/io#Copy), [json.Decoder.Decode](https://pkg.go.dev/encoding/json#Decoder.Decode). SDK mitigation inspected at official Azure/azure-sdk-for-go tag sdk/azcore/v1.23.1: runtime/pipeline.go and runtime/policy_body_download.go, plus sdk/internal/v1.12.0/exported/exported.go Payload.
