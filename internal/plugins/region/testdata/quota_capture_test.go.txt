@@ -1,0 +1,175 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+// Invoke unchanged pinned REST quota collectors through an isolated transport.
+package quota
+
+import (
+	"context"
+	"crypto/sha1"
+	"encoding/json"
+	"fmt"
+	"io"
+	"net/http"
+	"os"
+	"path/filepath"
+	"reflect"
+	"strings"
+	"testing"
+	"time"
+
+	"github.com/Azure/azqr/internal/az"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
+)
+
+type quotaCaptureCredential struct{ t *testing.T }
+
+func (c quotaCaptureCredential) GetToken(_ context.Context, o policy.TokenRequestOptions) (azcore.AccessToken, error) {
+	if !reflect.DeepEqual(o.Scopes, []string{"https://management.azure.com/.default"}) {
+		c.t.Fatal("unexpected synthetic audience")
+	}
+	return azcore.AccessToken{Token: "synthetic-quota-canary", ExpiresOn: time.Now().Add(time.Hour)}, nil
+}
+
+type quotaCapturePage struct {
+	Status int
+	Body   string
+}
+type quotaCaptureCase struct {
+	Provider  string
+	Pages     []quotaCapturePage
+	Cancelled bool
+}
+type quotaCaptureResult struct {
+	Entries  []UsageEntry
+	Risk     []string
+	Failed   bool
+	Requests []string
+}
+type quotaCaptureTransport struct {
+	t        *testing.T
+	urls     []string
+	pages    []quotaCapturePage
+	requests []string
+}
+
+func (s *quotaCaptureTransport) Do(r *http.Request) (*http.Response, error) {
+	i := len(s.requests)
+	if i >= len(s.urls) || r.URL.String() != s.urls[i] || r.Method != "GET" || r.Body != nil || r.Header.Get("Authorization") != "Bearer synthetic-quota-canary" {
+		s.t.Fatal("unexpected synthetic quota request", r.Method, r.URL.String())
+	}
+	s.requests = append(s.requests, r.URL.String())
+	p := s.pages[i]
+	return &http.Response{StatusCode: p.Status, Header: http.Header{"Content-Type": []string{"application/json"}}, Body: io.NopCloser(strings.NewReader(p.Body)), Request: r}, nil
+}
+
+type quotaCaptureNetworkTripwire struct{}
+
+func (quotaCaptureNetworkTripwire) RoundTrip(*http.Request) (*http.Response, error) {
+	panic("quota capture attempted real network")
+}
+
+func TestRegionQuotaCapture(t *testing.T) {
+	output := os.Getenv("REGION_QUOTA_CAPTURE_OUTPUT")
+	if output == "" {
+		t.Fatal("missing capture output")
+	}
+	oldTransport, oldClient := http.DefaultTransport, http.DefaultClient
+	http.DefaultTransport = quotaCaptureNetworkTripwire{}
+	http.DefaultClient = &http.Client{Transport: quotaCaptureNetworkTripwire{}}
+	defer func() { http.DefaultTransport, http.DefaultClient = oldTransport, oldClient }()
+	blobs := map[string]string{"quota.go": "9d98d3d2c221b925fd5b4bbde4ddf78476146491", "appservice.go": "60ce83c4d2e7dbed133d1ac1389f9094ee1d39c9", "network.go": "8dd5eaa925f65388c966b1f4d22b9c13442828e5", "sql.go": "33d990e8016b9ee6a8088a203cb3a365bc69f357", "storage.go": "62e898c9492a62bb96eef115f5ea352d0918983b", "../../../../az/http_client.go": "05d85c5a50ee81f088731160020a914af83e1ca5"}
+	for path, want := range blobs {
+		raw, err := os.ReadFile(path)
+		if err != nil {
+			t.Fatal(err)
+		}
+		h := sha1.Sum(append([]byte(fmt.Sprintf("blob %d\x00", len(raw))), raw...))
+		if fmt.Sprintf("%x", h) != want {
+			t.Fatal("source blob changed", path)
+		}
+	}
+	one := func(body string) []quotaCapturePage { return []quotaCapturePage{{200, body}} }
+	row := func(name string, current, limit int) string {
+		return fmt.Sprintf(`{"name":%q,"currentValue":%d,"limit":%d}`, name, current, limit)
+	}
+	envelope := func(rows ...string) string { return `{"value":[` + strings.Join(rows, ",") + `]}` }
+	cases := map[string]quotaCaptureCase{
+		"arithmetic":     {Provider: "Web", Pages: one(envelope(row("exact15", 85, 100), row("below15", 86, 100), row("at", 100, 100), row("over", 110, 100), row("negative", -5, 100), row("zero-limit", 1, 0), row("negative-limit", 1, -1)))},
+		"names":          {Provider: "Sql", Pages: one(`{"value":[{"name":{"value":"Servers","localizedValue":"SQL Servers"},"currentValue":9,"limit":10},{"name":"ElasticPools","currentValue":1,"limit":10},{"name":null,"currentValue":1,"limit":10}]}`)},
+		"empty":          {Provider: "Web", Pages: one(envelope())},
+		"web-filter":     {Provider: "Web", Pages: one(envelope(row("CustomDomains", 1, 10), row("HostNameBindings", 1, 10), row("SslBindings", 1, 10), row("SslConnections", 1, 10), row("Certificates", 1, 10), row("customdomains", 1, 10), row("Workers", 1, 10)))},
+		"network-filter": {Provider: "Network", Pages: one(envelope(row("NetworkWatchers", 1, 10), row("RouteFilterRulesPerRouteFilter", 1, 10), row("RouteFiltersPerExpressRouteBgpPeering", 1, 10), row("RoutesPerExpressRouteCircuit", 1, 10), row("BgpCommunityFilterRulesPerRouteFilter", 1, 10), row("networkwatchers", 1, 10), row("PublicIPAddresses", 1, 10)))},
+		"storage-filter": {Provider: "Storage", Pages: one(envelope(row("TotalBlobContainers", 1, 10), row("TotalBlobs", 1, 10), row("TotalContainers", 1, 10), row("TotalFileShares", 1, 10), row("TotalQueues", 1, 10), row("TotalTables", 1, 10), row("totalblobs", 1, 10), row("StorageAccounts", 1, 10)))},
+		"sql-filter":     {Provider: "Sql", Pages: one(envelope(row("DTUsPerServer", 1, 10), row("vCoresPerDatabase", 1, 10), row("dtusPerserver", 1, 10), row("Servers", 1, 10)))},
+		"malformed":      {Provider: "Web", Pages: one(`{"value":`)},
+		"invalid-name":   {Provider: "Web", Pages: one(`{"value":[{"name":42,"currentValue":1,"limit":10}]}`)},
+		"cancelled":      {Provider: "Web", Pages: one(envelope()), Cancelled: true},
+	}
+	for _, status := range []int{400, 404, 405, 403} {
+		p := quotaCapturePage{status, `{"error":{"code":"SyntheticQuotaError","message":"synthetic"}}`}
+		cases[fmt.Sprintf("http%d", status)] = quotaCaptureCase{Provider: "Web", Pages: []quotaCapturePage{p}}
+		cases[fmt.Sprintf("later-http%d", status)] = quotaCaptureCase{Provider: "Web", Pages: []quotaCapturePage{{200, ""}, p}}
+	}
+	cases["paged"] = quotaCaptureCase{Provider: "Web", Pages: []quotaCapturePage{{200, ""}, {200, envelope(row("second", 9, 10))}}}
+	cases["later-malformed"] = quotaCaptureCase{Provider: "Web", Pages: []quotaCapturePage{{200, ""}, {200, `{"value":`}}}
+	results := map[string]quotaCaptureResult{}
+	const subscription = "11111111-1111-1111-1111-111111111111"
+	versions := map[string]string{"Web": "2023-01-01", "Network": "2022-07-01", "Storage": "2023-01-01", "Sql": "2021-11-01"}
+	for name, fixture := range cases {
+		start := "https://management.azure.com/subscriptions/" + subscription + "/providers/Microsoft." + fixture.Provider + "/locations/eastus/usages?api-version=" + versions[fixture.Provider]
+		urls := []string{start}
+		if len(fixture.Pages) == 2 {
+			next := start + "&$skiptoken=synthetic-second"
+			urls = append(urls, next)
+			fixture.Pages[0].Body = `{"value":[` + row("first", 1, 10) + `],"nextLink":` + fmt.Sprintf("%q", next) + `}`
+			cases[name] = fixture
+		}
+		transport := &quotaCaptureTransport{t: t, urls: urls, pages: fixture.Pages, requests: []string{}}
+		client := az.NewHttpClient(quotaCaptureCredential{t}, &az.HttpClientOptions{MaxRetries: -1, Timeout: time.Second, Scope: "https://management.azure.com/.default", Transport: transport})
+		ctx, cancel := context.WithCancel(context.Background())
+		if fixture.Cancelled {
+			cancel()
+		}
+		var entries []UsageEntry
+		var err error
+		switch fixture.Provider {
+		case "Web":
+			entries, err = FetchAppServiceQuota(ctx, client, subscription, "eastus")
+		case "Network":
+			entries, err = FetchNetworkQuota(ctx, client, subscription, "eastus")
+		case "Storage":
+			entries, err = FetchStorageQuota(ctx, client, subscription, "eastus")
+		case "Sql":
+			entries, err = FetchSQLQuota(ctx, client, subscription, "eastus")
+		default:
+			t.Fatal("unknown synthetic provider")
+		}
+		cancel()
+		expected := len(urls)
+		if fixture.Cancelled {
+			expected = 0
+		}
+		if len(transport.requests) != expected {
+			t.Fatal("source request sequence incomplete", name)
+		}
+		results[name] = quotaCaptureResult{Entries: entries, Risk: AtRiskSummaries(entries), Failed: err != nil, Requests: transport.requests}
+	}
+	write := func(name string, v any) {
+		raw, err := json.MarshalIndent(v, "", "  ")
+		if err != nil {
+			t.Fatal(err)
+		}
+		if err = os.MkdirAll(output, 0700); err != nil {
+			t.Fatal(err)
+		}
+		if err = os.WriteFile(filepath.Join(output, name), append(raw, '\n'), 0600); err != nil {
+			t.Fatal(err)
+		}
+	}
+	write("source-quota-inputs.json", struct {
+		Blobs map[string]string
+		Cases map[string]quotaCaptureCase
+	}{blobs, cases})
+	write("source-quota-outputs.json", results)
+}

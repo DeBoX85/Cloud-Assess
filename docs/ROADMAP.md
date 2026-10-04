@@ -1,3 +1,15 @@
+# PR124 REST quota observation checkpoint
+
+Accepted remains PR123 4f313ed5ce68856664537666607a2cd74b228331. Draft PR124 https://github.com/DeBoX85/Cloud-Assess/pull/124 is UNACCEPTED on feat/region-quota-source. Planning5e1f9320/tree8fe2d225/parent4f313ed5 and complete four-file bytes/original local tree/Denis/ref were verified before harness edits. REGION_QUOTA_RESERVATION is the source/correction/acceptance contract.
+
+Unchanged pinned REST quota fetchers now have20 synthetic scenarios with strict exact GET URL/body/auth/audience/sequence and real-network tripwires. Local Go1.26.8 source test PASS, all six source blob guards PASS; git diff unchanged, only injected harness untracked. Original clean source/APRL verified, APRL files copied to isolated source test worktree. Observed inputs804a2e6f24536be69b290be9f9d7bfc0015646ee0fc99132bcc646893150918c/8922bytes and outputs0796a14301763d7a67c9d47fef0d8827b10aca8844932ee047eddd71dff1d0ed/11100bytes; not yet retained as target goldens. Existing retained-byte guard four assertions/compiling disabled-guard/restored baseline PASS locally. New runner registers sixth harness and13 total files; original11 bytes unchanged. Initial strict remote source must emit observations then reject the two absent goldens as declared evidence gap, never a source PASS. No target runtime/native acceptance claimed.
+
+Next independently reconstruct remote observations/hash/bytes, retain complete fixtures, add complete literal requests/rows/risk/errors and compiling controls on both hosts, then final native/source/protected acceptance and distinct accepted-push. VM and CRG SDK paths remain separate pending work. PR124 body is exact evolving run/head/recovery index. No uncertain remote outcome; scratch-only observations are not backed up until verified publication. Preserve original failures/history and old workspaces. Laptop/Azure expected soon, NOT confirmed; approved live queue remains independently deferred with existing scope restrictions. No Azure writes/resources/roles/fixtures/production substitution/exposure/release, no independent-person or live approval.
+
+Earlier entries are history.
+
+---
+
 # Accepted PR123 and quota/reservation source continuation
 
 PR123 is VERIFIED OFFLINE at accepted4f313ed5ce68856664537666607a2cd74b228331/tree d346154a1069b33b179745c3b4b3edb0d782c07e, ordered201f2692/e6405d40 parents. Final candidate native37238473068/Linux111542233411/Windows111542233407 and source37238473058/job111542219844 passed; separate accepted-push native37239101193/Linux111544013001/Windows111544013177 and source37239101058/job111544012586 passed with full mandatory logs/steps. All11 source captures/109 chunks unchanged. Nineteen compiling cost runtime and6 source-oracle controls/restored baselines passed on both hosts. Raw signed merge and all674 accepted tracked blobs independently verified. Exact final acceptance and original failures FN078/FN079/FN080 are indexed at https://github.com/DeBoX85/Cloud-Assess/pull/123; earlier pending wording below is historical.
