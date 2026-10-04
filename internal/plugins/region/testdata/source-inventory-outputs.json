@@ -1,0 +1,458 @@
+{
+  "build-empty": {
+    "ResourceTypes": {},
+    "SKUsByType": {},
+    "LocationCounts": {},
+    "ResourceTypesByRegion": {},
+    "SKUsByTypeAndRegion": {}
+  },
+  "build-nil": {
+    "ResourceTypes": {},
+    "SKUsByType": {},
+    "LocationCounts": {},
+    "ResourceTypesByRegion": {},
+    "SKUsByTypeAndRegion": {}
+  },
+  "build-nil-resource-panics": true,
+  "build-selected-0": {
+    "ResourceTypes": {
+      "microsoft.compute/virtualmachines": 4,
+      "microsoft.compute/virtualmachinescalesets": 1,
+      "microsoft.custom/widgets": 1,
+      "microsoft.network/virtualnetworks": 1
+    },
+    "SKUsByType": {
+      "microsoft.compute/virtualmachines": {
+        " Standard_D4s_v3 ": 1,
+        "Standard_D4s_v3": 2,
+        "standard_d4s_v3": 1
+      },
+      "microsoft.compute/virtualmachinescalesets": {
+        "Standard_D4s_v3": 1
+      },
+      "microsoft.custom/widgets": {
+        "=Widget": 1
+      }
+    },
+    "LocationCounts": {
+      "": 1,
+      "east\tus": 1,
+      "eastus": 3,
+      "europe": 1,
+      "westeurope": 1
+    },
+    "ResourceTypesByRegion": {
+      "": {
+        "microsoft.custom/widgets": 1
+      },
+      "east\tus": {
+        "microsoft.compute/virtualmachines": 1
+      },
+      "eastus": {
+        "microsoft.compute/virtualmachines": 2,
+        "microsoft.network/virtualnetworks": 1
+      },
+      "europe": {
+        "microsoft.compute/virtualmachines": 1
+      },
+      "westeurope": {
+        "microsoft.compute/virtualmachinescalesets": 1
+      }
+    },
+    "SKUsByTypeAndRegion": {
+      "microsoft.compute/virtualmachines": {
+        "east\tus": {
+          "standard_d4s_v3": 1
+        },
+        "eastus": {
+          "Standard_D4s_v3": 2
+        },
+        "europe": {
+          " Standard_D4s_v3 ": 1
+        }
+      },
+      "microsoft.compute/virtualmachinescalesets": {
+        "westeurope": {
+          "Standard_D4s_v3": 1
+        }
+      },
+      "microsoft.custom/widgets": {
+        "": {
+          "=Widget": 1
+        }
+      }
+    }
+  },
+  "build-selected-1": {
+    "ResourceTypes": {
+      "microsoft.compute/virtualmachines": 2
+    },
+    "SKUsByType": {
+      "microsoft.compute/virtualmachines": {
+        "Standard_F4s_v2": 1
+      }
+    },
+    "LocationCounts": {
+      "eastus": 1,
+      "global": 1
+    },
+    "ResourceTypesByRegion": {
+      "eastus": {
+        "microsoft.compute/virtualmachines": 1
+      },
+      "global": {
+        "microsoft.compute/virtualmachines": 1
+      }
+    },
+    "SKUsByTypeAndRegion": {
+      "microsoft.compute/virtualmachines": {
+        "eastus": {
+          "Standard_F4s_v2": 1
+        }
+      }
+    }
+  },
+  "build-selected-2": {
+    "ResourceTypes": {},
+    "SKUsByType": {},
+    "LocationCounts": {},
+    "ResourceTypesByRegion": {},
+    "SKUsByTypeAndRegion": {}
+  },
+  "build-selected-3": {
+    "ResourceTypes": {
+      "microsoft.compute/virtualmachines": 1
+    },
+    "SKUsByType": {
+      "microsoft.compute/virtualmachines": {
+        "Standard_D4s_v3": 1
+      }
+    },
+    "LocationCounts": {
+      "northeurope": 1
+    },
+    "ResourceTypesByRegion": {
+      "northeurope": {
+        "microsoft.compute/virtualmachines": 1
+      }
+    },
+    "SKUsByTypeAndRegion": {
+      "microsoft.compute/virtualmachines": {
+        "northeurope": {
+          "Standard_D4s_v3": 1
+        }
+      }
+    }
+  },
+  "build-selected-4": {
+    "ResourceTypes": {},
+    "SKUsByType": {},
+    "LocationCounts": {},
+    "ResourceTypesByRegion": {},
+    "SKUsByTypeAndRegion": {}
+  },
+  "merge-empty": {
+    "ResourceTypes": {},
+    "SKUsByType": {},
+    "LocationCounts": {},
+    "ResourceTypesByRegion": {},
+    "SKUsByTypeAndRegion": {}
+  },
+  "merge-nil-source-panics": true,
+  "merge-repeated": {
+    "ResourceTypes": {
+      "microsoft.compute/virtualmachines": 8,
+      "microsoft.compute/virtualmachinescalesets": 2,
+      "microsoft.custom/widgets": 2,
+      "microsoft.network/virtualnetworks": 2
+    },
+    "SKUsByType": {
+      "microsoft.compute/virtualmachines": {
+        " Standard_D4s_v3 ": 2,
+        "Standard_D4s_v3": 4,
+        "standard_d4s_v3": 2
+      },
+      "microsoft.compute/virtualmachinescalesets": {
+        "Standard_D4s_v3": 2
+      },
+      "microsoft.custom/widgets": {
+        "=Widget": 2
+      }
+    },
+    "LocationCounts": {
+      "": 2,
+      "east\tus": 2,
+      "eastus": 6,
+      "europe": 2,
+      "westeurope": 2
+    },
+    "ResourceTypesByRegion": {
+      "": {
+        "microsoft.custom/widgets": 2
+      },
+      "east\tus": {
+        "microsoft.compute/virtualmachines": 2
+      },
+      "eastus": {
+        "microsoft.compute/virtualmachines": 4,
+        "microsoft.network/virtualnetworks": 2
+      },
+      "europe": {
+        "microsoft.compute/virtualmachines": 2
+      },
+      "westeurope": {
+        "microsoft.compute/virtualmachinescalesets": 2
+      }
+    },
+    "SKUsByTypeAndRegion": {
+      "microsoft.compute/virtualmachines": {
+        "east\tus": {
+          "standard_d4s_v3": 2
+        },
+        "eastus": {
+          "Standard_D4s_v3": 4
+        },
+        "europe": {
+          " Standard_D4s_v3 ": 2
+        }
+      },
+      "microsoft.compute/virtualmachinescalesets": {
+        "westeurope": {
+          "Standard_D4s_v3": 2
+        }
+      },
+      "microsoft.custom/widgets": {
+        "": {
+          "=Widget": 2
+        }
+      }
+    }
+  },
+  "merge-selected": {
+    "ResourceTypes": {
+      "microsoft.compute/virtualmachines": 6,
+      "microsoft.compute/virtualmachinescalesets": 1,
+      "microsoft.custom/widgets": 1,
+      "microsoft.network/virtualnetworks": 1
+    },
+    "SKUsByType": {
+      "microsoft.compute/virtualmachines": {
+        " Standard_D4s_v3 ": 1,
+        "Standard_D4s_v3": 2,
+        "Standard_F4s_v2": 1,
+        "standard_d4s_v3": 1
+      },
+      "microsoft.compute/virtualmachinescalesets": {
+        "Standard_D4s_v3": 1
+      },
+      "microsoft.custom/widgets": {
+        "=Widget": 1
+      }
+    },
+    "LocationCounts": {
+      "": 1,
+      "east\tus": 1,
+      "eastus": 4,
+      "europe": 1,
+      "global": 1,
+      "westeurope": 1
+    },
+    "ResourceTypesByRegion": {
+      "": {
+        "microsoft.custom/widgets": 1
+      },
+      "east\tus": {
+        "microsoft.compute/virtualmachines": 1
+      },
+      "eastus": {
+        "microsoft.compute/virtualmachines": 3,
+        "microsoft.network/virtualnetworks": 1
+      },
+      "europe": {
+        "microsoft.compute/virtualmachines": 1
+      },
+      "global": {
+        "microsoft.compute/virtualmachines": 1
+      },
+      "westeurope": {
+        "microsoft.compute/virtualmachinescalesets": 1
+      }
+    },
+    "SKUsByTypeAndRegion": {
+      "microsoft.compute/virtualmachines": {
+        "east\tus": {
+          "standard_d4s_v3": 1
+        },
+        "eastus": {
+          "Standard_D4s_v3": 2,
+          "Standard_F4s_v2": 1
+        },
+        "europe": {
+          " Standard_D4s_v3 ": 1
+        }
+      },
+      "microsoft.compute/virtualmachinescalesets": {
+        "westeurope": {
+          "Standard_D4s_v3": 1
+        }
+      },
+      "microsoft.custom/widgets": {
+        "": {
+          "=Widget": 1
+        }
+      }
+    }
+  },
+  "normalization": [
+    {
+      "normalized": "eastus",
+      "physical": true,
+      "region": "East US"
+    },
+    {
+      "normalized": "eastus",
+      "physical": true,
+      "region": " East US "
+    },
+    {
+      "normalized": "east\tus",
+      "physical": true,
+      "region": "East\tUS"
+    },
+    {
+      "normalized": "east\nus",
+      "physical": true,
+      "region": "East\nUS"
+    },
+    {
+      "normalized": "east-us",
+      "physical": true,
+      "region": "east-us"
+    },
+    {
+      "normalized": "eastus",
+      "physical": true,
+      "region": "EASTUS"
+    },
+    {
+      "normalized": "east us",
+      "physical": true,
+      "region": "East US"
+    },
+    {
+      "normalized": "eastkus",
+      "physical": true,
+      "region": "eastKus"
+    },
+    {
+      "normalized": "",
+      "physical": false,
+      "region": ""
+    },
+    {
+      "normalized": "unassigned",
+      "physical": false,
+      "region": "unassigned"
+    },
+    {
+      "normalized": "global",
+      "physical": false,
+      "region": "global"
+    },
+    {
+      "normalized": "global",
+      "physical": false,
+      "region": "GLOBAL"
+    },
+    {
+      "normalized": "europe",
+      "physical": false,
+      "region": "europe"
+    },
+    {
+      "normalized": "unitedstates",
+      "physical": false,
+      "region": "unitedstates"
+    },
+    {
+      "normalized": "asia",
+      "physical": false,
+      "region": "asia"
+    },
+    {
+      "normalized": "asiapacific",
+      "physical": false,
+      "region": "asiapacific"
+    },
+    {
+      "normalized": "australia",
+      "physical": false,
+      "region": "australia"
+    },
+    {
+      "normalized": "brazil",
+      "physical": false,
+      "region": "brazil"
+    },
+    {
+      "normalized": "canada",
+      "physical": false,
+      "region": "canada"
+    },
+    {
+      "normalized": "france",
+      "physical": false,
+      "region": "france"
+    },
+    {
+      "normalized": "germany",
+      "physical": false,
+      "region": "germany"
+    },
+    {
+      "normalized": "india",
+      "physical": false,
+      "region": "india"
+    },
+    {
+      "normalized": "japan",
+      "physical": false,
+      "region": "japan"
+    },
+    {
+      "normalized": "korea",
+      "physical": false,
+      "region": "korea"
+    },
+    {
+      "normalized": "norway",
+      "physical": false,
+      "region": "norway"
+    },
+    {
+      "normalized": "southafrica",
+      "physical": false,
+      "region": "southafrica"
+    },
+    {
+      "normalized": "switzerland",
+      "physical": false,
+      "region": "switzerland"
+    },
+    {
+      "normalized": "uae",
+      "physical": false,
+      "region": "uae"
+    },
+    {
+      "normalized": "uk",
+      "physical": false,
+      "region": "uk"
+    },
+    {
+      "normalized": "private-region",
+      "physical": true,
+      "region": "private-region"
+    }
+  ]
+}

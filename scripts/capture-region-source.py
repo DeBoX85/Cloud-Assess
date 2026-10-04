@@ -29,6 +29,11 @@ def run(args, directory, timeout=240, capture=False):
                           text=True, stdout=subprocess.PIPE if capture else None)
 
 
+def verify_capture_bytes(raw, retained):
+    if raw != retained.read_bytes():
+        raise SystemExit("Retained source capture byte mismatch: " + retained.name)
+
+
 with tempfile.TemporaryDirectory(prefix="cloud-assess-region-source-") as temporary:
     directory = Path(temporary) / "reference"
     directory.mkdir()
@@ -68,6 +73,8 @@ with tempfile.TemporaryDirectory(prefix="cloud-assess-region-source-") as tempor
     print("REGION_CAPTURE_PROVENANCE " + json.dumps({"source": SOURCE, "tree": SOURCE_TREE, "aprl": APRL}))
     for name in FILES:
         raw = (output / name).read_bytes()
+        retained = ROOT / "internal/plugins/region/testdata" / name
+        verify_capture_bytes(raw, retained)
         content = raw.decode("utf-8")
         pieces = [content[i:i + 3000] for i in range(0, len(content), 3000)]
         for index, piece in enumerate(pieces):
