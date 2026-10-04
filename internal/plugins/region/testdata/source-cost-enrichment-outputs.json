@@ -1,0 +1,911 @@
+{
+  "both-free": [
+    {
+      "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+      "SubscriptionName": "selected",
+      "SourceRegion": "eastus",
+      "TargetRegion": "westeurope",
+      "SourceResourceTypeCount": 2,
+      "AvailableTypes": 1,
+      "UnavailableTypes": 1,
+      "AvailabilityPercent": 50,
+      "AvgCostDifference": 0,
+      "HasCostData": true,
+      "AvgLatencyMs": 42,
+      "LatencyEstimated": true,
+      "MissingResourceTypes": [
+        "microsoft.custom/widgets"
+      ],
+      "MissingSKUs": [
+        "microsoft.custom/widgets:SKU (unknown)"
+      ],
+      "RestrictedSKUs": [],
+      "ZoneRestrictedSKUs": [],
+      "TotalSKUsChecked": 1,
+      "AvailableSKUs": 0,
+      "UnavailableSKUs": 0,
+      "UnknownSKUs": 1,
+      "SKUAvailabilityPercent": 100,
+      "SourceZoneCount": 3,
+      "TargetZoneCount": 2,
+      "TargetZoneMappings": {
+        "1": "phys1"
+      },
+      "Score": 0
+    }
+  ],
+  "display-names": [
+    {
+      "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+      "SubscriptionName": "selected",
+      "SourceRegion": "East US",
+      "TargetRegion": "West Europe",
+      "SourceResourceTypeCount": 2,
+      "AvailableTypes": 1,
+      "UnavailableTypes": 1,
+      "AvailabilityPercent": 50,
+      "AvgCostDifference": 100,
+      "HasCostData": true,
+      "AvgLatencyMs": 42,
+      "LatencyEstimated": true,
+      "MissingResourceTypes": [
+        "microsoft.custom/widgets"
+      ],
+      "MissingSKUs": [
+        "microsoft.custom/widgets:SKU (unknown)"
+      ],
+      "RestrictedSKUs": [],
+      "ZoneRestrictedSKUs": [],
+      "TotalSKUsChecked": 1,
+      "AvailableSKUs": 0,
+      "UnavailableSKUs": 0,
+      "UnknownSKUs": 1,
+      "SKUAvailabilityPercent": 100,
+      "SourceZoneCount": 3,
+      "TargetZoneCount": 2,
+      "TargetZoneMappings": {
+        "1": "phys1"
+      },
+      "Score": 0
+    }
+  ],
+  "duplicate-last-nine": [
+    {
+      "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+      "SubscriptionName": "selected",
+      "SourceRegion": "eastus",
+      "TargetRegion": "westeurope",
+      "SourceResourceTypeCount": 2,
+      "AvailableTypes": 1,
+      "UnavailableTypes": 1,
+      "AvailabilityPercent": 50,
+      "AvgCostDifference": 90,
+      "HasCostData": true,
+      "AvgLatencyMs": 42,
+      "LatencyEstimated": true,
+      "MissingResourceTypes": [
+        "microsoft.custom/widgets"
+      ],
+      "MissingSKUs": [
+        "microsoft.custom/widgets:SKU (unknown)"
+      ],
+      "RestrictedSKUs": [],
+      "ZoneRestrictedSKUs": [],
+      "TotalSKUsChecked": 1,
+      "AvailableSKUs": 0,
+      "UnavailableSKUs": 0,
+      "UnknownSKUs": 1,
+      "SKUAvailabilityPercent": 100,
+      "SourceZoneCount": 3,
+      "TargetZoneCount": 2,
+      "TargetZoneMappings": {
+        "1": "phys1"
+      },
+      "Score": 0
+    }
+  ],
+  "duplicate-last-one": [
+    {
+      "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+      "SubscriptionName": "selected",
+      "SourceRegion": "eastus",
+      "TargetRegion": "westeurope",
+      "SourceResourceTypeCount": 2,
+      "AvailableTypes": 1,
+      "UnavailableTypes": 1,
+      "AvailabilityPercent": 50,
+      "AvgCostDifference": 50,
+      "HasCostData": true,
+      "AvgLatencyMs": 42,
+      "LatencyEstimated": true,
+      "MissingResourceTypes": [
+        "microsoft.custom/widgets"
+      ],
+      "MissingSKUs": [
+        "microsoft.custom/widgets:SKU (unknown)"
+      ],
+      "RestrictedSKUs": [],
+      "ZoneRestrictedSKUs": [],
+      "TotalSKUsChecked": 1,
+      "AvailableSKUs": 0,
+      "UnavailableSKUs": 0,
+      "UnknownSKUs": 1,
+      "SKUAvailabilityPercent": 100,
+      "SourceZoneCount": 3,
+      "TargetZoneCount": 2,
+      "TargetZoneMappings": {
+        "1": "phys1"
+      },
+      "Score": 0
+    }
+  ],
+  "empty-meters": [
+    {
+      "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+      "SubscriptionName": "selected",
+      "SourceRegion": "eastus",
+      "TargetRegion": "westeurope",
+      "SourceResourceTypeCount": 2,
+      "AvailableTypes": 1,
+      "UnavailableTypes": 1,
+      "AvailabilityPercent": 50,
+      "AvgCostDifference": -5,
+      "HasCostData": true,
+      "AvgLatencyMs": 42,
+      "LatencyEstimated": true,
+      "MissingResourceTypes": [
+        "microsoft.custom/widgets"
+      ],
+      "MissingSKUs": [
+        "microsoft.custom/widgets:SKU (unknown)"
+      ],
+      "RestrictedSKUs": [],
+      "ZoneRestrictedSKUs": [],
+      "TotalSKUsChecked": 1,
+      "AvailableSKUs": 0,
+      "UnavailableSKUs": 0,
+      "UnknownSKUs": 1,
+      "SKUAvailabilityPercent": 100,
+      "SourceZoneCount": 3,
+      "TargetZoneCount": 2,
+      "TargetZoneMappings": {
+        "1": "phys1"
+      },
+      "Score": 0
+    }
+  ],
+  "empty-pricing": [
+    {
+      "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+      "SubscriptionName": "selected",
+      "SourceRegion": "eastus",
+      "TargetRegion": "westeurope",
+      "SourceResourceTypeCount": 2,
+      "AvailableTypes": 1,
+      "UnavailableTypes": 1,
+      "AvailabilityPercent": 50,
+      "AvgCostDifference": -5,
+      "HasCostData": true,
+      "AvgLatencyMs": 42,
+      "LatencyEstimated": true,
+      "MissingResourceTypes": [
+        "microsoft.custom/widgets"
+      ],
+      "MissingSKUs": [
+        "microsoft.custom/widgets:SKU (unknown)"
+      ],
+      "RestrictedSKUs": [],
+      "ZoneRestrictedSKUs": [],
+      "TotalSKUsChecked": 1,
+      "AvailableSKUs": 0,
+      "UnavailableSKUs": 0,
+      "UnknownSKUs": 1,
+      "SKUAvailabilityPercent": 100,
+      "SourceZoneCount": 3,
+      "TargetZoneCount": 2,
+      "TargetZoneMappings": {
+        "1": "phys1"
+      },
+      "Score": 0
+    }
+  ],
+  "empty-results": [],
+  "equal-prices": [
+    {
+      "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+      "SubscriptionName": "selected",
+      "SourceRegion": "eastus",
+      "TargetRegion": "westeurope",
+      "SourceResourceTypeCount": 2,
+      "AvailableTypes": 1,
+      "UnavailableTypes": 1,
+      "AvailabilityPercent": 50,
+      "AvgCostDifference": 0,
+      "HasCostData": true,
+      "AvgLatencyMs": 42,
+      "LatencyEstimated": true,
+      "MissingResourceTypes": [
+        "microsoft.custom/widgets"
+      ],
+      "MissingSKUs": [
+        "microsoft.custom/widgets:SKU (unknown)"
+      ],
+      "RestrictedSKUs": [],
+      "ZoneRestrictedSKUs": [],
+      "TotalSKUsChecked": 1,
+      "AvailableSKUs": 0,
+      "UnavailableSKUs": 0,
+      "UnknownSKUs": 1,
+      "SKUAvailabilityPercent": 100,
+      "SourceZoneCount": 3,
+      "TargetZoneCount": 2,
+      "TargetZoneMappings": {
+        "1": "phys1"
+      },
+      "Score": 0
+    }
+  ],
+  "exact-threshold": [
+    {
+      "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+      "SubscriptionName": "selected",
+      "SourceRegion": "eastus",
+      "TargetRegion": "westeurope",
+      "SourceResourceTypeCount": 2,
+      "AvailableTypes": 1,
+      "UnavailableTypes": 1,
+      "AvailabilityPercent": 50,
+      "AvgCostDifference": 100,
+      "HasCostData": true,
+      "AvgLatencyMs": 42,
+      "LatencyEstimated": true,
+      "MissingResourceTypes": [
+        "microsoft.custom/widgets"
+      ],
+      "MissingSKUs": [
+        "microsoft.custom/widgets:SKU (unknown)"
+      ],
+      "RestrictedSKUs": [],
+      "ZoneRestrictedSKUs": [],
+      "TotalSKUsChecked": 1,
+      "AvailableSKUs": 0,
+      "UnavailableSKUs": 0,
+      "UnknownSKUs": 1,
+      "SKUAvailabilityPercent": 100,
+      "SourceZoneCount": 3,
+      "TargetZoneCount": 2,
+      "TargetZoneMappings": {
+        "1": "phys1"
+      },
+      "Score": 0
+    }
+  ],
+  "free-target": [
+    {
+      "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+      "SubscriptionName": "selected",
+      "SourceRegion": "eastus",
+      "TargetRegion": "westeurope",
+      "SourceResourceTypeCount": 2,
+      "AvailableTypes": 1,
+      "UnavailableTypes": 1,
+      "AvailabilityPercent": 50,
+      "AvgCostDifference": -100,
+      "HasCostData": true,
+      "AvgLatencyMs": 42,
+      "LatencyEstimated": true,
+      "MissingResourceTypes": [
+        "microsoft.custom/widgets"
+      ],
+      "MissingSKUs": [
+        "microsoft.custom/widgets:SKU (unknown)"
+      ],
+      "RestrictedSKUs": [],
+      "ZoneRestrictedSKUs": [],
+      "TotalSKUsChecked": 1,
+      "AvailableSKUs": 0,
+      "UnavailableSKUs": 0,
+      "UnknownSKUs": 1,
+      "SKUAvailabilityPercent": 100,
+      "SourceZoneCount": 3,
+      "TargetZoneCount": 2,
+      "TargetZoneMappings": {
+        "1": "phys1"
+      },
+      "Score": 0
+    }
+  ],
+  "logical-source": [
+    {
+      "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+      "SubscriptionName": "selected",
+      "SourceRegion": "global",
+      "TargetRegion": "westeurope",
+      "SourceResourceTypeCount": 2,
+      "AvailableTypes": 1,
+      "UnavailableTypes": 1,
+      "AvailabilityPercent": 50,
+      "AvgCostDifference": -5,
+      "HasCostData": true,
+      "AvgLatencyMs": 42,
+      "LatencyEstimated": true,
+      "MissingResourceTypes": [
+        "microsoft.custom/widgets"
+      ],
+      "MissingSKUs": [
+        "microsoft.custom/widgets:SKU (unknown)"
+      ],
+      "RestrictedSKUs": [],
+      "ZoneRestrictedSKUs": [],
+      "TotalSKUsChecked": 1,
+      "AvailableSKUs": 0,
+      "UnavailableSKUs": 0,
+      "UnknownSKUs": 1,
+      "SKUAvailabilityPercent": 100,
+      "SourceZoneCount": 3,
+      "TargetZoneCount": 2,
+      "TargetZoneMappings": {
+        "1": "phys1"
+      },
+      "Score": 0
+    }
+  ],
+  "logical-target": [
+    {
+      "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+      "SubscriptionName": "selected",
+      "SourceRegion": "eastus",
+      "TargetRegion": "europe",
+      "SourceResourceTypeCount": 2,
+      "AvailableTypes": 1,
+      "UnavailableTypes": 1,
+      "AvailabilityPercent": 50,
+      "AvgCostDifference": -5,
+      "HasCostData": true,
+      "AvgLatencyMs": 42,
+      "LatencyEstimated": true,
+      "MissingResourceTypes": [
+        "microsoft.custom/widgets"
+      ],
+      "MissingSKUs": [
+        "microsoft.custom/widgets:SKU (unknown)"
+      ],
+      "RestrictedSKUs": [],
+      "ZoneRestrictedSKUs": [],
+      "TotalSKUsChecked": 1,
+      "AvailableSKUs": 0,
+      "UnavailableSKUs": 0,
+      "UnknownSKUs": 1,
+      "SKUAvailabilityPercent": 100,
+      "SourceZoneCount": 3,
+      "TargetZoneCount": 2,
+      "TargetZoneMappings": {
+        "1": "phys1"
+      },
+      "Score": 0
+    }
+  ],
+  "missing-source": [
+    {
+      "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+      "SubscriptionName": "selected",
+      "SourceRegion": "eastus",
+      "TargetRegion": "westeurope",
+      "SourceResourceTypeCount": 2,
+      "AvailableTypes": 1,
+      "UnavailableTypes": 1,
+      "AvailabilityPercent": 50,
+      "AvgCostDifference": -5,
+      "HasCostData": true,
+      "AvgLatencyMs": 42,
+      "LatencyEstimated": true,
+      "MissingResourceTypes": [
+        "microsoft.custom/widgets"
+      ],
+      "MissingSKUs": [
+        "microsoft.custom/widgets:SKU (unknown)"
+      ],
+      "RestrictedSKUs": [],
+      "ZoneRestrictedSKUs": [],
+      "TotalSKUsChecked": 1,
+      "AvailableSKUs": 0,
+      "UnavailableSKUs": 0,
+      "UnknownSKUs": 1,
+      "SKUAvailabilityPercent": 100,
+      "SourceZoneCount": 3,
+      "TargetZoneCount": 2,
+      "TargetZoneMappings": {
+        "1": "phys1"
+      },
+      "Score": 0
+    }
+  ],
+  "missing-target": [
+    {
+      "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+      "SubscriptionName": "selected",
+      "SourceRegion": "eastus",
+      "TargetRegion": "westeurope",
+      "SourceResourceTypeCount": 2,
+      "AvailableTypes": 1,
+      "UnavailableTypes": 1,
+      "AvailabilityPercent": 50,
+      "AvgCostDifference": -5,
+      "HasCostData": true,
+      "AvgLatencyMs": 42,
+      "LatencyEstimated": true,
+      "MissingResourceTypes": [
+        "microsoft.custom/widgets"
+      ],
+      "MissingSKUs": [
+        "microsoft.custom/widgets:SKU (unknown)"
+      ],
+      "RestrictedSKUs": [],
+      "ZoneRestrictedSKUs": [],
+      "TotalSKUsChecked": 1,
+      "AvailableSKUs": 0,
+      "UnavailableSKUs": 0,
+      "UnknownSKUs": 1,
+      "SKUAvailabilityPercent": 100,
+      "SourceZoneCount": 3,
+      "TargetZoneCount": 2,
+      "TargetZoneMappings": {
+        "1": "phys1"
+      },
+      "Score": 0
+    }
+  ],
+  "near-zero-both": [
+    {
+      "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+      "SubscriptionName": "selected",
+      "SourceRegion": "eastus",
+      "TargetRegion": "westeurope",
+      "SourceResourceTypeCount": 2,
+      "AvailableTypes": 1,
+      "UnavailableTypes": 1,
+      "AvailabilityPercent": 50,
+      "AvgCostDifference": 25,
+      "HasCostData": true,
+      "AvgLatencyMs": 42,
+      "LatencyEstimated": true,
+      "MissingResourceTypes": [
+        "microsoft.custom/widgets"
+      ],
+      "MissingSKUs": [
+        "microsoft.custom/widgets:SKU (unknown)"
+      ],
+      "RestrictedSKUs": [],
+      "ZoneRestrictedSKUs": [],
+      "TotalSKUsChecked": 1,
+      "AvailableSKUs": 0,
+      "UnavailableSKUs": 0,
+      "UnknownSKUs": 1,
+      "SKUAvailabilityPercent": 100,
+      "SourceZoneCount": 3,
+      "TargetZoneCount": 2,
+      "TargetZoneMappings": {
+        "1": "phys1"
+      },
+      "Score": 0
+    }
+  ],
+  "near-zero-source": [
+    {
+      "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+      "SubscriptionName": "selected",
+      "SourceRegion": "eastus",
+      "TargetRegion": "westeurope",
+      "SourceResourceTypeCount": 2,
+      "AvailableTypes": 1,
+      "UnavailableTypes": 1,
+      "AvailabilityPercent": 50,
+      "AvgCostDifference": 100,
+      "HasCostData": true,
+      "AvgLatencyMs": 42,
+      "LatencyEstimated": true,
+      "MissingResourceTypes": [
+        "microsoft.custom/widgets"
+      ],
+      "MissingSKUs": [
+        "microsoft.custom/widgets:SKU (unknown)"
+      ],
+      "RestrictedSKUs": [],
+      "ZoneRestrictedSKUs": [],
+      "TotalSKUsChecked": 1,
+      "AvailableSKUs": 0,
+      "UnavailableSKUs": 0,
+      "UnknownSKUs": 1,
+      "SKUAvailabilityPercent": 100,
+      "SourceZoneCount": 3,
+      "TargetZoneCount": 2,
+      "TargetZoneMappings": {
+        "1": "phys1"
+      },
+      "Score": 0
+    }
+  ],
+  "negative-prices": [
+    {
+      "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+      "SubscriptionName": "selected",
+      "SourceRegion": "eastus",
+      "TargetRegion": "westeurope",
+      "SourceResourceTypeCount": 2,
+      "AvailableTypes": 1,
+      "UnavailableTypes": 1,
+      "AvailabilityPercent": 50,
+      "AvgCostDifference": 0,
+      "HasCostData": true,
+      "AvgLatencyMs": 42,
+      "LatencyEstimated": true,
+      "MissingResourceTypes": [
+        "microsoft.custom/widgets"
+      ],
+      "MissingSKUs": [
+        "microsoft.custom/widgets:SKU (unknown)"
+      ],
+      "RestrictedSKUs": [],
+      "ZoneRestrictedSKUs": [],
+      "TotalSKUsChecked": 1,
+      "AvailableSKUs": 0,
+      "UnavailableSKUs": 0,
+      "UnknownSKUs": 1,
+      "SKUAvailabilityPercent": 100,
+      "SourceZoneCount": 3,
+      "TargetZoneCount": 2,
+      "TargetZoneMappings": {
+        "1": "phys1"
+      },
+      "Score": 0
+    }
+  ],
+  "negative-weight": [
+    {
+      "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+      "SubscriptionName": "selected",
+      "SourceRegion": "eastus",
+      "TargetRegion": "westeurope",
+      "SourceResourceTypeCount": 2,
+      "AvailableTypes": 1,
+      "UnavailableTypes": 1,
+      "AvailabilityPercent": 50,
+      "AvgCostDifference": -5,
+      "HasCostData": true,
+      "AvgLatencyMs": 42,
+      "LatencyEstimated": true,
+      "MissingResourceTypes": [
+        "microsoft.custom/widgets"
+      ],
+      "MissingSKUs": [
+        "microsoft.custom/widgets:SKU (unknown)"
+      ],
+      "RestrictedSKUs": [],
+      "ZoneRestrictedSKUs": [],
+      "TotalSKUsChecked": 1,
+      "AvailableSKUs": 0,
+      "UnavailableSKUs": 0,
+      "UnknownSKUs": 1,
+      "SKUAvailabilityPercent": 100,
+      "SourceZoneCount": 3,
+      "TargetZoneCount": 2,
+      "TargetZoneMappings": {
+        "1": "phys1"
+      },
+      "Score": 0
+    }
+  ],
+  "nil-shared": [
+    {
+      "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+      "SubscriptionName": "selected",
+      "SourceRegion": "eastus",
+      "TargetRegion": "westeurope",
+      "SourceResourceTypeCount": 2,
+      "AvailableTypes": 1,
+      "UnavailableTypes": 1,
+      "AvailabilityPercent": 50,
+      "AvgCostDifference": -5,
+      "HasCostData": true,
+      "AvgLatencyMs": 42,
+      "LatencyEstimated": true,
+      "MissingResourceTypes": [
+        "microsoft.custom/widgets"
+      ],
+      "MissingSKUs": [
+        "microsoft.custom/widgets:SKU (unknown)"
+      ],
+      "RestrictedSKUs": [],
+      "ZoneRestrictedSKUs": [],
+      "TotalSKUsChecked": 1,
+      "AvailableSKUs": 0,
+      "UnavailableSKUs": 0,
+      "UnknownSKUs": 1,
+      "SKUAvailabilityPercent": 100,
+      "SourceZoneCount": 3,
+      "TargetZoneCount": 2,
+      "TargetZoneMappings": {
+        "1": "phys1"
+      },
+      "Score": 0
+    }
+  ],
+  "nil-without-prior": [
+    {
+      "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+      "SubscriptionName": "selected",
+      "SourceRegion": "eastus",
+      "TargetRegion": "westeurope",
+      "SourceResourceTypeCount": 2,
+      "AvailableTypes": 1,
+      "UnavailableTypes": 1,
+      "AvailabilityPercent": 50,
+      "AvgCostDifference": 0,
+      "HasCostData": false,
+      "AvgLatencyMs": 42,
+      "LatencyEstimated": true,
+      "MissingResourceTypes": [
+        "microsoft.custom/widgets"
+      ],
+      "MissingSKUs": [
+        "microsoft.custom/widgets:SKU (unknown)"
+      ],
+      "RestrictedSKUs": [],
+      "ZoneRestrictedSKUs": [],
+      "TotalSKUsChecked": 1,
+      "AvailableSKUs": 0,
+      "UnavailableSKUs": 0,
+      "UnknownSKUs": 1,
+      "SKUAvailabilityPercent": 100,
+      "SourceZoneCount": 3,
+      "TargetZoneCount": 2,
+      "TargetZoneMappings": {
+        "1": "phys1"
+      },
+      "Score": 0
+    }
+  ],
+  "owned-only": [
+    {
+      "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+      "SubscriptionName": "selected",
+      "SourceRegion": "eastus",
+      "TargetRegion": "westeurope",
+      "SourceResourceTypeCount": 2,
+      "AvailableTypes": 1,
+      "UnavailableTypes": 1,
+      "AvailabilityPercent": 50,
+      "AvgCostDifference": 100,
+      "HasCostData": true,
+      "AvgLatencyMs": 42,
+      "LatencyEstimated": true,
+      "MissingResourceTypes": [
+        "microsoft.custom/widgets"
+      ],
+      "MissingSKUs": [
+        "microsoft.custom/widgets:SKU (unknown)"
+      ],
+      "RestrictedSKUs": [],
+      "ZoneRestrictedSKUs": [],
+      "TotalSKUsChecked": 1,
+      "AvailableSKUs": 0,
+      "UnavailableSKUs": 0,
+      "UnknownSKUs": 1,
+      "SKUAvailabilityPercent": 100,
+      "SourceZoneCount": 3,
+      "TargetZoneCount": 2,
+      "TargetZoneMappings": {
+        "1": "phys1"
+      },
+      "Score": 0
+    }
+  ],
+  "same-region": [
+    {
+      "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+      "SubscriptionName": "selected",
+      "SourceRegion": "eastus",
+      "TargetRegion": "eastus",
+      "SourceResourceTypeCount": 2,
+      "AvailableTypes": 1,
+      "UnavailableTypes": 1,
+      "AvailabilityPercent": 50,
+      "AvgCostDifference": 0,
+      "HasCostData": true,
+      "AvgLatencyMs": 42,
+      "LatencyEstimated": true,
+      "MissingResourceTypes": [
+        "microsoft.custom/widgets"
+      ],
+      "MissingSKUs": [
+        "microsoft.custom/widgets:SKU (unknown)"
+      ],
+      "RestrictedSKUs": [],
+      "ZoneRestrictedSKUs": [],
+      "TotalSKUsChecked": 1,
+      "AvailableSKUs": 0,
+      "UnavailableSKUs": 0,
+      "UnknownSKUs": 1,
+      "SKUAvailabilityPercent": 100,
+      "SourceZoneCount": 3,
+      "TargetZoneCount": 2,
+      "TargetZoneMappings": {
+        "1": "phys1"
+      },
+      "Score": 0
+    }
+  ],
+  "unbound-subscription": [
+    {
+      "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+      "SubscriptionName": "selected",
+      "SourceRegion": "eastus",
+      "TargetRegion": "westeurope",
+      "SourceResourceTypeCount": 2,
+      "AvailableTypes": 1,
+      "UnavailableTypes": 1,
+      "AvailabilityPercent": 50,
+      "AvgCostDifference": 100,
+      "HasCostData": true,
+      "AvgLatencyMs": 42,
+      "LatencyEstimated": true,
+      "MissingResourceTypes": [
+        "microsoft.custom/widgets"
+      ],
+      "MissingSKUs": [
+        "microsoft.custom/widgets:SKU (unknown)"
+      ],
+      "RestrictedSKUs": [],
+      "ZoneRestrictedSKUs": [],
+      "TotalSKUsChecked": 1,
+      "AvailableSKUs": 0,
+      "UnavailableSKUs": 0,
+      "UnknownSKUs": 1,
+      "SKUAvailabilityPercent": 100,
+      "SourceZoneCount": 3,
+      "TargetZoneCount": 2,
+      "TargetZoneMappings": {
+        "1": "phys1"
+      },
+      "Score": 0
+    },
+    {
+      "SubscriptionID": "22222222-2222-2222-2222-222222222222",
+      "SubscriptionName": "selected",
+      "SourceRegion": "eastus",
+      "TargetRegion": "westeurope",
+      "SourceResourceTypeCount": 2,
+      "AvailableTypes": 1,
+      "UnavailableTypes": 1,
+      "AvailabilityPercent": 50,
+      "AvgCostDifference": 100,
+      "HasCostData": true,
+      "AvgLatencyMs": 42,
+      "LatencyEstimated": true,
+      "MissingResourceTypes": [
+        "microsoft.custom/widgets"
+      ],
+      "MissingSKUs": [
+        "microsoft.custom/widgets:SKU (unknown)"
+      ],
+      "RestrictedSKUs": [],
+      "ZoneRestrictedSKUs": [],
+      "TotalSKUsChecked": 1,
+      "AvailableSKUs": 0,
+      "UnavailableSKUs": 0,
+      "UnknownSKUs": 1,
+      "SKUAvailabilityPercent": 100,
+      "SourceZoneCount": 3,
+      "TargetZoneCount": 2,
+      "TargetZoneMappings": {
+        "1": "phys1"
+      },
+      "Score": 0
+    }
+  ],
+  "unowned-only": [
+    {
+      "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+      "SubscriptionName": "selected",
+      "SourceRegion": "eastus",
+      "TargetRegion": "westeurope",
+      "SourceResourceTypeCount": 2,
+      "AvailableTypes": 1,
+      "UnavailableTypes": 1,
+      "AvailabilityPercent": 50,
+      "AvgCostDifference": -5,
+      "HasCostData": true,
+      "AvgLatencyMs": 42,
+      "LatencyEstimated": true,
+      "MissingResourceTypes": [
+        "microsoft.custom/widgets"
+      ],
+      "MissingSKUs": [
+        "microsoft.custom/widgets:SKU (unknown)"
+      ],
+      "RestrictedSKUs": [],
+      "ZoneRestrictedSKUs": [],
+      "TotalSKUsChecked": 1,
+      "AvailableSKUs": 0,
+      "UnavailableSKUs": 0,
+      "UnknownSKUs": 1,
+      "SKUAvailabilityPercent": 100,
+      "SourceZoneCount": 3,
+      "TargetZoneCount": 2,
+      "TargetZoneMappings": {
+        "1": "phys1"
+      },
+      "Score": 0
+    }
+  ],
+  "weighted": [
+    {
+      "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+      "SubscriptionName": "selected",
+      "SourceRegion": "eastus",
+      "TargetRegion": "westeurope",
+      "SourceResourceTypeCount": 2,
+      "AvailableTypes": 1,
+      "UnavailableTypes": 1,
+      "AvailabilityPercent": 50,
+      "AvgCostDifference": 62.5,
+      "HasCostData": true,
+      "AvgLatencyMs": 42,
+      "LatencyEstimated": true,
+      "MissingResourceTypes": [
+        "microsoft.custom/widgets"
+      ],
+      "MissingSKUs": [
+        "microsoft.custom/widgets:SKU (unknown)"
+      ],
+      "RestrictedSKUs": [],
+      "ZoneRestrictedSKUs": [],
+      "TotalSKUsChecked": 1,
+      "AvailableSKUs": 0,
+      "UnavailableSKUs": 0,
+      "UnknownSKUs": 1,
+      "SKUAvailabilityPercent": 100,
+      "SourceZoneCount": 3,
+      "TargetZoneCount": 2,
+      "TargetZoneMappings": {
+        "1": "phys1"
+      },
+      "Score": 0
+    }
+  ],
+  "zero-weight": [
+    {
+      "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+      "SubscriptionName": "selected",
+      "SourceRegion": "eastus",
+      "TargetRegion": "westeurope",
+      "SourceResourceTypeCount": 2,
+      "AvailableTypes": 1,
+      "UnavailableTypes": 1,
+      "AvailabilityPercent": 50,
+      "AvgCostDifference": -12.5,
+      "HasCostData": true,
+      "AvgLatencyMs": 42,
+      "LatencyEstimated": true,
+      "MissingResourceTypes": [
+        "microsoft.custom/widgets"
+      ],
+      "MissingSKUs": [
+        "microsoft.custom/widgets:SKU (unknown)"
+      ],
+      "RestrictedSKUs": [],
+      "ZoneRestrictedSKUs": [],
+      "TotalSKUsChecked": 1,
+      "AvailableSKUs": 0,
+      "UnavailableSKUs": 0,
+      "UnknownSKUs": 1,
+      "SKUAvailabilityPercent": 100,
+      "SourceZoneCount": 3,
+      "TargetZoneCount": 2,
+      "TargetZoneMappings": {
+        "1": "phys1"
+      },
+      "Score": 0
+    }
+  ]
+}

@@ -64,6 +64,9 @@ jobs:
       - name: Verify latency source oracle mutations
         run: python3 scripts/tests/region-latency-capture-mutation.py
 
+      - name: Verify cost enrichment source oracle mutations
+        run: python3 scripts/tests/region-cost-enrichment-capture-mutation.py
+
       - name: Verify formatting
         shell: bash
         run: |
@@ -285,6 +288,9 @@ jobs:
 
       - name: Verify Windows latency source oracle mutations
         run: python scripts/tests/region-latency-capture-mutation.py
+
+      - name: Verify Windows cost enrichment source oracle mutations
+        run: python scripts/tests/region-cost-enrichment-capture-mutation.py
 
       - name: Test Go packages on Windows
         run: go test ./...
