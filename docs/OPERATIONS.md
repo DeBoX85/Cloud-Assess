@@ -29,6 +29,9 @@ Write-Host "Cloud Assess exit: $scanExit"
 
 Capture `$LASTEXITCODE` immediately. For a child management group replace the subscription flag with `--management-group-id '<approved-child-id>'`. Do not use `Advisory` as an implicit substitute for DV-001. Optional stages need explicit approval and access review. Use the exact checked executable's help for stage parameters and filter syntax; do not invent flags. The scan uses the identity selected by its credential chain, not necessarily the identity of an unrelated portal session. Clear stale credential/cloud overrides or deliberately select one credential source before troubleshooting unexpected identity behavior.
 
+
+Filter files accept one YAML document with known neutral schema fields. Unknown or legacy keys, additional documents and a null `assessment` fail before authentication. An empty file and `assessment: {}` preserve default filter behavior. This is an intentional input correction to prevent silently discarded scope restrictions; see [AUDIT_FILTER_SCHEMA.md](AUDIT_FILTER_SCHEMA.md).
+
 ## Evaluate the result
 
 | Exit | Meaning | Required action |

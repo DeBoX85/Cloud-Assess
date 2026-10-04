@@ -141,6 +141,9 @@ Filters support subscription, resource group, scanner/service selection, individ
 
 The target configuration root uses neutral terminology such as `assessment:` rather than the legacy product name. The target also renames the legacy `exclude.services` field to the clearer `exclude.resources`; this is an intentional configuration compatibility break, not a behavioral change.
 
+
+Filter files accept one YAML document with known neutral schema fields. Unknown or legacy keys, additional documents and a null `assessment` fail before authentication. An empty file and `assessment: {}` preserve default filter behavior. This is an intentional input correction to prevent silently discarded scope restrictions; see [AUDIT_FILTER_SCHEMA.md](AUDIT_FILTER_SCHEMA.md).
+
 ## Recommendation catalog
 
 Recommendation sources are normalized into one `RecommendationDefinition` model.

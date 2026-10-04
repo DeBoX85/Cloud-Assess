@@ -1,7 +1,9 @@
 package config
 
 import (
+	"bytes"
 	"fmt"
+	"io"
 	"os"
 	"path/filepath"
 
@@ -21,8 +23,17 @@ func LoadFilters(filename string) (*Filters, error) {
 	if err != nil {
 		return nil, fmt.Errorf("read filter file %q: %w", filename, err)
 	}
-	if err := yaml.Unmarshal(data, filters); err != nil {
+	decoder := yaml.NewDecoder(bytes.NewReader(data))
+	decoder.KnownFields(true)
+	if err := decoder.Decode(filters); err != nil && err != io.EOF {
 		return nil, fmt.Errorf("parse filter YAML %q: %w", filename, err)
+	}
+	if filters.Assessment == nil {
+		return nil, fmt.Errorf("validate filter file %q: assessment must not be null", filename)
+	}
+	var extra any
+	if err := decoder.Decode(&extra); err != io.EOF {
+		return nil, fmt.Errorf("parse filter YAML %q: expected one YAML document", filename)
 	}
 	filters.RebuildIndexes()
 	if filters.Assessment != nil {
