@@ -22,10 +22,15 @@ CAPTURES = (
     ("availability_capture_test.go.txt", "availability/availability_capture_test.go",
      "REGION_AVAILABILITY_CAPTURE_OUTPUT", "^TestRegionAvailabilityCalculationCapture$",
      "./internal/scanners/plugins/region/availability"),
+    ("latency_capture_test.go.txt", "latency/latency_capture_test.go",
+     "REGION_LATENCY_CAPTURE_OUTPUT", "^TestRegionLatencyCapture$",
+     "./internal/scanners/plugins/region/latency"),
 )
 FILES = ("source-aux-inputs.json", "source-aux-outputs.json",
          "source-inventory-inputs.json", "source-inventory-outputs.json",
-         "source-availability-inputs.json", "source-availability-outputs.json")
+         "source-availability-inputs.json", "source-availability-outputs.json",
+         "source-latency-inputs.json", "source-latency-outputs.json",
+         "source-latency-data.json")
 
 
 def run(args, directory, timeout=240, capture=False):
@@ -77,11 +82,14 @@ with tempfile.TemporaryDirectory(prefix="cloud-assess-region-source-") as tempor
     print("REGION_CAPTURE_PROVENANCE " + json.dumps({"source": SOURCE, "tree": SOURCE_TREE, "aprl": APRL}))
     for name in FILES:
         raw = (output / name).read_bytes()
-        retained = ROOT / "internal/plugins/region/testdata" / name
-        verify_capture_bytes(raw, retained)
         content = raw.decode("utf-8")
         pieces = [content[i:i + 3000] for i in range(0, len(content), 3000)]
         for index, piece in enumerate(pieces):
             print("REGION_CAPTURE_JSON " + json.dumps({
                 "name": name, "sha256": hashlib.sha256(raw).hexdigest(),
                 "index": index, "count": len(pieces), "content": piece}, ensure_ascii=True))
+
+    # Emit complete observations first; missing/changed goldens still fail.
+    for name in FILES:
+        verify_capture_bytes((output / name).read_bytes(),
+                             ROOT / "internal/plugins/region/testdata" / name)

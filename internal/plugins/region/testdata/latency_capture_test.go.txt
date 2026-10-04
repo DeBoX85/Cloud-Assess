@@ -1,0 +1,87 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+// Pure characterization of unchanged pinned latency helpers and bundled data.
+package latency
+
+import (
+	"crypto/sha1"
+	"encoding/json"
+	"fmt"
+	"net/http"
+	"os"
+	"path/filepath"
+	"testing"
+
+	"github.com/Azure/azqr/internal/scanners/plugins/region/types"
+)
+
+type latencyCaptureTripwire struct{}
+func (latencyCaptureTripwire) RoundTrip(*http.Request) (*http.Response, error) {
+	panic("latency capture attempted HTTP")
+}
+
+type latencyCaptureCase struct {
+	Matrix map[string]map[string]float64
+	Results []types.RegionComparison
+}
+
+func TestRegionLatencyCapture(t *testing.T) {
+	output := os.Getenv("REGION_LATENCY_CAPTURE_OUTPUT")
+	if output == "" { t.Fatal("missing capture output") }
+	oldTransport, oldClient := http.DefaultTransport, http.DefaultClient
+	http.DefaultTransport = latencyCaptureTripwire{}
+	http.DefaultClient = &http.Client{Transport: latencyCaptureTripwire{}}
+	defer func() { http.DefaultTransport, http.DefaultClient = oldTransport, oldClient }()
+	defaultMatrix, defaultAverages := azureRegionLatency, clusterPairAverages
+	defer func() { azureRegionLatency, clusterPairAverages = defaultMatrix, defaultAverages }()
+	write := func(name string, value any) {
+		raw, err := json.MarshalIndent(value, "", "  ")
+		if err != nil { t.Fatal(err) }
+		if err := os.MkdirAll(output, 0700); err != nil { t.Fatal(err) }
+		if err := os.WriteFile(filepath.Join(output, name), append(raw, '\n'), 0600); err != nil { t.Fatal(err) }
+	}
+	raw, err := os.ReadFile("zz_generated.latency.go")
+	if err != nil { t.Fatal(err) }
+	hash := sha1.Sum(append([]byte(fmt.Sprintf("blob %d\x00", len(raw))), raw...))
+	blob := fmt.Sprintf("%x", hash)
+	if blob != "64a6abc72e2a54fec286cb27123175d1d6bcda61" { t.Fatal("pinned generated data changed", blob) }
+	write("source-latency-data.json", struct {
+		SourceBlob string `json:"source_blob"`
+		Matrix map[string]map[string]float64 `json:"matrix"`
+		Clusters map[string]string `json:"clusters"`
+	}{blob, defaultMatrix, regionCluster})
+	comparison := func(source, target string) types.RegionComparison {
+		return types.RegionComparison{SubscriptionID: "11111111-1111-1111-1111-111111111111", SubscriptionName: "selected", SourceRegion: source, TargetRegion: target, SourceResourceTypeCount: 2, AvailableTypes: 1, UnavailableTypes: 1, AvailabilityPercent: 50, TotalSKUsChecked: 1, UnknownSKUs: 1, SKUAvailabilityPercent: 100, MissingResourceTypes: []string{"microsoft.custom/widgets"}, MissingSKUs: []string{"microsoft.custom/widgets:SKU (unknown)"}, RestrictedSKUs: []string{}, ZoneRestrictedSKUs: []string{}, SourceZoneCount: 3, TargetZoneCount: 2, TargetZoneMappings: map[string]string{"1": "phys1"}, AvgLatencyMs: 42, LatencyEstimated: true, HasCostData: true, AvgCostDifference: -5}
+	}
+	pairs := func(values ...string) []types.RegionComparison {
+		result := []types.RegionComparison{}
+		for i := 0; i < len(values); i += 2 { result = append(result, comparison(values[i], values[i+1])) }
+		return result
+	}
+	cases := map[string]latencyCaptureCase{
+		"synthetic": {Matrix: map[string]map[string]float64{"eastus": {"westeurope": 85, "northeurope": 105, "eastus": 999, "unknownsource": 7}, "westeurope": {"eastus": 115, "northeurope": 30}, "unknown": {"westeurope": 1}}, Results: pairs("eastus", "westeurope", "westeurope", "eastus", "northeurope", "eastus", "westus", "francesouth", "francesouth", "westus", "northeurope", "francesouth", "westus", "westus2", "eastus", "eastus", "unknown", "westeurope", "westeurope", "unknown", "global", "francesouth", "East US", "West Europe")},
+		"empty": {Matrix: map[string]map[string]float64{}, Results: pairs("eastus", "eastus", "eastus", "westeurope")},
+		"one-way-cluster": {Matrix: map[string]map[string]float64{"eastus": {"westeurope": 80}}, Results: pairs("westus", "francesouth", "francesouth", "westus")},
+		"zero": {Matrix: map[string]map[string]float64{"eastus": {"westeurope": 0}}, Results: pairs("eastus", "westeurope", "westus", "francesouth")},
+		"negative": {Matrix: map[string]map[string]float64{"eastus": {"westeurope": -2}}, Results: pairs("eastus", "westeurope", "westus", "francesouth")},
+		"default": {Matrix: defaultMatrix, Results: pairs("eastus", "westeurope", "austriaeast", "eastus", "eastus", "austriaeast", "qatarcentral", "westeurope", "unknown", "westeurope", "eastus", "eastus", "australiacentral", "australiacentral2")},
+		"empty-results": {Matrix: map[string]map[string]float64{}, Results: []types.RegionComparison{}},
+	}
+	// Record untouched inputs before the source's in-place enrichment runs.
+	write("source-latency-inputs.json", cases)
+	results := map[string]struct {
+		Comparisons []types.RegionComparison `json:"comparisons"`
+		Averages map[string]float64 `json:"averages"`
+	}{}
+	for name, input := range cases {
+		azureRegionLatency = input.Matrix
+		clusterPairAverages = computeClusterAverages(input.Matrix)
+		EnrichWithLatencyData(input.Results)
+		results[name] = struct {
+			Comparisons []types.RegionComparison `json:"comparisons"`
+			Averages map[string]float64 `json:"averages"`
+		}{input.Results, clusterPairAverages}
+	}
+	write("source-latency-outputs.json", results)
+	t.Log("Captured 7 latency cases / 27 comparison branches and complete pinned matrix/clusters; no credential/client/network invoked")
+}
