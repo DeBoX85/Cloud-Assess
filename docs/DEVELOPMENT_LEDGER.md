@@ -2265,3 +2265,10 @@ AI/region/equivalence/scanner/SKU production review extended; full test/requirem
 AUD006 test-only4cb8bd84/native37185359814 reproduced all6 compiling named command exit0 failures on Linux111386033586/Windows111386033687, healthy empty controls pass. Corrected733b924383561b300bcbcc68998c6c849cf2d3ab/tree92e1bb688222a8f86f50773a05cda5dc054dd363/parent4cb8bd84 Denis identity/three bytes verified on draft PR117; full native37185621965/source37185621953 pending. See comparison-input contract, no historical live incidence claim.
 
 Production Go inventory41 areas fully read, all4 workflows and9 production scripts examined; test/oracle/requirements/docs/dependency reconciliation still open. Read-only local execution request stalled/terminated, fallback to independently verified source bytes; no product failure or uncertain mutation inferred. Frozen07011b63/proposals113-117 remain unchanged/unmerged. No live/release/full-audit acceptance.
+
+
+## Audit additive-schema correction and full script review (2026-10-04)
+
+Requirements review caught initial117733b9243 unsupported valid1.1 additive schema. Literal test-only1bf98b7a/native37185951913 reproduced one named compiling failure on Linux111387770853/Windows111387770760, previous invalid/healthy controls pass. Finale381d0ad6e45989cf64526ac5d34131dc349e8e5/tree5e91d391cead6b74507abb6ac780817b9a42afaf/parent1bf98b7a allows both declared schemas, Denis identity/three bytes verified. Fresh final full QA pending. FN076 retains prevention, no accepted regression.
+
+All31 scripts/4 workflows read; complete Azure/discovery/config/stages/gate/throttling/findings/redaction tests read. Remaining integration/plugin/result/rules tests and specification/evidence reconciliation keep audit open. Filter unknown YAML keys/multiple documents are a new pre-auth scope question awaiting independent reproduction. Accepted07011b63 unchanged, all proposals draft/unmerged.
