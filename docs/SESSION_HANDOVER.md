@@ -1,5 +1,19 @@
 # Latest audit resume checkpoint (2026-10-04)
 
+Audit IN PROGRESS, user authorized autonomous offline work. Accepted07011b63440e69f4a5acb128e0449943f759ee9c/tree72bebbf4885a15a74a5f43dfe57c68fe979c1e7c unchanged. PR114 holds report/recovery prompt; verify live refs. Local630 blobs/tree/commit exact; APRL absent and no local Go. Native Actions execute actual QA.
+
+PR113be867a17 and PR11523d2ce4d full native/source/preview/capture evidence verified, remain draft/unmerged. AUD003 is injected-poster defensive correction; actual default SDK mitigation proven. AUD005 PR1168d54c0d921825996bbe9c663a8f48f1a6d95ca00/treeed772a9455cf11d490b310b6778d11977ac262a4 full native37184879992/Linux111384624285/Windows111384624226 and source37184879983/111384624557 passed. Full logs/mandatory steps/four complete capture bytes+SHA256/provenance read; preview9caddc01fbe6c95df1cc2766cb16c90835a9d000 identical candidate tree, ordered07011b63/8d54c0d9 parents verified. Cost guard rejects unconsumed nextLink, actual coordinator preserves healthy results and reports partial. Full pagination remains unimplemented, no live incidence inferred.
+
+New suspected AUD006 comparator input gap has independent test-only PR117 on qa/comparison-input-evidence at4cb8bd8451208e45e2551f72edef280de338e52f/tree3ae8c71f22fcb86fbe951810bd997fc7afd5db76, accepted07011b63 parent, Denis identity and both remote files verified. Six literal invalid inputs require nonzero real-command exit; complete/complete_with_warnings healthy empty controls require0. Production unchanged; native reproduction pending. See docs/AUDIT_COMPARISON_INPUTS.md on117.
+
+Next: inspect117 exact native failures before corrective edit; finish tooling/Diagnostics/scripts/workflows, comprehensive test/requirements and dependency/docs review. AI/region/equivalence/scanner/SKU production read completed but adequacy reconciliation open. Nested registry ownership and manually contradictory stage metadata are separate questions. No full audit percentage/ETA/live/release/Gate004 claim. All proposals remain unmerged. No Azure writes/new fixtures/roles/production substitution/service exposure/release. No user input needed for remaining offline work. Resume current report, preserve historical evidence, publish material checkpoints.
+
+Earlier dated checkpoints follow as superseded history.
+
+---
+
+# Latest audit resume checkpoint (2026-10-04)
+
 Audit IN PROGRESS, user authorized autonomous offline work. Frozen accepted07011b63/tree72bebbf4 unchanged. PR114 documentation checkpoint contains the current report/recovery prompt; always reverify refs after interruption. No local Go; local snapshot630 hashes/tree/commit exact, APRL absent locally. Native Actions are execution authority.
 
 PR113be867a17 repaired native/source/full six captures/preview verified, feature acceptance paused. PR11523d2ce4daee7474904975156b4c97fb75c2a6843/tree7438dfd7 full native37184407342/Linux111383253100/Windows111383253050 and source37184407425/111383253548 passed; logs, four retained captures and pinned provenance read; preview87b10d5d99153cd3c731efc58c1ff60f1f9fa7eb equals candidate tree, ordered07011b63/23d2ce4d parents. AUD003 default SDK route mitigation confirmed by actual new pipeline fixture passing. Defensive library fix remains draft/unmerged, not audit-wide or live acceptance.
