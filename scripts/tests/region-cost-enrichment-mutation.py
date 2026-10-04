@@ -8,6 +8,9 @@ import tempfile
 ROOT = Path(__file__).resolve().parents[2]
 FILE = 'internal/plugins/region/cost_enrichment.go'
 MUTATIONS = (
+    ('entry-budget', 'n > MaxCostEntries-entries', '(n > MaxCostEntries-entries && false)', 'TestCostRuntimeBudgets', 1, FILE),
+    ('region-budget', 'len(regions) > MaxCostRegions', '(len(regions) > MaxCostRegions && false)', 'TestCostRuntimeBudgets', 1, FILE),
+    ('history-completeness', '!history.Complete', '(!history.Complete && false)', 'TestCostRuntimeHealthAndSubscriptionWeights', 1, FILE),
     ('free-roundoff', 'math.Max(-100, weighted/total)', 'weighted/total', 'TestCostRuntimeFreeTargetRoundoff', 1, FILE),
     ('selected-scope', 'if !selected || name != c.SubscriptionName {', 'if (!selected && false) || name != c.SubscriptionName {', 'TestCostRuntimeAdmission', 1, 'internal/plugins/region/primary.go'),
     ('evidence-scope', '!selected || id != strings.ToLower(id)', '(!selected && false) || id != strings.ToLower(id)', 'TestCostRuntimeAdmission', 1, FILE),
