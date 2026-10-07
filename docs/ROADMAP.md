@@ -1,3 +1,19 @@
+# Accepted PR125 and reservation SDK audit continuation (2026-10-07)
+
+Accepted baseline is VERIFIED OFFLINE PR125, cd81283a5250f2ffb9d943e4697a7a88aa395560, tree2077e879ed2073686a4334b5b6eb707fe85cd1c0, ordered parents28c7d996bf040e3410dce5aef1cf3051dd187696/5b76c0830a59e6413ddaf918479934bfe4ba3656. Signed merge/Denis author/live ref/no open proposals and active no-bypass rules23890737 were reverified at continuation. Final candidate native37243961141/Linux111558081246/Windows111558081418 and source37243961139/job111558049535 passed; distinct accepted-push native37244650139/Linux111560015434/Windows111560015246 and source37244650162/job111560015332 passed. Their complete mandatory logs/steps and15 captures/123 chunks were verified at closure; current push run head/event/success was rechecked without unnecessarily rerunning accepted checks. Exact acceptance/failure/recovery authority: https://github.com/DeBoX85/Cloud-Assess/pull/125. Earlier pending wording is historical.
+
+Next authorized offline slice is unchanged FetchReservations source characterization under REGION_RESERVATION_SOURCE.md. Source null group/summary dereferences are inspected hypotheses until executed; missing utilization/identity mismatch/unmarked partial list/Get success require actual records and later explicit target corrections. Preserve all15 earlier source bytes and unconditional equality. Then bounded owned quota/reservation calculations, guarded adapters/coordinator/public all-format integration. Existing projections are not collectors. Whole-project offline audit was already accepted; do not repeat it or claim public/live/release readiness.
+
+Executor recovery: accepted tracked files and target Git object store/worktrees survive, but old sibling Go/source Git metadata and SDK cache are absent. Old vm-source/quota-source physical files survive with dangling Git metadata; preserve them. Fresh task-owned reservation-work starts from acceptedcd81283a; fresh reservation-source restores pinned source/APRL. Go1.26.8 is restored at /workspace/scratch/03055aa2c763/tools/go after official archive SHA256d0f743b33e8d8945e6b1f432edd15785c70507121d6e2a723b21285eddf8b57b verification. No local Windows/full native QA inferred. FN083 records recovery and read/path mistakes; scratch download/cache/raw diagnostic files are not backed up. No lost accepted code or uncertain remote mutation.
+
+User expects laptop/Azure within24 hours, access NOT confirmed. Continue independent source fixtures/tests. Approved installed core/plugin live queue can resume after confirmed access/scope; DV001 requires wholly nonproduction nested hierarchy. No resources/roles/fixtures/production substitution/exposure/release. Live/load/freshOS/hosted maintenance/Gate004/release/module-only advisory stay open. Self-review and independent expected literals are not independent-person approval.
+
+Publish coherent WIP and verify original local tree/full remote bytes/parent/Denis/ref before describing it backed up. Exact evolving proposal body records head/run/acceptance and next action. New heads need fresh mandatory Linux/windows/source evidence before protected merge and distinct accepted-push proof. Inspect remote state before retrying uncertain operations.
+
+Earlier records remain history.
+
+---
+
 # PR125 retained VM quota SDK source checkpoint
 
 Accepted PR124 remains28c7d996bf040e3410dce5aef1cf3051dd187696/tree43eb87ddd5c89a0592f571b8f8bcaf89aba97821. PR125 https://github.com/DeBoX85/Cloud-Assess/pull/125 is UNACCEPTED on feat/region-vm-quota-source. Planning50736112/treeb2a75e7d/parent28c7d996 and observatione72e9ebf/treea70511f2/parent50736112 complete original local trees/full bytes/ordered parents/Denis/ref verified. REGION_VM_QUOTA_SOURCE is the exact pre-edit source/fixture/correction contract. Prior accepted PR124 full proof is indexed at its live final body; older pending entries remain history.
