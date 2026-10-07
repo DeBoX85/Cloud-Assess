@@ -84,3 +84,14 @@ Approved live queue is separate after confirmed access/scope, including DV001 wh
 nonproduction hierarchy. No Azure resources/roles/fixtures/production substitution/
 exposure/release. Live/load/freshOS/maintenance/Gate004/release/module-only advisory open.
 Self-review/source-independent literals are not independent-person approval.
+
+## Local source observations
+
+Unchanged FetchReservations35 scenarios PASS locally with strict controlled SDK fixtures.
+Null group/summary panics are now executed observations. Missing utilization becomes
+Idle, null allocated VM counts as one, malformed group ID returns unmarked nil success,
+list/Get failures retain incomplete success and inner cancellation is swallowed.
+Later group failure drops prefix. Exact observations are not target corrections.
+Inputs3e8e9870bb4a4d4a91490ac400dccfc28e7070ca4b8a2d22434176d1c61b3c09/47327bytes;
+outputs4393a4ae45d0b5bacd116aa48bc44ed5698a4cde5b991b2e6e6ab6429974c2d5/31727bytes.
+Hosted capture/full retained-byte/literal/native acceptance remains pending.
