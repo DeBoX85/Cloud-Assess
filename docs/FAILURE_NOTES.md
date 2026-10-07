@@ -785,3 +785,24 @@ trimmed before original tree/full remote publication. No failed check credited P
 Prevention: distinguish decode admission from post-page continuation; verify unique
 anchors and imports; blocking staged diff check before publication. Historical
 read/link/job-label mistakes remain FN087/088; source pins/gates unchanged.
+
+## FN090: quota continuation cycle authority canonicalization
+
+Final self-review of unaccepted87722a5 found authority comparison was case-insensitive
+but the cycle key kept received host casing. A same-origin uppercase continuation
+could therefore cause one extra authenticated request before the cycle was found.
+This is a bounded product guard defect in an unaccepted candidate, not a live
+incident or service glitch. Canonicalize admitted u.Host to configured origin
+before cycle tracking. Regression requires exactly one getter call and partial
+cycle health for an uppercase-host repeat; a compiling removal control reproduces
+the original key behavior and must fail the named assertion, with restored baseline.
+New final22 controls/native/source/review required; no initial-head PASS transfers.
+
+After canonicalization, first expanded runner detected3 faults then the removed
+origin-check fault survived the previous unsafe-link assertion: canonical rewriting
+still prevented foreign authentication, but returned cycle health instead of the
+required unsafe-continuation code. This is a real surviving selected fault/evidence
+gap, not a compiling detection or whole-run PASS. Strengthened independent fixture
+to require the declared fixed failure code, preserving destination/call/prefix
+assertions; rerun all22 healthy/fault/restored controls. Never weaken controls or
+infer rejected mutation from a secondary guard's different failure classification.

@@ -122,7 +122,15 @@ request/continuation/status/JSON/count/identity/work/byte boundaries, page atomi
 ownership/eight concurrent runs/every observed cancellation check and actual
 authenticated sovereign ARM-client method/audience/token/closed body fixtures.
 All21 compiling controls with healthy/restored baselines PASS locally; final full
-region race/whole Go suite/vet,468 local links and workflow YAML parse PASS.
+region race/whole Go suite/vet,468 local links and workflow YAML parse PASS at
+initial87722a5. Final review found case-variant authority could defer cycle
+detection for one extra request. Canonicalize the admitted URL authority before
+cycle tracking; new fixture/control increases final selected controls to22.
+Fresh final-head proof is required; initial-head CI is superseded evidence.
+Corrected full region race/all22 compiling faults/healthy-restored/whole suite/vet
+PASS locally. Canonical-authority control reproduces the old candidate's cycle key
+and fails the named assertion. Final authored local-file links468 PASS after
+correction checkpoint; workflow unchanged and YAML remains parsed.
 No local Windows/full hosted-native/live acceptance claim. Source captures/pins/
 dependencies/public interfaces unchanged. Current PR129 body is exact evolving
 publication/run/recovery authority; earlier planning wording remains history.

@@ -119,7 +119,7 @@ func TestRESTQuotaCollectorContinuation(t *testing.T) {
 			return quotaPage(string(b))
 		})
 		r, e := c.Collect(context.Background(), quotaScope(), quotaRequest("Network"))
-		if e != nil || calls != 1 || r.Evidence.Status != "partial" || len(r.Evidence.Usages) != 1 {
+		if e != nil || calls != 1 || r.Evidence.Status != "partial" || r.FailureCode != "quota_unsafe_continuation" || len(r.Evidence.Usages) != 1 {
 			t.Fatalf("unsafe continuation reached auth/lost prefix: %q %#v %v calls%d", next, r, e, calls)
 		}
 	}
@@ -146,6 +146,15 @@ func TestRESTQuotaCollectorContinuation(t *testing.T) {
 	r, e = c.Collect(context.Background(), quotaScope(), quotaRequest("Network"))
 	if e != nil || calls != 1 || r.FailureCode != "quota_continuation_cycle" || r.Evidence.Status != "partial" {
 		t.Fatalf("cycle: %#v %v", r, e)
+	}
+	calls = 0
+	c = quotaCollector(t, func(context.Context, string, int64) ([]byte, *http.Response, error) {
+		calls++
+		return quotaPage(`{"value":[],"nextLink":"https://MANAGEMENT.AZURE.COM` + path + `?api-version=2022-07-01"}`)
+	})
+	r, e = c.Collect(context.Background(), quotaScope(), quotaRequest("Network"))
+	if e != nil || calls != 1 || r.FailureCode != "quota_continuation_cycle" || r.Evidence.Status != "partial" {
+		t.Fatalf("casefolded authority cycle: %#v %v calls%d", r, e, calls)
 	}
 }
 

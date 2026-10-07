@@ -214,6 +214,7 @@ func (c *RESTQuotaCollector) continuation(first *url.URL, version, link string) 
 		}
 	}
 	u.RawQuery = q.Encode()
+	u.Host = c.origin.Host
 	return u, true
 }
 

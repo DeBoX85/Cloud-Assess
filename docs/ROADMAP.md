@@ -1,3 +1,35 @@
+# PR129 authority-cycle correction checkpoint (2026-10-08)
+
+Accepted remains PR12827b45950ef9e1c830e50a121781278e769a488f4.
+PR129 is UNACCEPTED. Original pre-edit42c6bc76/five full documents/tree/Denis/
+parent/ref verified before implementation; initial87722a5/tree3b7a5503/nine full
+files/704 original blobs/actual APRL/raw commits/fsck/source37702301855 with
+all17 captures150 chunks/full hashes/bytes verified. Native37702301776 and
+automated review6048912157 apply only to that SUPERSEDED candidate.
+
+Final self-review found one-extra-request case-variant host cycle (FN090).
+Canonicalize admitted authority before cycle tracking; regression/control
+reproduces old key behavior. Updated selected controls22. Expanded runner's
+first attempt detected3 then origin fault survived old classification assertion,
+because canonical rewriting still blocked foreign auth but returned cycle instead
+of declared unsafe-continuation. Strengthened fixed-code assertion without
+weakening scope/call/prefix controls. Complete new local results and final head/
+run/recovery authority are in current [PR129](https://github.com/DeBoX85/Cloud-Assess/pull/129).
+No earlier-head/planning/source/native/review proof transfers final acceptance.
+
+Next publish/verify coherent corrected candidate/full original tree/remote bytes/
+parent/Denis/ref, fresh final native/source/review and protected expected-head
+merge/distinct accepted-push. Preserve FN087/088/089, historical checkpoints/source
+pins/captures/dependencies/gates. No public region/VM/reservation collector claim.
+Laptop/Azure NOT confirmed, live/DV001/load/freshOS/maintenance/Gate004/release/
+module-only advisory open. No resources/roles/fixtures/production substitution/
+exposure/release or human/independent-person/live approval. Scratch raw logs/cache
+not durable backups; no unknown remote operation or lost accepted code.
+
+Earlier records remain history.
+
+---
+
 # PR129 REST quota collector implementation checkpoint (2026-10-08)
 
 Accepted remains PR12827b45950ef9e1c830e50a121781278e769a488f4/tree64f6c15a5b8f79eddcc9f7f958618a3f535a0072.
