@@ -1,6 +1,9 @@
 # Owned region quota calculation contract
 
-Status: IN PROGRESS, pre-edit contract. Accepted baseline is PR126,
+Status: IN PROGRESS, implementation candidate in draft
+[PR127](https://github.com/DeBoX85/Cloud-Assess/pull/127). The pre-edit contract
+was remotely verified at planning09bd4556/tree075e64fb before production edits.
+Accepted baseline is PR126,
 `4768999aa10d85ddc69a357b81c9123e8c853b88`, tree
 `be7d5256c6657fda436a5438c548c1e2fc4cc269`. The
 [PR126 acceptance index](https://github.com/DeBoX85/Cloud-Assess/pull/126)
@@ -12,8 +15,7 @@ not transfer that evidence to its proposal or declare region execution available
 This is the pure quota portion of B5 region functional equivalence under
 [TARGET_SPECIFICATION.md](TARGET_SPECIFICATION.md) and
 [DEVELOPMENT_EXECUTION_PLAN.md](DEVELOPMENT_EXECUTION_PLAN.md).
-[REGION_QUOTA_RESERVATION.md](REGION_QUOTA_RESERVATION.md),
-[REGION_QUOTA_SOURCE.md](REGION_QUOTA_SOURCE.md) and
+[REGION_QUOTA_RESERVATION.md](REGION_QUOTA_RESERVATION.md) and
 [REGION_VM_QUOTA_SOURCE.md](REGION_VM_QUOTA_SOURCE.md) retain source contracts,
 actual unchanged-fetcher observations and independently specified oracles.
 Reservations remain a separate subsequent calculation slice.
@@ -145,6 +147,33 @@ ownership safeguards require isolated compiling mutations failing named
 assertions, plus healthy/restored baselines on both native hosts. Compiler errors
 or panics do not count as detected controls.
 
+With current label/work caps, worst-case admitted raw text is at most 9,809,920
+bytes and projected accounting at most 14,757,888 bytes, both below the
+16,711,680-byte auxiliary budget. These include 1000 selected 512-byte names and
+8192 requests/usages, 64-byte regions and 11-byte provider labels. Consequently
+the aggregate text ceiling cannot be reached through currently valid inputs;
+do not claim a runtime exact-ceiling fixture. Per-label and work-boundary cases
+exercise reachable boundaries; retain aggregate guards for future cap changes.
+
+## Implementation checkpoint, unaccepted
+
+CalculateQuota and optional DisplayName projection are implemented with seven
+runtime tests and twelve compiling controls: threshold, provider filter, selected
+scope, duplicate query/raw identity, negative count, filtered work/text budgets,
+missing health, warning ownership, terminal cancellation and display identity.
+Healthy/restored local controls pass; full region race, whole Go suite, vet,
+454 local-document links and workflow YAML parsing pass locally after the
+documented FN085 corrections. These are Linux development feedback, not complete
+native-job, local Windows, installed-package or live evidence. Source captures,
+pins, dependencies, reservation projection and public availability are unchanged.
+
+FN085 retains planning native37676060054/Linux112979749385 documentation failure
+for the nonexistent REGION_QUOTA_SOURCE link, an ambiguous display mutation
+anchor which stopped the first runner after eleven detections, and the first
+whole-suite setup failure because the new worktree lacked materialized APRL.
+The exact pinned clean APRL60eadd was subsequently materialized before the
+successful suite/vet rerun. No failed attempt is a PASS.
+
 Review the final diff against this contract before final-head Linux quality,
 windows-validation and pinned source execution with complete mandatory logs.
 Inspect formal reviews, inline comments AND issue comments for automated review
@@ -153,7 +182,9 @@ push need fresh evidence; planning checks cannot accept later code. No independe
 person review or live Azure proof is implied. Rollback is a reviewed revert of
 this slice, retaining historical evidence and accepted PR126 compatibility.
 
-Next action: publish and verify this pre-edit contract, then implement the pure
-quota calculation and its acceptance controls. Laptop/Azure access is not yet
+Next action: publish and verify the implementation checkpoint, review remaining
+contract coverage/final diff and obtain fresh exact-head Linux/Windows/source
+mandatory logs plus all three review surfaces before protected acceptance and
+distinct accepted-push checks. Laptop/Azure access is not yet
 confirmed. Live/DV001/load/fresh-OS/hosted-maintenance/Gate004/release and the
 existing module-only advisory remain open; defer them while continuing offline.
