@@ -747,3 +747,24 @@ The first go test ./... failed setup for cmd/app/equivalence/orchestration/rules
 ## FN086: reservation ownership-control compile setup failure (2026-10-07)
 
 The first reservation runtime mutation runner rejected16 compiling faults, then failed warning-ownership compilation because replacing the only slices.Clone call made its import unused. This is an authored negative-control setup error, not a target ownership assertion, product defect or service interruption. Runner correctly refused to credit build failures; no whole-run or ownership-control PASS was claimed. Keep a discarded slices.Clone call while intentionally aliasing table and result warnings. The corrected fault compiles, fails TestReservationRuntimeHealthAndOwnership by named assertions, and all18 controls/healthy/restored baselines pass. Inspect imports/single-use symbols before choosing mutation replacements and continue rejecting compilation/panic failures as detections. Full region race/exact text boundaries and whole Go suite/vet passed after the correction; source pins/guards/captures unchanged. Raw local diagnostic logs are scratch-only; this sanitized cause/correction/evidence record is retained.
+
+
+## FN087: PR128 closure documentation/read corrections
+
+Postmerge checkpoint transposed native job labels. Actual API job.name established
+quality113029805463/windows-validation113029805267; corrected checkpoint and final
+closure full remote bytes verified. Run/commit/IDs/results unchanged. Two guessed
+zonemapping/httpx read paths were absent; actual inventory/zone read corrected them
+before dependent edits or claims. Process documentation/read errors, not product
+or service failures. Prevention: map job.name, inventory paths; verify corrected
+remote record. Full pre/post native/source evidence remains valid.
+
+## FN088: oversized recovery read and pre-edit link correction
+
+Combined full historical documents exceeded output budget and were truncated.
+That output is not evidence and no publication depended on it. Correct recovery
+uses bounded current-state sections and individual full connector reads held
+without printing. Initial collector contract named absent REGION_QUOTA_SOURCE.md;
+existing FN085 already records that filename mistake. Correct actual REST source
+contract is REGION_QUOTA_RESERVATION.md, established by inventory before publication.
+Run local link checks before publishing; preserve source pins/history/gates.
