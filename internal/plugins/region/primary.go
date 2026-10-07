@@ -30,6 +30,12 @@ const (
 )
 
 var subscriptionID = regexp.MustCompile(`^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$`)
+
+// All 66 Unicode noncharacters are excluded from authored region labels.
+func regionNoncharacter(r rune) bool {
+	return r >= 0xfdd0 && r <= 0xfdef || r&0xffff == 0xfffe || r&0xffff == 0xffff
+}
+
 var regionID = regexp.MustCompile(`^[a-z][a-z0-9]{0,63}$`)
 var columns = []string{"Subscription", "Source Region", "Target Region", "Source Resource Type Count", "Available Resource Types", "Unavailable Resource Types", "Availability %", "Total SKUs Checked", "Available SKUs", "Unavailable SKUs", "Restricted SKUs", "Zone-Restricted SKUs", "Unknown SKUs", "SKU Availability %", "Availability Zones", "Target AZ Mapping", "Avg Latency (ms)", "Avg Cost Difference %", "Recommendation Score", "Score Quality", "Recommendation", "Missing Resource Types", "Unavailable SKUs (detail)", "Restricted SKUs (detail)", "Zone-Restricted SKUs (detail)"}
 
@@ -75,7 +81,7 @@ func Project(ctx context.Context, subscriptions map[string]string, input []Compa
 	detailEntries := 0
 	text := func(s string) bool {
 		textBytes += len(s)
-		return len(s) <= MaxLabelBytes && textBytes <= assessment.MaxPluginTextBytes && utf8.ValidString(s) && strings.IndexFunc(s, func(r rune) bool { return unicode.IsControl(r) || r == 0xfffd || r == 0xfffe || r == 0xffff }) < 0
+		return len(s) <= MaxLabelBytes && textBytes <= assessment.MaxPluginTextBytes && utf8.ValidString(s) && strings.IndexFunc(s, func(r rune) bool { return unicode.IsControl(r) || r == 0xfffd || regionNoncharacter(r) }) < 0
 	}
 	scope := make(map[string]string, len(subscriptions))
 	for id, name := range subscriptions {

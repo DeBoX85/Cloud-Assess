@@ -64,7 +64,7 @@ func auxiliaryFailure(quota bool, code string) (*assessment.PluginTable, error) 
 
 func auxiliaryText(s string, total *int) bool {
 	if len(s) > MaxLabelBytes || !utf8.ValidString(s) || strings.IndexFunc(s, func(r rune) bool {
-		return unicode.IsControl(r) || r == 0xfffd || r == 0xfffe || r == 0xffff
+		return unicode.IsControl(r) || r == 0xfffd || regionNoncharacter(r)
 	}) >= 0 {
 		return false
 	}

@@ -747,3 +747,78 @@ The first go test ./... failed setup for cmd/app/equivalence/orchestration/rules
 ## FN086: reservation ownership-control compile setup failure (2026-10-07)
 
 The first reservation runtime mutation runner rejected16 compiling faults, then failed warning-ownership compilation because replacing the only slices.Clone call made its import unused. This is an authored negative-control setup error, not a target ownership assertion, product defect or service interruption. Runner correctly refused to credit build failures; no whole-run or ownership-control PASS was claimed. Keep a discarded slices.Clone call while intentionally aliasing table and result warnings. The corrected fault compiles, fails TestReservationRuntimeHealthAndOwnership by named assertions, and all18 controls/healthy/restored baselines pass. Inspect imports/single-use symbols before choosing mutation replacements and continue rejecting compilation/panic failures as detections. Full region race/exact text boundaries and whole Go suite/vet passed after the correction; source pins/guards/captures unchanged. Raw local diagnostic logs are scratch-only; this sanitized cause/correction/evidence record is retained.
+
+
+## FN087: PR128 closure documentation/read corrections
+
+Postmerge checkpoint transposed native job labels. Actual API job.name established
+quality113029805463/windows-validation113029805267; corrected checkpoint and final
+closure full remote bytes verified. Run/commit/IDs/results unchanged. Two guessed
+zonemapping/httpx read paths were absent; actual inventory/zone read corrected them
+before dependent edits or claims. Process documentation/read errors, not product
+or service failures. Prevention: map job.name, inventory paths; verify corrected
+remote record. Full pre/post native/source evidence remains valid.
+
+## FN088: oversized recovery read and pre-edit link correction
+
+Combined full historical documents exceeded output budget and were truncated.
+That output is not evidence and no publication depended on it. Correct recovery
+uses bounded current-state sections and individual full connector reads held
+without printing. Initial collector contract named absent REGION_QUOTA_SOURCE.md;
+existing FN085 already records that filename mistake. Correct actual REST source
+contract is REGION_QUOTA_RESERVATION.md, established by inventory before publication.
+Run local link checks before publishing; preserve source pins/history/gates.
+
+
+## FN089: REST collector fixture/control setup and pre-edit whitespace feedback
+
+First focused collector run failed an independent fixture expectation: a page
+containing8193-byte nextLink is invalid as a whole, so unknown/no current-page rows
+is correct. Production maintained page atomicity; split oversized JSON admission
+from bounded unsafe continuation expectations. Corrected focused/expanded race PASS.
+First mutation run stopped before detections because u.Scheme guard appeared in
+constructor and continuation. Use unique full constructor expression; all20
+initial compiling controls/healthy-restored PASS, additional crosspage control
+receives separate final verification. Neither error is a product/service failure.
+Pre-edit staged diff caught extra EOF blank lines in new contract/failure notes;
+trimmed before original tree/full remote publication. No failed check credited PASS.
+Prevention: distinguish decode admission from post-page continuation; verify unique
+anchors and imports; blocking staged diff check before publication. Historical
+read/link/job-label mistakes remain FN087/088; source pins/gates unchanged.
+
+## FN090: quota continuation cycle authority canonicalization
+
+Final self-review of unaccepted87722a5 found authority comparison was case-insensitive
+but the cycle key kept received host casing. A same-origin uppercase continuation
+could therefore cause one extra authenticated request before the cycle was found.
+This is a bounded product guard defect in an unaccepted candidate, not a live
+incident or service glitch. Canonicalize admitted u.Host to configured origin
+before cycle tracking. Regression requires exactly one getter call and partial
+cycle health for an uppercase-host repeat; a compiling removal control reproduces
+the original key behavior and must fail the named assertion, with restored baseline.
+New final22 controls/native/source/review required; no initial-head PASS transfers.
+
+After canonicalization, first expanded runner detected3 faults then the removed
+origin-check fault survived the previous unsafe-link assertion: canonical rewriting
+still prevented foreign authentication, but returned cycle health instead of the
+required unsafe-continuation code. This is a real surviving selected fault/evidence
+gap, not a compiling detection or whole-run PASS. Strengthened independent fixture
+to require the declared fixed failure code, preserving destination/call/prefix
+assertions; rerun all22 healthy/fault/restored controls. Never weaken controls or
+infer rejected mutation from a secondary guard's different failure classification.
+
+## FN091: automated review complete Unicode noncharacter predicate
+
+Automated inline4213079235/formal review5449652646 on initial87722a5 identified
+quota strings accepted U+FDD0/U+1FFFE while the contract required noncharacter
+rejection. Inspection confirmed the collector and existing shared auxiliary/primary
+region checks excluded only U+FFFD/U+FFFE/U+FFFF. This is a product label-admission
+defect, including inherited existing region-label paths, not live incident/service
+failure. One shared predicate rejects U+FDD0–U+FDEF and every plane's FFFE/FFFF;
+collector strings/keys, selected auxiliary names and primary labels all use it.
+Regression fixtures cover BMP/supplementary endpoints, unknown strings/keys,
+selected scope and direct primary/quota projections, with valid emoji positive.
+Compiling removal reproduces earlier predicate behavior and fails named assertions.
+Full region/source/native/23 controls/primary controls must pass on final head.
+Review correction does not prove all other project Unicode paths safe; no blanket
+re-audit/certification or source/pin/dependency change. Earlier heads superseded.
