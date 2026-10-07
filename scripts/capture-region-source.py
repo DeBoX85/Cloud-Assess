@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Capture unchanged pinned AZQR helpers and synthetic quota collectors."""
+"""Capture unchanged pinned AZQR helpers and synthetic quota/reservation collectors."""
 import hashlib
 import json
 import os
@@ -34,6 +34,9 @@ CAPTURES = (
     ("vm_quota_capture_test.go.txt", "quota/vm_quota_capture_test.go",
      "REGION_VM_QUOTA_CAPTURE_OUTPUT", "^TestRegionVMQuotaCapture$",
      "./internal/scanners/plugins/region/quota"),
+    ("reservation_capture_test.go.txt", "crg/reservation_capture_test.go",
+     "REGION_RESERVATION_CAPTURE_OUTPUT", "^TestRegionReservationCapture$",
+     "./internal/scanners/plugins/region/crg"),
 )
 FILES = ("source-aux-inputs.json", "source-aux-outputs.json",
          "source-inventory-inputs.json", "source-inventory-outputs.json",
@@ -42,7 +45,8 @@ FILES = ("source-aux-inputs.json", "source-aux-outputs.json",
          "source-latency-data.json",
          "source-cost-enrichment-inputs.json", "source-cost-enrichment-outputs.json",
          "source-quota-inputs.json", "source-quota-outputs.json",
-         "source-vm-quota-inputs.json", "source-vm-quota-outputs.json")
+         "source-vm-quota-inputs.json", "source-vm-quota-outputs.json",
+         "source-reservation-inputs.json", "source-reservation-outputs.json")
 
 
 def run(args, directory, timeout=240, capture=False):
@@ -71,7 +75,7 @@ with tempfile.TemporaryDirectory(prefix="cloud-assess-region-source-") as tempor
         raise SystemExit("Actual APRL mismatch")
     output = Path(temporary) / "output"
     expected_untracked = []
-    # Pure helpers and injected quota transport; production/SDK/module files unchanged.
+    # Pure helpers and injected collector transports; production/SDK/modules unchanged.
     for harness, relative, variable, test, package in CAPTURES:
         target = directory / "internal/scanners/plugins/region" / relative
         shutil.copyfile(ROOT / "internal/plugins/region/testdata" / harness, target)

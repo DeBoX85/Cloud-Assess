@@ -1,0 +1,222 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+// Execute unchanged pinned FetchReservations using an in-memory SDK transport.
+package crg
+
+import (
+	"context"
+	"crypto/sha1"
+	"encoding/json"
+	"fmt"
+	"io"
+	"net/http"
+	"os"
+	"path/filepath"
+	"reflect"
+	"runtime"
+	"strings"
+	"testing"
+	"time"
+
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/arm"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
+)
+
+type reservationCredential struct{ t *testing.T }
+
+func (c reservationCredential) GetToken(ctx context.Context, o policy.TokenRequestOptions) (azcore.AccessToken, error) {
+	if !reflect.DeepEqual(o.Scopes, []string{"https://management.core.windows.net//.default"}) {
+		c.t.Fatal("unexpected reservation SDK audience")
+	}
+	if err := ctx.Err(); err != nil {
+		return azcore.AccessToken{}, err
+	}
+	return azcore.AccessToken{Token: "synthetic-reservation-canary", ExpiresOn: time.Now().Add(time.Hour)}, nil
+}
+
+type reservationPage struct {
+	URL    string
+	Status int
+	Body   string
+	Cancel bool
+}
+type reservationCase struct {
+	Pages     []reservationPage
+	Cancelled bool
+}
+type reservationResult struct {
+	Entries          []ReservationEntry
+	Failed, Panicked bool
+	Requests         []string
+}
+type reservationTransport struct {
+	t        *testing.T
+	pages    []reservationPage
+	requests []string
+	cancel   context.CancelFunc
+}
+
+func (s *reservationTransport) Do(r *http.Request) (*http.Response, error) {
+	if err := r.Context().Err(); err != nil {
+		return nil, err
+	}
+	i := len(s.requests)
+	if i >= len(s.pages) || r.URL.String() != s.pages[i].URL || r.Method != "GET" || r.Body != nil || r.Header.Get("Authorization") != "Bearer synthetic-reservation-canary" {
+		s.t.Fatal("unexpected reservation SDK request", r.Method, r.URL.String())
+	}
+	s.requests = append(s.requests, r.URL.String())
+	p := s.pages[i]
+	if p.Cancel {
+		s.cancel()
+		return nil, context.Canceled
+	}
+	return &http.Response{StatusCode: p.Status, Header: http.Header{"Content-Type": []string{"application/json"}}, Body: io.NopCloser(strings.NewReader(p.Body)), Request: r}, nil
+}
+
+type reservationNetworkTripwire struct{}
+
+func (reservationNetworkTripwire) RoundTrip(*http.Request) (*http.Response, error) {
+	panic("reservation capture attempted real network")
+}
+func TestRegionReservationCapture(t *testing.T) {
+	out := os.Getenv("REGION_RESERVATION_CAPTURE_OUTPUT")
+	if out == "" {
+		t.Fatal("missing capture output")
+	}
+	oldTransport, oldClient := http.DefaultTransport, http.DefaultClient
+	http.DefaultTransport = reservationNetworkTripwire{}
+	http.DefaultClient = &http.Client{Transport: reservationNetworkTripwire{}}
+	defer func() { http.DefaultTransport, http.DefaultClient = oldTransport, oldClient }()
+	raw, err := os.ReadFile("crg.go")
+	if err != nil {
+		t.Fatal(err)
+	}
+	const sourceBlob = "1ffb6e37cc1c21f6d8b5c9ce483f793387e0e6bc"
+	h := sha1.Sum(append([]byte(fmt.Sprintf("blob %d\x00", len(raw))), raw...))
+	if fmt.Sprintf("%x", h) != sourceBlob {
+		t.Fatal("reservation source blob changed")
+	}
+	const sub = "11111111-1111-1111-1111-111111111111"
+	const root = "https://management.azure.com/subscriptions/" + sub
+	const groups = root + "/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01"
+	list := func(group string) string {
+		return root + "/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/" + group + "/capacityReservations?api-version=2024-11-01"
+	}
+	get := func(group, name string) string {
+		return root + "/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/" + group + "/capacityReservations/" + name + "?%24expand=instanceView&api-version=2024-11-01"
+	}
+	group := func(name string) string {
+		return `{"id":"/subscriptions/` + sub + `/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/` + name + `","name":"` + name + `","location":"EASTUS"}`
+	}
+	envelope := func(rows ...string) string { return `{"value":[` + strings.Join(rows, ",") + `]}` }
+	summary := func(name string) string { return `{"name":"` + name + `"}` }
+	row := func(name string, reserved, allocated int) string {
+		vms := []string{}
+		for i := 0; i < allocated; i++ {
+			vms = append(vms, fmt.Sprintf(`{"id":"synthetic-vm-%d"}`, i))
+		}
+		return fmt.Sprintf(`{"name":%q,"location":"WESTUS","sku":{"name":"Standard_D2s_v5","capacity":%d},"properties":{"instanceView":{"utilizationInfo":{"virtualMachinesAllocated":[%s]}}}}`, name, reserved, strings.Join(vms, ","))
+	}
+	p := func(url, body string) reservationPage { return reservationPage{URL: url, Status: 200, Body: body} }
+	single := func(body string) reservationCase {
+		return reservationCase{Pages: []reservationPage{p(groups, envelope(group("g"))), p(list("g"), envelope(summary("r"))), p(get("g", "r"), body)}}
+	}
+	cases := map[string]reservationCase{
+		"idle": single(row("r", 4, 0)), "available": single(row("r", 4, 1)), "at": single(row("r", 4, 4)), "over": single(row("r", 4, 5)), "zero": single(row("r", 0, 0)), "negative": single(row("r", -1, 0)),
+		"missing-utilization": single(`{"name":"r","sku":{"name":"Standard_D2s_v5","capacity":4}}`),
+		"missing-capacity":    single(`{"name":"r","sku":{"name":"Standard_D2s_v5"},"properties":{"instanceView":{"utilizationInfo":{"virtualMachinesAllocated":[null]}}}}`),
+		"missing-get-fields":  single(`{}`), "identity-conflict": single(row("returned-name", 4, 1)),
+		"empty":                  {Pages: []reservationPage{p(groups, envelope())}},
+		"skipped-groups":         {Pages: []reservationPage{p(groups, envelope(`{}`, `{"name":"g"}`, `{"id":"x"}`))}},
+		"skipped-summary":        {Pages: []reservationPage{p(groups, envelope(group("g"))), p(list("g"), envelope(`{}`))}},
+		"malformed-group-id":     {Pages: []reservationPage{p(groups, envelope(`{"id":"malformed","name":"g"}`))}},
+		"null-group":             {Pages: []reservationPage{p(groups, envelope(`null`))}},
+		"null-summary":           {Pages: []reservationPage{p(groups, envelope(group("g"))), p(list("g"), envelope(`null`))}},
+		"missing-group-location": {Pages: []reservationPage{p(groups, envelope(`{"id":"/subscriptions/`+sub+`/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g","name":"g"}`)), p(list("g"), envelope(summary("r"))), p(get("g", "r"), row("r", 4, 1))}},
+		"cancelled":              {Pages: []reservationPage{p(groups, envelope())}, Cancelled: true},
+	}
+	errorBody := `{"error":{"code":"SyntheticReservationError","message":"synthetic"}}`
+	for _, status := range []int{403, 404} {
+		cases[fmt.Sprintf("group-http%d", status)] = reservationCase{Pages: []reservationPage{{URL: groups, Status: status, Body: errorBody}}}
+		cases[fmt.Sprintf("list-http%d", status)] = reservationCase{Pages: []reservationPage{p(groups, envelope(group("g"), group("other"))), {URL: list("g"), Status: status, Body: errorBody}, p(list("other"), envelope(summary("r"))), p(get("other", "r"), row("r", 4, 1))}}
+		cases[fmt.Sprintf("get-http%d", status)] = reservationCase{Pages: []reservationPage{p(groups, envelope(group("g"))), p(list("g"), envelope(summary("bad"), summary("r"))), {URL: get("g", "bad"), Status: status, Body: errorBody}, p(get("g", "r"), row("r", 4, 1))}}
+	}
+	cases["group-malformed"] = reservationCase{Pages: []reservationPage{p(groups, `{"value":`)}}
+	cases["list-malformed"] = reservationCase{Pages: []reservationPage{p(groups, envelope(group("g"))), p(list("g"), `{"value":`)}}
+	cases["get-malformed"] = single(`{"name":`)
+	nextGroup := root + "/providers/Microsoft.Compute/capacityReservationGroups?%24skiptoken=second&api-version=2024-11-01"
+	nextList := root + "/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?%24skiptoken=second&api-version=2024-11-01"
+	withNext := func(body, next string) string {
+		return strings.TrimSuffix(body, "}") + `,"nextLink":` + fmt.Sprintf("%q", next) + `}`
+	}
+	firstGroup := p(groups, withNext(envelope(group("g")), nextGroup))
+	firstList := p(list("g"), envelope(summary("r")))
+	firstGet := p(get("g", "r"), row("r", 4, 1))
+	cases["group-paged"] = reservationCase{Pages: []reservationPage{firstGroup, firstList, firstGet, p(nextGroup, envelope(group("other"))), p(list("other"), envelope())}}
+	cases["later-group-http403"] = reservationCase{Pages: []reservationPage{firstGroup, firstList, firstGet, {URL: nextGroup, Status: 403, Body: errorBody}}}
+	cases["later-group-malformed"] = reservationCase{Pages: []reservationPage{firstGroup, firstList, firstGet, p(nextGroup, `{"value":`)}}
+	initialGroups := p(groups, envelope(group("g"), group("other")))
+	pagedList := p(list("g"), withNext(envelope(summary("r")), nextList))
+	otherEmpty := p(list("other"), envelope())
+	cases["list-paged"] = reservationCase{Pages: []reservationPage{initialGroups, pagedList, firstGet, p(nextList, envelope(summary("second"))), p(get("g", "second"), row("second", 4, 4)), otherEmpty}}
+	cases["later-list-http403"] = reservationCase{Pages: []reservationPage{initialGroups, pagedList, firstGet, {URL: nextList, Status: 403, Body: errorBody}, otherEmpty}}
+	cases["later-list-malformed"] = reservationCase{Pages: []reservationPage{initialGroups, pagedList, firstGet, p(nextList, `{"value":`), otherEmpty}}
+	cases["cancel-list"] = reservationCase{Pages: []reservationPage{p(groups, envelope(group("g"))), {URL: list("g"), Cancel: true}}}
+	cases["cancel-get"] = reservationCase{Pages: []reservationPage{p(groups, envelope(group("g"))), p(list("g"), envelope(summary("r"))), {URL: get("g", "r"), Cancel: true}}}
+	results := map[string]reservationResult{}
+	for name, fixture := range cases {
+		ctx, cancel := context.WithCancel(context.Background())
+		if fixture.Cancelled {
+			cancel()
+		}
+		transport := &reservationTransport{t: t, pages: fixture.Pages, requests: []string{}, cancel: cancel}
+		opts := &arm.ClientOptions{ClientOptions: policy.ClientOptions{Transport: transport, Retry: policy.RetryOptions{MaxRetries: -1}}, DisableRPRegistration: true}
+		result := reservationResult{}
+		func() {
+			defer func() {
+				if recovered := recover(); recovered != nil {
+					if _, ok := recovered.(runtime.Error); !ok || !strings.Contains(fmt.Sprint(recovered), "invalid memory address or nil pointer dereference") {
+						t.Fatal("unexpected non-source panic", recovered)
+					}
+					result.Panicked = true
+				}
+			}()
+			var e error
+			result.Entries, e = FetchReservations(ctx, reservationCredential{t}, opts, sub, "Synthetic Subscription")
+			result.Failed = e != nil
+		}()
+		cancel()
+		expected := len(fixture.Pages)
+		if fixture.Cancelled {
+			expected = 0
+		}
+		if len(transport.requests) != expected {
+			t.Fatal("incomplete reservation source request sequence", name)
+		}
+		if result.Panicked != (name == "null-group" || name == "null-summary") {
+			t.Fatal("unexpected reservation source panic", name)
+		}
+		result.Requests = transport.requests
+		results[name] = result
+	}
+	write := func(name string, v any) {
+		raw, e := json.MarshalIndent(v, "", "  ")
+		if e != nil {
+			t.Fatal(e)
+		}
+		if e = os.MkdirAll(out, 0700); e != nil {
+			t.Fatal(e)
+		}
+		if e = os.WriteFile(filepath.Join(out, name), append(raw, '\n'), 0600); e != nil {
+			t.Fatal(e)
+		}
+	}
+	write("source-reservation-inputs.json", struct {
+		SourceBlob, SDKModule string
+		DisableRPRegistration bool
+		MaxRetries            int
+		Cases                 map[string]reservationCase
+	}{sourceBlob, "github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/compute/armcompute/v6 v6.4.0", true, -1, cases})
+	write("source-reservation-outputs.json", results)
+}
