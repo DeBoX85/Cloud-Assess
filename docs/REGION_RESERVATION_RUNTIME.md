@@ -1,6 +1,9 @@
 # Owned capacity reservation calculation contract
 
-Status: IN PROGRESS, pre-edit contract. Accepted PR127 baseline is
+Status: IN PROGRESS, implementation candidate in
+[PR128](https://github.com/DeBoX85/Cloud-Assess/pull/128). Pre-edit planning
+215ada9405ce44cfe44d504cf022eb4c219ae3dd/tree712eeafa5cc6263e564f2d59f914e951745e291c
+was remotely verified before production edits. Accepted PR127 baseline is
 `2d641484017c92991e626683c63f5c8db35dfcdc`, tree
 `f3eb3b0e04c5fb936462f5b733dcf3d1fe43c8ef`.
 [PR127](https://github.com/DeBoX85/Cloud-Assess/pull/127) retains final candidate
@@ -64,6 +67,12 @@ percent encoding, dot segment or empty name is admitted. Each variable label use
 the existing 512-byte UTF8/control/noncharacter checks. ResourceID is at most
 2048 bytes. This is structural confinement, not a claim to validate every Azure
 service naming rule or arbitrary future request destination.
+
+Fixed keywords additionally retain their exact ASCII byte lengths, so Unicode
+lookalikes do not become alternate provider/type paths through Unicode folding.
+At current variable-label caps a structurally admitted ID is at most1680 bytes,
+below the defensive2048-byte outer bound. Do not invent an exact2048-byte valid-ID
+fixture; the actual per-label boundary is tested.
 
 Duplicate canonical case-insensitive reservation IDs reject across all evidence,
 including records that would otherwise be skipped for unknown fields. Region is
@@ -155,7 +164,29 @@ merge and distinct accepted-push native/source proof. Self-review and automated
 status markers are not independent-person approval. Reviewed revert is rollback;
 preserve prior evidence, pins and gates.
 
-Next: publish and remotely verify this pre-edit checkpoint before production edits.
+Next: publish and remotely verify the implementation checkpoint, then inspect fresh
+exact-head native/source mandatory logs, review surfaces and protected acceptance
+with distinct accepted-push proof.
 Laptop/Azure remains unconfirmed. Live/DV001 nonproduction hierarchy/load/freshOS/
 maintenance/Gate004/release/module-only advisory stay open; no resources, roles,
 fixtures, production substitution, exposure or release are authorized here.
+
+## Local implementation feedback, not acceptance
+
+CalculateReservations, seven independent runtime tests and eighteen isolated
+compiling controls are implemented. Full region race and all eighteen named
+assertion controls/healthy/restored baselines pass locally. Tests include literal
+typed records/ten cells/health, five known actual source status/count cases with
+explicit synthetic admission IDs, unknown/partial/missing/SKU corrections,
+identity/region/presence rejection, cancellation and concurrent ownership, work
+limits/order, exact reachable raw/output text ceilings and one-byte overflow.
+Workflow YAML,460 authored local links, whole Go suite and vet pass. Fresh exact-head
+native/source acceptance remains pending until its recorded completion.
+
+FN086 records the first control run's invalid warning-ownership mutation: removing
+the sole slices.Clone call made slices unused, so compilation failed after sixteen
+valid detections. No whole-run or ownership detection was claimed. Retain a
+discarded clone call to preserve compilation while introducing warning aliasing;
+the corrected ownership mutation fails named assertions and all eighteen controls
+with healthy/restored baselines pass. Source production/captures/pins, existing
+reservation projection and public interfaces remain unchanged.
