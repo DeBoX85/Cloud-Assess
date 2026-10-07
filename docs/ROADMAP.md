@@ -1,3 +1,19 @@
+# Accepted PR126 and quota runtime continuation (2026-10-07)
+
+PR126 is VERIFIED OFFLINE at accepted4768999aa10d85ddc69a357b81c9123e8c853b88, treebe7d5256c6657fda436a5438c548c1e2fc4cc269, ordered parentscd81283a5250f2ffb9d943e4697a7a88aa395560/a94ef1dccc95166a468808fc78776195b3a2e46d. Exact acceptance/recovery authority: https://github.com/DeBoX85/Cloud-Assess/pull/126. Final candidate native37569568258/Linux112624961340/Windows112624961560 and source37569568336/job112624898016 passed. Distinct accepted-push native37570506676/Linux112627814661/Windows112627814915 and source37570506621/job112627814312 passed. Complete mandatory logs/steps, all17 captures150 chunks/hash/full bytes, final/original remote trees/alltracked bytes, raw commits/ordered parents/Denis/signed merge/no-bypass rules were verified at closure. This continuation freshly rechecked accepted ref/no open proposals and fresh target full-history fsck. Earlier pending records remain history; no CI evidence transfers to new code.
+
+Next bounded offline slice is owned quota calculation under [REGION_QUOTA_RUNTIME.md](REGION_QUOTA_RUNTIME.md), with reservation calculation separate afterward. Pre-edit contract resolves raw identity versus localized labels, actual App Service label, source-exact provider filters/15-percent arithmetic, explicit missing/partial/unsupported health and existing count/text/work/ratio bounds. Existing projections are not collectors. No target production edits or quota runtime test execution yet. Publish and verify the planning checkpoint, then implement calculation, independent full-output tests and compiling controls in both native jobs; final-head native/source/protected merge and distinct accepted-push remain mandatory.
+
+FN084 corrects the earlier automated-review absence claim: PR126 issuecomment6030667325 records Codex Code Review completed on a94ef1d at2026-10-07T04:07:15.459398Z. Formal/inline review arrays were empty, but issue comments supplied status. Inspect all three surfaces before merge and closure. No detailed report, human approval or universal coverage is claimed. FN083 read/path recurrence during this continuation: oversized combined documentation reads truncated and one source search used the target workdir. Those reads are not evidence; correct explicit source workdir and bounded actual sections established the relevant facts before contract edits.
+
+Fresh isolated quota-runtime-work starts from4768999a; original source/accepted checkpoints are preserved. No uncertain remote mutation or known lost accepted code. Scratch raw diagnostics/tool caches are not backed up. New documents are backed up only after exact original local tree/full remote bytes/parent/Denis/ref read-back.
+
+Laptop/Azure expected within24 hours previously, NOT confirmed restored. Continue independently. Live/DV001 wholly nonproduction hierarchy/load/freshOS/hosted-maintenance/Gate004/release/module-only advisory remain open. No resources/roles/fixtures/production substitution/exposure/release or independent-person/live approval.
+
+Earlier records remain history.
+
+---
+
 # PR126 retained reservation SDK source checkpoint
 
 Accepted remains PR125cd81283a5250f2ffb9d943e4697a7a88aa395560/tree2077e879ed2073686a4334b5b6eb707fe85cd1c0. PR126 https://github.com/DeBoX85/Cloud-Assess/pull/126 is UNACCEPTED. Planning85198888/treed3b30e69/parentcd81283a and observation69434344/treee32b4b53/parent85198888 complete original local trees/full remote bytes/ordered parents/Denis/ref verified. REGION_RESERVATION_SOURCE is the pre-edit source/fixture/correction contract; current PR body indexes exact final publication/run/acceptance state.
