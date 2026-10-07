@@ -1,6 +1,9 @@
 # Bounded REST quota collection contract
 
-Status: pre-edit planning, UNACCEPTED until this proposal's exact-head gates.
+Status: implemented candidate in [PR129](https://github.com/DeBoX85/Cloud-Assess/pull/129),
+UNACCEPTED until fresh exact-head native/source/review and protected acceptance.
+Pre-edit42c6bc76be9d60ff1631ef37b6ba5b146b7dd191/treea8953ea2ad0138b585024cf87f9864228fd2bd2e
+original tree/all5 full remote documents/Denis/parent/ref verified before code edits.
 Accepted baseline PR128:27b45950ef9e1c830e50a121781278e769a488f4,
 tree64f6c15a5b8f79eddcc9f7f958618a3f535a0072.
 [PR128](https://github.com/DeBoX85/Cloud-Assess/pull/128) is final recovery
@@ -77,6 +80,10 @@ No service identity inferred from a returned raw quota name beyond request scope
 Per page1MiB, aggregate8MiB, at most64 requests/pages, raw rows8192 aggregate,
 text16MiB-64KiB via existing admission/accounting. Exact supported ceilings and
 one-over independent fixtures required, including limits consumed by filtered rows.
+At8192 raw rows with two512-byte decoded labels plus at most1000 selected names,
+the existing aggregate text ceiling is unreachable inside this collector's tighter
+row/label bounds. Retain that defense but do not invent an exact-ceiling fixture.
+The accepted calculation has separate reachable raw/output text-boundary tests.
 Each page must validate fully before prefix append; rows/bytes/pages never silently truncate.
 CalculateQuota integration must retain incomplete/unsupported health and independent
 ownership. Sequential/concurrent runs have no mutable shared cache.
@@ -94,3 +101,28 @@ exact trees/parents/Denis/ref/review surfaces/no-bypass protected expected-head 
 and distinct accepted-push proof. Local tests do not substitute native QA.
 Rollback by reviewed revert to accepted parent; never reset protected history.
 No live/release/Gate004/load/freshOS/maintenance/advisory closure is implied.
+
+## Implementation feedback
+
+First focused run failed an authored fixture expectation:8193-byte nextLink is
+rejected during whole-page admission, so unknown/no current-page rows is correct,
+not partial/current-page prefix. Fixture now distinguishes decode size rejection
+from bounded unsafe continuation, preserving page atomicity. Production unchanged
+for that correction. Expanded focused race passes all declared boundaries/source
+integration/cancellation. First mutation run stopped on ambiguous origin anchor
+(constructor and continuation), no detections/PASS credited. Use unique full
+constructor expression; continue requiring compiling named assertion failures.
+Final native/source/review/protected acceptance remain pending.
+
+## Local candidate checkpoint
+
+Eight independent collector tests cover literal requests/full evidence/full cells,
+actual retained source names and absolute pagination, complete empty/presence,
+request/continuation/status/JSON/count/identity/work/byte boundaries, page atomicity,
+ownership/eight concurrent runs/every observed cancellation check and actual
+authenticated sovereign ARM-client method/audience/token/closed body fixtures.
+All21 compiling controls with healthy/restored baselines PASS locally; final full
+region race/whole Go suite/vet,468 local links and workflow YAML parse PASS.
+No local Windows/full hosted-native/live acceptance claim. Source captures/pins/
+dependencies/public interfaces unchanged. Current PR129 body is exact evolving
+publication/run/recovery authority; earlier planning wording remains history.

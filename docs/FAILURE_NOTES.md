@@ -768,3 +768,20 @@ without printing. Initial collector contract named absent REGION_QUOTA_SOURCE.md
 existing FN085 already records that filename mistake. Correct actual REST source
 contract is REGION_QUOTA_RESERVATION.md, established by inventory before publication.
 Run local link checks before publishing; preserve source pins/history/gates.
+
+
+## FN089: REST collector fixture/control setup and pre-edit whitespace feedback
+
+First focused collector run failed an independent fixture expectation: a page
+containing8193-byte nextLink is invalid as a whole, so unknown/no current-page rows
+is correct. Production maintained page atomicity; split oversized JSON admission
+from bounded unsafe continuation expectations. Corrected focused/expanded race PASS.
+First mutation run stopped before detections because u.Scheme guard appeared in
+constructor and continuation. Use unique full constructor expression; all20
+initial compiling controls/healthy-restored PASS, additional crosspage control
+receives separate final verification. Neither error is a product/service failure.
+Pre-edit staged diff caught extra EOF blank lines in new contract/failure notes;
+trimmed before original tree/full remote publication. No failed check credited PASS.
+Prevention: distinguish decode admission from post-page continuation; verify unique
+anchors and imports; blocking staged diff check before publication. Historical
+read/link/job-label mistakes remain FN087/088; source pins/gates unchanged.

@@ -1,3 +1,47 @@
+# PR129 REST quota collector implementation checkpoint (2026-10-08)
+
+Accepted remains PR12827b45950ef9e1c830e50a121781278e769a488f4/tree64f6c15a5b8f79eddcc9f7f958618a3f535a0072.
+Draft [PR129](https://github.com/DeBoX85/Cloud-Assess/pull/129) on
+feat/region-rest-quota-collector is UNACCEPTED. Pre-edit planning42c6bc76be9d60ff1631ef37b6ba5b146b7dd191/
+treea8953ea2ad0138b585024cf87f9864228fd2bd2e/parent27b45950 original staged tree/
+all5 full remote documents/Denis/ref verified before production edits.
+[REGION_QUOTA_COLLECTOR.md](REGION_QUOTA_COLLECTOR.md) governs the slice;
+current PR129 body indexes exact evolving candidate/run/recovery state.
+
+Four REST quota providers now collect bounded exact GET/path/version evidence
+through existing trusted bounded response getter. Restrict every authenticated
+destination before call, preserve explicit presence and only fully validated
+page prefixes, distinguish complete/partial/unknown/unsupported, bound JSON/
+labels/pages/bytes/raw rows, reject duplicate raw identities, propagate cancellation,
+own per-run state/evidence. Independent literal requests/full evidence/full quota
+cells, actual retained names/pagination, malformed/denied/read/error/status/unsafe
+continuations, exact supported ceilings/one-over, ownership/concurrency/deterministic
+cancellation and real sovereign authenticated-client GET/audience/body-close
+fixtures are implemented. New compiling controls join both native mandatory jobs.
+Existing source/pins/captures/modules/calculation/projection/public interfaces
+unchanged; collector is not public region execution. Audience configuration and
+other collector integration remain future production obligations.
+
+FN089 records fixture-expectation/ambiguous-anchor/pre-edit EOF corrections without
+crediting failed attempts. FN087/088 prior closure/read/link corrections retained.
+Next verify original candidate tree/full remote files/parent/Denis/ref, final diff/
+contract/source review and fresh exact-head Linux/Windows/source all mandatory
+logs/control/assertions/all17 captures150 chunks/hash/full bytes/review surfaces,
+protected expected-head merge and distinct accepted-push. Earlier local/planning
+checks never transfer acceptance. Current PR body holds exact tested local status.
+
+No uncertain remote mutation/known lost accepted code. All coherent authored work
+is backed up only after full remote read-back; raw local logs/cache remain scratch-only.
+Laptop/Azure still NOT confirmed. Live/DV001 wholly nonproduction hierarchy/load/
+freshOS/hosted-maintenance/Gate004/release/module-only advisory remain open.
+No Azure writes/roles/fixtures/production substitution/exposure/release or live/
+human/independent-person approval. After this bounded acceptance, re-evaluate
+access and continue remaining guarded collectors, then coordinator/public reports.
+
+Earlier records remain history.
+
+---
+
 # Accepted PR128 and REST quota collector continuation (2026-10-08)
 
 Accepted27b45950ef9e1c830e50a121781278e769a488f4/tree64f6c15a5b8f79eddcc9f7f958618a3f535a0072,
