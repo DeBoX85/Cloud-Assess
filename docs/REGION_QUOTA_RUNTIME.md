@@ -1,3 +1,11 @@
+# Accepted owned quota calculation, PR127
+
+VERIFIED OFFLINE at2d641484017c92991e626683c63f5c8db35dfcdc/tree f3eb3b0e04c5fb936462f5b733dcf3d1fe43c8ef. [PR127](https://github.com/DeBoX85/Cloud-Assess/pull/127) is the exact final candidate, accepted-push, review/failure/recovery evidence authority; earlier pending sections below remain history. Final candidate native37677069052/source37677069146 and distinct accepted-push native37679050750/source37679050731 passed full mandatory logs, both hosts/twelve controls and17 captures150 chunks/full hash/UTF8 equality. No public region/collector/live/release acceptance follows.
+
+Explicit display correction: pinned selection.go addQuotaRows passes LocalizedName directly and can render a blank Resource cell; target falls back to ResourceName when localization is absent. This was the pre-edit target policy, separately tested including VM NoLabelFamily, not identical source table display output. Source AtRiskSummaries independently also falls back. Calculated-field/flag/raw-identity equivalence for admitted positive rows remains separate from this correction. Source pins/captures/dependencies are unchanged.
+
+---
+
 # Owned region quota calculation contract
 
 Status: IN PROGRESS, implementation candidate in draft

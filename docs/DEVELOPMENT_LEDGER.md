@@ -1,3 +1,19 @@
+# Accepted PR127 and reservation runtime continuation (2026-10-07)
+
+Accepted PR127 is VERIFIED OFFLINE at2d641484017c92991e626683c63f5c8db35dfcdc/treef3eb3b0e04c5fb936462f5b733dcf3d1fe43c8ef, ordered parents4768999aa10d85ddc69a357b81c9123e8c853b88/113c267a9bc9ff1df6518c95cac22f707acfeba0. Exact acceptance/recovery authority: https://github.com/DeBoX85/Cloud-Assess/pull/127. Final candidate native37677069052/Linux112983586786/Windows112983587161 and source37677069146/job112983203754 PASS. Distinct accepted-push native37679050750/Linux112990000902/Windows112990000666 and source37679050731/job112990000324 PASS. Complete mandatory logs/steps/twelve new controls both hosts/all17 captures150 chunks/hash/full bytes/raw authored+signed merge SHA1/696 original blobs/ordered parents/Denis/ref/no-bypass rules verified at closure. This continuation freshly rechecked live2d641484/no open proposals/exact push status/rules and target full-history fsck. Earlier pending wording remains history; no prior check transfers to a new head.
+
+Next bounded offline slice: owned reservation calculation under [REGION_RESERVATION_RUNTIME.md](REGION_RESERVATION_RUNTIME.md), pre-edit contract only. Source FetchReservations blob1ffb6e37cc1c21f6d8b5c9ce483f793387e0e6bc/pinned source8e4f057/Go1.26.8 actual state verified. Source observations PR126 remain accepted historical facts, not target defects. Contract preserves valid status/count arithmetic, distinguishes missing utilization/capacity from known zero, validates selected full structural identity/region/duplicates and budgets, owns results/table/health and honest partial evidence. No production edits/new runtime tests yet. First publish/verify pre-edit checkpoint, then implementation and independent full outputs/compiling controls before mandatory native/source/protected merge/distinct push.
+
+PR127 display correction now indexed: source selection.go quota table caller uses LocalizedName directly and may leave a blank resource cell; target's pre-edit policy falls back to raw ResourceName. Complete calculated-field/raw-identity comparisons do not claim identical source-table labels for missing localization. No canonical serialized raw-quota identity was added. FN084/FN085 and source captures/pins/dependencies preserved.
+
+Fresh isolated reservation-runtime-work starts from2d641484; old worktrees and source harness preserved. No known lost accepted/unpublished code or uncertain remote mutation. Raw local logs/cache remain scratch-only. New authored changes are backed up only after original tree/full remote bytes/parent/Denis/ref read-back. Current proposal body will index exact planning/candidate/run/recovery state.
+
+Laptop/Azure access remains NOT confirmed. Continue independent work; approved live queue resumes after actual access/scope confirmation, DV001 wholly nonproduction hierarchy. Live/load/freshOS/hosted-maintenance/Gate004/release/module-only advisory stay open. No resources/roles/fixtures/production substitution/exposure/release or independent-person/live approval.
+
+Earlier records remain history.
+
+---
+
 # PR127 quota runtime implementation checkpoint (2026-10-07)
 
 Accepted baseline remains PR1264768999aa10d85ddc69a357b81c9123e8c853b88/treebe7d5256c6657fda436a5438c548c1e2fc4cc269. Exact acceptance authority: https://github.com/DeBoX85/Cloud-Assess/pull/126. Draft PR127 https://github.com/DeBoX85/Cloud-Assess/pull/127 is UNACCEPTED on feat/region-quota-runtime. Planning09bd45560034f6bea3e9c4140996cd5e1278b44b/tree075e64fb3541258112673f74ac060be5bce34915/parent4768999a original tree/five complete remote files/Denis/ref verified before production edits. REGION_QUOTA_RUNTIME is the governing contract; current PR127 body indexes exact current publication/head/run state.
