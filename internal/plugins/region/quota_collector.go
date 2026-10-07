@@ -55,7 +55,7 @@ func validQuotaHost(host string) bool {
 
 func NewRESTQuotaCollector(endpoint string, getter RESTQuotaGetter) (*RESTQuotaCollector, error) {
 	u, err := url.Parse(endpoint)
-	if err != nil || len(endpoint) > 2048 || u.Scheme != "https" || !validQuotaHost(u.Hostname()) || (u.Port() != "" && u.Port() != "443") || u.User != nil || u.Opaque != "" || u.ForceQuery || u.RawQuery != "" || u.Fragment != "" || u.RawPath != "" || (u.Path != "" && u.Path != "/") || strings.ContainsAny(endpoint, "%#\\ \r\n\t") || getter == nil {
+	if err != nil || len(endpoint) > 2048 || u.Scheme != "https" || !validQuotaHost(u.Hostname()) || (u.Port() != "" && u.Port() != "443") || strings.HasSuffix(u.Host, ":") || u.User != nil || u.Opaque != "" || u.ForceQuery || u.RawQuery != "" || u.Fragment != "" || u.RawPath != "" || (u.Path != "" && u.Path != "/") || strings.ContainsAny(endpoint, "%#\\ \r\n\t") || getter == nil {
 		return nil, fmt.Errorf("invalid REST quota origin or getter")
 	}
 	u.Path = ""
@@ -240,7 +240,7 @@ func quotaJSON(ctx context.Context, body []byte) bool {
 			if large {
 				limit = 8192
 			}
-			return len(s) <= limit && utf8.ValidString(s) && strings.IndexFunc(s, func(r rune) bool { return unicode.IsControl(r) || r == 0xfffd || r == 0xfffe || r == 0xffff }) < 0
+			return len(s) <= limit && utf8.ValidString(s) && strings.IndexFunc(s, func(r rune) bool { return unicode.IsControl(r) || r == 0xfffd || regionNoncharacter(r) }) < 0
 		}
 		delim, compound := t.(json.Delim)
 		if !compound {

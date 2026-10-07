@@ -1,3 +1,37 @@
+# PR129 Unicode review correction checkpoint (2026-10-08)
+
+Accepted remains PR12827b45950ef9e1c830e50a121781278e769a488f4.
+PR129 UNACCEPTED. Pre-edit42c6bc76 planning verified before code; initial87722a5
+and authority-correctedd4fe96e/treeaa7ec61f/full corrected remote bytes/Denis/ref/
+704 original blobs/raw commits/APRL/fsck remain published history, not final
+acceptance. Their source/native/review runs are superseded by this correction.
+
+Automated inline4213079235/formal5449652646 on87722a5 identified incomplete Unicode
+noncharacter rejection. FN091 confirms collector and inherited primary/auxiliary
+region predicates; shared regionNoncharacter now excludes all66 reserved code points
+across every plane. Valid supplementary text remains accepted. New raw/unknown
+string/key/scope/direct primary+quota projection fixtures and compiling incomplete-
+predicate control reproduce the old behavior. New23 selected controls plus existing
+five primary controls/full region race/whole suite/vet are required on final code;
+exact local/final head/run results live in [PR129](https://github.com/DeBoX85/Cloud-Assess/pull/129).
+Constructor also rejects empty explicit ports under original absent-or443 policy.
+
+Next publish/verify original coherent final tree/full remote files/ordered parent/
+Denis/ref, fresh final-head source/native full logs/all23 controls/all17 captures/
+150 chunks/hash/full bytes/all3 review surfaces/currentbase/preview/rules, protected
+expected-head merge and distinct accepted-push. Earlier heads never transfer
+acceptance. Scope is four REST quota providers plus consistent affected region-label
+correction; other project Unicode paths are not universally certified. Source
+pins/captures/modules/CLI/registry unchanged. Prior findings and checkpoints preserved.
+Laptop/Azure NOT confirmed; live/DV001/load/freshOS/maintenance/Gate004/release/
+module-only advisory open. No writes/roles/fixtures/production substitution/exposure/
+release/live/human/independent-person approval. No uncertain mutation/lost accepted
+code. Raw logs/cache scratch-only, never called durable backups.
+
+Earlier records remain history.
+
+---
+
 # PR129 authority-cycle correction checkpoint (2026-10-08)
 
 Accepted remains PR12827b45950ef9e1c830e50a121781278e769a488f4.

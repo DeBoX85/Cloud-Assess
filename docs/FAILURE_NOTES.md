@@ -806,3 +806,19 @@ gap, not a compiling detection or whole-run PASS. Strengthened independent fixtu
 to require the declared fixed failure code, preserving destination/call/prefix
 assertions; rerun all22 healthy/fault/restored controls. Never weaken controls or
 infer rejected mutation from a secondary guard's different failure classification.
+
+## FN091: automated review complete Unicode noncharacter predicate
+
+Automated inline4213079235/formal review5449652646 on initial87722a5 identified
+quota strings accepted U+FDD0/U+1FFFE while the contract required noncharacter
+rejection. Inspection confirmed the collector and existing shared auxiliary/primary
+region checks excluded only U+FFFD/U+FFFE/U+FFFF. This is a product label-admission
+defect, including inherited existing region-label paths, not live incident/service
+failure. One shared predicate rejects U+FDD0–U+FDEF and every plane's FFFE/FFFF;
+collector strings/keys, selected auxiliary names and primary labels all use it.
+Regression fixtures cover BMP/supplementary endpoints, unknown strings/keys,
+selected scope and direct primary/quota projections, with valid emoji positive.
+Compiling removal reproduces earlier predicate behavior and fails named assertions.
+Full region/source/native/23 controls/primary controls must pass on final head.
+Review correction does not prove all other project Unicode paths safe; no blanket
+re-audit/certification or source/pin/dependency change. Earlier heads superseded.

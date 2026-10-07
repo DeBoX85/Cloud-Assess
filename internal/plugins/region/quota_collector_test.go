@@ -88,7 +88,7 @@ func TestRESTQuotaCollectorRequestAdmission(t *testing.T) {
 		t.Fatal("invalid request reached getter")
 		return nil, nil, nil
 	})
-	for _, origin := range []string{"http://management.azure.com", "https://a..b", "https://a.-b", "https://a.b-", "https://" + strings.Repeat("x", 64) + ".example", "https://user@management.azure.com", "https://management.azure.com/x", "https://management.azure.com?", "https://management.azure.com#", "https://management.azure.com:444", "https://månagement.azure.com", "https://management.azure.com/%73", "https://management.azure.com\\evil", "https://management.azure.com?x=1", "https://"} {
+	for _, origin := range []string{"http://management.azure.com", "https://a..b", "https://management.azure.com:", "https://a.-b", "https://a.b-", "https://" + strings.Repeat("x", 64) + ".example", "https://user@management.azure.com", "https://management.azure.com/x", "https://management.azure.com?", "https://management.azure.com#", "https://management.azure.com:444", "https://månagement.azure.com", "https://management.azure.com/%73", "https://management.azure.com\\evil", "https://management.azure.com?x=1", "https://"} {
 		if _, e := NewRESTQuotaCollector(origin, g); e == nil {
 			t.Fatalf("origin admitted: %q", origin)
 		}
@@ -97,6 +97,9 @@ func TestRESTQuotaCollectorRequestAdmission(t *testing.T) {
 		t.Fatal("nil getter")
 	}
 	c := quotaCollector(t, g)
+	if r, e := c.Collect(context.Background(), map[string]string{quotaTestID: "bad\ufdd0"}, quotaRequest("Network")); e == nil || r != nil {
+		t.Fatalf("selected noncharacter reached auth: %#v %v", r, e)
+	}
 	for _, req := range []QuotaRequest{{quotaTestID, "eastus", "VM"}, {quotaTestID, "EastUS", "Network"}, {"bbbbbbbb-bbbb-cccc-dddd-eeeeeeeeeeee", "eastus", "Network"}, {quotaTestID, "eastus/evil", "Network"}, {"invalid", "eastus", "Network"}} {
 		if r, e := c.Collect(context.Background(), quotaScope(), req); e == nil || r != nil {
 			t.Fatalf("request admitted: %#v", req)
@@ -159,6 +162,18 @@ func TestRESTQuotaCollectorContinuation(t *testing.T) {
 }
 
 func TestRESTQuotaCollectorFailureHealth(t *testing.T) {
+	for _, runeValue := range []rune{0xfdd0, 0xfdef, 0xfffe, 0xffff, 0x1fffe, 0x1ffff, 0x2fffe, 0x10ffff} {
+		for _, shape := range []map[string]any{{"value": []any{map[string]any{"name": "bad" + string(runeValue)}}}, {"value": []any{}, "extra": string(runeValue)}, {"value": []any{}, "bad" + string(runeValue): 0}} {
+			b, _ := json.Marshal(shape)
+			r := collectBody(t, string(b))
+			if r.Evidence.Status != "unknown" || r.FailureCode != "quota_invalid_response" {
+				t.Fatalf("noncharacter U+%X admitted: %#v", runeValue, r)
+			}
+		}
+	}
+	if r := collectBody(t, `{"value":[{"name":"valid 🧭","limit":10}]}`); r.Evidence.Status != "complete" {
+		t.Fatalf("valid supplementary text rejected: %#v", r)
+	}
 	for _, status := range []int{201, 204, 302, 400, 401, 403, 404, 405, 429, 500} {
 		c := quotaCollector(t, func(context.Context, string, int64) ([]byte, *http.Response, error) {
 			return []byte(`{"value":[]}`), &http.Response{StatusCode: status}, nil
@@ -244,6 +259,23 @@ func TestRESTQuotaCollectorFailureHealth(t *testing.T) {
 	calc, e := CalculateQuota(context.Background(), quotaScope(), []QuotaRequest{quotaRequest("Network")}, []QuotaEvidence{r.Evidence})
 	if e != nil || calc.Health.Status != assessment.StageCompletedWithWarnings || calc.Health.Records != 1 {
 		t.Fatalf("partial calculation: %#v %v", calc, e)
+	}
+}
+
+func TestRESTQuotaCollectorNoncharacterProjection(t *testing.T) {
+	in, _ := fixtures(t)
+	for _, bad := range []rune{0xfdd0, 0xfdef, 0x1fffe, 0x10ffff} {
+		row := in[0].Input
+		row.SubscriptionName = "bad" + string(bad)
+		if _, e := Project(context.Background(), map[string]string{row.SubscriptionID: row.SubscriptionName}, []Comparison{row}); e == nil {
+			t.Fatalf("primary noncharacter U+%X admitted", bad)
+		}
+		request := quotaRequest("Network")
+		usage := quotaUsage("Counter", 1, 10)
+		usage.LocalizedName = "bad" + string(bad)
+		if r, e := CalculateQuota(context.Background(), quotaScope(), []QuotaRequest{request}, []QuotaEvidence{{Request: request, Status: "complete", Usages: []QuotaUsage{usage}}}); e == nil || r != nil {
+			t.Fatalf("auxiliary noncharacter U+%X admitted: %#v %v", bad, r, e)
+		}
 	}
 }
 

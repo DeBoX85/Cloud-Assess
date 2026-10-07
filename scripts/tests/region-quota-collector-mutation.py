@@ -15,6 +15,7 @@ MUTATIONS = (
     ('continuation-path', 'u.Path != first.Path', '(u.Path != first.Path && false)', 'TestRESTQuotaCollectorContinuation', 'internal/plugins/region/quota_collector.go'),
     ('continuation-version', 'q.Get("api-version") != version', '(q.Get("api-version") != version && false)', 'TestRESTQuotaCollectorContinuation', 'internal/plugins/region/quota_collector.go'),
     ('canonical-authority', 'u.Host = c.origin.Host', '_ = c.origin.Host', 'TestRESTQuotaCollectorContinuation', 'internal/plugins/region/quota_collector.go'),
+    ('noncharacters', 'return r >= 0xfdd0 && r <= 0xfdef || r&0xffff == 0xfffe || r&0xffff == 0xffff', 'return r==0xfffe || r==0xffff', 'TestRESTQuotaCollectorFailureHealth', 'internal/plugins/region/primary.go'),
     ('cycle', 'if seenLinks[u.String()] {', 'if seenLinks[u.String()] && false {', 'TestRESTQuotaCollectorContinuation', 'internal/plugins/region/quota_collector.go'),
     ('status', 'response.StatusCode != http.StatusOK', '(response.StatusCode != http.StatusOK && false)', 'TestRESTQuotaCollectorFailureHealth', 'internal/plugins/region/quota_collector.go'),
     ('unsupported', 'status == 404 || status == 405', 'status == 404 || status == 405 || status == 400', 'TestRESTQuotaCollectorFailureHealth', 'internal/plugins/region/quota_collector.go'),

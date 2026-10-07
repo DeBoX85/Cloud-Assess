@@ -134,3 +134,17 @@ correction checkpoint; workflow unchanged and YAML remains parsed.
 No local Windows/full hosted-native/live acceptance claim. Source captures/pins/
 dependencies/public interfaces unchanged. Current PR129 body is exact evolving
 publication/run/recovery authority; earlier planning wording remains history.
+
+## Automated review correction
+
+Inline4213079235/formal5449652646 on initial87722a5 found incomplete Unicode
+noncharacter rejection. FN091 records confirmed inherited primary/auxiliary and
+collector predicates. A shared region predicate now rejects all66 noncharacters
+(FDD0–FDEF and every plane's FFFE/FFFF) while valid supplementary characters remain
+supported. Nine independent collector/projection tests and23 compiling controls
+are the final scope. New source/native/review acceptance required; earlier heads
+and finite focused tests do not certify all project Unicode handling.
+Final corrected local full region race/all23 compiling controls/healthy-restored,
+whole suite/vet/existing five primary controls PASS;468 links/YAML/staged diff PASS.
+This includes empty-port origin admission and complete shared noncharacter checks.
+Final-head native/source/review/protected merge/distinct push still required.
