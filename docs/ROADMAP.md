@@ -1,3 +1,35 @@
+# PR127 quota runtime implementation checkpoint (2026-10-07)
+
+Accepted baseline remains PR1264768999aa10d85ddc69a357b81c9123e8c853b88/treebe7d5256c6657fda436a5438c548c1e2fc4cc269. Exact acceptance authority: https://github.com/DeBoX85/Cloud-Assess/pull/126. Draft PR127 https://github.com/DeBoX85/Cloud-Assess/pull/127 is UNACCEPTED on feat/region-quota-runtime. Planning09bd45560034f6bea3e9c4140996cd5e1278b44b/tree075e64fb3541258112673f74ac060be5bce34915/parent4768999a original tree/five complete remote files/Denis/ref verified before production edits. REGION_QUOTA_RUNTIME is the governing contract; current PR127 body indexes exact current publication/head/run state.
+
+Owned decoded CalculateQuota now computes source-valid arithmetic/provider filters with explicit request/evidence completeness, bounded counts/text/work/ratio, raw identity plus optional localized projection labels and isolated warnings. Seven independent runtime tests include complete literal rows/cells/health, positive actual retained REST/VM rows, source corrections, five provider filters/case variants, unknown/partial/empty evidence, ownership/concurrency, admission/aggregate budgets, declared order and deterministic cancellation. Twelve compiling critical controls/healthy/restored baselines pass locally. Full region race, whole Go suite, vet,454 local links and workflow YAML parse PASS locally after documented corrections. No local Windows/full native/package/live claim; controls are selected faults, not universal coverage. All17 source captures/pins/dependencies/reservation/public interfaces remain unchanged.
+
+FN085 records planning native37676060054/Linux112979749385 failed documentation for a nonexistent link, first control runner anchor failure after11 detections and first whole-suite setup failure for unmaterialized target APRL. Exact clean60eadd submodule restored before successful suite/vet. Corrected link/unique anchor, all12 controls/restored pass. No failed attempt transferred as PASS. FN084 preserves corrected PR126 automated-review discovery; inspect formal reviews/inline comments/issue comments before acceptance.
+
+Next: verify complete original implementation tree/full remote bytes/ordered parent/Denis/ref, then remaining contract/final diff review, fresh exact-head Linux quality/Windows/source full mandatory logs and review surfaces, protected expected-head acceptance and distinct accepted-push evidence. Do not merge this WIP based on local/planning results. After quota acceptance, implement separate reservation calculation then guarded adapters/coordinator/public all-format integration.
+
+No unknown remote operation/known lost accepted code. Scratch raw logs/cache remain scratch-only. Laptop/Azure remains unconfirmed; live/DV001 wholly nonproduction hierarchy/load/freshOS/hosted-maintenance/Gate004/release/module-only advisory stay open. No resources/roles/fixtures/production substitution/exposure/release or independent-person/live approval.
+
+Earlier records remain history.
+
+---
+
+# Accepted PR126 and quota runtime continuation (2026-10-07)
+
+PR126 is VERIFIED OFFLINE at accepted4768999aa10d85ddc69a357b81c9123e8c853b88, treebe7d5256c6657fda436a5438c548c1e2fc4cc269, ordered parentscd81283a5250f2ffb9d943e4697a7a88aa395560/a94ef1dccc95166a468808fc78776195b3a2e46d. Exact acceptance/recovery authority: https://github.com/DeBoX85/Cloud-Assess/pull/126. Final candidate native37569568258/Linux112624961340/Windows112624961560 and source37569568336/job112624898016 passed. Distinct accepted-push native37570506676/Linux112627814661/Windows112627814915 and source37570506621/job112627814312 passed. Complete mandatory logs/steps, all17 captures150 chunks/hash/full bytes, final/original remote trees/alltracked bytes, raw commits/ordered parents/Denis/signed merge/no-bypass rules were verified at closure. This continuation freshly rechecked accepted ref/no open proposals and fresh target full-history fsck. Earlier pending records remain history; no CI evidence transfers to new code.
+
+Next bounded offline slice is owned quota calculation under [REGION_QUOTA_RUNTIME.md](REGION_QUOTA_RUNTIME.md), with reservation calculation separate afterward. Pre-edit contract resolves raw identity versus localized labels, actual App Service label, source-exact provider filters/15-percent arithmetic, explicit missing/partial/unsupported health and existing count/text/work/ratio bounds. Existing projections are not collectors. No target production edits or quota runtime test execution yet. Publish and verify the planning checkpoint, then implement calculation, independent full-output tests and compiling controls in both native jobs; final-head native/source/protected merge and distinct accepted-push remain mandatory.
+
+FN084 corrects the earlier automated-review absence claim: PR126 issuecomment6030667325 records Codex Code Review completed on a94ef1d at2026-10-07T04:07:15.459398Z. Formal/inline review arrays were empty, but issue comments supplied status. Inspect all three surfaces before merge and closure. No detailed report, human approval or universal coverage is claimed. FN083 read/path recurrence during this continuation: oversized combined documentation reads truncated and one source search used the target workdir. Those reads are not evidence; correct explicit source workdir and bounded actual sections established the relevant facts before contract edits.
+
+Fresh isolated quota-runtime-work starts from4768999a; original source/accepted checkpoints are preserved. No uncertain remote mutation or known lost accepted code. Scratch raw diagnostics/tool caches are not backed up. New documents are backed up only after exact original local tree/full remote bytes/parent/Denis/ref read-back.
+
+Laptop/Azure expected within24 hours previously, NOT confirmed restored. Continue independently. Live/DV001 wholly nonproduction hierarchy/load/freshOS/hosted-maintenance/Gate004/release/module-only advisory remain open. No resources/roles/fixtures/production substitution/exposure/release or independent-person/live approval.
+
+Earlier records remain history.
+
+---
+
 # PR126 retained reservation SDK source checkpoint
 
 Accepted remains PR125cd81283a5250f2ffb9d943e4697a7a88aa395560/tree2077e879ed2073686a4334b5b6eb707fe85cd1c0. PR126 https://github.com/DeBoX85/Cloud-Assess/pull/126 is UNACCEPTED. Planning85198888/treed3b30e69/parentcd81283a and observation69434344/treee32b4b53/parent85198888 complete original local trees/full remote bytes/ordered parents/Denis/ref verified. REGION_RESERVATION_SOURCE is the pre-edit source/fixture/correction contract; current PR body indexes exact final publication/run/acceptance state.

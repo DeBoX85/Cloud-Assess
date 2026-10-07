@@ -23,6 +23,7 @@ const auxTextBudget = assessment.MaxPluginTextBytes - (64 << 10)
 // QuotaRow retains decoded source values and flags. Arithmetic is not inferred.
 type QuotaRow struct {
 	SubscriptionID, Subscription, Region, QuotaType, ResourceName string
+	DisplayName                                                   string
 	Current, Limit, Available                                     int64
 	HeadroomPct                                                   float64
 	IsNearLimit, IsOverLimit                                      bool
@@ -150,6 +151,9 @@ func ProjectQuota(ctx context.Context, subscriptions map[string]string, input []
 				return auxiliaryFailure(true, "region_aux_text_limit")
 			}
 		}
+		if !auxiliaryText(row.DisplayName, &textBytes) {
+			return auxiliaryFailure(true, "region_aux_text_limit")
+		}
 		if row.Current < 0 || row.Current > MaxAuxCount || row.Limit < 0 || row.Limit > MaxAuxCount || row.Available < -MaxAuxCount || row.Available > MaxAuxCount || math.IsNaN(row.HeadroomPct) || math.IsInf(row.HeadroomPct, 0) || math.Abs(row.HeadroomPct) > float64(MaxAuxCount) {
 			return auxiliaryFailure(true, "region_aux_input_invalid")
 		}
@@ -179,7 +183,11 @@ func ProjectQuota(ctx context.Context, subscriptions map[string]string, input []
 		} else if row.IsNearLimit {
 			status = "Near Limit"
 		}
-		table.Rows = append(table.Rows, assessment.PluginRow{SubscriptionID: strings.ToLower(row.SubscriptionID), Cells: []string{row.Subscription, row.Region, row.QuotaType, row.ResourceName, strconv.FormatInt(row.Current, 10), strconv.FormatInt(row.Limit, 10), strconv.FormatInt(row.Available, 10), fmt.Sprintf("%.1f%%", row.HeadroomPct), status}})
+		label := row.DisplayName
+		if label == "" {
+			label = row.ResourceName
+		}
+		table.Rows = append(table.Rows, assessment.PluginRow{SubscriptionID: strings.ToLower(row.SubscriptionID), Cells: []string{row.Subscription, row.Region, row.QuotaType, label, strconv.FormatInt(row.Current, 10), strconv.FormatInt(row.Limit, 10), strconv.FormatInt(row.Available, 10), fmt.Sprintf("%.1f%%", row.HeadroomPct), status}})
 	}
 	return completeAuxiliary(ctx, table, true)
 }

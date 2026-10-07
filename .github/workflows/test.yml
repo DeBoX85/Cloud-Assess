@@ -234,6 +234,9 @@ jobs:
       - name: Verify region cost enrichment tests reject selected mutations
         run: python3 scripts/tests/region-cost-enrichment-mutation.py
 
+      - name: Verify region quota runtime tests reject selected mutations
+        run: python3 scripts/tests/region-quota-runtime-mutation.py
+
       - name: Vet
         run: go vet ./...
 
@@ -341,6 +344,10 @@ jobs:
       - name: Verify Windows region cost enrichment tests reject selected mutations
         shell: pwsh
         run: python scripts/tests/region-cost-enrichment-mutation.py
+
+      - name: Verify Windows region quota runtime tests reject selected mutations
+        shell: pwsh
+        run: python scripts/tests/region-quota-runtime-mutation.py
 
       - name: Build and smoke-test Windows CLI
         env:
