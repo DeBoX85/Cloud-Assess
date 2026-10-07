@@ -1,0 +1,783 @@
+{
+  "SourceBlob": "1ffb6e37cc1c21f6d8b5c9ce483f793387e0e6bc",
+  "SDKModule": "github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/compute/armcompute/v6 v6.4.0",
+  "DisableRPRegistration": true,
+  "MaxRetries": -1,
+  "Cases": {
+    "at": {
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"id\":\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g\",\"name\":\"g\",\"location\":\"EASTUS\"}]}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"r\"}]}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations/r?%24expand=instanceView\u0026api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"name\":\"r\",\"location\":\"WESTUS\",\"sku\":{\"name\":\"Standard_D2s_v5\",\"capacity\":4},\"properties\":{\"instanceView\":{\"utilizationInfo\":{\"virtualMachinesAllocated\":[{\"id\":\"synthetic-vm-0\"},{\"id\":\"synthetic-vm-1\"},{\"id\":\"synthetic-vm-2\"},{\"id\":\"synthetic-vm-3\"}]}}}}",
+          "Cancel": false
+        }
+      ],
+      "Cancelled": false
+    },
+    "available": {
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"id\":\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g\",\"name\":\"g\",\"location\":\"EASTUS\"}]}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"r\"}]}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations/r?%24expand=instanceView\u0026api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"name\":\"r\",\"location\":\"WESTUS\",\"sku\":{\"name\":\"Standard_D2s_v5\",\"capacity\":4},\"properties\":{\"instanceView\":{\"utilizationInfo\":{\"virtualMachinesAllocated\":[{\"id\":\"synthetic-vm-0\"}]}}}}",
+          "Cancel": false
+        }
+      ],
+      "Cancelled": false
+    },
+    "cancel-get": {
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"id\":\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g\",\"name\":\"g\",\"location\":\"EASTUS\"}]}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"r\"}]}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations/r?%24expand=instanceView\u0026api-version=2024-11-01",
+          "Status": 0,
+          "Body": "",
+          "Cancel": true
+        }
+      ],
+      "Cancelled": false
+    },
+    "cancel-list": {
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"id\":\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g\",\"name\":\"g\",\"location\":\"EASTUS\"}]}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?api-version=2024-11-01",
+          "Status": 0,
+          "Body": "",
+          "Cancel": true
+        }
+      ],
+      "Cancelled": false
+    },
+    "cancelled": {
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[]}",
+          "Cancel": false
+        }
+      ],
+      "Cancelled": true
+    },
+    "empty": {
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[]}",
+          "Cancel": false
+        }
+      ],
+      "Cancelled": false
+    },
+    "get-http403": {
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"id\":\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g\",\"name\":\"g\",\"location\":\"EASTUS\"}]}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"bad\"},{\"name\":\"r\"}]}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations/bad?%24expand=instanceView\u0026api-version=2024-11-01",
+          "Status": 403,
+          "Body": "{\"error\":{\"code\":\"SyntheticReservationError\",\"message\":\"synthetic\"}}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations/r?%24expand=instanceView\u0026api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"name\":\"r\",\"location\":\"WESTUS\",\"sku\":{\"name\":\"Standard_D2s_v5\",\"capacity\":4},\"properties\":{\"instanceView\":{\"utilizationInfo\":{\"virtualMachinesAllocated\":[{\"id\":\"synthetic-vm-0\"}]}}}}",
+          "Cancel": false
+        }
+      ],
+      "Cancelled": false
+    },
+    "get-http404": {
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"id\":\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g\",\"name\":\"g\",\"location\":\"EASTUS\"}]}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"bad\"},{\"name\":\"r\"}]}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations/bad?%24expand=instanceView\u0026api-version=2024-11-01",
+          "Status": 404,
+          "Body": "{\"error\":{\"code\":\"SyntheticReservationError\",\"message\":\"synthetic\"}}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations/r?%24expand=instanceView\u0026api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"name\":\"r\",\"location\":\"WESTUS\",\"sku\":{\"name\":\"Standard_D2s_v5\",\"capacity\":4},\"properties\":{\"instanceView\":{\"utilizationInfo\":{\"virtualMachinesAllocated\":[{\"id\":\"synthetic-vm-0\"}]}}}}",
+          "Cancel": false
+        }
+      ],
+      "Cancelled": false
+    },
+    "get-malformed": {
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"id\":\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g\",\"name\":\"g\",\"location\":\"EASTUS\"}]}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"r\"}]}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations/r?%24expand=instanceView\u0026api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"name\":",
+          "Cancel": false
+        }
+      ],
+      "Cancelled": false
+    },
+    "group-http403": {
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+          "Status": 403,
+          "Body": "{\"error\":{\"code\":\"SyntheticReservationError\",\"message\":\"synthetic\"}}",
+          "Cancel": false
+        }
+      ],
+      "Cancelled": false
+    },
+    "group-http404": {
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+          "Status": 404,
+          "Body": "{\"error\":{\"code\":\"SyntheticReservationError\",\"message\":\"synthetic\"}}",
+          "Cancel": false
+        }
+      ],
+      "Cancelled": false
+    },
+    "group-malformed": {
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":",
+          "Cancel": false
+        }
+      ],
+      "Cancelled": false
+    },
+    "group-paged": {
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"id\":\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g\",\"name\":\"g\",\"location\":\"EASTUS\"}],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?%24skiptoken=second\u0026api-version=2024-11-01\"}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"r\"}]}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations/r?%24expand=instanceView\u0026api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"name\":\"r\",\"location\":\"WESTUS\",\"sku\":{\"name\":\"Standard_D2s_v5\",\"capacity\":4},\"properties\":{\"instanceView\":{\"utilizationInfo\":{\"virtualMachinesAllocated\":[{\"id\":\"synthetic-vm-0\"}]}}}}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?%24skiptoken=second\u0026api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"id\":\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/other\",\"name\":\"other\",\"location\":\"EASTUS\"}]}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/other/capacityReservations?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[]}",
+          "Cancel": false
+        }
+      ],
+      "Cancelled": false
+    },
+    "identity-conflict": {
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"id\":\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g\",\"name\":\"g\",\"location\":\"EASTUS\"}]}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"r\"}]}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations/r?%24expand=instanceView\u0026api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"name\":\"returned-name\",\"location\":\"WESTUS\",\"sku\":{\"name\":\"Standard_D2s_v5\",\"capacity\":4},\"properties\":{\"instanceView\":{\"utilizationInfo\":{\"virtualMachinesAllocated\":[{\"id\":\"synthetic-vm-0\"}]}}}}",
+          "Cancel": false
+        }
+      ],
+      "Cancelled": false
+    },
+    "idle": {
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"id\":\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g\",\"name\":\"g\",\"location\":\"EASTUS\"}]}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"r\"}]}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations/r?%24expand=instanceView\u0026api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"name\":\"r\",\"location\":\"WESTUS\",\"sku\":{\"name\":\"Standard_D2s_v5\",\"capacity\":4},\"properties\":{\"instanceView\":{\"utilizationInfo\":{\"virtualMachinesAllocated\":[]}}}}",
+          "Cancel": false
+        }
+      ],
+      "Cancelled": false
+    },
+    "later-group-http403": {
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"id\":\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g\",\"name\":\"g\",\"location\":\"EASTUS\"}],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?%24skiptoken=second\u0026api-version=2024-11-01\"}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"r\"}]}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations/r?%24expand=instanceView\u0026api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"name\":\"r\",\"location\":\"WESTUS\",\"sku\":{\"name\":\"Standard_D2s_v5\",\"capacity\":4},\"properties\":{\"instanceView\":{\"utilizationInfo\":{\"virtualMachinesAllocated\":[{\"id\":\"synthetic-vm-0\"}]}}}}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?%24skiptoken=second\u0026api-version=2024-11-01",
+          "Status": 403,
+          "Body": "{\"error\":{\"code\":\"SyntheticReservationError\",\"message\":\"synthetic\"}}",
+          "Cancel": false
+        }
+      ],
+      "Cancelled": false
+    },
+    "later-group-malformed": {
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"id\":\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g\",\"name\":\"g\",\"location\":\"EASTUS\"}],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?%24skiptoken=second\u0026api-version=2024-11-01\"}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"r\"}]}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations/r?%24expand=instanceView\u0026api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"name\":\"r\",\"location\":\"WESTUS\",\"sku\":{\"name\":\"Standard_D2s_v5\",\"capacity\":4},\"properties\":{\"instanceView\":{\"utilizationInfo\":{\"virtualMachinesAllocated\":[{\"id\":\"synthetic-vm-0\"}]}}}}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?%24skiptoken=second\u0026api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":",
+          "Cancel": false
+        }
+      ],
+      "Cancelled": false
+    },
+    "later-list-http403": {
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"id\":\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g\",\"name\":\"g\",\"location\":\"EASTUS\"},{\"id\":\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/other\",\"name\":\"other\",\"location\":\"EASTUS\"}]}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"r\"}],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?%24skiptoken=second\u0026api-version=2024-11-01\"}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations/r?%24expand=instanceView\u0026api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"name\":\"r\",\"location\":\"WESTUS\",\"sku\":{\"name\":\"Standard_D2s_v5\",\"capacity\":4},\"properties\":{\"instanceView\":{\"utilizationInfo\":{\"virtualMachinesAllocated\":[{\"id\":\"synthetic-vm-0\"}]}}}}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?%24skiptoken=second\u0026api-version=2024-11-01",
+          "Status": 403,
+          "Body": "{\"error\":{\"code\":\"SyntheticReservationError\",\"message\":\"synthetic\"}}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/other/capacityReservations?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[]}",
+          "Cancel": false
+        }
+      ],
+      "Cancelled": false
+    },
+    "later-list-malformed": {
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"id\":\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g\",\"name\":\"g\",\"location\":\"EASTUS\"},{\"id\":\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/other\",\"name\":\"other\",\"location\":\"EASTUS\"}]}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"r\"}],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?%24skiptoken=second\u0026api-version=2024-11-01\"}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations/r?%24expand=instanceView\u0026api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"name\":\"r\",\"location\":\"WESTUS\",\"sku\":{\"name\":\"Standard_D2s_v5\",\"capacity\":4},\"properties\":{\"instanceView\":{\"utilizationInfo\":{\"virtualMachinesAllocated\":[{\"id\":\"synthetic-vm-0\"}]}}}}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?%24skiptoken=second\u0026api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/other/capacityReservations?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[]}",
+          "Cancel": false
+        }
+      ],
+      "Cancelled": false
+    },
+    "list-http403": {
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"id\":\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g\",\"name\":\"g\",\"location\":\"EASTUS\"},{\"id\":\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/other\",\"name\":\"other\",\"location\":\"EASTUS\"}]}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?api-version=2024-11-01",
+          "Status": 403,
+          "Body": "{\"error\":{\"code\":\"SyntheticReservationError\",\"message\":\"synthetic\"}}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/other/capacityReservations?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"r\"}]}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/other/capacityReservations/r?%24expand=instanceView\u0026api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"name\":\"r\",\"location\":\"WESTUS\",\"sku\":{\"name\":\"Standard_D2s_v5\",\"capacity\":4},\"properties\":{\"instanceView\":{\"utilizationInfo\":{\"virtualMachinesAllocated\":[{\"id\":\"synthetic-vm-0\"}]}}}}",
+          "Cancel": false
+        }
+      ],
+      "Cancelled": false
+    },
+    "list-http404": {
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"id\":\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g\",\"name\":\"g\",\"location\":\"EASTUS\"},{\"id\":\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/other\",\"name\":\"other\",\"location\":\"EASTUS\"}]}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?api-version=2024-11-01",
+          "Status": 404,
+          "Body": "{\"error\":{\"code\":\"SyntheticReservationError\",\"message\":\"synthetic\"}}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/other/capacityReservations?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"r\"}]}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/other/capacityReservations/r?%24expand=instanceView\u0026api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"name\":\"r\",\"location\":\"WESTUS\",\"sku\":{\"name\":\"Standard_D2s_v5\",\"capacity\":4},\"properties\":{\"instanceView\":{\"utilizationInfo\":{\"virtualMachinesAllocated\":[{\"id\":\"synthetic-vm-0\"}]}}}}",
+          "Cancel": false
+        }
+      ],
+      "Cancelled": false
+    },
+    "list-malformed": {
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"id\":\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g\",\"name\":\"g\",\"location\":\"EASTUS\"}]}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":",
+          "Cancel": false
+        }
+      ],
+      "Cancelled": false
+    },
+    "list-paged": {
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"id\":\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g\",\"name\":\"g\",\"location\":\"EASTUS\"},{\"id\":\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/other\",\"name\":\"other\",\"location\":\"EASTUS\"}]}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"r\"}],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?%24skiptoken=second\u0026api-version=2024-11-01\"}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations/r?%24expand=instanceView\u0026api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"name\":\"r\",\"location\":\"WESTUS\",\"sku\":{\"name\":\"Standard_D2s_v5\",\"capacity\":4},\"properties\":{\"instanceView\":{\"utilizationInfo\":{\"virtualMachinesAllocated\":[{\"id\":\"synthetic-vm-0\"}]}}}}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?%24skiptoken=second\u0026api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"second\"}]}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations/second?%24expand=instanceView\u0026api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"name\":\"second\",\"location\":\"WESTUS\",\"sku\":{\"name\":\"Standard_D2s_v5\",\"capacity\":4},\"properties\":{\"instanceView\":{\"utilizationInfo\":{\"virtualMachinesAllocated\":[{\"id\":\"synthetic-vm-0\"},{\"id\":\"synthetic-vm-1\"},{\"id\":\"synthetic-vm-2\"},{\"id\":\"synthetic-vm-3\"}]}}}}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/other/capacityReservations?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[]}",
+          "Cancel": false
+        }
+      ],
+      "Cancelled": false
+    },
+    "malformed-group-id": {
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"id\":\"malformed\",\"name\":\"g\"}]}",
+          "Cancel": false
+        }
+      ],
+      "Cancelled": false
+    },
+    "missing-capacity": {
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"id\":\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g\",\"name\":\"g\",\"location\":\"EASTUS\"}]}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"r\"}]}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations/r?%24expand=instanceView\u0026api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"name\":\"r\",\"sku\":{\"name\":\"Standard_D2s_v5\"},\"properties\":{\"instanceView\":{\"utilizationInfo\":{\"virtualMachinesAllocated\":[null]}}}}",
+          "Cancel": false
+        }
+      ],
+      "Cancelled": false
+    },
+    "missing-get-fields": {
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"id\":\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g\",\"name\":\"g\",\"location\":\"EASTUS\"}]}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"r\"}]}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations/r?%24expand=instanceView\u0026api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{}",
+          "Cancel": false
+        }
+      ],
+      "Cancelled": false
+    },
+    "missing-group-location": {
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"id\":\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g\",\"name\":\"g\"}]}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"r\"}]}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations/r?%24expand=instanceView\u0026api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"name\":\"r\",\"location\":\"WESTUS\",\"sku\":{\"name\":\"Standard_D2s_v5\",\"capacity\":4},\"properties\":{\"instanceView\":{\"utilizationInfo\":{\"virtualMachinesAllocated\":[{\"id\":\"synthetic-vm-0\"}]}}}}",
+          "Cancel": false
+        }
+      ],
+      "Cancelled": false
+    },
+    "missing-utilization": {
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"id\":\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g\",\"name\":\"g\",\"location\":\"EASTUS\"}]}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"r\"}]}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations/r?%24expand=instanceView\u0026api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"name\":\"r\",\"sku\":{\"name\":\"Standard_D2s_v5\",\"capacity\":4}}",
+          "Cancel": false
+        }
+      ],
+      "Cancelled": false
+    },
+    "negative": {
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"id\":\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g\",\"name\":\"g\",\"location\":\"EASTUS\"}]}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"r\"}]}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations/r?%24expand=instanceView\u0026api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"name\":\"r\",\"location\":\"WESTUS\",\"sku\":{\"name\":\"Standard_D2s_v5\",\"capacity\":-1},\"properties\":{\"instanceView\":{\"utilizationInfo\":{\"virtualMachinesAllocated\":[]}}}}",
+          "Cancel": false
+        }
+      ],
+      "Cancelled": false
+    },
+    "null-group": {
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[null]}",
+          "Cancel": false
+        }
+      ],
+      "Cancelled": false
+    },
+    "null-summary": {
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"id\":\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g\",\"name\":\"g\",\"location\":\"EASTUS\"}]}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[null]}",
+          "Cancel": false
+        }
+      ],
+      "Cancelled": false
+    },
+    "over": {
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"id\":\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g\",\"name\":\"g\",\"location\":\"EASTUS\"}]}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"r\"}]}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations/r?%24expand=instanceView\u0026api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"name\":\"r\",\"location\":\"WESTUS\",\"sku\":{\"name\":\"Standard_D2s_v5\",\"capacity\":4},\"properties\":{\"instanceView\":{\"utilizationInfo\":{\"virtualMachinesAllocated\":[{\"id\":\"synthetic-vm-0\"},{\"id\":\"synthetic-vm-1\"},{\"id\":\"synthetic-vm-2\"},{\"id\":\"synthetic-vm-3\"},{\"id\":\"synthetic-vm-4\"}]}}}}",
+          "Cancel": false
+        }
+      ],
+      "Cancelled": false
+    },
+    "skipped-groups": {
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[{},{\"name\":\"g\"},{\"id\":\"x\"}]}",
+          "Cancel": false
+        }
+      ],
+      "Cancelled": false
+    },
+    "skipped-summary": {
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"id\":\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g\",\"name\":\"g\",\"location\":\"EASTUS\"}]}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[{}]}",
+          "Cancel": false
+        }
+      ],
+      "Cancelled": false
+    },
+    "zero": {
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"id\":\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g\",\"name\":\"g\",\"location\":\"EASTUS\"}]}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"r\"}]}",
+          "Cancel": false
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations/r?%24expand=instanceView\u0026api-version=2024-11-01",
+          "Status": 200,
+          "Body": "{\"name\":\"r\",\"location\":\"WESTUS\",\"sku\":{\"name\":\"Standard_D2s_v5\",\"capacity\":0},\"properties\":{\"instanceView\":{\"utilizationInfo\":{\"virtualMachinesAllocated\":[]}}}}",
+          "Cancel": false
+        }
+      ],
+      "Cancelled": false
+    }
+  }
+}

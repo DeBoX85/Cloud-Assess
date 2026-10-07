@@ -1,0 +1,624 @@
+{
+  "at": {
+    "Entries": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic Subscription",
+        "ResourceGroup": "rg",
+        "CRGName": "g",
+        "ReservationName": "r",
+        "Location": "eastus",
+        "SKU": "Standard_D2s_v5",
+        "Reserved": 4,
+        "Allocated": 4,
+        "Available": 0,
+        "Status": "At-Capacity"
+      }
+    ],
+    "Failed": false,
+    "Panicked": false,
+    "Requests": [
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations/r?%24expand=instanceView\u0026api-version=2024-11-01"
+    ]
+  },
+  "available": {
+    "Entries": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic Subscription",
+        "ResourceGroup": "rg",
+        "CRGName": "g",
+        "ReservationName": "r",
+        "Location": "eastus",
+        "SKU": "Standard_D2s_v5",
+        "Reserved": 4,
+        "Allocated": 1,
+        "Available": 3,
+        "Status": "Available"
+      }
+    ],
+    "Failed": false,
+    "Panicked": false,
+    "Requests": [
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations/r?%24expand=instanceView\u0026api-version=2024-11-01"
+    ]
+  },
+  "cancel-get": {
+    "Entries": null,
+    "Failed": false,
+    "Panicked": false,
+    "Requests": [
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations/r?%24expand=instanceView\u0026api-version=2024-11-01"
+    ]
+  },
+  "cancel-list": {
+    "Entries": null,
+    "Failed": false,
+    "Panicked": false,
+    "Requests": [
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?api-version=2024-11-01"
+    ]
+  },
+  "cancelled": {
+    "Entries": null,
+    "Failed": true,
+    "Panicked": false,
+    "Requests": []
+  },
+  "empty": {
+    "Entries": null,
+    "Failed": false,
+    "Panicked": false,
+    "Requests": [
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01"
+    ]
+  },
+  "get-http403": {
+    "Entries": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic Subscription",
+        "ResourceGroup": "rg",
+        "CRGName": "g",
+        "ReservationName": "r",
+        "Location": "eastus",
+        "SKU": "Standard_D2s_v5",
+        "Reserved": 4,
+        "Allocated": 1,
+        "Available": 3,
+        "Status": "Available"
+      }
+    ],
+    "Failed": false,
+    "Panicked": false,
+    "Requests": [
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations/bad?%24expand=instanceView\u0026api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations/r?%24expand=instanceView\u0026api-version=2024-11-01"
+    ]
+  },
+  "get-http404": {
+    "Entries": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic Subscription",
+        "ResourceGroup": "rg",
+        "CRGName": "g",
+        "ReservationName": "r",
+        "Location": "eastus",
+        "SKU": "Standard_D2s_v5",
+        "Reserved": 4,
+        "Allocated": 1,
+        "Available": 3,
+        "Status": "Available"
+      }
+    ],
+    "Failed": false,
+    "Panicked": false,
+    "Requests": [
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations/bad?%24expand=instanceView\u0026api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations/r?%24expand=instanceView\u0026api-version=2024-11-01"
+    ]
+  },
+  "get-malformed": {
+    "Entries": null,
+    "Failed": false,
+    "Panicked": false,
+    "Requests": [
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations/r?%24expand=instanceView\u0026api-version=2024-11-01"
+    ]
+  },
+  "group-http403": {
+    "Entries": null,
+    "Failed": true,
+    "Panicked": false,
+    "Requests": [
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01"
+    ]
+  },
+  "group-http404": {
+    "Entries": null,
+    "Failed": true,
+    "Panicked": false,
+    "Requests": [
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01"
+    ]
+  },
+  "group-malformed": {
+    "Entries": null,
+    "Failed": true,
+    "Panicked": false,
+    "Requests": [
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01"
+    ]
+  },
+  "group-paged": {
+    "Entries": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic Subscription",
+        "ResourceGroup": "rg",
+        "CRGName": "g",
+        "ReservationName": "r",
+        "Location": "eastus",
+        "SKU": "Standard_D2s_v5",
+        "Reserved": 4,
+        "Allocated": 1,
+        "Available": 3,
+        "Status": "Available"
+      }
+    ],
+    "Failed": false,
+    "Panicked": false,
+    "Requests": [
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations/r?%24expand=instanceView\u0026api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?%24skiptoken=second\u0026api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/other/capacityReservations?api-version=2024-11-01"
+    ]
+  },
+  "identity-conflict": {
+    "Entries": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic Subscription",
+        "ResourceGroup": "rg",
+        "CRGName": "g",
+        "ReservationName": "returned-name",
+        "Location": "eastus",
+        "SKU": "Standard_D2s_v5",
+        "Reserved": 4,
+        "Allocated": 1,
+        "Available": 3,
+        "Status": "Available"
+      }
+    ],
+    "Failed": false,
+    "Panicked": false,
+    "Requests": [
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations/r?%24expand=instanceView\u0026api-version=2024-11-01"
+    ]
+  },
+  "idle": {
+    "Entries": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic Subscription",
+        "ResourceGroup": "rg",
+        "CRGName": "g",
+        "ReservationName": "r",
+        "Location": "eastus",
+        "SKU": "Standard_D2s_v5",
+        "Reserved": 4,
+        "Allocated": 0,
+        "Available": 4,
+        "Status": "Idle"
+      }
+    ],
+    "Failed": false,
+    "Panicked": false,
+    "Requests": [
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations/r?%24expand=instanceView\u0026api-version=2024-11-01"
+    ]
+  },
+  "later-group-http403": {
+    "Entries": null,
+    "Failed": true,
+    "Panicked": false,
+    "Requests": [
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations/r?%24expand=instanceView\u0026api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?%24skiptoken=second\u0026api-version=2024-11-01"
+    ]
+  },
+  "later-group-malformed": {
+    "Entries": null,
+    "Failed": true,
+    "Panicked": false,
+    "Requests": [
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations/r?%24expand=instanceView\u0026api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?%24skiptoken=second\u0026api-version=2024-11-01"
+    ]
+  },
+  "later-list-http403": {
+    "Entries": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic Subscription",
+        "ResourceGroup": "rg",
+        "CRGName": "g",
+        "ReservationName": "r",
+        "Location": "eastus",
+        "SKU": "Standard_D2s_v5",
+        "Reserved": 4,
+        "Allocated": 1,
+        "Available": 3,
+        "Status": "Available"
+      }
+    ],
+    "Failed": false,
+    "Panicked": false,
+    "Requests": [
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations/r?%24expand=instanceView\u0026api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?%24skiptoken=second\u0026api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/other/capacityReservations?api-version=2024-11-01"
+    ]
+  },
+  "later-list-malformed": {
+    "Entries": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic Subscription",
+        "ResourceGroup": "rg",
+        "CRGName": "g",
+        "ReservationName": "r",
+        "Location": "eastus",
+        "SKU": "Standard_D2s_v5",
+        "Reserved": 4,
+        "Allocated": 1,
+        "Available": 3,
+        "Status": "Available"
+      }
+    ],
+    "Failed": false,
+    "Panicked": false,
+    "Requests": [
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations/r?%24expand=instanceView\u0026api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?%24skiptoken=second\u0026api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/other/capacityReservations?api-version=2024-11-01"
+    ]
+  },
+  "list-http403": {
+    "Entries": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic Subscription",
+        "ResourceGroup": "rg",
+        "CRGName": "other",
+        "ReservationName": "r",
+        "Location": "eastus",
+        "SKU": "Standard_D2s_v5",
+        "Reserved": 4,
+        "Allocated": 1,
+        "Available": 3,
+        "Status": "Available"
+      }
+    ],
+    "Failed": false,
+    "Panicked": false,
+    "Requests": [
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/other/capacityReservations?api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/other/capacityReservations/r?%24expand=instanceView\u0026api-version=2024-11-01"
+    ]
+  },
+  "list-http404": {
+    "Entries": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic Subscription",
+        "ResourceGroup": "rg",
+        "CRGName": "other",
+        "ReservationName": "r",
+        "Location": "eastus",
+        "SKU": "Standard_D2s_v5",
+        "Reserved": 4,
+        "Allocated": 1,
+        "Available": 3,
+        "Status": "Available"
+      }
+    ],
+    "Failed": false,
+    "Panicked": false,
+    "Requests": [
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/other/capacityReservations?api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/other/capacityReservations/r?%24expand=instanceView\u0026api-version=2024-11-01"
+    ]
+  },
+  "list-malformed": {
+    "Entries": null,
+    "Failed": false,
+    "Panicked": false,
+    "Requests": [
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?api-version=2024-11-01"
+    ]
+  },
+  "list-paged": {
+    "Entries": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic Subscription",
+        "ResourceGroup": "rg",
+        "CRGName": "g",
+        "ReservationName": "r",
+        "Location": "eastus",
+        "SKU": "Standard_D2s_v5",
+        "Reserved": 4,
+        "Allocated": 1,
+        "Available": 3,
+        "Status": "Available"
+      },
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic Subscription",
+        "ResourceGroup": "rg",
+        "CRGName": "g",
+        "ReservationName": "second",
+        "Location": "eastus",
+        "SKU": "Standard_D2s_v5",
+        "Reserved": 4,
+        "Allocated": 4,
+        "Available": 0,
+        "Status": "At-Capacity"
+      }
+    ],
+    "Failed": false,
+    "Panicked": false,
+    "Requests": [
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations/r?%24expand=instanceView\u0026api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?%24skiptoken=second\u0026api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations/second?%24expand=instanceView\u0026api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/other/capacityReservations?api-version=2024-11-01"
+    ]
+  },
+  "malformed-group-id": {
+    "Entries": null,
+    "Failed": false,
+    "Panicked": false,
+    "Requests": [
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01"
+    ]
+  },
+  "missing-capacity": {
+    "Entries": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic Subscription",
+        "ResourceGroup": "rg",
+        "CRGName": "g",
+        "ReservationName": "r",
+        "Location": "eastus",
+        "SKU": "Standard_D2s_v5",
+        "Reserved": 0,
+        "Allocated": 1,
+        "Available": -1,
+        "Status": "Over-Allocated"
+      }
+    ],
+    "Failed": false,
+    "Panicked": false,
+    "Requests": [
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations/r?%24expand=instanceView\u0026api-version=2024-11-01"
+    ]
+  },
+  "missing-get-fields": {
+    "Entries": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic Subscription",
+        "ResourceGroup": "rg",
+        "CRGName": "g",
+        "ReservationName": "",
+        "Location": "eastus",
+        "SKU": "",
+        "Reserved": 0,
+        "Allocated": 0,
+        "Available": 0,
+        "Status": "Idle"
+      }
+    ],
+    "Failed": false,
+    "Panicked": false,
+    "Requests": [
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations/r?%24expand=instanceView\u0026api-version=2024-11-01"
+    ]
+  },
+  "missing-group-location": {
+    "Entries": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic Subscription",
+        "ResourceGroup": "rg",
+        "CRGName": "g",
+        "ReservationName": "r",
+        "Location": "",
+        "SKU": "Standard_D2s_v5",
+        "Reserved": 4,
+        "Allocated": 1,
+        "Available": 3,
+        "Status": "Available"
+      }
+    ],
+    "Failed": false,
+    "Panicked": false,
+    "Requests": [
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations/r?%24expand=instanceView\u0026api-version=2024-11-01"
+    ]
+  },
+  "missing-utilization": {
+    "Entries": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic Subscription",
+        "ResourceGroup": "rg",
+        "CRGName": "g",
+        "ReservationName": "r",
+        "Location": "eastus",
+        "SKU": "Standard_D2s_v5",
+        "Reserved": 4,
+        "Allocated": 0,
+        "Available": 4,
+        "Status": "Idle"
+      }
+    ],
+    "Failed": false,
+    "Panicked": false,
+    "Requests": [
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations/r?%24expand=instanceView\u0026api-version=2024-11-01"
+    ]
+  },
+  "negative": {
+    "Entries": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic Subscription",
+        "ResourceGroup": "rg",
+        "CRGName": "g",
+        "ReservationName": "r",
+        "Location": "eastus",
+        "SKU": "Standard_D2s_v5",
+        "Reserved": -1,
+        "Allocated": 0,
+        "Available": -1,
+        "Status": "Idle"
+      }
+    ],
+    "Failed": false,
+    "Panicked": false,
+    "Requests": [
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations/r?%24expand=instanceView\u0026api-version=2024-11-01"
+    ]
+  },
+  "null-group": {
+    "Entries": null,
+    "Failed": false,
+    "Panicked": true,
+    "Requests": [
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01"
+    ]
+  },
+  "null-summary": {
+    "Entries": null,
+    "Failed": false,
+    "Panicked": true,
+    "Requests": [
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?api-version=2024-11-01"
+    ]
+  },
+  "over": {
+    "Entries": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic Subscription",
+        "ResourceGroup": "rg",
+        "CRGName": "g",
+        "ReservationName": "r",
+        "Location": "eastus",
+        "SKU": "Standard_D2s_v5",
+        "Reserved": 4,
+        "Allocated": 5,
+        "Available": -1,
+        "Status": "Over-Allocated"
+      }
+    ],
+    "Failed": false,
+    "Panicked": false,
+    "Requests": [
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations/r?%24expand=instanceView\u0026api-version=2024-11-01"
+    ]
+  },
+  "skipped-groups": {
+    "Entries": null,
+    "Failed": false,
+    "Panicked": false,
+    "Requests": [
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01"
+    ]
+  },
+  "skipped-summary": {
+    "Entries": null,
+    "Failed": false,
+    "Panicked": false,
+    "Requests": [
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?api-version=2024-11-01"
+    ]
+  },
+  "zero": {
+    "Entries": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic Subscription",
+        "ResourceGroup": "rg",
+        "CRGName": "g",
+        "ReservationName": "r",
+        "Location": "eastus",
+        "SKU": "Standard_D2s_v5",
+        "Reserved": 0,
+        "Allocated": 0,
+        "Available": 0,
+        "Status": "Idle"
+      }
+    ],
+    "Failed": false,
+    "Panicked": false,
+    "Requests": [
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations?api-version=2024-11-01",
+      "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/capacityReservationGroups/g/capacityReservations/r?%24expand=instanceView\u0026api-version=2024-11-01"
+    ]
+  }
+}

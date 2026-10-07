@@ -95,3 +95,26 @@ Later group failure drops prefix. Exact observations are not target corrections.
 Inputs3e8e9870bb4a4d4a91490ac400dccfc28e7070ca4b8a2d22434176d1c61b3c09/47327bytes;
 outputs4393a4ae45d0b5bacd116aa48bc44ed5698a4cde5b991b2e6e6ab6429974c2d5/31727bytes.
 Hosted capture/full retained-byte/literal/native acceptance remains pending.
+
+## Hosted observations and independent source-oracle acceptance
+
+PR126 is the exact evolving final-head/merge evidence index. Source37569270680/
+job112623993394 executed8 harnesses/source-module-APRL isolation, emitted17 files/
+150 contiguous chunks then failed declared two absent goldens. Retain this evidence-gap
+failure, never a source PASS or product/service failure. All SHA256/full UTF8 bytes
+verified, prior15 unchanged; new inputs47327bytes/16chunks and outputs31727bytes/11chunks
+match local actual source observations and are now retained unchanged.
+
+Complete35-case literal outputs include all entry fields, requests, failed/panicked/
+nil-empty state. Independent hash/policy checks preserve source/SDK/fixture premises.
+Seven compiling controls modify status/panic/partial success/inner cancellation/identity/
+location/SDK request expectations and must fail the named full-record assertion; each
+healthy/restored baseline passes. Both native hosts require them. Final local focused
+full assertions/seven controls/restored/full region race pass; final source rerun with
+only runtime nil-dereference recovery produces unchanged bytes. A network/other panic
+is a harness failure, never recovered as source input behavior.
+
+Final exact-head native/source and distinct accepted-push verification remain pending
+until recorded in the live PR126 body. Controlled SDK middleware is not a default
+source safety/target collector/every-cloud/live claim. Complete source observations
+are correction obligations for the later bounded owned target contract.

@@ -13,6 +13,7 @@ import (
 	"os"
 	"path/filepath"
 	"reflect"
+	"runtime"
 	"strings"
 	"testing"
 	"time"
@@ -174,7 +175,10 @@ func TestRegionReservationCapture(t *testing.T) {
 		result := reservationResult{}
 		func() {
 			defer func() {
-				if recover() != nil {
+				if recovered := recover(); recovered != nil {
+					if _, ok := recovered.(runtime.Error); !ok || !strings.Contains(fmt.Sprint(recovered), "invalid memory address or nil pointer dereference") {
+						t.Fatal("unexpected non-source panic", recovered)
+					}
 					result.Panicked = true
 				}
 			}()
