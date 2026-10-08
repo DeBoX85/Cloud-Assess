@@ -8,6 +8,8 @@ import tempfile
 ROOT = Path(__file__).resolve().parents[2]
 FILE = 'internal/plugins/region/quota_collector.go'
 MUTATIONS = (
+    ('vm-version', 'return "Microsoft.Compute", "2024-11-01"', 'return "Microsoft.Compute", "2023-01-01"', 'TestVMQuotaCollectorRetainedEvidence', FILE),
+    ('vm-unknown-status', 'request.QuotaType != "VM" && (status == 404 || status == 405)', 'status == 404 || status == 405', 'TestVMQuotaCollectorRetainedEvidence', FILE),
     ('origin', 'len(endpoint) > 2048 || u.Scheme != "https"', 'len(endpoint) > 2048 || (u.Scheme != "https" && false)', 'TestRESTQuotaCollectorRequestAdmission', 'internal/plugins/region/quota_collector.go'),
     ('scope', 'scope[request.SubscriptionID] == ""', '(scope[request.SubscriptionID] == "" && false)', 'TestRESTQuotaCollectorRequestAdmission', 'internal/plugins/region/quota_collector.go'),
     ('version', 'return "Microsoft.Sql", "2021-11-01"', 'return "Microsoft.Sql", "2022-07-01"', 'TestRESTQuotaCollectorLiteralProviders', 'internal/plugins/region/quota_collector.go'),

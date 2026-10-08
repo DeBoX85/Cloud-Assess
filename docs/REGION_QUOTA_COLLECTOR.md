@@ -1,3 +1,13 @@
+## PR129 accepted closure and VM extension proposal
+
+Four-provider implementation accepted at PR129f0760de7/tree0c71a2ff with complete
+pre/post proof in [PR129](https://github.com/DeBoX85/Cloud-Assess/pull/129), indexed in
+[REGION_VM_QUOTA_COLLECTOR.md](REGION_VM_QUOTA_COLLECTOR.md). Pending/unaccepted prose
+below is historical. [PR130](https://github.com/DeBoX85/Cloud-Assess/pull/130) extends
+this same guarded engine to VM2024-11-01, with unknown first404/405 distinct from
+other providers. Earlier VM rejection/exclusion describes PR129 scope, superseded
+only after PR130 acceptance. Existing budgets/guards/ownership remain required.
+
 # Bounded REST quota collection contract
 
 Status: implemented candidate in [PR129](https://github.com/DeBoX85/Cloud-Assess/pull/129),

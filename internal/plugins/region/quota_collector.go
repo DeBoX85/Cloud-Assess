@@ -64,6 +64,8 @@ func NewRESTQuotaCollector(endpoint string, getter RESTQuotaGetter) (*RESTQuotaC
 
 func restQuotaProvider(kind string) (string, string) {
 	switch kind {
+	case "VM":
+		return "Microsoft.Compute", "2024-11-01"
 	case "Network":
 		return "Microsoft.Network", "2022-07-01"
 	case "SQL":
@@ -114,7 +116,7 @@ func (c *RESTQuotaCollector) Collect(ctx context.Context, subscriptions map[stri
 		result.Evidence.Status = "unknown"
 		if pages > 0 {
 			result.Evidence.Status = "partial"
-		} else if status == 404 || status == 405 {
+		} else if request.QuotaType != "VM" && (status == 404 || status == 405) {
 			result.Evidence.Status = "unsupported"
 		}
 		return result, nil

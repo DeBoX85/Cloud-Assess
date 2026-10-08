@@ -100,7 +100,7 @@ func TestRESTQuotaCollectorRequestAdmission(t *testing.T) {
 	if r, e := c.Collect(context.Background(), map[string]string{quotaTestID: "bad\ufdd0"}, quotaRequest("Network")); e == nil || r != nil {
 		t.Fatalf("selected noncharacter reached auth: %#v %v", r, e)
 	}
-	for _, req := range []QuotaRequest{{quotaTestID, "eastus", "VM"}, {quotaTestID, "EastUS", "Network"}, {"bbbbbbbb-bbbb-cccc-dddd-eeeeeeeeeeee", "eastus", "Network"}, {quotaTestID, "eastus/evil", "Network"}, {"invalid", "eastus", "Network"}} {
+	for _, req := range []QuotaRequest{{quotaTestID, "eastus", "Unknown"}, {quotaTestID, "EastUS", "Network"}, {"bbbbbbbb-bbbb-cccc-dddd-eeeeeeeeeeee", "eastus", "Network"}, {quotaTestID, "eastus/evil", "Network"}, {"invalid", "eastus", "Network"}} {
 		if r, e := c.Collect(context.Background(), quotaScope(), req); e == nil || r != nil {
 			t.Fatalf("request admitted: %#v", req)
 		}

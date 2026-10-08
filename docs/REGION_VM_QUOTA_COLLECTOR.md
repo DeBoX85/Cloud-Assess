@@ -1,3 +1,15 @@
+## Implementation checkpoint
+
+[PR130](https://github.com/DeBoX85/Cloud-Assess/pull/130) implements this bounded
+contract, UNACCEPTED pending final checks. Pre-edit97609c6a/treecbfa01c1/parentf076
+original tree/all5 full remote files/Denis/ref verified before production edits.
+Three independent VM test functions cover actual19 retained scenarios/full literals,
+VM-specific boundary semantics and actual sovereign authenticated-client ownership.
+All25 collector compiling controls must pass with restored baselines on both hosts.
+FN093 fixture assumed empty table, corrected without product change; focused VM
+PASS locally, broad local/native/source/review/acceptance still pending.
+Current PR body is exact evolving run/recovery authority; prior prose is history.
+
 # Bounded VM quota collection contract
 
 Status: IN PROGRESS, pre-edit contract. Accepted baseline PR129 is

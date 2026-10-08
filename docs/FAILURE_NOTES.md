@@ -840,3 +840,18 @@ re-audit/certification or source/pin/dependency change. Earlier heads superseded
   unprinted full connector reads/bounded display, exact original staged/API tree
   equality before commit/ref and full remote file readback. Failed attempts not PASS.
   Status: preparation mistakes corrected, no product defect or service incident.
+
+## FN-093: VM collector fixture assumed an empty report table
+
+- Date2026-10-08. First focused VM run panicked in authored test at dereferencing
+  calc.Table for unknown empty evidence. Existing ProjectQuota intentionally returns
+  nil for zero rows; production contract unchanged. Correct fixture to assert nil
+  for empty output and full cells/table-owned health for nonempty output.
+- Earlier apply_patch expected a partial long line and failed verification before
+  changes; corrected exact full replacement. A planning read helper wrongly treated
+  historical literal truncated text as transport truncation; no tree/ref was created
+  by that attempt. Parse complete bounded JSON and compare original tree instead.
+- Prevention: inspect existing projection/health contracts before assuming table
+  presence; named mutation failure must reject fixture panic/build failure. Classify
+  these as development-test/helper mistakes, not VM product or service failures.
+  Initial failed run is not PASS; corrected focused/native evidence pending PR130.
