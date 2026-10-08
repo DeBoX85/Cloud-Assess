@@ -1,3 +1,17 @@
+# PR131 physical-region contract correction (2026-10-08)
+
+FN099 self-review/failing regression confirms format-only admission diverged from
+physical/ASCII contract. Collector now uses unchanged pinned pseudo-location
+exclusions plus canonical-format/ASCII-case checks for caller/group/Get locations,
+without a live region-catalogue claim.24 controls/11 focused functions required;
+FN095-099 preserved. Exact final publication/run/review authority is PR131 body.
+Accepted remainsa79464db, proposal UNACCEPTED/draft during correction. Source
+captures/pins/modules/public CLI unchanged, no blocking input or Azure needed.
+
+Earlier records follow.
+
+---
+
 # PR131 Unicode JSON duplicate-field correction (2026-10-08)
 
 FN098 automated review plus failing transport regression confirms shared JSON

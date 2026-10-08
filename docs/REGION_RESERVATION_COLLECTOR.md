@@ -165,3 +165,8 @@ rejection. Literal collector and both shared modes reject duplicate sku/properti
 aliases.22 collector faults and retained25 quota controls required; only quota
 control anchor follows corrected key expression.11 focused functions now cover
 these findings. Mandatory final-head native/source/review proof remains required.
+
+FN099 enforces the declared physical/ASCII region contract via unchanged pinned
+physical-location exclusions, canonical format and ASCII-case byte length. Caller,
+raw group and optional Get location share predicate; no live catalogue or changed
+pure runtime format claim.24 collector faults now required on corrected head.

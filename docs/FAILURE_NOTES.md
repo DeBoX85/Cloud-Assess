@@ -964,3 +964,19 @@ re-audit/certification or source/pin/dependency change. Earlier heads superseded
   regression is not PASS. FN096/097 remain distinct structural/identity findings.
   Re-run affected22 collector/all25 quota controls and final native/source/review
   evidence; prior-head acceptance cannot transfer.
+
+## FN-099: Reservation physical-region contract mismatch
+
+- Self-review found collector used region format alone despite published physical
+  location/ASCII-case contract. Pseudo-locations like global could be admitted;
+  Unicode Kelvin spelling could normalize to ASCII. Failing group regression
+  confirms healthy complete empty evidence instead of rejecting bad metadata.
+- Correction: shared collector physical predicate enforces canonical format,
+  ASCII-case byte length and unchanged pinned costPhysical exclusions for caller,
+  raw group and optional Get location. It is not a live Azure region catalogue.
+  Add global caller/group and Unicode group regression plus two compiling faults
+  bringing controls to24. Pure runtime format policy remains unchanged; this is
+  collector contract enforcement. No source/pin/capture/module refresh.
+- Classification: confirmed unaccepted proposal contract defect, not service
+  failure or live incident. Initial failed reproduction not PASS. Corrected
+  focused/controls/final-head hosted proof still required.

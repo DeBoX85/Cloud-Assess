@@ -40,6 +40,12 @@ func reservationResponseID(id string) bool {
 	return ok
 }
 
+// Follow pinned physical-location exclusions without claiming a live catalogue.
+func reservationPhysical(location string) bool {
+	normalized := strings.ToLower(location)
+	return len(location) == len(normalized) && regionID.MatchString(normalized) && costPhysical(normalized)
+}
+
 func reservationVM(id, selected string) bool {
 	if len(id) > MaxReservationIDBytes || !strings.HasPrefix(id, "/") || strings.ContainsAny(id, "\\?#%") {
 		return false
@@ -104,10 +110,10 @@ func decodeReservationPage(body []byte, group, subscription string, seen map[str
 			if r.Name != "" && !strings.EqualFold(r.Name, parts[len(parts)-1]) {
 				return reservationPage{}, false
 			}
-			r.Location = strings.ToLower(r.Location)
-			if !regionID.MatchString(r.Location) {
+			if !reservationPhysical(r.Location) {
 				return reservationPage{}, false
 			}
+			r.Location = strings.ToLower(r.Location)
 		} else {
 			id := group + "/capacityReservations/" + r.Name
 			sub, _, _, _, ok := reservationIdentity(id)
@@ -142,7 +148,7 @@ func decodeReservation(body []byte, id, region, subscription string) (Reservatio
 			}
 		}
 	}
-	if bytes.Equal(bytes.TrimSpace(body), []byte("null")) || json.Unmarshal(body, &raw) != nil || (raw.ID != "" && (!reservationResponseID(raw.ID) || !strings.EqualFold(raw.ID, id))) || (raw.Name != "" && !strings.EqualFold(raw.Name, id[strings.LastIndex(id, "/")+1:])) || (raw.Location != "" && strings.ToLower(raw.Location) != region) {
+	if bytes.Equal(bytes.TrimSpace(body), []byte("null")) || json.Unmarshal(body, &raw) != nil || (raw.ID != "" && (!reservationResponseID(raw.ID) || !strings.EqualFold(raw.ID, id))) || (raw.Name != "" && !strings.EqualFold(raw.Name, id[strings.LastIndex(id, "/")+1:])) || (raw.Location != "" && (!reservationPhysical(raw.Location) || strings.ToLower(raw.Location) != region)) {
 		return ReservationUsage{}, 0, false
 	}
 	r := ReservationUsage{ResourceID: id, Region: region, ResponseName: raw.Name, ResponseRegion: strings.ToLower(raw.Location)}
@@ -196,7 +202,7 @@ func (c *ReservationCollector) Collect(ctx context.Context, subscriptions map[st
 		}
 	}
 	request.SubscriptionID = strings.ToLower(request.SubscriptionID)
-	if !subscriptionID.MatchString(request.SubscriptionID) || len(request.SubscriptionID) != 36 || scope[request.SubscriptionID] == "" || !regionID.MatchString(request.Region) {
+	if !subscriptionID.MatchString(request.SubscriptionID) || len(request.SubscriptionID) != 36 || scope[request.SubscriptionID] == "" || !regionID.MatchString(request.Region) || !reservationPhysical(request.Region) {
 		return nil, reservationFailure(ctx, "request_invalid")
 	}
 	result := &ReservationCollection{Evidence: ReservationEvidence{Request: request, Status: "complete", Reservations: []ReservationUsage{}}}
