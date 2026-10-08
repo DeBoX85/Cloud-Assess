@@ -1,3 +1,17 @@
+# PR131 HTTP-status evidence correction (2026-10-08)
+
+FN095 self-review identified coupled getter-error/status fixtures. Error-free
+non200/healthy-body fixtures and a distinct200/getter-error fixture now isolate
+both paths. A compiling request-status fault brings reservation controls to18.
+No production behavior changed. Earlier17-control implementation49813ab remains
+published history; corrected candidate and rerun evidence are authoritative in
+PR131 body. All final native/source/review gates must match the corrected head.
+Accepted remains PR130a79464db; PR131 UNACCEPTED. No user input or Azure needed.
+
+Earlier checkpoint follows.
+
+---
+
 # PR131 reservation collector implementation WIP (2026-10-08)
 
 Accepted remains PR130 a79464db59fa0b3e72115d2f07a18f8621bd437f/tree55802384.

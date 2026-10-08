@@ -139,7 +139,7 @@ func TestReservationCollectorFailurePagination(t *testing.T) {
 				i := calls
 				calls++
 				if i == failAt {
-					return nil, &http.Response{StatusCode: status}, errors.New("secret body token URL")
+					return []byte(bodies[i]), &http.Response{StatusCode: status}, nil
 				}
 				return quotaPage(bodies[i])
 			})
@@ -152,6 +152,12 @@ func TestReservationCollectorFailurePagination(t *testing.T) {
 				t.Fatalf("reservation denied not healthy empty: %#v %v", r, e)
 			}
 		}
+	}
+	c := crCollector(t, func(context.Context, string, int64) ([]byte, *http.Response, error) {
+		return []byte(crGroups), &http.Response{StatusCode: 200}, errors.New("secret body token URL")
+	})
+	if r, e := c.Collect(context.Background(), quotaScope(), crRequest()); e != nil || r.Evidence.Status != "unknown" || r.FailureCode != "reservation_request_failed" || len(r.Evidence.Reservations) != 0 {
+		t.Fatalf("getter error with healthy body: %#v %v", r, e)
 	}
 	start := crURLs()[0]
 	for _, next := range []string{start, start + "&other=x", strings.Replace(start, "management.azure.com", "evil.example", 1), strings.Replace(start, "2024-11-01", "2023-01-01", 1), strings.Replace(start, quotaTestID, "11111111-1111-1111-1111-111111111111", 1)} {
@@ -167,7 +173,7 @@ func TestReservationCollectorFailurePagination(t *testing.T) {
 		}
 	}
 	calls := 0
-	c := crCollector(t, func(_ context.Context, u string, _ int64) ([]byte, *http.Response, error) {
+	c = crCollector(t, func(_ context.Context, u string, _ int64) ([]byte, *http.Response, error) {
 		i := calls
 		calls++
 		if i == 0 {

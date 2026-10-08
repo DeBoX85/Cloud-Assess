@@ -6,7 +6,7 @@ import subprocess
 import tempfile
 
 ROOT = Path(__file__).resolve().parents[2]
-MUTATIONS = (('version',
+MUTATIONS = (('request-status', 'response.StatusCode != http.StatusOK', '(response.StatusCode != http.StatusOK && false)', 'TestReservationCollectorFailurePagination', 'internal/plugins/region/reservation_collector.go'), ('version',
   'u.RawQuery = "api-version=2024-11-01"',
   'u.RawQuery = "api-version=2023-01-01"',
   'TestReservationCollectorLiteral',

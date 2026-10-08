@@ -892,3 +892,14 @@ re-audit/certification or source/pin/dependency change. Earlier heads superseded
 - Classification: development fixture/control mistakes, not service failure or
   established production defect. Prevention: assert fixtures fit all tighter
   budgets; require compiling named-assertion failures and restored baselines.
+
+- FN095 review follow-up: HTTP status fixtures also returned a getter error, so
+  their status assertions did not independently prove status enforcement. Corrected
+  to non200 responses with otherwise healthy bodies/no getter error; separately
+  assert a getter error with200/healthy body. Add compiling request-status control.
+  This is a confirmed authored coverage gap, not a production defect. The initial
+ 17-control success is historical and does not transfer to corrected18-control head.
+- Guidance inspection guessed nonexistent QA_PLAN.md instead of inventoried
+  QA_PROCESS.md; failed read is not review evidence. Recurrence path-inventory
+  prevention applies. Full source log remains held; truncated diagnostic output
+  cannot replace complete chunk/byte/hash proof.

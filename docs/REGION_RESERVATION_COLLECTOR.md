@@ -141,3 +141,8 @@ rows and continues a separate valid group. Mandatory Windows/Linux/source/review
 protected acceptance and distinct push remain pending; exact evolving revisions,
 run IDs and completed checks are in the PR131 body. Historical source captures,
 module pins and public execution boundaries are unchanged.
+
+Self-review correction:18th compiling control independently disables response
+status checking. Non200 responses now carry healthy bodies and nil getter errors;
+200/getter-error checked separately. Earlier17-control PASS is historical. Current
+corrected head/native/source/review evidence must be obtained, see PR131/FN095.
