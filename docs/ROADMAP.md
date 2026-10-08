@@ -1,3 +1,61 @@
+# PR130 VM quota implementation checkpoint (2026-10-08)
+
+Accepted remains PR129f0760de7/tree0c71a2ff. Draft
+[PR130](https://github.com/DeBoX85/Cloud-Assess/pull/130) is UNACCEPTED.
+Planning97609c6a15688bbaed59bdd6adaa643f2c56d3a1/treecbfa01c1d59c278fca3a292610d73a5a3512c68e/
+parentf076 original staged/API tree/all5 remote documents/Denis/ref verified BEFORE
+production edits. [REGION_VM_QUOTA_COLLECTOR.md](REGION_VM_QUOTA_COLLECTOR.md) governs.
+
+Shared bounded collector now routes VM to exact Microsoft.Compute GET2024-11-01;
+first404/405 unknown, later failures partial with only valid earlier pages. Existing
+four REST providers unchanged.19 actual retained SDK scenarios independently assert
+full raw evidence/request sequences/calculated literal cells/health/warnings and
+explicit source corrections. VM continuation destination/path/version/scope tripwires,
+zero-presence/getter status/cancellation and real sovereign authenticated HTTP-client
+GET/audience/token/no body/body-close fixtures added. Two compiling VM faults join
+all23 existing collector controls in both mandatory native jobs. Source/pins/captures/
+modules/public CLI/registry/schema unchanged; internal collector is not public execution.
+
+FN092 preparation workdir/path/truncated-display and FN093 fixture nil-table/helper
+mistakes recorded. Corrected focused VM tests PASS locally; full race/suite/vet/docs/
+all25 controls IN PROGRESS. Final exact revisions/runs/publication/review/protected
+acceptance and distinct push proof live in current PR130 body. Local focused PASS
+never substitutes full native/source acceptance. Next publish/verify coherent candidate
+and finish mandatory final-head checks; classify failures before retry.
+
+Laptop/Azure NOT confirmed; live/DV001/load/freshOS/maintenance/Gate004/release/
+module-only advisory remain open. No writes/roles/fixtures/production substitution/
+exposure/release/human/independent-person/live claim. Scratch raw logs/cache/local
+planning mirror82b247d are transient, not backups; published97609c6 is planning
+authority. No unknown remote outcome or lost accepted work. No blocking input.
+
+Earlier checkpoints remain history.
+
+---
+
+# VM quota collector preparation and PR129 accepted closure (2026-10-08)
+
+Accepted bootstrap/core-v1 is f0760de7eaf125e388b335320e49132b52e25da8,
+tree0c71a2ffaeac4424d3b810be2fcd924f047530bb, ordered parents27b45950/54b4957.
+Live refs/merged PR129/no open proposals/Denis signed merge and active no-bypass
+rules23890737 reconciled. PR129 final pre/post native/source evidence is indexed in
+[REGION_VM_QUOTA_COLLECTOR.md](REGION_VM_QUOTA_COLLECTOR.md) and authoritative
+[PR129](https://github.com/DeBoX85/Cloud-Assess/pull/129). Historical pending prose below
+is preserved, superseded by that accepted closure. Whole-project offline audit remains
+accepted; no repeat or independent-person/live/release claim.
+
+Next bounded slice is the VM collector contract above, grounded in unchanged retained
+SDK requests and source. Verify/publish pre-edit planning before production changes;
+then exact VM transport/status/full evidence/calculation/request controls, mandatory
+native/source/review/protected acceptance and distinct push evidence. Proposal PR
+will hold exact evolving revisions/runs. Laptop/Azure access NOT confirmed; all live
+scope restrictions/open gates unchanged. No blocking input or lost accepted work.
+Raw scratch evidence is transient; no unknown remote mutation. Source pins unchanged.
+
+Earlier checkpoints remain history.
+
+---
+
 # PR129 Unicode review correction checkpoint (2026-10-08)
 
 Accepted remains PR12827b45950ef9e1c830e50a121781278e769a488f4.
