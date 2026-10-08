@@ -822,3 +822,21 @@ Compiling removal reproduces earlier predicate behavior and fails named assertio
 Full region/source/native/23 controls/primary controls must pass on final head.
 Review correction does not prove all other project Unicode paths safe; no blanket
 re-audit/certification or source/pin/dependency change. Earlier heads superseded.
+
+## FN-092: VM preparation executor/read mistakes and prior serialization closure
+
+- Date2026-10-08. First worktree command ran in the reference source object store,
+  where targetf076 was absent. Follow-on target doc reads also used source paths;
+  no worktree or product edit resulted. Corrected explicit target object store before
+  creating vm-collector-work. A later guessed quota.go path failed after actual
+  inventory showed quota_runtime.go; corrected before implementation. Recurs FN004.
+- Large combined historical recovery/API output was truncated and is not evidence.
+  Complete PR129 body held unprinted; bounded actual sections/files used instead.
+  Recurs FN007/009/088. No published bytes reconstructed from truncated output.
+- PR129 closure also records unreferenced API-tree newline mismatch caught before
+  commit/ref publication and provisional471 link count corrected to actual468.
+  No wrong original tree or link count became accepted evidence.
+- Prevention: set-e and explicit source/target workdirs, use enumerated paths,
+  unprinted full connector reads/bounded display, exact original staged/API tree
+  equality before commit/ref and full remote file readback. Failed attempts not PASS.
+  Status: preparation mistakes corrected, no product defect or service incident.

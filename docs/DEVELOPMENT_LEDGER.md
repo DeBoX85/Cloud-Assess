@@ -1,3 +1,26 @@
+# VM quota collector preparation and PR129 accepted closure (2026-10-08)
+
+Accepted bootstrap/core-v1 is f0760de7eaf125e388b335320e49132b52e25da8,
+tree0c71a2ffaeac4424d3b810be2fcd924f047530bb, ordered parents27b45950/54b4957.
+Live refs/merged PR129/no open proposals/Denis signed merge and active no-bypass
+rules23890737 reconciled. PR129 final pre/post native/source evidence is indexed in
+[REGION_VM_QUOTA_COLLECTOR.md](REGION_VM_QUOTA_COLLECTOR.md) and authoritative
+[PR129](https://github.com/DeBoX85/Cloud-Assess/pull/129). Historical pending prose below
+is preserved, superseded by that accepted closure. Whole-project offline audit remains
+accepted; no repeat or independent-person/live/release claim.
+
+Next bounded slice is the VM collector contract above, grounded in unchanged retained
+SDK requests and source. Verify/publish pre-edit planning before production changes;
+then exact VM transport/status/full evidence/calculation/request controls, mandatory
+native/source/review/protected acceptance and distinct push evidence. Proposal PR
+will hold exact evolving revisions/runs. Laptop/Azure access NOT confirmed; all live
+scope restrictions/open gates unchanged. No blocking input or lost accepted work.
+Raw scratch evidence is transient; no unknown remote mutation. Source pins unchanged.
+
+Earlier checkpoints remain history.
+
+---
+
 # PR129 Unicode review correction checkpoint (2026-10-08)
 
 Accepted remains PR12827b45950ef9e1c830e50a121781278e769a488f4.
