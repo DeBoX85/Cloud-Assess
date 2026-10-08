@@ -26,7 +26,7 @@ MUTATIONS = (
     ('page-bytes', 'len(body) > MaxQuotaPageBytes', '(len(body) > MaxQuotaPageBytes && false)', 'TestRESTQuotaCollectorBudgets', 'internal/plugins/region/quota_collector.go'),
     ('aggregate-bytes', 'len(body) > MaxQuotaTotalBytes-total', '(len(body) > MaxQuotaTotalBytes-total && false)', 'TestRESTQuotaCollectorBudgets', 'internal/plugins/region/quota_collector.go'),
     ('aggregate-rows', 'len(rows) > MaxAuxRows-len(result.Evidence.Usages)', '(len(rows) > MaxAuxRows-len(result.Evidence.Usages) && false)', 'TestRESTQuotaCollectorBudgets', 'internal/plugins/region/quota_collector.go'),
-    ('duplicate-keys', 'keys[strings.ToLower(s)] {', '(keys[strings.ToLower(s)] && false) {', 'TestRESTQuotaCollectorFailureHealth', 'internal/plugins/region/quota_collector.go'),
+    ('duplicate-keys', 'keys[regionFoldKey(s)] {', '(keys[regionFoldKey(s)] && false) {', 'TestRESTQuotaCollectorFailureHealth', 'internal/plugins/region/quota_collector.go'),
     ('tokens', 'tokens >= 65536', 'tokens > 65536', 'TestRESTQuotaCollectorBudgets', 'internal/plugins/region/quota_collector.go'),
     ('depth', 'depth > 32', 'depth > 33', 'TestRESTQuotaCollectorBudgets', 'internal/plugins/region/quota_collector.go'),
     ('count', 'row.Current < 0', '(row.Current < 0 && false)', 'TestRESTQuotaCollectorFailureHealth', 'internal/plugins/region/quota_collector.go'),

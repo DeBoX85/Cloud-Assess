@@ -855,3 +855,128 @@ re-audit/certification or source/pin/dependency change. Earlier heads superseded
   presence; named mutation failure must reject fixture panic/build failure. Classify
   these as development-test/helper mistakes, not VM product or service failures.
   Initial failed run is not PASS; corrected focused/native evidence pending PR130.
+
+## FN-094: Reservation preparation inspection recurrence
+
+- Date2026-10-08. Target QA/execution-plan reads initially ran in source cwd and failed;
+  corrected explicit target path before edits, recurrence FN004/092. Existing SDK cache
+  path was absent after checking actual Go module cache, so download pinnedv6.4.0 without
+  source/module refresh before inspecting generated requests; no test proof from absence.
+- Large combined guidance output truncated, not publication evidence. Read exact full
+  remote bytes unprinted and original-tree equality for publication, retain bounded display.
+- PR130 postmerge helper expected detached checkout text; actual accepted branch checkout
+  and git-log full SHA verified. No CI rerun/product failure, failed helper not PASS.
+- Prevention: actual path inventory/explicit source versus target cwd, exact tool/cache
+  state, inspect real checkout mode, full bounded byte assembly and original-tree checks.
+  Status: preparation errors corrected; source dependency inspection still in progress.
+
+- FN094 environment follow-up: unified exec-server transport disconnected during
+  bounded planning-file assembly. No tree/commit/ref/PR mutation had started; first
+  three complete files were held, ledger/failure notes still unread. A subsequent pwd
+  succeeded. Recheck staged tree/status and finish full bounded reads before any
+  publication; disconnected attempt is environment failure, not product/test PASS.
+
+## FN-095: Reservation work-limit fixture and mutation setup
+
+- Date2026-10-08. Initial focused budget test placed8190 valid ARM VM
+  references in one Get body. It hit the1MiB page limit before the intended
+ 8192 aggregate work boundary. This failed authored fixture is not product proof.
+  Corrected to two individually bounded Gets: one group + two summaries +
+ 4094 +4095 references equals8192; one additional reference rejects the second
+  Get while preserving the first accepted reservation. No guard was relaxed.
+- Initial group-scope negative control removed the only use of local sub and
+  failed compilation. It was rejected by the runner and is not a valid fault
+  detection PASS. Corrected to keep the variable used while disabling scope
+  comparison. Version/expand/scope controls passed before that runner stopped;
+  full corrected run remains pending.
+- Classification: development fixture/control mistakes, not service failure or
+  established production defect. Prevention: assert fixtures fit all tighter
+  budgets; require compiling named-assertion failures and restored baselines.
+
+- FN095 review follow-up: HTTP status fixtures also returned a getter error, so
+  their status assertions did not independently prove status enforcement. Corrected
+  to non200 responses with otherwise healthy bodies/no getter error; separately
+  assert a getter error with200/healthy body. Add compiling request-status control.
+  This is a confirmed authored coverage gap, not a production defect. The initial
+ 17-control success is historical and does not transfer to corrected18-control head.
+- Guidance inspection guessed nonexistent QA_PLAN.md instead of inventoried
+  QA_PROCESS.md; failed read is not review evidence. Recurrence path-inventory
+  prevention applies. Full source log remains held; truncated diagnostic output
+  cannot replace complete chunk/byte/hash proof.
+
+## FN-096: Unaccepted reservation returned-ID Unicode validation defect
+
+- Date2026-10-08. Self-review plus failing literal regression confirms optional
+  summary/Get returned IDs were compared with strings.EqualFold without first
+  validating their own fixed ARM segments. A long-s lookalike in subscriptions
+  could be accepted as complete evidence. Scope-derived request paths remained
+  separately validated; the defect did not redirect an authenticated request.
+- Correction: parse optional returned IDs with existing reservationIdentity
+  structural parser before comparing request identity. Fixed-segment byte-length
+  and ASCII spelling guards now apply to summary and Get IDs too. Two transport
+  regressions and a compiling structural-check bypass fault join19 controls.
+  Initial regression fails as expected, not PASS; corrected validation pending.
+- Classification: confirmed production-code defect in UNACCEPTED PR131 proposal,
+  not accepted PR130 code and not service/environment glitch. Prior candidate
+  native/source/review results do not transfer. Prevention: validate both sides
+  of an identity comparison; inspect Unicode case-folding at trust boundaries.
+- Additional guessed reservation.go read failed; corrected by rg inventory to
+  reservation_runtime.go before substantive review. Failed read not evidence.
+
+## FN-097: Unicode duplicate ARM identity keys
+
+- Automated inline4214812225/formal5451538260, marker6052469777 completed
+  on49813ab at2026-10-08T04:46:55.037203Z identified lowercase duplicate keys
+  inconsistent with EqualFold. Sigma/final-sigma labels can describe equal IDs
+  yet remain separate lowercase keys, admitting duplicate groups/summaries/VM
+  references. Collector regression failed on unexpected dependent request.
+- Same inspected pattern exists in accepted internal CalculateReservations;
+  a separate failing runtime regression confirms duplicate evidence was accepted.
+  This is a confirmed product-code defect, not a development-service failure.
+  Public region execution is unavailable; no live incident or affected Azure
+  resources claimed. Scope-derived URLs were not redirected by this defect.
+- Correction: canonicalize Unicode SimpleFold orbits for identity keys across
+  collector groups/summaries/allocated references and internal runtime duplicate
+  admission. Preserve literal arithmetic, output ResourceID lowercase, source
+  captures/pins and mandatory gates. Bounded linear key construction retains
+  existing ID/raw-work limits. This is a material correction to accepted internal
+  admission, explicitly extending the collector slice's originally unchanged
+  runtime scope. Two compiling faults plus FN096 control total21 controls.
+- Corrected focused/control/full/native/source/review proof remains pending.
+  Initial failed regression runs are not PASS. Automated49813ab review does not
+  cover corrected final head and is not human/independent-person approval.
+
+## FN-098: Unicode-fold duplicate JSON fields
+
+- Automated inline4214877953/formal5451610023 onf75235f, marker6052469777
+  completed2026-10-08T04:54:40.315298Z, identified shared quotaJSONWithIDs
+  lowercase keys inconsistent with encoding/json's field folding. sku/long-s
+  sku or properties/propertie-long-s aliases could overwrite counts/utilization
+  objects. A literal collector regression fails with admitted complete evidence.
+- Correction: shared JSON duplicate admission now uses regionFoldKey (renamed
+  general SimpleFold helper). Both reservation ID mode and existing quota mode
+  reject these aliases before unmarshalling.22 compiling collector faults include
+  Unicode JSON admission bypass; update existing quota duplicate-key anchor while
+  preserving all25 mandatory faults. No normal-label/ID/byte/depth/token budget
+  relaxed and no source/module/capture change.
+- Classification: confirmed product-code admission defect in proposal and shared
+  accepted JSON guard; no live exploitation or incident claimed. Initial failed
+  regression is not PASS. FN096/097 remain distinct structural/identity findings.
+  Re-run affected22 collector/all25 quota controls and final native/source/review
+  evidence; prior-head acceptance cannot transfer.
+
+## FN-099: Reservation physical-region contract mismatch
+
+- Self-review found collector used region format alone despite published physical
+  location/ASCII-case contract. Pseudo-locations like global could be admitted;
+  Unicode Kelvin spelling could normalize to ASCII. Failing group regression
+  confirms healthy complete empty evidence instead of rejecting bad metadata.
+- Correction: shared collector physical predicate enforces canonical format,
+  ASCII-case byte length and unchanged pinned costPhysical exclusions for caller,
+  raw group and optional Get location. It is not a live Azure region catalogue.
+  Add global caller/group and Unicode group regression plus two compiling faults
+  bringing controls to24. Pure runtime format policy remains unchanged; this is
+  collector contract enforcement. No source/pin/capture/module refresh.
+- Classification: confirmed unaccepted proposal contract defect, not service
+  failure or live incident. Initial failed reproduction not PASS. Corrected
+  focused/controls/final-head hosted proof still required.

@@ -1,3 +1,144 @@
+# PR131 physical-region contract correction (2026-10-08)
+
+FN099 self-review/failing regression confirms format-only admission diverged from
+physical/ASCII contract. Collector now uses unchanged pinned pseudo-location
+exclusions plus canonical-format/ASCII-case checks for caller/group/Get locations,
+without a live region-catalogue claim.24 controls/11 focused functions required;
+FN095-099 preserved. Exact final publication/run/review authority is PR131 body.
+Accepted remainsa79464db, proposal UNACCEPTED/draft during correction. Source
+captures/pins/modules/public CLI unchanged, no blocking input or Azure needed.
+
+Earlier records follow.
+
+---
+
+# PR131 Unicode JSON duplicate-field correction (2026-10-08)
+
+FN098 automated review plus failing transport regression confirms shared JSON
+keys used lowercase while Go decoder folds Unicode aliases. Shared guard now uses
+general regionFoldKey; rejects sku/long-s sku and properties/propertie-long-s
+overwrite before decoding, in reservation and existing quota modes. Existing
+quota duplicate-control anchor updated, all25 controls retained.22 collector
+controls/11 focused functions require corrected-head proof. Findings FN096/097/098
+corrected in code; exact publication/runs/recovery authority is PR131 body. Earlier
+f75235f source/review/native evidence historical; PR131 unaccepted/draft while
+correcting. Accepted baseline a79464db remains until protected final acceptance.
+No live incident, expanded public execution, missing-test or human approval claim.
+No blocking user input or Azure needed.
+
+Earlier records follow.
+
+---
+
+# PR131 Unicode duplicate identity correction (2026-10-08)
+
+FN097 automated review confirmed lowercase keys inconsistent with EqualFold
+for Greek sigma variants. Regression confirms accepted internal calculator also
+admitted such duplicates. Canonical Unicode SimpleFold keys now protect collector
+groups/summaries/VM references and runtime duplicate admission. Runtime arithmetic
+and displayed ID normalization stay unchanged; no public region/live incident
+claim. This material internal runtime correction expands the collector slice,
+requiring final-head native/source/review proof.21 compiling controls and10 new
+focused test functions cover both Unicode findings plus request-status coverage.
+Prior19-control result is historical. FN096/097 reproduction failures are not PASS.
+Exact published head/run/verified recovery authority remains PR131 body. Accepted
+baseline PR130a79464db has the internal duplicate-admission finding until corrected
+proposal is accepted. No blocking input or Azure needed.
+
+Earlier records follow.
+
+---
+
+# PR131 returned-ID structural correction (2026-10-08)
+
+FN096 confirms Unicode lookalike fixed segments in optional returned summary/Get
+IDs could bypass structural identity admission in the UNACCEPTED proposal. Existing
+reservationIdentity now validates returned IDs before equality. Scope-derived
+request paths were already validated; no request redirect or accepted-baseline
+defect claimed. Two transport regressions and compiling structure fault require
+19 healthy/fault/restored controls. Current candidate/checkpoint/results in PR131
+body supersede earlier49813ab/0db05d7 evidence. Accepted remains PR130a79464db.
+All final-head native/source/review/protected gates remain required, followed by
+distinct accepted-push proof. Azure/laptop deferred; no blocking input.
+
+Earlier records follow.
+
+---
+
+# PR131 HTTP-status evidence correction (2026-10-08)
+
+FN095 self-review identified coupled getter-error/status fixtures. Error-free
+non200/healthy-body fixtures and a distinct200/getter-error fixture now isolate
+both paths. A compiling request-status fault brings reservation controls to18.
+No production behavior changed. Earlier17-control implementation49813ab remains
+published history; corrected candidate and rerun evidence are authoritative in
+PR131 body. All final native/source/review gates must match the corrected head.
+Accepted remains PR130a79464db; PR131 UNACCEPTED. No user input or Azure needed.
+
+Earlier checkpoint follows.
+
+---
+
+# PR131 reservation collector implementation WIP (2026-10-08)
+
+Accepted remains PR130 a79464db59fa0b3e72115d2f07a18f8621bd437f/tree55802384.
+[PR131](https://github.com/DeBoX85/Cloud-Assess/pull/131) is draft and UNACCEPTED,
+branch feat/region-reservation-collector. Planning8426297603b11e24dd79ad3a3a55c42e56a05a5d/
+treea269b28b6fe94f205560db5fed5aa86af6f245ae/parenta79464db was fully remotely
+verified before production edits. Current exact implementation revision, publication
+verification, run IDs and recovery action are authoritative in the evolving PR131 body.
+
+Internal collector implements exact three-stage Compute2024-11-01 Get hierarchy,
+selected subscription/physical region validation, explicit count presence and
+unknown/partial health, safe pagination,256 calls/64 pages per chain/1MiB per page/
+8MiB aggregate/8192 aggregate raw work, cancellation and owned results. Strict JSON
+allows IDs up to2048 only for this collector; quota callers retain512. No public
+registry/CLI/schema/dependency/source/capture changes.
+
+Eight focused test functions cover full literal evidence/calculation, identity,
+Get/list failures, continuations, cancellation/ownership, five unchanged retained
+source cases, real synthetic authenticated-client transport, exact budgets and
+independent peer recovery. Healthy arithmetic fixtures are separately adapted
+synthetics, not unchanged source identity evidence. All17 reservation compiling
+fault controls passed locally with healthy/fault/restored assertions. FN095 records
+two earlier fixture/control setup failures; neither is credited as PASS.
+
+Whole-suite/vet/region race and all25 existing quota controls are being completed;
+hosted final-head Linux/Windows/source/review acceptance, protected merge and
+distinct accepted-push proof remain PENDING. Follow current PR body for actual
+completed versus pending checks; local evidence is not hosted acceptance.
+
+Next verify/publish this coherent WIP with original-tree/full-file readback, then
+finish final-head native/source/review gates. Laptop/Azure NOT confirmed, no input
+needed. Live/DV001/load/freshOS/maintenance/Gate004/release/module-only advisory
+remain open. No resource/role/fixture/production substitution/exposure/release
+authorization inferred. Raw local logs/cache are transient, not backed up.
+
+Earlier checkpoints remain historical.
+
+---
+
+# Reservation collector preparation and PR130 accepted closure (2026-10-08)
+
+Accepted bootstrap/core-v1 a79464db59fa0b3e72115d2f07a18f8621bd437f,
+tree55802384dfd3df4f7f852c030f3aa75d96ec3acd, ordered parentsf0760de7/c0a11376.
+Live accepted/ref/mergedPR130/no open proposals/no-bypass23890737 verified.
+[PR130](https://github.com/DeBoX85/Cloud-Assess/pull/130) final full native/source/pre/post
+closure is indexed in [REGION_RESERVATION_COLLECTOR.md](REGION_RESERVATION_COLLECTOR.md).
+Earlier pending/unaccepted prose remains history, superseded by that closure.
+
+Next bounded three-stage reservation collection contract above must be published/verified
+BEFORE code. Source35-case observations/pins/known identity-location/presence/cancellation
+corrections reviewed. Raw source fixtures deliberately conflicting location/synthetic IDs
+remain unchanged; future healthy target fixtures separately labelled adapted synthetic.
+No public region execution claim. Exact proposal/checks/recovery state will live in PR body.
+Laptop/Azure NOT confirmed, all live/release restrictions/open gates remain. No blocking
+input, lost accepted work or uncertain mutation. Scratch-only diagnostics are not backups.
+
+Earlier checkpoints remain history.
+
+---
+
 # PR130 VM quota implementation checkpoint (2026-10-08)
 
 Accepted remains PR129f0760de7/tree0c71a2ff. Draft
