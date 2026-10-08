@@ -1,3 +1,24 @@
+# Reservation collector preparation and PR130 accepted closure (2026-10-08)
+
+Accepted bootstrap/core-v1 a79464db59fa0b3e72115d2f07a18f8621bd437f,
+tree55802384dfd3df4f7f852c030f3aa75d96ec3acd, ordered parentsf0760de7/c0a11376.
+Live accepted/ref/mergedPR130/no open proposals/no-bypass23890737 verified.
+[PR130](https://github.com/DeBoX85/Cloud-Assess/pull/130) final full native/source/pre/post
+closure is indexed in [REGION_RESERVATION_COLLECTOR.md](REGION_RESERVATION_COLLECTOR.md).
+Earlier pending/unaccepted prose remains history, superseded by that closure.
+
+Next bounded three-stage reservation collection contract above must be published/verified
+BEFORE code. Source35-case observations/pins/known identity-location/presence/cancellation
+corrections reviewed. Raw source fixtures deliberately conflicting location/synthetic IDs
+remain unchanged; future healthy target fixtures separately labelled adapted synthetic.
+No public region execution claim. Exact proposal/checks/recovery state will live in PR body.
+Laptop/Azure NOT confirmed, all live/release restrictions/open gates remain. No blocking
+input, lost accepted work or uncertain mutation. Scratch-only diagnostics are not backups.
+
+Earlier checkpoints remain history.
+
+---
+
 # PR130 VM quota implementation checkpoint (2026-10-08)
 
 Accepted remains PR129f0760de7/tree0c71a2ff. Draft

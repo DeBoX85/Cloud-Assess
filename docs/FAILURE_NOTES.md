@@ -855,3 +855,23 @@ re-audit/certification or source/pin/dependency change. Earlier heads superseded
   presence; named mutation failure must reject fixture panic/build failure. Classify
   these as development-test/helper mistakes, not VM product or service failures.
   Initial failed run is not PASS; corrected focused/native evidence pending PR130.
+
+## FN-094: Reservation preparation inspection recurrence
+
+- Date2026-10-08. Target QA/execution-plan reads initially ran in source cwd and failed;
+  corrected explicit target path before edits, recurrence FN004/092. Existing SDK cache
+  path was absent after checking actual Go module cache, so download pinnedv6.4.0 without
+  source/module refresh before inspecting generated requests; no test proof from absence.
+- Large combined guidance output truncated, not publication evidence. Read exact full
+  remote bytes unprinted and original-tree equality for publication, retain bounded display.
+- PR130 postmerge helper expected detached checkout text; actual accepted branch checkout
+  and git-log full SHA verified. No CI rerun/product failure, failed helper not PASS.
+- Prevention: actual path inventory/explicit source versus target cwd, exact tool/cache
+  state, inspect real checkout mode, full bounded byte assembly and original-tree checks.
+  Status: preparation errors corrected; source dependency inspection still in progress.
+
+- FN094 environment follow-up: unified exec-server transport disconnected during
+  bounded planning-file assembly. No tree/commit/ref/PR mutation had started; first
+  three complete files were held, ledger/failure notes still unread. A subsequent pwd
+  succeeded. Recheck staged tree/status and finish full bounded reads before any
+  publication; disconnected attempt is environment failure, not product/test PASS.
