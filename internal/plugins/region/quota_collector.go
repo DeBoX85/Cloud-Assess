@@ -259,10 +259,10 @@ func quotaJSONWithIDs(ctx context.Context, body []byte, identities bool) bool {
 				k, err := d.Token()
 				s, ok := k.(string)
 				n := 0
-				if err != nil || !ok || !auxiliaryText(s, &n) || len(keys) >= 128 || keys[strings.ToLower(s)] {
+				if err != nil || !ok || !auxiliaryText(s, &n) || len(keys) >= 128 || keys[regionFoldKey(s)] {
 					return false
 				}
-				keys[strings.ToLower(s)] = true
+				keys[regionFoldKey(s)] = true
 				if depth == 0 && strings.EqualFold(s, "nextLink") {
 					stringLimit = 8192
 				}

@@ -1,3 +1,21 @@
+# PR131 Unicode JSON duplicate-field correction (2026-10-08)
+
+FN098 automated review plus failing transport regression confirms shared JSON
+keys used lowercase while Go decoder folds Unicode aliases. Shared guard now uses
+general regionFoldKey; rejects sku/long-s sku and properties/propertie-long-s
+overwrite before decoding, in reservation and existing quota modes. Existing
+quota duplicate-control anchor updated, all25 controls retained.22 collector
+controls/11 focused functions require corrected-head proof. Findings FN096/097/098
+corrected in code; exact publication/runs/recovery authority is PR131 body. Earlier
+f75235f source/review/native evidence historical; PR131 unaccepted/draft while
+correcting. Accepted baseline a79464db remains until protected final acceptance.
+No live incident, expanded public execution, missing-test or human approval claim.
+No blocking user input or Azure needed.
+
+Earlier records follow.
+
+---
+
 # PR131 Unicode duplicate identity correction (2026-10-08)
 
 FN097 automated review confirmed lowercase keys inconsistent with EqualFold

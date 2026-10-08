@@ -158,3 +158,10 @@ changes accepted internal runtime duplicate admission to canonical SimpleFold ke
 arithmetic and displayed lowercase ResourceID unchanged. This explicitly supersedes
 earlier unchanged-runtime scope.21 controls and10 focused test functions are required
 on the corrected head; earlier native/source/review evidence does not transfer.
+
+FN098 extends correction to the shared JSON guard: regionFoldKey canonicalizes
+Unicode aliases consistently with Go struct-field decoding before duplicate
+rejection. Literal collector and both shared modes reject duplicate sku/properties
+aliases.22 collector faults and retained25 quota controls required; only quota
+control anchor follows corrected key expression.11 focused functions now cover
+these findings. Mandatory final-head native/source/review proof remains required.

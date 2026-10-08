@@ -116,7 +116,7 @@ func decodeReservationPage(body []byte, group, subscription string, seen map[str
 			}
 			r.ID = id
 		}
-		key := reservationFoldKey(r.ID)
+		key := regionFoldKey(r.ID)
 		if page[key] || seen[key] {
 			return reservationPage{}, false
 		}
@@ -166,10 +166,10 @@ func decodeReservation(body []byte, id, region, subscription string) (Reservatio
 			}
 			seen := map[string]bool{}
 			for _, ref := range refs {
-				if ref == nil || !reservationVM(ref.ID, subscription) || seen[reservationFoldKey(ref.ID)] {
+				if ref == nil || !reservationVM(ref.ID, subscription) || seen[regionFoldKey(ref.ID)] {
 					return ReservationUsage{}, 0, false
 				}
-				seen[reservationFoldKey(ref.ID)] = true
+				seen[regionFoldKey(ref.ID)] = true
 			}
 			count = len(refs)
 			r.Allocated = int64(count)

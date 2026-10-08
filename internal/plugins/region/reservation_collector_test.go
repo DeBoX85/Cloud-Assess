@@ -179,6 +179,21 @@ func TestReservationRuntimeUnicodeDuplicate(t *testing.T) {
 	}
 }
 
+func TestReservationCollectorUnicodeJSONFields(t *testing.T) {
+	for _, body := range []string{
+		`{"sku":{"name":"SKU","capacity":4},"ſku":{"name":"SKU","capacity":9}}`,
+		`{"properties":{"instanceView":{"utilizationInfo":{"virtualMachinesAllocated":[]}}},"propertieſ":{}}`,
+	} {
+		r, calls := crBodies(t, []string{crGroups, crSummaries, body})
+		if calls != 3 || r.Evidence.Status != "partial" || r.FailureCode != "reservation_invalid_response" || len(r.Evidence.Reservations) != 0 {
+			t.Fatalf("Unicode JSON field alias admitted: %#v calls%d", r, calls)
+		}
+		if quotaJSON(context.Background(), []byte(body)) || quotaJSONWithIDs(context.Background(), []byte(body), true) {
+			t.Fatal("shared strict JSON accepted fold-duplicate keys")
+		}
+	}
+}
+
 func TestReservationCollectorFailurePagination(t *testing.T) {
 	for _, status := range []int{400, 403, 404, 405, 429, 500, 302, 204} {
 		for failAt := 0; failAt < 3; failAt++ {

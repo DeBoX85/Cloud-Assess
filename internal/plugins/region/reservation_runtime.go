@@ -53,7 +53,7 @@ func reservationFailure(ctx context.Context, code string) error {
 
 // Canonicalize each Unicode simple-fold orbit, matching strings.EqualFold.
 // Lowercasing alone does not join sigma and final-sigma resource labels.
-func reservationFoldKey(id string) string {
+func regionFoldKey(id string) string {
 	return strings.Map(func(r rune) rune {
 		minimum := r
 		for next := unicode.SimpleFold(r); next != r; next = unicode.SimpleFold(next) {
@@ -162,7 +162,7 @@ func CalculateReservations(ctx context.Context, subscriptions map[string]string,
 			if !valid || sub != key.SubscriptionID || usage.Region != key.Region || !regionID.MatchString(usage.Region) || usage.ResponseName != "" && !strings.EqualFold(usage.ResponseName, name) || usage.ResponseRegion != "" && (usage.ResponseRegion != usage.Region || !regionID.MatchString(usage.ResponseRegion)) {
 				return nil, reservationFailure(ctx, "identity_invalid")
 			}
-			canonical := reservationFoldKey(usage.ResourceID)
+			canonical := regionFoldKey(usage.ResourceID)
 			if seen[canonical] {
 				return nil, reservationFailure(ctx, "identity_duplicate")
 			}

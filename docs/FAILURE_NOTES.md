@@ -945,3 +945,22 @@ re-audit/certification or source/pin/dependency change. Earlier heads superseded
 - Corrected focused/control/full/native/source/review proof remains pending.
   Initial failed regression runs are not PASS. Automated49813ab review does not
   cover corrected final head and is not human/independent-person approval.
+
+## FN-098: Unicode-fold duplicate JSON fields
+
+- Automated inline4214877953/formal5451610023 onf75235f, marker6052469777
+  completed2026-10-08T04:54:40.315298Z, identified shared quotaJSONWithIDs
+  lowercase keys inconsistent with encoding/json's field folding. sku/long-s
+  sku or properties/propertie-long-s aliases could overwrite counts/utilization
+  objects. A literal collector regression fails with admitted complete evidence.
+- Correction: shared JSON duplicate admission now uses regionFoldKey (renamed
+  general SimpleFold helper). Both reservation ID mode and existing quota mode
+  reject these aliases before unmarshalling.22 compiling collector faults include
+  Unicode JSON admission bypass; update existing quota duplicate-key anchor while
+  preserving all25 mandatory faults. No normal-label/ID/byte/depth/token budget
+  relaxed and no source/module/capture change.
+- Classification: confirmed product-code admission defect in proposal and shared
+  accepted JSON guard; no live exploitation or incident claimed. Initial failed
+  regression is not PASS. FN096/097 remain distinct structural/identity findings.
+  Re-run affected22 collector/all25 quota controls and final native/source/review
+  evidence; prior-head acceptance cannot transfer.
