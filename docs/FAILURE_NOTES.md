@@ -903,3 +903,45 @@ re-audit/certification or source/pin/dependency change. Earlier heads superseded
   QA_PROCESS.md; failed read is not review evidence. Recurrence path-inventory
   prevention applies. Full source log remains held; truncated diagnostic output
   cannot replace complete chunk/byte/hash proof.
+
+## FN-096: Unaccepted reservation returned-ID Unicode validation defect
+
+- Date2026-10-08. Self-review plus failing literal regression confirms optional
+  summary/Get returned IDs were compared with strings.EqualFold without first
+  validating their own fixed ARM segments. A long-s lookalike in subscriptions
+  could be accepted as complete evidence. Scope-derived request paths remained
+  separately validated; the defect did not redirect an authenticated request.
+- Correction: parse optional returned IDs with existing reservationIdentity
+  structural parser before comparing request identity. Fixed-segment byte-length
+  and ASCII spelling guards now apply to summary and Get IDs too. Two transport
+  regressions and a compiling structural-check bypass fault join19 controls.
+  Initial regression fails as expected, not PASS; corrected validation pending.
+- Classification: confirmed production-code defect in UNACCEPTED PR131 proposal,
+  not accepted PR130 code and not service/environment glitch. Prior candidate
+  native/source/review results do not transfer. Prevention: validate both sides
+  of an identity comparison; inspect Unicode case-folding at trust boundaries.
+- Additional guessed reservation.go read failed; corrected by rg inventory to
+  reservation_runtime.go before substantive review. Failed read not evidence.
+
+## FN-097: Unicode duplicate ARM identity keys
+
+- Automated inline4214812225/formal5451538260, marker6052469777 completed
+  on49813ab at2026-10-08T04:46:55.037203Z identified lowercase duplicate keys
+  inconsistent with EqualFold. Sigma/final-sigma labels can describe equal IDs
+  yet remain separate lowercase keys, admitting duplicate groups/summaries/VM
+  references. Collector regression failed on unexpected dependent request.
+- Same inspected pattern exists in accepted internal CalculateReservations;
+  a separate failing runtime regression confirms duplicate evidence was accepted.
+  This is a confirmed product-code defect, not a development-service failure.
+  Public region execution is unavailable; no live incident or affected Azure
+  resources claimed. Scope-derived URLs were not redirected by this defect.
+- Correction: canonicalize Unicode SimpleFold orbits for identity keys across
+  collector groups/summaries/allocated references and internal runtime duplicate
+  admission. Preserve literal arithmetic, output ResourceID lowercase, source
+  captures/pins and mandatory gates. Bounded linear key construction retains
+  existing ID/raw-work limits. This is a material correction to accepted internal
+  admission, explicitly extending the collector slice's originally unchanged
+  runtime scope. Two compiling faults plus FN096 control total21 controls.
+- Corrected focused/control/full/native/source/review proof remains pending.
+  Initial failed regression runs are not PASS. Automated49813ab review does not
+  cover corrected final head and is not human/independent-person approval.

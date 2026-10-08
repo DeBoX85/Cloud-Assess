@@ -146,3 +146,15 @@ Self-review correction:18th compiling control independently disables response
 status checking. Non200 responses now carry healthy bodies and nil getter errors;
 200/getter-error checked separately. Earlier17-control PASS is historical. Current
 corrected head/native/source/review evidence must be obtained, see PR131/FN095.
+
+FN096 correction validates optional returned summary/Get IDs structurally before
+case-insensitive equality. Unicode fixed-segment lookalike regressions and19th
+compiling structural-bypass control required. This confirmed proposal-code defect
+was found before acceptance; prior-head evidence remains historical only.
+
+FN097 automated review and separate collector/runtime regressions confirm lowercase
+duplicate keys disagree with EqualFold for Unicode labels. Material correction also
+changes accepted internal runtime duplicate admission to canonical SimpleFold keys;
+arithmetic and displayed lowercase ResourceID unchanged. This explicitly supersedes
+earlier unchanged-runtime scope.21 controls and10 focused test functions are required
+on the corrected head; earlier native/source/review evidence does not transfer.

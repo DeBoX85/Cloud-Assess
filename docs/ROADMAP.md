@@ -1,3 +1,38 @@
+# PR131 Unicode duplicate identity correction (2026-10-08)
+
+FN097 automated review confirmed lowercase keys inconsistent with EqualFold
+for Greek sigma variants. Regression confirms accepted internal calculator also
+admitted such duplicates. Canonical Unicode SimpleFold keys now protect collector
+groups/summaries/VM references and runtime duplicate admission. Runtime arithmetic
+and displayed ID normalization stay unchanged; no public region/live incident
+claim. This material internal runtime correction expands the collector slice,
+requiring final-head native/source/review proof.21 compiling controls and10 new
+focused test functions cover both Unicode findings plus request-status coverage.
+Prior19-control result is historical. FN096/097 reproduction failures are not PASS.
+Exact published head/run/verified recovery authority remains PR131 body. Accepted
+baseline PR130a79464db has the internal duplicate-admission finding until corrected
+proposal is accepted. No blocking input or Azure needed.
+
+Earlier records follow.
+
+---
+
+# PR131 returned-ID structural correction (2026-10-08)
+
+FN096 confirms Unicode lookalike fixed segments in optional returned summary/Get
+IDs could bypass structural identity admission in the UNACCEPTED proposal. Existing
+reservationIdentity now validates returned IDs before equality. Scope-derived
+request paths were already validated; no request redirect or accepted-baseline
+defect claimed. Two transport regressions and compiling structure fault require
+19 healthy/fault/restored controls. Current candidate/checkpoint/results in PR131
+body supersede earlier49813ab/0db05d7 evidence. Accepted remains PR130a79464db.
+All final-head native/source/review/protected gates remain required, followed by
+distinct accepted-push proof. Azure/laptop deferred; no blocking input.
+
+Earlier records follow.
+
+---
+
 # PR131 HTTP-status evidence correction (2026-10-08)
 
 FN095 self-review identified coupled getter-error/status fixtures. Error-free

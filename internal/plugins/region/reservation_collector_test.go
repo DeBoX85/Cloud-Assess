@@ -102,6 +102,23 @@ func TestReservationCollectorLiteral(t *testing.T) {
 }
 
 func TestReservationCollectorIdentity(t *testing.T) {
+	for _, stage := range []string{"summary", "get"} {
+		summary, detail := crSummaries, crDetail(1)
+		forged := strings.Replace(crResource, "/subscriptions/", "/ſubscriptions/", 1)
+		if stage == "summary" {
+			summary = `{"value":[{"name":"r","id":"` + forged + `"}]}`
+		} else {
+			detail = strings.Replace(detail, crResource, forged, 1)
+		}
+		r, calls := crBodies(t, []string{crGroups, summary, detail})
+		wantCalls := 3
+		if stage == "summary" {
+			wantCalls = 2
+		}
+		if calls != wantCalls || r.Evidence.Status != "partial" || len(r.Evidence.Reservations) != 0 || r.FailureCode != "reservation_identity_invalid" {
+			t.Fatalf("Unicode fixed ARM segment accepted at %s: %#v calls%d", stage, r, calls)
+		}
+	}
 	for _, f := range []struct {
 		group, summary, detail string
 		calls                  int
@@ -127,6 +144,38 @@ func TestReservationCollectorIdentity(t *testing.T) {
 	}
 	if !quotaJSONWithIDs(context.Background(), []byte(`{"id":"`+strings.Repeat("a", 2048)+`"}`), true) || quotaJSONWithIDs(context.Background(), []byte(`{"id":"`+strings.Repeat("a", 2049)+`"}`), true) || quotaJSON(context.Background(), []byte(`{"id":"`+strings.Repeat("a", 513)+`"}`)) {
 		t.Fatal("separate identity/quota string caps")
+	}
+}
+
+func TestReservationCollectorUnicodeDuplicates(t *testing.T) {
+	groupSigma := strings.Replace(crGroup, "/resourceGroups/rg/", "/resourceGroups/Σ/", 1)
+	groupFinal := strings.Replace(crGroup, "/resourceGroups/rg/", "/resourceGroups/ς/", 1)
+	for _, f := range []struct {
+		group, summary, detail string
+		calls                  int
+	}{
+		{`{"value":[{"id":"` + groupSigma + `","location":"eastus"},{"id":"` + groupFinal + `","location":"eastus"}]}`, crSummaries, crDetail(1), 1},
+		{crGroups, `{"value":[{"name":"Σ"},{"name":"ς"}]}`, crDetail(1), 2},
+		{crGroups, crSummaries, strings.ReplaceAll(strings.Replace(crDetail(2), "/virtualMachines/v0", "/virtualMachines/Σ", 1), "/virtualMachines/v1", "/virtualMachines/ς"), 3},
+	} {
+		r, calls := crBodies(t, []string{f.group, f.summary, f.detail})
+		want := "partial"
+		if f.calls == 1 {
+			want = "unknown"
+		}
+		if calls != f.calls || r.Evidence.Status != want || r.FailureCode != "reservation_identity_invalid" || len(r.Evidence.Reservations) != 0 {
+			t.Fatalf("Unicode duplicate admitted: %#v calls%d", r, calls)
+		}
+	}
+
+}
+
+func TestReservationRuntimeUnicodeDuplicate(t *testing.T) {
+	groupSigma := strings.Replace(crGroup, "/resourceGroups/rg/", "/resourceGroups/Σ/", 1)
+	groupFinal := strings.Replace(crGroup, "/resourceGroups/rg/", "/resourceGroups/ς/", 1)
+	rows := []ReservationUsage{{ResourceID: groupSigma + "/capacityReservations/r", Region: "eastus", ReservedKnown: true, AllocatedKnown: true}, {ResourceID: groupFinal + "/capacityReservations/r", Region: "eastus", ReservedKnown: true, AllocatedKnown: true}}
+	if r, e := CalculateReservations(context.Background(), quotaScope(), []ReservationRequest{crRequest()}, []ReservationEvidence{{Request: crRequest(), Status: "complete", Reservations: rows}}); r != nil || e == nil || !strings.Contains(e.Error(), "identity_duplicate") {
+		t.Fatalf("calculator Unicode duplicate admitted: %#v %v", r, e)
 	}
 }
 

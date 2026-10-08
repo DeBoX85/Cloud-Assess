@@ -6,7 +6,7 @@ import subprocess
 import tempfile
 
 ROOT = Path(__file__).resolve().parents[2]
-MUTATIONS = (('request-status', 'response.StatusCode != http.StatusOK', '(response.StatusCode != http.StatusOK && false)', 'TestReservationCollectorFailurePagination', 'internal/plugins/region/reservation_collector.go'), ('version',
+MUTATIONS = (('unicode-duplicates', 'next != r; next = unicode.SimpleFold(next)', 'next != r && false; next = unicode.SimpleFold(next)', 'TestReservationCollectorUnicodeDuplicates', 'internal/plugins/region/reservation_runtime.go'), ('runtime-duplicates', 'canonical := reservationFoldKey(usage.ResourceID)', 'canonical := strings.ToLower(usage.ResourceID)', 'TestReservationRuntimeUnicodeDuplicate', 'internal/plugins/region/reservation_runtime.go'), ('returned-id-structure', 'return ok\n}', 'return ok || true\n}', 'TestReservationCollectorIdentity', 'internal/plugins/region/reservation_collector.go'), ('request-status', 'response.StatusCode != http.StatusOK', '(response.StatusCode != http.StatusOK && false)', 'TestReservationCollectorFailurePagination', 'internal/plugins/region/reservation_collector.go'), ('version',
   'u.RawQuery = "api-version=2024-11-01"',
   'u.RawQuery = "api-version=2023-01-01"',
   'TestReservationCollectorLiteral',
@@ -27,13 +27,13 @@ MUTATIONS = (('request-status', 'response.StatusCode != http.StatusOK', '(respon
   'TestReservationCollectorIdentity',
   'internal/plugins/region/reservation_collector.go'),
  ('summary-identity',
-  '(r.ID != "" && !strings.EqualFold(r.ID, id))',
-  '(r.ID != "" && !strings.EqualFold(r.ID, id) && false)',
+  '(r.ID != "" && (!reservationResponseID(r.ID) || !strings.EqualFold(r.ID, id)))',
+  '(r.ID != "" && (!reservationResponseID(r.ID) || !strings.EqualFold(r.ID, id)) && false)',
   'TestReservationCollectorIdentity',
   'internal/plugins/region/reservation_collector.go'),
  ('get-identity',
-  '(raw.ID != "" && !strings.EqualFold(raw.ID, id))',
-  '(raw.ID != "" && !strings.EqualFold(raw.ID, id) && false)',
+  '(raw.ID != "" && (!reservationResponseID(raw.ID) || !strings.EqualFold(raw.ID, id)))',
+  '(raw.ID != "" && (!reservationResponseID(raw.ID) || !strings.EqualFold(raw.ID, id)) && false)',
   'TestReservationCollectorIdentity',
   'internal/plugins/region/reservation_collector.go'),
  ('get-region',

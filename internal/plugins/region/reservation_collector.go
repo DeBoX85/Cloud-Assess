@@ -33,6 +33,13 @@ func reservationGroup(id, selected string) (string, bool) {
 	return id, ok && sub == selected
 }
 
+// Optional returned IDs must themselves have valid fixed ARM segments before
+// comparing them with the separately validated request identity.
+func reservationResponseID(id string) bool {
+	_, _, _, _, ok := reservationIdentity(id)
+	return ok
+}
+
 func reservationVM(id, selected string) bool {
 	if len(id) > MaxReservationIDBytes || !strings.HasPrefix(id, "/") || strings.ContainsAny(id, "\\?#%") {
 		return false
@@ -104,12 +111,12 @@ func decodeReservationPage(body []byte, group, subscription string, seen map[str
 		} else {
 			id := group + "/capacityReservations/" + r.Name
 			sub, _, _, _, ok := reservationIdentity(id)
-			if !ok || sub != subscription || r.Name == "" || (r.ID != "" && !strings.EqualFold(r.ID, id)) {
+			if !ok || sub != subscription || r.Name == "" || (r.ID != "" && (!reservationResponseID(r.ID) || !strings.EqualFold(r.ID, id))) {
 				return reservationPage{}, false
 			}
 			r.ID = id
 		}
-		key := strings.ToLower(r.ID)
+		key := reservationFoldKey(r.ID)
 		if page[key] || seen[key] {
 			return reservationPage{}, false
 		}
@@ -135,7 +142,7 @@ func decodeReservation(body []byte, id, region, subscription string) (Reservatio
 			}
 		}
 	}
-	if bytes.Equal(bytes.TrimSpace(body), []byte("null")) || json.Unmarshal(body, &raw) != nil || (raw.ID != "" && !strings.EqualFold(raw.ID, id)) || (raw.Name != "" && !strings.EqualFold(raw.Name, id[strings.LastIndex(id, "/")+1:])) || (raw.Location != "" && strings.ToLower(raw.Location) != region) {
+	if bytes.Equal(bytes.TrimSpace(body), []byte("null")) || json.Unmarshal(body, &raw) != nil || (raw.ID != "" && (!reservationResponseID(raw.ID) || !strings.EqualFold(raw.ID, id))) || (raw.Name != "" && !strings.EqualFold(raw.Name, id[strings.LastIndex(id, "/")+1:])) || (raw.Location != "" && strings.ToLower(raw.Location) != region) {
 		return ReservationUsage{}, 0, false
 	}
 	r := ReservationUsage{ResourceID: id, Region: region, ResponseName: raw.Name, ResponseRegion: strings.ToLower(raw.Location)}
@@ -159,10 +166,10 @@ func decodeReservation(body []byte, id, region, subscription string) (Reservatio
 			}
 			seen := map[string]bool{}
 			for _, ref := range refs {
-				if ref == nil || !reservationVM(ref.ID, subscription) || seen[strings.ToLower(ref.ID)] {
+				if ref == nil || !reservationVM(ref.ID, subscription) || seen[reservationFoldKey(ref.ID)] {
 					return ReservationUsage{}, 0, false
 				}
-				seen[strings.ToLower(ref.ID)] = true
+				seen[reservationFoldKey(ref.ID)] = true
 			}
 			count = len(refs)
 			r.Allocated = int64(count)
