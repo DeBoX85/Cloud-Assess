@@ -221,14 +221,19 @@ func (c *RESTQuotaCollector) continuation(first *url.URL, version, link string) 
 }
 
 func quotaJSON(ctx context.Context, body []byte) bool {
+	return quotaJSONWithIDs(ctx, body, false)
+}
+
+// Reservation responses carry ARM IDs; quota responses retain the tighter cap.
+func quotaJSONWithIDs(ctx context.Context, body []byte, identities bool) bool {
 	if !utf8.Valid(body) {
 		return false
 	}
 	d := json.NewDecoder(bytes.NewReader(body))
 	d.UseNumber()
 	tokens := 0
-	var walk func(int, bool) bool
-	walk = func(depth int, large bool) bool {
+	var walk func(int, int) bool
+	walk = func(depth int, limit int) bool {
 		if ctx.Err() != nil || depth > 32 || tokens >= 65536 {
 			return false
 		}
@@ -238,10 +243,6 @@ func quotaJSON(ctx context.Context, body []byte) bool {
 			return false
 		}
 		if s, ok := t.(string); ok {
-			limit := MaxLabelBytes
-			if large {
-				limit = 8192
-			}
 			return len(s) <= limit && utf8.ValidString(s) && strings.IndexFunc(s, func(r rune) bool { return unicode.IsControl(r) || r == 0xfffd || regionNoncharacter(r) }) < 0
 		}
 		delim, compound := t.(json.Delim)
@@ -253,7 +254,7 @@ func quotaJSON(ctx context.Context, body []byte) bool {
 		}
 		keys := map[string]bool{}
 		for d.More() {
-			longString := false
+			stringLimit := MaxLabelBytes
 			if delim == '{' {
 				k, err := d.Token()
 				s, ok := k.(string)
@@ -262,16 +263,21 @@ func quotaJSON(ctx context.Context, body []byte) bool {
 					return false
 				}
 				keys[strings.ToLower(s)] = true
-				longString = depth == 0 && strings.EqualFold(s, "nextLink")
+				if depth == 0 && strings.EqualFold(s, "nextLink") {
+					stringLimit = 8192
+				}
+				if identities && strings.EqualFold(s, "id") {
+					stringLimit = MaxReservationIDBytes
+				}
 			}
-			if !walk(depth+1, longString) {
+			if !walk(depth+1, stringLimit) {
 				return false
 			}
 		}
 		end, err := d.Token()
 		return err == nil && (delim == '{' && end == json.Delim('}') || delim == '[' && end == json.Delim(']'))
 	}
-	if !walk(0, false) {
+	if !walk(0, MaxLabelBytes) {
 		return false
 	}
 	_, err := d.Token()

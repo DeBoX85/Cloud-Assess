@@ -1,3 +1,42 @@
+# PR131 reservation collector implementation WIP (2026-10-08)
+
+Accepted remains PR130 a79464db59fa0b3e72115d2f07a18f8621bd437f/tree55802384.
+[PR131](https://github.com/DeBoX85/Cloud-Assess/pull/131) is draft and UNACCEPTED,
+branch feat/region-reservation-collector. Planning8426297603b11e24dd79ad3a3a55c42e56a05a5d/
+treea269b28b6fe94f205560db5fed5aa86af6f245ae/parenta79464db was fully remotely
+verified before production edits. Current exact implementation revision, publication
+verification, run IDs and recovery action are authoritative in the evolving PR131 body.
+
+Internal collector implements exact three-stage Compute2024-11-01 Get hierarchy,
+selected subscription/physical region validation, explicit count presence and
+unknown/partial health, safe pagination,256 calls/64 pages per chain/1MiB per page/
+8MiB aggregate/8192 aggregate raw work, cancellation and owned results. Strict JSON
+allows IDs up to2048 only for this collector; quota callers retain512. No public
+registry/CLI/schema/dependency/source/capture changes.
+
+Eight focused test functions cover full literal evidence/calculation, identity,
+Get/list failures, continuations, cancellation/ownership, five unchanged retained
+source cases, real synthetic authenticated-client transport, exact budgets and
+independent peer recovery. Healthy arithmetic fixtures are separately adapted
+synthetics, not unchanged source identity evidence. All17 reservation compiling
+fault controls passed locally with healthy/fault/restored assertions. FN095 records
+two earlier fixture/control setup failures; neither is credited as PASS.
+
+Whole-suite/vet/region race and all25 existing quota controls are being completed;
+hosted final-head Linux/Windows/source/review acceptance, protected merge and
+distinct accepted-push proof remain PENDING. Follow current PR body for actual
+completed versus pending checks; local evidence is not hosted acceptance.
+
+Next verify/publish this coherent WIP with original-tree/full-file readback, then
+finish final-head native/source/review gates. Laptop/Azure NOT confirmed, no input
+needed. Live/DV001/load/freshOS/maintenance/Gate004/release/module-only advisory
+remain open. No resource/role/fixture/production substitution/exposure/release
+authorization inferred. Raw local logs/cache are transient, not backed up.
+
+Earlier checkpoints remain historical.
+
+---
+
 # Reservation collector preparation and PR130 accepted closure (2026-10-08)
 
 Accepted bootstrap/core-v1 a79464db59fa0b3e72115d2f07a18f8621bd437f,

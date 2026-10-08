@@ -875,3 +875,20 @@ re-audit/certification or source/pin/dependency change. Earlier heads superseded
   three complete files were held, ledger/failure notes still unread. A subsequent pwd
   succeeded. Recheck staged tree/status and finish full bounded reads before any
   publication; disconnected attempt is environment failure, not product/test PASS.
+
+## FN-095: Reservation work-limit fixture and mutation setup
+
+- Date2026-10-08. Initial focused budget test placed8190 valid ARM VM
+  references in one Get body. It hit the1MiB page limit before the intended
+ 8192 aggregate work boundary. This failed authored fixture is not product proof.
+  Corrected to two individually bounded Gets: one group + two summaries +
+ 4094 +4095 references equals8192; one additional reference rejects the second
+  Get while preserving the first accepted reservation. No guard was relaxed.
+- Initial group-scope negative control removed the only use of local sub and
+  failed compilation. It was rejected by the runner and is not a valid fault
+  detection PASS. Corrected to keep the variable used while disabling scope
+  comparison. Version/expand/scope controls passed before that runner stopped;
+  full corrected run remains pending.
+- Classification: development fixture/control mistakes, not service failure or
+  established production defect. Prevention: assert fixtures fit all tighter
+  budgets; require compiling named-assertion failures and restored baselines.

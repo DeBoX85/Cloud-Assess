@@ -243,6 +243,9 @@ jobs:
       - name: Verify REST quota collector tests reject selected mutations
         run: python3 scripts/tests/region-quota-collector-mutation.py
 
+      - name: Verify reservation collector tests reject selected mutations
+        run: python3 scripts/tests/region-reservation-collector-mutation.py
+
       - name: Vet
         run: go vet ./...
 
@@ -362,6 +365,10 @@ jobs:
       - name: Verify Windows REST quota collector tests reject selected mutations
         shell: pwsh
         run: python scripts/tests/region-quota-collector-mutation.py
+
+      - name: Verify Windows reservation collector tests reject selected mutations
+        shell: pwsh
+        run: python scripts/tests/region-reservation-collector-mutation.py
 
       - name: Build and smoke-test Windows CLI
         env:

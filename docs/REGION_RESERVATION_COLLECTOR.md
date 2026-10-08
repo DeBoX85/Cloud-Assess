@@ -130,3 +130,14 @@ Laptop/Azure NOT confirmed; live/DV001/load/freshOS/maintenance/Gate004/release/
 advisory OPEN. No resources/roles/new fixtures/production substitution/exposure/release.
 No blocking offline input. Next remaining adapters/coordinator/public/all-format integration.
 Publish coherent remotely verified checkpoints and inspect uncertain outcomes before retries.
+
+## Implementation checkpoint
+
+PR131 implements the internal bounded contract above. Eight focused test functions
+and17 compiling healthy/fault/restored controls are present; corrected local named
+checks pass. FN095 records the initial work fixture and uncompiled fault failure.
+Independent peer recovery asserts that list/Get/later-list failure preserves prior
+rows and continues a separate valid group. Mandatory Windows/Linux/source/review/
+protected acceptance and distinct push remain pending; exact evolving revisions,
+run IDs and completed checks are in the PR131 body. Historical source captures,
+module pins and public execution boundaries are unchanged.
