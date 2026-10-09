@@ -18,6 +18,42 @@ No simplified replacement for the source's region scoring or operator features.
 
 ## First actions and authority
 
+CURRENT BLOCKER: PR132 remains UNMERGED because its corrected documentation
+candidate f4d84a93cefa4c3dfc89827857f143f2fe00ce5f failed the mandatory Linux
+security gate. Later documentation heads may have been published to record the
+failure; verify the latest branch/head/body, do not assume green acceptance.
+Accepted implementation remains PR131 b653a3ab. Read
+`docs/HANDOVER_SECURITY_GATE_20261009.md` before selecting feature work.
+
+Native37909129097/Linux113750096635 actually executed preview
+bf0508ab7303362101c4c34d3a7f6e0cbed9501e with Go1.26.8 and govulncheck1.8.0.
+At2026-10-09T09:17:39Z the scanner reported10 standard-library advisories, some
+also affecting selected x/net0.58.0, plus1 imported-package and3 module advisories
+not apparently called. Official records published2026-10-08 identify Go1.26.9
+and x/net0.60.0 fixes. Exact IDs/primary sources and full-log/artifact limitations
+are in the security record and PR132. Static traces are not proof of every
+scenario's application exploitability; do not waive the blocking gate on that
+basis or call it an executor/service glitch. No incident is established.
+
+All preceding Linux functional/control checks passed; the JOB FAILED and is not
+acceptance. Windows113750097020 final classification is in the live PR body;
+verify it rather than infer its outcome from Linux. Source37909129053 passed
+complete17/150 records/chunks and full independent hash/remote-byte verification.
+The final f4 automated review completed2026-10-09T09:09:55.298079Z with only the
+corrected historical documentation finding. None waives failed native security.
+
+IMMEDIATE NEXT ACTION: verify latest failed/pending evidence, finish any unknown
+Windows/current-head classification, then publish a bounded toolchain/dependency
+remediation contract. Inspect all advisory IDs/prerequisites, publisher hashes,
+selected graph, Go/workflow/bootstrap/source-execution pins, inventory/notices and
+compiled CLI evidence. Evaluate the first official fixed Go1.26.9/x-net0.60.0,
+without unrelated refresh or a new major Go series. No version change/remediation
+has been performed in this documentation task. Existing repository authorization
+allows preparing the separate correction without laptop/Azure input. Preserve
+AZQR/APRL/captures and mandatory gates. Fresh full native/source/review/security,
+protected merge and distinct accepted-push evidence are required after correction.
+Coordinate with unmerged handover PR132 and only then resume region work.
+
 1. Read the live root `AGENTS.md` before changing anything.
 2. Locate the latest accepted and proposed checkpoint through live branch refs,
    open/merged PRs and their bodies. The handover branch is
@@ -148,8 +184,10 @@ is documentation correctness, not a new product defect or another whole-project
 audit. Corrected documentation QA ran before this prompt update; a second prompt
 QA and fresh full native/source checks are required afterward.
 
-No new implementation slice had started after PR131. First finish any pending
-acceptance/recovery checks for the docs handover or later live proposal. Then
+No new feature slice had started after PR131. First resolve the security-gate
+blocker described above, preserving failed history and required protected gates.
+Do not treat the handover's publication as acceptance or replay a failed check
+without the classified correction. After verified remediation and handover recovery,
 inventory remaining region resource/SKU/availability and pricing/history adapters
 against pinned source, including completeness and per-run coordinator integration.
 Select a bounded independent offline task from the live specification/roadmap and

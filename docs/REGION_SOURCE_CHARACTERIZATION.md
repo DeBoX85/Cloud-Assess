@@ -1,3 +1,18 @@
+# Current security gate state, 2026-10-09
+
+PR132 is UNMERGED and protected acceptance is BLOCKED by a classified vulnerability
+gate failure on the unchanged Go1.26.8/x-net0.58.0 toolchain/dependency graph.
+Read [HANDOVER_SECURITY_GATE_20261009.md](HANDOVER_SECURITY_GATE_20261009.md) and
+[live PR132](https://github.com/DeBoX85/Cloud-Assess/pull/132) for exact failed
+revision/preview/run/job/advisory evidence and latest published handover state.
+Prior PR131 zero-reachable/zero-imported scans are historical, not current clearance.
+No suppression, version change, protected merge or accepted-push proof occurred
+in this documentation task. Finish security classification and prepare a bounded
+remediation contract before further feature work. Source pins and mandatory gates
+remain intact; no laptop/Azure input is needed for that offline preparation.
+
+---
+
 # Current handover authority, 2026-10-09
 
 Read [SESSION_HANDOVER.md](SESSION_HANDOVER.md) and
