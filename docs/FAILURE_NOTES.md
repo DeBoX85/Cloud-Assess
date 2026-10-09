@@ -1,3 +1,58 @@
+# Current security gate state, 2026-10-09
+
+PR132 is UNMERGED and protected acceptance is BLOCKED by a classified vulnerability
+gate failure on the unchanged Go1.26.8/x-net0.58.0 toolchain/dependency graph.
+Read [HANDOVER_SECURITY_GATE_20261009.md](HANDOVER_SECURITY_GATE_20261009.md) and
+[live PR132](https://github.com/DeBoX85/Cloud-Assess/pull/132) for exact failed
+revision/preview/run/job/advisory evidence and latest published handover state.
+Prior PR131 zero-reachable/zero-imported scans are historical, not current clearance.
+No suppression, version change, protected merge or accepted-push proof occurred
+in this documentation task. Finish security classification and prepare a bounded
+remediation contract before further feature work. Source pins and mandatory gates
+remain intact; no laptop/Azure input is needed for that offline preparation.
+
+---
+
+# Current handover authority, 2026-10-09
+
+Verified implementation: [PR131](https://github.com/DeBoX85/Cloud-Assess/pull/131),
+accepted `b653a3abfc35590a185531095a168a9a107e769e`, tree
+`47515c474ddf400da0a68c556e9147d8d3c2576b`. Live refs can advance.
+Read [HANDOVER_CHECKPOINT_20261009.md](HANDOVER_CHECKPOINT_20261009.md) for exact
+parents/identity/pins, separate candidate/accepted-push proof, audit/findings
+disposition, remaining tasks, access limits, workspace recovery and QA provenance.
+This documentation checkpoint's final acceptance evidence is in its live PR body
+on `docs/handover-20261009`; do not assume it is already accepted.
+
+FN094/095 remain classified process/environment/test-setup records. FN096-099
+product/contract corrections are merged through PR131 and independently pre/post
+tested with 24 collector, 25 quota and 18 runtime compiling controls on both hosts.
+Earlier pending and failing reproductions below are historical, never relabelled
+PASS. No new product defect was confirmed by this documentation task. AUD004
+historical draft loss was subsequently reconstructed through PR120. Broad local
+diagnostic reads in this task were truncated; only complete targeted/local bytes
+and stored full remote records are usable evidence. Avoid oversized combined reads.
+
+Earlier records below are preserved historical snapshots, superseded only in
+current-state/resume instructions by the verified checkpoint above.
+
+---
+
+## 2026-10-09: PR132 omitted linked status records
+
+Automated inline4228431509/formal5467981898 on original304e839 confirmed a
+documentation coverage gap: several linked REGION_* contracts and QA_PROCESS
+retained obsolete current pending headings without a superseding authority header.
+Correction covers all remaining region contracts and linked QA/parity/alignment/
+workspace records, preserving originals. Repeat both document/prompt QA and fresh
+final-head native/source/review acceptance; earlier-head results do not transfer.
+This is documentation correctness, not a product defect or development outage.
+Prevention: follow the complete authority/link graph and inspect current-state
+entry points, rather than updating only the latest implementation contract.
+Additional checkpoint context patches were rejected before any mutation; actual
+headers were then inspected and unique observed anchors used. Failed edits and
+inspection helpers are not product test failures and are not counted as PASS.
+
 # Development Failure Notes
 
 This register records confirmed mistakes in our implementation, test design, evidence interpretation, or instructions. It is a troubleshooting index, not a substitute for the development ledger, Git diff, CI logs, or a formal quality gate. It contains no credentials or unredacted Azure report rows.

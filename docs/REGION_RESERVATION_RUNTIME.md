@@ -1,3 +1,40 @@
+# Current security gate state, 2026-10-09
+
+PR132 is UNMERGED and protected acceptance is BLOCKED by a classified vulnerability
+gate failure on the unchanged Go1.26.8/x-net0.58.0 toolchain/dependency graph.
+Read [HANDOVER_SECURITY_GATE_20261009.md](HANDOVER_SECURITY_GATE_20261009.md) and
+[live PR132](https://github.com/DeBoX85/Cloud-Assess/pull/132) for exact failed
+revision/preview/run/job/advisory evidence and latest published handover state.
+Prior PR131 zero-reachable/zero-imported scans are historical, not current clearance.
+No suppression, version change, protected merge or accepted-push proof occurred
+in this documentation task. Finish security classification and prepare a bounded
+remediation contract before further feature work. Source pins and mandatory gates
+remain intact; no laptop/Azure input is needed for that offline preparation.
+
+---
+
+# Current handover authority, 2026-10-09
+
+Verified implementation: [PR131](https://github.com/DeBoX85/Cloud-Assess/pull/131),
+accepted `b653a3abfc35590a185531095a168a9a107e769e`, tree
+`47515c474ddf400da0a68c556e9147d8d3c2576b`. Live refs can advance.
+Read [HANDOVER_CHECKPOINT_20261009.md](HANDOVER_CHECKPOINT_20261009.md) for exact
+parents/identity/pins, separate candidate/accepted-push proof, audit/findings
+disposition, remaining tasks, access limits, workspace recovery and QA provenance.
+This documentation checkpoint's final acceptance evidence is in its live PR body
+on `docs/handover-20261009`; do not assume it is already accepted.
+
+Owned reservation calculation was accepted through PR128. PR131 materially
+corrected Unicode duplicate identity admission in this internal calculator
+(FN097), preserving arithmetic and displayed ID normalization. All 18 runtime
+controls passed on both hosts in separate candidate and accepted-push runs.
+Pure/runtime acceptance is not public region execution or live resource ownership.
+
+Earlier records below are preserved historical snapshots, superseded only in
+current-state/resume instructions by the verified checkpoint above.
+
+---
+
 # Owned capacity reservation calculation contract
 
 Status: IN PROGRESS, implementation candidate in
