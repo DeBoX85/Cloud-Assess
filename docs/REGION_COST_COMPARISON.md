@@ -1,3 +1,25 @@
+# Current handover authority, 2026-10-09
+
+Read [SESSION_HANDOVER.md](SESSION_HANDOVER.md) and
+[HANDOVER_CHECKPOINT_20261009.md](HANDOVER_CHECKPOINT_20261009.md) before following
+an implementation status, baseline, executor description or next action below.
+Accepted implementation extends through [PR131](https://github.com/DeBoX85/Cloud-Assess/pull/131),
+`b653a3abfc35590a185531095a168a9a107e769e`. The handover PR on
+`docs/handover-20261009` holds its own exact publication/CI/merge/push state.
+Verify later live refs and PR evidence; this header does not assume that proposal
+is accepted. New-chat instructions: [NEW_CHAT_PROMPT_20261009.md](NEW_CHAT_PROMPT_20261009.md).
+
+PR114/119 audit and PR120-131 bounded region milestones are accepted offline;
+historical IN PROGRESS/UNACCEPTED/pending baselines or next tasks below are snapshots,
+not current instructions to replay completed work. The checkpoint identifies
+each accepted milestone and its PR evidence. Preserve the underlying source
+contracts, explicit corrections, bounds, mandatory tests and historical results.
+Public region execution, full feature parity, live access, Gate004 and release
+readiness remain unestablished. No new whole-project or independent-person review
+is claimed by this documentation task.
+
+---
+
 # Region CostComparison: bounded pure retail-price sheet
 
 Status: VERIFIED OFFLINE through PR109 merge6dfcd1be54f3c8199aa3478eb62b4bb38f6a956f. Original pre-acceptance contract below remains applicable; its pending preparation notes are historical. Baseline accepted PR108 merge1957f6d71da0c257bdd4b9d118c2be4b97b1a12e/tree3ffc1b51cb9ed5e608b805a3a7e2e1c1d54ba81e. Public region-selection remains unavailable. This is a pure decoded-data helper, not pricing collection, source arithmetic or financial validation.

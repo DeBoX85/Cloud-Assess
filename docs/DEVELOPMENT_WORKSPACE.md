@@ -1,3 +1,25 @@
+# Current handover authority, 2026-10-09
+
+Read [SESSION_HANDOVER.md](SESSION_HANDOVER.md) and
+[HANDOVER_CHECKPOINT_20261009.md](HANDOVER_CHECKPOINT_20261009.md) before following
+an implementation status, baseline, executor description or next action below.
+Accepted implementation extends through [PR131](https://github.com/DeBoX85/Cloud-Assess/pull/131),
+`b653a3abfc35590a185531095a168a9a107e769e`. The handover PR on
+`docs/handover-20261009` holds its own exact publication/CI/merge/push state.
+Verify later live refs and PR evidence; this header does not assume that proposal
+is accepted. New-chat instructions: [NEW_CHAT_PROMPT_20261009.md](NEW_CHAT_PROMPT_20261009.md).
+
+PR114/119 audit and PR120-131 bounded region milestones are accepted offline;
+historical IN PROGRESS/UNACCEPTED/pending baselines or next tasks below are snapshots,
+not current instructions to replay completed work. The checkpoint identifies
+each accepted milestone and its PR evidence. Preserve the underlying source
+contracts, explicit corrections, bounds, mandatory tests and historical results.
+Public region execution, full feature parity, live access, Gate004 and release
+readiness remain unestablished. No new whole-project or independent-person review
+is claimed by this documentation task.
+
+---
+
 # Isolated offline development workspace
 
 Status: executor recovery VERIFIED OFFLINE through PR100 mergeca7fc301de421f24f62c6b976fe2d79c0bfe6780, with required exact-head and separate accepted-merge native Linux/Windows QA and clean local/source/pin readback. This supplies the missing development tools and fresh source/target checkout proof from FN056. It does not close Azure/laptop, Gate004 or release validation.

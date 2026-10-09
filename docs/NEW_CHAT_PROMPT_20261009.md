@@ -21,8 +21,10 @@ No simplified replacement for the source's region scoring or operator features.
 1. Read the live root `AGENTS.md` before changing anything.
 2. Locate the latest accepted and proposed checkpoint through live branch refs,
    open/merged PRs and their bodies. The handover branch is
-   `docs/handover-20261009`. Discover its PR number, current head and acceptance
-   evidence rather than assuming it is merged. If later work exists, reconcile it.
+   `docs/handover-20261009`, PR132:
+   https://github.com/DeBoX85/Cloud-Assess/pull/132
+   Verify its current head and acceptance evidence rather than assuming it is
+   merged. If later work exists, reconcile it.
 3. Read the latest `docs/SESSION_HANDOVER.md`,
    `docs/HANDOVER_CHECKPOINT_20261009.md`, `docs/AUDIT_RECOVERY.md`,
    `docs/PROJECT_AUDIT_20261004.md`, `docs/PROJECT_AUDIT_REPORT_20261004.md`,
@@ -135,6 +137,16 @@ or an exhaustive code-review report. Check original review commit identity when
 GitHub has rebased inline comments.
 
 ## Exact next work and constraints
+
+PR132 initial automated review identified omitted status headers in linked region
+and QA records (inline `4228431509`, formal `5467981898`, original head `304e839`).
+The correction covers all REGION_* entry points and QA/parity/alignment/workspace
+records, preserving 37 existing histories plus checkpoint/prompt. Earlier initial
+candidate runs are superseded history, not corrected-head acceptance. Read PR132's
+latest full candidate/accepted-push evidence and final review state. This finding
+is documentation correctness, not a new product defect or another whole-project
+audit. Corrected documentation QA ran before this prompt update; a second prompt
+QA and fresh full native/source checks are required afterward.
 
 No new implementation slice had started after PR131. First finish any pending
 acceptance/recovery checks for the docs handover or later live proposal. Then

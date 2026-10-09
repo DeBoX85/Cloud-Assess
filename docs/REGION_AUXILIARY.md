@@ -1,3 +1,25 @@
+# Current handover authority, 2026-10-09
+
+Read [SESSION_HANDOVER.md](SESSION_HANDOVER.md) and
+[HANDOVER_CHECKPOINT_20261009.md](HANDOVER_CHECKPOINT_20261009.md) before following
+an implementation status, baseline, executor description or next action below.
+Accepted implementation extends through [PR131](https://github.com/DeBoX85/Cloud-Assess/pull/131),
+`b653a3abfc35590a185531095a168a9a107e769e`. The handover PR on
+`docs/handover-20261009` holds its own exact publication/CI/merge/push state.
+Verify later live refs and PR evidence; this header does not assume that proposal
+is accepted. New-chat instructions: [NEW_CHAT_PROMPT_20261009.md](NEW_CHAT_PROMPT_20261009.md).
+
+PR114/119 audit and PR120-131 bounded region milestones are accepted offline;
+historical IN PROGRESS/UNACCEPTED/pending baselines or next tasks below are snapshots,
+not current instructions to replay completed work. The checkpoint identifies
+each accepted milestone and its PR evidence. Preserve the underlying source
+contracts, explicit corrections, bounds, mandatory tests and historical results.
+Public region execution, full feature parity, live access, Gate004 and release
+readiness remain unestablished. No new whole-project or independent-person review
+is claimed by this documentation task.
+
+---
+
 # Region quota and capacity reservation pure projections
 
 Current audit disposition (2026-10-04): whole-project bounded offline review and hardening/source characterization are accepted through PR114, mergec33fb2eee93a2e5730f72612b351d0b838737d03, tree583496773c23902e7d7187ffc83a1c4ee6be0713. Owned inventory aggregation remains accepted through PR112; source-only availability characterization is now accepted through PR114. Runtime availability and public region-selection remain absent. Resume the separately reviewed bounded pure availability implementation after the audit disposition follow-up is accepted. Exact runtime and disposition acceptance evidence is indexed in their PR bodies; live/load/Gate004/release/advisory boundaries remain open. Earlier candidate/IN PROGRESS sequencing below is historical.

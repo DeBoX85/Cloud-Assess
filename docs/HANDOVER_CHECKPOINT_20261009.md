@@ -266,6 +266,21 @@ the actual paragraph was inspected and the corrected prompt link applied. This
 is an editing setup failure, not a product defect or failed product test. QA2
 and full candidate/accepted-push outcomes are recorded in the handover PR body.
 
+## PR132 documentation review correction
+
+Automated inline `4228431509`, formal review `5467981898`, marker `6077761099`
+completed on original authored `304e83907e4faecc0b78f399cf2022ef297f4547` at
+`2026-10-09T09:01:39.816669Z` identified omitted linked current-status records.
+Confirmed documentation gap: cost/reservation/VM source contracts and QA_PROCESS
+still led with historical unaccepted/pending wording. They were not newly failed
+product checks. The correction adds explicit current authority to all remaining
+16 REGION_* records and QA_PROCESS, feature parity, alignment and workspace records,
+preserving their full prior contents. The candidate now changes 37 existing
+documents plus this checkpoint and the prompt. Original candidate source/native
+results remain historical and cannot certify the corrected head. Both ordered
+documentation/prompt QA checks and full final-head hosted acceptance are required
+again; exact outcomes are in PR132. No new whole-codebase independent review claim.
+
 Authority links: [target](TARGET_SPECIFICATION.md),
 [implementation plan](IMPLEMENTATION_PLAN.md), [roadmap](ROADMAP.md),
 [execution plan](DEVELOPMENT_EXECUTION_PLAN.md), [QA](QA_PROCESS.md),

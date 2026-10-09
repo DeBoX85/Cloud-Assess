@@ -1,3 +1,25 @@
+# Current handover authority, 2026-10-09
+
+Read [SESSION_HANDOVER.md](SESSION_HANDOVER.md) and
+[HANDOVER_CHECKPOINT_20261009.md](HANDOVER_CHECKPOINT_20261009.md) before following
+an implementation status, baseline, executor description or next action below.
+Accepted implementation extends through [PR131](https://github.com/DeBoX85/Cloud-Assess/pull/131),
+`b653a3abfc35590a185531095a168a9a107e769e`. The handover PR on
+`docs/handover-20261009` holds its own exact publication/CI/merge/push state.
+Verify later live refs and PR evidence; this header does not assume that proposal
+is accepted. New-chat instructions: [NEW_CHAT_PROMPT_20261009.md](NEW_CHAT_PROMPT_20261009.md).
+
+PR114/119 audit and PR120-131 bounded region milestones are accepted offline;
+historical IN PROGRESS/UNACCEPTED/pending baselines or next tasks below are snapshots,
+not current instructions to replay completed work. The checkpoint identifies
+each accepted milestone and its PR evidence. Preserve the underlying source
+contracts, explicit corrections, bounds, mandatory tests and historical results.
+Public region execution, full feature parity, live access, Gate004 and release
+readiness remain unestablished. No new whole-project or independent-person review
+is claimed by this documentation task.
+
+---
+
 # Cost-enrichment source characterization and runtime contract
 
 Status: IN PROGRESS, source-only characterization. Accepted baseline fbbb819657e3fb555cef83b39a52284b59cb482f/treeaa1f68d3b72e5e0eb2d1a7f5532e602d5cefdf91 (PR121). Live accepted ref, merged latency acceptance and no open proposals verified before work. Existing audit/availability/latency and CostComparison sheet acceptance are not repeated. Laptop/Azure restoration is expected soon, not confirmed.

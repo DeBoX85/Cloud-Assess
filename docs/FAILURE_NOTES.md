@@ -23,6 +23,21 @@ current-state/resume instructions by the verified checkpoint above.
 
 ---
 
+## 2026-10-09: PR132 omitted linked status records
+
+Automated inline4228431509/formal5467981898 on original304e839 confirmed a
+documentation coverage gap: several linked REGION_* contracts and QA_PROCESS
+retained obsolete current pending headings without a superseding authority header.
+Correction covers all remaining region contracts and linked QA/parity/alignment/
+workspace records, preserving originals. Repeat both document/prompt QA and fresh
+final-head native/source/review acceptance; earlier-head results do not transfer.
+This is documentation correctness, not a product defect or development outage.
+Prevention: follow the complete authority/link graph and inspect current-state
+entry points, rather than updating only the latest implementation contract.
+Additional checkpoint context patches were rejected before any mutation; actual
+headers were then inspected and unique observed anchors used. Failed edits and
+inspection helpers are not product test failures and are not counted as PASS.
+
 # Development Failure Notes
 
 This register records confirmed mistakes in our implementation, test design, evidence interpretation, or instructions. It is a troubleshooting index, not a substitute for the development ledger, Git diff, CI logs, or a formal quality gate. It contains no credentials or unredacted Azure report rows.
