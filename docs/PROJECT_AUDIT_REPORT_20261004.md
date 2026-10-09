@@ -1,3 +1,26 @@
+# Current handover authority, 2026-10-09
+
+Verified implementation: [PR131](https://github.com/DeBoX85/Cloud-Assess/pull/131),
+accepted `b653a3abfc35590a185531095a168a9a107e769e`, tree
+`47515c474ddf400da0a68c556e9147d8d3c2576b`. Live refs can advance.
+Read [HANDOVER_CHECKPOINT_20261009.md](HANDOVER_CHECKPOINT_20261009.md) for exact
+parents/identity/pins, separate candidate/accepted-push proof, audit/findings
+disposition, remaining tasks, access limits, workspace recovery and QA provenance.
+This documentation checkpoint's final acceptance evidence is in its live PR body
+on `docs/handover-20261009`; do not assume it is already accepted.
+
+Audit corrections AUD001/002/003/005/006/007 are accepted; AUD004 describes a
+lost unpublished draft, later reconstructed and accepted through PR120. Full Cost
+pagination remains unimplemented despite fail-closed continuation handling.
+The report's original review inventory and run evidence are historical. Later
+PR120-131 have separate bounded review/acceptance; no fresh review of every current
+file is claimed by this documentation checkpoint.
+
+Earlier records below are preserved historical snapshots, superseded only in
+current-state/resume instructions by the verified checkpoint above.
+
+---
+
 # Audit disposition and accepted recovery checkpoint
 
 Status: VERIFIED OFFLINE for the bounded comprehensive audit. Accepted hardening/source-characterization merge: c33fb2eee93a2e5730f72612b351d0b838737d03, tree583496773c23902e7d7187ffc83a1c4ee6be0713, ordered parents07011b63440e69f4a5acb128e0449943f759ee9c/4f75b4b2f50f426ac4987ce0cc396a74a162105c. PR114 final native37188397367/Linux111395214072/Windows111395214326 and source37188397374/job111395214343 passed all mandatory steps/full logs; six fresh captures exactly reconstructed and independently SHA256/byte verified. Previewed242bbbe02df92ff4216b13a0407267573886a3 equals accepted tree. Distinct accepted-push evidence: native37188903973/source37188903965 on exact c33fb2eee93a2e5730f72612b351d0b838737d03; final job IDs/outcomes/full logs are indexed in PR114. The disposition follow-up must not be accepted until these distinct push checks and its own exact-head checks are verified successful. Denis author/GitHub merge committer/live protected ref verified. PR114 is the exact evidence index; PR113/115-118 are preserved superseded proposals.

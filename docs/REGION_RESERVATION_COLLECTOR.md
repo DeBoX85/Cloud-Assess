@@ -1,3 +1,26 @@
+# Current handover authority, 2026-10-09
+
+Verified implementation: [PR131](https://github.com/DeBoX85/Cloud-Assess/pull/131),
+accepted `b653a3abfc35590a185531095a168a9a107e769e`, tree
+`47515c474ddf400da0a68c556e9147d8d3c2576b`. Live refs can advance.
+Read [HANDOVER_CHECKPOINT_20261009.md](HANDOVER_CHECKPOINT_20261009.md) for exact
+parents/identity/pins, separate candidate/accepted-push proof, audit/findings
+disposition, remaining tasks, access limits, workspace recovery and QA provenance.
+This documentation checkpoint's final acceptance evidence is in its live PR body
+on `docs/handover-20261009`; do not assume it is already accepted.
+
+This collector is VERIFIED OFFLINE through merged PR131, not still pre-edit.
+Exact candidate and accepted-push runs, checkout revisions and job IDs are indexed
+in the linked checkpoint and PR131 body. Final accepted corrections include
+structural returned IDs, Unicode duplicate identities/JSON aliases and physical
+ASCII region admission. Public region execution and production audience wiring
+remain separate integration work. Historical contract/status paragraphs follow.
+
+Earlier records below are preserved historical snapshots, superseded only in
+current-state/resume instructions by the verified checkpoint above.
+
+---
+
 # Bounded capacity-reservation collection contract
 
 Status: IN PROGRESS, pre-edit. Accepted PR130 baselinea79464db59fa0b3e72115d2f07a18f8621bd437f,

@@ -1,3 +1,28 @@
+# Current handover authority, 2026-10-09
+
+Verified implementation: [PR131](https://github.com/DeBoX85/Cloud-Assess/pull/131),
+accepted `b653a3abfc35590a185531095a168a9a107e769e`, tree
+`47515c474ddf400da0a68c556e9147d8d3c2576b`. Live refs can advance.
+Read [HANDOVER_CHECKPOINT_20261009.md](HANDOVER_CHECKPOINT_20261009.md) for exact
+parents/identity/pins, separate candidate/accepted-push proof, audit/findings
+disposition, remaining tasks, access limits, workspace recovery and QA provenance.
+This documentation checkpoint's final acceptance evidence is in its live PR body
+on `docs/handover-20261009`; do not assume it is already accepted.
+
+FN094/095 remain classified process/environment/test-setup records. FN096-099
+product/contract corrections are merged through PR131 and independently pre/post
+tested with 24 collector, 25 quota and 18 runtime compiling controls on both hosts.
+Earlier pending and failing reproductions below are historical, never relabelled
+PASS. No new product defect was confirmed by this documentation task. AUD004
+historical draft loss was subsequently reconstructed through PR120. Broad local
+diagnostic reads in this task were truncated; only complete targeted/local bytes
+and stored full remote records are usable evidence. Avoid oversized combined reads.
+
+Earlier records below are preserved historical snapshots, superseded only in
+current-state/resume instructions by the verified checkpoint above.
+
+---
+
 # Development Failure Notes
 
 This register records confirmed mistakes in our implementation, test design, evidence interpretation, or instructions. It is a troubleshooting index, not a substitute for the development ledger, Git diff, CI logs, or a formal quality gate. It contains no credentials or unredacted Azure report rows.

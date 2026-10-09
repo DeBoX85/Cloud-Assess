@@ -1,3 +1,24 @@
+# Current handover authority, 2026-10-09
+
+Verified implementation: [PR131](https://github.com/DeBoX85/Cloud-Assess/pull/131),
+accepted `b653a3abfc35590a185531095a168a9a107e769e`, tree
+`47515c474ddf400da0a68c556e9147d8d3c2576b`. Live refs can advance.
+Read [HANDOVER_CHECKPOINT_20261009.md](HANDOVER_CHECKPOINT_20261009.md) for exact
+parents/identity/pins, separate candidate/accepted-push proof, audit/findings
+disposition, remaining tasks, access limits, workspace recovery and QA provenance.
+This documentation checkpoint's final acceptance evidence is in its live PR body
+on `docs/handover-20261009`; do not assume it is already accepted.
+
+The current accepted implementation is PR131, indexed in the linked checkpoint.
+This plan's initial baseline and later pending records remain historical. No next
+implementation slice has begun. Mandatory protected candidate/preview and distinct
+accepted-push checks, pre-edit contracts, recovery and authorization rules remain.
+
+Earlier records below are preserved historical snapshots, superseded only in
+current-state/resume instructions by the verified checkpoint above.
+
+---
+
 # Development execution, QA and recovery plan
 
 Date: 2026-10-02 (Europe/Oslo). Starting accepted branch: `bootstrap/core-v1` at `c79c2ffc9bfcec66da9f24dab631eb6bef6d1836`, tree `f2c99952554e11042d90ff0dd0597bda07b70e4d`, merged PR #77. This plan governs future implementation batches; it does not declare Gate 004, release readiness or full feature parity. [TARGET_SPECIFICATION.md](TARGET_SPECIFICATION.md) remains the product contract, [ROADMAP.md](ROADMAP.md) orders work, and [QA_PROCESS.md](QA_PROCESS.md) defines existing mandatory checks.

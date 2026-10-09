@@ -1,3 +1,26 @@
+# Current handover authority, 2026-10-09
+
+Verified implementation: [PR131](https://github.com/DeBoX85/Cloud-Assess/pull/131),
+accepted `b653a3abfc35590a185531095a168a9a107e769e`, tree
+`47515c474ddf400da0a68c556e9147d8d3c2576b`. Live refs can advance.
+Read [HANDOVER_CHECKPOINT_20261009.md](HANDOVER_CHECKPOINT_20261009.md) for exact
+parents/identity/pins, separate candidate/accepted-push proof, audit/findings
+disposition, remaining tasks, access limits, workspace recovery and QA provenance.
+This documentation checkpoint's final acceptance evidence is in its live PR body
+on `docs/handover-20261009`; do not assume it is already accepted.
+
+The whole-project offline audit and disposition are completed through PR114/119.
+Feature work resumed afterward and PR120-131 are accepted bounded milestones.
+Earlier feature-pause/availability-reconstruction instructions below are history.
+Use the latest live checkpoint and the new-chat prompt, not an old restart block.
+Recovery still requires remote state inspection before uncertain mutation retries,
+honest lost/unpublished-work reporting and verified coherent publication.
+
+Earlier records below are preserved historical snapshots, superseded only in
+current-state/resume instructions by the verified checkpoint above.
+
+---
+
 # Completed audit recovery authority
 
 # Audit disposition and accepted recovery checkpoint

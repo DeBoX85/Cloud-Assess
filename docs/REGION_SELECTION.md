@@ -1,3 +1,26 @@
+# Current handover authority, 2026-10-09
+
+Verified implementation: [PR131](https://github.com/DeBoX85/Cloud-Assess/pull/131),
+accepted `b653a3abfc35590a185531095a168a9a107e769e`, tree
+`47515c474ddf400da0a68c556e9147d8d3c2576b`. Live refs can advance.
+Read [HANDOVER_CHECKPOINT_20261009.md](HANDOVER_CHECKPOINT_20261009.md) for exact
+parents/identity/pins, separate candidate/accepted-push proof, audit/findings
+disposition, remaining tasks, access limits, workspace recovery and QA provenance.
+This documentation checkpoint's final acceptance evidence is in its live PR body
+on `docs/handover-20261009`; do not assume it is already accepted.
+
+Accepted internal milestones extend through PR131. Owned availability, latency,
+weighted cost, quota/reservation calculations and quota/reservation collection no
+longer need reconstruction. Remaining adapters, per-run completeness/coordinator
+and public all-format execution require their own source-grounded contracts.
+Public `region-selection` remains unavailable; internal acceptance is not public
+execution or live region accuracy.
+
+Earlier records below are preserved historical snapshots, superseded only in
+current-state/resume instructions by the verified checkpoint above.
+
+---
+
 # PR120 availability implementation and recovery authority
 
 The bounded pure availability constructor is implemented in PR120. Its live PR body is the exact final-head/merge/accepted-push evidence index: [PR120](https://github.com/DeBoX85/Cloud-Assess/pull/120). Determine candidate versus VERIFIED OFFLINE acceptance from that index and live refs, never from a historical pending paragraph. Entry accepted baseline is audit PR119 merge3463a72f11912039702ee60605ec4d79830c09bc/tree3bc82d8ffd4aa19167edd4e6bf02b8d031a9939a. Audit and source-only availability characterization are accepted; no entire-audit repeat is needed.

@@ -1,3 +1,27 @@
+# Current handover authority, 2026-10-09
+
+Verified implementation: [PR131](https://github.com/DeBoX85/Cloud-Assess/pull/131),
+accepted `b653a3abfc35590a185531095a168a9a107e769e`, tree
+`47515c474ddf400da0a68c556e9147d8d3c2576b`. Live refs can advance.
+Read [HANDOVER_CHECKPOINT_20261009.md](HANDOVER_CHECKPOINT_20261009.md) for exact
+parents/identity/pins, separate candidate/accepted-push proof, audit/findings
+disposition, remaining tasks, access limits, workspace recovery and QA provenance.
+This documentation checkpoint's final acceptance evidence is in its live PR body
+on `docs/handover-20261009`; do not assume it is already accepted.
+
+Completed audit/disposition PR114/119 and subsequent region milestones through
+PR131 must not be replayed. Internal availability/latency/cost/quota/reservation
+calculations and quota/reservation collectors are accepted offline. Public region
+execution is still unavailable. Next reconcile remaining resource/SKU/availability,
+pricing/history adapters and per-run coordinator, then public/all-format paths.
+B6 operator tools/separate MCP design and B7 acceptance preparation remain to be
+reconciled. No release, listener exposure or new live scope is authorized.
+
+Earlier records below are preserved historical snapshots, superseded only in
+current-state/resume instructions by the verified checkpoint above.
+
+---
+
 # PR131 physical-region contract correction (2026-10-08)
 
 FN099 self-review/failing regression confirms format-only admission diverged from

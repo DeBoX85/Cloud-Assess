@@ -1,3 +1,28 @@
+# Current handover authority, 2026-10-09
+
+Verified implementation: [PR131](https://github.com/DeBoX85/Cloud-Assess/pull/131),
+accepted `b653a3abfc35590a185531095a168a9a107e769e`, tree
+`47515c474ddf400da0a68c556e9147d8d3c2576b`. Live refs can advance.
+Read [HANDOVER_CHECKPOINT_20261009.md](HANDOVER_CHECKPOINT_20261009.md) for exact
+parents/identity/pins, separate candidate/accepted-push proof, audit/findings
+disposition, remaining tasks, access limits, workspace recovery and QA provenance.
+This documentation checkpoint's final acceptance evidence is in its live PR body
+on `docs/handover-20261009`; do not assume it is already accepted.
+
+Immediate task: finish and verify this documentation-only handover checkpoint,
+then move to the new chat. No new implementation slice is started. The handover
+PR on `docs/handover-20261009` holds its exact publication/CI/merge/push outcomes;
+discover its live state before retrying anything. After acceptance, inventory
+remaining region adapters/coordinator against pinned source and publish a bounded
+pre-edit contract. No blocking offline user input. Laptop/Azure access NOT confirmed.
+
+New-chat entry: [NEW_CHAT_PROMPT_20261009.md](NEW_CHAT_PROMPT_20261009.md).
+
+Earlier records below are preserved historical snapshots, superseded only in
+current-state/resume instructions by the verified checkpoint above.
+
+---
+
 # PR131 physical-region contract correction (2026-10-08)
 
 FN099 self-review/failing regression confirms format-only admission diverged from

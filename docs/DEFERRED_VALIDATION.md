@@ -1,3 +1,25 @@
+# Current handover authority, 2026-10-09
+
+Verified implementation: [PR131](https://github.com/DeBoX85/Cloud-Assess/pull/131),
+accepted `b653a3abfc35590a185531095a168a9a107e769e`, tree
+`47515c474ddf400da0a68c556e9147d8d3c2576b`. Live refs can advance.
+Read [HANDOVER_CHECKPOINT_20261009.md](HANDOVER_CHECKPOINT_20261009.md) for exact
+parents/identity/pins, separate candidate/accepted-push proof, audit/findings
+disposition, remaining tasks, access limits, workspace recovery and QA provenance.
+This documentation checkpoint's final acceptance evidence is in its live PR body
+on `docs/handover-20261009`; do not assume it is already accepted.
+
+Laptop/Azure access has not been confirmed as of this checkpoint. DV-001 below
+remains open and Advisory's production child is not an authorized substitute.
+Other open live/load/fresh-OS/maintenance/Gate004/release/advisory obligations are
+listed in the linked checkpoint and their governing records. Expected access or
+elapsed time is not evidence or authorization.
+
+Earlier records below are preserved historical snapshots, superseded only in
+current-state/resume instructions by the verified checkpoint above.
+
+---
+
 # Deferred Validation Register
 
 This short register keeps environment-dependent evidence gaps visible outside the execution roadmap. A deferred item is not a PASS or an accepted release limitation. Review it at every Quality Gate 004 decision and before declaring a release candidate.
