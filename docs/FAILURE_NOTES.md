@@ -1,3 +1,49 @@
+# FN106: Automatically incorporated handover PR disposition, 2026-10-11
+
+PR133 included PR132 tip/history and merged through the protected expected-head
+path at6bcbca46. GitHub automatically marked PR132 MERGED/CLOSED at02:43:42Z
+with that same merge_commit_sha. A later manual superseded-disposition body
+incorrectly said closed unmerged before original REST read-back. The closure
+metadata call was idempotent on the already-closed PR; no separate merge132,
+force or protection bypass occurred.
+
+Immediately inspected original REST merged/state/merged_at/merge_commit_sha,
+verified the retained docs/handover-20261009 tip4d2d9129, and corrected PR132/133
+disposition text. Failed old-head native37911396329 remains failed history.
+Combined PR133 final and distinct accepted-push full native/source proof is the
+acceptance evidence, not independent old-head green proof. Next prompt/checkpoint
+use actual coordinated incorporation rather than the anticipated manual closure.
+
+Prevention: verify actual related PR disposition after accepting an ancestor-
+including proposal and before writing status prose. Do not assume prior draft/open
+state persists or normalize closed into unmerged. Preserve original merge relation
+and distinguish incorporation through a corrected tree from bypassing a failed head.
+
+---
+
+# FN105: Independent native-log AST checker setup, 2026-10-11
+
+Candidate85e068b2 required native38104869611 succeeded on both hosts. Separate
+local proof extraction initially overwrote MUTATIONS labels with unrelated
+name-tuples; the first correction instead selected initial go.mod/go.sum loops.
+A subsequent full-tuple literal_eval failed because mutation body values contain
+named constants. These were local helper failures, not product/native failures,
+and no failed helper result was called validation.
+
+Inspected actual AST loop/print structure, extracted only literal first mutation
+labels and selected direct name-tuples only where their loop prints that control.
+All22 current-original Git script identities matched; every unique required
+rejected control then matched exactly once on each applicable complete log.
+Actual checkout/Go1.26.9/security checks passed independently. Windows cleanup
+was initially incomplete, and acceptance waited for all38 successful steps.
+
+Prevention: select semantic AST nodes for the proof being extracted; avoid generic
+variable names and evaluating irrelevant mutation body expressions. Preserve
+failed helper output and inspect final native metadata independently. No assertion,
+native command, source pin, product/test file or required gate changed for this fix.
+
+---
+
 # FN104: Copyable restart block omitted current authority, 2026-10-11
 
 Automated review5481591116 on b2669e3b5e910465f5db77880aeacc815cca0b30,
