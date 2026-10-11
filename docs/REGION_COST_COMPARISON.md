@@ -1,3 +1,62 @@
+# Current security remediation authority, 2026-10-11
+
+Read [SESSION_HANDOVER.md](SESSION_HANDOVER.md), the
+[security remediation contract](SECURITY_REMEDIATION_20261011.md) and
+[live PR133](https://github.com/DeBoX85/Cloud-Assess/pull/133) for the latest
+authored head, native/source/review, protected acceptance and distinct accepted-push
+outcomes. PR133 preserves the PR132 handover and supplies its bounded security
+correction. PR132 is not independently accepted; do not replay or merge its failed
+candidate. Accepted implementation was PR131 b653a3ab at remediation preparation;
+verify the live branch before treating a proposal as accepted.
+
+The correction proposes Go1.26.9 and x/net0.60.0 with only independently reviewed
+minimum graph requirements. Isolated preparation scans do not replace final native
+checks. Prior Go1.26.8/current failed/pending/zero-findings statements below are
+historical observations, superseded for current resume instructions by this entry.
+Contractual behavior, source pins, failures and historical evidence remain preserved.
+Region feature work waits for verified security acceptance. Laptop/Azure restoration,
+live scope, release/Gate004/load/fresh OS and independent-person approval remain
+unestablished. No Azure writes or scope substitution are authorized.
+
+---
+
+# Current security gate state, 2026-10-09
+
+PR132 is UNMERGED and protected acceptance is BLOCKED by a classified vulnerability
+gate failure on the unchanged Go1.26.8/x-net0.58.0 toolchain/dependency graph.
+Read [HANDOVER_SECURITY_GATE_20261009.md](HANDOVER_SECURITY_GATE_20261009.md) and
+[live PR132](https://github.com/DeBoX85/Cloud-Assess/pull/132) for exact failed
+revision/preview/run/job/advisory evidence and latest published handover state.
+Prior PR131 zero-reachable/zero-imported scans are historical, not current clearance.
+No suppression, version change, protected merge or accepted-push proof occurred
+in this documentation task. Finish security classification and prepare a bounded
+remediation contract before further feature work. Source pins and mandatory gates
+remain intact; no laptop/Azure input is needed for that offline preparation.
+
+---
+
+# Current handover authority, 2026-10-09
+
+Read [SESSION_HANDOVER.md](SESSION_HANDOVER.md) and
+[HANDOVER_CHECKPOINT_20261009.md](HANDOVER_CHECKPOINT_20261009.md) before following
+an implementation status, baseline, executor description or next action below.
+Accepted implementation extends through [PR131](https://github.com/DeBoX85/Cloud-Assess/pull/131),
+`b653a3abfc35590a185531095a168a9a107e769e`. The handover PR on
+`docs/handover-20261009` holds its own exact publication/CI/merge/push state.
+Verify later live refs and PR evidence; this header does not assume that proposal
+is accepted. New-chat instructions: [NEW_CHAT_PROMPT_20261009.md](NEW_CHAT_PROMPT_20261009.md).
+
+PR114/119 audit and PR120-131 bounded region milestones are accepted offline;
+historical IN PROGRESS/UNACCEPTED/pending baselines or next tasks below are snapshots,
+not current instructions to replay completed work. The checkpoint identifies
+each accepted milestone and its PR evidence. Preserve the underlying source
+contracts, explicit corrections, bounds, mandatory tests and historical results.
+Public region execution, full feature parity, live access, Gate004 and release
+readiness remain unestablished. No new whole-project or independent-person review
+is claimed by this documentation task.
+
+---
+
 # Region CostComparison: bounded pure retail-price sheet
 
 Status: VERIFIED OFFLINE through PR109 merge6dfcd1be54f3c8199aa3478eb62b4bb38f6a956f. Original pre-acceptance contract below remains applicable; its pending preparation notes are historical. Baseline accepted PR108 merge1957f6d71da0c257bdd4b9d118c2be4b97b1a12e/tree3ffc1b51cb9ed5e608b805a3a7e2e1c1d54ba81e. Public region-selection remains unavailable. This is a pure decoded-data helper, not pricing collection, source arithmetic or financial validation.

@@ -56,7 +56,7 @@ Include a controlled production-scope pilot in that release decision: explicitly
 
 ## Dependency inventory checkpoint
 
-[DEPENDENCIES.md](DEPENDENCIES.md) documents a generated 49-module selected-graph manifest, separate Linux/Windows CLI membership, complete discovered root license/notice texts, Go 1.26.8 notices and bundled-source pins. CI rejects stale output and fixture tests reject missing/empty/symlink license evidence and unreviewed replacements. This is development evidence, not an SPDX classification, complete package-file license audit, vulnerability assessment or release sign-off. Regenerate and review for each exact release tree, supported target and packaged artifact. Gate 004 remains planned.
+[DEPENDENCIES.md](DEPENDENCIES.md) documents a generated 49-module selected-graph manifest, separate Linux/Windows CLI membership, complete discovered root license/notice texts, Go 1.26.9 notices and bundled-source pins. CI rejects stale output and fixture tests reject missing/empty/symlink license evidence and unreviewed replacements. This is development evidence, not an SPDX classification, complete package-file license audit, vulnerability assessment or release sign-off. Regenerate and review for each exact release tree, supported target and packaged artifact. Gate 004 remains planned.
 
 ## Built CLI offline checkpoint
 

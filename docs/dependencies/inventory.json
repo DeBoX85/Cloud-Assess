@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "scope": "selected module graph, CLI targets, standard library and bundled data",
-  "goVersion": "go1.26.8",
+  "goVersion": "go1.26.9",
   "targets": [
     "linux/amd64",
     "windows/amd64"
@@ -13,8 +13,8 @@
     "CustomRulesSnapshotTree": "674b9b3dcb443ce6dc445b48e1db47e4a0ca7082"
   },
   "inputs": {
-    "go.mod": "4f081be3a524847fff95a6a3e53b6528b5d1a466feeee64c38aec4da684cfda3",
-    "go.sum": "22e96a676c84d0dadad07ea114cb0e5873c3825217c89d5cf13aaf954296ffed",
+    "go.mod": "40bada11ab162aeb9a870db251c9d428e56ec674073de2a156381845d134a089",
+    "go.sum": "baa37fd9f399fe98c351961e64ca605e059b89a9cd76ea3ac066191415509790",
     "internal/rules/embedded.go": "1715ec6e108b5d62490b4a0c91b904e1fc018ea39df82947fdc628a8ffa71f19",
     "internal/skus/skus.go": "9036aee8cd274afbf9034bed8f3b7ab1e19d52de5da481c370008a2493f259a3"
   },
@@ -585,14 +585,14 @@
     },
     {
       "path": "golang.org/x/crypto",
-      "version": "v0.56.0",
+      "version": "v0.57.0",
       "direct": false,
       "cliTargets": [
         "linux/amd64",
         "windows/amd64"
       ],
-      "sum": "h1:GUh5Ii4J5jtcseSMiRqr1jXCNHoxjeV9Fmekc2oLy6Y=",
-      "goModSum": "h1:OMW5y6CY9l38uPLmxU6l6pwcXp1obtLo3e6gT7gQR2I=",
+      "sum": "h1:3ZVCjf8Ggz7zneR/EHRVx68Ctf+2pmIMP2UFhh9cC6M=",
+      "goModSum": "h1:Fdz0i5U6CoizGwLda9DttjSk6qlZo25zYNtR+ycvuZA=",
       "notices": [
         {
           "file": "LICENSE",
@@ -616,11 +616,11 @@
     },
     {
       "path": "golang.org/x/mod",
-      "version": "v0.38.0",
+      "version": "v0.41.0",
       "direct": false,
       "cliTargets": [],
-      "sum": "h1:MECBjubtXD7yj4HrhIUcywNaGeNVUdfVnxmPajOk4yk=",
-      "goModSum": "h1:V6Xz0pq8TQ3dGqVQ1FVHuelZpAL0uNhSkk9ogYP3c40=",
+      "sum": "h1:qJmnOUb4YB+FsEuM3HcWucdZASCPGhsX6uljO6pog0c=",
+      "goModSum": "h1:Ek9pY8RKWXwsWvd3rQiHYtMqkjSUV+s1Rj7j4H5Ur6o=",
       "notices": [
         {
           "file": "LICENSE",
@@ -630,14 +630,14 @@
     },
     {
       "path": "golang.org/x/net",
-      "version": "v0.58.0",
+      "version": "v0.60.0",
       "direct": false,
       "cliTargets": [
         "linux/amd64",
         "windows/amd64"
       ],
-      "sum": "h1:ynWG7rqYi4ccpTEuPZ2QGWHktVEM9DMCj9yzDE0Q7To=",
-      "goModSum": "h1:YwCddHnFlT7eLQqVprV19OnhLGtc5xOKgE0RyqgfWAU=",
+      "sum": "h1:79p50tfZlm0J9YfoDsSi639qSXNGVwEzOPLCxM2FsYU=",
+      "goModSum": "h1:2DA/G1UfVbCpQPeWTmMPGY7Cs2PkBkwu743bVX5PIVg=",
       "notices": [
         {
           "file": "LICENSE",
@@ -647,14 +647,14 @@
     },
     {
       "path": "golang.org/x/sync",
-      "version": "v0.22.0",
+      "version": "v0.23.0",
       "direct": false,
       "cliTargets": [
         "linux/amd64",
         "windows/amd64"
       ],
-      "sum": "h1:SZjpbeLmrCk4xhRSZFNZW5gFUeCeFgjekvI/+gfScek=",
-      "goModSum": "h1:9xrNwdLfx4jkKbNva9FpL6vEN7evnE43NNNJQ2LF3+0=",
+      "sum": "h1:KameEIfc1IkluZyXWLn39Wd4tURc6GbCiISGiZm2bQk=",
+      "goModSum": "h1:sUUOizhqBxiL6pEWpqNLUiaJn1ShEbZ6BBqskPbjZm0=",
       "notices": [
         {
           "file": "LICENSE",
@@ -664,13 +664,13 @@
     },
     {
       "path": "golang.org/x/sys",
-      "version": "v0.47.0",
+      "version": "v0.48.0",
       "direct": true,
       "cliTargets": [
         "windows/amd64"
       ],
-      "sum": "h1:o7XGOvZQCADBQQ4Y7VNq2dRWQR7JmOUW8Kxx4ZsNgWs=",
-      "goModSum": "h1:4GL1E5IUh+htKOUEOaiffhrAeqysfVGipDYzABqnCmw=",
+      "sum": "h1:bbX/i/6MgT9BVLM9RT1thmxL04yeTAhbEz4SyadbXoo=",
+      "goModSum": "h1:hNLxWAXmnKAxqDtdwIYC4bM9oQPEecfsnNMuSxOs3og=",
       "notices": [
         {
           "file": "LICENSE",
@@ -680,11 +680,11 @@
     },
     {
       "path": "golang.org/x/term",
-      "version": "v0.45.0",
+      "version": "v0.46.0",
       "direct": false,
       "cliTargets": [],
-      "sum": "h1:NwWyBmoJCbfTHpxrWoZ9C6/VxOf7ic219I8xZZFdrf0=",
-      "goModSum": "h1:9aqxs0blBcrm/n0L9QW0aRVD+ktan8ssZromtqJC43w=",
+      "sum": "h1:3+OXuTbaKDgwk8jTi3aSLHRlmWqHEUDUtxnbFigO4YE=",
+      "goModSum": "h1:+K02xbkittuwc0Am4abfA3Fc+XRGXkvBXNO88NCXPoc=",
       "notices": [
         {
           "file": "LICENSE",
@@ -694,14 +694,14 @@
     },
     {
       "path": "golang.org/x/text",
-      "version": "v0.41.0",
+      "version": "v0.42.0",
       "direct": false,
       "cliTargets": [
         "linux/amd64",
         "windows/amd64"
       ],
-      "sum": "h1:vz/seA0lnX87Othu2f/0L24RcgrXD9/YFTSuGjj3rH8=",
-      "goModSum": "h1:jvf1O8ajNzZqhSrQBPbutR/EB83Cc0CFrezNQIwbb5M=",
+      "sum": "h1:JbOZXgfeCPU9gacVtYliJqOhD+zhrEqK4LfdpmlUZqI=",
+      "goModSum": "h1:ojzP1Z+2QtioaF8DTtO8K5q7JWVVYwZKenzujK0Zd0E=",
       "notices": [
         {
           "file": "LICENSE",
@@ -728,11 +728,11 @@
     },
     {
       "path": "golang.org/x/tools",
-      "version": "v0.48.0",
+      "version": "v0.49.0",
       "direct": false,
       "cliTargets": [],
-      "sum": "h1:3+hClM1aLL5mjMKm5ovokw9epgRXPuu2tILgismM6RE=",
-      "goModSum": "h1:08xX0orndb/F7jJxGDicx061tyd5pcMto75YMAXr6lk=",
+      "sum": "h1:3NI7VXzL9+1WZD52Dx2ttoPwD5DWrFGpl9mFZDlmisI=",
+      "goModSum": "h1:SJNXV9DBKT0UbdttsQjbfJlAE/q+y36++zo3uL3N0Oo=",
       "notices": [
         {
           "file": "LICENSE",

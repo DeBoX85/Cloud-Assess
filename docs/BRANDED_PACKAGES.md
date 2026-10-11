@@ -4,7 +4,7 @@ Date: 2026-10-02 (Europe/Oslo). This completes the implementation of step 4 in [
 
 ## Produce and inspect
 
-From a clean checkout with pinned Go 1.26.8 and initialized pinned submodules:
+From a clean checkout with pinned Go 1.26.9 and initialized pinned submodules:
 
 ```text
 go run ./tools/brand-build --profile examples/branding/example.json --output .build/example-brand

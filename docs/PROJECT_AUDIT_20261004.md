@@ -1,3 +1,62 @@
+# Current security remediation authority, 2026-10-11
+
+Read [SESSION_HANDOVER.md](SESSION_HANDOVER.md), the
+[security remediation contract](SECURITY_REMEDIATION_20261011.md) and
+[live PR133](https://github.com/DeBoX85/Cloud-Assess/pull/133) for the latest
+authored head, native/source/review, protected acceptance and distinct accepted-push
+outcomes. PR133 preserves the PR132 handover and supplies its bounded security
+correction. PR132 is not independently accepted; do not replay or merge its failed
+candidate. Accepted implementation was PR131 b653a3ab at remediation preparation;
+verify the live branch before treating a proposal as accepted.
+
+The correction proposes Go1.26.9 and x/net0.60.0 with only independently reviewed
+minimum graph requirements. Isolated preparation scans do not replace final native
+checks. Prior Go1.26.8/current failed/pending/zero-findings statements below are
+historical observations, superseded for current resume instructions by this entry.
+Contractual behavior, source pins, failures and historical evidence remain preserved.
+Region feature work waits for verified security acceptance. Laptop/Azure restoration,
+live scope, release/Gate004/load/fresh OS and independent-person approval remain
+unestablished. No Azure writes or scope substitution are authorized.
+
+---
+
+# Current security gate state, 2026-10-09
+
+PR132 is UNMERGED and protected acceptance is BLOCKED by a classified vulnerability
+gate failure on the unchanged Go1.26.8/x-net0.58.0 toolchain/dependency graph.
+Read [HANDOVER_SECURITY_GATE_20261009.md](HANDOVER_SECURITY_GATE_20261009.md) and
+[live PR132](https://github.com/DeBoX85/Cloud-Assess/pull/132) for exact failed
+revision/preview/run/job/advisory evidence and latest published handover state.
+Prior PR131 zero-reachable/zero-imported scans are historical, not current clearance.
+No suppression, version change, protected merge or accepted-push proof occurred
+in this documentation task. Finish security classification and prepare a bounded
+remediation contract before further feature work. Source pins and mandatory gates
+remain intact; no laptop/Azure input is needed for that offline preparation.
+
+---
+
+# Current handover authority, 2026-10-09
+
+Verified implementation: [PR131](https://github.com/DeBoX85/Cloud-Assess/pull/131),
+accepted `b653a3abfc35590a185531095a168a9a107e769e`, tree
+`47515c474ddf400da0a68c556e9147d8d3c2576b`. Live refs can advance.
+Read [HANDOVER_CHECKPOINT_20261009.md](HANDOVER_CHECKPOINT_20261009.md) for exact
+parents/identity/pins, separate candidate/accepted-push proof, audit/findings
+disposition, remaining tasks, access limits, workspace recovery and QA provenance.
+This documentation checkpoint's final acceptance evidence is in its live PR body
+on `docs/handover-20261009`; do not assume it is already accepted.
+
+Audit phases A-G were completed offline and accepted via PR114/119. This original
+plan remains historical method/coverage authority. The current implementation
+baseline is PR131; feature expansion is not still paused by the old preparation
+record. This documentation task performs no new whole-project review and creates
+no independent-person, live, Gate004 or release approval.
+
+Earlier records below are preserved historical snapshots, superseded only in
+current-state/resume instructions by the verified checkpoint above.
+
+---
+
 # Audit disposition and accepted recovery checkpoint
 
 Status: VERIFIED OFFLINE for the bounded comprehensive audit. Accepted hardening/source-characterization merge: c33fb2eee93a2e5730f72612b351d0b838737d03, tree583496773c23902e7d7187ffc83a1c4ee6be0713, ordered parents07011b63440e69f4a5acb128e0449943f759ee9c/4f75b4b2f50f426ac4987ce0cc396a74a162105c. PR114 final native37188397367/Linux111395214072/Windows111395214326 and source37188397374/job111395214343 passed all mandatory steps/full logs; six fresh captures exactly reconstructed and independently SHA256/byte verified. Previewed242bbbe02df92ff4216b13a0407267573886a3 equals accepted tree. Distinct accepted-push evidence: native37188903973/source37188903965 on exact c33fb2eee93a2e5730f72612b351d0b838737d03; final job IDs/outcomes/full logs are indexed in PR114. The disposition follow-up must not be accepted until these distinct push checks and its own exact-head checks are verified successful. Denis author/GitHub merge committer/live protected ref verified. PR114 is the exact evidence index; PR113/115-118 are preserved superseded proposals.

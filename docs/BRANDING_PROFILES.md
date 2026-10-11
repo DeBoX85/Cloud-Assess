@@ -6,7 +6,7 @@ Date: 2026-10-01 (Europe/Oslo). This implements the first two steps of [BRANDING
 
 ## Build and inspect
 
-From the repository root, with pinned Go 1.26.8 and initialized pinned submodules:
+From the repository root, with pinned Go 1.26.9 and initialized pinned submodules:
 
 ```text
 go run ./tools/brand-build --profile examples/branding/example.json --output .build/example-brand
@@ -16,7 +16,7 @@ Linux creates `.build/example-brand/example-cloud`; Windows creates `.build/exam
 
 Run the built executable with `branding` to print its fully resolved canonical JSON profile, or `--help` and `--version` to inspect presentation identity. These commands do not authenticate or scan. The profile is embedded at build time, validated once at process startup and immutable for that process. Malformed linked state fails before command construction, authentication or report replacement, including help/version requests. No runtime environment or scan flag changes branding.
 
-The builder executes Go directly with explicit arguments. Public profile metadata is canonicalized and base64url encoded into one dedicated linker string; display text cannot supply shell or linker options. See Go's [-X contract](https://pkg.go.dev/cmd/link). Pinned local Go 1.26.8 linker source confirms it. The builder invokes the Go executable on PATH from the repository root; toolchain/PATH and build environment remain trusted operator inputs, not a sandbox for untrusted compilers.
+The builder executes Go directly with explicit arguments. Public profile metadata is canonicalized and base64url encoded into one dedicated linker string; display text cannot supply shell or linker options. See Go's [-X contract](https://pkg.go.dev/cmd/link). The original local Go 1.26.8 linker review is historical. Freshly inspected [Go 1.26.9 linker documentation](https://github.com/golang/go/blob/go1.26.9/src/cmd/link/doc.go) retains this contract; no new local linker execution is claimed. The builder invokes the Go executable on PATH from the repository root; toolchain/PATH and build environment remain trusted operator inputs, not a sandbox for untrusted compilers.
 
 ## Profile contract
 

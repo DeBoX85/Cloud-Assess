@@ -1,3 +1,53 @@
+# Current advisory evidence route, 2026-10-11
+
+For the current Go1.26.9/x-net0.60.0/x-crypto0.57.0 graph, read
+[SECURITY_ADVISORY_REVIEW_20261011.md](SECURITY_ADVISORY_REVIEW_20261011.md)
+and [live PR133](https://github.com/DeBoX85/Cloud-Assess/pull/133) for exact
+final-head native/source/review/accepted-push outcomes. The v0.55-to0.56 SSH
+assessment and its local/compiler/scanner results below are retained historical
+evidence for the2026-10-01 baseline, not current remediation clearance. Existing
+unsafe OpenPGP remains module-only/no known fix and unimported by either CLI.
+No advisory-free graph, incident, waiver or release approval follows.
+
+---
+
+# Current security remediation authority, 2026-10-11
+
+Read [SESSION_HANDOVER.md](SESSION_HANDOVER.md), the
+[security remediation contract](SECURITY_REMEDIATION_20261011.md) and
+[live PR133](https://github.com/DeBoX85/Cloud-Assess/pull/133) for the latest
+authored head, native/source/review, protected acceptance and distinct accepted-push
+outcomes. PR133 preserves the PR132 handover and supplies its bounded security
+correction. PR132 is not independently accepted; do not replay or merge its failed
+candidate. Accepted implementation was PR131 b653a3ab at remediation preparation;
+verify the live branch before treating a proposal as accepted.
+
+The correction proposes Go1.26.9 and x/net0.60.0 with only independently reviewed
+minimum graph requirements. Isolated preparation scans do not replace final native
+checks. Prior Go1.26.8/current failed/pending/zero-findings statements below are
+historical observations, superseded for current resume instructions by this entry.
+Contractual behavior, source pins, failures and historical evidence remain preserved.
+Region feature work waits for verified security acceptance. Laptop/Azure restoration,
+live scope, release/Gate004/load/fresh OS and independent-person approval remain
+unestablished. No Azure writes or scope substitution are authorized.
+
+---
+
+# Current security gate state, 2026-10-09
+
+PR132 is UNMERGED and protected acceptance is BLOCKED by a classified vulnerability
+gate failure on the unchanged Go1.26.8/x-net0.58.0 toolchain/dependency graph.
+Read [HANDOVER_SECURITY_GATE_20261009.md](HANDOVER_SECURITY_GATE_20261009.md) and
+[live PR132](https://github.com/DeBoX85/Cloud-Assess/pull/132) for exact failed
+revision/preview/run/job/advisory evidence and latest published handover state.
+Prior PR131 zero-reachable/zero-imported scans are historical, not current clearance.
+No suppression, version change, protected merge or accepted-push proof occurred
+in this documentation task. Finish security classification and prepare a bounded
+remediation contract before further feature work. Source pins and mandatory gates
+remain intact; no laptop/Azure input is needed for that offline preparation.
+
+---
+
 # Dependency advisory review
 
 Date: 2026-10-01 (Europe/Oslo). Baseline: `bootstrap/core-v1` at `8f76c46ad407f202a7aa2d9e8ae7eb8931ffaf35`, the merged alignment/security review in PR #67. This completes the bounded AR-01 advisory investigation and prepares the reviewed dependency refresh. Exact final native CI remains mandatory before merge; release security and license approval remain separate.

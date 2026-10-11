@@ -23,7 +23,7 @@ def run(directory):
 
 with tempfile.TemporaryDirectory(prefix="cloud-assess-mutations-") as temporary:
     directory = Path(temporary)
-    (directory / "go.mod").write_text("module comparatorfixture\n\ngo 1.26.8\n")
+    (directory / "go.mod").write_text("module comparatorfixture\n\ngo 1.26.9\n")
     for name in FILES:
         shutil.copyfile(ROOT / "internal/equivalence" / name, directory / name)
     baseline = run(directory)

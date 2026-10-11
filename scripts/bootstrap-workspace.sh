@@ -26,8 +26,8 @@ workspace=$(cd -- "$1" && pwd -P)
 trap 'printf "Bootstrap failed. Partial task-owned workspace retained: %s\n" "$workspace" >&2' ERR
 mkdir -p "$workspace/tools/downloads" "$workspace/tools/bin" "$workspace/cache" "$workspace/logs"
 
-go_version=1.26.8
-go_sha=d0f743b33e8d8945e6b1f432edd15785c70507121d6e2a723b21285eddf8b57b
+go_version=1.26.9
+go_sha=42d158b4d8f7b61ac0a830567c940a86098fb7aac52e467a5ebec03ef5cc2f8d
 pwsh_version=7.6.6
 pwsh_sha=ddbc4a2d113bbd46d283cfedcbcd117a70caefd7673f41f2b4e0000badf103bc
 source_pin=8e4f0577f3615e6c9014c031bcad079f235369cc

@@ -1,3 +1,213 @@
+# Current copyable restart correction, 2026-10-11
+
+Automated review5481591116/inline4239965137 on b2669e3b found that the old
+NEW_CHAT_PROMPT_20261009 copy boundary omitted current authority. FN104 records
+the valid finding and correction. The actual copyable fence now carries live
+PR133 verification, completed remediation/timeout facts and pending-versus-
+accepted next actions; the intact old prompt is explicitly historical.
+
+PR133 remains UNACCEPTED at this publication. Complete fresh exact-head native/
+source/review and protected/distinct accepted-push proof are next; do not repeat
+completed version/timeout edits or transfer predecessor evidence. The latest
+evolving outcomes are indexed in [live PR133](https://github.com/DeBoX85/Cloud-Assess/pull/133).
+Laptop/Azure restoration remains unconfirmed. All earlier entries below are
+preserved historical snapshots, not instructions to repeat completed work.
+
+---
+
+# Current security acceptance checkpoint, 2026-10-11
+
+Latest automated review5481575215 on d2d8d498 identified the remaining active
+dependency guide's stale v0.56 advisory pointer. This checkpoint routes current
+security evidence to SECURITY_ADVISORY_REVIEW_20261011 and labels the old review
+historical, with all executable/workflow/module/source/capture bytes unchanged.
+FN103 records the finding/correction. Fresh complete current-head QA remains the
+next action; no prior native/source result is transferred.
+
+PR133 remains UNACCEPTED on fix/security-remediation-20261011; accepted
+bootstrap/core-v1 remains PR131 b653a3ab. The Windows whole-job timeout20-to30
+correction is ALREADY PUBLISHED at1aca20a2769fd201237a201dd3d5d50938fc279f,
+tree4e413e3910b3c63ae650b86614a5eb3cc57a66c9, parent98c50c4a. Do not repeat
+that edit. Linux remains20; every command/assertion/per-process deadline/security
+check/source pin/protection stays intact. Publication bytes/original object/ref
+and independent Git tree were verified.
+
+Automated review5481558582 on1aca20a2 found stale handover next action and active
+build-guide Go1.26.8 instructions (inline4239932612/4239932618), both valid and
+corrected in this coherent documentation checkpoint. Active default/custom CLI/
+package/profile instructions now require Go1.26.9, matching go.mod and generated
+inventory. Preserve prior Go1.26.8/source/gate/linker observations as historical
+facts; no earlier local/compiler/CI proof is relabelled. See FN101/FN102 in
+[FAILURE_NOTES.md](FAILURE_NOTES.md).
+
+Pre-correction source38103678122/job114364608813 passed all17 records/150chunks,
+independent hashes and full1aca20a2 remote bytes on actual previewae694e75/
+Go1.26.9. Native38103678147/114364624631/114364624432 is earlier-head evidence
+once this documentation changes; read its actual disposition from
+[live PR133](https://github.com/DeBoX85/Cloud-Assess/pull/133). Do not transfer
+that proof to this final head or merge before current complete evidence.
+
+EXACT NEXT: inspect fresh native Linux/Windows/source and automated review on the
+current published authored head, reconstruct all source records/hash/full bytes,
+check complete publication/tree/parents/base/preview/protections, then protected
+expected-head merge and distinct accepted-push evidence. No further code/timeout
+edit is pending. Final outcomes may be retained in PR133 and indexed in the next
+material checkpoint per QA_PROCESS, avoiding evidence-only CI loops. PR132 stays
+draft/unmerged until verified coordinated acceptance, then close as superseded.
+Region expansion remains gated on that acceptance. Laptop/Azure are unavailable/
+unconfirmed; no live scope/resources/roles/fixtures/release/exposure authorized.
+All earlier preparation/failure/pending/resume entries below are preserved history,
+not instructions to repeat completed work.
+
+---
+
+# Security acceptance recovery, 2026-10-11
+
+PR133 remains UNACCEPTED. Native38102457007 Linux114361065879 passed,
+but Windows114361065710 was CANCELLED at its20-minute job budget during the
+custom package wrapper; final Windows vulnerability scan SKIPPED. No protected
+merge, accepted push or Windows security clearance. See FN101 in
+[FAILURE_NOTES.md](FAILURE_NOTES.md). Full logs/steps and exact preview/toolchain
+were inspected. The platform annotation text is inaccessible through the approved
+connector; budget diagnosis is supported by timing/configuration, not an invented
+annotation. Preserve all earlier passed and cancelled evidence as history.
+
+Publish the narrowly bounded Windows whole-job budget correction20 to30 minutes
+with every test/security command, per-process deadline, runner/action/source pin
+and protection unchanged; Linux stays20. Then obtain fresh complete final-head
+native/source/review/protected/accepted-push proof. No claim that Go1.26.9 caused
+a slowdown and no removed/waived control. PR132 stays draft/unmerged. Accepted
+implementation remains PR131 b653a3ab. Final PR133 body indexes evolving proof.
+
+---
+
+# Security correction candidate and exact resume point, 2026-10-11
+
+UNACCEPTED proposal [PR133](https://github.com/DeBoX85/Cloud-Assess/pull/133),
+branch fix/security-remediation-20261011, accepted development still PR131 b653a3ab.
+The exact authored commit/tree/parents, complete remote publication, fresh native/
+source/review and subsequent protected/accepted-push evidence are indexed in PR133.
+This candidate includes the preserved PR132 handover; PR132 remains draft/unmerged
+until coordinated acceptance, then is superseded with its failed history retained.
+
+Published pre-edit contract44b5172ce423ad282660e85e7b42755c8ce6ec25/tree
+d1940c3d9429b1af73841ab010d9db9bf5bb7c25/parent4d2d9129 verified in full,
+Denis identity and independently reconstructed Git tree/document destinations.
+Old final PR132 native37911396329 FAILED on both113757144122/113757143869
+only at security; all53/38 step outcomes inspected, actual preview30d138699/
+Go1.26.8 verified. Both logs independently contain all24 reservation collector/
+25 quota collector/18 reservation runtime unique fault names. This is failed
+historical evidence, not current acceptance.
+
+## Preparation evidence and correction
+
+Corrected temporary read-only run38102140269/job114360079296 SUCCESS. Actual
+preview1f8db52b8f408152d84a1eff6d4c79fc53bd2897/treeb5a395a3/
+ordered b653a3ab,685cfea92 verified through original Git API. A shallow local
+checkout printed no parents; the original remote object supplied the ordered
+parents, not a fabricated local ancestry claim.
+Actual old Go1.26.8 and fixed Go1.26.9/platform were logged. Publisher JSON and
+actual66,935,201-byte Linux archive SHA25642d158b4... verified by hosted helper.
+The complete21 evidence records/1134 unique contiguous chunks were reconstructed
+and independently SHA256-verified with local Python. All outputs were generated
+in the disposable checkout; no automatic Git write or Azure access occurred.
+
+Fixed source/text and actual built-Linux-binary text scans returned0 and report
+zero symbol/zero imported-package vulnerabilities, residual module-only GO-2026-5932.
+JSON returns0 regardless of findings and is evidence only. Old text reproduced3,
+ten symbol/one package/three module advisories. See
+[SECURITY_ADVISORY_REVIEW_20261011.md](SECURITY_ADVISORY_REVIEW_20261011.md).
+This is preparation, not complete native Windows/current-head acceptance.
+
+Production pins: Go1.26.9; x/net0.60.0; prerequisite x/crypto0.57.0, x/sys0.48.0,
+x/text0.42.0, x/sync0.23.0. Selected graph-only x/term0.46.0, x/mod0.41.0,
+x/tools0.49.0 are minimum requirements in official net/crypto/text go.mod files.
+All49 paths remain, nine direct,24Linux/26Windows CLI memberships unchanged.
+Every49 module LICENSE/notice hash, Go LICENSE/PATENTS hash, source/APRL/catalog/SKU
+pins and bundled-content record match old inventory. Generated inventory/notices
+are retained complete, not hand-edited. No Azure SDK/source/capture/runtime-interface
+or report/normalization changes. Crypto0.56-to0.57 changes only upstream go.mod/sum;
+net0.58-to0.60 has real HTTP2/client/server changes requiring full native checks.
+
+Go pins are synchronized across go.mod, three workflows, checksum-protected Linux
+bootstrap, inventory generator/fixtures, isolated comparator fixture module and
+current dependency/workspace instructions. Synthetic package-integrity negative
+fixtures intentionally retain their arbitrary historical version values.
+Temporary evidence workflow/helper removed before this final candidate.
+All required security commands and protected checks unchanged.
+
+## Failure and recovery limits
+
+FN100 records the temporary helper's wrong JSON/text exit-equality assumption:
+first run38102035679/job114359779973 FAILED after old captures; fixed phase skipped.
+Correction explicitly uses text outcomes and added actual compiled-binary scan.
+Local reconstruction initially omitted UTF8 and failed on Windows cp1252; fixed
+explicit UTF8, no failed attempt credited as PASS. Initial local independent-tree
+helper repeated recursive subtrees excessively; interrupted, memoized and then
+passed. These local diagnostic failures did not mutate product/source/remote refs.
+Codex app PR attachment failed; PR133 URL remains directly accessible and verified.
+
+## Next action and unchanged deferrals
+
+Fresh exact final-head source17-record/full bytes/hashes plus nativeLinux/Windows/
+all controls/packages/compiled CLI/inventory/security/full logs and automated review
+remain mandatory. Inspect current base/head/preview-tree/ordered parents/rules;
+only then expected-head protected merge and distinct accepted-push evidence.
+Preserve/close PR132 as superseded only after verified PR133 acceptance; never
+transfer isolated/earlier candidate proof. PR133 body is the evolving final index.
+
+After verified remediation, inventory remaining region resource/SKU/availability
+and pricing/history adapters plus coordinator/public/all-format integration.
+Do not replay completed arithmetic/captures/quota/reservation collectors or audit.
+B6 operator tools/separate MCP design/B7 preparation remain to reconcile.
+No laptop/Azure restoration assumed, no blocking offline input. Live optional-stage/
+plugin/restricted-visibility/DV001 wholly nonproduction nested hierarchy/load/fresh
+OS/hosted maintenance/Gate004/release/provenance/license obligations remain open.
+No resources/roles/fixtures/production-containing discovery/listener/release
+authorization. No scratch-only backup or background completion promise.
+
+---
+
+# Current security gate state, 2026-10-09
+
+PR132 is UNMERGED and protected acceptance is BLOCKED by a classified vulnerability
+gate failure on the unchanged Go1.26.8/x-net0.58.0 toolchain/dependency graph.
+Read [HANDOVER_SECURITY_GATE_20261009.md](HANDOVER_SECURITY_GATE_20261009.md) and
+[live PR132](https://github.com/DeBoX85/Cloud-Assess/pull/132) for exact failed
+revision/preview/run/job/advisory evidence and latest published handover state.
+Prior PR131 zero-reachable/zero-imported scans are historical, not current clearance.
+No suppression, version change, protected merge or accepted-push proof occurred
+in this documentation task. Finish security classification and prepare a bounded
+remediation contract before further feature work. Source pins and mandatory gates
+remain intact; no laptop/Azure input is needed for that offline preparation.
+
+---
+
+# Current handover authority, 2026-10-09
+
+Verified implementation: [PR131](https://github.com/DeBoX85/Cloud-Assess/pull/131),
+accepted `b653a3abfc35590a185531095a168a9a107e769e`, tree
+`47515c474ddf400da0a68c556e9147d8d3c2576b`. Live refs can advance.
+Read [HANDOVER_CHECKPOINT_20261009.md](HANDOVER_CHECKPOINT_20261009.md) for exact
+parents/identity/pins, separate candidate/accepted-push proof, audit/findings
+disposition, remaining tasks, access limits, workspace recovery and QA provenance.
+This documentation checkpoint's final acceptance evidence is in its live PR body
+on `docs/handover-20261009`; do not assume it is already accepted.
+
+Immediate task: finish and verify this documentation-only handover checkpoint,
+then move to the new chat. No new implementation slice is started. The handover
+PR on `docs/handover-20261009` holds its exact publication/CI/merge/push outcomes;
+discover its live state before retrying anything. After acceptance, inventory
+remaining region adapters/coordinator against pinned source and publish a bounded
+pre-edit contract. No blocking offline user input. Laptop/Azure access NOT confirmed.
+
+New-chat entry: [NEW_CHAT_PROMPT_20261009.md](NEW_CHAT_PROMPT_20261009.md).
+
+Earlier records below are preserved historical snapshots, superseded only in
+current-state/resume instructions by the verified checkpoint above.
+
+---
+
 # PR131 physical-region contract correction (2026-10-08)
 
 FN099 self-review/failing regression confirms format-only admission diverged from
