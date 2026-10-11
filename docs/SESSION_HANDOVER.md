@@ -1,3 +1,21 @@
+# Security recovery and remediation preparation, 2026-10-11
+
+Current accepted implementation remains PR131 `b653a3abfc35590a185531095a168a9a107e769e`.
+PR132 is still draft/unmerged at `4d2d9129d0d014dd567f15127c3f01f1bcc82aac`.
+Final native37911396329 completed FAILURE on both Linux113757144122 and
+Windows113757143869 solely at vulnerability checks; source37911396320 SUCCESS.
+Full native logs retrieved and actual preview30d138699/toolchain1.26.8 checked.
+Older pending/green-security prose below is historical.
+
+The current task is the pre-edit [security remediation contract](SECURITY_REMEDIATION_20261011.md).
+No version change or region slice has started. Its separate task-owned proposal
+derives from the unmerged handover and targets the accepted branch so mandatory
+native/source checks run. PR132 will be superseded only after verified protected
+acceptance. Exact evolving evidence and authored revision live in that proposal.
+No laptop/Azure restoration or new live scope authorization is assumed.
+
+---
+
 # Current security gate state, 2026-10-09
 
 PR132 is UNMERGED and protected acceptance is BLOCKED by a classified vulnerability
