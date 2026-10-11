@@ -1,3 +1,38 @@
+# FN101: Windows native acceptance cancelled at job budget, 2026-10-11
+
+Final authored1a0edf97/tree7d9e8165 native38102457007:
+Linux114361065879 SUCCESS; Windows114361065710 CANCELLED, not PASS.
+Full Linux88358 and Windows68702-character logs plus all53/38 step outcomes
+retrieved and inspected. Both actually checked out preview47aed13c and Go1.26.9.
+Windows started01:37:49Z, cancellation logged01:57:51Z, completed01:57:56Z.
+All source/runtime/collector controls, native Go suite, built CLI, docs and branding
+steps succeeded before package interruption. Default19 package tests passed;
+custom package wrapper received KeyboardInterrupt; final vulnerability scan and
+post-Go were skipped. Partial package/control success cannot waive this outcome.
+
+Confirmed: cancellation at the configured20-minute whole-job budget. The precise
+platform cancellation annotation text was not retrievable: check-run metadata
+reports two annotations but the approved connector rejects its annotations URL.
+The timing and existing timeout are consistent with budget cancellation; no
+platform annotation cause, Go performance regression, product defect or scanner
+result is fabricated. No later push changed the candidate while this ran.
+
+Correction: only windows-validation whole-job timeout20 to30 minutes, keeping
+Linux20, runner/actions/Go/pins/commands/control assertions/per-process timeouts/
+security/protection/concurrency unchanged. This gives the full growing required
+suite bounded room without removing tests, parallelizing conflicting mutations,
+raising individual assertion deadlines or turning skips into passes. This is not
+a blind retry of unchanged settings. Fresh complete exact-head native/source/
+review, protected merge and distinct accepted-push proof are still required.
+
+Earlier source38102457001/17records150chunks and Linux proof remain earlier-head
+history after this edit. Existing module-only OpenPGP remains open. No Azure or
+laptop restored. Prevention: retain actual job duration and steps, size whole-job
+budget for every mandatory check, and classify cancellation separately from
+functional/scanner failure. Do not report a cancelled job as an environment PASS.
+
+---
+
 # Current security remediation authority, 2026-10-11
 
 Read [SESSION_HANDOVER.md](SESSION_HANDOVER.md), the

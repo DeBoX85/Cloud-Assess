@@ -1,3 +1,23 @@
+# Security acceptance recovery, 2026-10-11
+
+PR133 remains UNACCEPTED. Native38102457007 Linux114361065879 passed,
+but Windows114361065710 was CANCELLED at its20-minute job budget during the
+custom package wrapper; final Windows vulnerability scan SKIPPED. No protected
+merge, accepted push or Windows security clearance. See FN101 in
+[FAILURE_NOTES.md](FAILURE_NOTES.md). Full logs/steps and exact preview/toolchain
+were inspected. The platform annotation text is inaccessible through the approved
+connector; budget diagnosis is supported by timing/configuration, not an invented
+annotation. Preserve all earlier passed and cancelled evidence as history.
+
+Publish the narrowly bounded Windows whole-job budget correction20 to30 minutes
+with every test/security command, per-process deadline, runner/action/source pin
+and protection unchanged; Linux stays20. Then obtain fresh complete final-head
+native/source/review/protected/accepted-push proof. No claim that Go1.26.9 caused
+a slowdown and no removed/waived control. PR132 stays draft/unmerged. Accepted
+implementation remains PR131 b653a3ab. Final PR133 body indexes evolving proof.
+
+---
+
 # Current security remediation authority, 2026-10-11
 
 Read [SESSION_HANDOVER.md](SESSION_HANDOVER.md), the
