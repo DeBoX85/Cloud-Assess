@@ -4,7 +4,7 @@ The project can prepare development ZIP candidates for the native Linux and Wind
 
 ## Build and package
 
-Use a clean committed checkout, pinned APRL initialization, Go 1.26.8 and Python 3. On Linux:
+Use a clean committed checkout, pinned APRL initialization, Go 1.26.9 and Python 3. On Linux:
 
 ```sh
 mkdir -p .build

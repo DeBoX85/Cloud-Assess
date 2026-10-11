@@ -1,3 +1,42 @@
+# Current security acceptance checkpoint, 2026-10-11
+
+PR133 remains UNACCEPTED on fix/security-remediation-20261011; accepted
+bootstrap/core-v1 remains PR131 b653a3ab. The Windows whole-job timeout20-to30
+correction is ALREADY PUBLISHED at1aca20a2769fd201237a201dd3d5d50938fc279f,
+tree4e413e3910b3c63ae650b86614a5eb3cc57a66c9, parent98c50c4a. Do not repeat
+that edit. Linux remains20; every command/assertion/per-process deadline/security
+check/source pin/protection stays intact. Publication bytes/original object/ref
+and independent Git tree were verified.
+
+Automated review5481558582 on1aca20a2 found stale handover next action and active
+build-guide Go1.26.8 instructions (inline4239932612/4239932618), both valid and
+corrected in this coherent documentation checkpoint. Active default/custom CLI/
+package/profile instructions now require Go1.26.9, matching go.mod and generated
+inventory. Preserve prior Go1.26.8/source/gate/linker observations as historical
+facts; no earlier local/compiler/CI proof is relabelled. See FN101/FN102 in
+[FAILURE_NOTES.md](FAILURE_NOTES.md).
+
+Pre-correction source38103678122/job114364608813 passed all17 records/150chunks,
+independent hashes and full1aca20a2 remote bytes on actual previewae694e75/
+Go1.26.9. Native38103678147/114364624631/114364624432 is earlier-head evidence
+once this documentation changes; read its actual disposition from
+[live PR133](https://github.com/DeBoX85/Cloud-Assess/pull/133). Do not transfer
+that proof to this final head or merge before current complete evidence.
+
+EXACT NEXT: inspect fresh native Linux/Windows/source and automated review on the
+current published authored head, reconstruct all source records/hash/full bytes,
+check complete publication/tree/parents/base/preview/protections, then protected
+expected-head merge and distinct accepted-push evidence. No further code/timeout
+edit is pending. Final outcomes may be retained in PR133 and indexed in the next
+material checkpoint per QA_PROCESS, avoiding evidence-only CI loops. PR132 stays
+draft/unmerged until verified coordinated acceptance, then close as superseded.
+Region expansion remains gated on that acceptance. Laptop/Azure are unavailable/
+unconfirmed; no live scope/resources/roles/fixtures/release/exposure authorized.
+All earlier preparation/failure/pending/resume entries below are preserved history,
+not instructions to repeat completed work.
+
+---
+
 # Security acceptance recovery, 2026-10-11
 
 PR133 remains UNACCEPTED. Native38102457007 Linux114361065879 passed,

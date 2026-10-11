@@ -1,3 +1,46 @@
+# FN102: Active toolchain guides and stale resume action, 2026-10-11
+
+Automated review5481558582 on exact1aca20a2769fd201237a201dd3d5d50938fc279f
+completed02:03:27.631556Z. Inline4239932612 correctly found current handover
+still directing publication of the Windows20-to30 edit already published at1aca20a2.
+Inline4239932618 correctly found active built-CLI/custom-package/profile instructions
+still requiring Go1.26.8 after go.mod/inventory changed to1.26.9. The earlier claim
+that all active pins were synchronized was incomplete. No review finding is waived.
+
+Correction: mark the timeout edit completed, retain actual published predecessor
+and current live PR authority, make fresh final-head native/source/review acceptance
+the next action, and label older entries historical. Synchronize active instructions
+in BUILT_CLI_VALIDATION, BRANDED_PACKAGES, BRANDING_PROFILES and the additionally
+found PACKAGE_BUILDS; correct current Gate004 inventory description to1.26.9.
+The original local1.26.8 linker review stays historical, not relabelled as a new
+local test. Fresh primary Go go1.26.9 src/cmd/link/doc.go blob
+b620219e9615dc8b665c7dc89d9d64b9b154a2b6 confirms the unchanged -X contract
+through GitHub; no local Go compiler/linker execution is claimed.
+
+The bounded version inventory retrieved89 first-party Markdown files and scanned
+293 first-party Go/workflow/script/go.mod files at1aca20a2, excluding pinned rule/
+SKU reference content. All completed per-file results checked. The only remaining
+code1.26.8 matches are the two arbitrary synthetic package-validator metadata values,
+not an operational toolchain. Preserve dated gate/audit/accepted-run/source histories
+and their actual old versions. This is a version-instruction check, not a repeated
+whole-project or dependency source audit and not a new Azure test.
+
+A wide293-call read-only inventory invocation lost the connector execution host;
+its completion was unknown and in-memory helper state was discarded. No repository
+write was in flight. Recovered live PR/head/base/ref/body, retained local evidence
+files, then completed the code pin scan in bounded12-file batches with checked
+outcomes. Do not infer a product/service/credential cause from that helper restart.
+Earlier completed full source/native evidence remains historical after document
+edits; require fresh exact final-head native/source and automated review before
+protected merge, then distinct accepted-push proof. No stale successful run transfers.
+
+Prevention: inventory active build/package/operator guides as well as executable
+pins, distinguish historical evidence from required current tooling, and advance
+current resume instructions in the same coherent checkpoint as a completed action.
+All tests/versions/source captures/gates/protections are unchanged by this correction.
+
+---
+
 # FN101: Windows native acceptance cancelled at job budget, 2026-10-11
 
 Final authored1a0edf97/tree7d9e8165 native38102457007:
