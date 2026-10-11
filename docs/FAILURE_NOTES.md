@@ -1,3 +1,28 @@
+# FN100: Diagnostic scanner exit semantics, 2026-10-11
+
+Temporary evidence run38102035679/job114359779973 on authored3b439d1f failed
+after collecting the full old module graph and verbose/JSON advisories. The
+temporary helper incorrectly required equal statuses: JSON exited0 while
+text verbose exited3 with ten reachable findings. Official govulncheck command
+documentation explicitly says JSON/SARIF/OpenVEX exit0 regardless of findings.
+This is a confirmed temporary diagnostic-helper mistake, not product failure,
+security clearance or transient outage. Fixed phase was skipped, not PASS.
+
+Correction: keep JSON as evidence only; enforce authoritative text status, old
+diagnostic must reproduce3 and fixed text/binary checks must return0. No mandatory
+native scanner command, source pin or production version was changed. Fresh
+corrected hosted evidence remains required. Prevention: review primary command
+format/exit semantics before interpreting a diagnostic return as a gate.
+See [PR133](https://github.com/DeBoX85/Cloud-Assess/pull/133) and
+https://pkg.go.dev/golang.org/x/vuln/cmd/govulncheck#hdr-Exit_codes.
+The same preparation also exposed the one imported GO-2026-6609 and module-only
+GO-2026-6600/6599/5932; complete reconstructed hashes still require independent
+local verification. Full current module minimum requirements require x/crypto0.57,
+x/sys0.48, x/term0.46 and x/text0.42 with x/net0.60; review selected graph rather
+than treating these justified minima as a blanket refresh.
+
+---
+
 # Current security gate state, 2026-10-09
 
 PR132 is UNMERGED and protected acceptance is BLOCKED by a classified vulnerability

@@ -51,9 +51,11 @@ def scan(prefix):
     scanner = str(OUT/'tools'/'govulncheck')
     status = record(prefix+'-vuln.json', [scanner, '-json', './...'], (0, 3))
     verbose = record(prefix+'-vuln.txt', [scanner, '-show=verbose', './...'], (0, 3))
-    if status != verbose:
-        raise RuntimeError('inconsistent diagnostic scanner status')
-    return status
+    # JSON is a streaming evidence format and always exits zero on findings.
+    # The text-mode exit remains authoritative for blocking reachability.
+    if status != 0:
+        raise RuntimeError('JSON diagnostic execution failed')
+    return verbose
 
 
 phase = sys.argv[1]
@@ -107,10 +109,11 @@ elif phase == 'fixed':
         env = dict(os.environ, GOOS=target, GOARCH='amd64', CGO_ENABLED='0')
         record(target+'-cli-deps.txt', ['go', 'list', '-buildvcs=false', '-deps', '-f', '{{if .Module}}{{.ImportPath}} {{.Module.Path}} {{.Module.Version}}{{end}}', './cmd/cloud-assess'], env=env)
     status = scan('fixed')
+    binary_status = record('fixed-binary-vuln.txt', [str(OUT/'tools'/'govulncheck'), '-mode=binary', '-show=verbose', str(OUT/'cloud-assess')], (0, 3))
     for path in ['go.mod', 'go.sum', 'docs/dependencies/inventory.json', 'docs/dependencies/NOTICES.md']:
         emit(path, (ROOT/path).read_bytes())
     record('candidate-diff.txt', ['git', 'diff', '--', 'go.mod', 'go.sum', 'scripts/dependency-inventory.py', 'scripts/tests/dependency-inventory.py'])
-    if status:
+    if status or binary_status:
         raise RuntimeError('candidate reachable security scan still failed; evidence retained, no acceptance')
     print('ISOLATED_FIXED_SECURITY_SCAN_SUCCESS_NOT_NATIVE_ACCEPTANCE', flush=True)
 else:
