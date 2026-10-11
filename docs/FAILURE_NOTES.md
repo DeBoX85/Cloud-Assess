@@ -1,3 +1,35 @@
+# FN104: Copyable restart block omitted current authority, 2026-10-11
+
+Automated review5481591116 on b2669e3b5e910465f5db77880aeacc815cca0b30,
+inline4239965137, correctly found that NEW_CHAT_PROMPT_20261009's advertised
+copy boundary excluded its new authority header. The resulting copied text still
+instructed publication of remediation already implemented in PR133. Top-level
+authority alone did not fix a separately consumed copyable artifact.
+
+Correction: supply a self-contained explicitly fenced current restart prompt,
+direct operators to copy only that fence and label the intact original prompt
+superseded historical material. Current instructions verify live PR133/accepted
+push/latest checkpoint first and distinguish pending acceptance from already
+published remediation/timeout/advisory work. No security or runtime change.
+Maintain original source pins, access restrictions and complete failed history.
+
+Prevention: review the exact extract users copy as a standalone input, including
+its delimiters and branching on later acceptance; current authority outside that
+extract is insufficient. Every prior-head result remains history. Fresh current-
+head native/source/review, protected expected-head merge and distinct accepted-
+push evidence are required. Candidate38104594705 becomes superseded when this
+documentation correction is published; classify actual outcome, not product
+failure. Source38104594714 passed all17/150 with independent complete bytes/hashes,
+but is not new-head proof.
+
+A local verification-input replacement initially used unsupported same-path
+delete/add operations in one apply_patch and was rejected before any file change.
+Corrected to a separate named input and argument-enabled checker, then all60
+complete remote file bytes passed independent Git identities. This was local
+helper setup, not a repository or native result.
+
+---
+
 # FN103: Stale active dependency evidence pointer, 2026-10-11
 
 Automated review5481575215 on d2d8d49843f405d15e9d7d8f1bc094f2facc13f7,

@@ -1,3 +1,20 @@
+# Current copyable restart correction, 2026-10-11
+
+Automated review5481591116/inline4239965137 on b2669e3b found that the old
+NEW_CHAT_PROMPT_20261009 copy boundary omitted current authority. FN104 records
+the valid finding and correction. The actual copyable fence now carries live
+PR133 verification, completed remediation/timeout facts and pending-versus-
+accepted next actions; the intact old prompt is explicitly historical.
+
+PR133 remains UNACCEPTED at this publication. Complete fresh exact-head native/
+source/review and protected/distinct accepted-push proof are next; do not repeat
+completed version/timeout edits or transfer predecessor evidence. The latest
+evolving outcomes are indexed in [live PR133](https://github.com/DeBoX85/Cloud-Assess/pull/133).
+Laptop/Azure restoration remains unconfirmed. All earlier entries below are
+preserved historical snapshots, not instructions to repeat completed work.
+
+---
+
 # Current security acceptance checkpoint, 2026-10-11
 
 Latest automated review5481575215 on d2d8d498 identified the remaining active

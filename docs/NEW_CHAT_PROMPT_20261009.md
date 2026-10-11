@@ -1,31 +1,95 @@
-# Current security remediation authority, 2026-10-11
+# Cloud-Assess restart prompt, current authority 2026-10-11
 
-Read [SESSION_HANDOVER.md](SESSION_HANDOVER.md), the
-[security remediation contract](SECURITY_REMEDIATION_20261011.md) and
-[live PR133](https://github.com/DeBoX85/Cloud-Assess/pull/133) for the latest
-authored head, native/source/review, protected acceptance and distinct accepted-push
-outcomes. PR133 preserves the PR132 handover and supplies its bounded security
-correction. PR132 is not independently accepted; do not replay or merge its failed
-candidate. Accepted implementation was PR131 b653a3ab at remediation preparation;
-verify the live branch before treating a proposal as accepted.
+Copy only the fenced prompt below. The original 2026-10-09 prompt is retained
+afterwards as explicitly superseded history. Revisions here are discovery pointers
+to verify live; they are not assumptions that a PR is still pending or accepted.
 
-The correction proposes Go1.26.9 and x/net0.60.0 with only independently reviewed
-minimum graph requirements. Isolated preparation scans do not replace final native
-checks. Prior Go1.26.8/current failed/pending/zero-findings statements below are
-historical observations, superseded for current resume instructions by this entry.
-Contractual behavior, source pins, failures and historical evidence remain preserved.
-Region feature work waits for verified security acceptance. Laptop/Azure restoration,
-live scope, release/Gate004/load/fresh OS and independent-person approval remain
-unestablished. No Azure writes or scope substitution are authorized.
+```text
+Resume Cloud-Assess. Read live root AGENTS.md first, then locate the latest accepted
+and proposed checkpoints through actual refs, recent/open/merged PRs, original Git
+commits/trees/ordered parents, full PR bodies, automated review and actual CI logs.
+The repository is https://github.com/DeBoX85/Cloud-Assess and protected development
+branch is bootstrap/core-v1; default main is not the current development baseline.
+
+The original handover PR132 on docs/handover-20261009 was draft/unmerged at
+4d2d9129d0d014dd567f15127c3f01f1bcc82aac when security recovery began. Its final
+native run37911396329 failed both hosts only at the vulnerability gate. Accepted
+development was PR131 b653a3abfc35590a185531095a168a9a107e769e.
+PR133 on fix/security-remediation-20261011 preserves that handover and ALREADY
+implements the bounded Go1.26.9/x-net0.60.0 correction and required minimum graph
+changes, regenerated inventory/notices and synchronized active instructions.
+The Windows whole-job20-to30 correction is ALREADY published at1aca20a2;
+Linux20 and all commands/assertions/per-process deadlines/protections remain intact.
+Do not repeat completed remediation, timeout edits, advisory classification,
+source captures, the accepted audit or PR120-131 calculations/collectors.
+
+Read docs/SESSION_HANDOVER.md, SECURITY_REMEDIATION_20261011.md,
+SECURITY_ADVISORY_REVIEW_20261011.md, QA_PROCESS.md, DEVELOPMENT_LEDGER.md,
+FAILURE_NOTES.md, ROADMAP.md and their current authority maps. Inspect live PR133:
+https://github.com/DeBoX85/Cloud-Assess/pull/133
+Its body indexes the evolving exact authored head, preview, complete publication,
+native/source/review and distinct accepted-push evidence. At this prompt correction,
+PR133 is UNACCEPTED and accepted development remains PR131; first verify whether
+later acceptance/checkpoints already occurred. Earlier pass/cancel/failure/pending
+statements in retained histories never substitute for fresh exact-head evidence.
+FN100-104 preserve actual setup, timing and documentation correction findings.
+Do not assume an automated completed marker means no findings or human approval.
+
+NEXT IF PR133 STILL UNACCEPTED: inspect complete fresh current-head Linux quality
+and windows-validation metadata/logs/security/compiling named fault and restored
+controls, all8 source harnesses/17 complete capture records/150 unique contiguous
+chunks with independent hashes/full current remote bytes, final automated review
+and every actual finding, original commit/tree/parents/Denis identity/ref, tested
+preview/base/tree relation and active ruleset23890737/no bypass. Make only evidence-
+justified corrections. Protected expected-head merge is authorized only after
+all mandatory proof, followed by DISTINCT full accepted-push native/source evidence.
+Do not transfer earlier-head proof. Once coordinated acceptance is verified, close
+PR132 as superseded, retaining its branch and failed history. Final acceptance
+evidence may be retained in PR133 and indexed in the next material checkpoint per
+QA_PROCESS rather than creating repeated evidence-only candidate CI loops.
+
+NEXT IF ALREADY ACCEPTED: verify distinct accepted-push outcomes and the latest
+durable checkpoint, then resume its remaining-region adapter inventory and publish
+a bounded provider-location pre-edit contract/source capture before target code.
+Do not implement all adapters at once. Public region-selection still needs provider/
+SKU/zone-count/meter-history/Retail adapters and owned per-run coordinator, standalone/
+mixed/scanner/registry/all formats/default/empty/partial-health/privacy/source flags.
+Full Cost pagination remains separately open. B6 source operator tools/separate MCP
+design and B7 preparation remain; no service exposure or release is authorized.
+Existing module-only GO-2026-5932 unsafe OpenPGP/no-fix/unimported remains open:
+zero reachable/imported findings are not an advisory-free graph or release approval.
+
+Preserve AZQR8e4f0577f3615e6c9014c031bcad079f235369cc/source tree17d93b20c303f90f7843036be82f0dc32f3260f1,
+APRL60eaddda76541f6adbc1c5ffa686829807e55e29, all other source/catalog/SKU pins,
+complete capture provenance and required quality/windows-validation integration15368.
+Use Denis Bogunic /134433647+DeBoX85@users.noreply.github.com for development.
+Before retrying any interrupted mutation, inspect actual remote state. Preserve
+unrelated local/worktree files; scratch, logs and local commits are not durable backup.
+
+Laptop/Azure access is UNCONFIRMED and no restored authorization is inferred.
+Continue independent repository work. DV001 requires an approved wholly nonproduction
+nested hierarchy; Advisory includes Prd, AdvisoryDev is a leaf, and a Dev include
+filter cannot authorize discovery through that production-containing parent.
+No Azure fixtures/resources/role changes/scope substitution, exposure or release.
+Live optional-plugin/restricted-visibility/Diagnostics/Advisor/Arc/load/freshOS/
+maintenance/Gate004/licensing/independent-person obligations remain explicitly open.
+
+Report the verified baseline, unresolved findings, any lost/unpublished work and
+exact next action concisely, then continue already-authorized independent work
+to the next natural reevaluation point. Ask only for genuinely blocking input.
+No invented validation, silent waived findings or claim of background execution.
+Keep handover, ledger, roadmap/failure records and remotely verified coherent WIP
+current. Do not use em dashes.
+```
 
 ---
 
-# Cloud-Assess restart prompt, 2026-10-09
+## Superseded historical prompt, 2026-10-09
 
-Copy the text below into the new chat. It is intentionally detailed. All revisions
-are discovery pointers to verify live, not assumptions that nothing has changed.
-
----
+The following original prompt records the pre-remediation state. Its old CURRENT
+BLOCKER, IMMEDIATE NEXT ACTION, toolchain and pending wording are historical;
+do not copy or execute it as the current restart instruction. The copyable prompt
+above and live PR133/current handover take precedence.
 
 Resume development of Cloud-Assess from our verified handover. Do the recovery
 checks first, then continue authorized independent work to the next natural
