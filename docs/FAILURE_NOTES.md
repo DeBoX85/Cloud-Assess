@@ -1,3 +1,29 @@
+# FN103: Stale active dependency evidence pointer, 2026-10-11
+
+Automated review5481575215 on d2d8d49843f405d15e9d7d8f1bc094f2facc13f7,
+inline4239949567, correctly found DEPENDENCIES.md still presenting the earlier
+x/crypto v0.56.0 review as current after selecting v0.57.0 and adding the full
+2026-10-11 advisory record. This is an active evidence-navigation defect, not
+a new dependency vulnerability or runtime failure. The prior pin-only guide
+correction did not fully reconcile this evidence pointer.
+
+Corrected the active dependency paragraph to SECURITY_ADVISORY_REVIEW_20261011
+for Go1.26.9/x-net0.60.0/x-crypto0.57.0 and all14 old scanner records/remaining
+module-only OpenPGP. Labelled the v0.56.0 review historical and added a clear
+current-record route at its entry point, preserving all old review/advisory/license
+observations. Native reachability, exact-head full QA and release licensing remain
+separate; neither historical nor isolated scan proof certifies current acceptance.
+Executable/workflow/modules/inventory/source/capture bytes remain unchanged.
+
+Prevention: reconcile current evidence links with selected versions as well as
+literal build pins; do not treat a dated older review as current merely because
+its residual advisory overlaps. This edit requires fresh native/source/review;
+prior d2d8 native38104183666 is superseded under unchanged concurrency, and its
+source38104183648/17records150chunks is earlier-head history only. Preserve all
+actual outcomes and no accepted-push/Windows-security/merge claim before proof.
+
+---
+
 # FN102: Active toolchain guides and stale resume action, 2026-10-11
 
 Automated review5481558582 on exact1aca20a2769fd201237a201dd3d5d50938fc279f

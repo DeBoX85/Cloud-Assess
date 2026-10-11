@@ -1,3 +1,16 @@
+# Current advisory evidence route, 2026-10-11
+
+For the current Go1.26.9/x-net0.60.0/x-crypto0.57.0 graph, read
+[SECURITY_ADVISORY_REVIEW_20261011.md](SECURITY_ADVISORY_REVIEW_20261011.md)
+and [live PR133](https://github.com/DeBoX85/Cloud-Assess/pull/133) for exact
+final-head native/source/review/accepted-push outcomes. The v0.55-to0.56 SSH
+assessment and its local/compiler/scanner results below are retained historical
+evidence for the2026-10-01 baseline, not current remediation clearance. Existing
+unsafe OpenPGP remains module-only/no known fix and unimported by either CLI.
+No advisory-free graph, incident, waiver or release approval follows.
+
+---
+
 # Current security remediation authority, 2026-10-11
 
 Read [SESSION_HANDOVER.md](SESSION_HANDOVER.md), the

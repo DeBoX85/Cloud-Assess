@@ -1,5 +1,12 @@
 # Current security acceptance checkpoint, 2026-10-11
 
+Latest automated review5481575215 on d2d8d498 identified the remaining active
+dependency guide's stale v0.56 advisory pointer. This checkpoint routes current
+security evidence to SECURITY_ADVISORY_REVIEW_20261011 and labels the old review
+historical, with all executable/workflow/module/source/capture bytes unchanged.
+FN103 records the finding/correction. Fresh complete current-head QA remains the
+next action; no prior native/source result is transferred.
+
 PR133 remains UNACCEPTED on fix/security-remediation-20261011; accepted
 bootstrap/core-v1 remains PR131 b653a3ab. The Windows whole-job timeout20-to30
 correction is ALREADY PUBLISHED at1aca20a2769fd201237a201dd3d5d50938fc279f,
