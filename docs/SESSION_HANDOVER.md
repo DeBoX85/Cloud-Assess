@@ -1,18 +1,87 @@
-# Security recovery and remediation preparation, 2026-10-11
+# Security correction candidate and exact resume point, 2026-10-11
 
-Current accepted implementation remains PR131 `b653a3abfc35590a185531095a168a9a107e769e`.
-PR132 is still draft/unmerged at `4d2d9129d0d014dd567f15127c3f01f1bcc82aac`.
-Final native37911396329 completed FAILURE on both Linux113757144122 and
-Windows113757143869 solely at vulnerability checks; source37911396320 SUCCESS.
-Full native logs retrieved and actual preview30d138699/toolchain1.26.8 checked.
-Older pending/green-security prose below is historical.
+UNACCEPTED proposal [PR133](https://github.com/DeBoX85/Cloud-Assess/pull/133),
+branch fix/security-remediation-20261011, accepted development still PR131 b653a3ab.
+The exact authored commit/tree/parents, complete remote publication, fresh native/
+source/review and subsequent protected/accepted-push evidence are indexed in PR133.
+This candidate includes the preserved PR132 handover; PR132 remains draft/unmerged
+until coordinated acceptance, then is superseded with its failed history retained.
 
-The current task is the pre-edit [security remediation contract](SECURITY_REMEDIATION_20261011.md).
-No version change or region slice has started. Its separate task-owned proposal
-derives from the unmerged handover and targets the accepted branch so mandatory
-native/source checks run. PR132 will be superseded only after verified protected
-acceptance. Exact evolving evidence and authored revision live in that proposal.
-No laptop/Azure restoration or new live scope authorization is assumed.
+Published pre-edit contract44b5172ce423ad282660e85e7b42755c8ce6ec25/tree
+d1940c3d9429b1af73841ab010d9db9bf5bb7c25/parent4d2d9129 verified in full,
+Denis identity and independently reconstructed Git tree/document destinations.
+Old final PR132 native37911396329 FAILED on both113757144122/113757143869
+only at security; all53/38 step outcomes inspected, actual preview30d138699/
+Go1.26.8 verified. Both logs independently contain all24 reservation collector/
+25 quota collector/18 reservation runtime unique fault names. This is failed
+historical evidence, not current acceptance.
+
+## Preparation evidence and correction
+
+Corrected temporary read-only run38102140269/job114360079296 SUCCESS. Actual
+preview1f8db52b8f408152d84a1eff6d4c79fc53bd2897/treeb5a395a3/
+ordered b653a3ab,685cfea92 verified through original Git API. A shallow local
+checkout printed no parents; the original remote object supplied the ordered
+parents, not a fabricated local ancestry claim.
+Actual old Go1.26.8 and fixed Go1.26.9/platform were logged. Publisher JSON and
+actual66,935,201-byte Linux archive SHA25642d158b4... verified by hosted helper.
+The complete21 evidence records/1134 unique contiguous chunks were reconstructed
+and independently SHA256-verified with local Python. All outputs were generated
+in the disposable checkout; no automatic Git write or Azure access occurred.
+
+Fixed source/text and actual built-Linux-binary text scans returned0 and report
+zero symbol/zero imported-package vulnerabilities, residual module-only GO-2026-5932.
+JSON returns0 regardless of findings and is evidence only. Old text reproduced3,
+ten symbol/one package/three module advisories. See
+[SECURITY_ADVISORY_REVIEW_20261011.md](SECURITY_ADVISORY_REVIEW_20261011.md).
+This is preparation, not complete native Windows/current-head acceptance.
+
+Production pins: Go1.26.9; x/net0.60.0; prerequisite x/crypto0.57.0, x/sys0.48.0,
+x/text0.42.0, x/sync0.23.0. Selected graph-only x/term0.46.0, x/mod0.41.0,
+x/tools0.49.0 are minimum requirements in official net/crypto/text go.mod files.
+All49 paths remain, nine direct,24Linux/26Windows CLI memberships unchanged.
+Every49 module LICENSE/notice hash, Go LICENSE/PATENTS hash, source/APRL/catalog/SKU
+pins and bundled-content record match old inventory. Generated inventory/notices
+are retained complete, not hand-edited. No Azure SDK/source/capture/runtime-interface
+or report/normalization changes. Crypto0.56-to0.57 changes only upstream go.mod/sum;
+net0.58-to0.60 has real HTTP2/client/server changes requiring full native checks.
+
+Go pins are synchronized across go.mod, three workflows, checksum-protected Linux
+bootstrap, inventory generator/fixtures, isolated comparator fixture module and
+current dependency/workspace instructions. Synthetic package-integrity negative
+fixtures intentionally retain their arbitrary historical version values.
+Temporary evidence workflow/helper removed before this final candidate.
+All required security commands and protected checks unchanged.
+
+## Failure and recovery limits
+
+FN100 records the temporary helper's wrong JSON/text exit-equality assumption:
+first run38102035679/job114359779973 FAILED after old captures; fixed phase skipped.
+Correction explicitly uses text outcomes and added actual compiled-binary scan.
+Local reconstruction initially omitted UTF8 and failed on Windows cp1252; fixed
+explicit UTF8, no failed attempt credited as PASS. Initial local independent-tree
+helper repeated recursive subtrees excessively; interrupted, memoized and then
+passed. These local diagnostic failures did not mutate product/source/remote refs.
+Codex app PR attachment failed; PR133 URL remains directly accessible and verified.
+
+## Next action and unchanged deferrals
+
+Fresh exact final-head source17-record/full bytes/hashes plus nativeLinux/Windows/
+all controls/packages/compiled CLI/inventory/security/full logs and automated review
+remain mandatory. Inspect current base/head/preview-tree/ordered parents/rules;
+only then expected-head protected merge and distinct accepted-push evidence.
+Preserve/close PR132 as superseded only after verified PR133 acceptance; never
+transfer isolated/earlier candidate proof. PR133 body is the evolving final index.
+
+After verified remediation, inventory remaining region resource/SKU/availability
+and pricing/history adapters plus coordinator/public/all-format integration.
+Do not replay completed arithmetic/captures/quota/reservation collectors or audit.
+B6 operator tools/separate MCP design/B7 preparation remain to reconcile.
+No laptop/Azure restoration assumed, no blocking offline input. Live optional-stage/
+plugin/restricted-visibility/DV001 wholly nonproduction nested hierarchy/load/fresh
+OS/hosted maintenance/Gate004/release/provenance/license obligations remain open.
+No resources/roles/fixtures/production-containing discovery/listener/release
+authorization. No scratch-only backup or background completion promise.
 
 ---
 

@@ -1,3 +1,25 @@
+# Current security remediation authority, 2026-10-11
+
+Read [SESSION_HANDOVER.md](SESSION_HANDOVER.md), the
+[security remediation contract](SECURITY_REMEDIATION_20261011.md) and
+[live PR133](https://github.com/DeBoX85/Cloud-Assess/pull/133) for the latest
+authored head, native/source/review, protected acceptance and distinct accepted-push
+outcomes. PR133 preserves the PR132 handover and supplies its bounded security
+correction. PR132 is not independently accepted; do not replay or merge its failed
+candidate. Accepted implementation was PR131 b653a3ab at remediation preparation;
+verify the live branch before treating a proposal as accepted.
+
+The correction proposes Go1.26.9 and x/net0.60.0 with only independently reviewed
+minimum graph requirements. Isolated preparation scans do not replace final native
+checks. Prior Go1.26.8/current failed/pending/zero-findings statements below are
+historical observations, superseded for current resume instructions by this entry.
+Contractual behavior, source pins, failures and historical evidence remain preserved.
+Region feature work waits for verified security acceptance. Laptop/Azure restoration,
+live scope, release/Gate004/load/fresh OS and independent-person approval remain
+unestablished. No Azure writes or scope substitution are authorized.
+
+---
+
 # Current security gate state, 2026-10-09
 
 PR132 is UNMERGED and protected acceptance is BLOCKED by a classified vulnerability
@@ -53,7 +75,7 @@ The destination must not exist and its parent must exist. Failure retains a part
 
 | Tool | Version/source and verification |
 | --- | --- |
-| Go/gofmt/compiler/race tooling | Exact1.26.8 required by target go.mod/workflow; official go.dev Linux amd64 archive, SHA256 d0f743b33e8d8945e6b1f432edd15785c70507121d6e2a723b21285eddf8b57b. GOTOOLCHAIN=local prevents silent toolchain replacement. |
+| Go/gofmt/compiler/race tooling | Exact1.26.9 required by the remediation candidate go.mod/workflow; official go.dev Linux amd64 archive, SHA25642d158b4d8f7b61ac0a830567c940a86098fb7aac52e467a5ebec03ef5cc2f8d. GOTOOLCHAIN=local prevents silent toolchain replacement. |
 | PowerShell | Official [7.6.6 release](https://github.com/PowerShell/PowerShell/releases/tag/v7.6.6) Linux x64 archive, SHA256 ddbc4a2d113bbd46d283cfedcbcd117a70caefd7673f41f2b4e0000badf103bc from the publisher release-asset digest. This is local PowerShell7 tooling, not Windows PowerShell5.1 proof. |
 | govulncheck | v1.8.0, matching native CI; installed into workspace tools/bin with normal Go module checksum verification. Vulnerability-database access was exercised by the real scan. |
 | Git/Python/ripgrep/GCC/Node | Executor-provided; Git2.51.1 has its HTTPS helper, Python3.12.14, GCC13.3.0 and Node24.19.0 verified. GCC was exercised by the full Go race build/tests. Python scripts use the standard library. |

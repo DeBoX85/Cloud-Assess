@@ -63,7 +63,7 @@ def collect(go):
                 usage[module['Path']].append(target)
     # Download in a disposable empty module so additional graph sums cannot mutate go.sum.
     with tempfile.TemporaryDirectory(prefix='dependency-inventory-') as temp:
-        Path(temp, 'go.mod').write_text('module inventory.invalid/evidence\n\ngo 1.26.8\n')
+        Path(temp, 'go.mod').write_text('module inventory.invalid/evidence\n\ngo 1.26.9\n')
         downloads = list(objects(run([go, 'mod', 'download', '-json'] +
                                     [m['Path'] + '@' + m['Version'] for m in modules], cwd=temp, env=env)))
     downloaded = {(m['Path'], m['Version']): m for m in downloads}
@@ -82,8 +82,8 @@ def collect(go):
                         'notices': [{k: f[k] for k in ('file', 'sha256')} for f in files]})
     goroot = Path(run([go, 'env', 'GOROOT'], env=env).strip())
     go_version = run([go, 'env', 'GOVERSION'], env=env).strip()
-    if go_version != 'go1.26.8':
-        raise ValueError(f'inventory requires pinned go1.26.8; got {go_version}')
+    if go_version != 'go1.26.9':
+        raise ValueError(f'inventory requires pinned go1.26.9; got {go_version}')
     std = evidence(goroot)
     patents = goroot / 'PATENTS'
     if patents.is_file():

@@ -1,10 +1,32 @@
+# Current security remediation authority, 2026-10-11
+
+Read [SESSION_HANDOVER.md](SESSION_HANDOVER.md), the
+[security remediation contract](SECURITY_REMEDIATION_20261011.md) and
+[live PR133](https://github.com/DeBoX85/Cloud-Assess/pull/133) for the latest
+authored head, native/source/review, protected acceptance and distinct accepted-push
+outcomes. PR133 preserves the PR132 handover and supplies its bounded security
+correction. PR132 is not independently accepted; do not replay or merge its failed
+candidate. Accepted implementation was PR131 b653a3ab at remediation preparation;
+verify the live branch before treating a proposal as accepted.
+
+The correction proposes Go1.26.9 and x/net0.60.0 with only independently reviewed
+minimum graph requirements. Isolated preparation scans do not replace final native
+checks. Prior Go1.26.8/current failed/pending/zero-findings statements below are
+historical observations, superseded for current resume instructions by this entry.
+Contractual behavior, source pins, failures and historical evidence remain preserved.
+Region feature work waits for verified security acceptance. Laptop/Azure restoration,
+live scope, release/Gate004/load/fresh OS and independent-person approval remain
+unestablished. No Azure writes or scope substitution are authorized.
+
+---
+
 # Dependency and license evidence
 
 The [manifest](dependencies/inventory.json) records the selected Go module graph, module/download checksums, directness, Linux/Windows amd64 CLI membership, input hashes, and bundled-source revisions. The [generated notices](dependencies/NOTICES.md) preserve full discovered module-root license/notice texts, Go standard-library/toolchain LICENSE/PATENTS, project/source attribution and the pinned APRL license. Current collection includes 49 modules, nine direct, with 24 contributing packages to Linux CLI builds and 26 to Windows CLI builds. Modules without CLI membership remain listed conservatively because the selected graph also includes test/tool dependencies.
 
 ## Regeneration and review
 
-Use Python 3 and Go **1.26.8**, with the APRL submodule initialized at the recorded pin. From the repository root:
+Use Python 3 and Go **1.26.9**, with the APRL submodule initialized at the recorded pin. From the repository root:
 
 ```sh
 python3 scripts/dependency-inventory.py

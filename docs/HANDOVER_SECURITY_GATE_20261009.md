@@ -1,3 +1,25 @@
+# Current security remediation authority, 2026-10-11
+
+Read [SESSION_HANDOVER.md](SESSION_HANDOVER.md), the
+[security remediation contract](SECURITY_REMEDIATION_20261011.md) and
+[live PR133](https://github.com/DeBoX85/Cloud-Assess/pull/133) for the latest
+authored head, native/source/review, protected acceptance and distinct accepted-push
+outcomes. PR133 preserves the PR132 handover and supplies its bounded security
+correction. PR132 is not independently accepted; do not replay or merge its failed
+candidate. Accepted implementation was PR131 b653a3ab at remediation preparation;
+verify the live branch before treating a proposal as accepted.
+
+The correction proposes Go1.26.9 and x/net0.60.0 with only independently reviewed
+minimum graph requirements. Isolated preparation scans do not replace final native
+checks. Prior Go1.26.8/current failed/pending/zero-findings statements below are
+historical observations, superseded for current resume instructions by this entry.
+Contractual behavior, source pins, failures and historical evidence remain preserved.
+Region feature work waits for verified security acceptance. Laptop/Azure restoration,
+live scope, release/Gate004/load/fresh OS and independent-person approval remain
+unestablished. No Azure writes or scope substitution are authorized.
+
+---
+
 # Current security-gate blocker, 2026-10-09
 
 Status: OPEN, blocks protected acceptance of PR132. Accepted branch remains
