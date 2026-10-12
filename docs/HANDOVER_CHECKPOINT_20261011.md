@@ -1,3 +1,34 @@
+# Current accepted provider source phase, 2026-10-12
+
+Read [HANDOVER_CHECKPOINT_20261012.md](HANDOVER_CHECKPOINT_20261012.md) and
+[NEW_CHAT_PROMPT_20261012.md](NEW_CHAT_PROMPT_20261012.md) first. Protected development
+bootstrap/core-v1 accepted9bec08596b84ba44b4c3d1b2356330b62e34f1ab through
+[PR135](https://github.com/DeBoX85/Cloud-Assess/pull/135), after exact-head native/source/review
+and DISTINCT accepted-push native38283761796/source38283761783 full proof.
+PR134 accepted50f5bef8; securityPR133 accepted6bcbca46 and incorporated PR132 through the same merge.
+Provider SOURCE characterization now retains48cases/19source records/10new compiling
+controls. Source execution is Linux synthetic loopback with strict fixture trust, not live
+Azure or Windows SDK behavior. No target provider collector or public region execution.
+
+This dated handover on docs/provider-checkpoint-20261012 is a separate UNACCEPTED
+documentation proposal at publication. Its own native/source/review and protected merge/
+accepted-push outcomes require fresh verification. PR135 proof certifies the implementation,
+not this proposal. See its live PR body for actual current disposition.
+
+EXACT NEXT: finish this checkpoint's own QA if pending, then reconcile the accepted48case
+source observations in [REGION_PROVIDER_LOCATIONS.md](REGION_PROVIDER_LOCATIONS.md)
+before implementing the bounded owned target provider collector with independent transport,
+health, cancellation, ownership, limits and named compiling controls. Do not repeat completed
+security/captures/calculations/quota/reservation work or refresh SDKs/pins. Graph-only
+OpenPGP GO-2026-5932, Full Cost pagination, other region adapters/coordinator/public execution,
+B6/B7, live/load/freshOS/maintenance/Gate004/release/licensing/human gates remain open.
+Laptop/Azure restoration and authorization remain UNCONFIRMED; no Azure actions authorized.
+
+## Historical record below
+
+The following dated text is retained verbatim as history. Earlier pending/status/next-step
+claims are superseded by the current index above; do not repeat completed work.
+
 # Cloud-Assess verified security and next-work checkpoint, 2026-10-11
 
 Read live root [AGENTS.md](../AGENTS.md) first. Verify live branches, latest PRs,
