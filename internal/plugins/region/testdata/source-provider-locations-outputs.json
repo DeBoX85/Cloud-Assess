@@ -1,0 +1,2487 @@
+{
+  "basic": {
+    "Cache": {
+      "Data": {
+        "microsoft.compute": {
+          "virtualmachines": {
+            "westeurope": {}
+          }
+        }
+      }
+    },
+    "Failed": false,
+    "Panicked": false,
+    "Requests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "RawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRows": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic",
+        "SourceRegion": "eastus",
+        "TargetRegion": "westeurope",
+        "SourceResourceTypeCount": 1,
+        "AvailableTypes": 1,
+        "UnavailableTypes": 0,
+        "AvailabilityPercent": 100,
+        "AvgCostDifference": 0,
+        "HasCostData": false,
+        "AvgLatencyMs": 0,
+        "LatencyEstimated": false,
+        "MissingResourceTypes": [],
+        "MissingSKUs": [],
+        "RestrictedSKUs": [],
+        "ZoneRestrictedSKUs": [],
+        "TotalSKUsChecked": 0,
+        "AvailableSKUs": 0,
+        "UnavailableSKUs": 0,
+        "UnknownSKUs": 0,
+        "SKUAvailabilityPercent": 0,
+        "SourceZoneCount": 0,
+        "TargetZoneCount": 0,
+        "TargetZoneMappings": null,
+        "Score": 0
+      }
+    ],
+    "CallerPanicked": false,
+    "CallerRequests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ]
+  },
+  "cancelled": {
+    "Cache": null,
+    "Failed": true,
+    "Panicked": false,
+    "Requests": [],
+    "RawRequestURIs": [],
+    "CallerRows": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic",
+        "SourceRegion": "eastus",
+        "TargetRegion": "westeurope",
+        "SourceResourceTypeCount": 1,
+        "AvailableTypes": 0,
+        "UnavailableTypes": 1,
+        "AvailabilityPercent": 0,
+        "AvgCostDifference": 0,
+        "HasCostData": false,
+        "AvgLatencyMs": 0,
+        "LatencyEstimated": false,
+        "MissingResourceTypes": [
+          "microsoft.compute/virtualmachines"
+        ],
+        "MissingSKUs": [],
+        "RestrictedSKUs": [],
+        "ZoneRestrictedSKUs": [],
+        "TotalSKUsChecked": 0,
+        "AvailableSKUs": 0,
+        "UnavailableSKUs": 0,
+        "UnknownSKUs": 0,
+        "SKUAvailabilityPercent": 0,
+        "SourceZoneCount": 0,
+        "TargetZoneCount": 0,
+        "TargetZoneMappings": null,
+        "Score": 0
+      }
+    ],
+    "CallerPanicked": false,
+    "CallerRequests": [],
+    "CallerRawRequestURIs": []
+  },
+  "case-field-alias": {
+    "Cache": {
+      "Data": {
+        "microsoft.compute": {
+          "virtualmachines": {
+            "westeurope": {}
+          }
+        }
+      }
+    },
+    "Failed": false,
+    "Panicked": false,
+    "Requests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "RawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRows": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic",
+        "SourceRegion": "eastus",
+        "TargetRegion": "westeurope",
+        "SourceResourceTypeCount": 1,
+        "AvailableTypes": 1,
+        "UnavailableTypes": 0,
+        "AvailabilityPercent": 100,
+        "AvgCostDifference": 0,
+        "HasCostData": false,
+        "AvgLatencyMs": 0,
+        "LatencyEstimated": false,
+        "MissingResourceTypes": [],
+        "MissingSKUs": [],
+        "RestrictedSKUs": [],
+        "ZoneRestrictedSKUs": [],
+        "TotalSKUsChecked": 0,
+        "AvailableSKUs": 0,
+        "UnavailableSKUs": 0,
+        "UnknownSKUs": 0,
+        "SKUAvailabilityPercent": 0,
+        "SourceZoneCount": 0,
+        "TargetZoneCount": 0,
+        "TargetZoneMappings": null,
+        "Score": 0
+      }
+    ],
+    "CallerPanicked": false,
+    "CallerRequests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ]
+  },
+  "cycle-stopped": {
+    "Cache": null,
+    "Failed": true,
+    "Panicked": false,
+    "Requests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01",
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01",
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01",
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "RawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01",
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01",
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01",
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRows": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic",
+        "SourceRegion": "eastus",
+        "TargetRegion": "westeurope",
+        "SourceResourceTypeCount": 1,
+        "AvailableTypes": 0,
+        "UnavailableTypes": 1,
+        "AvailabilityPercent": 0,
+        "AvgCostDifference": 0,
+        "HasCostData": false,
+        "AvgLatencyMs": 0,
+        "LatencyEstimated": false,
+        "MissingResourceTypes": [
+          "microsoft.compute/virtualmachines"
+        ],
+        "MissingSKUs": [],
+        "RestrictedSKUs": [],
+        "ZoneRestrictedSKUs": [],
+        "TotalSKUsChecked": 0,
+        "AvailableSKUs": 0,
+        "UnavailableSKUs": 0,
+        "UnknownSKUs": 0,
+        "SKUAvailabilityPercent": 0,
+        "SourceZoneCount": 0,
+        "TargetZoneCount": 0,
+        "TargetZoneMappings": null,
+        "Score": 0
+      }
+    ],
+    "CallerPanicked": false,
+    "CallerRequests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01",
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01",
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01",
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01",
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01",
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01",
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ]
+  },
+  "duplicate-field": {
+    "Cache": {
+      "Data": {
+        "microsoft.compute": {
+          "virtualmachines": {
+            "westeurope": {}
+          }
+        }
+      }
+    },
+    "Failed": false,
+    "Panicked": false,
+    "Requests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "RawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRows": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic",
+        "SourceRegion": "eastus",
+        "TargetRegion": "westeurope",
+        "SourceResourceTypeCount": 1,
+        "AvailableTypes": 1,
+        "UnavailableTypes": 0,
+        "AvailabilityPercent": 100,
+        "AvgCostDifference": 0,
+        "HasCostData": false,
+        "AvgLatencyMs": 0,
+        "LatencyEstimated": false,
+        "MissingResourceTypes": [],
+        "MissingSKUs": [],
+        "RestrictedSKUs": [],
+        "ZoneRestrictedSKUs": [],
+        "TotalSKUsChecked": 0,
+        "AvailableSKUs": 0,
+        "UnavailableSKUs": 0,
+        "UnknownSKUs": 0,
+        "SKUAvailabilityPercent": 0,
+        "SourceZoneCount": 0,
+        "TargetZoneCount": 0,
+        "TargetZoneMappings": null,
+        "Score": 0
+      }
+    ],
+    "CallerPanicked": false,
+    "CallerRequests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ]
+  },
+  "duplicate-to-empty": {
+    "Cache": {
+      "Data": {
+        "microsoft.compute": {
+          "virtualmachines": {}
+        }
+      }
+    },
+    "Failed": false,
+    "Panicked": false,
+    "Requests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "RawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRows": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic",
+        "SourceRegion": "eastus",
+        "TargetRegion": "westeurope",
+        "SourceResourceTypeCount": 1,
+        "AvailableTypes": 0,
+        "UnavailableTypes": 1,
+        "AvailabilityPercent": 0,
+        "AvgCostDifference": 0,
+        "HasCostData": false,
+        "AvgLatencyMs": 0,
+        "LatencyEstimated": false,
+        "MissingResourceTypes": [
+          "microsoft.compute/virtualmachines"
+        ],
+        "MissingSKUs": [],
+        "RestrictedSKUs": [],
+        "ZoneRestrictedSKUs": [],
+        "TotalSKUsChecked": 0,
+        "AvailableSKUs": 0,
+        "UnavailableSKUs": 0,
+        "UnknownSKUs": 0,
+        "SKUAvailabilityPercent": 0,
+        "SourceZoneCount": 0,
+        "TargetZoneCount": 0,
+        "TargetZoneMappings": null,
+        "Score": 0
+      }
+    ],
+    "CallerPanicked": false,
+    "CallerRequests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ]
+  },
+  "duplicate-type": {
+    "Cache": {
+      "Data": {
+        "microsoft.compute": {
+          "virtualmachines": {
+            "eastus": {}
+          }
+        }
+      }
+    },
+    "Failed": false,
+    "Panicked": false,
+    "Requests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "RawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRows": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic",
+        "SourceRegion": "eastus",
+        "TargetRegion": "westeurope",
+        "SourceResourceTypeCount": 1,
+        "AvailableTypes": 0,
+        "UnavailableTypes": 1,
+        "AvailabilityPercent": 0,
+        "AvgCostDifference": 0,
+        "HasCostData": false,
+        "AvgLatencyMs": 0,
+        "LatencyEstimated": false,
+        "MissingResourceTypes": [
+          "microsoft.compute/virtualmachines"
+        ],
+        "MissingSKUs": [],
+        "RestrictedSKUs": [],
+        "ZoneRestrictedSKUs": [],
+        "TotalSKUsChecked": 0,
+        "AvailableSKUs": 0,
+        "UnavailableSKUs": 0,
+        "UnknownSKUs": 0,
+        "SKUAvailabilityPercent": 0,
+        "SourceZoneCount": 0,
+        "TargetZoneCount": 0,
+        "TargetZoneMappings": null,
+        "Score": 0
+      }
+    ],
+    "CallerPanicked": false,
+    "CallerRequests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ]
+  },
+  "empty": {
+    "Cache": {
+      "Data": {}
+    },
+    "Failed": false,
+    "Panicked": false,
+    "Requests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "RawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRows": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic",
+        "SourceRegion": "eastus",
+        "TargetRegion": "westeurope",
+        "SourceResourceTypeCount": 1,
+        "AvailableTypes": 0,
+        "UnavailableTypes": 1,
+        "AvailabilityPercent": 0,
+        "AvgCostDifference": 0,
+        "HasCostData": false,
+        "AvgLatencyMs": 0,
+        "LatencyEstimated": false,
+        "MissingResourceTypes": [
+          "microsoft.compute/virtualmachines"
+        ],
+        "MissingSKUs": [],
+        "RestrictedSKUs": [],
+        "ZoneRestrictedSKUs": [],
+        "TotalSKUsChecked": 0,
+        "AvailableSKUs": 0,
+        "UnavailableSKUs": 0,
+        "UnknownSKUs": 0,
+        "SKUAvailabilityPercent": 0,
+        "SourceZoneCount": 0,
+        "TargetZoneCount": 0,
+        "TargetZoneMappings": null,
+        "Score": 0
+      }
+    ],
+    "CallerPanicked": false,
+    "CallerRequests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ]
+  },
+  "empty-locations": {
+    "Cache": {
+      "Data": {
+        "microsoft.compute": {
+          "virtualmachines": {}
+        }
+      }
+    },
+    "Failed": false,
+    "Panicked": false,
+    "Requests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "RawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRows": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic",
+        "SourceRegion": "eastus",
+        "TargetRegion": "westeurope",
+        "SourceResourceTypeCount": 1,
+        "AvailableTypes": 0,
+        "UnavailableTypes": 1,
+        "AvailabilityPercent": 0,
+        "AvgCostDifference": 0,
+        "HasCostData": false,
+        "AvgLatencyMs": 0,
+        "LatencyEstimated": false,
+        "MissingResourceTypes": [
+          "microsoft.compute/virtualmachines"
+        ],
+        "MissingSKUs": [],
+        "RestrictedSKUs": [],
+        "ZoneRestrictedSKUs": [],
+        "TotalSKUsChecked": 0,
+        "AvailableSKUs": 0,
+        "UnavailableSKUs": 0,
+        "UnknownSKUs": 0,
+        "SKUAvailabilityPercent": 0,
+        "SourceZoneCount": 0,
+        "TargetZoneCount": 0,
+        "TargetZoneMappings": null,
+        "Score": 0
+      }
+    ],
+    "CallerPanicked": false,
+    "CallerRequests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ]
+  },
+  "empty-namespace": {
+    "Cache": {
+      "Data": {
+        "": {
+          "virtualmachines": {
+            "westeurope": {}
+          }
+        }
+      }
+    },
+    "Failed": false,
+    "Panicked": false,
+    "Requests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "RawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRows": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic",
+        "SourceRegion": "eastus",
+        "TargetRegion": "westeurope",
+        "SourceResourceTypeCount": 1,
+        "AvailableTypes": 0,
+        "UnavailableTypes": 1,
+        "AvailabilityPercent": 0,
+        "AvgCostDifference": 0,
+        "HasCostData": false,
+        "AvgLatencyMs": 0,
+        "LatencyEstimated": false,
+        "MissingResourceTypes": [
+          "microsoft.compute/virtualmachines"
+        ],
+        "MissingSKUs": [],
+        "RestrictedSKUs": [],
+        "ZoneRestrictedSKUs": [],
+        "TotalSKUsChecked": 0,
+        "AvailableSKUs": 0,
+        "UnavailableSKUs": 0,
+        "UnknownSKUs": 0,
+        "SKUAvailabilityPercent": 0,
+        "SourceZoneCount": 0,
+        "TargetZoneCount": 0,
+        "TargetZoneMappings": null,
+        "Score": 0
+      }
+    ],
+    "CallerPanicked": false,
+    "CallerRequests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ]
+  },
+  "empty-resource-types": {
+    "Cache": {
+      "Data": {
+        "microsoft.compute": {}
+      }
+    },
+    "Failed": false,
+    "Panicked": false,
+    "Requests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "RawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRows": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic",
+        "SourceRegion": "eastus",
+        "TargetRegion": "westeurope",
+        "SourceResourceTypeCount": 1,
+        "AvailableTypes": 0,
+        "UnavailableTypes": 1,
+        "AvailabilityPercent": 0,
+        "AvgCostDifference": 0,
+        "HasCostData": false,
+        "AvgLatencyMs": 0,
+        "LatencyEstimated": false,
+        "MissingResourceTypes": [
+          "microsoft.compute/virtualmachines"
+        ],
+        "MissingSKUs": [],
+        "RestrictedSKUs": [],
+        "ZoneRestrictedSKUs": [],
+        "TotalSKUsChecked": 0,
+        "AvailableSKUs": 0,
+        "UnavailableSKUs": 0,
+        "UnknownSKUs": 0,
+        "SKUAvailabilityPercent": 0,
+        "SourceZoneCount": 0,
+        "TargetZoneCount": 0,
+        "TargetZoneMappings": null,
+        "Score": 0
+      }
+    ],
+    "CallerPanicked": false,
+    "CallerRequests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ]
+  },
+  "empty-type": {
+    "Cache": {
+      "Data": {
+        "microsoft.compute": {
+          "": {
+            "westeurope": {}
+          }
+        }
+      }
+    },
+    "Failed": false,
+    "Panicked": false,
+    "Requests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "RawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRows": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic",
+        "SourceRegion": "eastus",
+        "TargetRegion": "westeurope",
+        "SourceResourceTypeCount": 1,
+        "AvailableTypes": 0,
+        "UnavailableTypes": 1,
+        "AvailabilityPercent": 0,
+        "AvgCostDifference": 0,
+        "HasCostData": false,
+        "AvgLatencyMs": 0,
+        "LatencyEstimated": false,
+        "MissingResourceTypes": [
+          "microsoft.compute/virtualmachines"
+        ],
+        "MissingSKUs": [],
+        "RestrictedSKUs": [],
+        "ZoneRestrictedSKUs": [],
+        "TotalSKUsChecked": 0,
+        "AvailableSKUs": 0,
+        "UnavailableSKUs": 0,
+        "UnknownSKUs": 0,
+        "SKUAvailabilityPercent": 0,
+        "SourceZoneCount": 0,
+        "TargetZoneCount": 0,
+        "TargetZoneMappings": null,
+        "Score": 0
+      }
+    ],
+    "CallerPanicked": false,
+    "CallerRequests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ]
+  },
+  "global": {
+    "Cache": {
+      "Data": {
+        "microsoft.compute": {
+          "virtualmachines": {
+            "global": {}
+          }
+        }
+      }
+    },
+    "Failed": false,
+    "Panicked": false,
+    "Requests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "RawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRows": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic",
+        "SourceRegion": "eastus",
+        "TargetRegion": "westeurope",
+        "SourceResourceTypeCount": 1,
+        "AvailableTypes": 1,
+        "UnavailableTypes": 0,
+        "AvailabilityPercent": 100,
+        "AvgCostDifference": 0,
+        "HasCostData": false,
+        "AvgLatencyMs": 0,
+        "LatencyEstimated": false,
+        "MissingResourceTypes": [],
+        "MissingSKUs": [],
+        "RestrictedSKUs": [],
+        "ZoneRestrictedSKUs": [],
+        "TotalSKUsChecked": 0,
+        "AvailableSKUs": 0,
+        "UnavailableSKUs": 0,
+        "UnknownSKUs": 0,
+        "SKUAvailabilityPercent": 0,
+        "SourceZoneCount": 0,
+        "TargetZoneCount": 0,
+        "TargetZoneMappings": null,
+        "Score": 0
+      }
+    ],
+    "CallerPanicked": false,
+    "CallerRequests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ]
+  },
+  "http400": {
+    "Cache": null,
+    "Failed": true,
+    "Panicked": false,
+    "Requests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "RawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRows": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic",
+        "SourceRegion": "eastus",
+        "TargetRegion": "westeurope",
+        "SourceResourceTypeCount": 1,
+        "AvailableTypes": 0,
+        "UnavailableTypes": 1,
+        "AvailabilityPercent": 0,
+        "AvgCostDifference": 0,
+        "HasCostData": false,
+        "AvgLatencyMs": 0,
+        "LatencyEstimated": false,
+        "MissingResourceTypes": [
+          "microsoft.compute/virtualmachines"
+        ],
+        "MissingSKUs": [],
+        "RestrictedSKUs": [],
+        "ZoneRestrictedSKUs": [],
+        "TotalSKUsChecked": 0,
+        "AvailableSKUs": 0,
+        "UnavailableSKUs": 0,
+        "UnknownSKUs": 0,
+        "SKUAvailabilityPercent": 0,
+        "SourceZoneCount": 0,
+        "TargetZoneCount": 0,
+        "TargetZoneMappings": null,
+        "Score": 0
+      }
+    ],
+    "CallerPanicked": false,
+    "CallerRequests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ]
+  },
+  "http403": {
+    "Cache": null,
+    "Failed": true,
+    "Panicked": false,
+    "Requests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "RawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRows": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic",
+        "SourceRegion": "eastus",
+        "TargetRegion": "westeurope",
+        "SourceResourceTypeCount": 1,
+        "AvailableTypes": 0,
+        "UnavailableTypes": 1,
+        "AvailabilityPercent": 0,
+        "AvgCostDifference": 0,
+        "HasCostData": false,
+        "AvgLatencyMs": 0,
+        "LatencyEstimated": false,
+        "MissingResourceTypes": [
+          "microsoft.compute/virtualmachines"
+        ],
+        "MissingSKUs": [],
+        "RestrictedSKUs": [],
+        "ZoneRestrictedSKUs": [],
+        "TotalSKUsChecked": 0,
+        "AvailableSKUs": 0,
+        "UnavailableSKUs": 0,
+        "UnknownSKUs": 0,
+        "SKUAvailabilityPercent": 0,
+        "SourceZoneCount": 0,
+        "TargetZoneCount": 0,
+        "TargetZoneMappings": null,
+        "Score": 0
+      }
+    ],
+    "CallerPanicked": false,
+    "CallerRequests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ]
+  },
+  "http404": {
+    "Cache": null,
+    "Failed": true,
+    "Panicked": false,
+    "Requests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "RawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRows": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic",
+        "SourceRegion": "eastus",
+        "TargetRegion": "westeurope",
+        "SourceResourceTypeCount": 1,
+        "AvailableTypes": 0,
+        "UnavailableTypes": 1,
+        "AvailabilityPercent": 0,
+        "AvgCostDifference": 0,
+        "HasCostData": false,
+        "AvgLatencyMs": 0,
+        "LatencyEstimated": false,
+        "MissingResourceTypes": [
+          "microsoft.compute/virtualmachines"
+        ],
+        "MissingSKUs": [],
+        "RestrictedSKUs": [],
+        "ZoneRestrictedSKUs": [],
+        "TotalSKUsChecked": 0,
+        "AvailableSKUs": 0,
+        "UnavailableSKUs": 0,
+        "UnknownSKUs": 0,
+        "SKUAvailabilityPercent": 0,
+        "SourceZoneCount": 0,
+        "TargetZoneCount": 0,
+        "TargetZoneMappings": null,
+        "Score": 0
+      }
+    ],
+    "CallerPanicked": false,
+    "CallerRequests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ]
+  },
+  "http405": {
+    "Cache": null,
+    "Failed": true,
+    "Panicked": false,
+    "Requests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "RawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRows": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic",
+        "SourceRegion": "eastus",
+        "TargetRegion": "westeurope",
+        "SourceResourceTypeCount": 1,
+        "AvailableTypes": 0,
+        "UnavailableTypes": 1,
+        "AvailabilityPercent": 0,
+        "AvgCostDifference": 0,
+        "HasCostData": false,
+        "AvgLatencyMs": 0,
+        "LatencyEstimated": false,
+        "MissingResourceTypes": [
+          "microsoft.compute/virtualmachines"
+        ],
+        "MissingSKUs": [],
+        "RestrictedSKUs": [],
+        "ZoneRestrictedSKUs": [],
+        "TotalSKUsChecked": 0,
+        "AvailableSKUs": 0,
+        "UnavailableSKUs": 0,
+        "UnknownSKUs": 0,
+        "SKUAvailabilityPercent": 0,
+        "SourceZoneCount": 0,
+        "TargetZoneCount": 0,
+        "TargetZoneMappings": null,
+        "Score": 0
+      }
+    ],
+    "CallerPanicked": false,
+    "CallerRequests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ]
+  },
+  "key-whitespace": {
+    "Cache": {
+      "Data": {
+        " microsoft.compute ": {
+          " virtualmachines ": {
+            "westeurope": {}
+          }
+        }
+      }
+    },
+    "Failed": false,
+    "Panicked": false,
+    "Requests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "RawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRows": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic",
+        "SourceRegion": "eastus",
+        "TargetRegion": "westeurope",
+        "SourceResourceTypeCount": 1,
+        "AvailableTypes": 0,
+        "UnavailableTypes": 1,
+        "AvailabilityPercent": 0,
+        "AvgCostDifference": 0,
+        "HasCostData": false,
+        "AvgLatencyMs": 0,
+        "LatencyEstimated": false,
+        "MissingResourceTypes": [
+          "microsoft.compute/virtualmachines"
+        ],
+        "MissingSKUs": [],
+        "RestrictedSKUs": [],
+        "ZoneRestrictedSKUs": [],
+        "TotalSKUsChecked": 0,
+        "AvailableSKUs": 0,
+        "UnavailableSKUs": 0,
+        "UnknownSKUs": 0,
+        "SKUAvailabilityPercent": 0,
+        "SourceZoneCount": 0,
+        "TargetZoneCount": 0,
+        "TargetZoneMappings": null,
+        "Score": 0
+      }
+    ],
+    "CallerPanicked": false,
+    "CallerRequests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ]
+  },
+  "later-cancelled": {
+    "Cache": null,
+    "Failed": true,
+    "Panicked": false,
+    "Requests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "RawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRows": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic",
+        "SourceRegion": "eastus",
+        "TargetRegion": "westeurope",
+        "SourceResourceTypeCount": 1,
+        "AvailableTypes": 0,
+        "UnavailableTypes": 1,
+        "AvailabilityPercent": 0,
+        "AvgCostDifference": 0,
+        "HasCostData": false,
+        "AvgLatencyMs": 0,
+        "LatencyEstimated": false,
+        "MissingResourceTypes": [
+          "microsoft.compute/virtualmachines"
+        ],
+        "MissingSKUs": [],
+        "RestrictedSKUs": [],
+        "ZoneRestrictedSKUs": [],
+        "TotalSKUsChecked": 0,
+        "AvailableSKUs": 0,
+        "UnavailableSKUs": 0,
+        "UnknownSKUs": 0,
+        "SKUAvailabilityPercent": 0,
+        "SourceZoneCount": 0,
+        "TargetZoneCount": 0,
+        "TargetZoneMappings": null,
+        "Score": 0
+      }
+    ],
+    "CallerPanicked": false,
+    "CallerRequests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ]
+  },
+  "later-http400": {
+    "Cache": null,
+    "Failed": true,
+    "Panicked": false,
+    "Requests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01",
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?%24skiptoken=synthetic-second\u0026api-version=2021-04-01"
+    ],
+    "RawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01",
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?%24skiptoken=synthetic-second\u0026api-version=2021-04-01"
+    ],
+    "CallerRows": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic",
+        "SourceRegion": "eastus",
+        "TargetRegion": "westeurope",
+        "SourceResourceTypeCount": 1,
+        "AvailableTypes": 0,
+        "UnavailableTypes": 1,
+        "AvailabilityPercent": 0,
+        "AvgCostDifference": 0,
+        "HasCostData": false,
+        "AvgLatencyMs": 0,
+        "LatencyEstimated": false,
+        "MissingResourceTypes": [
+          "microsoft.compute/virtualmachines"
+        ],
+        "MissingSKUs": [],
+        "RestrictedSKUs": [],
+        "ZoneRestrictedSKUs": [],
+        "TotalSKUsChecked": 0,
+        "AvailableSKUs": 0,
+        "UnavailableSKUs": 0,
+        "UnknownSKUs": 0,
+        "SKUAvailabilityPercent": 0,
+        "SourceZoneCount": 0,
+        "TargetZoneCount": 0,
+        "TargetZoneMappings": null,
+        "Score": 0
+      }
+    ],
+    "CallerPanicked": false,
+    "CallerRequests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01",
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?%24skiptoken=synthetic-second\u0026api-version=2021-04-01"
+    ],
+    "CallerRawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01",
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?%24skiptoken=synthetic-second\u0026api-version=2021-04-01"
+    ]
+  },
+  "later-http403": {
+    "Cache": null,
+    "Failed": true,
+    "Panicked": false,
+    "Requests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01",
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?%24skiptoken=synthetic-second\u0026api-version=2021-04-01"
+    ],
+    "RawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01",
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?%24skiptoken=synthetic-second\u0026api-version=2021-04-01"
+    ],
+    "CallerRows": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic",
+        "SourceRegion": "eastus",
+        "TargetRegion": "westeurope",
+        "SourceResourceTypeCount": 1,
+        "AvailableTypes": 0,
+        "UnavailableTypes": 1,
+        "AvailabilityPercent": 0,
+        "AvgCostDifference": 0,
+        "HasCostData": false,
+        "AvgLatencyMs": 0,
+        "LatencyEstimated": false,
+        "MissingResourceTypes": [
+          "microsoft.compute/virtualmachines"
+        ],
+        "MissingSKUs": [],
+        "RestrictedSKUs": [],
+        "ZoneRestrictedSKUs": [],
+        "TotalSKUsChecked": 0,
+        "AvailableSKUs": 0,
+        "UnavailableSKUs": 0,
+        "UnknownSKUs": 0,
+        "SKUAvailabilityPercent": 0,
+        "SourceZoneCount": 0,
+        "TargetZoneCount": 0,
+        "TargetZoneMappings": null,
+        "Score": 0
+      }
+    ],
+    "CallerPanicked": false,
+    "CallerRequests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01",
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?%24skiptoken=synthetic-second\u0026api-version=2021-04-01"
+    ],
+    "CallerRawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01",
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?%24skiptoken=synthetic-second\u0026api-version=2021-04-01"
+    ]
+  },
+  "later-http404": {
+    "Cache": null,
+    "Failed": true,
+    "Panicked": false,
+    "Requests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01",
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?%24skiptoken=synthetic-second\u0026api-version=2021-04-01"
+    ],
+    "RawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01",
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?%24skiptoken=synthetic-second\u0026api-version=2021-04-01"
+    ],
+    "CallerRows": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic",
+        "SourceRegion": "eastus",
+        "TargetRegion": "westeurope",
+        "SourceResourceTypeCount": 1,
+        "AvailableTypes": 0,
+        "UnavailableTypes": 1,
+        "AvailabilityPercent": 0,
+        "AvgCostDifference": 0,
+        "HasCostData": false,
+        "AvgLatencyMs": 0,
+        "LatencyEstimated": false,
+        "MissingResourceTypes": [
+          "microsoft.compute/virtualmachines"
+        ],
+        "MissingSKUs": [],
+        "RestrictedSKUs": [],
+        "ZoneRestrictedSKUs": [],
+        "TotalSKUsChecked": 0,
+        "AvailableSKUs": 0,
+        "UnavailableSKUs": 0,
+        "UnknownSKUs": 0,
+        "SKUAvailabilityPercent": 0,
+        "SourceZoneCount": 0,
+        "TargetZoneCount": 0,
+        "TargetZoneMappings": null,
+        "Score": 0
+      }
+    ],
+    "CallerPanicked": false,
+    "CallerRequests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01",
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?%24skiptoken=synthetic-second\u0026api-version=2021-04-01"
+    ],
+    "CallerRawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01",
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?%24skiptoken=synthetic-second\u0026api-version=2021-04-01"
+    ]
+  },
+  "later-http405": {
+    "Cache": null,
+    "Failed": true,
+    "Panicked": false,
+    "Requests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01",
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?%24skiptoken=synthetic-second\u0026api-version=2021-04-01"
+    ],
+    "RawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01",
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?%24skiptoken=synthetic-second\u0026api-version=2021-04-01"
+    ],
+    "CallerRows": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic",
+        "SourceRegion": "eastus",
+        "TargetRegion": "westeurope",
+        "SourceResourceTypeCount": 1,
+        "AvailableTypes": 0,
+        "UnavailableTypes": 1,
+        "AvailabilityPercent": 0,
+        "AvgCostDifference": 0,
+        "HasCostData": false,
+        "AvgLatencyMs": 0,
+        "LatencyEstimated": false,
+        "MissingResourceTypes": [
+          "microsoft.compute/virtualmachines"
+        ],
+        "MissingSKUs": [],
+        "RestrictedSKUs": [],
+        "ZoneRestrictedSKUs": [],
+        "TotalSKUsChecked": 0,
+        "AvailableSKUs": 0,
+        "UnavailableSKUs": 0,
+        "UnknownSKUs": 0,
+        "SKUAvailabilityPercent": 0,
+        "SourceZoneCount": 0,
+        "TargetZoneCount": 0,
+        "TargetZoneMappings": null,
+        "Score": 0
+      }
+    ],
+    "CallerPanicked": false,
+    "CallerRequests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01",
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?%24skiptoken=synthetic-second\u0026api-version=2021-04-01"
+    ],
+    "CallerRawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01",
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?%24skiptoken=synthetic-second\u0026api-version=2021-04-01"
+    ]
+  },
+  "later-malformed": {
+    "Cache": null,
+    "Failed": true,
+    "Panicked": false,
+    "Requests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01",
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?%24skiptoken=synthetic-second\u0026api-version=2021-04-01"
+    ],
+    "RawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01",
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?%24skiptoken=synthetic-second\u0026api-version=2021-04-01"
+    ],
+    "CallerRows": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic",
+        "SourceRegion": "eastus",
+        "TargetRegion": "westeurope",
+        "SourceResourceTypeCount": 1,
+        "AvailableTypes": 0,
+        "UnavailableTypes": 1,
+        "AvailabilityPercent": 0,
+        "AvgCostDifference": 0,
+        "HasCostData": false,
+        "AvgLatencyMs": 0,
+        "LatencyEstimated": false,
+        "MissingResourceTypes": [
+          "microsoft.compute/virtualmachines"
+        ],
+        "MissingSKUs": [],
+        "RestrictedSKUs": [],
+        "ZoneRestrictedSKUs": [],
+        "TotalSKUsChecked": 0,
+        "AvailableSKUs": 0,
+        "UnavailableSKUs": 0,
+        "UnknownSKUs": 0,
+        "SKUAvailabilityPercent": 0,
+        "SourceZoneCount": 0,
+        "TargetZoneCount": 0,
+        "TargetZoneMappings": null,
+        "Score": 0
+      }
+    ],
+    "CallerPanicked": false,
+    "CallerRequests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01",
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?%24skiptoken=synthetic-second\u0026api-version=2021-04-01"
+    ],
+    "CallerRawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01",
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?%24skiptoken=synthetic-second\u0026api-version=2021-04-01"
+    ]
+  },
+  "location-whitespace": {
+    "Cache": {
+      "Data": {
+        "microsoft.compute": {
+          "virtualmachines": {
+            "eastus": {},
+            "west\teurope": {},
+            "west europe": {}
+          }
+        }
+      }
+    },
+    "Failed": false,
+    "Panicked": false,
+    "Requests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "RawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRows": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic",
+        "SourceRegion": "eastus",
+        "TargetRegion": "westeurope",
+        "SourceResourceTypeCount": 1,
+        "AvailableTypes": 0,
+        "UnavailableTypes": 1,
+        "AvailabilityPercent": 0,
+        "AvgCostDifference": 0,
+        "HasCostData": false,
+        "AvgLatencyMs": 0,
+        "LatencyEstimated": false,
+        "MissingResourceTypes": [
+          "microsoft.compute/virtualmachines"
+        ],
+        "MissingSKUs": [],
+        "RestrictedSKUs": [],
+        "ZoneRestrictedSKUs": [],
+        "TotalSKUsChecked": 0,
+        "AvailableSKUs": 0,
+        "UnavailableSKUs": 0,
+        "UnknownSKUs": 0,
+        "SKUAvailabilityPercent": 0,
+        "SourceZoneCount": 0,
+        "TargetZoneCount": 0,
+        "TargetZoneMappings": null,
+        "Score": 0
+      }
+    ],
+    "CallerPanicked": false,
+    "CallerRequests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ]
+  },
+  "malformed": {
+    "Cache": null,
+    "Failed": true,
+    "Panicked": false,
+    "Requests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "RawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRows": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic",
+        "SourceRegion": "eastus",
+        "TargetRegion": "westeurope",
+        "SourceResourceTypeCount": 1,
+        "AvailableTypes": 0,
+        "UnavailableTypes": 1,
+        "AvailabilityPercent": 0,
+        "AvgCostDifference": 0,
+        "HasCostData": false,
+        "AvgLatencyMs": 0,
+        "LatencyEstimated": false,
+        "MissingResourceTypes": [
+          "microsoft.compute/virtualmachines"
+        ],
+        "MissingSKUs": [],
+        "RestrictedSKUs": [],
+        "ZoneRestrictedSKUs": [],
+        "TotalSKUsChecked": 0,
+        "AvailableSKUs": 0,
+        "UnavailableSKUs": 0,
+        "UnknownSKUs": 0,
+        "SKUAvailabilityPercent": 0,
+        "SourceZoneCount": 0,
+        "TargetZoneCount": 0,
+        "TargetZoneMappings": null,
+        "Score": 0
+      }
+    ],
+    "CallerPanicked": false,
+    "CallerRequests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ]
+  },
+  "malformed-next": {
+    "Cache": null,
+    "Failed": true,
+    "Panicked": false,
+    "Requests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "RawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRows": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic",
+        "SourceRegion": "eastus",
+        "TargetRegion": "westeurope",
+        "SourceResourceTypeCount": 1,
+        "AvailableTypes": 0,
+        "UnavailableTypes": 1,
+        "AvailabilityPercent": 0,
+        "AvgCostDifference": 0,
+        "HasCostData": false,
+        "AvgLatencyMs": 0,
+        "LatencyEstimated": false,
+        "MissingResourceTypes": [
+          "microsoft.compute/virtualmachines"
+        ],
+        "MissingSKUs": [],
+        "RestrictedSKUs": [],
+        "ZoneRestrictedSKUs": [],
+        "TotalSKUsChecked": 0,
+        "AvailableSKUs": 0,
+        "UnavailableSKUs": 0,
+        "UnknownSKUs": 0,
+        "SKUAvailabilityPercent": 0,
+        "SourceZoneCount": 0,
+        "TargetZoneCount": 0,
+        "TargetZoneMappings": null,
+        "Score": 0
+      }
+    ],
+    "CallerPanicked": false,
+    "CallerRequests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ]
+  },
+  "missing-locations": {
+    "Cache": {
+      "Data": {
+        "microsoft.compute": {
+          "virtualmachines": {}
+        }
+      }
+    },
+    "Failed": false,
+    "Panicked": false,
+    "Requests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "RawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRows": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic",
+        "SourceRegion": "eastus",
+        "TargetRegion": "westeurope",
+        "SourceResourceTypeCount": 1,
+        "AvailableTypes": 0,
+        "UnavailableTypes": 1,
+        "AvailabilityPercent": 0,
+        "AvgCostDifference": 0,
+        "HasCostData": false,
+        "AvgLatencyMs": 0,
+        "LatencyEstimated": false,
+        "MissingResourceTypes": [
+          "microsoft.compute/virtualmachines"
+        ],
+        "MissingSKUs": [],
+        "RestrictedSKUs": [],
+        "ZoneRestrictedSKUs": [],
+        "TotalSKUsChecked": 0,
+        "AvailableSKUs": 0,
+        "UnavailableSKUs": 0,
+        "UnknownSKUs": 0,
+        "SKUAvailabilityPercent": 0,
+        "SourceZoneCount": 0,
+        "TargetZoneCount": 0,
+        "TargetZoneMappings": null,
+        "Score": 0
+      }
+    ],
+    "CallerPanicked": false,
+    "CallerRequests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ]
+  },
+  "missing-namespace": {
+    "Cache": {
+      "Data": {}
+    },
+    "Failed": false,
+    "Panicked": false,
+    "Requests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "RawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRows": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic",
+        "SourceRegion": "eastus",
+        "TargetRegion": "westeurope",
+        "SourceResourceTypeCount": 1,
+        "AvailableTypes": 0,
+        "UnavailableTypes": 1,
+        "AvailabilityPercent": 0,
+        "AvgCostDifference": 0,
+        "HasCostData": false,
+        "AvgLatencyMs": 0,
+        "LatencyEstimated": false,
+        "MissingResourceTypes": [
+          "microsoft.compute/virtualmachines"
+        ],
+        "MissingSKUs": [],
+        "RestrictedSKUs": [],
+        "ZoneRestrictedSKUs": [],
+        "TotalSKUsChecked": 0,
+        "AvailableSKUs": 0,
+        "UnavailableSKUs": 0,
+        "UnknownSKUs": 0,
+        "SKUAvailabilityPercent": 0,
+        "SourceZoneCount": 0,
+        "TargetZoneCount": 0,
+        "TargetZoneMappings": null,
+        "Score": 0
+      }
+    ],
+    "CallerPanicked": false,
+    "CallerRequests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ]
+  },
+  "missing-resource-types": {
+    "Cache": {
+      "Data": {}
+    },
+    "Failed": false,
+    "Panicked": false,
+    "Requests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "RawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRows": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic",
+        "SourceRegion": "eastus",
+        "TargetRegion": "westeurope",
+        "SourceResourceTypeCount": 1,
+        "AvailableTypes": 0,
+        "UnavailableTypes": 1,
+        "AvailabilityPercent": 0,
+        "AvgCostDifference": 0,
+        "HasCostData": false,
+        "AvgLatencyMs": 0,
+        "LatencyEstimated": false,
+        "MissingResourceTypes": [
+          "microsoft.compute/virtualmachines"
+        ],
+        "MissingSKUs": [],
+        "RestrictedSKUs": [],
+        "ZoneRestrictedSKUs": [],
+        "TotalSKUsChecked": 0,
+        "AvailableSKUs": 0,
+        "UnavailableSKUs": 0,
+        "UnknownSKUs": 0,
+        "SKUAvailabilityPercent": 0,
+        "SourceZoneCount": 0,
+        "TargetZoneCount": 0,
+        "TargetZoneMappings": null,
+        "Score": 0
+      }
+    ],
+    "CallerPanicked": false,
+    "CallerRequests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ]
+  },
+  "missing-type": {
+    "Cache": {
+      "Data": {
+        "microsoft.compute": {}
+      }
+    },
+    "Failed": false,
+    "Panicked": false,
+    "Requests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "RawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRows": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic",
+        "SourceRegion": "eastus",
+        "TargetRegion": "westeurope",
+        "SourceResourceTypeCount": 1,
+        "AvailableTypes": 0,
+        "UnavailableTypes": 1,
+        "AvailabilityPercent": 0,
+        "AvgCostDifference": 0,
+        "HasCostData": false,
+        "AvgLatencyMs": 0,
+        "LatencyEstimated": false,
+        "MissingResourceTypes": [
+          "microsoft.compute/virtualmachines"
+        ],
+        "MissingSKUs": [],
+        "RestrictedSKUs": [],
+        "ZoneRestrictedSKUs": [],
+        "TotalSKUsChecked": 0,
+        "AvailableSKUs": 0,
+        "UnavailableSKUs": 0,
+        "UnknownSKUs": 0,
+        "SKUAvailabilityPercent": 0,
+        "SourceZoneCount": 0,
+        "TargetZoneCount": 0,
+        "TargetZoneMappings": null,
+        "Score": 0
+      }
+    ],
+    "CallerPanicked": false,
+    "CallerRequests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ]
+  },
+  "missing-value": {
+    "Cache": {
+      "Data": {}
+    },
+    "Failed": false,
+    "Panicked": false,
+    "Requests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "RawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRows": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic",
+        "SourceRegion": "eastus",
+        "TargetRegion": "westeurope",
+        "SourceResourceTypeCount": 1,
+        "AvailableTypes": 0,
+        "UnavailableTypes": 1,
+        "AvailabilityPercent": 0,
+        "AvgCostDifference": 0,
+        "HasCostData": false,
+        "AvgLatencyMs": 0,
+        "LatencyEstimated": false,
+        "MissingResourceTypes": [
+          "microsoft.compute/virtualmachines"
+        ],
+        "MissingSKUs": [],
+        "RestrictedSKUs": [],
+        "ZoneRestrictedSKUs": [],
+        "TotalSKUsChecked": 0,
+        "AvailableSKUs": 0,
+        "UnavailableSKUs": 0,
+        "UnknownSKUs": 0,
+        "SKUAvailabilityPercent": 0,
+        "SourceZoneCount": 0,
+        "TargetZoneCount": 0,
+        "TargetZoneMappings": null,
+        "Score": 0
+      }
+    ],
+    "CallerPanicked": false,
+    "CallerRequests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ]
+  },
+  "nested-type": {
+    "Cache": {
+      "Data": {
+        "microsoft.sql": {
+          "servers/databases": {
+            "westeurope": {}
+          }
+        }
+      }
+    },
+    "Failed": false,
+    "Panicked": false,
+    "Requests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "RawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRows": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic",
+        "SourceRegion": "eastus",
+        "TargetRegion": "westeurope",
+        "SourceResourceTypeCount": 1,
+        "AvailableTypes": 0,
+        "UnavailableTypes": 1,
+        "AvailabilityPercent": 0,
+        "AvgCostDifference": 0,
+        "HasCostData": false,
+        "AvgLatencyMs": 0,
+        "LatencyEstimated": false,
+        "MissingResourceTypes": [
+          "microsoft.compute/virtualmachines"
+        ],
+        "MissingSKUs": [],
+        "RestrictedSKUs": [],
+        "ZoneRestrictedSKUs": [],
+        "TotalSKUsChecked": 0,
+        "AvailableSKUs": 0,
+        "UnavailableSKUs": 0,
+        "UnknownSKUs": 0,
+        "SKUAvailabilityPercent": 0,
+        "SourceZoneCount": 0,
+        "TargetZoneCount": 0,
+        "TargetZoneMappings": null,
+        "Score": 0
+      }
+    ],
+    "CallerPanicked": false,
+    "CallerRequests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ]
+  },
+  "normalization": {
+    "Cache": {
+      "Data": {
+        "microsoft.compute": {
+          "virtualmachines": {
+            "westeurope": {}
+          }
+        }
+      }
+    },
+    "Failed": false,
+    "Panicked": false,
+    "Requests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "RawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRows": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic",
+        "SourceRegion": "eastus",
+        "TargetRegion": "westeurope",
+        "SourceResourceTypeCount": 1,
+        "AvailableTypes": 1,
+        "UnavailableTypes": 0,
+        "AvailabilityPercent": 100,
+        "AvgCostDifference": 0,
+        "HasCostData": false,
+        "AvgLatencyMs": 0,
+        "LatencyEstimated": false,
+        "MissingResourceTypes": [],
+        "MissingSKUs": [],
+        "RestrictedSKUs": [],
+        "ZoneRestrictedSKUs": [],
+        "TotalSKUsChecked": 0,
+        "AvailableSKUs": 0,
+        "UnavailableSKUs": 0,
+        "UnknownSKUs": 0,
+        "SKUAvailabilityPercent": 0,
+        "SourceZoneCount": 0,
+        "TargetZoneCount": 0,
+        "TargetZoneMappings": null,
+        "Score": 0
+      }
+    ],
+    "CallerPanicked": false,
+    "CallerRequests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ]
+  },
+  "null-envelope": {
+    "Cache": {
+      "Data": {}
+    },
+    "Failed": false,
+    "Panicked": false,
+    "Requests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "RawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRows": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic",
+        "SourceRegion": "eastus",
+        "TargetRegion": "westeurope",
+        "SourceResourceTypeCount": 1,
+        "AvailableTypes": 0,
+        "UnavailableTypes": 1,
+        "AvailabilityPercent": 0,
+        "AvgCostDifference": 0,
+        "HasCostData": false,
+        "AvgLatencyMs": 0,
+        "LatencyEstimated": false,
+        "MissingResourceTypes": [
+          "microsoft.compute/virtualmachines"
+        ],
+        "MissingSKUs": [],
+        "RestrictedSKUs": [],
+        "ZoneRestrictedSKUs": [],
+        "TotalSKUsChecked": 0,
+        "AvailableSKUs": 0,
+        "UnavailableSKUs": 0,
+        "UnknownSKUs": 0,
+        "SKUAvailabilityPercent": 0,
+        "SourceZoneCount": 0,
+        "TargetZoneCount": 0,
+        "TargetZoneMappings": null,
+        "Score": 0
+      }
+    ],
+    "CallerPanicked": false,
+    "CallerRequests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ]
+  },
+  "null-location": {
+    "Cache": {
+      "Data": {
+        "microsoft.compute": {
+          "virtualmachines": {
+            "westeurope": {}
+          }
+        }
+      }
+    },
+    "Failed": false,
+    "Panicked": false,
+    "Requests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "RawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRows": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic",
+        "SourceRegion": "eastus",
+        "TargetRegion": "westeurope",
+        "SourceResourceTypeCount": 1,
+        "AvailableTypes": 1,
+        "UnavailableTypes": 0,
+        "AvailabilityPercent": 100,
+        "AvgCostDifference": 0,
+        "HasCostData": false,
+        "AvgLatencyMs": 0,
+        "LatencyEstimated": false,
+        "MissingResourceTypes": [],
+        "MissingSKUs": [],
+        "RestrictedSKUs": [],
+        "ZoneRestrictedSKUs": [],
+        "TotalSKUsChecked": 0,
+        "AvailableSKUs": 0,
+        "UnavailableSKUs": 0,
+        "UnknownSKUs": 0,
+        "SKUAvailabilityPercent": 0,
+        "SourceZoneCount": 0,
+        "TargetZoneCount": 0,
+        "TargetZoneMappings": null,
+        "Score": 0
+      }
+    ],
+    "CallerPanicked": false,
+    "CallerRequests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ]
+  },
+  "null-locations": {
+    "Cache": {
+      "Data": {
+        "microsoft.compute": {
+          "virtualmachines": {}
+        }
+      }
+    },
+    "Failed": false,
+    "Panicked": false,
+    "Requests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "RawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRows": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic",
+        "SourceRegion": "eastus",
+        "TargetRegion": "westeurope",
+        "SourceResourceTypeCount": 1,
+        "AvailableTypes": 0,
+        "UnavailableTypes": 1,
+        "AvailabilityPercent": 0,
+        "AvgCostDifference": 0,
+        "HasCostData": false,
+        "AvgLatencyMs": 0,
+        "LatencyEstimated": false,
+        "MissingResourceTypes": [
+          "microsoft.compute/virtualmachines"
+        ],
+        "MissingSKUs": [],
+        "RestrictedSKUs": [],
+        "ZoneRestrictedSKUs": [],
+        "TotalSKUsChecked": 0,
+        "AvailableSKUs": 0,
+        "UnavailableSKUs": 0,
+        "UnknownSKUs": 0,
+        "SKUAvailabilityPercent": 0,
+        "SourceZoneCount": 0,
+        "TargetZoneCount": 0,
+        "TargetZoneMappings": null,
+        "Score": 0
+      }
+    ],
+    "CallerPanicked": false,
+    "CallerRequests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ]
+  },
+  "null-namespace": {
+    "Cache": {
+      "Data": {}
+    },
+    "Failed": false,
+    "Panicked": false,
+    "Requests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "RawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRows": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic",
+        "SourceRegion": "eastus",
+        "TargetRegion": "westeurope",
+        "SourceResourceTypeCount": 1,
+        "AvailableTypes": 0,
+        "UnavailableTypes": 1,
+        "AvailabilityPercent": 0,
+        "AvgCostDifference": 0,
+        "HasCostData": false,
+        "AvgLatencyMs": 0,
+        "LatencyEstimated": false,
+        "MissingResourceTypes": [
+          "microsoft.compute/virtualmachines"
+        ],
+        "MissingSKUs": [],
+        "RestrictedSKUs": [],
+        "ZoneRestrictedSKUs": [],
+        "TotalSKUsChecked": 0,
+        "AvailableSKUs": 0,
+        "UnavailableSKUs": 0,
+        "UnknownSKUs": 0,
+        "SKUAvailabilityPercent": 0,
+        "SourceZoneCount": 0,
+        "TargetZoneCount": 0,
+        "TargetZoneMappings": null,
+        "Score": 0
+      }
+    ],
+    "CallerPanicked": false,
+    "CallerRequests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ]
+  },
+  "null-provider": {
+    "Cache": null,
+    "Failed": false,
+    "Panicked": true,
+    "Requests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "RawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRows": null,
+    "CallerPanicked": true,
+    "CallerRequests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ]
+  },
+  "null-resource-types": {
+    "Cache": {
+      "Data": {}
+    },
+    "Failed": false,
+    "Panicked": false,
+    "Requests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "RawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRows": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic",
+        "SourceRegion": "eastus",
+        "TargetRegion": "westeurope",
+        "SourceResourceTypeCount": 1,
+        "AvailableTypes": 0,
+        "UnavailableTypes": 1,
+        "AvailabilityPercent": 0,
+        "AvgCostDifference": 0,
+        "HasCostData": false,
+        "AvgLatencyMs": 0,
+        "LatencyEstimated": false,
+        "MissingResourceTypes": [
+          "microsoft.compute/virtualmachines"
+        ],
+        "MissingSKUs": [],
+        "RestrictedSKUs": [],
+        "ZoneRestrictedSKUs": [],
+        "TotalSKUsChecked": 0,
+        "AvailableSKUs": 0,
+        "UnavailableSKUs": 0,
+        "UnknownSKUs": 0,
+        "SKUAvailabilityPercent": 0,
+        "SourceZoneCount": 0,
+        "TargetZoneCount": 0,
+        "TargetZoneMappings": null,
+        "Score": 0
+      }
+    ],
+    "CallerPanicked": false,
+    "CallerRequests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ]
+  },
+  "null-type": {
+    "Cache": null,
+    "Failed": false,
+    "Panicked": true,
+    "Requests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "RawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRows": null,
+    "CallerPanicked": true,
+    "CallerRequests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ]
+  },
+  "null-value": {
+    "Cache": {
+      "Data": {}
+    },
+    "Failed": false,
+    "Panicked": false,
+    "Requests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "RawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRows": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic",
+        "SourceRegion": "eastus",
+        "TargetRegion": "westeurope",
+        "SourceResourceTypeCount": 1,
+        "AvailableTypes": 0,
+        "UnavailableTypes": 1,
+        "AvailabilityPercent": 0,
+        "AvgCostDifference": 0,
+        "HasCostData": false,
+        "AvgLatencyMs": 0,
+        "LatencyEstimated": false,
+        "MissingResourceTypes": [
+          "microsoft.compute/virtualmachines"
+        ],
+        "MissingSKUs": [],
+        "RestrictedSKUs": [],
+        "ZoneRestrictedSKUs": [],
+        "TotalSKUsChecked": 0,
+        "AvailableSKUs": 0,
+        "UnavailableSKUs": 0,
+        "UnknownSKUs": 0,
+        "SKUAvailabilityPercent": 0,
+        "SourceZoneCount": 0,
+        "TargetZoneCount": 0,
+        "TargetZoneMappings": null,
+        "Score": 0
+      }
+    ],
+    "CallerPanicked": false,
+    "CallerRequests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ]
+  },
+  "paged": {
+    "Cache": {
+      "Data": {
+        "microsoft.compute": {
+          "virtualmachines": {
+            "westeurope": {}
+          }
+        },
+        "microsoft.storage": {
+          "storageaccounts": {
+            "eastus": {}
+          }
+        }
+      }
+    },
+    "Failed": false,
+    "Panicked": false,
+    "Requests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01",
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?%24skiptoken=synthetic-second\u0026api-version=2021-04-01"
+    ],
+    "RawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01",
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?%24skiptoken=synthetic-second\u0026api-version=2021-04-01"
+    ],
+    "CallerRows": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic",
+        "SourceRegion": "eastus",
+        "TargetRegion": "westeurope",
+        "SourceResourceTypeCount": 1,
+        "AvailableTypes": 1,
+        "UnavailableTypes": 0,
+        "AvailabilityPercent": 100,
+        "AvgCostDifference": 0,
+        "HasCostData": false,
+        "AvgLatencyMs": 0,
+        "LatencyEstimated": false,
+        "MissingResourceTypes": [],
+        "MissingSKUs": [],
+        "RestrictedSKUs": [],
+        "ZoneRestrictedSKUs": [],
+        "TotalSKUsChecked": 0,
+        "AvailableSKUs": 0,
+        "UnavailableSKUs": 0,
+        "UnknownSKUs": 0,
+        "SKUAvailabilityPercent": 0,
+        "SourceZoneCount": 0,
+        "TargetZoneCount": 0,
+        "TargetZoneMappings": null,
+        "Score": 0
+      }
+    ],
+    "CallerPanicked": false,
+    "CallerRequests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01",
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?%24skiptoken=synthetic-second\u0026api-version=2021-04-01"
+    ],
+    "CallerRawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01",
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?%24skiptoken=synthetic-second\u0026api-version=2021-04-01"
+    ]
+  },
+  "paged-overwrite": {
+    "Cache": {
+      "Data": {
+        "microsoft.compute": {
+          "virtualmachines": {
+            "eastus": {}
+          }
+        }
+      }
+    },
+    "Failed": false,
+    "Panicked": false,
+    "Requests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01",
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?%24skiptoken=synthetic-second\u0026api-version=2021-04-01"
+    ],
+    "RawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01",
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?%24skiptoken=synthetic-second\u0026api-version=2021-04-01"
+    ],
+    "CallerRows": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic",
+        "SourceRegion": "eastus",
+        "TargetRegion": "westeurope",
+        "SourceResourceTypeCount": 1,
+        "AvailableTypes": 0,
+        "UnavailableTypes": 1,
+        "AvailabilityPercent": 0,
+        "AvgCostDifference": 0,
+        "HasCostData": false,
+        "AvgLatencyMs": 0,
+        "LatencyEstimated": false,
+        "MissingResourceTypes": [
+          "microsoft.compute/virtualmachines"
+        ],
+        "MissingSKUs": [],
+        "RestrictedSKUs": [],
+        "ZoneRestrictedSKUs": [],
+        "TotalSKUsChecked": 0,
+        "AvailableSKUs": 0,
+        "UnavailableSKUs": 0,
+        "UnknownSKUs": 0,
+        "SKUAvailabilityPercent": 0,
+        "SourceZoneCount": 0,
+        "TargetZoneCount": 0,
+        "TargetZoneMappings": null,
+        "Score": 0
+      }
+    ],
+    "CallerPanicked": false,
+    "CallerRequests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01",
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?%24skiptoken=synthetic-second\u0026api-version=2021-04-01"
+    ],
+    "CallerRawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01",
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?%24skiptoken=synthetic-second\u0026api-version=2021-04-01"
+    ]
+  },
+  "relative-next": {
+    "Cache": null,
+    "Failed": true,
+    "Panicked": false,
+    "Requests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "RawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRows": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic",
+        "SourceRegion": "eastus",
+        "TargetRegion": "westeurope",
+        "SourceResourceTypeCount": 1,
+        "AvailableTypes": 0,
+        "UnavailableTypes": 1,
+        "AvailabilityPercent": 0,
+        "AvgCostDifference": 0,
+        "HasCostData": false,
+        "AvgLatencyMs": 0,
+        "LatencyEstimated": false,
+        "MissingResourceTypes": [
+          "microsoft.compute/virtualmachines"
+        ],
+        "MissingSKUs": [],
+        "RestrictedSKUs": [],
+        "ZoneRestrictedSKUs": [],
+        "TotalSKUsChecked": 0,
+        "AvailableSKUs": 0,
+        "UnavailableSKUs": 0,
+        "UnknownSKUs": 0,
+        "SKUAvailabilityPercent": 0,
+        "SourceZoneCount": 0,
+        "TargetZoneCount": 0,
+        "TargetZoneMappings": null,
+        "Score": 0
+      }
+    ],
+    "CallerPanicked": false,
+    "CallerRequests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ]
+  },
+  "unicode-namespace": {
+    "Cache": {
+      "Data": {
+        "microsoft.k": {
+          "widgets": {
+            "westeurope": {}
+          }
+        }
+      }
+    },
+    "Failed": false,
+    "Panicked": false,
+    "Requests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "RawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRows": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic",
+        "SourceRegion": "eastus",
+        "TargetRegion": "westeurope",
+        "SourceResourceTypeCount": 1,
+        "AvailableTypes": 0,
+        "UnavailableTypes": 1,
+        "AvailabilityPercent": 0,
+        "AvgCostDifference": 0,
+        "HasCostData": false,
+        "AvgLatencyMs": 0,
+        "LatencyEstimated": false,
+        "MissingResourceTypes": [
+          "microsoft.compute/virtualmachines"
+        ],
+        "MissingSKUs": [],
+        "RestrictedSKUs": [],
+        "ZoneRestrictedSKUs": [],
+        "TotalSKUsChecked": 0,
+        "AvailableSKUs": 0,
+        "UnavailableSKUs": 0,
+        "UnknownSKUs": 0,
+        "SKUAvailabilityPercent": 0,
+        "SourceZoneCount": 0,
+        "TargetZoneCount": 0,
+        "TargetZoneMappings": null,
+        "Score": 0
+      }
+    ],
+    "CallerPanicked": false,
+    "CallerRequests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ]
+  },
+  "wrong-locations": {
+    "Cache": null,
+    "Failed": true,
+    "Panicked": false,
+    "Requests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "RawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRows": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic",
+        "SourceRegion": "eastus",
+        "TargetRegion": "westeurope",
+        "SourceResourceTypeCount": 1,
+        "AvailableTypes": 0,
+        "UnavailableTypes": 1,
+        "AvailabilityPercent": 0,
+        "AvgCostDifference": 0,
+        "HasCostData": false,
+        "AvgLatencyMs": 0,
+        "LatencyEstimated": false,
+        "MissingResourceTypes": [
+          "microsoft.compute/virtualmachines"
+        ],
+        "MissingSKUs": [],
+        "RestrictedSKUs": [],
+        "ZoneRestrictedSKUs": [],
+        "TotalSKUsChecked": 0,
+        "AvailableSKUs": 0,
+        "UnavailableSKUs": 0,
+        "UnknownSKUs": 0,
+        "SKUAvailabilityPercent": 0,
+        "SourceZoneCount": 0,
+        "TargetZoneCount": 0,
+        "TargetZoneMappings": null,
+        "Score": 0
+      }
+    ],
+    "CallerPanicked": false,
+    "CallerRequests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ]
+  },
+  "wrong-value": {
+    "Cache": null,
+    "Failed": true,
+    "Panicked": false,
+    "Requests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "RawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRows": [
+      {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "SubscriptionName": "Synthetic",
+        "SourceRegion": "eastus",
+        "TargetRegion": "westeurope",
+        "SourceResourceTypeCount": 1,
+        "AvailableTypes": 0,
+        "UnavailableTypes": 1,
+        "AvailabilityPercent": 0,
+        "AvgCostDifference": 0,
+        "HasCostData": false,
+        "AvgLatencyMs": 0,
+        "LatencyEstimated": false,
+        "MissingResourceTypes": [
+          "microsoft.compute/virtualmachines"
+        ],
+        "MissingSKUs": [],
+        "RestrictedSKUs": [],
+        "ZoneRestrictedSKUs": [],
+        "TotalSKUsChecked": 0,
+        "AvailableSKUs": 0,
+        "UnavailableSKUs": 0,
+        "UnknownSKUs": 0,
+        "SKUAvailabilityPercent": 0,
+        "SourceZoneCount": 0,
+        "TargetZoneCount": 0,
+        "TargetZoneMappings": null,
+        "Score": 0
+      }
+    ],
+    "CallerPanicked": false,
+    "CallerRequests": [
+      "GET https://provider.capture.invalid/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ],
+    "CallerRawRequestURIs": [
+      "/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+    ]
+  }
+}

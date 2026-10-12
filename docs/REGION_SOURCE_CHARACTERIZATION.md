@@ -1,3 +1,45 @@
+# Provider source goldens and independent-control candidate, 2026-10-12
+
+Protected checkpoint PR13450f5bef8 is fully verified including distinct accepted
+native/source push. Provider preparation remains UNACCEPTED in
+[PR135](https://github.com/DeBoX85/Cloud-Assess/pull/135); no target collector/public
+region activation. Pre-edit contract9eef1740 was published/readback before code.
+
+Pilot2fc5f8f2 source38279390094/114912673260 FAILED only on missing required
+provider goldens after all nine harnesses/unchanged pinned source/APRL/modules/
+untracked guards/provenance. Original19 complete records185 contiguous chunks
+independently SHA256 reconstructed; old17 exact remote bytes/Git identities
+unchanged. FN109 preserves the failed strict retention as failed preparation.
+
+This candidate retains exact ORIGINAL input18091bytes/SHA256aba5e5eb67a149bdd5f297518688fc8cf8b0c8daa89d48238f1c0bbd5175c910
+and output83058bytes/SHA25639a534faaa08070ca42d2a30d5f071f13796d48b372364a872077357beb92500,
+not target-generated or reformatted oracles.48 independent literal cache/failure/
+panic/fullcaller comparisons match the observation in local Python. New Go
+source-cell tests and10 compiling named mutations/restored baselines run in both
+mandatory hosts; native compilation/execution remains pending this final head.
+
+Source behavior now explicitly records normalized last-write/empty-overwrite,
+namespace/type whitespace, ASCII-space-only location normalization/global,
+missing/null empty-success, null provider/type panics, lost prefix on later
+failure, SDK relative-continuation error, bounded stopped cycle and caller output
+after cancellation. Supported custom-cloud LOOPBACK TLS, verified fixture-only
+trust, fake token/audience and separately injected public SDK query were actually
+executed in the pilot. This is synthetic Linux source/SDK proof, not live Azure or
+Windows SDK-capture/runtime parity. All source/SDK/reference/toolchain/dependency/
+license/notice and original17goldens stay unchanged. Future target corrections
+remain a separate [contract obligation](REGION_PROVIDER_LOCATIONS.md).
+
+Exact next: inspect fresh final19-record whole-source equality plus complete
+Linux/Windows/source-cell/10mutations/existing controls/review/publication/Git
+tree/parents/identity/base/preview/protection; then protected expected-head merge
+and DISTINCT actual-merge accepted-push proof. No pilot/earlier native result
+transfers. Only after source-characterization acceptance begin target collection.
+Laptop/Azure unconfirmed; other adapters/coordinator/public/fullCost/live/load/
+freshOS/maintenance/Gate004/release/licensing/human gates stay open. No Azure
+writes/fixtures/roles/scope substitution/exposure/release. Lower entries are history.
+
+---
+
 # Provider source-harness pilot and verified checkpoint, 2026-10-12
 
 Checkpoint PR134 is VERIFIED OFFLINE at50f5bef8a0bb34a0717d5adc6f6fa44039ed62c6.

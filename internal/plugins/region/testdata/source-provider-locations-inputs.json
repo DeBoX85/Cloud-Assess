@@ -1,0 +1,579 @@
+{
+  "SourceBlob": "55e59b9e061dd31d27cc3446ad00659bd6961174",
+  "TypesBlob": "f9b61fb74075e5a2297be1b898067b8cb047f9b3",
+  "OptionsBlob": "73693e3730f5ed51132a552b79d5e95078721a10",
+  "CloudBlob": "9677ae498c8d22ebbc77a1fe3a47e17579f3c4d5",
+  "SDKModule": "github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/resources/armresources v1.2.0",
+  "AzcoreModule": "github.com/Azure/azure-sdk-for-go/sdk/azcore v1.23.1",
+  "SDKProvidersBlob": "e1612d16090a9a66c4b2bb9fa5697e7376263992",
+  "SDKDefaultTransportBlob": "928e9bf92550dcd83180b7fecff40b7a50fd7ff9",
+  "ExecutionMode": "original-source-custom-cloud-loopback-TLS; separate-public-SDK-injected-transport",
+  "TLSVerificationEnabled": true,
+  "DirectSDKDisableRPRegistration": true,
+  "DirectSDKMaxRetries": -1,
+  "PublicSDKRequests": [
+    "GET https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01"
+  ],
+  "Cases": {
+    "basic": {
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"namespace\":\"Microsoft.Compute\",\"resourceTypes\":[{\"locations\":[\"West Europe\"],\"resourceType\":\"virtualMachines\"}]}]}"
+        }
+      ],
+      "Cancelled": false,
+      "CycleLimit": 0,
+      "CancelAfter": 0
+    },
+    "cancelled": {
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[]}"
+        }
+      ],
+      "Cancelled": true,
+      "CycleLimit": 0,
+      "CancelAfter": 0
+    },
+    "case-field-alias": {
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"namespace\":\"Microsoft.Compute\",\"Namespace\":\"Microsoft.Other\",\"resourceTypes\":[{\"resourceType\":\"virtualMachines\",\"locations\":[\"West Europe\"]}]}]}"
+        }
+      ],
+      "Cancelled": false,
+      "CycleLimit": 0,
+      "CancelAfter": 0
+    },
+    "cycle-stopped": {
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"namespace\":\"Microsoft.Compute\",\"resourceTypes\":[{\"locations\":[\"West Europe\"],\"resourceType\":\"virtualMachines\"}]}],\"nextLink\":\"@BASE@/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01\"}"
+        }
+      ],
+      "Cancelled": false,
+      "CycleLimit": 3,
+      "CancelAfter": 0
+    },
+    "duplicate-field": {
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"namespace\":\"Microsoft.Other\",\"namespace\":\"Microsoft.Compute\",\"resourceTypes\":[{\"resourceType\":\"virtualMachines\",\"locations\":[\"West Europe\"]}]}]}"
+        }
+      ],
+      "Cancelled": false,
+      "CycleLimit": 0,
+      "CancelAfter": 0
+    },
+    "duplicate-to-empty": {
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"namespace\":\"Microsoft.Compute\",\"resourceTypes\":[{\"locations\":[\"West Europe\"],\"resourceType\":\"virtualMachines\"}]},{\"namespace\":\"Microsoft.Compute\",\"resourceTypes\":[{\"locations\":[],\"resourceType\":\"virtualMachines\"}]}]}"
+        }
+      ],
+      "Cancelled": false,
+      "CycleLimit": 0,
+      "CancelAfter": 0
+    },
+    "duplicate-type": {
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"namespace\":\"Microsoft.Compute\",\"resourceTypes\":[{\"locations\":[\"West Europe\"],\"resourceType\":\"virtualMachines\"}]},{\"namespace\":\"MICROSOFT.COMPUTE\",\"resourceTypes\":[{\"locations\":[\"East US\"],\"resourceType\":\"VIRTUALMACHINES\"}]}]}"
+        }
+      ],
+      "Cancelled": false,
+      "CycleLimit": 0,
+      "CancelAfter": 0
+    },
+    "empty": {
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[]}"
+        }
+      ],
+      "Cancelled": false,
+      "CycleLimit": 0,
+      "CancelAfter": 0
+    },
+    "empty-locations": {
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"namespace\":\"Microsoft.Compute\",\"resourceTypes\":[{\"locations\":[],\"resourceType\":\"virtualMachines\"}]}]}"
+        }
+      ],
+      "Cancelled": false,
+      "CycleLimit": 0,
+      "CancelAfter": 0
+    },
+    "empty-namespace": {
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"namespace\":\"\",\"resourceTypes\":[{\"locations\":[\"West Europe\"],\"resourceType\":\"virtualMachines\"}]}]}"
+        }
+      ],
+      "Cancelled": false,
+      "CycleLimit": 0,
+      "CancelAfter": 0
+    },
+    "empty-resource-types": {
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"namespace\":\"Microsoft.Compute\",\"resourceTypes\":[]}]}"
+        }
+      ],
+      "Cancelled": false,
+      "CycleLimit": 0,
+      "CancelAfter": 0
+    },
+    "empty-type": {
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"namespace\":\"Microsoft.Compute\",\"resourceTypes\":[{\"locations\":[\"West Europe\"],\"resourceType\":\"\"}]}]}"
+        }
+      ],
+      "Cancelled": false,
+      "CycleLimit": 0,
+      "CancelAfter": 0
+    },
+    "global": {
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"namespace\":\"Microsoft.Compute\",\"resourceTypes\":[{\"locations\":[\" Glo bal \"],\"resourceType\":\"virtualMachines\"}]}]}"
+        }
+      ],
+      "Cancelled": false,
+      "CycleLimit": 0,
+      "CancelAfter": 0
+    },
+    "http400": {
+      "Pages": [
+        {
+          "Status": 400,
+          "Body": "{\"error\":{\"code\":\"SyntheticProviderError\",\"message\":\"synthetic\"}}"
+        }
+      ],
+      "Cancelled": false,
+      "CycleLimit": 0,
+      "CancelAfter": 0
+    },
+    "http403": {
+      "Pages": [
+        {
+          "Status": 403,
+          "Body": "{\"error\":{\"code\":\"SyntheticProviderError\",\"message\":\"synthetic\"}}"
+        }
+      ],
+      "Cancelled": false,
+      "CycleLimit": 0,
+      "CancelAfter": 0
+    },
+    "http404": {
+      "Pages": [
+        {
+          "Status": 404,
+          "Body": "{\"error\":{\"code\":\"SyntheticProviderError\",\"message\":\"synthetic\"}}"
+        }
+      ],
+      "Cancelled": false,
+      "CycleLimit": 0,
+      "CancelAfter": 0
+    },
+    "http405": {
+      "Pages": [
+        {
+          "Status": 405,
+          "Body": "{\"error\":{\"code\":\"SyntheticProviderError\",\"message\":\"synthetic\"}}"
+        }
+      ],
+      "Cancelled": false,
+      "CycleLimit": 0,
+      "CancelAfter": 0
+    },
+    "key-whitespace": {
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"namespace\":\" Microsoft.Compute \",\"resourceTypes\":[{\"locations\":[\"West Europe\"],\"resourceType\":\" VirtualMachines \"}]}]}"
+        }
+      ],
+      "Cancelled": false,
+      "CycleLimit": 0,
+      "CancelAfter": 0
+    },
+    "later-cancelled": {
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"namespace\":\"Microsoft.Compute\",\"resourceTypes\":[{\"locations\":[\"West Europe\"],\"resourceType\":\"virtualMachines\"}]}],\"nextLink\":\"@BASE@/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01\u0026$skiptoken=synthetic-second\"}"
+        },
+        {
+          "Status": 200,
+          "Body": "{\"value\":[]}"
+        }
+      ],
+      "Cancelled": false,
+      "CycleLimit": 0,
+      "CancelAfter": 1
+    },
+    "later-http400": {
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"namespace\":\"Microsoft.Compute\",\"resourceTypes\":[{\"locations\":[\"West Europe\"],\"resourceType\":\"virtualMachines\"}]}],\"nextLink\":\"@BASE@/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01\u0026$skiptoken=synthetic-second\"}"
+        },
+        {
+          "Status": 400,
+          "Body": "{\"error\":{\"code\":\"SyntheticProviderError\",\"message\":\"synthetic\"}}"
+        }
+      ],
+      "Cancelled": false,
+      "CycleLimit": 0,
+      "CancelAfter": 0
+    },
+    "later-http403": {
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"namespace\":\"Microsoft.Compute\",\"resourceTypes\":[{\"locations\":[\"West Europe\"],\"resourceType\":\"virtualMachines\"}]}],\"nextLink\":\"@BASE@/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01\u0026$skiptoken=synthetic-second\"}"
+        },
+        {
+          "Status": 403,
+          "Body": "{\"error\":{\"code\":\"SyntheticProviderError\",\"message\":\"synthetic\"}}"
+        }
+      ],
+      "Cancelled": false,
+      "CycleLimit": 0,
+      "CancelAfter": 0
+    },
+    "later-http404": {
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"namespace\":\"Microsoft.Compute\",\"resourceTypes\":[{\"locations\":[\"West Europe\"],\"resourceType\":\"virtualMachines\"}]}],\"nextLink\":\"@BASE@/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01\u0026$skiptoken=synthetic-second\"}"
+        },
+        {
+          "Status": 404,
+          "Body": "{\"error\":{\"code\":\"SyntheticProviderError\",\"message\":\"synthetic\"}}"
+        }
+      ],
+      "Cancelled": false,
+      "CycleLimit": 0,
+      "CancelAfter": 0
+    },
+    "later-http405": {
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"namespace\":\"Microsoft.Compute\",\"resourceTypes\":[{\"locations\":[\"West Europe\"],\"resourceType\":\"virtualMachines\"}]}],\"nextLink\":\"@BASE@/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01\u0026$skiptoken=synthetic-second\"}"
+        },
+        {
+          "Status": 405,
+          "Body": "{\"error\":{\"code\":\"SyntheticProviderError\",\"message\":\"synthetic\"}}"
+        }
+      ],
+      "Cancelled": false,
+      "CycleLimit": 0,
+      "CancelAfter": 0
+    },
+    "later-malformed": {
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"namespace\":\"Microsoft.Compute\",\"resourceTypes\":[{\"locations\":[\"West Europe\"],\"resourceType\":\"virtualMachines\"}]}],\"nextLink\":\"@BASE@/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01\u0026$skiptoken=synthetic-second\"}"
+        },
+        {
+          "Status": 200,
+          "Body": "{\"value\":"
+        }
+      ],
+      "Cancelled": false,
+      "CycleLimit": 0,
+      "CancelAfter": 0
+    },
+    "location-whitespace": {
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"namespace\":\"Microsoft.Compute\",\"resourceTypes\":[{\"locations\":[\" EAST US \",\"West\\tEurope\",\"West Europe\"],\"resourceType\":\"virtualMachines\"}]}]}"
+        }
+      ],
+      "Cancelled": false,
+      "CycleLimit": 0,
+      "CancelAfter": 0
+    },
+    "malformed": {
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":"
+        }
+      ],
+      "Cancelled": false,
+      "CycleLimit": 0,
+      "CancelAfter": 0
+    },
+    "malformed-next": {
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"namespace\":\"Microsoft.Compute\",\"resourceTypes\":[{\"locations\":[\"West Europe\"],\"resourceType\":\"virtualMachines\"}]}],\"nextLink\":\"https://%invalid\"}"
+        }
+      ],
+      "Cancelled": false,
+      "CycleLimit": 0,
+      "CancelAfter": 0
+    },
+    "missing-locations": {
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"namespace\":\"Microsoft.Compute\",\"resourceTypes\":[{\"resourceType\":\"virtualMachines\"}]}]}"
+        }
+      ],
+      "Cancelled": false,
+      "CycleLimit": 0,
+      "CancelAfter": 0
+    },
+    "missing-namespace": {
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"resourceTypes\":[{\"resourceType\":\"virtualMachines\",\"locations\":[\"West Europe\"]}]}]}"
+        }
+      ],
+      "Cancelled": false,
+      "CycleLimit": 0,
+      "CancelAfter": 0
+    },
+    "missing-resource-types": {
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"namespace\":\"Microsoft.Compute\"}]}"
+        }
+      ],
+      "Cancelled": false,
+      "CycleLimit": 0,
+      "CancelAfter": 0
+    },
+    "missing-type": {
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"namespace\":\"Microsoft.Compute\",\"resourceTypes\":[{\"locations\":[\"West Europe\"]}]}]}"
+        }
+      ],
+      "Cancelled": false,
+      "CycleLimit": 0,
+      "CancelAfter": 0
+    },
+    "missing-value": {
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{}"
+        }
+      ],
+      "Cancelled": false,
+      "CycleLimit": 0,
+      "CancelAfter": 0
+    },
+    "nested-type": {
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"namespace\":\"Microsoft.Sql\",\"resourceTypes\":[{\"locations\":[\"West Europe\"],\"resourceType\":\"servers/databases\"}]}]}"
+        }
+      ],
+      "Cancelled": false,
+      "CycleLimit": 0,
+      "CancelAfter": 0
+    },
+    "normalization": {
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"namespace\":\"MICROSOFT.Compute\",\"resourceTypes\":[{\"locations\":[\" WEST EUROPE \",\"West  Europe\",\"westeurope\",null],\"resourceType\":\"VirtualMachines\"}]}]}"
+        }
+      ],
+      "Cancelled": false,
+      "CycleLimit": 0,
+      "CancelAfter": 0
+    },
+    "null-envelope": {
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "null"
+        }
+      ],
+      "Cancelled": false,
+      "CycleLimit": 0,
+      "CancelAfter": 0
+    },
+    "null-location": {
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"namespace\":\"Microsoft.Compute\",\"resourceTypes\":[{\"locations\":[null,\"West Europe\"],\"resourceType\":\"virtualMachines\"}]}]}"
+        }
+      ],
+      "Cancelled": false,
+      "CycleLimit": 0,
+      "CancelAfter": 0
+    },
+    "null-locations": {
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"namespace\":\"Microsoft.Compute\",\"resourceTypes\":[{\"locations\":null,\"resourceType\":\"virtualMachines\"}]}]}"
+        }
+      ],
+      "Cancelled": false,
+      "CycleLimit": 0,
+      "CancelAfter": 0
+    },
+    "null-namespace": {
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"namespace\":null,\"resourceTypes\":[]}]}"
+        }
+      ],
+      "Cancelled": false,
+      "CycleLimit": 0,
+      "CancelAfter": 0
+    },
+    "null-provider": {
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[null]}"
+        }
+      ],
+      "Cancelled": false,
+      "CycleLimit": 0,
+      "CancelAfter": 0
+    },
+    "null-resource-types": {
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"namespace\":\"Microsoft.Compute\",\"resourceTypes\":null}]}"
+        }
+      ],
+      "Cancelled": false,
+      "CycleLimit": 0,
+      "CancelAfter": 0
+    },
+    "null-type": {
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"namespace\":\"Microsoft.Compute\",\"resourceTypes\":[null]}]}"
+        }
+      ],
+      "Cancelled": false,
+      "CycleLimit": 0,
+      "CancelAfter": 0
+    },
+    "null-value": {
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":null}"
+        }
+      ],
+      "Cancelled": false,
+      "CycleLimit": 0,
+      "CancelAfter": 0
+    },
+    "paged": {
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"namespace\":\"Microsoft.Compute\",\"resourceTypes\":[{\"locations\":[\"West Europe\"],\"resourceType\":\"virtualMachines\"}]}],\"nextLink\":\"@BASE@/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01\u0026$skiptoken=synthetic-second\"}"
+        },
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"namespace\":\"Microsoft.Storage\",\"resourceTypes\":[{\"locations\":[\"East US\"],\"resourceType\":\"storageAccounts\"}]}]}"
+        }
+      ],
+      "Cancelled": false,
+      "CycleLimit": 0,
+      "CancelAfter": 0
+    },
+    "paged-overwrite": {
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"namespace\":\"Microsoft.Compute\",\"resourceTypes\":[{\"locations\":[\"West Europe\"],\"resourceType\":\"virtualMachines\"}]}],\"nextLink\":\"@BASE@/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01\u0026$skiptoken=synthetic-second\"}"
+        },
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"namespace\":\"Microsoft.Compute\",\"resourceTypes\":[{\"locations\":[\"East US\"],\"resourceType\":\"virtualMachines\"}]}]}"
+        }
+      ],
+      "Cancelled": false,
+      "CycleLimit": 0,
+      "CancelAfter": 0
+    },
+    "relative-next": {
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"namespace\":\"Microsoft.Compute\",\"resourceTypes\":[{\"locations\":[\"West Europe\"],\"resourceType\":\"virtualMachines\"}]}],\"nextLink\":\"/subscriptions/11111111-1111-1111-1111-111111111111/providers?api-version=2021-04-01\u0026$skiptoken=relative\"}"
+        }
+      ],
+      "Cancelled": false,
+      "CycleLimit": 0,
+      "CancelAfter": 0
+    },
+    "unicode-namespace": {
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"namespace\":\"Microsoft.K\",\"resourceTypes\":[{\"locations\":[\"West Europe\"],\"resourceType\":\"widgets\"}]}]}"
+        }
+      ],
+      "Cancelled": false,
+      "CycleLimit": 0,
+      "CancelAfter": 0
+    },
+    "wrong-locations": {
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":[{\"namespace\":\"Microsoft.Compute\",\"resourceTypes\":[{\"resourceType\":\"virtualMachines\",\"locations\":1}]}]}"
+        }
+      ],
+      "Cancelled": false,
+      "CycleLimit": 0,
+      "CancelAfter": 0
+    },
+    "wrong-value": {
+      "Pages": [
+        {
+          "Status": 200,
+          "Body": "{\"value\":\"wrong\"}"
+        }
+      ],
+      "Cancelled": false,
+      "CycleLimit": 0,
+      "CancelAfter": 0
+    }
+  }
+}

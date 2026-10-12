@@ -1,3 +1,28 @@
+# FN109: First provider observation failed strict missing-golden retention, 2026-10-12
+
+Pilot2fc5f8f2 source38279390094/job114912673260 FAILED at FileNotFoundError for
+source-provider-locations-inputs.json, as declared before execution. All nine
+harnesses (including48 provider cases) executed and source/APRL/module/untracked
+guards plus provenance/full19records185chunks were emitted first. Actual
+preview26d58f8b/treecc6055d1/ordered50f5bef8+2fc5f8f2/Go1.26.9/full794327-char
+log verified. The failed job is not a PASS or characterization acceptance.
+
+Independent reconstruction checks every contiguous chunk/SHA256 and unchanged
+old17 remote retained bytes/Git identities. New original input18091bytes hash
+aba5e5eb67a149bdd5f297518688fc8cf8b0c8daa89d48238f1c0bbd5175c910; output83058bytes
+hash39a534faaa08070ca42d2a30d5f071f13796d48b372364a872077357beb92500. Original
+source/TLS/public-SDK observations remain UNACCEPTED preparation until exact
+goldens, independent literals/controls and fresh complete source/native/review
+plus protected and distinct accepted-push evidence succeed.
+
+Retain original bytes after independent complete semantic review; do not patch
+source, weaken strict equality or skip absent records to turn the pilot green.
+First-observation preparation failure is distinct from compiler/fixture/SDK/product
+failure.48 manually authored independent cache/failure/panic/fullcaller literals
+matched all observed records in local Python; native Go controls remain pending.
+
+---
+
 # FN108: New manifest-loop test missed enclosing context, 2026-10-12
 
 After correcting FN107's local temporary directory, five of six new/existing
