@@ -1,3 +1,34 @@
+# Provider-location preparation and current acceptance state, 2026-10-12
+
+PR134 checkpoint merged through protected expected-head acceptance at
+50f5bef8a0bb34a0717d5adc6f6fa44039ed62c6, treeaef7b953f39838ad2038a4f8147eb2087b1331d3,
+ordered6bcbca46/d4079669 parents/Denis author/GitHub committer/valid signature/ref
+verified. Candidate native38107024764 (114374587395/114374587505) and
+source38107024755/114374587263 complete; full logs/all steps/22control identities/
+17records150chunks/full remote bytes/independent hashes verified. Automated
+marker6127681226 completed d407966 at2026-10-12T15:50:52.054590Z with no finding.
+DISTINCT accepted-push source38273385571/114892875823 completed with full17/150
+proof on actual50f5bef8; native38273385454/114892876293/114892876505 is still
+pending at this preparation. Verify [live PR134](https://github.com/DeBoX85/Cloud-Assess/pull/134)
+before dependent acceptance; no candidate transfer.
+
+New UNACCEPTED pre-edit [provider-location contract](REGION_PROVIDER_LOCATIONS.md)
+on feat/region-provider-locations is documentation preparation only. No source
+harness, golden or target production edit yet. The selected source/SDK transport
+seam has been inspected; hosted execution is pending, not claimed. Preserve original
+functions/SDK/pins and use bounded loopback TLS/synthetic credentials. Do not assume
+http.DefaultTransport intercepts the source SDK's separate default client.
+
+EXACT NEXT: complete checkpoint push proof, verify this published pre-edit contract,
+then isolated original-source provider capture/goldens/literal named controls before
+target collector code. Other region adapters/coordinator/public paths remain
+separate; accepted audit/calculations/quota/reservation/security work is not repeated.
+No restored laptop/Azure access, Azure writes/roles/fixtures/scope substitution,
+exposure/release/live/load/Gate004 or independent-person approval is inferred.
+Earlier checkpoints below are historical and superseded by current live evidence.
+
+---
+
 # Current verified security and next-work authority, 2026-10-11
 
 Security/handover recovery [PR133](https://github.com/DeBoX85/Cloud-Assess/pull/133)
