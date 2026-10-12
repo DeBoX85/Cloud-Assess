@@ -1,3 +1,123 @@
+# Provider source goldens and independent-control candidate, 2026-10-12
+
+Protected checkpoint PR13450f5bef8 is fully verified including distinct accepted
+native/source push. Provider preparation remains UNACCEPTED in
+[PR135](https://github.com/DeBoX85/Cloud-Assess/pull/135); no target collector/public
+region activation. Pre-edit contract9eef1740 was published/readback before code.
+
+Pilot2fc5f8f2 source38279390094/114912673260 FAILED only on missing required
+provider goldens after all nine harnesses/unchanged pinned source/APRL/modules/
+untracked guards/provenance. Original19 complete records185 contiguous chunks
+independently SHA256 reconstructed; old17 exact remote bytes/Git identities
+unchanged. FN109 preserves the failed strict retention as failed preparation.
+
+This candidate retains exact ORIGINAL input18091bytes/SHA256aba5e5eb67a149bdd5f297518688fc8cf8b0c8daa89d48238f1c0bbd5175c910
+and output83058bytes/SHA25639a534faaa08070ca42d2a30d5f071f13796d48b372364a872077357beb92500,
+not target-generated or reformatted oracles.48 independent literal cache/failure/
+panic/fullcaller comparisons match the observation in local Python. New Go
+source-cell tests and10 compiling named mutations/restored baselines run in both
+mandatory hosts; native compilation/execution remains pending this final head.
+
+Source behavior now explicitly records normalized last-write/empty-overwrite,
+namespace/type whitespace, ASCII-space-only location normalization/global,
+missing/null empty-success, null provider/type panics, lost prefix on later
+failure, SDK relative-continuation error, bounded stopped cycle and caller output
+after cancellation. Supported custom-cloud LOOPBACK TLS, verified fixture-only
+trust, fake token/audience and separately injected public SDK query were actually
+executed in the pilot. This is synthetic Linux source/SDK proof, not live Azure or
+Windows SDK-capture/runtime parity. All source/SDK/reference/toolchain/dependency/
+license/notice and original17goldens stay unchanged. Future target corrections
+remain a separate [contract obligation](REGION_PROVIDER_LOCATIONS.md).
+
+Exact next: inspect fresh final19-record whole-source equality plus complete
+Linux/Windows/source-cell/10mutations/existing controls/review/publication/Git
+tree/parents/identity/base/preview/protection; then protected expected-head merge
+and DISTINCT actual-merge accepted-push proof. No pilot/earlier native result
+transfers. Only after source-characterization acceptance begin target collection.
+Laptop/Azure unconfirmed; other adapters/coordinator/public/fullCost/live/load/
+freshOS/maintenance/Gate004/release/licensing/human gates stay open. No Azure
+writes/fixtures/roles/scope substitution/exposure/release. Lower entries are history.
+
+---
+
+# Provider source-harness pilot and verified checkpoint, 2026-10-12
+
+Checkpoint PR134 is VERIFIED OFFLINE at50f5bef8a0bb34a0717d5adc6f6fa44039ed62c6.
+Final candidate and DISTINCT accepted-push native38273385454
+(quality114892876293/Windows114892876505) and source38273385571/114892875823
+completed on actual50f5bef8 with full logs/steps/22control identities/17records/
+150chunks/current remote bytes/independent hashes/merge/ref/identity verified.
+Read [PR134](https://github.com/DeBoX85/Cloud-Assess/pull/134); do not repeat it.
+
+UNACCEPTED provider source pilot on feat/region-provider-locations follows the
+pre-edit [contract](REGION_PROVIDER_LOCATIONS.md) published/readback at
+9eef17408269115a0d4eb84d01ca4e8958d2e953/tree4b410083/sole parent50f5bef8 BEFORE
+harness edits. New retained .go.txt invokes original fetchAllProviders and its
+caller through supported custom-cloud LOOPBACK TLS with fake credentials and
+a restricted fixture certificate. Public SDK request separately uses an injected
+transport. Production source/SDK/module/APRL/reference bytes stay untouched.
+
+New runner requires nine harnesses and19 records (old17 plus two provider files),
+emits complete raw records/provenance before strict byte equality, and NEVER
+skips missing provider goldens. The initial observation pilot deliberately has
+no retained provider goldens yet: after successful harness execution its source
+job will FAIL at missing required bytes, not become acceptance. If compilation/
+TLS/fixture setup fails sooner, classify the actual failure; do not infer records.
+No source/provider-runtime validation has occurred yet. Exact raw retention,
+independent semantic/hash review and new literal native source-cell controls are
+pending. Existing byte guard now tests exact19 manifest/full unconditional loop
+and compiling omissions/subsets as well as its original byte assertions.
+
+Local Python guard initially failed six setups/cleanup because default sandbox
+temporary storage was unwritable; redirected ONLY local invocation to a checked
+workspace temp directory, with source/hosted guard unchanged (FN107). The new loop selector initially missed its enclosing context,
+then was corrected with six assertions/three compiling controls restored (FN108).
+Go is absent locally. New source .go.txt compilation/TLS/SDK behavior remains
+hosted proof pending, not a fresh local Go or Windows SDK-capture claim.
+
+EXACT NEXT: observe this pilot's complete source result, classify any real failure,
+reassemble original synthetic records only as UNACCEPTED preparation, verify pins/
+unchanged source/SDK/old17 goldens/all raw chunks, then retain independently
+reviewed exact new goldens and add literal source-native controls. Require fresh
+complete final-head source/Linux/Windows/review/protected/accepted-push proof
+before source-characterization acceptance; only then target collector code.
+Public region-selection/other adapters/laptop/Azure/live/load/freshOS/Gate004/
+release/licensing/independent-person gates remain open. No Azure resources/
+fixtures/roles/scope substitution/exposure/release. Old entries below are history.
+
+---
+
+# Provider-location preparation and current acceptance state, 2026-10-12
+
+PR134 checkpoint merged through protected expected-head acceptance at
+50f5bef8a0bb34a0717d5adc6f6fa44039ed62c6, treeaef7b953f39838ad2038a4f8147eb2087b1331d3,
+ordered6bcbca46/d4079669 parents/Denis author/GitHub committer/valid signature/ref
+verified. Candidate native38107024764 (114374587395/114374587505) and
+source38107024755/114374587263 complete; full logs/all steps/22control identities/
+17records150chunks/full remote bytes/independent hashes verified. Automated
+marker6127681226 completed d407966 at2026-10-12T15:50:52.054590Z with no finding.
+DISTINCT accepted-push source38273385571/114892875823 completed with full17/150
+proof on actual50f5bef8; native38273385454/114892876293/114892876505 is still
+pending at this preparation. Verify [live PR134](https://github.com/DeBoX85/Cloud-Assess/pull/134)
+before dependent acceptance; no candidate transfer.
+
+New UNACCEPTED pre-edit [provider-location contract](REGION_PROVIDER_LOCATIONS.md)
+on feat/region-provider-locations is documentation preparation only. No source
+harness, golden or target production edit yet. The selected source/SDK transport
+seam has been inspected; hosted execution is pending, not claimed. Preserve original
+functions/SDK/pins and use bounded loopback TLS/synthetic credentials. Do not assume
+http.DefaultTransport intercepts the source SDK's separate default client.
+
+EXACT NEXT: complete checkpoint push proof, verify this published pre-edit contract,
+then isolated original-source provider capture/goldens/literal named controls before
+target collector code. Other region adapters/coordinator/public paths remain
+separate; accepted audit/calculations/quota/reservation/security work is not repeated.
+No restored laptop/Azure access, Azure writes/roles/fixtures/scope substitution,
+exposure/release/live/load/Gate004 or independent-person approval is inferred.
+Earlier checkpoints below are historical and superseded by current live evidence.
+
+---
+
 # Current verified security and next-work authority, 2026-10-11
 
 Security/handover recovery [PR133](https://github.com/DeBoX85/Cloud-Assess/pull/133)

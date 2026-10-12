@@ -1,3 +1,69 @@
+# FN109: First provider observation failed strict missing-golden retention, 2026-10-12
+
+Pilot2fc5f8f2 source38279390094/job114912673260 FAILED at FileNotFoundError for
+source-provider-locations-inputs.json, as declared before execution. All nine
+harnesses (including48 provider cases) executed and source/APRL/module/untracked
+guards plus provenance/full19records185chunks were emitted first. Actual
+preview26d58f8b/treecc6055d1/ordered50f5bef8+2fc5f8f2/Go1.26.9/full794327-char
+log verified. The failed job is not a PASS or characterization acceptance.
+
+Independent reconstruction checks every contiguous chunk/SHA256 and unchanged
+old17 remote retained bytes/Git identities. New original input18091bytes hash
+aba5e5eb67a149bdd5f297518688fc8cf8b0c8daa89d48238f1c0bbd5175c910; output83058bytes
+hash39a534faaa08070ca42d2a30d5f071f13796d48b372364a872077357beb92500. Original
+source/TLS/public-SDK observations remain UNACCEPTED preparation until exact
+goldens, independent literals/controls and fresh complete source/native/review
+plus protected and distinct accepted-push evidence succeed.
+
+Retain original bytes after independent complete semantic review; do not patch
+source, weaken strict equality or skip absent records to turn the pilot green.
+First-observation preparation failure is distinct from compiler/fixture/SDK/product
+failure.48 manually authored independent cache/failure/panic/fullcaller literals
+matched all observed records in local Python; native Go controls remain pending.
+
+---
+
+# FN108: New manifest-loop test missed enclosing context, 2026-10-12
+
+After correcting FN107's local temporary directory, five of six new/existing
+Python guard assertions passed but the new full-file-loop assertion failed:
+it searched only top-level tree.body, while the real unconditional FILES guard
+loop is inside the existing TemporaryDirectory context. This was a confirmed
+new test-selection mistake, not a production/source-guard regression.
+
+Inspected the actual runner and corrected both positive and compiling-subset
+test selectors to ast.walk(tree). Preserve the real unconditional single-call/
+complete19manifest requirements. Corrected baseline all six assertions PASS;
+disabled-byte-guard, omitted-provider-manifest and guarded-subset compiling
+controls each fail their named assertion, followed by restored six PASS.
+No source/SDK/pin/byte comparison/security rule was weakened.
+
+Prevention: inspect real AST nesting before selecting nodes. A false positive
+test failure is still a failure; neither its five passing assertions nor a
+compiling mutant alone qualifies the complete check.
+
+---
+
+# FN107: Local capture-guard temporary directory denied, 2026-10-12
+
+The first local expanded Python byte-guard run failed in all six setUp/cleanup
+operations because Python selected the sandbox package AC/Temp directory outside
+the writable task workspace. PermissionError occurred before named assertion
+bodies; the failed run provided no byte/manifest/control proof and is not a
+product or hosted native/source failure.
+
+Redirected only the LOCAL invocation's tempfile.tempdir to the resolved, checked
+scratch/provider-source-check/tmp beneath this workspace. Did not alter the
+product/hosted guard or loosen any assertion. The corrected local run's actual
+result is recorded in the current proposal. Preserve the initial error output;
+no broader temp deletion, escalation or unrelated cleanup was attempted.
+
+Prevention: inventory actual runtime temp resolution and use a verified task-owned
+temporary directory for local helper checks. Local Python validation cannot
+certify unavailable Go, SDK/TLS source execution or Windows hosted behavior.
+
+---
+
 # FN106: Automatically incorporated handover PR disposition, 2026-10-11
 
 PR133 included PR132 tip/history and merged through the protected expected-head

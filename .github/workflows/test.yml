@@ -72,6 +72,8 @@ jobs:
         run: python3 scripts/tests/region-vm-quota-capture-mutation.py
       - name: Reservation SDK source oracle compiling controls
         run: python3 scripts/tests/region-reservation-capture-mutation.py
+      - name: Provider locations source oracle compiling controls
+        run: python3 scripts/tests/region-provider-locations-capture-mutation.py
 
       - name: Verify formatting
         shell: bash
@@ -317,6 +319,8 @@ jobs:
         run: python scripts/tests/region-vm-quota-capture-mutation.py
       - name: Reservation SDK source oracle compiling controls
         run: python scripts/tests/region-reservation-capture-mutation.py
+      - name: Provider locations source oracle compiling controls
+        run: python scripts/tests/region-provider-locations-capture-mutation.py
 
       - name: Test Go packages on Windows
         run: go test ./...
