@@ -1,0 +1,358 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+// Exercise unchanged pinned provider functions through the supported custom cloud.
+package availability
+
+import (
+	"context"
+	"crypto/sha1"
+	"crypto/x509"
+	"encoding/json"
+	"encoding/pem"
+	"fmt"
+	"io"
+	"net/http"
+	"net/http/httptest"
+	"os"
+	"path/filepath"
+	"reflect"
+	"strings"
+	"sync"
+	"testing"
+	"time"
+
+	"github.com/Azure/azqr/internal/scanners/plugins/region/types"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/arm"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
+	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/resources/armresources"
+)
+
+const providerSubscription = "11111111-1111-1111-1111-111111111111"
+const providerAudience = "https://provider.capture.invalid"
+const providerPath = "/subscriptions/" + providerSubscription + "/providers"
+const providerStart = providerPath + "?api-version=2021-04-01"
+
+type providerCaptureCredential struct {
+	t *testing.T
+	scope string
+}
+
+func (c providerCaptureCredential) GetToken(ctx context.Context, options policy.TokenRequestOptions) (azcore.AccessToken, error) {
+	if err := ctx.Err(); err != nil {
+		return azcore.AccessToken{}, err
+	}
+	if !reflect.DeepEqual(options.Scopes, []string{c.scope}) {
+		c.t.Fatal("provider synthetic audience mismatch")
+	}
+	return azcore.AccessToken{Token: "synthetic-provider-canary", ExpiresOn: time.Now().Add(time.Hour)}, nil
+}
+
+type providerCapturePage struct {
+	Status int
+	Body string
+}
+
+type providerCaptureCase struct {
+	Pages []providerCapturePage
+	Cancelled bool
+	CycleLimit int
+	CancelAfter int
+}
+
+type providerCaptureResult struct {
+	Cache *types.ResourceTypeLocationData
+	Failed bool
+	Panicked bool
+	Requests []string
+	RawRequestURIs []string
+	CallerRows []types.RegionComparison
+	CallerPanicked bool
+	CallerRequests []string
+	CallerRawRequestURIs []string
+}
+
+type providerCaptureFixture struct {
+	t *testing.T
+	mu sync.Mutex
+	current providerCaptureCase
+	requests []string
+	raw []string
+	base string
+	cancel context.CancelFunc
+}
+
+func (f *providerCaptureFixture) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	f.mu.Lock()
+	defer f.mu.Unlock()
+	f.requests = append(f.requests, r.Method+" "+providerAudience+r.URL.String())
+	f.raw = append(f.raw, r.RequestURI)
+	i := len(f.requests)-1
+	if r.Method != "GET" || r.Header.Get("Authorization") != "Bearer synthetic-provider-canary" || (r.Body != nil && r.ContentLength != 0) {
+		f.t.Error("unexpected provider synthetic method/body/token")
+		http.Error(w, "synthetic request tripwire", http.StatusBadRequest)
+		return
+	}
+	if r.URL.Path != providerPath || r.URL.Query().Get("api-version") != "2021-04-01" || r.URL.Query().Has("$expand") {
+		f.t.Error("unexpected provider synthetic path/query")
+		http.Error(w, "synthetic path tripwire", http.StatusBadRequest)
+		return
+	}
+	if f.current.CycleLimit > 0 && i >= f.current.CycleLimit {
+		w.Header().Set("Content-Type", "application/json")
+		w.WriteHeader(http.StatusBadRequest)
+		_, _ = io.WriteString(w, "{\"error\":{\"code\":\"SyntheticCycleStopped\",\"message\":\"synthetic\"}}")
+		return
+	}
+	if f.current.CycleLimit == 0 && i >= len(f.current.Pages) {
+		f.t.Error("unexpected provider synthetic page request")
+		http.Error(w, "synthetic page tripwire", http.StatusBadRequest)
+		return
+	}
+	pageIndex := i
+	if f.current.CycleLimit > 0 {
+		pageIndex = 0
+	}
+	p := f.current.Pages[pageIndex]
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(p.Status)
+	_, _ = io.WriteString(w, strings.ReplaceAll(p.Body, "@BASE@", f.base))
+	if f.current.CancelAfter > 0 && i+1 == f.current.CancelAfter {
+		f.cancel()
+	}
+}
+
+func (f *providerCaptureFixture) reset(c providerCaptureCase, cancel context.CancelFunc) {
+	f.mu.Lock()
+	defer f.mu.Unlock()
+	f.current = c
+	f.cancel = cancel
+	f.requests = []string{}
+	f.raw = []string{}
+}
+
+func (f *providerCaptureFixture) observations() ([]string, []string) {
+	f.mu.Lock()
+	defer f.mu.Unlock()
+	return append([]string{}, f.requests...), append([]string{}, f.raw...)
+}
+
+type providerPublicTransport struct {
+	t *testing.T
+	requests []string
+}
+
+func (f *providerPublicTransport) Do(r *http.Request) (*http.Response, error) {
+	want := "https://management.azure.com"+providerStart
+	if r.Method != "GET" || r.URL.String() != want || r.Body != nil || r.Header.Get("Authorization") != "Bearer synthetic-provider-canary" {
+		f.t.Fatal("unexpected public SDK provider request")
+	}
+	f.requests = append(f.requests, r.Method+" "+r.URL.String())
+	return &http.Response{StatusCode: http.StatusOK, Header: http.Header{"Content-Type": []string{"application/json"}}, Body: io.NopCloser(strings.NewReader("{\"value\":[]}")), Request: r}, nil
+}
+
+func providerCaptureBlob(t *testing.T, path, want string) {
+	t.Helper()
+	raw, err := os.ReadFile(path)
+	if err != nil {
+		t.Fatal(err)
+	}
+	hash := sha1.Sum(append([]byte(fmt.Sprintf("blob %d\x00", len(raw))), raw...))
+	if fmt.Sprintf("%x", hash) != want {
+		t.Fatal("provider source blob mismatch", path)
+	}
+}
+
+func TestRegionProviderLocationsCapture(t *testing.T) {
+	output := os.Getenv("REGION_PROVIDER_LOCATIONS_CAPTURE_OUTPUT")
+	if output == "" {
+		t.Fatal("missing provider capture output")
+	}
+	providerCaptureBlob(t, "availability.go", "55e59b9e061dd31d27cc3446ad00659bd6961174")
+	providerCaptureBlob(t, "../types/types.go", "f9b61fb74075e5a2297be1b898067b8cb047f9b3")
+	providerCaptureBlob(t, "../../../../az/client_options.go", "73693e3730f5ed51132a552b79d5e95078721a10")
+	providerCaptureBlob(t, "../../../../az/cred.go", "9677ae498c8d22ebbc77a1fe3a47e17579f3c4d5")
+	fixture := &providerCaptureFixture{t: t}
+	server := httptest.NewTLSServer(fixture)
+	defer server.Close()
+	fixture.base = server.URL
+	pemBytes := pem.EncodeToMemory(&pem.Block{Type: "CERTIFICATE", Bytes: server.Certificate().Raw})
+	certFile := filepath.Join(t.TempDir(), "fixture.pem")
+	if err := os.WriteFile(certFile, pemBytes, 0600); err != nil {
+		t.Fatal(err)
+	}
+	t.Setenv("SSL_CERT_FILE", certFile)
+	t.Setenv("SSL_CERT_DIR", t.TempDir())
+	t.Setenv("AZURE_AUTHORITY_HOST", "https://authority.capture.invalid/")
+	t.Setenv("AZURE_RESOURCE_MANAGER_ENDPOINT", server.URL)
+	t.Setenv("AZURE_RESOURCE_MANAGER_AUDIENCE", providerAudience)
+	t.Setenv("AZURE_CLOUD", "")
+	t.Setenv("HTTP_PROXY", "")
+	t.Setenv("HTTPS_PROXY", "")
+	t.Setenv("ALL_PROXY", "")
+	t.Setenv("NO_PROXY", "")
+	roots, err := x509.SystemCertPool()
+	wantRoots := x509.NewCertPool()
+	if err != nil || !wantRoots.AppendCertsFromPEM(pemBytes) || !roots.Equal(wantRoots) {
+		t.Fatal("provider fixture trust is not restricted to its certificate")
+	}
+	if _, err = server.Certificate().Verify(x509.VerifyOptions{Roots: roots, DNSName: "127.0.0.1"}); err != nil {
+		t.Fatal("provider loopback certificate verification failed")
+	}
+	public := &providerPublicTransport{t: t, requests: []string{}}
+	client, err := armresources.NewProvidersClient(providerSubscription, providerCaptureCredential{t, "https://management.core.windows.net//.default"}, &arm.ClientOptions{
+		ClientOptions: policy.ClientOptions{Transport: public, Retry: policy.RetryOptions{MaxRetries: -1}},
+		DisableRPRegistration: true,
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if _, err = client.NewListPager(nil).NextPage(context.Background()); err != nil || len(public.requests) != 1 {
+		t.Fatal("public SDK provider request fixture failed")
+	}
+	row := func(namespace, resourceType string, locations any) string {
+		b, err := json.Marshal(map[string]any{"namespace": namespace, "resourceTypes": []any{map[string]any{"resourceType": resourceType, "locations": locations}}})
+		if err != nil {
+			t.Fatal(err)
+		}
+		return string(b)
+	}
+	envelope := func(rows ...string) string { return "{\"value\":[" + strings.Join(rows, ",") + "]}" }
+	one := func(body string) providerCaptureCase { return providerCaptureCase{Pages: []providerCapturePage{{200, body}}} }
+	vm := func(locations any) string { return row("Microsoft.Compute", "virtualMachines", locations) }
+	next := "@BASE@" + providerStart + "&$skiptoken=synthetic-second"
+	page := func(body string) string { return strings.TrimSuffix(body, "}") + ",\"nextLink\":" + fmt.Sprintf("%q", next) + "}" }
+	cases := map[string]providerCaptureCase{
+		"basic": one(envelope(vm([]string{"West Europe"}))),
+		"normalization": one(envelope(row("MICROSOFT.Compute", "VirtualMachines", []any{" WEST EUROPE ", "West  Europe", "westeurope", nil}))),
+		"global": one(envelope(vm([]string{" Glo bal "}))),
+		"location-whitespace": one(envelope(vm([]string{" EAST US ", "West\tEurope", "West\u00a0Europe"}))),
+		"key-whitespace": one(envelope(row(" Microsoft.Compute ", " VirtualMachines ", []string{"West Europe"}))),
+		"nested-type": one(envelope(row("Microsoft.Sql", "servers/databases", []string{"West Europe"}))),
+		"empty": one(envelope()),
+		"empty-locations": one(envelope(vm([]string{}))),
+		"null-locations": one(envelope(vm(nil))),
+		"missing-locations": one("{\"value\":[{\"namespace\":\"Microsoft.Compute\",\"resourceTypes\":[{\"resourceType\":\"virtualMachines\"}]}]}"),
+		"missing-namespace": one("{\"value\":[{\"resourceTypes\":[{\"resourceType\":\"virtualMachines\",\"locations\":[\"West Europe\"]}]}]}"),
+		"null-namespace": one("{\"value\":[{\"namespace\":null,\"resourceTypes\":[]}]}"),
+		"empty-namespace": one(envelope(row("", "virtualMachines", []string{"West Europe"}))),
+		"missing-resource-types": one("{\"value\":[{\"namespace\":\"Microsoft.Compute\"}]}"),
+		"null-resource-types": one("{\"value\":[{\"namespace\":\"Microsoft.Compute\",\"resourceTypes\":null}]}"),
+		"empty-resource-types": one("{\"value\":[{\"namespace\":\"Microsoft.Compute\",\"resourceTypes\":[]}]}"),
+		"missing-type": one("{\"value\":[{\"namespace\":\"Microsoft.Compute\",\"resourceTypes\":[{\"locations\":[\"West Europe\"]}]}]}"),
+		"empty-type": one(envelope(row("Microsoft.Compute", "", []string{"West Europe"}))),
+		"null-provider": one("{\"value\":[null]}"),
+		"null-type": one("{\"value\":[{\"namespace\":\"Microsoft.Compute\",\"resourceTypes\":[null]}]}"),
+		"null-location": one(envelope(vm([]any{nil, "West Europe"}))),
+		"missing-value": one("{}"),
+		"null-value": one("{\"value\":null}"),
+		"null-envelope": one("null"),
+		"wrong-value": one("{\"value\":\"wrong\"}"),
+		"wrong-locations": one("{\"value\":[{\"namespace\":\"Microsoft.Compute\",\"resourceTypes\":[{\"resourceType\":\"virtualMachines\",\"locations\":1}]}]}"),
+		"malformed": one("{\"value\":"),
+		"duplicate-type": one(envelope(vm([]string{"West Europe"}), row("MICROSOFT.COMPUTE", "VIRTUALMACHINES", []string{"East US"}))),
+		"duplicate-to-empty": one(envelope(vm([]string{"West Europe"}), row("Microsoft.Compute", "virtualMachines", []string{}))),
+		"duplicate-field": one("{\"value\":[{\"namespace\":\"Microsoft.Other\",\"namespace\":\"Microsoft.Compute\",\"resourceTypes\":[{\"resourceType\":\"virtualMachines\",\"locations\":[\"West Europe\"]}]}]}"),
+		"case-field-alias": one("{\"value\":[{\"namespace\":\"Microsoft.Compute\",\"Namespace\":\"Microsoft.Other\",\"resourceTypes\":[{\"resourceType\":\"virtualMachines\",\"locations\":[\"West Europe\"]}]}]}"),
+		"unicode-namespace": one(envelope(row("Microsoft.\u212a", "widgets", []string{"West Europe"}))),
+		"cancelled": {Pages: []providerCapturePage{{200, envelope()}}, Cancelled: true},
+		"paged": {Pages: []providerCapturePage{{200, page(envelope(vm([]string{"West Europe"})))}, {200, envelope(row("Microsoft.Storage", "storageAccounts", []string{"East US"}))}}},
+		"paged-overwrite": {Pages: []providerCapturePage{{200, page(envelope(vm([]string{"West Europe"})))}, {200, envelope(vm([]string{"East US"}))}}},
+		"later-malformed": {Pages: []providerCapturePage{{200, page(envelope(vm([]string{"West Europe"})))}, {200, "{\"value\":"}}},
+		"relative-next": one(strings.TrimSuffix(envelope(vm([]string{"West Europe"})), "}") + ",\"nextLink\":" + fmt.Sprintf("%q", providerStart+"&$skiptoken=relative") + "}"),
+		"malformed-next": one(strings.TrimSuffix(envelope(vm([]string{"West Europe"})), "}") + ",\"nextLink\":\"https://%invalid\"}"),
+		"cycle-stopped": {Pages: []providerCapturePage{{200, strings.TrimSuffix(envelope(vm([]string{"West Europe"})), "}") + ",\"nextLink\":" + fmt.Sprintf("%q", "@BASE@"+providerStart) + "}"}}, CycleLimit: 3},
+	}
+	cases["later-cancelled"] = providerCaptureCase{Pages: []providerCapturePage{{200, page(envelope(vm([]string{"West Europe"})))}, {200, envelope()}}, CancelAfter: 1}
+	for _, status := range []int{400, 403, 404, 405} {
+		errorPage := providerCapturePage{status, "{\"error\":{\"code\":\"SyntheticProviderError\",\"message\":\"synthetic\"}}"}
+		cases[fmt.Sprintf("http%d", status)] = providerCaptureCase{Pages: []providerCapturePage{errorPage}}
+		cases[fmt.Sprintf("later-http%d", status)] = providerCaptureCase{Pages: []providerCapturePage{{200, page(envelope(vm([]string{"West Europe"})))}, errorPage}}
+	}
+
+	bootstrap, bootstrapCancel := context.WithTimeout(context.Background(), 5*time.Second)
+	fixture.reset(cases["basic"], bootstrapCancel)
+	cache, err := fetchAllProviders(bootstrap, providerCaptureCredential{t, providerAudience+"/.default"}, providerSubscription)
+	bootstrapCancel()
+	if err != nil || cache == nil {
+		t.Fatal("provider original-source TLS transport bootstrap failed", err)
+	}
+	if _, present := cache.Data["microsoft.compute"]["virtualmachines"]["westeurope"]; !present {
+		t.Fatal("provider original-source bootstrap cache mismatch")
+	}
+	results := map[string]providerCaptureResult{}
+	for name, c := range cases {
+		result := providerCaptureResult{}
+		ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+		fixture.reset(c, cancel)
+		if c.Cancelled {
+			cancel()
+		}
+		func() {
+			defer func() {
+				if recover() != nil {
+					result.Panicked = true
+				}
+			}()
+			var e error
+			result.Cache, e = fetchAllProviders(ctx, providerCaptureCredential{t, providerAudience+"/.default"}, providerSubscription)
+			result.Failed = e != nil
+		}()
+		cancel()
+		result.Requests, result.RawRequestURIs = fixture.observations()
+		ctx, cancel = context.WithTimeout(context.Background(), 5*time.Second)
+		fixture.reset(c, cancel)
+		if c.Cancelled {
+			cancel()
+		}
+		func() {
+			defer func() {
+				if recover() != nil {
+					result.CallerPanicked = true
+				}
+			}()
+			inventory := &types.ResourceInventory{
+				ResourceTypes: map[string]int{"microsoft.compute/virtualmachines": 1},
+				ResourceTypesByRegion: map[string]map[string]int{"eastus": {"microsoft.compute/virtualmachines": 1}},
+			}
+			result.CallerRows = CheckRegionsInParallel(ctx, providerCaptureCredential{t, providerAudience+"/.default"}, []string{"westeurope"}, inventory, providerSubscription, "Synthetic", nil, nil, nil)
+		}()
+		cancel()
+		result.CallerRequests, result.CallerRawRequestURIs = fixture.observations()
+		results[name] = result
+	}
+	write := func(name string, value any) {
+		raw, err := json.MarshalIndent(value, "", "  ")
+		if err != nil {
+			t.Fatal(err)
+		}
+		if err = os.MkdirAll(output, 0700); err != nil {
+			t.Fatal(err)
+		}
+		if err = os.WriteFile(filepath.Join(output, name), append(raw, '\n'), 0600); err != nil {
+			t.Fatal(err)
+		}
+	}
+	write("source-provider-locations-inputs.json", struct {
+		SourceBlob, TypesBlob, OptionsBlob, CloudBlob string
+		SDKModule, AzcoreModule, SDKProvidersBlob, SDKDefaultTransportBlob string
+		ExecutionMode string
+		TLSVerificationEnabled bool
+		DirectSDKDisableRPRegistration bool
+		DirectSDKMaxRetries int
+		PublicSDKRequests []string
+		Cases map[string]providerCaptureCase
+	}{
+		"55e59b9e061dd31d27cc3446ad00659bd6961174",
+		"f9b61fb74075e5a2297be1b898067b8cb047f9b3",
+		"73693e3730f5ed51132a552b79d5e95078721a10",
+		"9677ae498c8d22ebbc77a1fe3a47e17579f3c4d5",
+		"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/resources/armresources v1.2.0",
+		"github.com/Azure/azure-sdk-for-go/sdk/azcore v1.23.1",
+		"e1612d16090a9a66c4b2bb9fa5697e7376263992",
+		"928e9bf92550dcd83180b7fecff40b7a50fd7ff9",
+		"original-source-custom-cloud-loopback-TLS; separate-public-SDK-injected-transport",
+		true, true, -1, public.requests, cases,
+	})
+	write("source-provider-locations-outputs.json", results)
+}

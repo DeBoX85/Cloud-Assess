@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Capture unchanged pinned AZQR helpers and synthetic quota/reservation collectors."""
+"""Capture unchanged pinned helpers and synthetic quota/reservation/provider collectors."""
 import hashlib
 import json
 import os
@@ -34,6 +34,9 @@ CAPTURES = (
     ("vm_quota_capture_test.go.txt", "quota/vm_quota_capture_test.go",
      "REGION_VM_QUOTA_CAPTURE_OUTPUT", "^TestRegionVMQuotaCapture$",
      "./internal/scanners/plugins/region/quota"),
+    ("provider_locations_capture_test.go.txt", "availability/provider_locations_capture_test.go",
+     "REGION_PROVIDER_LOCATIONS_CAPTURE_OUTPUT", "^TestRegionProviderLocationsCapture$",
+     "./internal/scanners/plugins/region/availability"),
     ("reservation_capture_test.go.txt", "crg/reservation_capture_test.go",
      "REGION_RESERVATION_CAPTURE_OUTPUT", "^TestRegionReservationCapture$",
      "./internal/scanners/plugins/region/crg"),
@@ -46,7 +49,8 @@ FILES = ("source-aux-inputs.json", "source-aux-outputs.json",
          "source-cost-enrichment-inputs.json", "source-cost-enrichment-outputs.json",
          "source-quota-inputs.json", "source-quota-outputs.json",
          "source-vm-quota-inputs.json", "source-vm-quota-outputs.json",
-         "source-reservation-inputs.json", "source-reservation-outputs.json")
+         "source-reservation-inputs.json", "source-reservation-outputs.json",
+         "source-provider-locations-inputs.json", "source-provider-locations-outputs.json")
 
 
 def run(args, directory, timeout=240, capture=False):

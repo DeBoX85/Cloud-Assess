@@ -1,3 +1,44 @@
+# FN108: New manifest-loop test missed enclosing context, 2026-10-12
+
+After correcting FN107's local temporary directory, five of six new/existing
+Python guard assertions passed but the new full-file-loop assertion failed:
+it searched only top-level tree.body, while the real unconditional FILES guard
+loop is inside the existing TemporaryDirectory context. This was a confirmed
+new test-selection mistake, not a production/source-guard regression.
+
+Inspected the actual runner and corrected both positive and compiling-subset
+test selectors to ast.walk(tree). Preserve the real unconditional single-call/
+complete19manifest requirements. Corrected baseline all six assertions PASS;
+disabled-byte-guard, omitted-provider-manifest and guarded-subset compiling
+controls each fail their named assertion, followed by restored six PASS.
+No source/SDK/pin/byte comparison/security rule was weakened.
+
+Prevention: inspect real AST nesting before selecting nodes. A false positive
+test failure is still a failure; neither its five passing assertions nor a
+compiling mutant alone qualifies the complete check.
+
+---
+
+# FN107: Local capture-guard temporary directory denied, 2026-10-12
+
+The first local expanded Python byte-guard run failed in all six setUp/cleanup
+operations because Python selected the sandbox package AC/Temp directory outside
+the writable task workspace. PermissionError occurred before named assertion
+bodies; the failed run provided no byte/manifest/control proof and is not a
+product or hosted native/source failure.
+
+Redirected only the LOCAL invocation's tempfile.tempdir to the resolved, checked
+scratch/provider-source-check/tmp beneath this workspace. Did not alter the
+product/hosted guard or loosen any assertion. The corrected local run's actual
+result is recorded in the current proposal. Preserve the initial error output;
+no broader temp deletion, escalation or unrelated cleanup was attempted.
+
+Prevention: inventory actual runtime temp resolution and use a verified task-owned
+temporary directory for local helper checks. Local Python validation cannot
+certify unavailable Go, SDK/TLS source execution or Windows hosted behavior.
+
+---
+
 # FN106: Automatically incorporated handover PR disposition, 2026-10-11
 
 PR133 included PR132 tip/history and merged through the protected expected-head

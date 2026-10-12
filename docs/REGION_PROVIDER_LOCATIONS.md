@@ -1,3 +1,50 @@
+# Provider source-harness pilot and verified checkpoint, 2026-10-12
+
+Checkpoint PR134 is VERIFIED OFFLINE at50f5bef8a0bb34a0717d5adc6f6fa44039ed62c6.
+Final candidate and DISTINCT accepted-push native38273385454
+(quality114892876293/Windows114892876505) and source38273385571/114892875823
+completed on actual50f5bef8 with full logs/steps/22control identities/17records/
+150chunks/current remote bytes/independent hashes/merge/ref/identity verified.
+Read [PR134](https://github.com/DeBoX85/Cloud-Assess/pull/134); do not repeat it.
+
+UNACCEPTED provider source pilot on feat/region-provider-locations follows the
+pre-edit [contract](REGION_PROVIDER_LOCATIONS.md) published/readback at
+9eef17408269115a0d4eb84d01ca4e8958d2e953/tree4b410083/sole parent50f5bef8 BEFORE
+harness edits. New retained .go.txt invokes original fetchAllProviders and its
+caller through supported custom-cloud LOOPBACK TLS with fake credentials and
+a restricted fixture certificate. Public SDK request separately uses an injected
+transport. Production source/SDK/module/APRL/reference bytes stay untouched.
+
+New runner requires nine harnesses and19 records (old17 plus two provider files),
+emits complete raw records/provenance before strict byte equality, and NEVER
+skips missing provider goldens. The initial observation pilot deliberately has
+no retained provider goldens yet: after successful harness execution its source
+job will FAIL at missing required bytes, not become acceptance. If compilation/
+TLS/fixture setup fails sooner, classify the actual failure; do not infer records.
+No source/provider-runtime validation has occurred yet. Exact raw retention,
+independent semantic/hash review and new literal native source-cell controls are
+pending. Existing byte guard now tests exact19 manifest/full unconditional loop
+and compiling omissions/subsets as well as its original byte assertions.
+
+Local Python guard initially failed six setups/cleanup because default sandbox
+temporary storage was unwritable; redirected ONLY local invocation to a checked
+workspace temp directory, with source/hosted guard unchanged (FN107). The new loop selector initially missed its enclosing context,
+then was corrected with six assertions/three compiling controls restored (FN108).
+Go is absent locally. New source .go.txt compilation/TLS/SDK behavior remains
+hosted proof pending, not a fresh local Go or Windows SDK-capture claim.
+
+EXACT NEXT: observe this pilot's complete source result, classify any real failure,
+reassemble original synthetic records only as UNACCEPTED preparation, verify pins/
+unchanged source/SDK/old17 goldens/all raw chunks, then retain independently
+reviewed exact new goldens and add literal source-native controls. Require fresh
+complete final-head source/Linux/Windows/review/protected/accepted-push proof
+before source-characterization acceptance; only then target collector code.
+Public region-selection/other adapters/laptop/Azure/live/load/freshOS/Gate004/
+release/licensing/independent-person gates remain open. No Azure resources/
+fixtures/roles/scope substitution/exposure/release. Old entries below are history.
+
+---
+
 # Provider/resource-type locations: pre-edit contract, 2026-10-12
 
 Status: UNACCEPTED preparation on feat/region-provider-locations. This contract
