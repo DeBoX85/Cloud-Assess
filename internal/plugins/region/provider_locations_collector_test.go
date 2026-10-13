@@ -525,3 +525,23 @@ func TestProviderCollectorDuplicateLocationWork(t *testing.T) {
 		}
 	}
 }
+
+func TestProviderCollectorCanonicalProperties(t *testing.T) {
+	for _, body := range []string{
+		`{"VALUE":[]}`,
+		`{"value":[],"nextLinK":""}`,
+		`{"value":[{"nameſpace":"P","resourceTypes":[]}]}`,
+		`{"value":[{"namespace":"P","reſourceTypes":[]}]}`,
+		`{"value":[{"namespace":"P","resourceTypes":[{"reſourceType":"t","locations":[]}]}]}`,
+		`{"value":[{"namespace":"P","resourceTypes":[{"resourceType":"t","locationſ":[]}]}]}`,
+		`{"value":[{"ID":"/subscriptions/other/providers/P","namespace":"P","resourceTypes":[]}]}`,
+	} {
+		got := providerCollect(t, body)
+		if got.Status != "unknown" || got.FailureCode == "" || len(got.Locations) != 0 {
+			t.Fatalf("provider noncanonical property admitted: %s %#v", body, got)
+		}
+	}
+	if got := providerCollect(t, `{"value":[],"metadata":{"valid🧭":1}}`); got.Status != "complete" {
+		t.Fatalf("provider safe unknown metadata rejected: %#v", got)
+	}
+}

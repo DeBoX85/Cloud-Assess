@@ -1,3 +1,23 @@
+# FN115: Single Unicode-folded JSON property aliases admitted, 2026-10-13
+
+Automated review5497731979/inline4253788910/threadPRRT_kwDOUdPf9c6rrLoI on1ccfbff5
+found a valid target admission gap: encoding/json struct field matching accepts
+single non-ASCII folded aliases such as nameſpace/reſourceTypes/reſourceType/
+locationſ. The unchanged whole JSON guard rejects duplicates, but not a lone alias.
+The draft could therefore label such malformed mandatory declarations complete.
+No accepted code or live incident is implicated; dependent acceptance is blocked.
+
+Replace collector-specific struct projection with exact canonical map lookup,
+reject folded noncanonical known wire properties (including optional id/nextLink)
+and keep bounded unknown metadata allowed. Existing quota JSON admission/callers
+remain unchanged. Add literal ASCII/long-s/Kelvin/optional alias cases and a25th
+named compiling canonical-property control, keeping all24prior controls/restoration.
+Validate the selector remains unique after introducing the object helper.
+Fresh complete corrected-head source/native/review/protected/push proof required;
+predecessor green/source/race evidence cannot certify this correction.
+
+---
+
 # FN114: Collision oracle incorrectly assumed an earlier page, 2026-10-13
 
 Fresh preflight38330406259/job115078625437 compiled and ran focused race tests,

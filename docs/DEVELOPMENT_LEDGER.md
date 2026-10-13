@@ -1,3 +1,23 @@
+# Provider collector canonical JSON correction, 2026-10-13
+
+PR137 remains UNACCEPTED. Current automated review5497731979/4253788910 on1ccfbff5
+found valid single Unicode-folded required-property admission through Go struct
+decoding (FN115). Collector now uses exact canonical property lookup and rejects
+noncanonical folded known fields, including optional id/nextLink. Whole JSON
+validator/shared callers/source/goldens/pins unchanged. Literal alias/positive
+unknown metadata fixtures and25th named compiling control join all24prior controls.
+No public region path/SDK/module/Azure change. Review thread remains unresolved
+until published correction/readback is checked and fresh feedback is complete.
+
+Predecessor source38330847911/115079986130 SUCCESS/full19records185chunks/SHA256/
+fullremoteGit identities; predecessor native38330847905/review is historical after
+this edit, not current acceptance. Failed preparations FN110-114 preserved.
+Exact next complete corrected-head source/native25+existingcontrols/review/
+fullbytes/tree/identity/preview/protected/distinct-push proof. PR136bf4991af
+already verified; no laptop/Azure/live/release restoration inferred.
+
+---
+
 # Provider collector final-head acceptance candidate, 2026-10-13
 
 PR137 remains UNACCEPTED. Corrected preparation8e5a3083 preflight38330608152/

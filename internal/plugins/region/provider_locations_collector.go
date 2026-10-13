@@ -94,26 +94,44 @@ func providerArray(raw json.RawMessage) ([]json.RawMessage, bool) {
 	return values, true
 }
 
+// Keep known wire properties canonical before decoding. encoding/json's
+// struct matching also accepts Unicode folds such as long-s and Kelvin sign.
+func providerObject(raw json.RawMessage, names ...string) (map[string]json.RawMessage, bool) {
+	trimmed := bytes.TrimSpace(raw)
+	if len(trimmed) == 0 || bytes.Equal(trimmed, []byte("null")) {
+		return nil, false
+	}
+	var fields map[string]json.RawMessage
+	if json.Unmarshal(raw, &fields) != nil || fields == nil {
+		return nil, false
+	}
+	for key := range fields {
+		for _, name := range names {
+			if strings.EqualFold(key, name) && key != name {
+				return nil, false
+			}
+		}
+	}
+	return fields, true
+}
+
 func decodeProviderPage(ctx context.Context, body []byte, subscription string, prior map[string]map[string]bool, work, text int) (providerPage, string) {
 	page := providerPage{locations: map[string]map[string]bool{}, work: work, text: text}
 	if !quotaJSON(ctx, body) {
 		return providerPage{}, "provider_invalid_response"
 	}
-	var envelope struct {
-		Value    json.RawMessage
-		NextLink json.RawMessage
-	}
-	if json.Unmarshal(body, &envelope) != nil {
+	envelope, valid := providerObject(body, "value", "nextLink")
+	if !valid {
 		return providerPage{}, "provider_invalid_response"
 	}
-	providers, ok := providerArray(envelope.Value)
+	providers, ok := providerArray(envelope["value"])
 	if !ok {
 		return providerPage{}, "provider_invalid_response"
 	}
-	if len(envelope.NextLink) != 0 {
+	if len(envelope["nextLink"]) != 0 {
 		// A present null is not a successful end-of-pagination declaration.
-		if bytes.Equal(bytes.TrimSpace(envelope.NextLink), []byte("null")) ||
-			json.Unmarshal(envelope.NextLink, &page.next) != nil {
+		if bytes.Equal(bytes.TrimSpace(envelope["nextLink"]), []byte("null")) ||
+			json.Unmarshal(envelope["nextLink"], &page.next) != nil {
 			return providerPage{}, "provider_invalid_response"
 		}
 	}
@@ -132,23 +150,23 @@ func decodeProviderPage(ctx context.Context, body []byte, subscription string, p
 		if !charge() {
 			return providerPage{}, "provider_work_limit"
 		}
-		var provider struct {
-			ID            json.RawMessage
-			Namespace     string
-			ResourceTypes json.RawMessage
+		provider, valid := providerObject(raw, "id", "namespace", "resourceTypes")
+		if !valid {
+			return providerPage{}, "provider_invalid_response"
 		}
-		if bytes.Equal(bytes.TrimSpace(raw), []byte("null")) || json.Unmarshal(raw, &provider) != nil ||
-			!label(provider.Namespace) || !providerIdentifier.MatchString(provider.Namespace) {
+		var namespace string
+		if json.Unmarshal(provider["namespace"], &namespace) != nil ||
+			!label(namespace) || !providerIdentifier.MatchString(namespace) {
 			return providerPage{}, "provider_identity_invalid"
 		}
-		if len(provider.ID) != 0 {
+		if len(provider["id"]) != 0 {
 			var id string
-			if json.Unmarshal(provider.ID, &id) != nil || !label(id) ||
-				!providerReturnedID(id, subscription, provider.Namespace) {
+			if json.Unmarshal(provider["id"], &id) != nil || !label(id) ||
+				!providerReturnedID(id, subscription, namespace) {
 				return providerPage{}, "provider_identity_invalid"
 			}
 		}
-		types, ok := providerArray(provider.ResourceTypes)
+		types, ok := providerArray(provider["resourceTypes"])
 		if !ok {
 			return providerPage{}, "provider_invalid_response"
 		}
@@ -159,15 +177,16 @@ func decodeProviderPage(ctx context.Context, body []byte, subscription string, p
 			if !charge() {
 				return providerPage{}, "provider_work_limit"
 			}
-			var resourceType struct {
-				ResourceType string
-				Locations    json.RawMessage
+			resourceType, valid := providerObject(rawType, "resourceType", "locations")
+			if !valid {
+				return providerPage{}, "provider_invalid_response"
 			}
-			if bytes.Equal(bytes.TrimSpace(rawType), []byte("null")) || json.Unmarshal(rawType, &resourceType) != nil ||
-				!label(resourceType.ResourceType) || !providerTypeIdentifier(resourceType.ResourceType) {
+			var typeName string
+			if json.Unmarshal(resourceType["resourceType"], &typeName) != nil ||
+				!label(typeName) || !providerTypeIdentifier(typeName) {
 				return providerPage{}, "provider_identity_invalid"
 			}
-			key := strings.ToLower(provider.Namespace + "/" + resourceType.ResourceType)
+			key := strings.ToLower(namespace + "/" + typeName)
 			if len(key) > MaxLabelBytes {
 				return providerPage{}, "provider_text_limit"
 			}
@@ -177,7 +196,7 @@ func decodeProviderPage(ctx context.Context, body []byte, subscription string, p
 			if _, exists := prior[key]; exists {
 				return providerPage{}, "provider_type_collision"
 			}
-			locations, ok := providerArray(resourceType.Locations)
+			locations, ok := providerArray(resourceType["locations"])
 			if !ok {
 				return providerPage{}, "provider_invalid_response"
 			}

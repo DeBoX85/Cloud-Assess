@@ -152,3 +152,9 @@ sentinels. Tests require nil result and exact sentinel, not just errors.Is.
 The temporary formatting workflow was preparation only and is removed from the
 final acceptance candidate. Fresh complete final-head native/source/review/protected
 and distinct accepted-push proof remains required; no prior pilot proof transfers.
+
+Known wire keys are now exact canonical ASCII spellings at each object boundary.
+Single folded aliases (including ASCII-case variants and Unicode long-s/Kelvin)
+are rejected even for optional id/nextLink; bounded unrelated metadata is allowed.
+This prevents Go struct-decoder aliases from fabricating required declarations.
+Fresh corrected-head acceptance remains pending; see FN115 and live PR137.
