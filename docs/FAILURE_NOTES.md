@@ -1,3 +1,119 @@
+# FN116: Namespace mutation replacement retained obsolete struct selector, 2026-10-13
+
+Automated review5497759614/inline4253813570/threadPRRT_kwDOUdPf9c6rrPUE on d5ba61cf
+identified a valid compiling-control mistake after FN115's map-decoder change.
+The mutation's BEFORE string used namespace, but its AFTER string still referenced
+provider.Namespace. provider is now a map, so that mutant would fail compilation,
+not the required TestProviderCollectorShapes assertion. No mutant compilation
+failure or predecessor/source success qualifies as control acceptance.
+
+Replace obsolete selector in BOTH sides, inspect all25match/replacement expressions
+for removed struct fields and unique selectors, then require actual compiled
+named failures/restored baselines in BOTH mandatory native jobs. Preserve strict
+build-failure rejection and every assertion/budget. No production behavior changed.
+This was an incomplete test adaptation, not a product/runtime or live incident.
+
+---
+
+# FN115: Single Unicode-folded JSON property aliases admitted, 2026-10-13
+
+Automated review5497731979/inline4253788910/threadPRRT_kwDOUdPf9c6rrLoI on1ccfbff5
+found a valid target admission gap: encoding/json struct field matching accepts
+single non-ASCII folded aliases such as nameſpace/reſourceTypes/reſourceType/
+locationſ. The unchanged whole JSON guard rejects duplicates, but not a lone alias.
+The draft could therefore label such malformed mandatory declarations complete.
+No accepted code or live incident is implicated; dependent acceptance is blocked.
+
+Replace collector-specific struct projection with exact canonical map lookup,
+reject folded noncanonical known wire properties (including optional id/nextLink)
+and keep bounded unknown metadata allowed. Existing quota JSON admission/callers
+remain unchanged. Add literal ASCII/long-s/Kelvin/optional alias cases and a25th
+named compiling canonical-property control, keeping all24prior controls/restoration.
+Validate the selector remains unique after introducing the object helper.
+Fresh complete corrected-head source/native/review/protected/push proof required;
+predecessor green/source/race evidence cannot certify this correction.
+
+---
+
+# FN114: Collision oracle incorrectly assumed an earlier page, 2026-10-13
+
+Fresh preflight38330406259/job115078625437 compiled and ran focused race tests,
+but FAILED TestProviderCollectorAtomicHealth. Its standalone fixture contained
+distinct new/ONE types, so complete admission was correct with no earlier page.
+The test incorrectly expected a cross-page collision before collecting that prefix.
+This was an independently specified test-oracle mistake, not proof of a production
+atomicity failure. The failed focused run remains failed; no overall race pass.
+
+Keep that fixture as a positive complete independent map expectation and as the
+second page after the actual one prefix, where rejection/prefix retention is
+required. Keep the separate same-page one/ONE collision test. Require fresh proof;
+do not weaken the collision guard or omit the cross-page negative control.
+
+---
+
+# FN113: Draft forwarded wrapped context transport text, 2026-10-13
+
+Self-review of unaccepted provider collector found it returned the original getter
+error when errors.Is matched cancellation/deadline but parent context stayed live.
+A wrapped transport error could therefore carry a URL or other transport text.
+No accepted code, live incidence or Azure operation is implicated.
+
+Return exactly context.Canceled/context.DeadlineExceeded sentinels for those
+wrapped outcomes; keep nil result and preserve ordinary cancellation classification.
+Add literal wrapped-synthetic-message tests and two compiling sentinel mutations
+plus deadline-health control. Fresh focused/native/source/review proof required.
+Operational errors remain fixed sanitized FailureCode only.
+
+---
+
+# FN112: Formatter text record masked synthetic authorization, 2026-10-13
+
+Preflight38330155628/job115077847860 emitted both formatted Go files before its
+test compilation failed (FN111). One test-file JSON chunk contained a masked
+synthetic Bearer string and was not parseable as JSON. No fresh focused test pass
+or complete unmodified raw-chunk proof was inferred from that record.
+
+Restoring exactly the already-authored synthetic "Bearer synthetic-quota-token"
+in that one record allowed contiguous full-file reconstruction whose independently
+calculated SHA256 matched the formatter's original declared hash. This is an
+explicit hash-verified restoration, not a real credential recovery. The next
+read-only formatter emits hex bytes to avoid readable-token masking and requires
+fresh full chunk/hash proof. No source fixture, security scan or assertion relaxed.
+
+---
+
+# FN111: Provider availability fixture used wrong count type, 2026-10-13
+
+Preflight38330155628/job115077847860 FAILED focused compilation because the new
+availability integration fixture assigned map[string]int to ResourceTypesByRegion,
+whose actual model is map[string]int64. Formatting succeeded; the failed compiler
+run is not behavior/race/native acceptance. This was a test-authoring mistake,
+not a demonstrated production collector failure.
+
+Correct only the fixture count type to int64, retain the failed run, and require
+fresh focused/full native proof. Inspect the actual model when constructing typed
+literal oracles; compilation failures never count as rejected mutations.
+Add same-length ASCII fixed-segment and Kelvin location cases so the new identity/
+ASCII compiling controls exercise real admitted defects rather than redundant guards.
+
+---
+
+# FN110: Interrupted preparation omitted preflight workflow content, 2026-10-13
+
+A read-only local runtime-directory call stalled; the orchestration cell was
+terminated after its earlier preparation output. The next tree request was rejected
+422 because the preflight workflow's content was absent from the retained tool store.
+No tree/commit/ref update succeeded in that failed request; accepted code unchanged.
+This was a publication-preparation mistake, not a Go/compiler/product failure.
+
+Inspected every planned entry and its content type, reconstructed the exact
+read-only workflow explicitly, and require every content to be a string before
+retrying. Inspect live refs before uncertain mutations and do not assume an
+interrupted cell retained every preparation value. Hosted formatter/test acceptance
+remains pending; do not relabel the rejected write or stalled call as validation.
+
+---
+
 # FN109: First provider observation failed strict missing-golden retention, 2026-10-12
 
 Pilot2fc5f8f2 source38279390094/job114912673260 FAILED at FileNotFoundError for

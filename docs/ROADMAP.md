@@ -1,3 +1,170 @@
+# Provider collector mutation adaptation correction, 2026-10-13
+
+PR137 UNACCEPTED. Review5497759614/4253813570 on d5ba61cf found valid namespace
+mutation AFTER expression still referenced obsolete provider.Namespace (FN116),
+despite corrected BEFORE selector. Fix both sides, inspect all25match/replacement
+expressions for removed struct fields/unique selectors. Strict compiler-failure
+rejection and all tests/guards remain. Production canonical-property fix FN115,
+source/goldens/pins/SDK/dependencies unchanged; no public/Azure activation.
+
+Current predecessor source38331614177/115082381524 SUCCESS/full793514log/
+19records185chunks/freshfullremoteSHA256/Git identities verified; it is historical
+after this new head, not transferred final acceptance. New exact-head source/
+native25+existingcontrols/review/fullpublication/preview/protected/distinct-push
+proof required. Both review threads remain pending verified fixes/fresh feedback.
+Earlier failed preparations/oracles stay recorded, not relabelled.
+
+---
+
+# Provider collector canonical JSON correction, 2026-10-13
+
+PR137 remains UNACCEPTED. Current automated review5497731979/4253788910 on1ccfbff5
+found valid single Unicode-folded required-property admission through Go struct
+decoding (FN115). Collector now uses exact canonical property lookup and rejects
+noncanonical folded known fields, including optional id/nextLink. Whole JSON
+validator/shared callers/source/goldens/pins unchanged. Literal alias/positive
+unknown metadata fixtures and25th named compiling control join all24prior controls.
+No public region path/SDK/module/Azure change. Review thread remains unresolved
+until published correction/readback is checked and fresh feedback is complete.
+
+Predecessor source38330847911/115079986130 SUCCESS/full19records185chunks/SHA256/
+fullremoteGit identities; predecessor native38330847905/review is historical after
+this edit, not current acceptance. Failed preparations FN110-114 preserved.
+Exact next complete corrected-head source/native25+existingcontrols/review/
+fullbytes/tree/identity/preview/protected/distinct-push proof. PR136bf4991af
+already verified; no laptop/Azure/live/release restoration inferred.
+
+---
+
+# Provider collector final-head acceptance candidate, 2026-10-13
+
+PR137 remains UNACCEPTED. Corrected preparation8e5a3083 preflight38330608152/
+job115079244415 SUCCESS: full logs actualpreviewb8ff7dc/Go1.26.9, focused
+TestProviderCollector suite compiled and passed with race detector (9.594s).
+Both complete formatted Go files reconstructed from28 contiguous hex chunks,
+independent SHA256: production29151a55/test6f104310, full bytes retained. This is
+preparation evidence, not final-head/native/source/public/live acceptance.
+
+Final candidate removes the temporary preflight workflow, retains exact formatted
+production, adds a full-map eight-page duplicate-location raw-work exact/excess
+case and its named compiling mutation.24 production controls/restored baselines
+are required on BOTH native hosts, preserving all previous checks/budgets/pins.
+No SDK/module/golden/source/APRL/public integration change. Wrapped transport
+cancellation/deadline now returns exact context sentinels (FN113); corrected
+standalone-versus-cross-page collision oracle retains negative controls (FN114).
+Compiler/masking/publication FN110-112 failures stay historical, not relabelled.
+
+Exact next: verify NEW final-head formatting/source/all24production+existingcontrols/
+both complete native logs/automated review/fullfiles/tree/parents/identity/base/
+preview/protection. Only then protected expected-head merge and DISTINCT actual-
+merge push verification. Preflight success cannot certify new duplicate work case
+or transferred native evidence. Collector remains internal, region public execution
+unavailable. PR136bf4991af distinct push is fully verified. Laptop/Azure/live/load/
+freshOS/maintenance/Gate004/release/module-only/other-adapter gates stay open.
+
+---
+
+# Provider collector cancellation correction and oracle repair, 2026-10-13
+
+PR137 UNACCEPTED. Fresh preflight38330406259/job115078625437 compiled/ran focused
+race tests but FAILED a standalone collision oracle that incorrectly assumed an
+earlier page (FN114). Correct complete disjoint-map expectation now accompanies
+the unchanged same-page and actual cross-page rejection/prefix assertions.
+All28 hex formatter chunks/full original Go SHA256 independently verified without
+masking; failed focused run is not a PASS. Prior compiler/masking FN111/112 retained.
+
+Self-review FN113 corrects draft wrapped transport cancellation/deadline errors
+to standard sentinels, preventing transport text escaping. Wrapped-message tests
+and two sentinel controls join existing production controls (23 total); both
+required hosts retain every old check. Temporary read-only formatter/focused helper
+still requires a fresh run and must be removed before acceptance. Target collector
+is internal only; no public/SDK/module/source/pin/Azure change. Exact next inspect
+fresh focused/formatter/control outcomes, remove helper after proof, then complete
+full exact-head Linux/Windows/source/review/protected/distinct-push QA.
+
+---
+
+# Provider collector corrected pilot and named controls, 2026-10-13
+
+PR137 remains UNACCEPTED. Preflight38330155628/job115077847860 FAILED compilation
+of a new test map[string]int fixture against map[string]int64 (FN111); no behavior
+or race pass inferred. Formatter returned full production9427/test23756character
+bytes, independently SHA256 verified; one masked already-authored synthetic
+authorization record was explicitly restored/hashchecked (FN112). New preflight
+uses hex records and must run fresh. Corrected fixture and additional same-length
+ASCII ID/Kelvin location cases,21 named compiling production controls/restored
+assertions on BOTH mandatory hosts are now proposed. Temporary helper remains
+only until fresh formatter/focused/control preparation succeeds. All old checks,
+source fixtures/pins/security budgets unchanged; no public activation.
+
+Pre-edit contract3ae23f22 preceded production pilot678b0a70; each publication's
+full bytes/Denis/tree/parents/ref was read back. FN110 rejected missing-workflow
+content request changed no ref. Local Go unavailable; hosted Go owns proof.
+Exact next inspect fresh helper/named/full gates, fix only actual failures, retain
+verified formatter bytes/remove helper, then complete exact-head source/native/
+review/protected/distinct-push acceptance. PR136bf4991af accepted-push proof is
+complete and indexed in live PR136. Laptop/Azure/live/release remain deferred.
+
+---
+
+# Provider collector implementation pilot, 2026-10-13
+
+PR136 is VERIFIED OFFLINE at bf4991af7162c8076a80da827a2c80c77af3eb25.
+Distinct accepted-push native38294494765/quality114962207579/Windows114962207229
+and source38294494675/114962220282 completed SUCCESS. Full89620/69831 native
+logs/all54Linux39Windows steps/all23 named controls/actualbf4991af/Go1.26.9/
+race/vet84.5%/fiveboundedfuzz/builtpackages/branding/docs/security0reachable/
+0imported/1module verified. Source792946-character log/19records185chunks
+independently SHA256/full accepted remote bytes/Git identities/pins verified.
+Live PR136 indexes the separate accepted-push proof; candidate proof not transferred.
+
+PR137 on feat/region-provider-target has pre-edit reconciliation3ae23f22 published
+and all4files/readbacks/Git hashes/Denis identity verified BEFORE production edits.
+This new implementation pilot is UNACCEPTED: internal bounded provider collector
+plus independent literal/request/shape/identity/atomichealth/continuation/limits/
+ownership/cancellation/real-client/calculation tests. No public integration, SDK/
+module/sourcegolden/pin change. Temporary read-only preflight formats ONLY two
+task-owned Go files, emits complete hashed chunks and runs focused race tests.
+Normal required gates remain unchanged; final named compiling controls and full
+exact-head QA are still pending. Remove preflight before acceptance.
+
+Local Node setup transport closed during a read-only call; no write was in flight.
+Refs were freshly rechecked unchanged. A later read-only runtime directory call
+stalled and was terminated without repository edits. Go is not locally available;
+no local compilation/formatter/test success claimed. Hosted preflight must classify
+actual failures and preserve failed history; source/native partial results are not
+acceptance. Exact next: inspect formatted full bytes/focused outcomes, retain verified
+formatter output, add named production controls, remove helper, run complete fresh
+Linux/Windows/source/review/publication/preview/protected/distinct-push proof.
+Laptop/Azure/public/live/release/other-adapter/module-only gates remain open.
+
+---
+
+# Provider target reconciliation preparation, 2026-10-12
+
+[PR136](https://github.com/DeBoX85/Cloud-Assess/pull/136) merged through the protected
+expected-head path at bf4991af7162c8076a80da827a2c80c77af3eb25, same tested tree
+e4b5aceb449c58ed8925ad3eaa4d8388a09b3a62, ordered 9bec0859/66ca1505 parents,
+Denis author/GitHub committer/valid signature/ref verified. Candidate native
+38286708054 and source38286708038 complete with full logs, all23 named-control
+identities,19records/185chunks/full bytes/SHA256/Git identities; automated review
+6130616713 completed 66ca1505 without findings. DISTINCT accepted-push native
+38294494765/source38294494675 is pending at this preparation. Read live PR136 for
+the final outcome; candidate proof does not replace accepted-push proof.
+
+Next pre-edit [target reconciliation](REGION_PROVIDER_TARGET_RECONCILIATION_20261012.md)
+defines strict presence/identity/normalization/collision/continuation/page-atomic
+health and independent bounds against accepted48 source observations. This is
+UNACCEPTED documentation preparation only, no target production edit or public
+region activation. Publish/readback before implementation and verify own QA.
+Exact next: finish PR136 push proof, then internal bounded provider collector
+and independent request/health/ownership/cancellation/exact-excess controls.
+Source/dependency/APRL/toolchain/license pins remain unchanged. Laptop/Azure
+authorization unconfirmed; all recorded live/release/module-only/adapters/public
+gates stay open. Earlier entries below are historical.
+
+---
+
 # Current accepted provider source phase, 2026-10-12
 
 Read [HANDOVER_CHECKPOINT_20261012.md](HANDOVER_CHECKPOINT_20261012.md) and
