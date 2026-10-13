@@ -1,3 +1,35 @@
+# FN112: Formatter text record masked synthetic authorization, 2026-10-13
+
+Preflight38330155628/job115077847860 emitted both formatted Go files before its
+test compilation failed (FN111). One test-file JSON chunk contained a masked
+synthetic Bearer string and was not parseable as JSON. No fresh focused test pass
+or complete unmodified raw-chunk proof was inferred from that record.
+
+Restoring exactly the already-authored synthetic "Bearer synthetic-quota-token"
+in that one record allowed contiguous full-file reconstruction whose independently
+calculated SHA256 matched the formatter's original declared hash. This is an
+explicit hash-verified restoration, not a real credential recovery. The next
+read-only formatter emits hex bytes to avoid readable-token masking and requires
+fresh full chunk/hash proof. No source fixture, security scan or assertion relaxed.
+
+---
+
+# FN111: Provider availability fixture used wrong count type, 2026-10-13
+
+Preflight38330155628/job115077847860 FAILED focused compilation because the new
+availability integration fixture assigned map[string]int to ResourceTypesByRegion,
+whose actual model is map[string]int64. Formatting succeeded; the failed compiler
+run is not behavior/race/native acceptance. This was a test-authoring mistake,
+not a demonstrated production collector failure.
+
+Correct only the fixture count type to int64, retain the failed run, and require
+fresh focused/full native proof. Inspect the actual model when constructing typed
+literal oracles; compilation failures never count as rejected mutations.
+Add same-length ASCII fixed-segment and Kelvin location cases so the new identity/
+ASCII compiling controls exercise real admitted defects rather than redundant guards.
+
+---
+
 # FN110: Interrupted preparation omitted preflight workflow content, 2026-10-13
 
 A read-only local runtime-directory call stalled; the orchestration cell was

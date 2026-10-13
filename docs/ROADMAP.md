@@ -1,3 +1,26 @@
+# Provider collector corrected pilot and named controls, 2026-10-13
+
+PR137 remains UNACCEPTED. Preflight38330155628/job115077847860 FAILED compilation
+of a new test map[string]int fixture against map[string]int64 (FN111); no behavior
+or race pass inferred. Formatter returned full production9427/test23756character
+bytes, independently SHA256 verified; one masked already-authored synthetic
+authorization record was explicitly restored/hashchecked (FN112). New preflight
+uses hex records and must run fresh. Corrected fixture and additional same-length
+ASCII ID/Kelvin location cases,21 named compiling production controls/restored
+assertions on BOTH mandatory hosts are now proposed. Temporary helper remains
+only until fresh formatter/focused/control preparation succeeds. All old checks,
+source fixtures/pins/security budgets unchanged; no public activation.
+
+Pre-edit contract3ae23f22 preceded production pilot678b0a70; each publication's
+full bytes/Denis/tree/parents/ref was read back. FN110 rejected missing-workflow
+content request changed no ref. Local Go unavailable; hosted Go owns proof.
+Exact next inspect fresh helper/named/full gates, fix only actual failures, retain
+verified formatter bytes/remove helper, then complete exact-head source/native/
+review/protected/distinct-push acceptance. PR136bf4991af accepted-push proof is
+complete and indexed in live PR136. Laptop/Azure/live/release remain deferred.
+
+---
+
 # Provider collector implementation pilot, 2026-10-13
 
 PR136 is VERIFIED OFFLINE at bf4991af7162c8076a80da827a2c80c77af3eb25.

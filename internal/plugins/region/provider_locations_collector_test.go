@@ -53,9 +53,9 @@ func TestProviderCollectorLiteral(t *testing.T) {
 	want := &ProviderLocationCollection{
 		SubscriptionID: quotaTestID, Status: "complete",
 		Locations: map[string]map[string]bool{
-			"microsoft.compute/virtualmachines": {"eastus": true, "westeurope": true},
+			"microsoft.compute/virtualmachines":            {"eastus": true, "westeurope": true},
 			"microsoft.compute/virtualmachines/extensions": {"global": true},
-			"microsoft.compute/empty": {},
+			"microsoft.compute/empty":                      {},
 		},
 	}
 	if err != nil || calls != 1 || !reflect.DeepEqual(got, want) {
@@ -127,7 +127,7 @@ func TestProviderCollectorShapes(t *testing.T) {
 			t.Fatalf("provider type admitted %q", change)
 		}
 	}
-	for _, location := range []string{"", "East\tUS", "East\u00a0US", "europe", "unassigned", "eaſtus", "eastus/other"} {
+	for _, location := range []string{"", "East\tUS", "East\u00a0US", "europe", "unassigned", "eaſtus", "Koreacentral", "eastus/other"} {
 		body, _ := json.Marshal(map[string]any{"value": []any{map[string]any{"namespace": "P", "resourceTypes": []any{map[string]any{"resourceType": "t", "locations": []string{location}}}}}})
 		if got := providerCollect(t, string(body)); got.Status != "unknown" || (location != "East\tUS" && got.FailureCode != "provider_location_invalid") {
 			t.Fatalf("provider location admitted %q %#v", location, got)
@@ -136,7 +136,7 @@ func TestProviderCollectorShapes(t *testing.T) {
 }
 
 func TestProviderCollectorIDs(t *testing.T) {
-	for _, id := range []any{nil, "", 1, "/subscriptions/" + quotaTestID + "/providers/Other", "/subscriptions/bbbbbbbb-bbbb-cccc-dddd-eeeeeeeeeeee/providers/P", "/ſubscriptions/" + quotaTestID + "/providers/P", "/subscriptions/" + quotaTestID + "/providers/K", "/subscriptions/" + quotaTestID + "/providers/P/child"} {
+	for _, id := range []any{nil, "", 1, "/subscriptions/" + quotaTestID + "/providers/Other", "/subscriptions/bbbbbbbb-bbbb-cccc-dddd-eeeeeeeeeeee/providers/P", "/subscriptxons/" + quotaTestID + "/providers/P", "/ſubscriptions/" + quotaTestID + "/providers/P", "/subscriptions/" + quotaTestID + "/providers/K", "/subscriptions/" + quotaTestID + "/providers/P/child"} {
 		body, _ := json.Marshal(map[string]any{"value": []any{map[string]any{"id": id, "namespace": "P", "resourceTypes": []any{}}}})
 		if got := providerCollect(t, string(body)); got.Status != "unknown" || got.FailureCode != "provider_identity_invalid" {
 			t.Fatalf("provider returned ID admitted: %v %#v", id, got)
@@ -229,7 +229,10 @@ func TestProviderCollectorContinuation(t *testing.T) {
 	for _, next := range []string{"?api-version=2021-04-01", "https://MANAGEMENT.AZURE.COM" + path + "?api-version=2021-04-01"} {
 		calls := 0
 		body, _ := json.Marshal(map[string]any{"value": []any{}, "nextLink": next})
-		c := providerCollector(t, func(context.Context, string, int64) ([]byte, *http.Response, error) { calls++; return quotaPage(string(body)) })
+		c := providerCollector(t, func(context.Context, string, int64) ([]byte, *http.Response, error) {
+			calls++
+			return quotaPage(string(body))
+		})
 		got, err := c.Collect(context.Background(), quotaScope(), ProviderLocationRequest{quotaTestID})
 		if err != nil || calls != 1 || got.FailureCode != "provider_continuation_cycle" || got.Status != "partial" {
 			t.Fatalf("provider canonical cycle: %#v %v", got, err)
@@ -275,8 +278,12 @@ func TestProviderCollectorBounds(t *testing.T) {
 		})
 		got, err := c.Collect(context.Background(), quotaScope(), ProviderLocationRequest{quotaTestID})
 		want, code, wantCalls := "complete", "", pageCount
-		if pageCount == 9 { want, code = "partial", "provider_byte_limit" }
-		if pageCount == 65 { want, code, wantCalls = "partial", "provider_page_limit", 64 }
+		if pageCount == 9 {
+			want, code = "partial", "provider_byte_limit"
+		}
+		if pageCount == 65 {
+			want, code, wantCalls = "partial", "provider_page_limit", 64
+		}
 		if err != nil || got.Status != want || got.FailureCode != code || calls != wantCalls {
 			t.Fatalf("provider aggregate/page limit%d: %#v %v calls%d", pageCount, got, err, calls)
 		}
@@ -290,7 +297,9 @@ func TestProviderCollectorBounds(t *testing.T) {
 			if calls < 8 || extra && calls == 8 {
 				body = strings.TrimSuffix(body, "}") + fmt.Sprintf(`,"nextLink":"?api-version=2021-04-01&$skiptoken=%d"}`, calls)
 			}
-			if calls == 9 { body = `{"value":[{"namespace":"P","resourceTypes":[]}]}` }
+			if calls == 9 {
+				body = `{"value":[{"namespace":"P","resourceTypes":[]}]}`
+			}
 			return quotaPage(body)
 		})
 		got, err := c.Collect(context.Background(), quotaScope(), ProviderLocationRequest{quotaTestID})
@@ -324,22 +333,38 @@ func TestProviderCollectorCancellationOwnership(t *testing.T) {
 		go func() {
 			defer wg.Done()
 			got, err := c.Collect(context.Background(), quotaScope(), ProviderLocationRequest{quotaTestID})
-			if err != nil || got.Status != "complete" || !got.Locations["p/one"]["eastus"] { t.Error("provider concurrent state", got, err); return }
+			if err != nil || got.Status != "complete" || !got.Locations["p/one"]["eastus"] {
+				t.Error("provider concurrent state", got, err)
+				return
+			}
 			got.Locations["p/one"]["eastus"] = false
 			delete(got.Locations, "p/one")
 		}()
 	}
 	wg.Wait()
 	got, err := c.Collect(context.Background(), quotaScope(), ProviderLocationRequest{quotaTestID})
-	if err != nil || !got.Locations["p/one"]["eastus"] { t.Fatalf("provider returned alias escaped: %#v %v", got, err) }
+	if err != nil || !got.Locations["p/one"]["eastus"] {
+		t.Fatalf("provider returned alias escaped: %#v %v", got, err)
+	}
 	ctx, cancel := context.WithCancel(context.Background())
 	cancel()
-	if got, err := c.Collect(ctx, quotaScope(), ProviderLocationRequest{quotaTestID}); got != nil || !errors.Is(err, context.Canceled) { t.Fatalf("provider precancel: %#v %v", got, err) }
+	if got, err := c.Collect(ctx, quotaScope(), ProviderLocationRequest{quotaTestID}); got != nil || !errors.Is(err, context.Canceled) {
+		t.Fatalf("provider precancel: %#v %v", got, err)
+	}
 	ctx, cancel = context.WithCancel(context.Background())
-	c = providerCollector(t, func(context.Context, string, int64) ([]byte, *http.Response, error) { cancel(); return quotaPage(providerPrefix) })
-	if got, err := c.Collect(ctx, quotaScope(), ProviderLocationRequest{quotaTestID}); got != nil || !errors.Is(err, context.Canceled) { t.Fatalf("provider terminal cancellation: %#v %v", got, err) }
-	c = providerCollector(t, func(context.Context, string, int64) ([]byte, *http.Response, error) { return nil, nil, context.DeadlineExceeded })
-	if got, err := c.Collect(context.Background(), quotaScope(), ProviderLocationRequest{quotaTestID}); got != nil || !errors.Is(err, context.DeadlineExceeded) { t.Fatalf("provider deadline: %#v %v", got, err) }
+	c = providerCollector(t, func(context.Context, string, int64) ([]byte, *http.Response, error) {
+		cancel()
+		return quotaPage(providerPrefix)
+	})
+	if got, err := c.Collect(ctx, quotaScope(), ProviderLocationRequest{quotaTestID}); got != nil || !errors.Is(err, context.Canceled) {
+		t.Fatalf("provider terminal cancellation: %#v %v", got, err)
+	}
+	c = providerCollector(t, func(context.Context, string, int64) ([]byte, *http.Response, error) {
+		return nil, nil, context.DeadlineExceeded
+	})
+	if got, err := c.Collect(context.Background(), quotaScope(), ProviderLocationRequest{quotaTestID}); got != nil || !errors.Is(err, context.DeadlineExceeded) {
+		t.Fatalf("provider deadline: %#v %v", got, err)
+	}
 }
 
 func TestProviderCollectorAuthenticatedClient(t *testing.T) {
@@ -356,11 +381,17 @@ func TestProviderCollectorAuthenticatedClient(t *testing.T) {
 			}),
 		})
 		c, err := NewProviderLocationCollector("https://management.usgovcloudapi.net", client)
-		if err != nil { t.Fatal(err) }
+		if err != nil {
+			t.Fatal(err)
+		}
 		got, err := c.Collect(context.Background(), quotaScope(), ProviderLocationRequest{quotaTestID})
 		want := "unknown"
-		if status == 200 { want = "complete" }
-		if err != nil || got.Status != want || calls != 1 || !closed { t.Fatalf("provider bounded transport%d: %#v %v calls%d closed%v", status, got, err, calls, closed) }
+		if status == 200 {
+			want = "complete"
+		}
+		if err != nil || got.Status != want || calls != 1 || !closed {
+			t.Fatalf("provider bounded transport%d: %#v %v calls%d closed%v", status, got, err, calls, closed)
+		}
 	}
 }
 
@@ -368,16 +399,23 @@ func TestProviderCollectorAvailabilityHealth(t *testing.T) {
 	for _, status := range []string{"complete", "partial", "unknown"} {
 		scope, inventory, request, evidence := availabilityInputs()
 		counts := inventory.Subscriptions[availabilityID]
-		counts.ResourceTypesByRegion["eastus"] = map[string]int{"p/one": 1, "p/two": 2}
+		counts.ResourceTypesByRegion["eastus"] = map[string]int64{"p/one": 1, "p/two": 2}
 		inventory.Subscriptions[availabilityID] = counts
 		evidence.Locations = map[string]map[string]bool{"p/one": {"global": true}}
 		evidence.ProvidersComplete = status == "complete"
 		got, err := CalculateAvailability(context.Background(), scope, inventory, request, evidence)
-		if err != nil { t.Fatal(err) }
+		if err != nil {
+			t.Fatal(err)
+		}
 		want := Comparison{SubscriptionID: availabilityID, SubscriptionName: "selected", SourceRegion: "eastus", TargetRegion: "westeurope", SourceResourceTypeCount: 2, AvailableTypes: 1, UnavailableTypes: 1, AvailabilityPercent: 50, MissingResourceTypes: []string{"p/two"}, MissingSKUs: []string{}, RestrictedSKUs: []string{}, ZoneRestrictedSKUs: []string{}, SourceZoneCount: 3, TargetZoneCount: 2}
 		wantHealth := assessment.StageExecution{Name: Name, Status: assessment.StageCompleted, Records: 1}
-		if status != "complete" { wantHealth.Status = assessment.StageCompletedWithWarnings; wantHealth.Warnings = []assessment.AssessmentWarning{{Code: "availability_providers_partial", Message: "region availability evidence is incomplete"}} }
-		if !reflect.DeepEqual(got.Comparison, want) || !reflect.DeepEqual(got.Health, wantHealth) { t.Fatalf("provider calculation boundary%s: %#v", status, got) }
+		if status != "complete" {
+			wantHealth.Status = assessment.StageCompletedWithWarnings
+			wantHealth.Warnings = []assessment.AssessmentWarning{{Code: "availability_providers_partial", Message: "region availability evidence is incomplete"}}
+		}
+		if !reflect.DeepEqual(got.Comparison, want) || !reflect.DeepEqual(got.Health, wantHealth) {
+			t.Fatalf("provider calculation boundary%s: %#v", status, got)
+		}
 	}
 }
 
@@ -385,19 +423,27 @@ func TestProviderCollectorDecoderBoundaries(t *testing.T) {
 	for _, count := range []int{65533, 65534} {
 		body := `{"value":[],"metadata":[` + strings.TrimSuffix(strings.Repeat("0,", count), ",") + `]}`
 		got := providerCollect(t, body)
-		if count == 65533 && got.Status != "complete" || count == 65534 && got.Status != "unknown" { t.Fatalf("provider JSON token exact/excess%d: %#v", count, got) }
+		if count == 65533 && got.Status != "complete" || count == 65534 && got.Status != "unknown" {
+			t.Fatalf("provider JSON token exact/excess%d: %#v", count, got)
+		}
 	}
 	for _, depth := range []int{31, 32} {
 		body := `{"value":[],"metadata":` + strings.Repeat("[", depth) + "0" + strings.Repeat("]", depth) + "}"
 		got := providerCollect(t, body)
-		if depth == 31 && got.Status != "complete" || depth == 32 && got.Status != "unknown" { t.Fatalf("provider JSON depth exact/excess%d: %#v", depth, got) }
+		if depth == 31 && got.Status != "complete" || depth == 32 && got.Status != "unknown" {
+			t.Fatalf("provider JSON depth exact/excess%d: %#v", depth, got)
+		}
 	}
 	for _, count := range []int{127, 128} {
 		body := `{"value":[]`
-		for i := 0; i < count; i++ { body += fmt.Sprintf(`,"k%d":0`, i) }
+		for i := 0; i < count; i++ {
+			body += fmt.Sprintf(`,"k%d":0`, i)
+		}
 		body += "}"
 		got := providerCollect(t, body)
-		if count == 127 && got.Status != "complete" || count == 128 && got.Status != "unknown" { t.Fatalf("provider JSON keys exact/excess%d: %#v", count, got) }
+		if count == 127 && got.Status != "complete" || count == 128 && got.Status != "unknown" {
+			t.Fatalf("provider JSON keys exact/excess%d: %#v", count, got)
+		}
 	}
 	for _, count := range []int{4096, 4097} {
 		calls := 0
@@ -410,13 +456,17 @@ func TestProviderCollectorDecoderBoundaries(t *testing.T) {
 			return quotaPage(`{"value":[]}`)
 		})
 		got, err := c.Collect(context.Background(), quotaScope(), ProviderLocationRequest{quotaTestID})
-		if err != nil || count == 4096 && (got.Status != "complete" || calls != 2) || count == 4097 && (got.Status != "partial" || calls != 1 || got.FailureCode != "provider_unsafe_continuation") { t.Fatalf("provider skiptoken exact/excess%d: %#v %v calls%d", count, got, err, calls) }
+		if err != nil || count == 4096 && (got.Status != "complete" || calls != 2) || count == 4097 && (got.Status != "partial" || calls != 1 || got.FailureCode != "provider_unsafe_continuation") {
+			t.Fatalf("provider skiptoken exact/excess%d: %#v %v calls%d", count, got, err, calls)
+		}
 	}
 	// Collect's byte cap dominates this text cap. Check the decoder's budget
 	// seam independently, without claiming an estate or load validation.
 	body := []byte(`{"value":[{"namespace":"P","resourceTypes":[]}]}`)
 	for _, prior := range []int{16711679, 16711680} {
 		_, code := decodeProviderPage(context.Background(), body, quotaTestID, nil, 0, prior)
-		if prior == 16711679 && code != "" || prior == 16711680 && code == "" { t.Fatalf("provider decoded-text exact/excess%d: %s", prior, code) }
+		if prior == 16711679 && code != "" || prior == 16711680 && code == "" {
+			t.Fatalf("provider decoded-text exact/excess%d: %s", prior, code)
+		}
 	}
 }

@@ -29,10 +29,10 @@ jobs:
           from pathlib import Path
           for name in ('provider_locations_collector.go','provider_locations_collector_test.go'):
               raw=(Path('internal/plugins/region')/name).read_bytes()
-              text=raw.decode('utf-8')
+              text=raw.hex()
               chunks=[text[i:i+2500] for i in range(0,len(text),2500)]
               for i,chunk in enumerate(chunks):
-                  print('PROVIDER_FORMAT_JSON '+json.dumps({'name':name,'sha256':hashlib.sha256(raw).hexdigest(),'index':i,'count':len(chunks),'content':chunk}))
+                  print('PROVIDER_FORMAT_JSON '+json.dumps({'name':name,'sha256':hashlib.sha256(raw).hexdigest(),'index':i,'count':len(chunks),'hex':chunk}))
           PY
       - name: Focused collector compile and behavior
         run: go test -race -count=1 -run '^TestProviderCollector' ./internal/plugins/region

@@ -23,9 +23,9 @@ type ProviderLocationRequest struct {
 // partial or unknown; even an admitted empty page establishes a partial prefix.
 type ProviderLocationCollection struct {
 	SubscriptionID string
-	Status string
-	Locations map[string]map[string]bool
-	FailureCode string
+	Status         string
+	Locations      map[string]map[string]bool
+	FailureCode    string
 }
 
 type ProviderLocationCollector struct {
@@ -78,9 +78,9 @@ func providerLocation(value string) (string, bool) {
 
 type providerPage struct {
 	locations map[string]map[string]bool
-	next string
-	work int
-	text int
+	next      string
+	work      int
+	text      int
 }
 
 func providerArray(raw json.RawMessage) ([]json.RawMessage, bool) {
@@ -100,7 +100,7 @@ func decodeProviderPage(ctx context.Context, body []byte, subscription string, p
 		return providerPage{}, "provider_invalid_response"
 	}
 	var envelope struct {
-		Value json.RawMessage
+		Value    json.RawMessage
 		NextLink json.RawMessage
 	}
 	if json.Unmarshal(body, &envelope) != nil {
@@ -133,8 +133,8 @@ func decodeProviderPage(ctx context.Context, body []byte, subscription string, p
 			return providerPage{}, "provider_work_limit"
 		}
 		var provider struct {
-			ID json.RawMessage
-			Namespace string
+			ID            json.RawMessage
+			Namespace     string
 			ResourceTypes json.RawMessage
 		}
 		if bytes.Equal(bytes.TrimSpace(raw), []byte("null")) || json.Unmarshal(raw, &provider) != nil ||
@@ -161,7 +161,7 @@ func decodeProviderPage(ctx context.Context, body []byte, subscription string, p
 			}
 			var resourceType struct {
 				ResourceType string
-				Locations json.RawMessage
+				Locations    json.RawMessage
 			}
 			if bytes.Equal(bytes.TrimSpace(rawType), []byte("null")) || json.Unmarshal(rawType, &resourceType) != nil ||
 				!label(resourceType.ResourceType) || !providerTypeIdentifier(resourceType.ResourceType) {
