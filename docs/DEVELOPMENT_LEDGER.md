@@ -1,3 +1,44 @@
+# Remaining SKU raw observations retained and native preparation, 2026-10-13 evening
+
+PR13820695e7 remains VERIFIED OFFLINE; protected ref freshly checked unchanged.
+PR139 DRAFT/UNACCEPTED. Pilotbfe22446/tree47eb7678/parentf7fdd258 was published/
+full7file readback/Denis/tree/parent/ref verified AFTER pre-edit contract readback.
+Source38452136762/job115485455692 FAILED exactly at missing new golden AFTER
+TestRegionOtherSKUCapture PASS (5.11s), all178provider maps/7cache calls/request
+boundaries/original11harnesses/source/APRL/module guards. Full1361309character log/
+23records315uniquecontiguouschunks independently reconstructed/SHA256 checked;
+all21previous fullremote/Gitblob bytes unchanged. Input111334bytes81ffb150,
+output132253bytesc7721666 retained VERBATIM. FN120 records declared preparation,
+not acceptance or a compiler/fixture failure.
+
+Original Storage/Cognitive/SQL DB/MI maps expose location-values/kind/parent-status
+behavior without source corrections. All7registered SKU types now have bounded
+synthetic source observations, but new slice is not accepted yet. Direct SQL
+display-region URI has encoded URL and decoded/raw display path; request fields
+are retained exactly, not normalized after capture. Fake credential/explicit
+transport/sharedimmutableComputehelper024dd96e/no-retry seam/tripwires; no real
+Azure/AAD/service request, public region path, target SKU collector or model quota
+certification. Source/SDK/APRL/dependencies/toolchain unchanged.
+
+This candidate adds4independent native metadata/fullmap/request/cache oracles and
+17compiling fixture controls/restored baselines on BOTH required hosts; all prior
+Compute14/provider25/othercontrols preserved. All7source byteguard probes include
+separate remaining-SKU exclusions while preserving previous provider/Compute names.
+Temporary read-only hosted preparation formats ONLY the new oracle and emits full
+SHA256/hex chunks, then focused race/control checks; remove before final acceptance.
+Own fresh strictsource/fullnative/review/files/tree/parents/identity/preview/
+protection/expectedheadmerge/DISTINCT acceptedpush proof remains required.
+No predecessor proof transfers to this new native code.
+
+Laptop restoration UNCONFIRMED; continue authorized offline scope. Live/DV001/
+FullCost/targetadapters/coordinator/public/B6-B7/module-only/load/freshOS/maintenance/
+Gate004/release/licensing/human gates remain open. No writes/fixtures/roles/scope
+substitution/exposure/release. Exact next inspect prep formatting/focused17controls,
+strictsource equality and actual failures, remove helper after proof and finish
+the final-head acceptance sequence. Earlier entries below remain dated history.
+
+---
+
 # Remaining SKU source pilot, 2026-10-13 evening
 
 Protected development remains PR13820695e7ce7d22d958cec54e122cf4f5947b1e8e7,

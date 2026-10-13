@@ -78,6 +78,9 @@ jobs:
       - name: Compute SKU source oracle compiling controls
         run: python3 scripts/tests/region-compute-sku-capture-mutation.py
 
+      - name: Remaining SKU source oracle compiling controls
+        run: python3 scripts/tests/region-other-sku-capture-mutation.py
+
       - name: Verify formatting
         shell: bash
         run: |
@@ -330,6 +333,9 @@ jobs:
 
       - name: Compute SKU source oracle compiling controls
         run: python scripts/tests/region-compute-sku-capture-mutation.py
+
+      - name: Remaining SKU source oracle compiling controls
+        run: python scripts/tests/region-other-sku-capture-mutation.py
 
       - name: Test Go packages on Windows
         run: go test ./...

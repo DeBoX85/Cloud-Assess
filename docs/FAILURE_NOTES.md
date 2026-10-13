@@ -1,3 +1,18 @@
+# FN120: Remaining SKU first strict observation preparation, 2026-10-13
+
+Pilotbfe22446/source38452136762/job115485455692 FAILED at missing
+source-other-sku-inputs.json only AFTER original11harnesses/provider178independent
+fullmaps/7cachecalls/request boundaries/source+APRL+module guards passed.
+This was the predeclared first unretained observation, not compilation or fixture
+failure and not acceptance. Full1361309log/23records315chunks independently SHA256;
+all21earlier full remote bytes/Gitblob matched unchanged. Retain original new
+input111334bytes81ffb150/output132253bytesc7721666 verbatim and require fresh strict
+current-head equality; do not alter expected source behavior to get green output.
+New native17controls/fullQA/review/merge/push proof remain independently required.
+No source/pin/security/native guard weakened. Prior FN118-119 histories retained.
+
+---
+
 # FN119: Preserve earlier source manifest controls when extending (2026-10-13)
 
 Self-review before PR138 acceptance found the first21record byte-guard extension
