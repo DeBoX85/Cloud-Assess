@@ -12,7 +12,7 @@ MUTATIONS = (
     ("selected-scope", 'scope[id] == ""', '(scope[id] == "" && false)', "TestProviderCollectorAdmission"),
     ("returned-id-structure", 'len(parts[1]) == len("subscriptions") && strings.EqualFold(parts[1], "subscriptions")', 'len(parts[1]) == len("subscriptions")', "TestProviderCollectorIDs"),
     ("returned-id-binding", 'strings.EqualFold(parts[4], namespace)', '(strings.EqualFold(parts[4], namespace) || true)', "TestProviderCollectorIDs"),
-    ("namespace-ascii", '!providerIdentifier.MatchString(namespace)', '(!providerIdentifier.MatchString(provider.Namespace) && false)', "TestProviderCollectorShapes"),
+    ("namespace-ascii", '!providerIdentifier.MatchString(namespace)', '(!providerIdentifier.MatchString(namespace) && false)', "TestProviderCollectorShapes"),
     ("location-ascii", 'if r > 127 {', 'if r > 127 && false {', "TestProviderCollectorShapes"),
     ("logical-location", '(normalized == "global" || costPhysical(normalized))', '(normalized == "global" || costPhysical(normalized) || true)', "TestProviderCollectorShapes"),
     ("mandatory-array", 'len(raw) == 0 || bytes.Equal(bytes.TrimSpace(raw), []byte("null"))', '(len(raw) == 0 || bytes.Equal(bytes.TrimSpace(raw), []byte("null"))) && false', "TestProviderCollectorShapes"),

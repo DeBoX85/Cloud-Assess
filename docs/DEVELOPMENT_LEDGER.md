@@ -1,3 +1,21 @@
+# Provider collector mutation adaptation correction, 2026-10-13
+
+PR137 UNACCEPTED. Review5497759614/4253813570 on d5ba61cf found valid namespace
+mutation AFTER expression still referenced obsolete provider.Namespace (FN116),
+despite corrected BEFORE selector. Fix both sides, inspect all25match/replacement
+expressions for removed struct fields/unique selectors. Strict compiler-failure
+rejection and all tests/guards remain. Production canonical-property fix FN115,
+source/goldens/pins/SDK/dependencies unchanged; no public/Azure activation.
+
+Current predecessor source38331614177/115082381524 SUCCESS/full793514log/
+19records185chunks/freshfullremoteSHA256/Git identities verified; it is historical
+after this new head, not transferred final acceptance. New exact-head source/
+native25+existingcontrols/review/fullpublication/preview/protected/distinct-push
+proof required. Both review threads remain pending verified fixes/fresh feedback.
+Earlier failed preparations/oracles stay recorded, not relabelled.
+
+---
+
 # Provider collector canonical JSON correction, 2026-10-13
 
 PR137 remains UNACCEPTED. Current automated review5497731979/4253788910 on1ccfbff5

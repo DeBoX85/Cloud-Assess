@@ -1,3 +1,20 @@
+# FN116: Namespace mutation replacement retained obsolete struct selector, 2026-10-13
+
+Automated review5497759614/inline4253813570/threadPRRT_kwDOUdPf9c6rrPUE on d5ba61cf
+identified a valid compiling-control mistake after FN115's map-decoder change.
+The mutation's BEFORE string used namespace, but its AFTER string still referenced
+provider.Namespace. provider is now a map, so that mutant would fail compilation,
+not the required TestProviderCollectorShapes assertion. No mutant compilation
+failure or predecessor/source success qualifies as control acceptance.
+
+Replace obsolete selector in BOTH sides, inspect all25match/replacement expressions
+for removed struct fields and unique selectors, then require actual compiled
+named failures/restored baselines in BOTH mandatory native jobs. Preserve strict
+build-failure rejection and every assertion/budget. No production behavior changed.
+This was an incomplete test adaptation, not a product/runtime or live incident.
+
+---
+
 # FN115: Single Unicode-folded JSON property aliases admitted, 2026-10-13
 
 Automated review5497731979/inline4253788910/threadPRRT_kwDOUdPf9c6rrLoI on1ccfbff5
