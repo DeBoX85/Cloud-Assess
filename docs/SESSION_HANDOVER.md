@@ -1,3 +1,25 @@
+# Compute disk SKU contract preparation, 2026-10-13
+
+PR139 merged at6f923c1d/tree1e3827f3. Distinct push source38461446822 succeeded
+with complete23record315chunk proof. Actual-push native38461447085 is still running;
+do not call this VERIFIED OFFLINE until both full logs have been checked.
+
+This task-owned branch adds a proposed
+[Compute disk SKU collector contract](REGION_COMPUTE_DISK_SKU_COLLECTOR_20261013.md)
+before production edits. It closes optional metadata admission, pagination/filter,
+owned snapshot, raw-work/text and diagnostic decisions from the earlier analysis.
+The first slice is disks only, with documented2021-07-01 Resource SKUs, not source
+2023-03-01. Source oracles stay original. No target collector or public region code
+is implemented. VM/VMSS and other SKU families remain deferred.
+
+This proposal remains UNACCEPTED and has no QA/review acceptance yet. Exact next:
+finish PR139 distinct actual-push proof, update the current checkpoint, then review
+the concrete contract before target production edits. All earlier snapshots and
+failures stay intact. Laptop access remains unconfirmed; no Azure scope/action
+or release approval is inferred.
+
+---
+
 # PR139 merged; accepted-push verification pending, 2026-10-13
 
 Protected development now points to PR139 merge
