@@ -49,7 +49,7 @@ class CaptureBytesTests(unittest.TestCase):
 
 
     def test_required_manifest(self):
-        self.assertEqual(capture_files, ('source-aux-inputs.json','source-aux-outputs.json','source-inventory-inputs.json','source-inventory-outputs.json','source-availability-inputs.json','source-availability-outputs.json','source-latency-inputs.json','source-latency-outputs.json','source-latency-data.json','source-cost-enrichment-inputs.json','source-cost-enrichment-outputs.json','source-quota-inputs.json','source-quota-outputs.json','source-vm-quota-inputs.json','source-vm-quota-outputs.json','source-reservation-inputs.json','source-reservation-outputs.json','source-provider-locations-inputs.json','source-provider-locations-outputs.json','source-compute-sku-inputs.json','source-compute-sku-outputs.json'))
+        self.assertEqual(capture_files, ('source-aux-inputs.json','source-aux-outputs.json','source-inventory-inputs.json','source-inventory-outputs.json','source-availability-inputs.json','source-availability-outputs.json','source-latency-inputs.json','source-latency-outputs.json','source-latency-data.json','source-cost-enrichment-inputs.json','source-cost-enrichment-outputs.json','source-quota-inputs.json','source-quota-outputs.json','source-vm-quota-inputs.json','source-vm-quota-outputs.json','source-reservation-inputs.json','source-reservation-outputs.json','source-provider-locations-inputs.json','source-provider-locations-outputs.json','source-compute-sku-inputs.json','source-compute-sku-outputs.json','source-other-sku-inputs.json','source-other-sku-outputs.json'))
 
     def test_all_files_unconditionally_guarded(self):
         loops = [n for n in ast.walk(tree) if isinstance(n, ast.For) and any(isinstance(c, ast.Call) and isinstance(c.func, ast.Name) and c.func.id == 'verify_capture_bytes' for c in ast.walk(n))]
@@ -155,3 +155,32 @@ if not restored_result.wasSuccessful():
     raise SystemExit('Restored complete Compute/provider capture manifest/loop baseline failed')
 print('Region source capture compiling mutation rejected: compute-sku-manifest-omission; restored six assertions passed')
 print('Region source capture compiling mutation rejected: compute-sku-guard-subset; restored six assertions passed')
+
+# Keep both earlier family controls and add independent remaining-SKU exclusions.
+try:
+    capture_files = tuple(name for name in original_files if not name.startswith('source-other-sku-'))
+    result = unittest.TestResult()
+    CaptureBytesTests('test_required_manifest').run(result)
+    if len(result.failures) != 1 or result.errors or result.testsRun != 1:
+        raise SystemExit('Other SKU records omission did not fail named manifest assertion')
+finally:
+    capture_files = original_files
+
+try:
+    loops[0].iter = ast.Tuple(elts=[ast.Constant(value=name) for name in original_files
+                                  if not name.startswith('source-other-sku-')], ctx=ast.Load())
+    ast.fix_missing_locations(tree)
+    compile(tree, '<compiling remaining source SKU guard subset>', 'exec')
+    result = unittest.TestResult()
+    CaptureBytesTests('test_all_files_unconditionally_guarded').run(result)
+    if len(result.failures) != 1 or result.errors or result.testsRun != 1:
+        raise SystemExit('Other SKU guard subset did not fail named coverage assertion')
+finally:
+    loops[0].iter = original_iterator
+
+restored_result = unittest.TestResult()
+unittest.defaultTestLoader.loadTestsFromTestCase(CaptureBytesTests).run(restored_result)
+if not restored_result.wasSuccessful():
+    raise SystemExit('Restored complete remaining SKU capture manifest/loop baseline failed')
+print('Region source capture compiling mutation rejected: other-sku-manifest-omission; restored six assertions passed')
+print('Region source capture compiling mutation rejected: other-sku-guard-subset; restored six assertions passed')

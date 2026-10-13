@@ -40,6 +40,9 @@ CAPTURES = (
     ("compute_sku_capture_test.go.txt", "sku/compute_sku_capture_test.go",
      "REGION_COMPUTE_SKU_CAPTURE_OUTPUT", "^TestRegionComputeSKUCapture$",
      "./internal/scanners/plugins/region/sku"),
+    ("other_sku_capture_test.go.txt", "sku/other_sku_capture_test.go",
+     "REGION_OTHER_SKU_CAPTURE_OUTPUT", "^TestRegionOtherSKUCapture$",
+     "./internal/scanners/plugins/region/sku"),
     ("reservation_capture_test.go.txt", "crg/reservation_capture_test.go",
      "REGION_RESERVATION_CAPTURE_OUTPUT", "^TestRegionReservationCapture$",
      "./internal/scanners/plugins/region/crg"),
@@ -54,7 +57,8 @@ FILES = ("source-aux-inputs.json", "source-aux-outputs.json",
          "source-vm-quota-inputs.json", "source-vm-quota-outputs.json",
          "source-reservation-inputs.json", "source-reservation-outputs.json",
          "source-provider-locations-inputs.json", "source-provider-locations-outputs.json",
-         "source-compute-sku-inputs.json", "source-compute-sku-outputs.json")
+         "source-compute-sku-inputs.json", "source-compute-sku-outputs.json",
+         "source-other-sku-inputs.json", "source-other-sku-outputs.json")
 
 
 def run(args, directory, timeout=240, capture=False):

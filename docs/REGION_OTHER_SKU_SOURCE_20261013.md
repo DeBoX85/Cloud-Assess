@@ -1,3 +1,44 @@
+# Remaining SKU source pilot, 2026-10-13 evening
+
+Protected development remains PR13820695e7ce7d22d958cec54e122cf4f5947b1e8e7,
+VERIFIED OFFLINE with complete distinct push proof. Fresh branch/PR139 refs checked:
+pre-edit closuref7fdd258/tree37ff02d9/parent84179861 remains draft/unmerged. Its
+native38388522473 (quality115266632801/windows115266632545) and source38388522470/
+115266181308 report SUCCESS; full94173/74645/999563logs fetched. This predecessor
+preparation is historical after this pilot and cannot certify new source captures.
+Current pre-edit contract/full docs blobs read back BEFORE any remaining harness edit.
+
+This UNACCEPTED source-only pilot adds other_sku_capture_test.go.txt, invoking
+original Storage/Cognitive/SQL DB/SQL MI providers with178independently declared
+full-map/error/request fixtures and7explicit subscription/type/region cache calls.
+Reuse immutable accepted Compute synthetic credential/transport helpers, verified
+by original Git blob024dd96e; explicit injection and HTTP tripwires/no-retry seam.
+Source/SDK/APRL/dependency/toolchain/target production files remain unchanged.
+No Azure/AAD/external service call, model quota/deployability, public region or
+target collector certification. Direct SQL uppercase/display-region requests,
+global-versus-empty location filtering, ignored restriction.values/cross-kind/
+parent-status metadata, Unicode/ASCII aliases/null/wrong shape/collisions,
+first/later errors/bounded continuations/cancellation are original observations.
+
+Strict runner now executes11harnesses and emits23full records BEFORE unconditional
+retained equality. Original21records remain immutable. Byte guard now keeps ALL5
+previous named probes and adds2distinct other-SKU omissions/subsets/restoration.
+No new goldens yet. First source preparation is expected to fail missing new golden
+ONLY after actual harness/source/provenance success; compiler or fixture failures
+must be separately classified from logs. Then independently reconstruct/SHA256/
+Gitblob verify raw bytes before retention, add native literal-cell/compiling
+controls on BOTH required hosts, full exact-head source/native/review/protected/
+distinct-push acceptance. Do not transfer prior green checks to this pilot.
+
+Laptop restoration remains UNCONFIRMED; new user says continue without access
+confirmation. Continue authorized offline work; existing laptop queue remains
+deferred with all nonproduction/DV001/no-write/no-fixture/no-role/no-exposure/
+no-release boundaries. Exact next inspect this pilot's actual source result,
+correct only real failures, retain complete raw observations and build native
+independent source controls. Earlier entries below are history.
+
+---
+
 # Compute SKU source VERIFIED OFFLINE and remaining-source resume point, 2026-10-13
 
 PR138 is VERIFIED OFFLINE at20695e7ce7d22d958cec54e122cf4f5947b1e8e7,
