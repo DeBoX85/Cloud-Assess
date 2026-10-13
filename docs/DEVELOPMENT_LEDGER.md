@@ -1,3 +1,69 @@
+# Current authority: PR139 VERIFIED OFFLINE, 2026-10-13
+
+[PR139](https://github.com/DeBoX85/Cloud-Assess/pull/139) is merged and VERIFIED
+OFFLINE at6f923c1dd40a3396db65415510f599a328ed38b5.
+Tree1e3827f306dab4d95684b3e047c154f505ec4e33; ordered parents
+20695e7ce7d22d958cec54e122cf4f5947b1e8e7 and
+0b96d0bde1c3302cc270e4f4d06af679f316f4bb.
+Protected expected-head merge, signature/raw signed SHA1, Denis author/GitHub
+committer, unchanged protection/no bypass and final protected/merged ref verified.
+
+| Proof | Full verified evidence |
+| --- | --- |
+| Final candidate source38458562406/job115507481824 | SUCCESS,1360586log,23records315contiguous chunks/SHA256/fullfresh bytes/Gitblobs |
+| Candidate native38458562489 | Linux115507803319:96216log,58steps (conditional failure upload skipped),287controls; Windows115507802989:77327log,43steps,282controls |
+| Current-head review6153259878 | Completed0b96d0b on2026-10-13T19:58:19.396982Z; no new inline findings; earlier identity thread resolved with evidence |
+| DISTINCT accepted-push source38461446822/job115517353822 | SUCCESS,1359930log,actual6f923c1d checkout,all7steps/11original harnesses/23records315chunks independently SHA256/fullfreshacceptedbytes/Gitblobs |
+| DISTINCT accepted-push native38461447085 | Linux115517355506:95996log,58steps (conditional failure upload skipped),287controls; Windows115517355831:76534log,43steps,282controls |
+
+All previous named control identities are preserved on both hosts, including all7
+actual source byteguard names. Both candidate and push native Windows ran all5
+cleanup policy tests, including a controlled real delete-sharing lock, without skip.
+All12CLI checks, default/custom packages, branding/docs, modules/Go1.26.9, Linux
+race/84.7% coverage/five bounded fuzz targets/vet and security passed. Security is
+0reachable/0imported/1module; module-only GO-2026-5932 stays open.
+All17final changed full files/Gitblobs and256directory trees were independently
+verified before expected-head merge. Every source/SDK/APRL/module pin is unchanged.
+
+Source SKU characterization covers7/7registered types: Compute VM/VMSS/disks and
+Storage/Cognitive/SQL DB/MI. New178cases/7cache calls join89Compute cases.
+This is synthetic source evidence, not Windows-originalSDK/Azure deployability,
+quota/capacity/live/sovereign proof. Target region SKU collectors remain0/7.
+No public region activation or release approval follows from this milestone.
+
+This task-owned proposal is a documentation/contract DRAFT and remains UNACCEPTED.
+[Compute disk SKU contract](REGION_COMPUTE_DISK_SKU_COLLECTOR_20261013.md) now specifies
+the first disk-only target slice, documented2021-07-01 API/schema, metadata matrix,
+restriction precedence, safe optional-filter continuation, owned snapshots,
+partial-to-unknown scoring boundary, bounds and11literal cases before target code.
+[Broader analysis](REGION_SKU_TARGET_ANALYSIS_20261013.md) retains the other-family
+decisions and scope. No collector has been implemented on this branch.
+Its own acceptance requires fresh complete exact-head native/source/review/
+publication/tree/identity/preview/protected merge and DISTINCT accepted-push proof.
+Do not transfer PR139 passes to future target code or this edited proposal.
+
+Exact next: verify live protected/WIP proposal refs and the concrete pre-edit
+contract, then implement only the internal Compute disk collector with independent
+full-map/transport/bound/ownership/health cases and compiling production controls.
+Other SKU families, region coordinator/public execution, FullCost/other adapters,
+B6-B7/load/freshOS/maintenance/Gate004/licensing/human/release gates stay separate.
+
+FN120 missing-golden preparation, FN121 identity-evidence discrepancy, FN122
+Windows cleanup sharing violation and FN123 helper bytecode dirty-checkout regression
+remain preserved. Superseded71f885f3 Windows115504929805 was CANCELLED, not accepted.
+Earlier failed/partial heads stay failed/partial; final corrected passes do not
+erase them. Cleanup retries only sharing32 eight attempts/4.5seconds delay;
+persistent locks/unrelated errors and all12CLI checks still fail honestly.
+Both import entry points disable bytecode writing before the local helper import;
+package clean-source enforcement is unchanged.
+
+Laptop access remains unconfirmed. Existing confirmed nonproduction/DV001/read-only/
+no-fixture/no-role/no-substitution/no-exposure/no-release boundaries remain.
+Continue independent offline work; never infer access from elapsed time.
+Earlier headers below are dated historical snapshots.
+
+---
+
 # Compute disk SKU contract preparation, 2026-10-13
 
 PR139 merged at6f923c1d/tree1e3827f3. Distinct push source38461446822 succeeded

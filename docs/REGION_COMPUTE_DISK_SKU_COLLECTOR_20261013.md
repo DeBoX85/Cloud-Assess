@@ -1,8 +1,8 @@
 # Compute disk SKU target reconciliation, 2026-10-13
 
 Status: proposed pre-edit contract, UNACCEPTED task-owned WIP. PR139 merged at
-6f923c1d; its distinct accepted-push native checks remain pending. No production
-edits until that proof and this proposal's concrete contract have been verified.
+6f923c1d and its distinct accepted-push native/source proof is VERIFIED OFFLINE.
+Verify live refs and this published concrete contract before production edits.
 This document specifies proposed behavior; no target collector exists yet.
 
 First target SKU slice: Microsoft.Compute/disks only. VM/VMSS and all other SKU
@@ -213,3 +213,29 @@ budget while using that separate limit rather than MaxLabelBytes; the decoded
 skiptoken remains capped at4096bytes. First/continuation method/body/version/audience
 checks and every response close are independently asserted with the actual bounded
 transport before complete evidence is projected.
+
+
+## Independent first literal cases declared before target code
+
+For all cases use the selected UUID above and requested eastus. Output expectations
+are literal proposed target results, not observations of an implementation.
+
+| Wire rows or page outcome | Complete collection values | Snapshot status/values |
+| --- | --- | --- |
+| value=[] and no nextLink | {} | complete / {} |
+| disks, name=Premium_LRS, locations=[eastus], restrictions=[] | premium_lrs: state0, blockedZones=[] | complete / full owned map |
+| Same disk, locations=[westus], restrictions=[] | premium_lrs: state2, blockedZones=[] | complete / full owned map |
+| Same eastus disk, Location/QuotaId restriction values=[eastus], no restrictionInfo | premium_lrs: state1, blockedZones=[] | complete / full owned map |
+| Same eastus disk, Location values=[westus], restrictionInfo.locations=[eastus], reason=NotAvailableForSubscription | premium_lrs: state1, blockedZones=[] | complete / full owned map |
+| Same disk with two matching Zone restrictions, zones=[2,1] then [1,3], both scoped eastus | premium_lrs: state3, blockedZones=[1,2,3] | complete / full owned map |
+| Same disk with matching Zone restriction then matching Location restriction | premium_lrs: state1, blockedZones=[] | complete / full owned map |
+| virtualMachines row named Standard_A0 with valid identity and otherwise irrelevant fields | {} | complete / {} |
+| First admitted available disk page, second malformed page | diagnostic prefix premium_lrs: state0, blockedZones=[]; collection partial | unknown / {} |
+| First admitted empty page, next request fails | diagnostic prefix {}; collection partial | unknown / {} |
+| Cancellation after an admitted page | nil result and context error | no snapshot accepted |
+
+Blocked zones belong only to state3. Regional restriction/unavailability must clear
+the zone slice so irrelevant earlier restrictions do not leak into final evidence.
+Additional literal shape/null/alias/collision/bounds/transport cases remain required
+before acceptance. Tests must assert complete maps, request URLs/counts, collection
+binding/health/failure codes and owned snapshot fields, not just result length.

@@ -1,3 +1,16 @@
+# Current analysis authority, 2026-10-13
+
+PR1396f923c1d is VERIFIED OFFLINE after complete candidate and DISTINCT accepted-push
+Linux/Windows/source proof. This proposal remains UNACCEPTED and adds no target code.
+The first proposed production slice is now specified in
+[Compute disk SKU collector contract](REGION_COMPUTE_DISK_SKU_COLLECTOR_20261013.md).
+That concrete contract closes its earlier optional metadata/continuation questions
+and declares11independent first cases before implementation. Remaining-family
+questions below are still open; earlier pending-source wording is historical.
+Read the current [handover](SESSION_HANDOVER.md) and live PR139 evidence first.
+
+---
+
 # Target SKU collector reconciliation: analysis draft, 2026-10-13
 
 Status: task-owned analysis checkpoint, not target code or a complete pre-edit contract.

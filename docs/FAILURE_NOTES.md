@@ -1,3 +1,17 @@
+# FN121-FN123 final accepted-push outcome, 2026-10-13
+
+PR1396f923c1d VERIFIED OFFLINE. DISTINCT actual accepted-push source38461446822/
+115517353822 SUCCESS/full1359930/23records315chunks/SHA256/fullfreshacceptedbytes/
+Gitblobs. Native38461447085 BOTH hosts SUCCESS: Linux115517355506/full95996/
+58steps/287controls; Windows115517355831/full76534/43steps/282controls.
+Both native Windows candidate and accepted push passed the actual sharing-lock
+fixture and all12CLI/default/custom package checks. Go1.26.9/pins/security retained.
+Earlier cleanup/dirty-checkout failures and superseded cancelled Windows stay
+historical, not renamed success. No waived guard or independent-human approval.
+New documentation/contract proposal is UNACCEPTED and owns its next exact-head QA.
+
+---
+
 # FN121-FN123 correction outcomes, 2026-10-13
 
 Final0b96d0b candidate source38458562406 succeeded with full23/315proof.
