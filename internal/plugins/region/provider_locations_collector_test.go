@@ -152,8 +152,10 @@ const providerPrefix = `{"value":[{"namespace":"P","resourceTypes":[{"resourceTy
 
 func TestProviderCollectorAtomicHealth(t *testing.T) {
 	bad := `{"value":[{"namespace":"P","resourceTypes":[{"resourceType":"new","locations":["global"]},{"resourceType":"ONE","locations":[]}]}]}`
+	if got := providerCollect(t, bad); got.Status != "complete" || !reflect.DeepEqual(got.Locations, map[string]map[string]bool{"p/new": {"global": true}, "p/one": {}}) {
+		t.Fatalf("provider independent disjoint page: %#v", got)
+	}
 	for _, body := range []string{
-		bad,
 		`{"value":[{"namespace":"P","resourceTypes":[{"resourceType":"one","locations":[]},{"resourceType":"ONE","locations":["eastus"]}]}]}`,
 	} {
 		got := providerCollect(t, body)
@@ -467,6 +469,18 @@ func TestProviderCollectorDecoderBoundaries(t *testing.T) {
 		_, code := decodeProviderPage(context.Background(), body, quotaTestID, nil, 0, prior)
 		if prior == 16711679 && code != "" || prior == 16711680 && code == "" {
 			t.Fatalf("provider decoded-text exact/excess%d: %s", prior, code)
+		}
+	}
+}
+
+func TestProviderCollectorWrappedCancellation(t *testing.T) {
+	for _, sentinel := range []error{context.Canceled, context.DeadlineExceeded} {
+		c := providerCollector(t, func(context.Context, string, int64) ([]byte, *http.Response, error) {
+			return nil, nil, fmt.Errorf("secret provider URL token: %w", sentinel)
+		})
+		got, err := c.Collect(context.Background(), quotaScope(), ProviderLocationRequest{quotaTestID})
+		if got != nil || err != sentinel {
+			t.Fatalf("provider wrapped cancellation escaped: %#v %v", got, err)
 		}
 	}
 }

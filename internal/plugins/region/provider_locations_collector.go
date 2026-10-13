@@ -268,8 +268,11 @@ func (c *ProviderLocationCollector) Collect(ctx context.Context, subscriptions m
 		if e := ctx.Err(); e != nil {
 			return nil, e
 		}
-		if errors.Is(err, context.Canceled) || errors.Is(err, context.DeadlineExceeded) {
-			return nil, err
+		if errors.Is(err, context.Canceled) {
+			return nil, context.Canceled
+		}
+		if errors.Is(err, context.DeadlineExceeded) {
+			return nil, context.DeadlineExceeded
 		}
 		if err != nil || response == nil || response.StatusCode != http.StatusOK {
 			return fail("provider_request_failed")

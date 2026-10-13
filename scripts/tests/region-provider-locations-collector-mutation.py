@@ -27,7 +27,9 @@ MUTATIONS = (
     ("page-bytes", 'len(body) > MaxQuotaPageBytes ||', '(len(body) > MaxQuotaPageBytes && false) ||', "TestProviderCollectorBounds"),
     ("aggregate-bytes", 'len(body) > MaxQuotaTotalBytes-total', '(len(body) > MaxQuotaTotalBytes-total && false)', "TestProviderCollectorBounds"),
     ("raw-work", 'if page.work >= MaxProviderLocationWork {', 'if page.work >= MaxProviderLocationWork && false {', "TestProviderCollectorBounds"),
-    ("deadline-health", 'if errors.Is(err, context.Canceled) || errors.Is(err, context.DeadlineExceeded) {', 'if (errors.Is(err, context.Canceled) || errors.Is(err, context.DeadlineExceeded)) && false {', "TestProviderCollectorCancellationOwnership"),
+    ("deadline-health", 'if errors.Is(err, context.DeadlineExceeded) {', 'if errors.Is(err, context.DeadlineExceeded) && false {', "TestProviderCollectorCancellationOwnership"),
+    ("cancel-sentinel", 'return nil, context.Canceled', 'return nil, err', "TestProviderCollectorWrappedCancellation"),
+    ("deadline-sentinel", 'return nil, context.DeadlineExceeded', 'return nil, err', "TestProviderCollectorWrappedCancellation"),
     ("decoded-text", 'return auxiliaryText(value, &page.text)', 'return auxiliaryText(value, new(int))', "TestProviderCollectorDecoderBoundaries"),
 )
 

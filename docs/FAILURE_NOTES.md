@@ -1,3 +1,34 @@
+# FN114: Collision oracle incorrectly assumed an earlier page, 2026-10-13
+
+Fresh preflight38330406259/job115078625437 compiled and ran focused race tests,
+but FAILED TestProviderCollectorAtomicHealth. Its standalone fixture contained
+distinct new/ONE types, so complete admission was correct with no earlier page.
+The test incorrectly expected a cross-page collision before collecting that prefix.
+This was an independently specified test-oracle mistake, not proof of a production
+atomicity failure. The failed focused run remains failed; no overall race pass.
+
+Keep that fixture as a positive complete independent map expectation and as the
+second page after the actual one prefix, where rejection/prefix retention is
+required. Keep the separate same-page one/ONE collision test. Require fresh proof;
+do not weaken the collision guard or omit the cross-page negative control.
+
+---
+
+# FN113: Draft forwarded wrapped context transport text, 2026-10-13
+
+Self-review of unaccepted provider collector found it returned the original getter
+error when errors.Is matched cancellation/deadline but parent context stayed live.
+A wrapped transport error could therefore carry a URL or other transport text.
+No accepted code, live incidence or Azure operation is implicated.
+
+Return exactly context.Canceled/context.DeadlineExceeded sentinels for those
+wrapped outcomes; keep nil result and preserve ordinary cancellation classification.
+Add literal wrapped-synthetic-message tests and two compiling sentinel mutations
+plus deadline-health control. Fresh focused/native/source/review proof required.
+Operational errors remain fixed sanitized FailureCode only.
+
+---
+
 # FN112: Formatter text record masked synthetic authorization, 2026-10-13
 
 Preflight38330155628/job115077847860 emitted both formatted Go files before its

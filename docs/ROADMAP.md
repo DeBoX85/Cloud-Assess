@@ -1,3 +1,23 @@
+# Provider collector cancellation correction and oracle repair, 2026-10-13
+
+PR137 UNACCEPTED. Fresh preflight38330406259/job115078625437 compiled/ran focused
+race tests but FAILED a standalone collision oracle that incorrectly assumed an
+earlier page (FN114). Correct complete disjoint-map expectation now accompanies
+the unchanged same-page and actual cross-page rejection/prefix assertions.
+All28 hex formatter chunks/full original Go SHA256 independently verified without
+masking; failed focused run is not a PASS. Prior compiler/masking FN111/112 retained.
+
+Self-review FN113 corrects draft wrapped transport cancellation/deadline errors
+to standard sentinels, preventing transport text escaping. Wrapped-message tests
+and two sentinel controls join existing production controls (23 total); both
+required hosts retain every old check. Temporary read-only formatter/focused helper
+still requires a fresh run and must be removed before acceptance. Target collector
+is internal only; no public/SDK/module/source/pin/Azure change. Exact next inspect
+fresh focused/formatter/control outcomes, remove helper after proof, then complete
+full exact-head Linux/Windows/source/review/protected/distinct-push QA.
+
+---
+
 # Provider collector corrected pilot and named controls, 2026-10-13
 
 PR137 remains UNACCEPTED. Preflight38330155628/job115077847860 FAILED compilation
