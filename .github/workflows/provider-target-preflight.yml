@@ -1,0 +1,38 @@
+name: Temporary provider target preflight
+
+on:
+  pull_request:
+    branches:
+      - bootstrap/core-v1
+
+permissions:
+  contents: read
+
+jobs:
+  provider-preflight:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          submodules: recursive
+      - uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16
+        with:
+          go-version: '1.26.9'
+      - name: Format task files and emit exact bytes
+        shell: bash
+        run: |
+          set -euo pipefail
+          gofmt -w internal/plugins/region/provider_locations_collector.go internal/plugins/region/provider_locations_collector_test.go
+          python3 - <<'PY'
+          import hashlib,json
+          from pathlib import Path
+          for name in ('provider_locations_collector.go','provider_locations_collector_test.go'):
+              raw=(Path('internal/plugins/region')/name).read_bytes()
+              text=raw.decode('utf-8')
+              chunks=[text[i:i+2500] for i in range(0,len(text),2500)]
+              for i,chunk in enumerate(chunks):
+                  print('PROVIDER_FORMAT_JSON '+json.dumps({'name':name,'sha256':hashlib.sha256(raw).hexdigest(),'index':i,'count':len(chunks),'content':chunk}))
+          PY
+      - name: Focused collector compile and behavior
+        run: go test -race -count=1 -run '^TestProviderCollector' ./internal/plugins/region

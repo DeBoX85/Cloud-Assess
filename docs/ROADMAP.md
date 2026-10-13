@@ -1,3 +1,36 @@
+# Provider collector implementation pilot, 2026-10-13
+
+PR136 is VERIFIED OFFLINE at bf4991af7162c8076a80da827a2c80c77af3eb25.
+Distinct accepted-push native38294494765/quality114962207579/Windows114962207229
+and source38294494675/114962220282 completed SUCCESS. Full89620/69831 native
+logs/all54Linux39Windows steps/all23 named controls/actualbf4991af/Go1.26.9/
+race/vet84.5%/fiveboundedfuzz/builtpackages/branding/docs/security0reachable/
+0imported/1module verified. Source792946-character log/19records185chunks
+independently SHA256/full accepted remote bytes/Git identities/pins verified.
+Live PR136 indexes the separate accepted-push proof; candidate proof not transferred.
+
+PR137 on feat/region-provider-target has pre-edit reconciliation3ae23f22 published
+and all4files/readbacks/Git hashes/Denis identity verified BEFORE production edits.
+This new implementation pilot is UNACCEPTED: internal bounded provider collector
+plus independent literal/request/shape/identity/atomichealth/continuation/limits/
+ownership/cancellation/real-client/calculation tests. No public integration, SDK/
+module/sourcegolden/pin change. Temporary read-only preflight formats ONLY two
+task-owned Go files, emits complete hashed chunks and runs focused race tests.
+Normal required gates remain unchanged; final named compiling controls and full
+exact-head QA are still pending. Remove preflight before acceptance.
+
+Local Node setup transport closed during a read-only call; no write was in flight.
+Refs were freshly rechecked unchanged. A later read-only runtime directory call
+stalled and was terminated without repository edits. Go is not locally available;
+no local compilation/formatter/test success claimed. Hosted preflight must classify
+actual failures and preserve failed history; source/native partial results are not
+acceptance. Exact next: inspect formatted full bytes/focused outcomes, retain verified
+formatter output, add named production controls, remove helper, run complete fresh
+Linux/Windows/source/review/publication/preview/protected/distinct-push proof.
+Laptop/Azure/public/live/release/other-adapter/module-only gates remain open.
+
+---
+
 # Provider target reconciliation preparation, 2026-10-12
 
 [PR136](https://github.com/DeBoX85/Cloud-Assess/pull/136) merged through the protected

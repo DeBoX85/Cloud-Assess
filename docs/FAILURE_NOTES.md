@@ -1,3 +1,19 @@
+# FN110: Interrupted preparation omitted preflight workflow content, 2026-10-13
+
+A read-only local runtime-directory call stalled; the orchestration cell was
+terminated after its earlier preparation output. The next tree request was rejected
+422 because the preflight workflow's content was absent from the retained tool store.
+No tree/commit/ref update succeeded in that failed request; accepted code unchanged.
+This was a publication-preparation mistake, not a Go/compiler/product failure.
+
+Inspected every planned entry and its content type, reconstructed the exact
+read-only workflow explicitly, and require every content to be a string before
+retrying. Inspect live refs before uncertain mutations and do not assume an
+interrupted cell retained every preparation value. Hosted formatter/test acceptance
+remains pending; do not relabel the rejected write or stalled call as validation.
+
+---
+
 # FN109: First provider observation failed strict missing-golden retention, 2026-10-12
 
 Pilot2fc5f8f2 source38279390094/job114912673260 FAILED at FileNotFoundError for
