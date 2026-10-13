@@ -12,6 +12,8 @@ import tempfile
 import threading
 import unittest
 
+from qa_temp_cleanup import cleanup_temporary_directory
+
 ROOT = Path(__file__).resolve().parents[2]
 BINARY = None
 GO = None
@@ -48,7 +50,7 @@ class BuiltCLITests(unittest.TestCase):
 
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory(prefix='cloud-assess-built-cli-')
-        self.addCleanup(self.temp.cleanup)
+        self.addCleanup(cleanup_temporary_directory, self.temp)
         self.directory = Path(self.temp.name) / 'reports with spaces'
         self.directory.mkdir()
         self.executable = self.directory / BINARY.name

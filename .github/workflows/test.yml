@@ -168,6 +168,9 @@ jobs:
           ./.build/cloud-assess scan --help >/dev/null
           ./.build/cloud-assess --version >/dev/null
 
+      - name: Verify QA temporary-directory cleanup policy
+        run: python3 scripts/tests/qa-temp-cleanup.py
+
       - name: Verify built CLI preflight and compiled dependency evidence
         run: python3 scripts/tests/built-cli.py --binary .build/cloud-assess
 
@@ -406,6 +409,9 @@ jobs:
           if ($LASTEXITCODE -ne 0) { throw 'Windows scan help failed.' }
           & ./.build/cloud-assess.exe --version | Out-Null
           if ($LASTEXITCODE -ne 0) { throw 'Windows version failed.' }
+
+      - name: Verify QA temporary-directory cleanup policy
+        run: python scripts/tests/qa-temp-cleanup.py
 
       - name: Verify built Windows CLI preflight and compiled dependency evidence
         run: python scripts/tests/built-cli.py --binary .build/cloud-assess.exe

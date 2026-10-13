@@ -1,3 +1,43 @@
+# PR139 Windows QA cleanup correction, 2026-10-13 evening
+
+Protected development remains VERIFIED OFFLINE PR13820695e7ce7d22d958cec54e122cf4f5947b1e8e7.
+PR139 remains UNACCEPTED. Previous candidate2797a54/tree57fe781b source38453521661/
+job115490219193 SUCCESS/all7steps/full1360585log: all23records315uniquecontiguous
+chunks independently reconstructed/SHA256/freshfull remote bytes/Gitblobs matched.
+Linux38453521543/job115490390648 SUCCESS/full96404log/all57steps except conditional
+failure upload: all287rejections preserve268earlier plus17OtherSKU+2manifest.
+Windows job115490389956 FAILED at built CLI cleanup; twelve functional tests
+reported no assertion failures, but cleanup raised WinError32 on a copied executable.
+Later documentation/package/branding/security steps skipped, not accepted. FN122
+preserves exact failure and unknown lock holder. No historical result transfers
+to this corrected head.
+
+Test-only correction replaces immediate TemporaryDirectory cleanup with a bounded
+sharing-violation32 retry: eight attempts, seven delays totaling4.5seconds.
+Other errors and persistent locks still fail; no ignored cleanup errors. Actual
+subprocess.run already waits, and all12CLI assertions/tripwire checks stay intact.
+Both native gates run five cleanup policy tests, including a controlled real
+Windows handle that denies delete sharing and releases after the first failure.
+Linux explicitly skips only that Windows-specific lock test.
+Source captures/oracles/SDK/pins/modules/production behavior remain unchanged.
+
+Previous automated review6153259878 had one identity-evidence discrepancy:
+actual2797a54 author/committer Denis independently SHA1 matched; cited2d9c3090
+returns404 in this repository, origin unknown. Evidence reply4263081154/
+threadPRRT_kwDOUdPf9c6sBg4z resolved. FN121 preserves it; no independent-person
+approval inferred. Fresh corrected-head review/fullnative/source/fullbytes/tree/
+parent/Denisidentity/preview/protection, expected-head protected merge and DISTINCT
+actual accepted-push verification remain required. Live PR139 body indexes results.
+
+Laptop access remains UNCONFIRMED. Continue independent offline work; existing
+confirmed nonproduction/DV001/read-only/no-fixture/no-role/no-substitution/no-exposure/
+no-release boundaries remain. Target SKU collectors/public region activation and
+other integration/live/security/module-only/Gate004/human/release gates remain open.
+After this acceptance, publish concrete target SKU reconciliation contracts.
+Earlier entries remain historical snapshots.
+
+---
+
 # Remaining SKU source final candidate, 2026-10-13 evening
 
 Protected development remains VERIFIED OFFLINE PR13820695e7ce7d22d958cec54e122cf4f5947b1e8e7.

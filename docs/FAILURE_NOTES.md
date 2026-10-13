@@ -1,3 +1,39 @@
+# FN122: Windows built CLI cleanup sharing violation, 2026-10-13
+
+Candidate2797a54dd05b674118b53895d4c50857f4e64800/native38453521543/
+Windows115490389956 FAILED at Verify built Windows CLI preflight and compiled
+dependency evidence (2026-10-13T19:40:08Z to19:40:20Z). Complete74223log shows
+test_zone_only_skips_unused_yaml_discovery cleanup raising PermissionError WinError32
+on its owned reports with spaces/cloud-assess.exe copy. All12functional tests
+reported no assertion failure; cleanup is still a required failure. Native source
+and collector controls passed earlier; later docs/packages/branding/security steps
+were skipped. Linux115490390648 succeeded independently; neither accepts Windows.
+
+subprocess.run already waits for each executable; the log cannot identify the lock
+holder. Do not claim antivirus or a background CLI process as established cause.
+Narrow test-only remedy retries ONLY winerror32 for eight cleanup attempts with
+seven delays totaling4.5seconds. Persistent locks and unrelated errors propagate,
+without ignore_cleanup_errors or weakened CLI/tripwire checks. Both gates exercise
+classification/exhaustion and controlled native Windows delete-sharing lock release.
+Fresh full corrected-head gates/review and distinct accepted-push proof required.
+Historical failure remains failed, not overwritten by a successful rerun.
+
+---
+
+# FN121: Automated review cited a different identity hash, 2026-10-13
+
+Review5508793396/marker6153259878 completed actual candidate2797a54 on2026-10-13.
+Finding4263013800 attributed Codex authorship to cited2d9c3090a0260d505eec804e804750b4cf407f00.
+Re-read actual published head2797a54 author AND committer Denis Bogunic with required
+noreply identity, independently reproduced raw SHA1 from actual metadata. Cited
+2d9c3090 returns404 in this repo, origin unknown. No actual identity rewrite justified.
+Evidence reply4263081154 and resolved threadPRRT_kwDOUdPf9c6sBg4z preserve disposition.
+One reviewed identity-evidence discrepancy existed; do not report zero findings or
+infer independent human approval. Repeat actual-head evidence for fresh review.
+No Git identity, source pin, guard or protection bypass changed.
+
+---
+
 # FN120: Remaining SKU first strict observation preparation, 2026-10-13
 
 Pilotbfe22446/source38452136762/job115485455692 FAILED at missing
