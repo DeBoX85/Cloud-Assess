@@ -1,0 +1,149 @@
+# Remaining SKU source: published pre-edit contract, 2026-10-13
+
+PR138 Compute source merged at20695e7ce7d22d958cec54e122cf4f5947b1e8e7,
+tree0687def7357c6be1ab24205a4dedfef0b66a674b, orderedaf18468/447fd89parents,
+Denis author/GitHub committer/valid signed rawSHA1/live ref verified. Final candidate
+native38383227336 (quality115249072521/windows115249072615) and source38383227305/
+115248554846 complete. DISTINCT accepted-push source38386027818/115257926390
+SUCCESS/full998909log/all10harnesses/21records232chunks independently reconstructed,
+SHA256/fullfreshacceptedremote/Gitblob matched. Accepted-push native38386027756
+is still pending at this planning checkpoint; check live PR138 for final outcome.
+
+This next branch is UNACCEPTED documentation preparation only. Its own native/
+source/review/merge proof is not inherited. No other-SKU harness/goldens/target code
+has been added. Publish and read back this contract before harness edits. Original
+Compute and prior captures remain immutable. User laptop expected within one hour,
+restoration still unconfirmed; prepared live queue retains all scope boundaries.
+
+---
+
+# Remaining Storage, Cognitive Services and SQL SKU source contract
+
+Status: UNACCEPTED pre-edit preparation. Finish PR138 distinct accepted-push
+verification before claiming that milestone VERIFIED OFFLINE. Verify this published
+contract's full bytes/commit/tree/parents/identity/ref before harness edits.
+No dependent target/public/live behavior is certified by this plan.
+
+## Source authority and first boundary
+
+Pinned AZQR8e4f0577f3615e6c9014c031bcad079f235369cc, tree17d93b20c303f90f7843036be82f0dc32f3260f1;
+APRL60eaddda76541f6adbc1c5ffa686829807e55e29. Preserve accepted10harnesses,
+21records including Compute input/output full bytes. First remaining slice is
+original StorageProvider, CognitiveServicesProvider, SQLDatabaseProvider and
+SQLManagedInstanceProvider using original common paging/restrictions/cache.
+No target SKU adapters, coordinator/public command or source/dependency change.
+
+| Original sku file | Pinned Git blob |
+| --- | --- |
+| storage.go | b5a3a8d020c8143c64d296d48e8c51ae3b0ca2cf |
+| cognitiveservices.go | 7b3dc63af21f12213004c6e91d9eaaa06c8a2189 |
+| sql.go | 1cb1e6430f11476e66e8bbb13bc0cc2ad5e0a43f |
+
+## Literal requests and independently defined response contracts
+
+| Source type | Literal request | Source interpretation to observe |
+| --- | --- | --- |
+| microsoft.storage/storageaccounts | GET /subscriptions/{sub}/providers/Microsoft.Storage/skus?api-version=2023-01-01 | Global standard list; no locations means global; ASCII-space removal/case filtering; name then tier; common restrictions; lowercase last-key overwrite |
+| microsoft.cognitiveservices/accounts | GET /subscriptions/{sub}/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01 | Global standard list; location filtering and empty-list global; name-only available state; kind/resourceType/restrictions metadata ignored |
+| microsoft.sql/servers/databases | GET /subscriptions/{sub}/providers/Microsoft.Sql/locations/{region}/capabilities?api-version=2021-11-01 | Nested server-version/edition/SLO; sku.name only, nonempty required; only SLO Disabled becomes unavailable; parent statuses ignored |
+| microsoft.sql/managedinstances | Same literal SQL capabilities request | Nested MI-version/edition/family; GP/BC/NGPGEN5 edition code or raw unknown edition, underscore family; all emitted states available; empty families skipped |
+
+All source requests hardcode public management.azure.com. Direct SQL calls do not
+normalize the region themselves and do not page capabilities nextLink; cache entry
+normalizes region before provider call. Test these as separate invocation contracts.
+Same SQL endpoint is requested independently for database and MI cache type keys.
+
+## Primary documentation reconciliation, separate from synthetic observations
+
+Official Storage2023-01-01 specification exists at
+https://github.com/Azure/azure-rest-api-specs/blob/main/specification/storage/resource-manager/Microsoft.Storage/Storage/stable/2023-01-01/storage.json .
+Read at planning with storage.json blobdb7913c9b0cd388c8b55823a70b72e59b06789ab;
+path/subscriptions/{subscriptionId}/providers/Microsoft.Storage/skus,
+Skus_List and StorageSkuListResult schema confirmed. Its location restrictions
+carry values[] identifying affected locations and reason codes QuotaId and
+NotAvailableForSubscription; the original shared helper does not consume values.
+Preserve this source behavior during capture and reconcile target semantics later. A mutable main link is a
+documentation reference, not a source-execution pin or proof of live acceptance.
+
+Official Cognitive2024-10-01 GET/version and ResourceSku restrictions are documented:
+https://learn.microsoft.com/en-us/rest/api/aiservices/accountmanagement/resource-skus/list?view=rest-aiservices-accountmanagement-2024-10-01 .
+The example includes GLOBAL entries and repeated SKU names under different kinds.
+Source filtering treats nonempty GLOBAL as a literal region rather than general
+availability, and source identity ignores kind. These are source-derived hazards
+for deliberate target reconciliation, not live failures or resolved corrections.
+Capture ignored restrictions and duplicate/cross-kind states without changing
+original structs or inferring AI model quota/capacity from tier availability.
+
+Official SQL2021-11-01 endpoint, nested supportedManagedInstanceVersions and
+capability statuses including Visible/Available/Default/Disabled are documented:
+https://learn.microsoft.com/en-us/rest/api/sql/capabilities/list-by-location?view=rest-sql-2021-11-01 .
+Observe parent/family statuses ignored by source and unknown/empty SLO statuses
+treated available. Target semantics require a later bounded correction decision;
+a synthetic list does not certify current subscription quota or deployability.
+
+## Independent matrix before capture
+
+Storage: exact global-list request and continuations; region included/excluded;
+empty/missing/null locations; GLOBAL versus concrete target; display spaces,
+tabs/NBSP/case; empty-name tier fallback and no-name skip; names not trimmed;
+restrictions/capabilities priority, ordered duplicate zones; ignored resourceType;
+restriction.values naming other versus selected locations is ignored by the shared
+source helper and requires an explicit source observation and later correction;
+within/across-page collision states; empty/null/wrong envelopes/items/fields;
+single and duplicate ASCII/Unicode folded aliases; first/later status/decode
+errors and previous-page loss; cancelled and bounded continuation probes.
+
+Cognitive: same envelope/error/continuation matrix; global-list request/version;
+filtering empty-list versus GLOBAL; name skips and case collisions; shared name
+across kinds, resourceType metadata and explicit restrictions ignored; locations
+null/wrong/duplicate alias/Unicode text; available maps are tier observations,
+not model-level quota or cross-kind availability guarantees.
+
+SQL DB: complete nested maps across multiple server versions/editions/SLOs;
+SLO name/tier distinction; Disabled case folding, Available/Default/Visible/
+unknown/missing/null/empty status; parent status ignored; empty names and empty
+levels; collision last-state wins; root/value null/missing/wrong shapes; aliases,
+wrong status/SKU shapes; request encoding, status/decode/cancellation; nextLink
+ignored and no follow-up request even if present.
+
+SQL MI: GP/BC/NGPGEN5 mappings including mixed edition case; unknown/raw/empty
+edition names; family case/empty skip; complete composite keys, collisions;
+ignored version/edition/family status and other metadata; nested null/wrong/alias
+cases; same capabilities payload independently projected as DB and MI; direct
+versus cache normalization and two independent type-key requests.
+
+Cache probes stay sequential for mutable ownership observations, preserve source
+trim-collision nondeterminism classification, and test scope/type/region isolation
+without inserting convenient deterministic winner goldens.
+
+## Fixture execution and retention
+
+Use original az.NewHttpClient, fake credential and supported explicit transport;
+MaxRetries=-1 differs from production defaults. Default HTTP tripwires remain
+supplementary. All requests are declared synthetic GETs without a body, exact
+audience/method/path/query checked. No real credential/AAD/Azure or fixture
+deployment. Bound cycles by declared fixture errors/deadlines, never source edits.
+
+Proposed other_sku_capture_test.go.txt injects ONLY a test into unchanged original
+sku package. New source-other-sku-inputs.json/source-other-sku-outputs.json make
+23 full records and11 harnesses; all21 earlier bytes remain immutable. Strict
+runner emits complete raw provenance and contiguous chunks before unconditional
+equality. First unretained or extended-golden mismatch is a classified failed
+preparation, not acceptance. Independently SHA256/full remote blob verify raw
+observations before retaining. Add literal full source maps/requests/states/cache
+checks and compiling named omission/oracle controls on both mandatory hosts.
+Preserve all old provider/Compute manifest controls and14Compute source plus25
+provider target controls; compiler errors cannot satisfy mutation assertions.
+
+## Acceptance, remaining work and live boundary
+
+Fresh final-head full native/source/review, exact publication/tree/parents/human
+identity/preview/protections, protected expected-head merge and distinct actual
+accepted-push evidence required. Self-review is not independent-person approval.
+Then reconcile current service versions/schemas/security/ownership/bounds and
+publish target adapter contracts before implementation. No SDK/pin drift.
+Public region execution, zone/history/Retail/coordinator, FullCost, B6/B7,
+module-only advisory/live/load/freshOS/maintenance/Gate004/release gates stay open.
+Laptop restoration must be confirmed, and live queue uses explicitly approved
+nonproduction scopes. No Azure writes/fixtures/roles/production substitution/
+listener exposure or release authorization is created by this plan.

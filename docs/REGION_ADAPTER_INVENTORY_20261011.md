@@ -1,3 +1,44 @@
+# Compute source merged and remaining SKU source plan, 2026-10-13
+
+PR138 merged at20695e7ce7d22d958cec54e122cf4f5947b1e8e7/tree0687def7357c6be1ab24205a4dedfef0b66a674b,
+orderedaf18468/447fd89parents, Denis author/GitHubcommitter/valid signed rawSHA1/
+live protectedref verified. Final native38383227336/full94065Linux74725Windows
+logs/all56Linux41Windows steps/268Linux263Windows namedcontrols/84.7%race-vet/
+fivefuzz/CLI-packages-branding-modules-docs815links9flags1snippet/security0reachable
+0imported1module and source38383227305/full999565log/21records232chunks verified.
+Automated marker6143492850 completed447fd89withoutfindings; no human approval.
+FN118-119 failures remain history. Source-only89provider cases plus pager/cache/
+registry/retry/sequential sharedmap+zones and bounded concurrent dedup/separatekeys;
+precise waiter entry and nondeterministic trim-collision winners NOT certified.
+No target SKU/public region execution; source/APRL/SDK/module/toolchain pins unchanged.
+
+DISTINCT actualmerge source38386027818/job115257926390 SUCCESS/all7steps/full998909
+log/actual20695e7/Go1.26.9/all10harnesses/21records232chunks independently SHA256/
+freshfull accepted bytes/Gitblob matched. Native push38386027756 quality115257926327/
+Windows115257926717 remains pending at this planning checkpoint; read livePR138
+for final outcome. No candidate transfer or full accepted-push claim yet.
+
+Next durable WIP on feat/region-other-sku-source is UNACCEPTED docs-only pre-edit
+[remaining SKU source contract](REGION_OTHER_SKU_SOURCE_20261013.md). Publish/
+read back before original Storage/Cognitive/SQL DB/MI harness changes. Official
+Storage2023 spec/AI2024-10/SQL2021-11 endpoints inspected; ignored location restriction
+values, cross-kind/global AI identity and SQL parent statuses require source
+observations then separate deliberate target reconciliation, not invented fixes.
+No newharness/23record observations/target production or live operation added.
+This proposal has its OWN native/source/review QA pending; PR138 proof cannot
+certify changed docs. Exact next finish PR138 push, then original remainingSKU
+harness/raw23record capture/native literal compilingcontrols under publishedcontract.
+
+Laptop availability expected within one hour in user message, NOT confirmed.
+[Prepared laptop queue](LAPTOP_LIVE_QUEUE_20261013.md) inspects preserved existing
+checkouts/tools/account/pins and confirmed nonproduction scope before read-only
+core/plugin runs. Advisory Prd parent is not a DV001 substitute. No Azure writes/
+fixtures/roles/scope substitution/exposure/release. Other target adapters/coordinator/
+public/FullCost/module-only/B6-B7/live/load/freshOS/maintenance/Gate004/release/
+licensing/human gates remain open. Earlier entries below are dated history.
+
+---
+
 # Provider target VERIFIED OFFLINE and exact next source slice, 2026-10-13
 
 PR137 is VERIFIED OFFLINE at af18468fe1dfc697838115c0a7585ba675fdec97,
