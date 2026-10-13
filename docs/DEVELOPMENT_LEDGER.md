@@ -1,3 +1,40 @@
+# Compute SKU first source pilot, 2026-10-13
+
+Accepted protected development remains PR137 af18468fe1dfc697838115c0a7585ba675fdec97.
+PR138 is DRAFT/UNACCEPTED on feat/region-compute-sku-source. Pre-edit contract
+fa76e9f5 and documentation closure e42e6dcb were published/read back before this
+harness. Closure native38336202629 quality115096806359/windows115096806143
+and source38336202642/115096725340 SUCCESS, full92009/72768/793515 logs inspected;
+all19 source records185contiguous chunks independently SHA256/fullremote/Gitblob
+verified. That predecessor evidence does not certify this new harness.
+
+Source-only pilot injects compute_sku_capture_test.go.txt into unchanged pinned
+sku package using supported az.NewHttpClient fake credential/explicit transport,
+MaxRetries=-1 and supplementary default HTTP tripwires. Independently declared
+VM/VMSS/disk full maps, restrictions/zones/aliases/collisions/null/wrong-shape/
+first-later errors/foreign-relative-malformed/boundedcycle/cancellation requests,
+registry and sequential cache key/retry/shared-map behavior are preparation.
+Original source/SDK/APRL/module/toolchain pins stay unchanged. Strict runner now
+requires21 full records, emits bytes BEFORE unconditional retained equality;
+byte-guard manifest/omission/subset controls extended without weakening checks.
+No goldens added yet. Expected first failure is missing new golden ONLY after
+successful harness/source guards; compiler/oracle failures must be classified.
+Concurrent cache coalescing/separate-key and zone-slice sharing observations,
+native literal-cell tests/compiling controls/full QA/review remain next work.
+No target SKU/public region/live acceptance. Source cache trim collisions over
+different-state keys remain classified nondeterministic, never convenient goldens.
+
+User expects laptop access within one hour on2026-10-13; access is NOT restored
+until confirmed. Prepare existing core/plugin live read-only queue separately;
+DV001 needs wholly nonproduction nested hierarchy, Advisory parent contains Prd.
+No Azure writes/fixtures/roles/production substitution/exposure/release.
+Exact next inspect this pilot source result, correct only actual preparation
+failures, independently retain full original observations, complete remaining
+harness/native controls and exact final-head Linux/Windows/source/review/protected/
+distinctacceptedpush proof. Earlier snapshots below remain history.
+
+---
+
 # Provider target VERIFIED OFFLINE and exact next source slice, 2026-10-13
 
 PR137 is VERIFIED OFFLINE at af18468fe1dfc697838115c0a7585ba675fdec97,

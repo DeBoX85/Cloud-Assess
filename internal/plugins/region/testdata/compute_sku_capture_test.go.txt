@@ -1,0 +1,300 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+// Source-only synthetic capture. No production source or SDK bytes are modified.
+package sku
+
+import (
+	"context"
+	"crypto/sha1"
+	"encoding/json"
+	"fmt"
+	"io"
+	"net/http"
+	"os"
+	"path/filepath"
+	"reflect"
+	"sort"
+	"strings"
+	"sync"
+	"testing"
+	"time"
+
+	"github.com/Azure/azqr/internal/az"
+	"github.com/Azure/azqr/internal/scanners/plugins/region/types"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
+)
+
+const computeCaptureSubscription = "11111111-1111-1111-1111-111111111111"
+const computeCaptureVM = "https://management.azure.com/subscriptions/" + computeCaptureSubscription + "/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01"
+const computeCaptureDisk = "https://management.azure.com/subscriptions/" + computeCaptureSubscription + "/providers/Microsoft.Compute/skus?api-version=2023-03-01&$filter=location%20eq%20%27eastus%27"
+
+type computeCaptureCredential struct{}
+func (computeCaptureCredential) GetToken(_ context.Context, opts policy.TokenRequestOptions) (azcore.AccessToken, error) {
+	if !reflect.DeepEqual(opts.Scopes, []string{"https://management.azure.com/.default"}) {
+		return azcore.AccessToken{}, fmt.Errorf("unexpected synthetic audience")
+	}
+	return azcore.AccessToken{Token: "synthetic-compute-token", ExpiresOn: time.Now().Add(time.Hour)}, nil
+}
+type computeCapturePage struct {
+	URL string
+	Status int
+	Body string
+}
+type computeCaptureRequest struct {
+	URL string
+	Path string
+	RawPath string
+	RawQuery string
+	Method string
+	EmptyBody bool
+	SyntheticAuthorization bool
+}
+type computeCaptureCase struct {
+	Provider string
+	Pages []computeCapturePage
+	Cancelled bool
+	Expected map[string]types.SKUAvailability
+	Failed bool
+}
+type computeCaptureResult struct {
+	Entries map[string]types.SKUAvailability
+	Failed bool
+	Requests []computeCaptureRequest
+}
+type computeCaptureTransport struct {
+	mu sync.Mutex
+	pages []computeCapturePage
+	requests []computeCaptureRequest
+	unexpected string
+}
+func (s *computeCaptureTransport) Do(r *http.Request) (*http.Response, error) {
+	s.mu.Lock()
+	defer s.mu.Unlock()
+	i := len(s.requests)
+	if i >= len(s.pages) || r.URL.String() != s.pages[i].URL || r.Method != "GET" || r.Body != nil || r.Header.Get("Authorization") != "Bearer synthetic-compute-token" {
+		s.unexpected = "undeclared request"
+		return nil, fmt.Errorf("compute fixture rejected undeclared request")
+	}
+	s.requests = append(s.requests, computeCaptureRequest{
+		URL: r.URL.String(), Path: r.URL.Path, RawPath: r.URL.RawPath, RawQuery: r.URL.RawQuery,
+		Method: r.Method, EmptyBody: r.Body == nil, SyntheticAuthorization: true,
+	})
+	p := s.pages[i]
+	return &http.Response{StatusCode: p.Status, Header: http.Header{"Content-Type": []string{"application/json"}}, Body: io.NopCloser(strings.NewReader(p.Body)), Request: r}, nil
+}
+func computeCaptureClient(s *computeCaptureTransport) *az.HttpClient {
+	return az.NewHttpClient(computeCaptureCredential{}, &az.HttpClientOptions{
+		MaxRetries: -1, Timeout: time.Second, Scope: "https://management.azure.com/.default", Transport: s,
+	})
+}
+type computeCaptureTripwire struct{}
+func (computeCaptureTripwire) RoundTrip(*http.Request) (*http.Response, error) {
+	panic("compute capture attempted external network")
+}
+func computeCaptureTransportCheck(t *testing.T, s *computeCaptureTransport, count int) {
+	t.Helper()
+	if s.unexpected != "" || len(s.requests) != count {
+		t.Fatalf("fixture request boundary: unexpected=%q count=%d want=%d", s.unexpected, len(s.requests), count)
+	}
+}
+func computeCaptureEqual(t *testing.T, name string, got, want map[string]types.SKUAvailability, err error, failed bool) {
+	t.Helper()
+	if (err != nil) != failed || !reflect.DeepEqual(got, want) {
+		t.Fatalf("independent source map oracle %s: got=%#v failed=%v want=%#v failed=%v", name, got, err != nil, want, failed)
+	}
+}
+
+func TestRegionComputeSKUCapture(t *testing.T) {
+	output := os.Getenv("REGION_COMPUTE_SKU_CAPTURE_OUTPUT")
+	if output == "" { t.Fatal("missing capture output") }
+	oldTransport, oldClient := http.DefaultTransport, http.DefaultClient
+	http.DefaultTransport = computeCaptureTripwire{}
+	http.DefaultClient = &http.Client{Transport: computeCaptureTripwire{}}
+	defer func() { http.DefaultTransport, http.DefaultClient = oldTransport, oldClient }()
+	blobs := map[string]string{
+		"provider.go": "7f71b296d332001ae12e49a021b6fee44f88a970",
+		"cache.go": "5be9c158fd38c609b06ffc67537cd07b838fc9d5",
+		"restrictions.go": "8d053daf58c7c8a18f39b579e95d4a53f8ebd55a",
+		"compute.go": "ee9300e5f8652591fe43121d0973321742ee70e3",
+		"storage.go": "b5a3a8d020c8143c64d296d48e8c51ae3b0ca2cf",
+		"cognitiveservices.go": "7b3dc63af21f12213004c6e91d9eaaa06c8a2189",
+		"sql.go": "1cb1e6430f11476e66e8bbb13bc0cc2ad5e0a43f",
+		"../types/types.go": "f9b61fb74075e5a2297be1b898067b8cb047f9b3",
+		"../../../../az/http_client.go": "05d85c5a50ee81f088731160020a914af83e1ca5",
+	}
+	for path, want := range blobs {
+		raw, err := os.ReadFile(path)
+		if err != nil { t.Fatal(err) }
+		h := sha1.Sum(append([]byte(fmt.Sprintf("blob %d\x00", len(raw))), raw...))
+		if fmt.Sprintf("%x", h) != want { t.Fatal("source blob changed", path) }
+	}
+	available := types.SKUAvailability{State: types.SKUAvailable}
+	restricted := types.SKUAvailability{State: types.SKURestricted}
+	unavailable := types.SKUAvailability{State: types.SKUUnavailable}
+	zones := types.SKUAvailability{State: types.SKUZoneRestricted, BlockedZones: []string{"2", "1", "2"}}
+	empty := map[string]types.SKUAvailability{}
+	vmMap := map[string]types.SKUAvailability{"standard_d2": available}
+	cases := map[string]computeCaptureCase{}
+	add := func(name, provider, body string, expected map[string]types.SKUAvailability, failed bool) {
+		url := computeCaptureVM
+		if provider == "disk" { url = computeCaptureDisk }
+		cases[name] = computeCaptureCase{Provider: provider, Pages: []computeCapturePage{{url, 200, body}}, Expected: expected, Failed: failed}
+	}
+	add("vm-single", "vm", `{"value":[{"name":"Standard_D2"},{"name":""},{},{"name":null},null]}`, vmMap, false)
+	add("vmss-single", "vmss", `{"value":[{"name":"Standard_D2"}]}`, vmMap, false)
+	add("vm-no-trim", "vm", `{"value":[{"name":" Standard_D2 "},{"name":" "}]}`, map[string]types.SKUAvailability{" standard_d2 ":available, " ":available}, false)
+	add("vm-single-alias", "vm", `{"VALUE":[{"NAME":"Standard_D2"}]}`, vmMap, false)
+	add("vm-duplicate-name-last", "vm", `{"value":[{"name":"First","NAME":"Standard_D2"}]}`, vmMap, false)
+	add("vm-duplicate-value-last", "vm", `{"value":[{"name":"First"}],"VALUE":[{"name":"Standard_D2"}]}`, vmMap, false)
+	add("vm-duplicate-case-name", "vm", `{"value":[{"name":"Standard_D2"},{"name":"STANDARD_D2"}]}`, vmMap, false)
+	add("vm-surrogate-text", "vm", `{"value":[{"name":"\ud800"}]}`, map[string]types.SKUAvailability{"\ufffd":available}, false)
+	for _, provider := range []string{"vm", "vmss", "disk"} {
+		for name, body := range map[string]string{"empty":`{"value":[]}`, "missing":`{}`, "null-list":`{"value":null}`, "null-envelope":`null`, "null-items":`{"value":[null,{}]}`} {
+			add(provider+"-"+name, provider, body, empty, false)
+		}
+		for name, body := range map[string]string{"wrong-list":`{"value":{}}`, "wrong-item":`{"value":[1]}`, "wrong-name":`{"value":[{"name":42}]}`, "malformed":`{"value":`, "wrong-next":`{"value":[],"nextLink":42}`, "trailing":`{"value":[]} {}`} {
+			add(provider+"-"+name, provider, body, nil, true)
+		}
+	}
+	add("disk-name-tier-and-ignored-type", "disk", `{"value":[{"name":"Premium_LRS","tier":"ignored","resourceType":"virtualMachines"},{"tier":"Standard_LRS"},{},{"name":""}]}`, map[string]types.SKUAvailability{"premium_lrs":available, "standard_lrs":available}, false)
+	add("disk-location-precedence", "disk", `{"value":[{"name":"D","restrictions":[{"type":"Zone","restrictionInfo":{"zones":["1"]}},{"type":"Location","reasonCode":"NotAvailableForSubscription"}],"capabilities":[{"name":"available","value":"false"}]}]}`, map[string]types.SKUAvailability{"d":restricted}, false)
+	add("disk-location-unknown-reason", "disk", `{"value":[{"name":"D","restrictions":[{"type":"Location","reasonCode":"unknown"}]}]}`, map[string]types.SKUAvailability{"d":unavailable}, false)
+	add("disk-first-location-wins", "disk", `{"value":[{"name":"D","restrictions":[{"type":"Location","reasonCode":"unknown"},{"type":"Location","reasonCode":"NotAvailableForSubscription"}]}]}`, map[string]types.SKUAvailability{"d":unavailable}, false)
+	add("disk-zone-order-duplicates", "disk", `{"value":[{"name":"D","restrictions":[{"type":"Zone","restrictionInfo":{"zones":["2","1"]}},{"type":"ZONE","restrictionInfo":{"zones":["2"]}}],"capabilities":[{"name":"available","value":"false"}]}]}`, map[string]types.SKUAvailability{"d":zones}, false)
+	add("disk-empty-zone-capability", "disk", `{"value":[{"name":"D","restrictions":[{"type":"Zone","restrictionInfo":{"zones":[]}}],"capabilities":[{"name":"available","value":""}]}]}`, map[string]types.SKUAvailability{"d":unavailable}, false)
+	add("disk-capability-mixed-true", "disk", `{"value":[{"name":"D","capabilities":[{"name":"AvAiLaBlE","value":"TrUe"}]}]}`, map[string]types.SKUAvailability{"d":available}, false)
+	add("disk-zone-empty-string", "disk", `{"value":[{"name":"D","restrictions":[{"type":"Zone","restrictionInfo":{"zones":[""]}}]}]}`, map[string]types.SKUAvailability{"d":{State:types.SKUZoneRestricted,BlockedZones:[]string{""}}}, false)
+	add("disk-duplicate-last-state", "disk", `{"value":[{"name":"D"},{"name":"d","capabilities":[{"name":"available","value":"false"}]}]}`, map[string]types.SKUAvailability{"d":unavailable}, false)
+	add("disk-unicode-field-alias", "disk", `{"value":[{"name":"D","reſtrictions":[{"type":"Location","reasonCode":"NotAvailableForSubscription"}]}]}`, map[string]types.SKUAvailability{"d":restricted}, false)
+	add("disk-alias-last-state", "disk", `{"value":[{"name":"D","restrictions":[],"RESTRICTIONS":[{"type":"Location","reasonCode":"NotAvailableForSubscription"}]}]}`, map[string]types.SKUAvailability{"d":restricted}, false)
+	add("disk-invalid-zones", "disk", `{"value":[{"name":"D","restrictions":[{"type":"Zone","restrictionInfo":{"zones":[1]}}]}]}`, nil, true)
+	add("disk-null-restriction", "disk", `{"value":[{"name":"D","restrictions":[null],"capabilities":[null]}]}`, map[string]types.SKUAvailability{"d":available}, false)
+	add("disk-untrimmed-name", "disk", `{"value":[{"name":" D "}]}`, map[string]types.SKUAvailability{" d ":available}, false)
+	for _, provider := range []string{"vm","disk"} {
+		start := computeCaptureVM
+		first := `{"name":"First"}`
+		last := `{"name":"Second"}`
+		if provider == "disk" { start = computeCaptureDisk; first = `{"name":"D"}`; last = `{"name":"d","restrictions":[{"type":"Location","reasonCode":"NotAvailableForSubscription"}]}` }
+		next := start + "&$skiptoken=synthetic"
+		want := map[string]types.SKUAvailability{"first":available,"second":available}
+		if provider == "disk" { want = map[string]types.SKUAvailability{"d":restricted} }
+		firstBody := `{"value":[`+first+`],"nextLink":`+fmt.Sprintf("%q",next)+`}`
+		cases[provider+"-paged"] = computeCaptureCase{Provider:provider,Pages:[]computeCapturePage{{start,200,firstBody},{next,200,`{"value":[`+last+`]}`}},Expected:want}
+		for _, status := range []int{400,403,404,429,500} {
+			body := `{"error":{"code":"SyntheticComputeError","message":"fixture"}}`
+			cases[fmt.Sprintf("%s-http%d",provider,status)] = computeCaptureCase{Provider:provider,Pages:[]computeCapturePage{{start,status,body}},Failed:true}
+			cases[fmt.Sprintf("%s-later-http%d",provider,status)] = computeCaptureCase{Provider:provider,Pages:[]computeCapturePage{{start,200,firstBody},{next,status,body}},Failed:true}
+		}
+		cases[provider+"-later-malformed"] = computeCaptureCase{Provider:provider,Pages:[]computeCapturePage{{start,200,firstBody},{next,200,`{"value":`}},Failed:true}
+		for name, continuation := range map[string]string{"foreign":"https://synthetic.invalid/compute/next","relative":"/compute/next","malformed":"://invalid"} {
+			pages := []computeCapturePage{{start,200,`{"value":[`+first+`],"nextLink":`+fmt.Sprintf("%q",continuation)+`}`}}
+			expected := map[string]types.SKUAvailability{"first":available}
+			failed := name != "foreign"
+			if provider=="disk" {expected=map[string]types.SKUAvailability{"d":available}}
+			if failed {expected=nil} else {pages=append(pages,computeCapturePage{continuation,200,`{"value":[]}`})}
+			cases[provider+"-next-"+name]=computeCaptureCase{Provider:provider,Pages:pages,Expected:expected,Failed:failed}
+		}
+		cycle := `{"value":[`+first+`],"nextLink":`+fmt.Sprintf("%q",start)+`}`
+		cases[provider+"-bounded-cycle"] = computeCaptureCase{Provider:provider,Pages:[]computeCapturePage{{start,200,cycle},{start,200,cycle},{start,400,`{"error":{"code":"CycleStop"}}`}},Failed:true}
+		cases[provider+"-cancelled"] = computeCaptureCase{Provider:provider,Pages:[]computeCapturePage{{start,200,`{"value":[]}`}},Cancelled:true,Failed:true}
+	}
+	results := map[string]computeCaptureResult{}
+	names := make([]string,0,len(cases))
+	for name := range cases {names=append(names,name)}
+	sort.Strings(names)
+	for _, name := range names {
+		fixture := cases[name]
+		s := &computeCaptureTransport{pages:fixture.Pages,requests:[]computeCaptureRequest{}}
+		ctx,cancel := context.WithTimeout(context.Background(),3*time.Second)
+		if fixture.Cancelled {cancel()}
+		var provider SKUProvider
+		switch fixture.Provider {case "vm":provider=VMProvider{};case "vmss":provider=VMSSProvider{};case "disk":provider=DiskProvider{};default:t.Fatal("unknown fixture provider")}
+		got,err := provider.FetchSKUs(ctx,computeCaptureSubscription,"eastus",computeCaptureClient(s))
+		cancel()
+		computeCaptureEqual(t,name,got,fixture.Expected,err,fixture.Failed)
+		count:=len(fixture.Pages)
+		if fixture.Cancelled {count=0}
+		computeCaptureTransportCheck(t,s,count)
+		results[name]=computeCaptureResult{Entries:got,Failed:err!=nil,Requests:s.requests}
+	}
+	keys:=make([]string,0,len(registry))
+	for key:=range registry {keys=append(keys,key)}
+	sort.Strings(keys)
+	expectedKeys:=[]string{"microsoft.cognitiveservices/accounts","microsoft.compute/disks","microsoft.compute/virtualmachines","microsoft.compute/virtualmachinescalesets","microsoft.sql/managedinstances","microsoft.sql/servers/databases","microsoft.storage/storageaccounts"}
+	if !reflect.DeepEqual(keys,expectedKeys)||Get("MICROSOFT.COMPUTE/VIRTUALMACHINES")==nil||Get("unknown")!=nil {t.Fatal("independent registry oracle")}
+	duplicatePanic:=false
+	func(){defer func(){duplicatePanic=recover()!=nil}();Register(VMProvider{})}()
+	if !duplicatePanic||len(registry)!=7 {t.Fatal("duplicate registration must panic without mutation")}
+
+	// Cache calls are sequential: ownership mutation never races source readers.
+	cachePages:=[]computeCapturePage{
+		{computeCaptureVM,200,`{"value":[{"name":" Standard_D2 "},{"name":" "}]}`},
+		{computeCaptureVM,200,`{"value":[{"name":"Standard_D2"}]}`}, // VMSS has a distinct type key.
+		{strings.Replace(computeCaptureVM,computeCaptureSubscription,"22222222-2222-2222-2222-222222222222",1),200,`{"value":[{"name":"Other"}]}`},
+		{strings.Replace(computeCaptureVM,"eastus","westus",1),200,`{"value":[{"name":"West"}]}`},
+	}
+	cache:=NewCache()
+	cacheTransport:=&computeCaptureTransport{pages:cachePages,requests:[]computeCaptureRequest{}}
+	cacheClient:=computeCaptureClient(cacheTransport)
+	cacheResults:=map[string]computeCaptureResult{}
+	call:=func(name,sub,kind,region string,want map[string]types.SKUAvailability,failed bool)map[string]types.SKUAvailability{
+		ctx,cancel:=context.WithTimeout(context.Background(),3*time.Second)
+		defer cancel()
+		got,err:=cache.GetSKUAvailability(ctx,sub,kind,region,cacheClient)
+		computeCaptureEqual(t,"cache-"+name,got,want,err,failed)
+		copyMap:=map[string]types.SKUAvailability{}
+		for key,value:=range got {value.BlockedZones=append([]string(nil),value.BlockedZones...);copyMap[key]=value}
+		if got==nil {copyMap=nil}
+		cacheResults[name]=computeCaptureResult{Entries:copyMap,Failed:err!=nil,Requests:append([]computeCaptureRequest{},cacheTransport.requests...)}
+		return got
+	}
+	cacheWant:=map[string]types.SKUAvailability{"standard_d2":available,"":available}
+	owned:=call("first",computeCaptureSubscription,"MICROSOFT.COMPUTE/VIRTUALMACHINES","East US",cacheWant,false)
+	call("normalized-reuse",computeCaptureSubscription,"microsoft.compute/virtualmachines","eastus",cacheWant,false)
+	owned["injected"]=restricted
+	mutatedWant:=map[string]types.SKUAvailability{"standard_d2":available,"":available,"injected":restricted}
+	call("caller-map-mutation-shared",computeCaptureSubscription,"microsoft.compute/virtualmachines","eastus",mutatedWant,false)
+	call("vmss-separate",computeCaptureSubscription,"microsoft.compute/virtualmachinescalesets","eastus",vmMap,false)
+	call("subscription-separate","22222222-2222-2222-2222-222222222222","microsoft.compute/virtualmachines","eastus",map[string]types.SKUAvailability{"other":available},false)
+	call("region-separate",computeCaptureSubscription,"microsoft.compute/virtualmachines","westus",map[string]types.SKUAvailability{"west":available},false)
+	call("unsupported",computeCaptureSubscription,"unknown","eastus",nil,true)
+	computeCaptureTransportCheck(t,cacheTransport,4)
+	retryCache:=NewCache()
+	retryPages:=[]computeCapturePage{{computeCaptureVM,403,`{"error":{"code":"RetryFixture"}}`},{computeCaptureVM,200,`{"value":[{"name":"Standard_D2"}]}`}}
+	retryTransport:=&computeCaptureTransport{pages:retryPages,requests:[]computeCaptureRequest{}}
+	retryClient:=computeCaptureClient(retryTransport)
+	retryResults:=[]computeCaptureResult{}
+	for i:=0;i<3;i++ {
+		ctx,cancel:=context.WithTimeout(context.Background(),3*time.Second)
+		got,err:=retryCache.GetSKUAvailability(ctx,computeCaptureSubscription,"microsoft.compute/virtualmachines","eastus",retryClient)
+		cancel()
+		want:=vmMap
+		if i==0 {want=nil}
+		computeCaptureEqual(t,fmt.Sprintf("retry-%d",i),got,want,err,i==0)
+		retryResults=append(retryResults,computeCaptureResult{Entries:got,Failed:err!=nil,Requests:append([]computeCaptureRequest{},retryTransport.requests...)})
+	}
+	computeCaptureTransportCheck(t,retryTransport,2)
+	write:=func(name string,value any){
+		raw,err:=json.MarshalIndent(value,"","  ")
+		if err!=nil {t.Fatal(err)}
+		if err=os.MkdirAll(output,0700);err!=nil {t.Fatal(err)}
+		if err=os.WriteFile(filepath.Join(output,name),append(raw,'\n'),0600);err!=nil {t.Fatal(err)}
+	}
+	write("source-compute-sku-inputs.json",struct{
+		Blobs map[string]string
+		Cases map[string]computeCaptureCase
+		Registry []string
+		CachePages []computeCapturePage
+		RetryPages []computeCapturePage
+		CacheCalls []string
+		Seam string
+	}{blobs,cases,expectedKeys,cachePages,retryPages,[]string{"first:sub111:VM:East US","normalized-reuse:sub111:vm:eastus","caller-map-mutation-shared:inject restricted; sub111:vm:eastus","vmss-separate:sub111:vmss:eastus","subscription-separate:sub222:vm:eastus","region-separate:sub111:vm:westus","unsupported:sub111:unknown:eastus","retry:403 then success then cached"},"Injected supported transport, fake credential, MaxRetries=-1; does not certify production retries/live deployment"})
+	write("source-compute-sku-outputs.json",struct{
+		Cases map[string]computeCaptureResult
+		Registry []string
+		DuplicateRegistrationPanics bool
+		Cache map[string]computeCaptureResult
+		Retry []computeCaptureResult
+	}{results,keys,duplicatePanic,cacheResults,retryResults})
+}
