@@ -1,0 +1,1469 @@
+{
+  "Blobs": {
+    "../../../../az/http_client.go": "05d85c5a50ee81f088731160020a914af83e1ca5",
+    "../types/types.go": "f9b61fb74075e5a2297be1b898067b8cb047f9b3",
+    "cache.go": "5be9c158fd38c609b06ffc67537cd07b838fc9d5",
+    "cognitiveservices.go": "7b3dc63af21f12213004c6e91d9eaaa06c8a2189",
+    "compute.go": "ee9300e5f8652591fe43121d0973321742ee70e3",
+    "provider.go": "7f71b296d332001ae12e49a021b6fee44f88a970",
+    "restrictions.go": "8d053daf58c7c8a18f39b579e95d4a53f8ebd55a",
+    "sql.go": "1cb1e6430f11476e66e8bbb13bc0cc2ad5e0a43f",
+    "storage.go": "b5a3a8d020c8143c64d296d48e8c51ae3b0ca2cf"
+  },
+  "Cases": {
+    "disk-alias-last-state": {
+      "Provider": "disk",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"D\",\"restrictions\":[],\"RESTRICTIONS\":[{\"type\":\"Location\",\"reasonCode\":\"NotAvailableForSubscription\"}]}]}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": {
+        "d": {
+          "State": 1,
+          "BlockedZones": null
+        }
+      },
+      "Failed": false
+    },
+    "disk-bounded-cycle": {
+      "Provider": "disk",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"D\"}],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27\"}"
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"D\"}],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27\"}"
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Status": 400,
+          "Body": "{\"error\":{\"code\":\"CycleStop\"}}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": null,
+      "Failed": true
+    },
+    "disk-cancelled": {
+      "Provider": "disk",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Status": 200,
+          "Body": "{\"value\":[]}"
+        }
+      ],
+      "Cancelled": true,
+      "Expected": null,
+      "Failed": true
+    },
+    "disk-capability-mixed-true": {
+      "Provider": "disk",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"D\",\"capabilities\":[{\"name\":\"AvAiLaBlE\",\"value\":\"TrUe\"}]}]}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": {
+        "d": {
+          "State": 0,
+          "BlockedZones": null
+        }
+      },
+      "Failed": false
+    },
+    "disk-duplicate-last-state": {
+      "Provider": "disk",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"D\"},{\"name\":\"d\",\"capabilities\":[{\"name\":\"available\",\"value\":\"false\"}]}]}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": {
+        "d": {
+          "State": 2,
+          "BlockedZones": null
+        }
+      },
+      "Failed": false
+    },
+    "disk-empty": {
+      "Provider": "disk",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Status": 200,
+          "Body": "{\"value\":[]}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": {},
+      "Failed": false
+    },
+    "disk-empty-zone-capability": {
+      "Provider": "disk",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"D\",\"restrictions\":[{\"type\":\"Zone\",\"restrictionInfo\":{\"zones\":[]}}],\"capabilities\":[{\"name\":\"available\",\"value\":\"\"}]}]}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": {
+        "d": {
+          "State": 2,
+          "BlockedZones": null
+        }
+      },
+      "Failed": false
+    },
+    "disk-first-location-wins": {
+      "Provider": "disk",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"D\",\"restrictions\":[{\"type\":\"Location\",\"reasonCode\":\"unknown\"},{\"type\":\"Location\",\"reasonCode\":\"NotAvailableForSubscription\"}]}]}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": {
+        "d": {
+          "State": 2,
+          "BlockedZones": null
+        }
+      },
+      "Failed": false
+    },
+    "disk-http400": {
+      "Provider": "disk",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Status": 400,
+          "Body": "{\"error\":{\"code\":\"SyntheticComputeError\",\"message\":\"fixture\"}}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": null,
+      "Failed": true
+    },
+    "disk-http403": {
+      "Provider": "disk",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Status": 403,
+          "Body": "{\"error\":{\"code\":\"SyntheticComputeError\",\"message\":\"fixture\"}}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": null,
+      "Failed": true
+    },
+    "disk-http404": {
+      "Provider": "disk",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Status": 404,
+          "Body": "{\"error\":{\"code\":\"SyntheticComputeError\",\"message\":\"fixture\"}}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": null,
+      "Failed": true
+    },
+    "disk-http429": {
+      "Provider": "disk",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Status": 429,
+          "Body": "{\"error\":{\"code\":\"SyntheticComputeError\",\"message\":\"fixture\"}}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": null,
+      "Failed": true
+    },
+    "disk-http500": {
+      "Provider": "disk",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Status": 500,
+          "Body": "{\"error\":{\"code\":\"SyntheticComputeError\",\"message\":\"fixture\"}}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": null,
+      "Failed": true
+    },
+    "disk-invalid-zones": {
+      "Provider": "disk",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"D\",\"restrictions\":[{\"type\":\"Zone\",\"restrictionInfo\":{\"zones\":[1]}}]}]}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": null,
+      "Failed": true
+    },
+    "disk-later-http400": {
+      "Provider": "disk",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"D\"}],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27\u0026$skiptoken=synthetic\"}"
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27\u0026$skiptoken=synthetic",
+          "Status": 400,
+          "Body": "{\"error\":{\"code\":\"SyntheticComputeError\",\"message\":\"fixture\"}}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": null,
+      "Failed": true
+    },
+    "disk-later-http403": {
+      "Provider": "disk",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"D\"}],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27\u0026$skiptoken=synthetic\"}"
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27\u0026$skiptoken=synthetic",
+          "Status": 403,
+          "Body": "{\"error\":{\"code\":\"SyntheticComputeError\",\"message\":\"fixture\"}}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": null,
+      "Failed": true
+    },
+    "disk-later-http404": {
+      "Provider": "disk",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"D\"}],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27\u0026$skiptoken=synthetic\"}"
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27\u0026$skiptoken=synthetic",
+          "Status": 404,
+          "Body": "{\"error\":{\"code\":\"SyntheticComputeError\",\"message\":\"fixture\"}}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": null,
+      "Failed": true
+    },
+    "disk-later-http429": {
+      "Provider": "disk",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"D\"}],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27\u0026$skiptoken=synthetic\"}"
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27\u0026$skiptoken=synthetic",
+          "Status": 429,
+          "Body": "{\"error\":{\"code\":\"SyntheticComputeError\",\"message\":\"fixture\"}}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": null,
+      "Failed": true
+    },
+    "disk-later-http500": {
+      "Provider": "disk",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"D\"}],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27\u0026$skiptoken=synthetic\"}"
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27\u0026$skiptoken=synthetic",
+          "Status": 500,
+          "Body": "{\"error\":{\"code\":\"SyntheticComputeError\",\"message\":\"fixture\"}}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": null,
+      "Failed": true
+    },
+    "disk-later-malformed": {
+      "Provider": "disk",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"D\"}],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27\u0026$skiptoken=synthetic\"}"
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27\u0026$skiptoken=synthetic",
+          "Status": 200,
+          "Body": "{\"value\":"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": null,
+      "Failed": true
+    },
+    "disk-location-precedence": {
+      "Provider": "disk",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"D\",\"restrictions\":[{\"type\":\"Zone\",\"restrictionInfo\":{\"zones\":[\"1\"]}},{\"type\":\"Location\",\"reasonCode\":\"NotAvailableForSubscription\"}],\"capabilities\":[{\"name\":\"available\",\"value\":\"false\"}]}]}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": {
+        "d": {
+          "State": 1,
+          "BlockedZones": null
+        }
+      },
+      "Failed": false
+    },
+    "disk-location-unknown-reason": {
+      "Provider": "disk",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"D\",\"restrictions\":[{\"type\":\"Location\",\"reasonCode\":\"unknown\"}]}]}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": {
+        "d": {
+          "State": 2,
+          "BlockedZones": null
+        }
+      },
+      "Failed": false
+    },
+    "disk-malformed": {
+      "Provider": "disk",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Status": 200,
+          "Body": "{\"value\":"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": null,
+      "Failed": true
+    },
+    "disk-missing": {
+      "Provider": "disk",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Status": 200,
+          "Body": "{}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": {},
+      "Failed": false
+    },
+    "disk-name-tier-and-ignored-type": {
+      "Provider": "disk",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"Premium_LRS\",\"tier\":\"ignored\",\"resourceType\":\"virtualMachines\"},{\"tier\":\"Standard_LRS\"},{},{\"name\":\"\"}]}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": {
+        "premium_lrs": {
+          "State": 0,
+          "BlockedZones": null
+        },
+        "standard_lrs": {
+          "State": 0,
+          "BlockedZones": null
+        }
+      },
+      "Failed": false
+    },
+    "disk-next-foreign": {
+      "Provider": "disk",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"D\"}],\"nextLink\":\"https://synthetic.invalid/compute/next\"}"
+        },
+        {
+          "URL": "https://synthetic.invalid/compute/next",
+          "Status": 200,
+          "Body": "{\"value\":[]}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": {
+        "d": {
+          "State": 0,
+          "BlockedZones": null
+        }
+      },
+      "Failed": false
+    },
+    "disk-next-malformed": {
+      "Provider": "disk",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"D\"}],\"nextLink\":\"://invalid\"}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": null,
+      "Failed": true
+    },
+    "disk-next-relative": {
+      "Provider": "disk",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"D\"}],\"nextLink\":\"/compute/next\"}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": null,
+      "Failed": true
+    },
+    "disk-null-envelope": {
+      "Provider": "disk",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Status": 200,
+          "Body": "null"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": {},
+      "Failed": false
+    },
+    "disk-null-items": {
+      "Provider": "disk",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Status": 200,
+          "Body": "{\"value\":[null,{}]}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": {},
+      "Failed": false
+    },
+    "disk-null-list": {
+      "Provider": "disk",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Status": 200,
+          "Body": "{\"value\":null}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": {},
+      "Failed": false
+    },
+    "disk-null-restriction": {
+      "Provider": "disk",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"D\",\"restrictions\":[null],\"capabilities\":[null]}]}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": {
+        "d": {
+          "State": 0,
+          "BlockedZones": null
+        }
+      },
+      "Failed": false
+    },
+    "disk-paged": {
+      "Provider": "disk",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"D\"}],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27\u0026$skiptoken=synthetic\"}"
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27\u0026$skiptoken=synthetic",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"d\",\"restrictions\":[{\"type\":\"Location\",\"reasonCode\":\"NotAvailableForSubscription\"}]}]}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": {
+        "d": {
+          "State": 1,
+          "BlockedZones": null
+        }
+      },
+      "Failed": false
+    },
+    "disk-trailing": {
+      "Provider": "disk",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Status": 200,
+          "Body": "{\"value\":[]} {}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": null,
+      "Failed": true
+    },
+    "disk-unicode-field-alias": {
+      "Provider": "disk",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"D\",\"reſtrictions\":[{\"type\":\"Location\",\"reasonCode\":\"NotAvailableForSubscription\"}]}]}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": {
+        "d": {
+          "State": 1,
+          "BlockedZones": null
+        }
+      },
+      "Failed": false
+    },
+    "disk-untrimmed-name": {
+      "Provider": "disk",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\" D \"}]}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": {
+        " d ": {
+          "State": 0,
+          "BlockedZones": null
+        }
+      },
+      "Failed": false
+    },
+    "disk-wrong-item": {
+      "Provider": "disk",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Status": 200,
+          "Body": "{\"value\":[1]}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": null,
+      "Failed": true
+    },
+    "disk-wrong-list": {
+      "Provider": "disk",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Status": 200,
+          "Body": "{\"value\":{}}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": null,
+      "Failed": true
+    },
+    "disk-wrong-name": {
+      "Provider": "disk",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":42}]}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": null,
+      "Failed": true
+    },
+    "disk-wrong-next": {
+      "Provider": "disk",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Status": 200,
+          "Body": "{\"value\":[],\"nextLink\":42}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": null,
+      "Failed": true
+    },
+    "disk-zone-empty-string": {
+      "Provider": "disk",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"D\",\"restrictions\":[{\"type\":\"Zone\",\"restrictionInfo\":{\"zones\":[\"\"]}}]}]}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": {
+        "d": {
+          "State": 3,
+          "BlockedZones": [
+            ""
+          ]
+        }
+      },
+      "Failed": false
+    },
+    "disk-zone-order-duplicates": {
+      "Provider": "disk",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"D\",\"restrictions\":[{\"type\":\"Zone\",\"restrictionInfo\":{\"zones\":[\"2\",\"1\"]}},{\"type\":\"ZONE\",\"restrictionInfo\":{\"zones\":[\"2\"]}}],\"capabilities\":[{\"name\":\"available\",\"value\":\"false\"}]}]}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": {
+        "d": {
+          "State": 3,
+          "BlockedZones": [
+            "2",
+            "1",
+            "2"
+          ]
+        }
+      },
+      "Failed": false
+    },
+    "vm-bounded-cycle": {
+      "Provider": "vm",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"First\"}],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01\"}"
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"First\"}],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01\"}"
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Status": 400,
+          "Body": "{\"error\":{\"code\":\"CycleStop\"}}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": null,
+      "Failed": true
+    },
+    "vm-cancelled": {
+      "Provider": "vm",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Status": 200,
+          "Body": "{\"value\":[]}"
+        }
+      ],
+      "Cancelled": true,
+      "Expected": null,
+      "Failed": true
+    },
+    "vm-duplicate-case-name": {
+      "Provider": "vm",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"Standard_D2\"},{\"name\":\"STANDARD_D2\"}]}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": {
+        "standard_d2": {
+          "State": 0,
+          "BlockedZones": null
+        }
+      },
+      "Failed": false
+    },
+    "vm-duplicate-name-last": {
+      "Provider": "vm",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"First\",\"NAME\":\"Standard_D2\"}]}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": {
+        "standard_d2": {
+          "State": 0,
+          "BlockedZones": null
+        }
+      },
+      "Failed": false
+    },
+    "vm-duplicate-value-last": {
+      "Provider": "vm",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"First\"}],\"VALUE\":[{\"name\":\"Standard_D2\"}]}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": {
+        "standard_d2": {
+          "State": 0,
+          "BlockedZones": null
+        }
+      },
+      "Failed": false
+    },
+    "vm-empty": {
+      "Provider": "vm",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Status": 200,
+          "Body": "{\"value\":[]}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": {},
+      "Failed": false
+    },
+    "vm-http400": {
+      "Provider": "vm",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Status": 400,
+          "Body": "{\"error\":{\"code\":\"SyntheticComputeError\",\"message\":\"fixture\"}}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": null,
+      "Failed": true
+    },
+    "vm-http403": {
+      "Provider": "vm",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Status": 403,
+          "Body": "{\"error\":{\"code\":\"SyntheticComputeError\",\"message\":\"fixture\"}}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": null,
+      "Failed": true
+    },
+    "vm-http404": {
+      "Provider": "vm",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Status": 404,
+          "Body": "{\"error\":{\"code\":\"SyntheticComputeError\",\"message\":\"fixture\"}}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": null,
+      "Failed": true
+    },
+    "vm-http429": {
+      "Provider": "vm",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Status": 429,
+          "Body": "{\"error\":{\"code\":\"SyntheticComputeError\",\"message\":\"fixture\"}}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": null,
+      "Failed": true
+    },
+    "vm-http500": {
+      "Provider": "vm",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Status": 500,
+          "Body": "{\"error\":{\"code\":\"SyntheticComputeError\",\"message\":\"fixture\"}}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": null,
+      "Failed": true
+    },
+    "vm-later-http400": {
+      "Provider": "vm",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"First\"}],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01\u0026$skiptoken=synthetic\"}"
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01\u0026$skiptoken=synthetic",
+          "Status": 400,
+          "Body": "{\"error\":{\"code\":\"SyntheticComputeError\",\"message\":\"fixture\"}}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": null,
+      "Failed": true
+    },
+    "vm-later-http403": {
+      "Provider": "vm",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"First\"}],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01\u0026$skiptoken=synthetic\"}"
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01\u0026$skiptoken=synthetic",
+          "Status": 403,
+          "Body": "{\"error\":{\"code\":\"SyntheticComputeError\",\"message\":\"fixture\"}}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": null,
+      "Failed": true
+    },
+    "vm-later-http404": {
+      "Provider": "vm",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"First\"}],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01\u0026$skiptoken=synthetic\"}"
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01\u0026$skiptoken=synthetic",
+          "Status": 404,
+          "Body": "{\"error\":{\"code\":\"SyntheticComputeError\",\"message\":\"fixture\"}}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": null,
+      "Failed": true
+    },
+    "vm-later-http429": {
+      "Provider": "vm",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"First\"}],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01\u0026$skiptoken=synthetic\"}"
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01\u0026$skiptoken=synthetic",
+          "Status": 429,
+          "Body": "{\"error\":{\"code\":\"SyntheticComputeError\",\"message\":\"fixture\"}}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": null,
+      "Failed": true
+    },
+    "vm-later-http500": {
+      "Provider": "vm",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"First\"}],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01\u0026$skiptoken=synthetic\"}"
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01\u0026$skiptoken=synthetic",
+          "Status": 500,
+          "Body": "{\"error\":{\"code\":\"SyntheticComputeError\",\"message\":\"fixture\"}}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": null,
+      "Failed": true
+    },
+    "vm-later-malformed": {
+      "Provider": "vm",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"First\"}],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01\u0026$skiptoken=synthetic\"}"
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01\u0026$skiptoken=synthetic",
+          "Status": 200,
+          "Body": "{\"value\":"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": null,
+      "Failed": true
+    },
+    "vm-malformed": {
+      "Provider": "vm",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Status": 200,
+          "Body": "{\"value\":"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": null,
+      "Failed": true
+    },
+    "vm-missing": {
+      "Provider": "vm",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Status": 200,
+          "Body": "{}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": {},
+      "Failed": false
+    },
+    "vm-next-foreign": {
+      "Provider": "vm",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"First\"}],\"nextLink\":\"https://synthetic.invalid/compute/next\"}"
+        },
+        {
+          "URL": "https://synthetic.invalid/compute/next",
+          "Status": 200,
+          "Body": "{\"value\":[]}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": {
+        "first": {
+          "State": 0,
+          "BlockedZones": null
+        }
+      },
+      "Failed": false
+    },
+    "vm-next-malformed": {
+      "Provider": "vm",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"First\"}],\"nextLink\":\"://invalid\"}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": null,
+      "Failed": true
+    },
+    "vm-next-relative": {
+      "Provider": "vm",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"First\"}],\"nextLink\":\"/compute/next\"}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": null,
+      "Failed": true
+    },
+    "vm-no-trim": {
+      "Provider": "vm",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\" Standard_D2 \"},{\"name\":\" \"}]}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": {
+        " ": {
+          "State": 0,
+          "BlockedZones": null
+        },
+        " standard_d2 ": {
+          "State": 0,
+          "BlockedZones": null
+        }
+      },
+      "Failed": false
+    },
+    "vm-null-envelope": {
+      "Provider": "vm",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Status": 200,
+          "Body": "null"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": {},
+      "Failed": false
+    },
+    "vm-null-items": {
+      "Provider": "vm",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Status": 200,
+          "Body": "{\"value\":[null,{}]}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": {},
+      "Failed": false
+    },
+    "vm-null-list": {
+      "Provider": "vm",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Status": 200,
+          "Body": "{\"value\":null}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": {},
+      "Failed": false
+    },
+    "vm-paged": {
+      "Provider": "vm",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"First\"}],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01\u0026$skiptoken=synthetic\"}"
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01\u0026$skiptoken=synthetic",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"Second\"}]}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": {
+        "first": {
+          "State": 0,
+          "BlockedZones": null
+        },
+        "second": {
+          "State": 0,
+          "BlockedZones": null
+        }
+      },
+      "Failed": false
+    },
+    "vm-single": {
+      "Provider": "vm",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"Standard_D2\"},{\"name\":\"\"},{},{\"name\":null},null]}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": {
+        "standard_d2": {
+          "State": 0,
+          "BlockedZones": null
+        }
+      },
+      "Failed": false
+    },
+    "vm-single-alias": {
+      "Provider": "vm",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Status": 200,
+          "Body": "{\"VALUE\":[{\"NAME\":\"Standard_D2\"}]}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": {
+        "standard_d2": {
+          "State": 0,
+          "BlockedZones": null
+        }
+      },
+      "Failed": false
+    },
+    "vm-surrogate-text": {
+      "Provider": "vm",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"\\ud800\"}]}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": {
+        "�": {
+          "State": 0,
+          "BlockedZones": null
+        }
+      },
+      "Failed": false
+    },
+    "vm-trailing": {
+      "Provider": "vm",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Status": 200,
+          "Body": "{\"value\":[]} {}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": null,
+      "Failed": true
+    },
+    "vm-wrong-item": {
+      "Provider": "vm",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Status": 200,
+          "Body": "{\"value\":[1]}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": null,
+      "Failed": true
+    },
+    "vm-wrong-list": {
+      "Provider": "vm",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Status": 200,
+          "Body": "{\"value\":{}}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": null,
+      "Failed": true
+    },
+    "vm-wrong-name": {
+      "Provider": "vm",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":42}]}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": null,
+      "Failed": true
+    },
+    "vm-wrong-next": {
+      "Provider": "vm",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Status": 200,
+          "Body": "{\"value\":[],\"nextLink\":42}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": null,
+      "Failed": true
+    },
+    "vmss-empty": {
+      "Provider": "vmss",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Status": 200,
+          "Body": "{\"value\":[]}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": {},
+      "Failed": false
+    },
+    "vmss-malformed": {
+      "Provider": "vmss",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Status": 200,
+          "Body": "{\"value\":"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": null,
+      "Failed": true
+    },
+    "vmss-missing": {
+      "Provider": "vmss",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Status": 200,
+          "Body": "{}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": {},
+      "Failed": false
+    },
+    "vmss-null-envelope": {
+      "Provider": "vmss",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Status": 200,
+          "Body": "null"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": {},
+      "Failed": false
+    },
+    "vmss-null-items": {
+      "Provider": "vmss",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Status": 200,
+          "Body": "{\"value\":[null,{}]}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": {},
+      "Failed": false
+    },
+    "vmss-null-list": {
+      "Provider": "vmss",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Status": 200,
+          "Body": "{\"value\":null}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": {},
+      "Failed": false
+    },
+    "vmss-single": {
+      "Provider": "vmss",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":\"Standard_D2\"}]}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": {
+        "standard_d2": {
+          "State": 0,
+          "BlockedZones": null
+        }
+      },
+      "Failed": false
+    },
+    "vmss-trailing": {
+      "Provider": "vmss",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Status": 200,
+          "Body": "{\"value\":[]} {}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": null,
+      "Failed": true
+    },
+    "vmss-wrong-item": {
+      "Provider": "vmss",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Status": 200,
+          "Body": "{\"value\":[1]}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": null,
+      "Failed": true
+    },
+    "vmss-wrong-list": {
+      "Provider": "vmss",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Status": 200,
+          "Body": "{\"value\":{}}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": null,
+      "Failed": true
+    },
+    "vmss-wrong-name": {
+      "Provider": "vmss",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Status": 200,
+          "Body": "{\"value\":[{\"name\":42}]}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": null,
+      "Failed": true
+    },
+    "vmss-wrong-next": {
+      "Provider": "vmss",
+      "Pages": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Status": 200,
+          "Body": "{\"value\":[],\"nextLink\":42}"
+        }
+      ],
+      "Cancelled": false,
+      "Expected": null,
+      "Failed": true
+    }
+  },
+  "Registry": [
+    "microsoft.cognitiveservices/accounts",
+    "microsoft.compute/disks",
+    "microsoft.compute/virtualmachines",
+    "microsoft.compute/virtualmachinescalesets",
+    "microsoft.sql/managedinstances",
+    "microsoft.sql/servers/databases",
+    "microsoft.storage/storageaccounts"
+  ],
+  "CachePages": [
+    {
+      "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+      "Status": 200,
+      "Body": "{\"value\":[{\"name\":\" Standard_D2 \"},{\"name\":\" \"}]}"
+    },
+    {
+      "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+      "Status": 200,
+      "Body": "{\"value\":[{\"name\":\"Standard_D2\"}]}"
+    },
+    {
+      "URL": "https://management.azure.com/subscriptions/22222222-2222-2222-2222-222222222222/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+      "Status": 200,
+      "Body": "{\"value\":[{\"name\":\"Other\"}]}"
+    },
+    {
+      "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/westus/vmSizes?api-version=2023-03-01",
+      "Status": 200,
+      "Body": "{\"value\":[{\"name\":\"West\"}]}"
+    }
+  ],
+  "RetryPages": [
+    {
+      "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+      "Status": 403,
+      "Body": "{\"error\":{\"code\":\"RetryFixture\"}}"
+    },
+    {
+      "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+      "Status": 200,
+      "Body": "{\"value\":[{\"name\":\"Standard_D2\"}]}"
+    }
+  ],
+  "CacheCalls": [
+    "first:sub111:VM:East US",
+    "normalized-reuse:sub111:vm:eastus",
+    "caller-map-mutation-shared:inject restricted; sub111:vm:eastus",
+    "vmss-separate:sub111:vmss:eastus",
+    "subscription-separate:sub222:vm:eastus",
+    "region-separate:sub111:vm:westus",
+    "unsupported:sub111:unknown:eastus",
+    "retry:403 then success then cached"
+  ],
+  "Seam": "Injected supported transport, fake credential, MaxRetries=-1; does not certify production retries/live deployment"
+}

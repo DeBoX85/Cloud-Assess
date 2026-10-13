@@ -1,3 +1,39 @@
+# Compute SKU observed pilot and extended source preparation, 2026-10-13
+
+Accepted protected baseline remains PR137 af18468fe1dfc697838115c0a7585ba675fdec97.
+PR138 DRAFT/UNACCEPTED. Pilot be09b590/tree06f9e9e6/sole parente42e6dcb was
+published with all7full file/Gitblob readbacks, Denis identity,256independently
+reconstructed directory trees and leased ref verified. Source38381716938/
+115243507980 FAILED exactly at missing source-compute-sku-inputs.json AFTER
+successful TestRegionComputeSKUCapture (89independent provider cases, registry,
+sequential cache maps/keys/retry) and all original9harnesses/source guards.
+Full995665character log/21records231contiguous chunks independently SHA256
+verified; new input56258bytes/f4b8c90f output79844bytes/f5e8acdd, all89full maps
+independently compared. FN118 records this expected unretained preparation,
+not acceptance. Earlier native38381716944 is historical after this next edit.
+
+This extended harness adds empty-start pager, sequential zone-slice sharing,
+eight bounded same-key callers behind a barrier, and both separate region keys
+entering blocked transport before response release. Same-key observation proves
+bounded dedup/reuse, NOT exact singleflight waiter registration; this limitation
+is explicit. No concurrent mutation/data race intentionally introduced. Original
+source/SDK/APRL/modules/pins/production targets unchanged. Pilot raw goldens are
+retained verbatim as an intermediate observation; this extended source run MUST
+fail byte equality until fresh extended observations are independently verified
+and retained. Do not relabel that expected changed-byte preparation as acceptance.
+Native literal-cell/compiling controls and full final-head QA/review remain next.
+
+[Prepared laptop queue](LAPTOP_LIVE_QUEUE_20261013.md) gives inspection of actual
+checkout/tools/account state, accepted clean pins and confirmed nonproduction
+scope before read-only core/plugin runs. Laptop expected within one hour, NOT yet
+confirmed; Advisory production parent is not a DV001 substitute. No Azure
+writes/fixtures/roles/scope substitution/exposure/release. Exact next inspect
+extended original output, retain full verified bytes, add native complete source
+oracle/compiling controls, then complete current-head source/native/review/
+protected/distinct-push proof. Earlier entries below remain history.
+
+---
+
 # Compute SKU first source pilot, 2026-10-13
 
 Accepted protected development remains PR137 af18468fe1dfc697838115c0a7585ba675fdec97.

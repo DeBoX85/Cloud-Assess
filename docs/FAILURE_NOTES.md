@@ -1,3 +1,24 @@
+# FN118: Compute SKU first strict observation preparation (2026-10-13)
+
+Source run38381716938/job115243507980 on pilotbe09b590 FAILED at missing new
+source-compute-sku-inputs.json only after successful original10harnesses,89new
+independent full provider maps, original source/APRL/module guards and full raw
+provenance21records231chunks. This was the declared first unretained observation,
+not a compiler/oracle failure or acceptance. Full995665log/newrawSHA256 checked;
+retain verbatim and rerun strict equality on the actual final head. Extended
+observations must not borrow this pilot's success or use overwritten convenient
+expectations. No source/pin/native check weakened.
+
+A local independent tree verifier initially compared reconstructed tree SHA to
+GitHub's requested-commit alias in the recursive tree response (be09b590), rather
+than the commit object's actual tree06f9e9e6. This read-only verifier failed;
+no ref/file was changed by the failure. Correct expected root from verified commit
+and256directory trees match independently. Use commit.tree.sha as authority when
+fetching trees through commit aliases; API response top-level sha is not assumed
+normalized. This is tooling classification, not repository corruption.
+
+---
+
 # Provider target VERIFIED OFFLINE and exact next source slice, 2026-10-13
 
 PR137 is VERIFIED OFFLINE at af18468fe1dfc697838115c0a7585ba675fdec97,

@@ -105,6 +105,28 @@ func computeCaptureEqual(t *testing.T, name string, got, want map[string]types.S
 	}
 }
 
+
+type computeCaptureGateTransport struct {
+	inner *computeCaptureTransport
+	entered chan struct{}
+	release chan struct{}
+}
+func (s *computeCaptureGateTransport) Do(r *http.Request) (*http.Response,error) {
+	select {case s.entered<-struct{}{}:default:}
+	select {case <-s.release:case <-r.Context().Done():return nil,r.Context().Err()}
+	return s.inner.Do(r)
+}
+type computeCaptureSplitTransport struct { east,west *computeCaptureGateTransport }
+func (s computeCaptureSplitTransport) Do(r *http.Request)(*http.Response,error){
+	if strings.Contains(r.URL.Path,"/locations/westus/"){return s.west.Do(r)}
+	return s.east.Do(r)
+}
+func computeCaptureGateClient(s policy.Transporter)*az.HttpClient{
+	return az.NewHttpClient(computeCaptureCredential{}, &az.HttpClientOptions{
+		MaxRetries:-1, Timeout:3*time.Second, Scope:"https://management.azure.com/.default", Transport:s,
+	})
+}
+
 func TestRegionComputeSKUCapture(t *testing.T) {
 	output := os.Getenv("REGION_COMPUTE_SKU_CAPTURE_OUTPUT")
 	if output == "" { t.Fatal("missing capture output") }
@@ -275,6 +297,78 @@ func TestRegionComputeSKUCapture(t *testing.T) {
 		retryResults=append(retryResults,computeCaptureResult{Entries:got,Failed:err!=nil,Requests:append([]computeCaptureRequest{},retryTransport.requests...)})
 	}
 	computeCaptureTransportCheck(t,retryTransport,2)
+
+	// The empty start URL returns an empty map without consulting even a nil client.
+	pagerEmpty, pagerErr := FetchPagedSKUs(context.Background(), "", nil, func(item vmSizeItem)(string,types.SKUAvailability,bool){
+		t.Fatal("empty URL consulted extraction");return "",types.SKUAvailability{},false
+	})
+	computeCaptureEqual(t,"pager-empty-url",pagerEmpty,empty,pagerErr,false)
+	results["pager-empty-url"]=computeCaptureResult{Entries:pagerEmpty,Requests:[]computeCaptureRequest{}}
+
+	zonePages:=[]computeCapturePage{{computeCaptureDisk,200,`{"value":[{"name":"D","restrictions":[{"type":"Zone","restrictionInfo":{"zones":["2","1","2"]}}]}]}`}}
+	zoneCache:=NewCache()
+	zoneTransport:=&computeCaptureTransport{pages:zonePages,requests:[]computeCaptureRequest{}}
+	zoneClient:=computeCaptureClient(zoneTransport)
+	zoneMap,zoneErr:=zoneCache.GetSKUAvailability(context.Background(),computeCaptureSubscription,"microsoft.compute/disks","East US",zoneClient)
+	computeCaptureEqual(t,"cache-zone-original",zoneMap,map[string]types.SKUAvailability{"d":zones},zoneErr,false)
+	zoneBefore:=types.SKUAvailability{State:zoneMap["d"].State,BlockedZones:append([]string(nil),zoneMap["d"].BlockedZones...)}
+	zoneMap["d"].BlockedZones[0]="changed"
+	zoneAgain,zoneErr:=zoneCache.GetSKUAvailability(context.Background(),computeCaptureSubscription,"microsoft.compute/disks","eastus",zoneClient)
+	computeCaptureEqual(t,"cache-zone-shared",zoneAgain,map[string]types.SKUAvailability{"d":{State:types.SKUZoneRestricted,BlockedZones:[]string{"changed","1","2"}}},zoneErr,false)
+	computeCaptureTransportCheck(t,zoneTransport,1)
+	zoneAfter:=types.SKUAvailability{State:zoneAgain["d"].State,BlockedZones:append([]string(nil),zoneAgain["d"].BlockedZones...)}
+
+	// All caller goroutines are ready behind one barrier before release.
+	// This proves bounded same-key dedup/reuse, not exact singleflight waiter entry.
+	concurrentCache:=NewCache()
+	concurrentTransport:=&computeCaptureTransport{pages:[]computeCapturePage{{computeCaptureVM,200,`{"value":[{"name":"Standard_D2"}]}`}},requests:[]computeCaptureRequest{}}
+	gate:=&computeCaptureGateTransport{inner:concurrentTransport,entered:make(chan struct{},8),release:make(chan struct{})}
+	concurrentClient:=computeCaptureGateClient(gate)
+	concurrentContext,concurrentCancel:=context.WithTimeout(context.Background(),5*time.Second)
+	defer concurrentCancel()
+	type callResult struct { entries map[string]types.SKUAvailability; err error }
+	concurrentResults:=make(chan callResult,8)
+	ready:=make(chan struct{},8)
+	startCall:=make(chan struct{})
+	for i:=0;i<8;i++ {go func(){
+		ready<-struct{}{}
+		select {case <-startCall:case <-concurrentContext.Done():concurrentResults<-callResult{err:concurrentContext.Err()};return}
+		got,err:=concurrentCache.GetSKUAvailability(concurrentContext,computeCaptureSubscription,"microsoft.compute/virtualmachines","East US",concurrentClient)
+		concurrentResults<-callResult{got,err}
+	}()}
+	for i:=0;i<8;i++ {select {case <-ready:case <-concurrentContext.Done():t.Fatal("concurrent ready deadline")}}
+	close(startCall)
+	select {case <-gate.entered:case <-concurrentContext.Done():t.Fatal("same key request did not enter")}
+	close(gate.release)
+	for i:=0;i<8;i++ {select {case result:=<-concurrentResults:computeCaptureEqual(t,"concurrent-same-key",result.entries,vmMap,result.err,false);case <-concurrentContext.Done():t.Fatal("concurrent result deadline")}}
+	computeCaptureTransportCheck(t,concurrentTransport,1)
+	concurrentObservation:=computeCaptureResult{Entries:vmMap,Requests:concurrentTransport.requests}
+
+	// Two different keys must both reach transport while both responses are blocked.
+	separateCache:=NewCache()
+	eastInner:=&computeCaptureTransport{pages:[]computeCapturePage{{computeCaptureVM,200,`{"value":[{"name":"East"}]}`}},requests:[]computeCaptureRequest{}}
+	westURL:=strings.Replace(computeCaptureVM,"eastus","westus",1)
+	westInner:=&computeCaptureTransport{pages:[]computeCapturePage{{westURL,200,`{"value":[{"name":"West"}]}`}},requests:[]computeCaptureRequest{}}
+	eastGate:=&computeCaptureGateTransport{inner:eastInner,entered:make(chan struct{},1),release:make(chan struct{})}
+	westGate:=&computeCaptureGateTransport{inner:westInner,entered:make(chan struct{},1),release:make(chan struct{})}
+	splitClient:=computeCaptureGateClient(computeCaptureSplitTransport{eastGate,westGate})
+	separateResults:=make(chan callResult,2)
+	for _,region:=range []string{"eastus","westus"} {go func(region string){
+		got,err:=separateCache.GetSKUAvailability(concurrentContext,computeCaptureSubscription,"microsoft.compute/virtualmachines",region,splitClient)
+		separateResults<-callResult{got,err}
+	}(region)}
+	for _,entered:=range []chan struct{}{eastGate.entered,westGate.entered}{
+		select {case <-entered:case <-concurrentContext.Done():t.Fatal("separate keys serialized or deadline")}
+	}
+	close(eastGate.release);close(westGate.release)
+	separateMaps:=map[string]map[string]types.SKUAvailability{}
+	for i:=0;i<2;i++ {select {case result:=<-separateResults:
+		if result.err!=nil||len(result.entries)!=1 {t.Fatal("separate key source result")}
+		for key:=range result.entries {if key!="east"&&key!="west"{t.Fatal("unexpected separate key")};separateMaps[key]=result.entries}
+	case <-concurrentContext.Done():t.Fatal("separate results deadline")}}
+	if !reflect.DeepEqual(separateMaps,map[string]map[string]types.SKUAvailability{"east":{"east":available},"west":{"west":available}}){t.Fatal("complete separate key maps")}
+	computeCaptureTransportCheck(t,eastInner,1);computeCaptureTransportCheck(t,westInner,1)
+
 	write:=func(name string,value any){
 		raw,err:=json.MarshalIndent(value,"","  ")
 		if err!=nil {t.Fatal(err)}
@@ -288,13 +382,19 @@ func TestRegionComputeSKUCapture(t *testing.T) {
 		CachePages []computeCapturePage
 		RetryPages []computeCapturePage
 		CacheCalls []string
+		ZonePages []computeCapturePage
+		ConcurrentSeam string
 		Seam string
-	}{blobs,cases,expectedKeys,cachePages,retryPages,[]string{"first:sub111:VM:East US","normalized-reuse:sub111:vm:eastus","caller-map-mutation-shared:inject restricted; sub111:vm:eastus","vmss-separate:sub111:vmss:eastus","subscription-separate:sub222:vm:eastus","region-separate:sub111:vm:westus","unsupported:sub111:unknown:eastus","retry:403 then success then cached"},"Injected supported transport, fake credential, MaxRetries=-1; does not certify production retries/live deployment"})
+	}{blobs,cases,expectedKeys,cachePages,retryPages,[]string{"first:sub111:VM:East US","normalized-reuse:sub111:vm:eastus","caller-map-mutation-shared:inject restricted; sub111:vm:eastus","vmss-separate:sub111:vmss:eastus","subscription-separate:sub222:vm:eastus","region-separate:sub111:vm:westus","unsupported:sub111:unknown:eastus","retry:403 then success then cached"},zonePages,"Eight ready callers, blocked leader response; separate east/west both enter before release. Same-key result proves dedup/reuse, not exact waiter registration.","Injected supported transport, fake credential, MaxRetries=-1; does not certify production retries/live deployment"})
 	write("source-compute-sku-outputs.json",struct{
 		Cases map[string]computeCaptureResult
 		Registry []string
 		DuplicateRegistrationPanics bool
 		Cache map[string]computeCaptureResult
 		Retry []computeCaptureResult
-	}{results,keys,duplicatePanic,cacheResults,retryResults})
+		ZoneBefore types.SKUAvailability
+		ZoneAfter types.SKUAvailability
+		ConcurrentSameKey computeCaptureResult
+		ConcurrentSeparateKeys map[string]map[string]types.SKUAvailability
+	}{results,keys,duplicatePanic,cacheResults,retryResults,zoneBefore,zoneAfter,concurrentObservation,separateMaps})
 }
