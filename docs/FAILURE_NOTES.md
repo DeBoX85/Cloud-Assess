@@ -1,3 +1,20 @@
+# FN117: SKU namespace versus endpoint-family wording clarified, 2026-10-13
+
+The earlier remaining-adapter inventory described seven types/five provider
+families. Fresh full pinned sku directory/provider registry inspection establishes
+four ARM namespaces: Compute, Storage, CognitiveServices and Sql. Compute uses two
+endpoint families (vmSizes and skus), yielding five endpoint/response families.
+This is a planning terminology error, not an execution failure or feature delta.
+
+Clarify current contract/inventory/header while preserving dated historical text.
+Use literal registered types and actual namespace/request families when estimating
+or scoping remaining work. Fresh official documentation also uses ResourceSKU
+api-version2021-07-01 versus pinned Compute source2023-03-01 and marks vmSizes
+deprecated; this is a reconciliation uncertainty, not proof of source API failure.
+Preserve source literals during synthetic characterization; no version/pin change.
+
+---
+
 # FN116: Namespace mutation replacement retained obsolete struct selector, 2026-10-13
 
 Automated review5497759614/inline4253813570/threadPRRT_kwDOUdPf9c6rrPUE on d5ba61cf

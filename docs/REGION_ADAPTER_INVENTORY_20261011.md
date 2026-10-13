@@ -1,3 +1,35 @@
+# Provider merged checkpoint and next Compute SKU source contract, 2026-10-13
+
+PR137 provider collector merged through protected expected-head checks at
+af18468fe1dfc697838115c0a7585ba675fdec97/treee896f44a5b1dfa32996bc70cc5032c2d2941d5db,
+orderedbf4991af/d956f0e9 parents, Denis author/GitHub committer/valid signature/ref
+verified. Candidate native38332024907/Linux115083884072/Windows115083883865 and
+source38332024918/115083690548 full proof: all55Linux40Windows steps,251/247named
+controls including25new production faults/restoration,84.7%Linuxrace/coverage/vet/
+fiveboundedfuzz, built/default+custom packages/docs/security0reachable0imported/
+1module.19source records185chunks/full793598log/SHA256/fullremoteGit bytes verified.
+Review6135859550 completedd956f0e9 without new findings; FN115/116 fixed/resolved;
+all FN110-116 failures/preparation limits remain recorded.
+
+DISTINCT actual-merge source38334004104/115089899014 SUCCESS/all7steps/full792940log,
+actualaf18468/Go1.26.9/pinnedsource/tree/APRL/all19records185chunks independently
+SHA256/fresh full accepted bytes/Git identities; all9accepted changed files checked.
+Native push38334004115/quality115089898984/Windows115089899171 still pending at
+this next preparation. Read live PR137 for final disposition; no candidate transfer.
+
+Next [Compute/common/cache source contract](REGION_COMPUTE_SKU_SOURCE_20261013.md)
+is UNACCEPTED documentation preparation only; publish/read back BEFORE harness
+edits, keep source/SDK/module/pins untouched. First slice VM/VMSS/disk plus original
+pager/restriction/cache/registry observations. Other provider API captures remain
+separate. Seven types span four ARM namespaces/five endpoint families, clarifying
+earlier wording. Source2023-03 literals differ from current ResourceSKU2021-07
+docs and vmSizes deprecation; synthetic capture is not live support/deployability.
+No target SKU/public/coordinator/Azure activation. Exact next finish PR137 push,
+then isolated harness/raw capture/retention/literal controls with full own QA.
+Laptop/Azure/live/release/module-only/other-adapter gates remain open.
+
+---
+
 # Current accepted provider source phase, 2026-10-12
 
 Read [HANDOVER_CHECKPOINT_20261012.md](HANDOVER_CHECKPOINT_20261012.md) and
