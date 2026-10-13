@@ -1,3 +1,24 @@
+# FN119: Preserve earlier source manifest controls when extending (2026-10-13)
+
+Self-review before PR138 acceptance found the first21record byte-guard extension
+renamed/replaced original provider omission/subset controls with Compute controls.
+The strict manifest and unconditional full21record production guard still remained,
+but claiming all previous probes preserved was inaccurate. Correct final script
+keeps provider-only manifest/loop exclusions and named failures/restoration, plus
+two separate Compute exclusions. No control names or positive checks are waived.
+Fresh BOTH-host final execution must verify all five guard controls,14new source
+fixture controls,25prior provider production and all other existing controls.
+Cause: adapting the last-two-record slice after extending the manifest. Prevention:
+use explicit record-family exclusions and compare old/new control identities.
+
+Read-only formatter log extraction initially also matched the echoed Python print
+statement rather than a JSON record. Parsing failed without a write/ref mutation.
+Filter marker suffix for an opening JSON object; then4uniquecontiguoushexchunks
+and fullSHA256b2178b70 match native9872bytes and the published oracle exactly.
+Do not infer corrupt formatter output from a parser selecting command echo.
+
+---
+
 # FN118 extended observation outcome, 2026-10-13
 
 Extended source38382342498/job115245594853 on7f58b386 passed its original

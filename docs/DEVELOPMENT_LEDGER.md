@@ -1,3 +1,50 @@
+# Compute SKU source final candidate, 2026-10-13
+
+Accepted protected development remains PR137 af18468fe1dfc697838115c0a7585ba675fdec97.
+PR138 is UNACCEPTED source-only work. Source candidate9f43fff0 at run38382829391/
+job115247223858 SUCCESS: full999563character log, all10original harnesses and
+source/APRL/module guards;21records232uniquecontiguouschunks independently
+SHA256 checked against fresh full remote bytes and their original Git blobs.
+Input56827bytes/75a69648 and output81019bytes/c443a812 remain unchanged.
+89independent provider cases plus empty-start pager, exact requests/full maps/
+restriction zones/errors/registry/cache/retry/sequential map+zone sharing and
+bounded same/separate-key concurrency retained. Same-key dedup/reuse is observed;
+exact singleflight waiter registration and nondeterministic different-state trim
+collision winners are NOT certified. No target SKU collector/public activation.
+
+Read-only preparation38382829436/job115247223602 SUCCESS/all8steps/full45272log:
+focused native source oracles pass with race detector; all14named compiling fixture
+controls rejected and restored baselines passed. Complete4hexformatter chunks/
+SHA256b2178b70 independently verified; native Go file was already byte-identical
+to gofmt output. Temporary preparation workflow is now removed from final tree.
+
+Self-review found the manifest-control extension had replaced the old provider
+omission/subset probes instead of adding distinct Compute probes. FN119 records
+the mistake before acceptance. Final script preserves both provider probes with
+explicit provider-only exclusions AND adds two separate Compute exclusions,
+keeping unconditional21record equality/disabled-byteguard/restored baselines.
+All existing25provider production and earlier controls/security budgets/pins stay.
+
+This new final head still needs OWN full Linux/Windows/source/automated review,
+all final file/tree/parents/Denis identity/preview/protection verification, protected
+expected-head merge and DISTINCT actual accepted-push verification. Predecessor
+preparation is not final acceptance. PR body indexes actual head/run outcomes,
+avoiding evidence-only commit loops. Source/SDK/APRL/modules/toolchain unchanged.
+FN118 missing/changed-golden failures remain history, not relabelled PASS.
+
+[Laptop live queue](LAPTOP_LIVE_QUEUE_20261013.md) is prepared. User expects
+availability within one hour, access NOT confirmed. Next live step after actual
+return: inspect preserved checkouts/tools/account state, then confirm approved
+nonproduction scope for existing core/plugin read-only tests. Advisory contains
+Prd and is not a DV001 substitute. No Azure writes/fixtures/roles/scope substitution/
+exposure/release. Other SKU namespaces/target adapters/public region/FullCost/
+module-only advisory/live/load/freshOS/maintenance/Gate004/release/licensing/human
+gates remain open. Exact next finish this final candidate's own QA/review/merge
+and separate push proof, then characterize remaining SKU namespaces under a new
+pre-edit contract before target collection. Earlier entries below are history.
+
+---
+
 # Compute SKU retained observations and native oracle preparation, 2026-10-13
 
 Accepted baseline remains PR137 at af18468fe1dfc697838115c0a7585ba675fdec97.
