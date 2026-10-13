@@ -1,3 +1,31 @@
+# Provider collector final-head acceptance candidate, 2026-10-13
+
+PR137 remains UNACCEPTED. Corrected preparation8e5a3083 preflight38330608152/
+job115079244415 SUCCESS: full logs actualpreviewb8ff7dc/Go1.26.9, focused
+TestProviderCollector suite compiled and passed with race detector (9.594s).
+Both complete formatted Go files reconstructed from28 contiguous hex chunks,
+independent SHA256: production29151a55/test6f104310, full bytes retained. This is
+preparation evidence, not final-head/native/source/public/live acceptance.
+
+Final candidate removes the temporary preflight workflow, retains exact formatted
+production, adds a full-map eight-page duplicate-location raw-work exact/excess
+case and its named compiling mutation.24 production controls/restored baselines
+are required on BOTH native hosts, preserving all previous checks/budgets/pins.
+No SDK/module/golden/source/APRL/public integration change. Wrapped transport
+cancellation/deadline now returns exact context sentinels (FN113); corrected
+standalone-versus-cross-page collision oracle retains negative controls (FN114).
+Compiler/masking/publication FN110-112 failures stay historical, not relabelled.
+
+Exact next: verify NEW final-head formatting/source/all24production+existingcontrols/
+both complete native logs/automated review/fullfiles/tree/parents/identity/base/
+preview/protection. Only then protected expected-head merge and DISTINCT actual-
+merge push verification. Preflight success cannot certify new duplicate work case
+or transferred native evidence. Collector remains internal, region public execution
+unavailable. PR136bf4991af distinct push is fully verified. Laptop/Azure/live/load/
+freshOS/maintenance/Gate004/release/module-only/other-adapter gates stay open.
+
+---
+
 # Provider collector cancellation correction and oracle repair, 2026-10-13
 
 PR137 UNACCEPTED. Fresh preflight38330406259/job115078625437 compiled/ran focused

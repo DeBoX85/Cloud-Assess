@@ -484,3 +484,44 @@ func TestProviderCollectorWrappedCancellation(t *testing.T) {
 		}
 	}
 }
+
+func TestProviderCollectorDuplicateLocationWork(t *testing.T) {
+	for _, extra := range []bool{false, true} {
+		calls := 0
+		c := providerCollector(t, func(context.Context, string, int64) ([]byte, *http.Response, error) {
+			calls++
+			entries := 8190
+			if extra && calls == 8 {
+				entries++
+			}
+			body := fmt.Sprintf(`{"value":[{"namespace":"P","resourceTypes":[{"resourceType":"t%d","locations":[%s]}]}]}`, calls, strings.TrimSuffix(strings.Repeat(`"East US",`, entries), ","))
+			if calls < 8 {
+				body = strings.TrimSuffix(body, "}") + fmt.Sprintf(`,"nextLink":"?api-version=2021-04-01&$skiptoken=%d"}`, calls)
+			}
+			return quotaPage(body)
+		})
+		got, err := c.Collect(context.Background(), quotaScope(), ProviderLocationRequest{quotaTestID})
+		want := &ProviderLocationCollection{
+			SubscriptionID: quotaTestID,
+			Status:         "complete",
+			Locations: map[string]map[string]bool{
+				"p/t1": {"eastus": true},
+				"p/t2": {"eastus": true},
+				"p/t3": {"eastus": true},
+				"p/t4": {"eastus": true},
+				"p/t5": {"eastus": true},
+				"p/t6": {"eastus": true},
+				"p/t7": {"eastus": true},
+				"p/t8": {"eastus": true},
+			},
+		}
+		if extra {
+			want.Status = "partial"
+			want.FailureCode = "provider_work_limit"
+			delete(want.Locations, "p/t8")
+		}
+		if err != nil || calls != 8 || !reflect.DeepEqual(got, want) {
+			t.Fatalf("provider duplicate raw-work exact/excess: %#v %v calls%d", got, err, calls)
+		}
+	}
+}

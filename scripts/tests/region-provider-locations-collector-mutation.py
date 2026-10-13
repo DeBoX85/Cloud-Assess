@@ -30,6 +30,7 @@ MUTATIONS = (
     ("deadline-health", 'if errors.Is(err, context.DeadlineExceeded) {', 'if errors.Is(err, context.DeadlineExceeded) && false {', "TestProviderCollectorCancellationOwnership"),
     ("cancel-sentinel", 'return nil, context.Canceled', 'return nil, err', "TestProviderCollectorWrappedCancellation"),
     ("deadline-sentinel", 'return nil, context.DeadlineExceeded', 'return nil, err', "TestProviderCollectorWrappedCancellation"),
+    ("raw-duplicate-locations", 'if !charge() {\n\t\t\t\t\treturn providerPage{}, "provider_work_limit"\n\t\t\t\t}\n\t\t\t\tvar value string', 'if !charge() && false {\n\t\t\t\t\treturn providerPage{}, "provider_work_limit"\n\t\t\t\t}\n\t\t\t\tvar value string', "TestProviderCollectorDuplicateLocationWork"),
     ("decoded-text", 'return auxiliaryText(value, &page.text)', 'return auxiliaryText(value, new(int))', "TestProviderCollectorDecoderBoundaries"),
 )
 

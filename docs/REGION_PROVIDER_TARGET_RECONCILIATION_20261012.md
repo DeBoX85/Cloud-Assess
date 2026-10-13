@@ -125,3 +125,30 @@ coordinator/public execution, Full Cost pagination, B6/B7 and residual module-on
 GO-2026-5932 remain separate. Laptop/Azure authorization is unconfirmed. No Azure
 resources/fixtures/roles, production-containing scope substitution, listener exposure
 or release. Record actual failures and maintain handover/ledger/roadmap after the slice.
+
+## Final target admission details, 2026-10-13
+
+The implemented internal candidate uses ProviderLocationRequest and an owned
+ProviderLocationCollection with SubscriptionID, Status, Locations and FailureCode.
+No target region is invented. The coordinator/public path remains absent.
+Optional nextLink absence or empty string terminates; present null/wrong shape is
+incomplete. Namespace/type segments begin with ASCII alphanumeric and otherwise
+use ASCII alphanumeric/dot/underscore/hyphen; nested types use nonempty segments.
+Locations admit ASCII display strings, remove ASCII spaces, lowercase, then require
+at most64normalized characters/physical-format or explicit global. Returned IDs
+are structurally validated before ASCII-case-insensitive binding. All projected
+raw text and duplicate work are charged; normalized joined keys remain bounded.
+
+Existing whole JSON admission is reused unchanged: token/depth/key/Unicode limits
+apply also to ignored metadata. Collect's8MiB response cap dominates the existing
+roughly16MiB decoded-text guard; exact/excess text tests exercise the decoder seam
+independently and are not claims that a real collection reaches that bound.
+The eight-page duplicate-location fixture has65,536raw provider/type/location
+entries but only eight returned type maps, proving work is charged before dedup.
+Its first excess rejects the entire eighth page, retaining seven exact earlier maps.
+
+Self-review corrected wrapped cancellation/deadline transport text to standard
+sentinels. Tests require nil result and exact sentinel, not just errors.Is.
+The temporary formatting workflow was preparation only and is removed from the
+final acceptance candidate. Fresh complete final-head native/source/review/protected
+and distinct accepted-push proof remains required; no prior pilot proof transfers.
