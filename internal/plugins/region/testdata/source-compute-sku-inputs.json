@@ -1465,5 +1465,13 @@
     "unsupported:sub111:unknown:eastus",
     "retry:403 then success then cached"
   ],
+  "ZonePages": [
+    {
+      "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+      "Status": 200,
+      "Body": "{\"value\":[{\"name\":\"D\",\"restrictions\":[{\"type\":\"Zone\",\"restrictionInfo\":{\"zones\":[\"2\",\"1\",\"2\"]}}]}]}"
+    }
+  ],
+  "ConcurrentSeam": "Eight ready callers, blocked leader response; separate east/west both enter before release. Same-key result proves dedup/reuse, not exact waiter registration.",
   "Seam": "Injected supported transport, fake credential, MaxRetries=-1; does not certify production retries/live deployment"
 }

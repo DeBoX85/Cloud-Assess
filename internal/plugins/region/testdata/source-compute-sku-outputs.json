@@ -795,6 +795,11 @@
         }
       ]
     },
+    "pager-empty-url": {
+      "Entries": {},
+      "Failed": false,
+      "Requests": []
+    },
     "vm-bounded-cycle": {
       "Entries": null,
       "Failed": true,
@@ -1957,5 +1962,55 @@
         }
       ]
     }
-  ]
+  ],
+  "ZoneBefore": {
+    "State": 3,
+    "BlockedZones": [
+      "2",
+      "1",
+      "2"
+    ]
+  },
+  "ZoneAfter": {
+    "State": 3,
+    "BlockedZones": [
+      "changed",
+      "1",
+      "2"
+    ]
+  },
+  "ConcurrentSameKey": {
+    "Entries": {
+      "standard_d2": {
+        "State": 0,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Requests": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+        "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+        "RawPath": "",
+        "RawQuery": "api-version=2023-03-01",
+        "Method": "GET",
+        "EmptyBody": true,
+        "SyntheticAuthorization": true
+      }
+    ]
+  },
+  "ConcurrentSeparateKeys": {
+    "east": {
+      "east": {
+        "State": 0,
+        "BlockedZones": null
+      }
+    },
+    "west": {
+      "west": {
+        "State": 0,
+        "BlockedZones": null
+      }
+    }
+  }
 }

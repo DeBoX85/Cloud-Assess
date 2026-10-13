@@ -1,3 +1,40 @@
+# Compute SKU retained observations and native oracle preparation, 2026-10-13
+
+Accepted baseline remains PR137 at af18468fe1dfc697838115c0a7585ba675fdec97.
+PR138 remains draft and unaccepted. Extended source head 7f58b386 (tree 0d9a6e9e,
+parent be09b590) completed its harness successfully in run38382342498/job115245594853.
+The strict job then FAILED at the expected changed-input byte equality against
+the intermediate pilot golden. This is preparation, not source acceptance.
+All21 raw records/232contiguous chunks independently SHA256 checked, original19
+unchanged. New original input56827bytes/SHA25675a69648, output81019bytes/c443a812;
+89 independent provider maps plus empty-start pager, cache/registry/retry,
+zone-slice sharing and bounded concurrent same/separate-key observations retained
+verbatim. Same-key concurrency certifies dedup/reuse, not precise waiter entry.
+Different-state cache trim collision nondeterminism remains explicitly excluded
+from deterministic goldens, not source-corrected.
+
+This next candidate adds four independent native complete metadata/map/request/
+registry/cache/zone/concurrency source-cell tests and14 compiling fixture controls
+with restored baselines on BOTH required native jobs. Existing25provider target
+and all previous checks/budgets/pins remain. Temporary read-only hosted preparation
+formats only the new target oracle, emits full hashed hex bytes and runs focused
+race/control checks; it must be removed before final acceptance. No source SDK,
+module, pin, target SKU collector or public-region execution is changed.
+Fresh source strict equality, complete native logs, final formatted bytes,
+review/publication/preview/protected acceptance and distinct accepted-push proof
+remain required. Prior successful harnesses do not certify this edited head.
+
+Laptop is expected within one hour but access remains unconfirmed. The
+[Laptop live queue](LAPTOP_LIVE_QUEUE_20261013.md) is prepared for actual checkout,
+tool/account/pin inspection and confirmed nonproduction scope before read-only
+core/plugin tests. No Azure action, fixture, role or scope substitution occurred.
+Exact next inspect preparation formatting/native source oracles/14controls and
+fresh strict source output; fix actual failures, remove helper after proof,
+then finish final-head QA. Retain FN118 expected preparation history and earlier
+snapshots below. All live/DV001/public/other-adapter/release gates stay open.
+
+---
+
 # Compute SKU observed pilot and extended source preparation, 2026-10-13
 
 Accepted protected baseline remains PR137 af18468fe1dfc697838115c0a7585ba675fdec97.

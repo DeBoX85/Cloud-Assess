@@ -1,3 +1,14 @@
+# FN118 extended observation outcome, 2026-10-13
+
+Extended source38382342498/job115245594853 on7f58b386 passed its original
+Compute harness (0.85s) and all source guards, then FAILED strict byte equality
+against retained intermediate pilot input. Full new21records232chunks independently
+SHA256 checked; all original19 unchanged. Preserve this declared preparation failure;
+retain actual extended raw bytes and require fresh strict final-head equality.
+No compiler/oracle pass is transferred to later native tests or production code.
+
+---
+
 # FN118: Compute SKU first strict observation preparation (2026-10-13)
 
 Source run38381716938/job115243507980 on pilotbe09b590 FAILED at missing new

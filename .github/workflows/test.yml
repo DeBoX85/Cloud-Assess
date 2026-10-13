@@ -75,6 +75,9 @@ jobs:
       - name: Provider locations source oracle compiling controls
         run: python3 scripts/tests/region-provider-locations-capture-mutation.py
 
+      - name: Compute SKU source oracle compiling controls
+        run: python3 scripts/tests/region-compute-sku-capture-mutation.py
+
       - name: Verify formatting
         shell: bash
         run: |
@@ -324,6 +327,9 @@ jobs:
         run: python scripts/tests/region-reservation-capture-mutation.py
       - name: Provider locations source oracle compiling controls
         run: python scripts/tests/region-provider-locations-capture-mutation.py
+
+      - name: Compute SKU source oracle compiling controls
+        run: python scripts/tests/region-compute-sku-capture-mutation.py
 
       - name: Test Go packages on Windows
         run: go test ./...
