@@ -1,3 +1,58 @@
+# Compute SKU source VERIFIED OFFLINE and remaining-source resume point, 2026-10-13
+
+PR138 is VERIFIED OFFLINE at20695e7ce7d22d958cec54e122cf4f5947b1e8e7,
+tree0687def7357c6be1ab24205a4dedfef0b66a674b, orderedaf18468/447fd89parents.
+Denis author/GitHubcommitter/validsignature/liveprotectedref and independently
+reproduced signed raw commit SHA1 verified. Complete final15accepted changed
+files freshly byte-read/Githashed equal reviewed candidate identities. Final
+candidate native38383227336/source38383227305/review6143492850 all complete.
+
+DISTINCT accepted-push native38386027756 quality115257926327/windows115257926717
+BOTH SUCCESS: all56Linux41Windows steps (only conditional failure upload skipped),
+full93963/74018character logs actual20695e7/Go1.26.9. All268Linux263Windows named
+controls independently match full candidate identities, every prior control,
+14new Compute fixtures and all5manifest guards. Both fullGo/CLI/default+custom
+packages/branding/modules/docs815links9flags1PowerShellsnippet/security passed.
+Linuxrace/vet84.7% andfiveboundedfuzz. Both final scans0reachable/0imported/1module;
+GO-2026-5932 module-only advisory remains open, no advisory-free graph claim.
+
+DISTINCT accepted source38386027818/job115257926390 SUCCESS/all7steps/full998909
+log/actual20695e7/Go1.26.9/source8e4f0577/tree17d93b20/APRL60eaddda/all10harnesses.
+All21records232uniquecontiguouschunks independently reconstructed/SHA256/
+freshfull accepted bytes/Gitblob verified. New input56827bytes75a69648 and
+output81019bytesc443a812 unchanged. This is source synthetic Linux plus native
+literal-oracle evidence, not live Azure/defaultretry/Windows-originalSDK proof.
+
+Source-only89provider cases plus empty-start pager, complete maps/requests/
+restriction zones/alias/collision/failure/registry/cache/retry/sequential map+
+zone-slice sharing and bounded same/separate-key concurrency retained. Exact
+singleflight waiter entry and nondeterministic different-state trim-collision
+winners are not certified. No target SKU collector or public region runtime.
+FN118-119 failed preparations/self-review corrections stay preserved. Original
+source/SDK/APRL/dependencies/toolchain remain unchanged.
+
+Next durable WIP is draft PR139 on feat/region-other-sku-source. Original pre-edit
+head84179861/treefa920fd8/soleparent20695e7 published/readback BEFORE harness edits;
+all5completefiles/Denis/ref/256directory trees independently verified. This new
+closure checkpoint is UNACCEPTED documentation work with its OWN fresh native/
+source/review pending. No remaining-SKU harness/23record observations/target code
+added. Exact next original Storage/Cognitive/SQL DB/MI capture under
+[REGION_OTHER_SKU_SOURCE_20261013.md](REGION_OTHER_SKU_SOURCE_20261013.md),
+strict fullraw23record manifest/independent retention/literal compiling controls.
+Do not repeat accepted provider/Compute/security/calculation/quota/reservation work.
+
+User expected laptop access within one hour; restoration remains UNCONFIRMED.
+[Prepared laptop queue](LAPTOP_LIVE_QUEUE_20261013.md) first inspects existing
+preserved checkouts/tools/account/pins, then confirmed nonproduction scope for
+existing core/plugin read-only validation. Elapsed time is not access or approval.
+Advisory production parent is not a DV001 substitute. No Azure writes/fixtures/
+roles/production substitution/exposure/release. Other target adapters/coordinator/
+public/FullCost/module-only/B6-B7/live/load/freshOS/maintenance/Gate004/release/
+licensing/human gates remain open. Live PR138 and PR139 bodies index final evolving
+publication/QA states. Earlier headers below are retained dated history.
+
+---
+
 # Compute source merged and remaining SKU source plan, 2026-10-13
 
 PR138 merged at20695e7ce7d22d958cec54e122cf4f5947b1e8e7/tree0687def7357c6be1ab24205a4dedfef0b66a674b,
