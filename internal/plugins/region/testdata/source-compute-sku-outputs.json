@@ -1,0 +1,2016 @@
+{
+  "Cases": {
+    "disk-alias-last-state": {
+      "Entries": {
+        "d": {
+          "State": 1,
+          "BlockedZones": null
+        }
+      },
+      "Failed": false,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "disk-bounded-cycle": {
+      "Entries": null,
+      "Failed": true,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "disk-cancelled": {
+      "Entries": null,
+      "Failed": true,
+      "Requests": []
+    },
+    "disk-capability-mixed-true": {
+      "Entries": {
+        "d": {
+          "State": 0,
+          "BlockedZones": null
+        }
+      },
+      "Failed": false,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "disk-duplicate-last-state": {
+      "Entries": {
+        "d": {
+          "State": 2,
+          "BlockedZones": null
+        }
+      },
+      "Failed": false,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "disk-empty": {
+      "Entries": {},
+      "Failed": false,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "disk-empty-zone-capability": {
+      "Entries": {
+        "d": {
+          "State": 2,
+          "BlockedZones": null
+        }
+      },
+      "Failed": false,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "disk-first-location-wins": {
+      "Entries": {
+        "d": {
+          "State": 2,
+          "BlockedZones": null
+        }
+      },
+      "Failed": false,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "disk-http400": {
+      "Entries": null,
+      "Failed": true,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "disk-http403": {
+      "Entries": null,
+      "Failed": true,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "disk-http404": {
+      "Entries": null,
+      "Failed": true,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "disk-http429": {
+      "Entries": null,
+      "Failed": true,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "disk-http500": {
+      "Entries": null,
+      "Failed": true,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "disk-invalid-zones": {
+      "Entries": null,
+      "Failed": true,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "disk-later-http400": {
+      "Entries": null,
+      "Failed": true,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27\u0026$skiptoken=synthetic",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27\u0026$skiptoken=synthetic",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "disk-later-http403": {
+      "Entries": null,
+      "Failed": true,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27\u0026$skiptoken=synthetic",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27\u0026$skiptoken=synthetic",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "disk-later-http404": {
+      "Entries": null,
+      "Failed": true,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27\u0026$skiptoken=synthetic",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27\u0026$skiptoken=synthetic",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "disk-later-http429": {
+      "Entries": null,
+      "Failed": true,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27\u0026$skiptoken=synthetic",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27\u0026$skiptoken=synthetic",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "disk-later-http500": {
+      "Entries": null,
+      "Failed": true,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27\u0026$skiptoken=synthetic",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27\u0026$skiptoken=synthetic",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "disk-later-malformed": {
+      "Entries": null,
+      "Failed": true,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27\u0026$skiptoken=synthetic",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27\u0026$skiptoken=synthetic",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "disk-location-precedence": {
+      "Entries": {
+        "d": {
+          "State": 1,
+          "BlockedZones": null
+        }
+      },
+      "Failed": false,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "disk-location-unknown-reason": {
+      "Entries": {
+        "d": {
+          "State": 2,
+          "BlockedZones": null
+        }
+      },
+      "Failed": false,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "disk-malformed": {
+      "Entries": null,
+      "Failed": true,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "disk-missing": {
+      "Entries": {},
+      "Failed": false,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "disk-name-tier-and-ignored-type": {
+      "Entries": {
+        "premium_lrs": {
+          "State": 0,
+          "BlockedZones": null
+        },
+        "standard_lrs": {
+          "State": 0,
+          "BlockedZones": null
+        }
+      },
+      "Failed": false,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "disk-next-foreign": {
+      "Entries": {
+        "d": {
+          "State": 0,
+          "BlockedZones": null
+        }
+      },
+      "Failed": false,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        },
+        {
+          "URL": "https://synthetic.invalid/compute/next",
+          "Path": "/compute/next",
+          "RawPath": "",
+          "RawQuery": "",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "disk-next-malformed": {
+      "Entries": null,
+      "Failed": true,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "disk-next-relative": {
+      "Entries": null,
+      "Failed": true,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "disk-null-envelope": {
+      "Entries": {},
+      "Failed": false,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "disk-null-items": {
+      "Entries": {},
+      "Failed": false,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "disk-null-list": {
+      "Entries": {},
+      "Failed": false,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "disk-null-restriction": {
+      "Entries": {
+        "d": {
+          "State": 0,
+          "BlockedZones": null
+        }
+      },
+      "Failed": false,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "disk-paged": {
+      "Entries": {
+        "d": {
+          "State": 1,
+          "BlockedZones": null
+        }
+      },
+      "Failed": false,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27\u0026$skiptoken=synthetic",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27\u0026$skiptoken=synthetic",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "disk-trailing": {
+      "Entries": null,
+      "Failed": true,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "disk-unicode-field-alias": {
+      "Entries": {
+        "d": {
+          "State": 1,
+          "BlockedZones": null
+        }
+      },
+      "Failed": false,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "disk-untrimmed-name": {
+      "Entries": {
+        " d ": {
+          "State": 0,
+          "BlockedZones": null
+        }
+      },
+      "Failed": false,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "disk-wrong-item": {
+      "Entries": null,
+      "Failed": true,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "disk-wrong-list": {
+      "Entries": null,
+      "Failed": true,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "disk-wrong-name": {
+      "Entries": null,
+      "Failed": true,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "disk-wrong-next": {
+      "Entries": null,
+      "Failed": true,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "disk-zone-empty-string": {
+      "Entries": {
+        "d": {
+          "State": 3,
+          "BlockedZones": [
+            ""
+          ]
+        }
+      },
+      "Failed": false,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "disk-zone-order-duplicates": {
+      "Entries": {
+        "d": {
+          "State": 3,
+          "BlockedZones": [
+            "2",
+            "1",
+            "2"
+          ]
+        }
+      },
+      "Failed": false,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus?api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/skus",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01\u0026$filter=location%20eq%20%27eastus%27",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "pager-empty-url": {
+      "Entries": {},
+      "Failed": false,
+      "Requests": []
+    },
+    "vm-bounded-cycle": {
+      "Entries": null,
+      "Failed": true,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "vm-cancelled": {
+      "Entries": null,
+      "Failed": true,
+      "Requests": []
+    },
+    "vm-duplicate-case-name": {
+      "Entries": {
+        "standard_d2": {
+          "State": 0,
+          "BlockedZones": null
+        }
+      },
+      "Failed": false,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "vm-duplicate-name-last": {
+      "Entries": {
+        "standard_d2": {
+          "State": 0,
+          "BlockedZones": null
+        }
+      },
+      "Failed": false,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "vm-duplicate-value-last": {
+      "Entries": {
+        "standard_d2": {
+          "State": 0,
+          "BlockedZones": null
+        }
+      },
+      "Failed": false,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "vm-empty": {
+      "Entries": {},
+      "Failed": false,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "vm-http400": {
+      "Entries": null,
+      "Failed": true,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "vm-http403": {
+      "Entries": null,
+      "Failed": true,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "vm-http404": {
+      "Entries": null,
+      "Failed": true,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "vm-http429": {
+      "Entries": null,
+      "Failed": true,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "vm-http500": {
+      "Entries": null,
+      "Failed": true,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "vm-later-http400": {
+      "Entries": null,
+      "Failed": true,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01\u0026$skiptoken=synthetic",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01\u0026$skiptoken=synthetic",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "vm-later-http403": {
+      "Entries": null,
+      "Failed": true,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01\u0026$skiptoken=synthetic",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01\u0026$skiptoken=synthetic",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "vm-later-http404": {
+      "Entries": null,
+      "Failed": true,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01\u0026$skiptoken=synthetic",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01\u0026$skiptoken=synthetic",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "vm-later-http429": {
+      "Entries": null,
+      "Failed": true,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01\u0026$skiptoken=synthetic",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01\u0026$skiptoken=synthetic",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "vm-later-http500": {
+      "Entries": null,
+      "Failed": true,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01\u0026$skiptoken=synthetic",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01\u0026$skiptoken=synthetic",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "vm-later-malformed": {
+      "Entries": null,
+      "Failed": true,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01\u0026$skiptoken=synthetic",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01\u0026$skiptoken=synthetic",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "vm-malformed": {
+      "Entries": null,
+      "Failed": true,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "vm-missing": {
+      "Entries": {},
+      "Failed": false,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "vm-next-foreign": {
+      "Entries": {
+        "first": {
+          "State": 0,
+          "BlockedZones": null
+        }
+      },
+      "Failed": false,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        },
+        {
+          "URL": "https://synthetic.invalid/compute/next",
+          "Path": "/compute/next",
+          "RawPath": "",
+          "RawQuery": "",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "vm-next-malformed": {
+      "Entries": null,
+      "Failed": true,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "vm-next-relative": {
+      "Entries": null,
+      "Failed": true,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "vm-no-trim": {
+      "Entries": {
+        " ": {
+          "State": 0,
+          "BlockedZones": null
+        },
+        " standard_d2 ": {
+          "State": 0,
+          "BlockedZones": null
+        }
+      },
+      "Failed": false,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "vm-null-envelope": {
+      "Entries": {},
+      "Failed": false,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "vm-null-items": {
+      "Entries": {},
+      "Failed": false,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "vm-null-list": {
+      "Entries": {},
+      "Failed": false,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "vm-paged": {
+      "Entries": {
+        "first": {
+          "State": 0,
+          "BlockedZones": null
+        },
+        "second": {
+          "State": 0,
+          "BlockedZones": null
+        }
+      },
+      "Failed": false,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01\u0026$skiptoken=synthetic",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01\u0026$skiptoken=synthetic",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "vm-single": {
+      "Entries": {
+        "standard_d2": {
+          "State": 0,
+          "BlockedZones": null
+        }
+      },
+      "Failed": false,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "vm-single-alias": {
+      "Entries": {
+        "standard_d2": {
+          "State": 0,
+          "BlockedZones": null
+        }
+      },
+      "Failed": false,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "vm-surrogate-text": {
+      "Entries": {
+        "�": {
+          "State": 0,
+          "BlockedZones": null
+        }
+      },
+      "Failed": false,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "vm-trailing": {
+      "Entries": null,
+      "Failed": true,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "vm-wrong-item": {
+      "Entries": null,
+      "Failed": true,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "vm-wrong-list": {
+      "Entries": null,
+      "Failed": true,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "vm-wrong-name": {
+      "Entries": null,
+      "Failed": true,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "vm-wrong-next": {
+      "Entries": null,
+      "Failed": true,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "vmss-empty": {
+      "Entries": {},
+      "Failed": false,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "vmss-malformed": {
+      "Entries": null,
+      "Failed": true,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "vmss-missing": {
+      "Entries": {},
+      "Failed": false,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "vmss-null-envelope": {
+      "Entries": {},
+      "Failed": false,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "vmss-null-items": {
+      "Entries": {},
+      "Failed": false,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "vmss-null-list": {
+      "Entries": {},
+      "Failed": false,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "vmss-single": {
+      "Entries": {
+        "standard_d2": {
+          "State": 0,
+          "BlockedZones": null
+        }
+      },
+      "Failed": false,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "vmss-trailing": {
+      "Entries": null,
+      "Failed": true,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "vmss-wrong-item": {
+      "Entries": null,
+      "Failed": true,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "vmss-wrong-list": {
+      "Entries": null,
+      "Failed": true,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "vmss-wrong-name": {
+      "Entries": null,
+      "Failed": true,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "vmss-wrong-next": {
+      "Entries": null,
+      "Failed": true,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    }
+  },
+  "Registry": [
+    "microsoft.cognitiveservices/accounts",
+    "microsoft.compute/disks",
+    "microsoft.compute/virtualmachines",
+    "microsoft.compute/virtualmachinescalesets",
+    "microsoft.sql/managedinstances",
+    "microsoft.sql/servers/databases",
+    "microsoft.storage/storageaccounts"
+  ],
+  "DuplicateRegistrationPanics": true,
+  "Cache": {
+    "caller-map-mutation-shared": {
+      "Entries": {
+        "": {
+          "State": 0,
+          "BlockedZones": null
+        },
+        "injected": {
+          "State": 1,
+          "BlockedZones": null
+        },
+        "standard_d2": {
+          "State": 0,
+          "BlockedZones": null
+        }
+      },
+      "Failed": false,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "first": {
+      "Entries": {
+        "": {
+          "State": 0,
+          "BlockedZones": null
+        },
+        "standard_d2": {
+          "State": 0,
+          "BlockedZones": null
+        }
+      },
+      "Failed": false,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "normalized-reuse": {
+      "Entries": {
+        "": {
+          "State": 0,
+          "BlockedZones": null
+        },
+        "standard_d2": {
+          "State": 0,
+          "BlockedZones": null
+        }
+      },
+      "Failed": false,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "region-separate": {
+      "Entries": {
+        "west": {
+          "State": 0,
+          "BlockedZones": null
+        }
+      },
+      "Failed": false,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/22222222-2222-2222-2222-222222222222/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/22222222-2222-2222-2222-222222222222/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/westus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/westus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "subscription-separate": {
+      "Entries": {
+        "other": {
+          "State": 0,
+          "BlockedZones": null
+        }
+      },
+      "Failed": false,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/22222222-2222-2222-2222-222222222222/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/22222222-2222-2222-2222-222222222222/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "unsupported": {
+      "Entries": null,
+      "Failed": true,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/22222222-2222-2222-2222-222222222222/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/22222222-2222-2222-2222-222222222222/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/westus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/westus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    "vmss-separate": {
+      "Entries": {
+        "standard_d2": {
+          "State": 0,
+          "BlockedZones": null
+        }
+      },
+      "Failed": false,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    }
+  },
+  "Retry": [
+    {
+      "Entries": null,
+      "Failed": true,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    {
+      "Entries": {
+        "standard_d2": {
+          "State": 0,
+          "BlockedZones": null
+        }
+      },
+      "Failed": false,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    },
+    {
+      "Entries": {
+        "standard_d2": {
+          "State": 0,
+          "BlockedZones": null
+        }
+      },
+      "Failed": false,
+      "Requests": [
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        },
+        {
+          "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+          "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+          "RawPath": "",
+          "RawQuery": "api-version=2023-03-01",
+          "Method": "GET",
+          "EmptyBody": true,
+          "SyntheticAuthorization": true
+        }
+      ]
+    }
+  ],
+  "ZoneBefore": {
+    "State": 3,
+    "BlockedZones": [
+      "2",
+      "1",
+      "2"
+    ]
+  },
+  "ZoneAfter": {
+    "State": 3,
+    "BlockedZones": [
+      "changed",
+      "1",
+      "2"
+    ]
+  },
+  "ConcurrentSameKey": {
+    "Entries": {
+      "standard_d2": {
+        "State": 0,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Requests": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes?api-version=2023-03-01",
+        "Path": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Compute/locations/eastus/vmSizes",
+        "RawPath": "",
+        "RawQuery": "api-version=2023-03-01",
+        "Method": "GET",
+        "EmptyBody": true,
+        "SyntheticAuthorization": true
+      }
+    ]
+  },
+  "ConcurrentSeparateKeys": {
+    "east": {
+      "east": {
+        "State": 0,
+        "BlockedZones": null
+      }
+    },
+    "west": {
+      "west": {
+        "State": 0,
+        "BlockedZones": null
+      }
+    }
+  }
+}

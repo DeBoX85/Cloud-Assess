@@ -49,7 +49,7 @@ class CaptureBytesTests(unittest.TestCase):
 
 
     def test_required_manifest(self):
-        self.assertEqual(capture_files, ('source-aux-inputs.json','source-aux-outputs.json','source-inventory-inputs.json','source-inventory-outputs.json','source-availability-inputs.json','source-availability-outputs.json','source-latency-inputs.json','source-latency-outputs.json','source-latency-data.json','source-cost-enrichment-inputs.json','source-cost-enrichment-outputs.json','source-quota-inputs.json','source-quota-outputs.json','source-vm-quota-inputs.json','source-vm-quota-outputs.json','source-reservation-inputs.json','source-reservation-outputs.json','source-provider-locations-inputs.json','source-provider-locations-outputs.json'))
+        self.assertEqual(capture_files, ('source-aux-inputs.json','source-aux-outputs.json','source-inventory-inputs.json','source-inventory-outputs.json','source-availability-inputs.json','source-availability-outputs.json','source-latency-inputs.json','source-latency-outputs.json','source-latency-data.json','source-cost-enrichment-inputs.json','source-cost-enrichment-outputs.json','source-quota-inputs.json','source-quota-outputs.json','source-vm-quota-inputs.json','source-vm-quota-outputs.json','source-reservation-inputs.json','source-reservation-outputs.json','source-provider-locations-inputs.json','source-provider-locations-outputs.json','source-compute-sku-inputs.json','source-compute-sku-outputs.json'))
 
     def test_all_files_unconditionally_guarded(self):
         loops = [n for n in ast.walk(tree) if isinstance(n, ast.For) and any(isinstance(c, ast.Call) and isinstance(c.func, ast.Name) and c.func.id == 'verify_capture_bytes' for c in ast.walk(n))]
@@ -96,7 +96,7 @@ print('Region source capture compiling mutation rejected: retained-byte-guard; r
 # A compiling omission of the provider records must fail the manifest assertion.
 original_files = capture_files
 try:
-    capture_files = capture_files[:-2]
+    capture_files = tuple(name for name in capture_files if not name.startswith('source-provider-locations-'))
     result = unittest.TestResult()
     CaptureBytesTests('test_required_manifest').run(result)
     if len(result.failures) != 1 or result.errors or result.testsRun != 1:
@@ -108,7 +108,7 @@ finally:
 loops = [n for n in ast.walk(tree) if isinstance(n, ast.For) and any(isinstance(c, ast.Call) and isinstance(c.func, ast.Name) and c.func.id == 'verify_capture_bytes' for c in ast.walk(n))]
 original_iterator = loops[0].iter
 try:
-    loops[0].iter = ast.Subscript(value=ast.Name(id='FILES', ctx=ast.Load()), slice=ast.Slice(upper=ast.UnaryOp(op=ast.USub(), operand=ast.Constant(value=2))), ctx=ast.Load())
+    loops[0].iter = ast.Tuple(elts=[ast.Constant(value=name) for name in original_files if not name.startswith('source-provider-locations-')], ctx=ast.Load())
     ast.fix_missing_locations(tree)
     compile(tree, '<compiling source provider guard subset>', 'exec')
     result = unittest.TestResult()
@@ -124,3 +124,34 @@ if not restored_result.wasSuccessful():
     raise SystemExit('Restored complete capture manifest/loop baseline failed')
 print('Region source capture compiling mutation rejected: provider-manifest-omission; restored six assertions passed')
 print('Region source capture compiling mutation rejected: provider-guard-subset; restored six assertions passed')
+
+
+# Preserve the provider omission control above and independently omit Compute records.
+try:
+    capture_files = tuple(name for name in original_files if not name.startswith('source-compute-sku-'))
+    result = unittest.TestResult()
+    CaptureBytesTests('test_required_manifest').run(result)
+    if len(result.failures) != 1 or result.errors or result.testsRun != 1:
+        raise SystemExit('Compute SKU records omission did not fail named manifest assertion')
+finally:
+    capture_files = original_files
+
+# A different compiling subset expression explicitly excludes only Compute records.
+try:
+    loops[0].iter = ast.Tuple(elts=[ast.Constant(value=name) for name in original_files
+                                  if not name.startswith('source-compute-sku-')], ctx=ast.Load())
+    ast.fix_missing_locations(tree)
+    compile(tree, '<compiling source Compute guard subset>', 'exec')
+    result = unittest.TestResult()
+    CaptureBytesTests('test_all_files_unconditionally_guarded').run(result)
+    if len(result.failures) != 1 or result.errors or result.testsRun != 1:
+        raise SystemExit('Compute SKU guard subset did not fail named coverage assertion')
+finally:
+    loops[0].iter = original_iterator
+
+restored_result = unittest.TestResult()
+unittest.defaultTestLoader.loadTestsFromTestCase(CaptureBytesTests).run(restored_result)
+if not restored_result.wasSuccessful():
+    raise SystemExit('Restored complete Compute/provider capture manifest/loop baseline failed')
+print('Region source capture compiling mutation rejected: compute-sku-manifest-omission; restored six assertions passed')
+print('Region source capture compiling mutation rejected: compute-sku-guard-subset; restored six assertions passed')

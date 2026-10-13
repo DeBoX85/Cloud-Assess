@@ -1,3 +1,116 @@
+# FN119: Preserve earlier source manifest controls when extending (2026-10-13)
+
+Self-review before PR138 acceptance found the first21record byte-guard extension
+renamed/replaced original provider omission/subset controls with Compute controls.
+The strict manifest and unconditional full21record production guard still remained,
+but claiming all previous probes preserved was inaccurate. Correct final script
+keeps provider-only manifest/loop exclusions and named failures/restoration, plus
+two separate Compute exclusions. No control names or positive checks are waived.
+Fresh BOTH-host final execution must verify all five guard controls,14new source
+fixture controls,25prior provider production and all other existing controls.
+Cause: adapting the last-two-record slice after extending the manifest. Prevention:
+use explicit record-family exclusions and compare old/new control identities.
+
+Read-only formatter log extraction initially also matched the echoed Python print
+statement rather than a JSON record. Parsing failed without a write/ref mutation.
+Filter marker suffix for an opening JSON object; then4uniquecontiguoushexchunks
+and fullSHA256b2178b70 match native9872bytes and the published oracle exactly.
+Do not infer corrupt formatter output from a parser selecting command echo.
+
+---
+
+# FN118 extended observation outcome, 2026-10-13
+
+Extended source38382342498/job115245594853 on7f58b386 passed its original
+Compute harness (0.85s) and all source guards, then FAILED strict byte equality
+against retained intermediate pilot input. Full new21records232chunks independently
+SHA256 checked; all original19 unchanged. Preserve this declared preparation failure;
+retain actual extended raw bytes and require fresh strict final-head equality.
+No compiler/oracle pass is transferred to later native tests or production code.
+
+---
+
+# FN118: Compute SKU first strict observation preparation (2026-10-13)
+
+Source run38381716938/job115243507980 on pilotbe09b590 FAILED at missing new
+source-compute-sku-inputs.json only after successful original10harnesses,89new
+independent full provider maps, original source/APRL/module guards and full raw
+provenance21records231chunks. This was the declared first unretained observation,
+not a compiler/oracle failure or acceptance. Full995665log/newrawSHA256 checked;
+retain verbatim and rerun strict equality on the actual final head. Extended
+observations must not borrow this pilot's success or use overwritten convenient
+expectations. No source/pin/native check weakened.
+
+A local independent tree verifier initially compared reconstructed tree SHA to
+GitHub's requested-commit alias in the recursive tree response (be09b590), rather
+than the commit object's actual tree06f9e9e6. This read-only verifier failed;
+no ref/file was changed by the failure. Correct expected root from verified commit
+and256directory trees match independently. Use commit.tree.sha as authority when
+fetching trees through commit aliases; API response top-level sha is not assumed
+normalized. This is tooling classification, not repository corruption.
+
+---
+
+# Provider target VERIFIED OFFLINE and exact next source slice, 2026-10-13
+
+PR137 is VERIFIED OFFLINE at af18468fe1dfc697838115c0a7585ba675fdec97,
+treee896f44a5b1dfa32996bc70cc5032c2d2941d5db, orderedbf4991af/d956f0e9 parents,
+Denis author/GitHubcommitter/validsignature/liveprotectedref verified. Final
+candidate38332024907/source38332024918 full proof and DISTINCT accepted-push
+native38334004115/source38334004104 are complete and indexed in live PR137.
+
+Accepted native quality115089898984/windows115089899171 BOTH SUCCESS:
+all55Linux40Windows steps (only conditional Linux failure upload skipped), full
+91926/72307character logs actualaf18468/Go1.26.9. Fresh251Linux247Windows named
+rejection messages independently match all25provider production+allprior compiling
+controls/restored baselines. Both builtCLI/default+custompackages/branding/modules/
+docs793links/9flags/1PowerShellsnippet passed. Linuxrace/vet84.7%coverage/five
+boundedfuzz; final bothhost scans0reachable/0imported/1module-only advisory.
+Distinct accepted source115089899014 SUCCESS/all7steps/full792940character log,
+actualaf18468/Go1.26.9/source8e4f0577/tree17d93b20/APRL60eaddda/all9harnesses.
+All19records185uniquecontiguouschunks independently SHA256/freshfull accepted
+remote bytes/Git identities; all9accepted changed files separately readback/
+Githashed. No candidate transfer. Both review findings FN115/116 fixed/resolved;
+finald956review6135859550 completed01:27:58.161192Z without new findings. All
+FN110-117 histories retained; no human/live/release/advisory-free claim.
+
+Collector is INTERNAL only: owned whole-page complete/partial/unknown Locations,
+selected scope/path/version before credentials, canonical JSON/Unicode/identity/
+collision/byte/raw/text/page/cancellation/transport closure guards. Public region
+execution and SKU collection remain unavailable; no SDK/module/pin/source change.
+
+Next durable WIP is PR138/feat/region-compute-sku-source. Original pre-edit
+contractfa76e9f5/treea8ea1aff/parentaf18468 published/readback BEFORE harness edits.
+This closure checkpoint remains UNACCEPTED documentation preparation with its
+OWN native/source/review pending. No Compute SKU source harness/observations or
+target code added. Exact next isolated original common pager/restrictions/cache/
+registry/ComputeVM/VMSS/disk capture, raw21record retention/literal source controls
+under [REGION_COMPUTE_SKU_SOURCE_20261013.md](REGION_COMPUTE_SKU_SOURCE_20261013.md).
+Do not repeat accepted provider/security/calculation/quota/reservation work.
+Other SKU APIs/target adapters/coordinator/public/FullCost/module-only/Azure/live/
+load/freshOS/maintenance/Gate004/release/licensing/human gates stay open.
+Laptop/Azure restoration unconfirmed; no writes/fixtures/roles/scope substitution/
+exposure/release. Lower entries are dated history, not repeated next actions.
+
+---
+
+# FN117: SKU namespace versus endpoint-family wording clarified, 2026-10-13
+
+The earlier remaining-adapter inventory described seven types/five provider
+families. Fresh full pinned sku directory/provider registry inspection establishes
+four ARM namespaces: Compute, Storage, CognitiveServices and Sql. Compute uses two
+endpoint families (vmSizes and skus), yielding five endpoint/response families.
+This is a planning terminology error, not an execution failure or feature delta.
+
+Clarify current contract/inventory/header while preserving dated historical text.
+Use literal registered types and actual namespace/request families when estimating
+or scoping remaining work. Fresh official documentation also uses ResourceSKU
+api-version2021-07-01 versus pinned Compute source2023-03-01 and marks vmSizes
+deprecated; this is a reconciliation uncertainty, not proof of source API failure.
+Preserve source literals during synthetic characterization; no version/pin change.
+
+---
+
 # FN116: Namespace mutation replacement retained obsolete struct selector, 2026-10-13
 
 Automated review5497759614/inline4253813570/threadPRRT_kwDOUdPf9c6rrPUE on d5ba61cf

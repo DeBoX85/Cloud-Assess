@@ -1,3 +1,78 @@
+# Provider target VERIFIED OFFLINE and exact next source slice, 2026-10-13
+
+PR137 is VERIFIED OFFLINE at af18468fe1dfc697838115c0a7585ba675fdec97,
+treee896f44a5b1dfa32996bc70cc5032c2d2941d5db, orderedbf4991af/d956f0e9 parents,
+Denis author/GitHubcommitter/validsignature/liveprotectedref verified. Final
+candidate38332024907/source38332024918 full proof and DISTINCT accepted-push
+native38334004115/source38334004104 are complete and indexed in live PR137.
+
+Accepted native quality115089898984/windows115089899171 BOTH SUCCESS:
+all55Linux40Windows steps (only conditional Linux failure upload skipped), full
+91926/72307character logs actualaf18468/Go1.26.9. Fresh251Linux247Windows named
+rejection messages independently match all25provider production+allprior compiling
+controls/restored baselines. Both builtCLI/default+custompackages/branding/modules/
+docs793links/9flags/1PowerShellsnippet passed. Linuxrace/vet84.7%coverage/five
+boundedfuzz; final bothhost scans0reachable/0imported/1module-only advisory.
+Distinct accepted source115089899014 SUCCESS/all7steps/full792940character log,
+actualaf18468/Go1.26.9/source8e4f0577/tree17d93b20/APRL60eaddda/all9harnesses.
+All19records185uniquecontiguouschunks independently SHA256/freshfull accepted
+remote bytes/Git identities; all9accepted changed files separately readback/
+Githashed. No candidate transfer. Both review findings FN115/116 fixed/resolved;
+finald956review6135859550 completed01:27:58.161192Z without new findings. All
+FN110-117 histories retained; no human/live/release/advisory-free claim.
+
+Collector is INTERNAL only: owned whole-page complete/partial/unknown Locations,
+selected scope/path/version before credentials, canonical JSON/Unicode/identity/
+collision/byte/raw/text/page/cancellation/transport closure guards. Public region
+execution and SKU collection remain unavailable; no SDK/module/pin/source change.
+
+Next durable WIP is PR138/feat/region-compute-sku-source. Original pre-edit
+contractfa76e9f5/treea8ea1aff/parentaf18468 published/readback BEFORE harness edits.
+This closure checkpoint remains UNACCEPTED documentation preparation with its
+OWN native/source/review pending. No Compute SKU source harness/observations or
+target code added. Exact next isolated original common pager/restrictions/cache/
+registry/ComputeVM/VMSS/disk capture, raw21record retention/literal source controls
+under [REGION_COMPUTE_SKU_SOURCE_20261013.md](REGION_COMPUTE_SKU_SOURCE_20261013.md).
+Do not repeat accepted provider/security/calculation/quota/reservation work.
+Other SKU APIs/target adapters/coordinator/public/FullCost/module-only/Azure/live/
+load/freshOS/maintenance/Gate004/release/licensing/human gates stay open.
+Laptop/Azure restoration unconfirmed; no writes/fixtures/roles/scope substitution/
+exposure/release. Lower entries are dated history, not repeated next actions.
+
+---
+
+# Provider merged checkpoint and next Compute SKU source contract, 2026-10-13
+
+PR137 provider collector merged through protected expected-head checks at
+af18468fe1dfc697838115c0a7585ba675fdec97/treee896f44a5b1dfa32996bc70cc5032c2d2941d5db,
+orderedbf4991af/d956f0e9 parents, Denis author/GitHub committer/valid signature/ref
+verified. Candidate native38332024907/Linux115083884072/Windows115083883865 and
+source38332024918/115083690548 full proof: all55Linux40Windows steps,251/247named
+controls including25new production faults/restoration,84.7%Linuxrace/coverage/vet/
+fiveboundedfuzz, built/default+custom packages/docs/security0reachable0imported/
+1module.19source records185chunks/full793598log/SHA256/fullremoteGit bytes verified.
+Review6135859550 completedd956f0e9 without new findings; FN115/116 fixed/resolved;
+all FN110-116 failures/preparation limits remain recorded.
+
+DISTINCT actual-merge source38334004104/115089899014 SUCCESS/all7steps/full792940log,
+actualaf18468/Go1.26.9/pinnedsource/tree/APRL/all19records185chunks independently
+SHA256/fresh full accepted bytes/Git identities; all9accepted changed files checked.
+Native push38334004115/quality115089898984/Windows115089899171 still pending at
+this next preparation. Read live PR137 for final disposition; no candidate transfer.
+
+Next [Compute/common/cache source contract](REGION_COMPUTE_SKU_SOURCE_20261013.md)
+is UNACCEPTED documentation preparation only; publish/read back BEFORE harness
+edits, keep source/SDK/module/pins untouched. First slice VM/VMSS/disk plus original
+pager/restriction/cache/registry observations. Other provider API captures remain
+separate. Seven types span four ARM namespaces/five endpoint families, clarifying
+earlier wording. Source2023-03 literals differ from current ResourceSKU2021-07
+docs and vmSizes deprecation; synthetic capture is not live support/deployability.
+No target SKU/public/coordinator/Azure activation. Exact next finish PR137 push,
+then isolated harness/raw capture/retention/literal controls with full own QA.
+Laptop/Azure/live/release/module-only/other-adapter gates remain open.
+
+---
+
 # Current accepted provider source phase, 2026-10-12
 
 Read [HANDOVER_CHECKPOINT_20261012.md](HANDOVER_CHECKPOINT_20261012.md) and
