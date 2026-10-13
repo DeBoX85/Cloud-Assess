@@ -1,3 +1,28 @@
+# PR139 cleanup QA entry-point correction, 2026-10-13 evening
+
+Protected baseline remains VERIFIED OFFLINE PR13820695e7; PR139 UNACCEPTED.
+Correction71f885f3 source38457807955/job115504929046 SUCCESS/all7steps/full1360585log,
+actual preview81fc1c86 with exact33904c00tree/ordered20695e7+71f885f3parents.
+All23records315chunks/SHA256/freshfull current bytes/Gitblobs independently matched.
+Linux38457808095/job115504929633 FAILED package clean-checkout gate; five cleanup
+policy tests passed (only native Windows fixture skipped), all12builtCLI tests and
+documentation checks passed first. Added local helper imports created __pycache__,
+unlike existing package test scripts with sys.dont_write_bytecode=True.
+Set that flag BEFORE local helper import in BOTH built-cli and cleanup entry points.
+No manifest/clean-checkout gate change, cache-ignore rule or deletion workaround.
+FN123 preserves this regression and prevention. Earlier FN121/FN122 remain history.
+Superseded Windows outcome must be recorded as actually observed, not inferred.
+
+Fresh edited-head complete native/source/review/bytes/tree/Denisidentity/preview/
+protection, protected expected-head merge and DISTINCT actual accepted-push proof
+remain mandatory. Prior partial tests are not full acceptance. All12functional CLI
+checks, bounded8attempt/4.5second sharing32-only cleanup and original source/pins/
+modules remain intact. No target production collector/public activation.
+Laptop access still unconfirmed; existing nonproduction/read-only live queue stays
+deferred. Live PR139 body indexes evolving proof. Earlier entries remain history.
+
+---
+
 # PR139 Windows QA cleanup correction, 2026-10-13 evening
 
 Protected development remains VERIFIED OFFLINE PR13820695e7ce7d22d958cec54e122cf4f5947b1e8e7.

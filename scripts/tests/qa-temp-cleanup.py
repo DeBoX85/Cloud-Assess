@@ -6,6 +6,9 @@ from pathlib import Path
 import tempfile
 import unittest
 from unittest.mock import Mock, patch
+import sys
+
+sys.dont_write_bytecode = True
 
 from qa_temp_cleanup import cleanup_temporary_directory
 

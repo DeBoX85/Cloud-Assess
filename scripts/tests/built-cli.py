@@ -11,6 +11,9 @@ import shutil
 import tempfile
 import threading
 import unittest
+import sys
+
+sys.dont_write_bytecode = True
 
 from qa_temp_cleanup import cleanup_temporary_directory
 

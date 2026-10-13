@@ -1,3 +1,25 @@
+# FN123: QA helper import dirtied native checkout, 2026-10-13
+
+Candidate71f885f3/native38457808095/Linux115504929633 FAILED actual package
+integration: ValueError candidate packaging requires a clean source checkout.
+Complete54647log: five cleanup policy tests passed (one Windows-only skipped),
+all12actual builtCLI checks passed; packaging stopped before later race/fuzz/
+production-mutation/vulnerability gates. Local qa_temp_cleanup import introduced
+Python __pycache__; existing package scripts disable bytecode writing.
+Fix BOTH new import entry points with sys.dont_write_bytecode=True BEFORE importing
+the task-owned helper. Preserve packaging clean-source enforcement unchanged.
+No manifest change, ignore addition, cleanup deletion or acceptance transfer.
+
+An intermediate user update incorrectly guessed an undeclared package input before
+reading the complete traceback. Corrected explicitly once the clean-checkout error
+was inspected. A proof helper also compared this failed partial Linux80controls
+against the prior complete287 and rejected the mismatch; that rejection is not a
+new product failure or complete mutation pass. Prevention: inspect conclusion and
+full failing trace before diagnosis or full-log control comparison. Fresh complete
+corrected-head gates and actual superseded Windows outcome remain required.
+
+---
+
 # FN122: Windows built CLI cleanup sharing violation, 2026-10-13
 
 Candidate2797a54dd05b674118b53895d4c50857f4e64800/native38453521543/
