@@ -1,3 +1,66 @@
+# PR139 merged; accepted-push verification pending, 2026-10-13
+
+Protected development now points to PR139 merge
+6f923c1dd40a3396db65415510f599a328ed38b5, tree
+1e3827f306dab4d95684b3e047c154f505ec4e33. Ordered parents:
+20695e7ce7d22d958cec54e122cf4f5947b1e8e7 and
+0b96d0bde1c3302cc270e4f4d06af679f316f4bb.
+Protected expected-head merge, valid signature, independently reproduced signed
+SHA1, Denis author/GitHub committer and actual ref/merged PR all verified.
+PR138 remains the last fully VERIFIED OFFLINE baseline until the distinct push
+checks finish. PR139 is merged, not yet fully verified and not release approved.
+
+Current candidate0b96d0b: source38458562406/job115507481824 succeeded; full
+1360586log, all23records315contiguous chunks/SHA256/fullfresh bytes/Gitblobs matched.
+Linux38458562489/job115507803319 succeeded: full96216log,58steps with only conditional
+failure upload skipped,287named controls exactly preserved,84.7% coverage,
+five bounded fuzz targets, race/vet/CLI/packages/docs/security passed.
+Windows115507802989 succeeded: full77327log,43steps,282named controls preserved,
+all5cleanup policy tests including real native sharing lock,12CLI/default/custom
+packages/branding/docs/security passed. Review6153259878 completed0b96d0b on
+2026-10-13T19:58:19.396982Z with no new inline findings; earlier identity thread
+resolved with primary evidence, no independent-person approval inferred.
+All17final changed full files/Gitblobs and256directory trees independently verified.
+
+Distinct actual accepted-push source38461446822/job115517353822 succeeded:
+full1359930log, actual6f923c1d checkout, all7steps/11original harnesses/pins,
+all23records315chunks independently SHA256/fullfreshacceptedremote/Gitblobs matched.
+Push native38461447085/quality115517355506/windows115517355831 still pending.
+Verify both complete full logs before marking PR139 VERIFIED OFFLINE.
+Live [PR139](https://github.com/DeBoX85/Cloud-Assess/pull/139) indexes results.
+
+All7registered original SKU resource types now have synthetic source observations.
+New178provider cases/7cache calls join accepted89Compute cases; source execution
+is Linux original code and native literal oracles, not Windows original SDK or Azure
+deployability/quota/capacity certification. Target region SKU collectors remain0/7;
+region coordinator/public execution and other adapters remain open.
+[Next target analysis](REGION_SKU_TARGET_ANALYSIS_20261013.md) records the evidence
+projection boundary and a first Compute disk design. It is analysis, NOT a finished
+pre-edit contract or target code. Close optional metadata/continuation/admission
+details and publish a concrete contract before implementation. Never change pinned
+source oracles to resemble target corrections.
+
+This task-owned documentation checkpoint is UNACCEPTED. Its own exact-head QA,
+review, file/tree/identity/preview/protected merge and separate push proof remain
+required if proposed for acceptance. Earlier headers are historical snapshots.
+
+FN120 missing-golden preparation, FN121 identity-evidence discrepancy, FN122
+Windows cleanup lock and FN123 bytecode dirty-checkout regression remain preserved.
+Superseded71f885f3 Windows115504929805 was CANCELLED, not accepted.
+Sharing32-only cleanup has eight attempts/4.5seconds delay; persistent locks and
+other errors still fail. Both entry points prevent Python bytecode writes before
+local helper imports; package clean-source enforcement and all12CLI checks remain.
+
+Laptop access remains unconfirmed. Continue independent offline work. Existing
+confirmed nonproduction/DV001/read-only/no-fixture/no-role/no-substitution/no-exposure/
+no-release boundaries remain. Source/SDK/APRL/modules/Go1.26.9/x-net0.60 are unchanged.
+Module-only GO-2026-5932 remains open; zero reachable/imported is not graph-free.
+Other integration/live/load/freshOS/B6-B7/Gate004/licensing/human/release gates remain.
+Exact next: finish actual accepted-push native verification, update this checkpoint,
+then close target contract details before production edits.
+
+---
+
 # PR139 cleanup QA entry-point correction, 2026-10-13 evening
 
 Protected baseline remains VERIFIED OFFLINE PR13820695e7; PR139 UNACCEPTED.

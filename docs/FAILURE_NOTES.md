@@ -1,3 +1,26 @@
+# FN121-FN123 correction outcomes, 2026-10-13
+
+Final0b96d0b candidate source38458562406 succeeded with full23/315proof.
+Native38458562489 BOTH hosts succeeded: Linux115507803319/full96216/
+287controls and Windows115507802989/full77327/282controls, all12CLI checks,
+both package profiles and actual native Windows sharing-lock policy test.
+Earlier2797a54 Windows cleanup FAILED and71f885f3 Linux package clean-source FAILED
+stay failed. Superseded71f885f3 Windows115504929805 CANCELLED.
+The latest review completed0b96d0b without new inline findings; the earlier
+identity-evidence discrepancy remains documented, not erased.
+Merge6f923c1d verified; distinct push source38461446822 succeeded. Its native
+38461447085 remains pending and must not borrow candidate outcomes.
+
+Two independent local proof helpers initially used abbreviated byteguard labels
+and removed the signed signature's final continuation newline. Both rejected their
+own reconstruction; neither was a product failure. Read actual emitted control
+identities and preserve the complete signature including its final continuation;
+then all287actual controls and the baseline/final signed raw SHA1 matched.
+No native guard, signature, source oracle or Git object was changed to make proof
+pass. Preserve raw evidence and distinguish verifier setup from repository failure.
+
+---
+
 # FN123: QA helper import dirtied native checkout, 2026-10-13
 
 Candidate71f885f3/native38457808095/Linux115504929633 FAILED actual package
