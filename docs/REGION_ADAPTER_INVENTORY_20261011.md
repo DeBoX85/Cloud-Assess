@@ -1,3 +1,147 @@
+# Remaining SKU source final candidate, 2026-10-13 evening
+
+Protected development remains VERIFIED OFFLINE PR13820695e7ce7d22d958cec54e122cf4f5947b1e8e7.
+PR139 remains UNACCEPTED. Native preparation5b0ed966/source38452958226/
+job115488275035 SUCCESS/all7steps/full1360506log: original11harnesses,
+source/APRL/modules guards,23records315uniquecontiguouschunks independently
+SHA256/freshfull current remote bytes/Gitblobs verified. Input111334bytes81ffb150,
+output132253bytesc7721666 remain original. All21earlier retained records untouched.
+178independent provider cases plus7cache calls cover original Storage/Cognitive/
+SQL DB/MI semantics. Combined with accepted Compute, all7registered types have
+synthetic source observations. No target SKU collector/public region activation.
+
+Read-only prep38452958034/job115488273634 SUCCESS/all8steps/full159250log:
+four native full metadata/maps/requests/cache oracles pass with race detector,
+all17named compiling fixture controls rejected and restored baselines passed.
+Full26contiguoushexchunks/SHA2563efe57cb/native64250UTF8bytes independently verified;
+original authored native file was already gofmt-identical. Temporary helper removed.
+Native/full-source fixture expectations were declared before emitted observations.
+Existing14Compute/25provider target/allother controls and all7byteguard probes stay.
+
+This final edited head still requires its OWN complete Linux/Windows/source/
+automated review/fullfiles/tree/orderedparents/Denisidentity/preview/protection,
+protected expected-head merge and DISTINCT actual accepted-push verification.
+Predecessor preparation is not final acceptance. FN120 missing-golden preparation
+stays history, not relabelled PASS. No source/SDK/APRL/module/toolchain change.
+Captures are synthetic Linux original code plus native literal tests, not current
+Azure service support/defaultretry/Windows-originalSDK/live deployability/model
+quota proof. Exact source ignored-values/kind/parent-status/displayURI/collision/
+paging semantics remain retained, not silently corrected. Precise waiter-entry
+and nondeterministic source trim winners remain earlier explicit limitations.
+
+Self-review updates the adapter inventory's current resume header as source code
+now exists; earlier no-harness statements are dated snapshots. After accepted
+proof, publish bounded target SKU reconciliation contracts before implementing
+runtime collectors, including service-version/schema/identity/filter/restriction/
+owner/limits/continuation/atomichealth corrections. Preserve source oracles/pins.
+Live PR139 body is the evolving exact head/run/recovery index.
+
+Laptop restoration still UNCONFIRMED. New user requests continue; independent
+offline work authorized. Existing core/plugin laptop queue stays deferred with
+confirmed nonproduction/DV001/no-write/no-fixture/no-role/no-scope-substitution/
+no-exposure/no-release boundaries. Other adapter/coordinator/public/FullCost/
+B6-B7/module-only/live/load/freshOS/maintenance/Gate004/release/licensing/human gates
+remain open. Exact next finish this final candidate's own QA/review/merge and
+separate push proof, then target reconciliation. Earlier entries remain history.
+
+---
+
+# Compute SKU source VERIFIED OFFLINE and remaining-source resume point, 2026-10-13
+
+PR138 is VERIFIED OFFLINE at20695e7ce7d22d958cec54e122cf4f5947b1e8e7,
+tree0687def7357c6be1ab24205a4dedfef0b66a674b, orderedaf18468/447fd89parents.
+Denis author/GitHubcommitter/validsignature/liveprotectedref and independently
+reproduced signed raw commit SHA1 verified. Complete final15accepted changed
+files freshly byte-read/Githashed equal reviewed candidate identities. Final
+candidate native38383227336/source38383227305/review6143492850 all complete.
+
+DISTINCT accepted-push native38386027756 quality115257926327/windows115257926717
+BOTH SUCCESS: all56Linux41Windows steps (only conditional failure upload skipped),
+full93963/74018character logs actual20695e7/Go1.26.9. All268Linux263Windows named
+controls independently match full candidate identities, every prior control,
+14new Compute fixtures and all5manifest guards. Both fullGo/CLI/default+custom
+packages/branding/modules/docs815links9flags1PowerShellsnippet/security passed.
+Linuxrace/vet84.7% andfiveboundedfuzz. Both final scans0reachable/0imported/1module;
+GO-2026-5932 module-only advisory remains open, no advisory-free graph claim.
+
+DISTINCT accepted source38386027818/job115257926390 SUCCESS/all7steps/full998909
+log/actual20695e7/Go1.26.9/source8e4f0577/tree17d93b20/APRL60eaddda/all10harnesses.
+All21records232uniquecontiguouschunks independently reconstructed/SHA256/
+freshfull accepted bytes/Gitblob verified. New input56827bytes75a69648 and
+output81019bytesc443a812 unchanged. This is source synthetic Linux plus native
+literal-oracle evidence, not live Azure/defaultretry/Windows-originalSDK proof.
+
+Source-only89provider cases plus empty-start pager, complete maps/requests/
+restriction zones/alias/collision/failure/registry/cache/retry/sequential map+
+zone-slice sharing and bounded same/separate-key concurrency retained. Exact
+singleflight waiter entry and nondeterministic different-state trim-collision
+winners are not certified. No target SKU collector or public region runtime.
+FN118-119 failed preparations/self-review corrections stay preserved. Original
+source/SDK/APRL/dependencies/toolchain remain unchanged.
+
+Next durable WIP is draft PR139 on feat/region-other-sku-source. Original pre-edit
+head84179861/treefa920fd8/soleparent20695e7 published/readback BEFORE harness edits;
+all5completefiles/Denis/ref/256directory trees independently verified. This new
+closure checkpoint is UNACCEPTED documentation work with its OWN fresh native/
+source/review pending. No remaining-SKU harness/23record observations/target code
+added. Exact next original Storage/Cognitive/SQL DB/MI capture under
+[REGION_OTHER_SKU_SOURCE_20261013.md](REGION_OTHER_SKU_SOURCE_20261013.md),
+strict fullraw23record manifest/independent retention/literal compiling controls.
+Do not repeat accepted provider/Compute/security/calculation/quota/reservation work.
+
+User expected laptop access within one hour; restoration remains UNCONFIRMED.
+[Prepared laptop queue](LAPTOP_LIVE_QUEUE_20261013.md) first inspects existing
+preserved checkouts/tools/account/pins, then confirmed nonproduction scope for
+existing core/plugin read-only validation. Elapsed time is not access or approval.
+Advisory production parent is not a DV001 substitute. No Azure writes/fixtures/
+roles/production substitution/exposure/release. Other target adapters/coordinator/
+public/FullCost/module-only/B6-B7/live/load/freshOS/maintenance/Gate004/release/
+licensing/human gates remain open. Live PR138 and PR139 bodies index final evolving
+publication/QA states. Earlier headers below are retained dated history.
+
+---
+
+# Compute source merged and remaining SKU source plan, 2026-10-13
+
+PR138 merged at20695e7ce7d22d958cec54e122cf4f5947b1e8e7/tree0687def7357c6be1ab24205a4dedfef0b66a674b,
+orderedaf18468/447fd89parents, Denis author/GitHubcommitter/valid signed rawSHA1/
+live protectedref verified. Final native38383227336/full94065Linux74725Windows
+logs/all56Linux41Windows steps/268Linux263Windows namedcontrols/84.7%race-vet/
+fivefuzz/CLI-packages-branding-modules-docs815links9flags1snippet/security0reachable
+0imported1module and source38383227305/full999565log/21records232chunks verified.
+Automated marker6143492850 completed447fd89withoutfindings; no human approval.
+FN118-119 failures remain history. Source-only89provider cases plus pager/cache/
+registry/retry/sequential sharedmap+zones and bounded concurrent dedup/separatekeys;
+precise waiter entry and nondeterministic trim-collision winners NOT certified.
+No target SKU/public region execution; source/APRL/SDK/module/toolchain pins unchanged.
+
+DISTINCT actualmerge source38386027818/job115257926390 SUCCESS/all7steps/full998909
+log/actual20695e7/Go1.26.9/all10harnesses/21records232chunks independently SHA256/
+freshfull accepted bytes/Gitblob matched. Native push38386027756 quality115257926327/
+Windows115257926717 remains pending at this planning checkpoint; read livePR138
+for final outcome. No candidate transfer or full accepted-push claim yet.
+
+Next durable WIP on feat/region-other-sku-source is UNACCEPTED docs-only pre-edit
+[remaining SKU source contract](REGION_OTHER_SKU_SOURCE_20261013.md). Publish/
+read back before original Storage/Cognitive/SQL DB/MI harness changes. Official
+Storage2023 spec/AI2024-10/SQL2021-11 endpoints inspected; ignored location restriction
+values, cross-kind/global AI identity and SQL parent statuses require source
+observations then separate deliberate target reconciliation, not invented fixes.
+No newharness/23record observations/target production or live operation added.
+This proposal has its OWN native/source/review QA pending; PR138 proof cannot
+certify changed docs. Exact next finish PR138 push, then original remainingSKU
+harness/raw23record capture/native literal compilingcontrols under publishedcontract.
+
+Laptop availability expected within one hour in user message, NOT confirmed.
+[Prepared laptop queue](LAPTOP_LIVE_QUEUE_20261013.md) inspects preserved existing
+checkouts/tools/account/pins and confirmed nonproduction scope before read-only
+core/plugin runs. Advisory Prd parent is not a DV001 substitute. No Azure writes/
+fixtures/roles/scope substitution/exposure/release. Other target adapters/coordinator/
+public/FullCost/module-only/B6-B7/live/load/freshOS/maintenance/Gate004/release/
+licensing/human gates remain open. Earlier entries below are dated history.
+
+---
+
 # Provider target VERIFIED OFFLINE and exact next source slice, 2026-10-13
 
 PR137 is VERIFIED OFFLINE at af18468fe1dfc697838115c0a7585ba675fdec97,

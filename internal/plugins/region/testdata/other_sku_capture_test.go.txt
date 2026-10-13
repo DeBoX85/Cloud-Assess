@@ -1,0 +1,3245 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+// Unchanged original providers only; supported synthetic transport shared with Compute capture.
+package sku
+
+import (
+	"context"
+	"crypto/sha1"
+	"encoding/json"
+	"fmt"
+	"net/http"
+	"os"
+	"path/filepath"
+	"sort"
+	"testing"
+	"time"
+
+	"github.com/Azure/azqr/internal/scanners/plugins/region/types"
+)
+
+type otherCaptureCase struct {
+	Provider string
+	Region string
+	Pages []computeCapturePage
+	Expected map[string]types.SKUAvailability
+	Failed bool
+	Cancelled bool
+}
+type otherCaptureCacheCall struct {
+	Label string
+	Subscription string
+	Type string
+	Region string
+	Expected map[string]types.SKUAvailability
+	Failed bool
+}
+const otherIndependentCases = `{
+  "storage-empty": {
+    "Provider": "storage",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01",
+        "Status": 200,
+        "Body": "{}"
+      }
+    ],
+    "Expected": {},
+    "Failed": false,
+    "Cancelled": false
+  },
+  "storage-null": {
+    "Provider": "storage",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01",
+        "Status": 200,
+        "Body": "null"
+      }
+    ],
+    "Expected": {},
+    "Failed": false,
+    "Cancelled": false
+  },
+  "storage-null-items": {
+    "Provider": "storage",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01",
+        "Status": 200,
+        "Body": "{\"value\":[null,{}]}"
+      }
+    ],
+    "Expected": {},
+    "Failed": false,
+    "Cancelled": false
+  },
+  "storage-malformed": {
+    "Provider": "storage",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01",
+        "Status": 200,
+        "Body": "{\"x\":"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "storage-root-array": {
+    "Provider": "storage",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01",
+        "Status": 200,
+        "Body": "[]"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "storage-trailing": {
+    "Provider": "storage",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01",
+        "Status": 200,
+        "Body": "{} {}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "storage-http400": {
+    "Provider": "storage",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01",
+        "Status": 400,
+        "Body": "{\"error\":{\"code\":\"OtherSKUFixture\"}}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "storage-http403": {
+    "Provider": "storage",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01",
+        "Status": 403,
+        "Body": "{\"error\":{\"code\":\"OtherSKUFixture\"}}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "storage-http404": {
+    "Provider": "storage",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01",
+        "Status": 404,
+        "Body": "{\"error\":{\"code\":\"OtherSKUFixture\"}}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "storage-http429": {
+    "Provider": "storage",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01",
+        "Status": 429,
+        "Body": "{\"error\":{\"code\":\"OtherSKUFixture\"}}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "storage-http500": {
+    "Provider": "storage",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01",
+        "Status": 500,
+        "Body": "{\"error\":{\"code\":\"OtherSKUFixture\"}}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "storage-cancelled": {
+    "Provider": "storage",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01",
+        "Status": 200,
+        "Body": "{}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": true
+  },
+  "cognitive-empty": {
+    "Provider": "cognitive",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01",
+        "Status": 200,
+        "Body": "{}"
+      }
+    ],
+    "Expected": {},
+    "Failed": false,
+    "Cancelled": false
+  },
+  "cognitive-null": {
+    "Provider": "cognitive",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01",
+        "Status": 200,
+        "Body": "null"
+      }
+    ],
+    "Expected": {},
+    "Failed": false,
+    "Cancelled": false
+  },
+  "cognitive-null-items": {
+    "Provider": "cognitive",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01",
+        "Status": 200,
+        "Body": "{\"value\":[null,{}]}"
+      }
+    ],
+    "Expected": {},
+    "Failed": false,
+    "Cancelled": false
+  },
+  "cognitive-malformed": {
+    "Provider": "cognitive",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01",
+        "Status": 200,
+        "Body": "{\"x\":"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "cognitive-root-array": {
+    "Provider": "cognitive",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01",
+        "Status": 200,
+        "Body": "[]"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "cognitive-trailing": {
+    "Provider": "cognitive",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01",
+        "Status": 200,
+        "Body": "{} {}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "cognitive-http400": {
+    "Provider": "cognitive",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01",
+        "Status": 400,
+        "Body": "{\"error\":{\"code\":\"OtherSKUFixture\"}}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "cognitive-http403": {
+    "Provider": "cognitive",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01",
+        "Status": 403,
+        "Body": "{\"error\":{\"code\":\"OtherSKUFixture\"}}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "cognitive-http404": {
+    "Provider": "cognitive",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01",
+        "Status": 404,
+        "Body": "{\"error\":{\"code\":\"OtherSKUFixture\"}}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "cognitive-http429": {
+    "Provider": "cognitive",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01",
+        "Status": 429,
+        "Body": "{\"error\":{\"code\":\"OtherSKUFixture\"}}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "cognitive-http500": {
+    "Provider": "cognitive",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01",
+        "Status": 500,
+        "Body": "{\"error\":{\"code\":\"OtherSKUFixture\"}}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "cognitive-cancelled": {
+    "Provider": "cognitive",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01",
+        "Status": 200,
+        "Body": "{}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": true
+  },
+  "sql-db-empty": {
+    "Provider": "sql-db",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 200,
+        "Body": "{}"
+      }
+    ],
+    "Expected": {},
+    "Failed": false,
+    "Cancelled": false
+  },
+  "sql-db-null": {
+    "Provider": "sql-db",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 200,
+        "Body": "null"
+      }
+    ],
+    "Expected": {},
+    "Failed": false,
+    "Cancelled": false
+  },
+  "sql-db-null-items": {
+    "Provider": "sql-db",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 200,
+        "Body": "{\"supportedServerVersions\":[null,{}],\"supportedManagedInstanceVersions\":[null,{}]}"
+      }
+    ],
+    "Expected": {},
+    "Failed": false,
+    "Cancelled": false
+  },
+  "sql-db-malformed": {
+    "Provider": "sql-db",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 200,
+        "Body": "{\"x\":"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "sql-db-root-array": {
+    "Provider": "sql-db",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 200,
+        "Body": "[]"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "sql-db-trailing": {
+    "Provider": "sql-db",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 200,
+        "Body": "{} {}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "sql-db-http400": {
+    "Provider": "sql-db",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 400,
+        "Body": "{\"error\":{\"code\":\"OtherSKUFixture\"}}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "sql-db-http403": {
+    "Provider": "sql-db",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 403,
+        "Body": "{\"error\":{\"code\":\"OtherSKUFixture\"}}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "sql-db-http404": {
+    "Provider": "sql-db",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 404,
+        "Body": "{\"error\":{\"code\":\"OtherSKUFixture\"}}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "sql-db-http429": {
+    "Provider": "sql-db",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 429,
+        "Body": "{\"error\":{\"code\":\"OtherSKUFixture\"}}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "sql-db-http500": {
+    "Provider": "sql-db",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 500,
+        "Body": "{\"error\":{\"code\":\"OtherSKUFixture\"}}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "sql-db-cancelled": {
+    "Provider": "sql-db",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 200,
+        "Body": "{}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": true
+  },
+  "sql-mi-empty": {
+    "Provider": "sql-mi",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 200,
+        "Body": "{}"
+      }
+    ],
+    "Expected": {},
+    "Failed": false,
+    "Cancelled": false
+  },
+  "sql-mi-null": {
+    "Provider": "sql-mi",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 200,
+        "Body": "null"
+      }
+    ],
+    "Expected": {},
+    "Failed": false,
+    "Cancelled": false
+  },
+  "sql-mi-null-items": {
+    "Provider": "sql-mi",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 200,
+        "Body": "{\"supportedServerVersions\":[null,{}],\"supportedManagedInstanceVersions\":[null,{}]}"
+      }
+    ],
+    "Expected": {},
+    "Failed": false,
+    "Cancelled": false
+  },
+  "sql-mi-malformed": {
+    "Provider": "sql-mi",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 200,
+        "Body": "{\"x\":"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "sql-mi-root-array": {
+    "Provider": "sql-mi",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 200,
+        "Body": "[]"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "sql-mi-trailing": {
+    "Provider": "sql-mi",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 200,
+        "Body": "{} {}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "sql-mi-http400": {
+    "Provider": "sql-mi",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 400,
+        "Body": "{\"error\":{\"code\":\"OtherSKUFixture\"}}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "sql-mi-http403": {
+    "Provider": "sql-mi",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 403,
+        "Body": "{\"error\":{\"code\":\"OtherSKUFixture\"}}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "sql-mi-http404": {
+    "Provider": "sql-mi",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 404,
+        "Body": "{\"error\":{\"code\":\"OtherSKUFixture\"}}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "sql-mi-http429": {
+    "Provider": "sql-mi",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 429,
+        "Body": "{\"error\":{\"code\":\"OtherSKUFixture\"}}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "sql-mi-http500": {
+    "Provider": "sql-mi",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 500,
+        "Body": "{\"error\":{\"code\":\"OtherSKUFixture\"}}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "sql-mi-cancelled": {
+    "Provider": "sql-mi",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 200,
+        "Body": "{}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": true
+  },
+  "storage-single": {
+    "Provider": "storage",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"Standard_LRS\",\"locations\":[\"East US\"]},{\"name\":\"other\",\"locations\":[\"westus\"]},{\"name\":\"\"},{},null]}"
+      }
+    ],
+    "Expected": {
+      "standard_lrs": {
+        "State": 0,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "storage-empty-list": {
+    "Provider": "storage",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01",
+        "Status": 200,
+        "Body": "{\"value\":[]}"
+      }
+    ],
+    "Expected": {},
+    "Failed": false,
+    "Cancelled": false
+  },
+  "storage-null-list": {
+    "Provider": "storage",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01",
+        "Status": 200,
+        "Body": "{\"value\":null}"
+      }
+    ],
+    "Expected": {},
+    "Failed": false,
+    "Cancelled": false
+  },
+  "storage-wrong-list": {
+    "Provider": "storage",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01",
+        "Status": 200,
+        "Body": "{\"value\":{}}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "storage-wrong-item": {
+    "Provider": "storage",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01",
+        "Status": 200,
+        "Body": "{\"value\":[42]}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "storage-wrong-name": {
+    "Provider": "storage",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":42}]}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "storage-wrong-locations": {
+    "Provider": "storage",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"S\",\"locations\":[42]}]}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "storage-wrong-next": {
+    "Provider": "storage",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01",
+        "Status": 200,
+        "Body": "{\"value\":[],\"nextLink\":42}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "storage-missing-locations": {
+    "Provider": "storage",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"Standard_LRS\"}]}"
+      }
+    ],
+    "Expected": {
+      "standard_lrs": {
+        "State": 0,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "storage-null-locations": {
+    "Provider": "storage",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"Standard_LRS\",\"locations\":null}]}"
+      }
+    ],
+    "Expected": {
+      "standard_lrs": {
+        "State": 0,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "storage-empty-locations": {
+    "Provider": "storage",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"Standard_LRS\",\"locations\":[]}]}"
+      }
+    ],
+    "Expected": {
+      "standard_lrs": {
+        "State": 0,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "storage-global-excluded": {
+    "Provider": "storage",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"Standard_LRS\",\"locations\":[\"GLOBAL\"]}]}"
+      }
+    ],
+    "Expected": {},
+    "Failed": false,
+    "Cancelled": false
+  },
+  "storage-display-spaces": {
+    "Provider": "storage",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"Standard_LRS\",\"locations\":[\" EaSt US \"]}]}"
+      }
+    ],
+    "Expected": {
+      "standard_lrs": {
+        "State": 0,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "storage-tabs-excluded": {
+    "Provider": "storage",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"Standard_LRS\",\"locations\":[\"east\\tus\"]}]}"
+      }
+    ],
+    "Expected": {},
+    "Failed": false,
+    "Cancelled": false
+  },
+  "storage-nbsp-excluded": {
+    "Provider": "storage",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"Standard_LRS\",\"locations\":[\"east us\"]}]}"
+      }
+    ],
+    "Expected": {},
+    "Failed": false,
+    "Cancelled": false
+  },
+  "storage-unicode-fold-location": {
+    "Provider": "storage",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"Standard_LRS\",\"locations\":[\"Eaſt US\"]}]}"
+      }
+    ],
+    "Expected": {
+      "standard_lrs": {
+        "State": 0,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "storage-global-explicit": {
+    "Provider": "storage",
+    "Region": "GLOBAL",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"Standard_LRS\",\"locations\":[\"GLOBAL\"]}]}"
+      }
+    ],
+    "Expected": {
+      "standard_lrs": {
+        "State": 0,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "storage-whitespace-name": {
+    "Provider": "storage",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\" S \"}]}"
+      }
+    ],
+    "Expected": {
+      " s ": {
+        "State": 0,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "storage-surrogate-name": {
+    "Provider": "storage",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"\\ud800\"}]}"
+      }
+    ],
+    "Expected": {
+      "�": {
+        "State": 0,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "storage-single-field-alias": {
+    "Provider": "storage",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01",
+        "Status": 200,
+        "Body": "{\"VALUE\":[{\"NAME\":\"Standard_LRS\",\"locationſ\":[\"East US\"]}]}"
+      }
+    ],
+    "Expected": {
+      "standard_lrs": {
+        "State": 0,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "storage-last-location-alias": {
+    "Provider": "storage",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"Standard_LRS\",\"locations\":[\"eastus\"],\"LOCATIONſ\":[\"westus\"]}]}"
+      }
+    ],
+    "Expected": {},
+    "Failed": false,
+    "Cancelled": false
+  },
+  "storage-last-value-alias": {
+    "Provider": "storage",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"old\"}],\"VALUE\":[{\"name\":\"Standard_LRS\"}]}"
+      }
+    ],
+    "Expected": {
+      "standard_lrs": {
+        "State": 0,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "storage-duplicate-name": {
+    "Provider": "storage",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"Standard_LRS\"},{\"name\":\"standard_lrs\"}]}"
+      }
+    ],
+    "Expected": {
+      "standard_lrs": {
+        "State": 0,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "storage-paged": {
+    "Provider": "storage",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"Standard_LRS\"}],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01&$skiptoken=synthetic\"}"
+      },
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01&$skiptoken=synthetic",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"Second\"}]}"
+      }
+    ],
+    "Expected": {
+      "standard_lrs": {
+        "State": 0,
+        "BlockedZones": null
+      },
+      "second": {
+        "State": 0,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "storage-later-http400": {
+    "Provider": "storage",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"Standard_LRS\"}],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01&$skiptoken=synthetic\"}"
+      },
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01&$skiptoken=synthetic",
+        "Status": 400,
+        "Body": "{\"error\":{\"code\":\"LaterOtherSKUFixture\"}}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "storage-later-http403": {
+    "Provider": "storage",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"Standard_LRS\"}],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01&$skiptoken=synthetic\"}"
+      },
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01&$skiptoken=synthetic",
+        "Status": 403,
+        "Body": "{\"error\":{\"code\":\"LaterOtherSKUFixture\"}}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "storage-later-http404": {
+    "Provider": "storage",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"Standard_LRS\"}],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01&$skiptoken=synthetic\"}"
+      },
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01&$skiptoken=synthetic",
+        "Status": 404,
+        "Body": "{\"error\":{\"code\":\"LaterOtherSKUFixture\"}}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "storage-later-http429": {
+    "Provider": "storage",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"Standard_LRS\"}],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01&$skiptoken=synthetic\"}"
+      },
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01&$skiptoken=synthetic",
+        "Status": 429,
+        "Body": "{\"error\":{\"code\":\"LaterOtherSKUFixture\"}}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "storage-later-http500": {
+    "Provider": "storage",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"Standard_LRS\"}],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01&$skiptoken=synthetic\"}"
+      },
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01&$skiptoken=synthetic",
+        "Status": 500,
+        "Body": "{\"error\":{\"code\":\"LaterOtherSKUFixture\"}}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "storage-later-malformed": {
+    "Provider": "storage",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"Standard_LRS\"}],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01&$skiptoken=synthetic\"}"
+      },
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01&$skiptoken=synthetic",
+        "Status": 200,
+        "Body": "{\"value\":"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "storage-next-foreign": {
+    "Provider": "storage",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"Standard_LRS\"}],\"nextLink\":\"https://synthetic.invalid/other/next\"}"
+      },
+      {
+        "URL": "https://synthetic.invalid/other/next",
+        "Status": 200,
+        "Body": "{\"value\":[]}"
+      }
+    ],
+    "Expected": {
+      "standard_lrs": {
+        "State": 0,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "storage-next-relative": {
+    "Provider": "storage",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"Standard_LRS\"}],\"nextLink\":\"/other/next\"}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "storage-next-malformed": {
+    "Provider": "storage",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"Standard_LRS\"}],\"nextLink\":\"://invalid\"}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "storage-bounded-cycle": {
+    "Provider": "storage",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"Standard_LRS\"}],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01\"}"
+      },
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"Standard_LRS\"}],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01\"}"
+      },
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01",
+        "Status": 400,
+        "Body": "{\"error\":{\"code\":\"OtherCycleStop\"}}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "cognitive-single": {
+    "Provider": "cognitive",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"S0\",\"locations\":[\"East US\"]},{\"name\":\"other\",\"locations\":[\"westus\"]},{\"name\":\"\"},{},null]}"
+      }
+    ],
+    "Expected": {
+      "s0": {
+        "State": 0,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "cognitive-empty-list": {
+    "Provider": "cognitive",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01",
+        "Status": 200,
+        "Body": "{\"value\":[]}"
+      }
+    ],
+    "Expected": {},
+    "Failed": false,
+    "Cancelled": false
+  },
+  "cognitive-null-list": {
+    "Provider": "cognitive",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01",
+        "Status": 200,
+        "Body": "{\"value\":null}"
+      }
+    ],
+    "Expected": {},
+    "Failed": false,
+    "Cancelled": false
+  },
+  "cognitive-wrong-list": {
+    "Provider": "cognitive",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01",
+        "Status": 200,
+        "Body": "{\"value\":{}}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "cognitive-wrong-item": {
+    "Provider": "cognitive",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01",
+        "Status": 200,
+        "Body": "{\"value\":[42]}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "cognitive-wrong-name": {
+    "Provider": "cognitive",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":42}]}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "cognitive-wrong-locations": {
+    "Provider": "cognitive",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"S\",\"locations\":[42]}]}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "cognitive-wrong-next": {
+    "Provider": "cognitive",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01",
+        "Status": 200,
+        "Body": "{\"value\":[],\"nextLink\":42}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "cognitive-missing-locations": {
+    "Provider": "cognitive",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"S0\"}]}"
+      }
+    ],
+    "Expected": {
+      "s0": {
+        "State": 0,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "cognitive-null-locations": {
+    "Provider": "cognitive",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"S0\",\"locations\":null}]}"
+      }
+    ],
+    "Expected": {
+      "s0": {
+        "State": 0,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "cognitive-empty-locations": {
+    "Provider": "cognitive",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"S0\",\"locations\":[]}]}"
+      }
+    ],
+    "Expected": {
+      "s0": {
+        "State": 0,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "cognitive-global-excluded": {
+    "Provider": "cognitive",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"S0\",\"locations\":[\"GLOBAL\"]}]}"
+      }
+    ],
+    "Expected": {},
+    "Failed": false,
+    "Cancelled": false
+  },
+  "cognitive-display-spaces": {
+    "Provider": "cognitive",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"S0\",\"locations\":[\" EaSt US \"]}]}"
+      }
+    ],
+    "Expected": {
+      "s0": {
+        "State": 0,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "cognitive-tabs-excluded": {
+    "Provider": "cognitive",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"S0\",\"locations\":[\"east\\tus\"]}]}"
+      }
+    ],
+    "Expected": {},
+    "Failed": false,
+    "Cancelled": false
+  },
+  "cognitive-nbsp-excluded": {
+    "Provider": "cognitive",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"S0\",\"locations\":[\"east us\"]}]}"
+      }
+    ],
+    "Expected": {},
+    "Failed": false,
+    "Cancelled": false
+  },
+  "cognitive-unicode-fold-location": {
+    "Provider": "cognitive",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"S0\",\"locations\":[\"Eaſt US\"]}]}"
+      }
+    ],
+    "Expected": {
+      "s0": {
+        "State": 0,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "cognitive-global-explicit": {
+    "Provider": "cognitive",
+    "Region": "GLOBAL",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"S0\",\"locations\":[\"GLOBAL\"]}]}"
+      }
+    ],
+    "Expected": {
+      "s0": {
+        "State": 0,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "cognitive-whitespace-name": {
+    "Provider": "cognitive",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\" S \"}]}"
+      }
+    ],
+    "Expected": {
+      " s ": {
+        "State": 0,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "cognitive-surrogate-name": {
+    "Provider": "cognitive",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"\\ud800\"}]}"
+      }
+    ],
+    "Expected": {
+      "�": {
+        "State": 0,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "cognitive-single-field-alias": {
+    "Provider": "cognitive",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01",
+        "Status": 200,
+        "Body": "{\"VALUE\":[{\"NAME\":\"S0\",\"locationſ\":[\"East US\"]}]}"
+      }
+    ],
+    "Expected": {
+      "s0": {
+        "State": 0,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "cognitive-last-location-alias": {
+    "Provider": "cognitive",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"S0\",\"locations\":[\"eastus\"],\"LOCATIONſ\":[\"westus\"]}]}"
+      }
+    ],
+    "Expected": {},
+    "Failed": false,
+    "Cancelled": false
+  },
+  "cognitive-last-value-alias": {
+    "Provider": "cognitive",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"old\"}],\"VALUE\":[{\"name\":\"S0\"}]}"
+      }
+    ],
+    "Expected": {
+      "s0": {
+        "State": 0,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "cognitive-duplicate-name": {
+    "Provider": "cognitive",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"S0\"},{\"name\":\"s0\"}]}"
+      }
+    ],
+    "Expected": {
+      "s0": {
+        "State": 0,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "cognitive-paged": {
+    "Provider": "cognitive",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"S0\"}],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01&$skiptoken=synthetic\"}"
+      },
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01&$skiptoken=synthetic",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"Second\"}]}"
+      }
+    ],
+    "Expected": {
+      "s0": {
+        "State": 0,
+        "BlockedZones": null
+      },
+      "second": {
+        "State": 0,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "cognitive-later-http400": {
+    "Provider": "cognitive",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"S0\"}],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01&$skiptoken=synthetic\"}"
+      },
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01&$skiptoken=synthetic",
+        "Status": 400,
+        "Body": "{\"error\":{\"code\":\"LaterOtherSKUFixture\"}}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "cognitive-later-http403": {
+    "Provider": "cognitive",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"S0\"}],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01&$skiptoken=synthetic\"}"
+      },
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01&$skiptoken=synthetic",
+        "Status": 403,
+        "Body": "{\"error\":{\"code\":\"LaterOtherSKUFixture\"}}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "cognitive-later-http404": {
+    "Provider": "cognitive",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"S0\"}],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01&$skiptoken=synthetic\"}"
+      },
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01&$skiptoken=synthetic",
+        "Status": 404,
+        "Body": "{\"error\":{\"code\":\"LaterOtherSKUFixture\"}}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "cognitive-later-http429": {
+    "Provider": "cognitive",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"S0\"}],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01&$skiptoken=synthetic\"}"
+      },
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01&$skiptoken=synthetic",
+        "Status": 429,
+        "Body": "{\"error\":{\"code\":\"LaterOtherSKUFixture\"}}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "cognitive-later-http500": {
+    "Provider": "cognitive",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"S0\"}],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01&$skiptoken=synthetic\"}"
+      },
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01&$skiptoken=synthetic",
+        "Status": 500,
+        "Body": "{\"error\":{\"code\":\"LaterOtherSKUFixture\"}}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "cognitive-later-malformed": {
+    "Provider": "cognitive",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"S0\"}],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01&$skiptoken=synthetic\"}"
+      },
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01&$skiptoken=synthetic",
+        "Status": 200,
+        "Body": "{\"value\":"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "cognitive-next-foreign": {
+    "Provider": "cognitive",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"S0\"}],\"nextLink\":\"https://synthetic.invalid/other/next\"}"
+      },
+      {
+        "URL": "https://synthetic.invalid/other/next",
+        "Status": 200,
+        "Body": "{\"value\":[]}"
+      }
+    ],
+    "Expected": {
+      "s0": {
+        "State": 0,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "cognitive-next-relative": {
+    "Provider": "cognitive",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"S0\"}],\"nextLink\":\"/other/next\"}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "cognitive-next-malformed": {
+    "Provider": "cognitive",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"S0\"}],\"nextLink\":\"://invalid\"}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "cognitive-bounded-cycle": {
+    "Provider": "cognitive",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"S0\"}],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01\"}"
+      },
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"S0\"}],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01\"}"
+      },
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01",
+        "Status": 400,
+        "Body": "{\"error\":{\"code\":\"OtherCycleStop\"}}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "storage-name-tier": {
+    "Provider": "storage",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"Standard_LRS\",\"tier\":\"ignored\",\"resourceType\":\"virtualMachines\"},{\"tier\":\"Premium_LRS\"},{\"name\":\"\"}]}"
+      }
+    ],
+    "Expected": {
+      "standard_lrs": {
+        "State": 0,
+        "BlockedZones": null
+      },
+      "premium_lrs": {
+        "State": 0,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "storage-location-values-ignored": {
+    "Provider": "storage",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"S\",\"restrictions\":[{\"type\":\"Location\",\"reasonCode\":\"NotAvailableForSubscription\",\"values\":[\"westus\"]}]}]}"
+      }
+    ],
+    "Expected": {
+      "s": {
+        "State": 1,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "storage-quotaid": {
+    "Provider": "storage",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"S\",\"restrictions\":[{\"type\":\"Location\",\"reasonCode\":\"QuotaId\",\"values\":[\"westus\"]}]}]}"
+      }
+    ],
+    "Expected": {
+      "s": {
+        "State": 2,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "storage-location-priority": {
+    "Provider": "storage",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"S\",\"restrictions\":[{\"type\":\"Zone\",\"restrictionInfo\":{\"zones\":[\"1\"]}},{\"type\":\"Location\",\"reasonCode\":\"NotAvailableForSubscription\"}],\"capabilities\":[{\"name\":\"available\",\"value\":\"false\"}]}]}"
+      }
+    ],
+    "Expected": {
+      "s": {
+        "State": 1,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "storage-zone-order": {
+    "Provider": "storage",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"S\",\"restrictions\":[{\"type\":\"Zone\",\"restrictionInfo\":{\"zones\":[\"2\",\"1\"]}},{\"type\":\"ZONE\",\"restrictionInfo\":{\"zones\":[\"2\"]}}],\"capabilities\":[{\"name\":\"available\",\"value\":\"false\"}]}]}"
+      }
+    ],
+    "Expected": {
+      "s": {
+        "State": 3,
+        "BlockedZones": [
+          "2",
+          "1",
+          "2"
+        ]
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "storage-empty-zone-capability": {
+    "Provider": "storage",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"S\",\"restrictions\":[{\"type\":\"Zone\",\"restrictionInfo\":{\"zones\":[]}}],\"capabilities\":[{\"name\":\"available\",\"value\":\"\"}]}]}"
+      }
+    ],
+    "Expected": {
+      "s": {
+        "State": 2,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "storage-capability-true": {
+    "Provider": "storage",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"S\",\"capabilities\":[{\"name\":\"AvAiLaBlE\",\"value\":\"TrUe\"}]}]}"
+      }
+    ],
+    "Expected": {
+      "s": {
+        "State": 0,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "storage-last-state": {
+    "Provider": "storage",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"S\"},{\"name\":\"s\",\"capabilities\":[{\"name\":\"available\",\"value\":\"false\"}]}]}"
+      }
+    ],
+    "Expected": {
+      "s": {
+        "State": 2,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "storage-unicode-restriction": {
+    "Provider": "storage",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"S\",\"reſtrictions\":[{\"type\":\"Location\",\"reasonCode\":\"NotAvailableForSubscription\"}]}]}"
+      }
+    ],
+    "Expected": {
+      "s": {
+        "State": 1,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "storage-invalid-zones": {
+    "Provider": "storage",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"S\",\"restrictions\":[{\"type\":\"Zone\",\"restrictionInfo\":{\"zones\":[42]}}]}]}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "storage-ignored-kind": {
+    "Provider": "storage",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"S\",\"kind\":42,\"resourceType\":{\"unexpected\":true}}]}"
+      }
+    ],
+    "Expected": {
+      "s": {
+        "State": 0,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "cognitive-tier-not-fallback": {
+    "Provider": "cognitive",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"tier\":\"S0\"}]}"
+      }
+    ],
+    "Expected": {},
+    "Failed": false,
+    "Cancelled": false
+  },
+  "cognitive-kinds-collapse": {
+    "Provider": "cognitive",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"S0\",\"kind\":\"OpenAI\",\"locations\":[\"eastus\"]},{\"name\":\"S0\",\"kind\":\"SpeechServices\",\"locations\":[\"eastus\"]}]}"
+      }
+    ],
+    "Expected": {
+      "s0": {
+        "State": 0,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "cognitive-restrictions-ignored": {
+    "Provider": "cognitive",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"S0\",\"kind\":\"Other\",\"resourceType\":\"wrong\",\"restrictions\":[{\"type\":\"Location\",\"reasonCode\":\"NotAvailableForSubscription\"}],\"capabilities\":[{\"name\":\"available\",\"value\":\"false\"}]}]}"
+      }
+    ],
+    "Expected": {
+      "s0": {
+        "State": 0,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "cognitive-malformed-restrictions-ignored": {
+    "Provider": "cognitive",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"S0\",\"restrictions\":42,\"capabilities\":true}]}"
+      }
+    ],
+    "Expected": {
+      "s0": {
+        "State": 0,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "cognitive-wrong-kind": {
+    "Provider": "cognitive",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"S0\",\"kind\":42}]}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "cognitive-wrong-resource-type": {
+    "Provider": "cognitive",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"S0\",\"resourceType\":{}}]}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "sql-db-null-roots": {
+    "Provider": "sql-db",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 200,
+        "Body": "{\"supportedServerVersions\":null,\"supportedManagedInstanceVersions\":null}"
+      }
+    ],
+    "Expected": {},
+    "Failed": false,
+    "Cancelled": false
+  },
+  "sql-db-wrong-server-root": {
+    "Provider": "sql-db",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 200,
+        "Body": "{\"supportedServerVersions\":{}}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "sql-db-wrong-mi-root": {
+    "Provider": "sql-db",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 200,
+        "Body": "{\"supportedManagedInstanceVersions\":{}}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "sql-db-wrong-editions": {
+    "Provider": "sql-db",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 200,
+        "Body": "{\"supportedServerVersions\":[{\"supportedEditions\":{}}]}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "sql-db-wrong-slos": {
+    "Provider": "sql-db",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 200,
+        "Body": "{\"supportedServerVersions\":[{\"supportedEditions\":[{\"supportedServiceLevelObjectives\":{}}]}]}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "sql-db-wrong-sku": {
+    "Provider": "sql-db",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 200,
+        "Body": "{\"supportedServerVersions\":[{\"supportedEditions\":[{\"supportedServiceLevelObjectives\":[{\"sku\":42}]}]}]}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "sql-db-wrong-sku-tier": {
+    "Provider": "sql-db",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 200,
+        "Body": "{\"supportedServerVersions\":[{\"supportedEditions\":[{\"supportedServiceLevelObjectives\":[{\"sku\":{\"name\":\"S\",\"tier\":42}}]}]}]}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "sql-db-wrong-status": {
+    "Provider": "sql-db",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 200,
+        "Body": "{\"supportedServerVersions\":[{\"supportedEditions\":[{\"supportedServiceLevelObjectives\":[{\"sku\":{\"name\":\"S\"},\"status\":42}]}]}]}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "sql-db-wrong-mi-family": {
+    "Provider": "sql-db",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 200,
+        "Body": "{\"supportedManagedInstanceVersions\":[{\"supportedEditions\":[{\"supportedFamilies\":[{\"name\":42}]}]}]}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "sql-db-unknown-value-ignored": {
+    "Provider": "sql-db",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 200,
+        "Body": "{\"value\":42}"
+      }
+    ],
+    "Expected": {},
+    "Failed": false,
+    "Cancelled": false
+  },
+  "sql-db-null-inner": {
+    "Provider": "sql-db",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 200,
+        "Body": "{\"supportedServerVersions\":[{\"supportedEditions\":[null,{\"supportedServiceLevelObjectives\":[null,{},{\"sku\":null}]}]}],\"supportedManagedInstanceVersions\":[{\"supportedEditions\":[null,{\"supportedFamilies\":[null,{}]}]}]}"
+      }
+    ],
+    "Expected": {},
+    "Failed": false,
+    "Cancelled": false
+  },
+  "sql-mi-null-roots": {
+    "Provider": "sql-mi",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 200,
+        "Body": "{\"supportedServerVersions\":null,\"supportedManagedInstanceVersions\":null}"
+      }
+    ],
+    "Expected": {},
+    "Failed": false,
+    "Cancelled": false
+  },
+  "sql-mi-wrong-server-root": {
+    "Provider": "sql-mi",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 200,
+        "Body": "{\"supportedServerVersions\":{}}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "sql-mi-wrong-mi-root": {
+    "Provider": "sql-mi",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 200,
+        "Body": "{\"supportedManagedInstanceVersions\":{}}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "sql-mi-wrong-editions": {
+    "Provider": "sql-mi",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 200,
+        "Body": "{\"supportedServerVersions\":[{\"supportedEditions\":{}}]}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "sql-mi-wrong-slos": {
+    "Provider": "sql-mi",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 200,
+        "Body": "{\"supportedServerVersions\":[{\"supportedEditions\":[{\"supportedServiceLevelObjectives\":{}}]}]}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "sql-mi-wrong-sku": {
+    "Provider": "sql-mi",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 200,
+        "Body": "{\"supportedServerVersions\":[{\"supportedEditions\":[{\"supportedServiceLevelObjectives\":[{\"sku\":42}]}]}]}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "sql-mi-wrong-sku-tier": {
+    "Provider": "sql-mi",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 200,
+        "Body": "{\"supportedServerVersions\":[{\"supportedEditions\":[{\"supportedServiceLevelObjectives\":[{\"sku\":{\"name\":\"S\",\"tier\":42}}]}]}]}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "sql-mi-wrong-status": {
+    "Provider": "sql-mi",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 200,
+        "Body": "{\"supportedServerVersions\":[{\"supportedEditions\":[{\"supportedServiceLevelObjectives\":[{\"sku\":{\"name\":\"S\"},\"status\":42}]}]}]}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "sql-mi-wrong-mi-family": {
+    "Provider": "sql-mi",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 200,
+        "Body": "{\"supportedManagedInstanceVersions\":[{\"supportedEditions\":[{\"supportedFamilies\":[{\"name\":42}]}]}]}"
+      }
+    ],
+    "Expected": null,
+    "Failed": true,
+    "Cancelled": false
+  },
+  "sql-mi-unknown-value-ignored": {
+    "Provider": "sql-mi",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 200,
+        "Body": "{\"value\":42}"
+      }
+    ],
+    "Expected": {},
+    "Failed": false,
+    "Cancelled": false
+  },
+  "sql-mi-null-inner": {
+    "Provider": "sql-mi",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 200,
+        "Body": "{\"supportedServerVersions\":[{\"supportedEditions\":[null,{\"supportedServiceLevelObjectives\":[null,{},{\"sku\":null}]}]}],\"supportedManagedInstanceVersions\":[{\"supportedEditions\":[null,{\"supportedFamilies\":[null,{}]}]}]}"
+      }
+    ],
+    "Expected": {},
+    "Failed": false,
+    "Cancelled": false
+  },
+  "sql-db-status-matrix": {
+    "Provider": "sql-db",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 200,
+        "Body": "{\"supportedServerVersions\":[{\"supportedEditions\":[{\"supportedServiceLevelObjectives\":[{\"sku\":{\"name\":\"Available\"},\"status\":\"Available\"},{\"sku\":{\"name\":\"Default\"},\"status\":\"Default\"},{\"sku\":{\"name\":\"Visible\"},\"status\":\"Visible\"},{\"sku\":{\"name\":\"Unknown\"},\"status\":\"unknown\"},{\"sku\":{\"name\":\"Missing\"}},{\"sku\":{\"name\":\"Null\"},\"status\":null},{\"sku\":{\"name\":\"Disabled\"},\"status\":\"DiSaBlEd\"},{\"sku\":{\"name\":\"UnicodeDisabled\"},\"status\":\"Diſabled\"},{\"sku\":{\"name\":\"Padded\"},\"status\":\" Disabled \"}]}]}]}"
+      }
+    ],
+    "Expected": {
+      "available": {
+        "State": 0,
+        "BlockedZones": null
+      },
+      "default": {
+        "State": 0,
+        "BlockedZones": null
+      },
+      "visible": {
+        "State": 0,
+        "BlockedZones": null
+      },
+      "unknown": {
+        "State": 0,
+        "BlockedZones": null
+      },
+      "missing": {
+        "State": 0,
+        "BlockedZones": null
+      },
+      "null": {
+        "State": 0,
+        "BlockedZones": null
+      },
+      "padded": {
+        "State": 0,
+        "BlockedZones": null
+      },
+      "disabled": {
+        "State": 2,
+        "BlockedZones": null
+      },
+      "unicodedisabled": {
+        "State": 2,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "sql-db-name-no-tier": {
+    "Provider": "sql-db",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 200,
+        "Body": "{\"supportedServerVersions\":[{\"supportedEditions\":[{\"supportedServiceLevelObjectives\":[{\"sku\":{\"tier\":\"not-name\"}},{\"sku\":{\"name\":\" S \",\"tier\":\"ignored\"}},{\"sku\":{\"name\":\"\"},\"status\":\"Disabled\"}]}]}]}"
+      }
+    ],
+    "Expected": {
+      " s ": {
+        "State": 0,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "sql-db-last-state": {
+    "Provider": "sql-db",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 200,
+        "Body": "{\"supportedServerVersions\":[{\"supportedEditions\":[{\"supportedServiceLevelObjectives\":[{\"sku\":{\"name\":\"S\"},\"status\":\"Available\"},{\"sku\":{\"name\":\"s\"},\"status\":\"Disabled\"}]}]}]}"
+      }
+    ],
+    "Expected": {
+      "s": {
+        "State": 2,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "sql-db-parent-status-ignored": {
+    "Provider": "sql-db",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 200,
+        "Body": "{\"supportedServerVersions\":[{\"status\":\"Disabled\",\"supportedEditions\":[{\"status\":42,\"supportedServiceLevelObjectives\":[{\"sku\":{\"name\":\"S\"},\"status\":\"Available\"}]}]}]}"
+      }
+    ],
+    "Expected": {
+      "s": {
+        "State": 0,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "sql-db-multi-level": {
+    "Provider": "sql-db",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 200,
+        "Body": "{\"supportedServerVersions\":[{\"supportedEditions\":[{\"supportedServiceLevelObjectives\":[{\"sku\":{\"name\":\"A\"}}]},{\"supportedServiceLevelObjectives\":[{\"sku\":{\"name\":\"B\"},\"status\":\"Disabled\"}]}]},{\"supportedEditions\":[{\"supportedServiceLevelObjectives\":[{\"sku\":{\"name\":\"C\"}}]}]}]}"
+      }
+    ],
+    "Expected": {
+      "a": {
+        "State": 0,
+        "BlockedZones": null
+      },
+      "c": {
+        "State": 0,
+        "BlockedZones": null
+      },
+      "b": {
+        "State": 2,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "sql-db-unicode-root-alias": {
+    "Provider": "sql-db",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 200,
+        "Body": "{\"ſupportedServerVersions\":[{\"supportedEditions\":[{\"supportedServiceLevelObjectives\":[{\"SKU\":{\"NAME\":\"S\"},\"STATUS\":\"Disabled\"}]}]}]}"
+      }
+    ],
+    "Expected": {
+      "s": {
+        "State": 2,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "sql-db-last-root-alias": {
+    "Provider": "sql-db",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 200,
+        "Body": "{\"supportedServerVersions\":[{\"supportedEditions\":[{\"supportedServiceLevelObjectives\":[{\"sku\":{\"name\":\"old\"}}]}]}],\"SUPPORTEDSERVERVERSIONS\":[{\"supportedEditions\":[{\"supportedServiceLevelObjectives\":[{\"sku\":{\"name\":\"S\"},\"status\":\"Disabled\"}]}]}]}"
+      }
+    ],
+    "Expected": {
+      "s": {
+        "State": 2,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "sql-db-next-ignored": {
+    "Provider": "sql-db",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 200,
+        "Body": "{\"supportedServerVersions\":[{\"supportedEditions\":[{\"supportedServiceLevelObjectives\":[{\"sku\":{\"name\":\"S\"}}]}]}] ,\"nextLink\":\"https://synthetic.invalid/sql/ignored\"}"
+      }
+    ],
+    "Expected": {
+      "s": {
+        "State": 0,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "sql-mi-tier-matrix": {
+    "Provider": "sql-mi",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 200,
+        "Body": "{\"supportedManagedInstanceVersions\":[{\"supportedEditions\":[{\"name\":\"GeneralPurpose\",\"supportedFamilies\":[{\"name\":\"Gen5\"},{\"name\":\"\"}]},{\"name\":\"BuSiNeSsCrItIcAl\",\"supportedFamilies\":[{\"name\":\"Gen8im\"}]},{\"name\":\"NextGenGeneralPurpose\",\"supportedFamilies\":[{\"name\":\"Gen5\"}]},{\"name\":\"Raw\",\"supportedFamilies\":[{\"name\":\"Family\"}]},{\"name\":\"\",\"supportedFamilies\":[{\"name\":\"Gen5\"}]},{\"name\":\" Padded \",\"supportedFamilies\":[{\"name\":\" Gen5 \"}]}]}]}"
+      }
+    ],
+    "Expected": {
+      "gp_gen5": {
+        "State": 0,
+        "BlockedZones": null
+      },
+      "bc_gen8im": {
+        "State": 0,
+        "BlockedZones": null
+      },
+      "ngpgen5_gen5": {
+        "State": 0,
+        "BlockedZones": null
+      },
+      "raw_family": {
+        "State": 0,
+        "BlockedZones": null
+      },
+      "_gen5": {
+        "State": 0,
+        "BlockedZones": null
+      },
+      " padded _ gen5 ": {
+        "State": 0,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "sql-mi-status-ignored": {
+    "Provider": "sql-mi",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 200,
+        "Body": "{\"supportedManagedInstanceVersions\":[{\"supportedEditions\":[{\"name\":\"GeneralPurpose\",\"status\":\"Disabled\",\"supportedFamilies\":[{\"name\":\"Gen5\",\"status\":\"Disabled\"}]}]}]}"
+      }
+    ],
+    "Expected": {
+      "gp_gen5": {
+        "State": 0,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "sql-mi-case-collision": {
+    "Provider": "sql-mi",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 200,
+        "Body": "{\"supportedManagedInstanceVersions\":[{\"supportedEditions\":[{\"name\":\"GeneralPurpose\",\"supportedFamilies\":[{\"name\":\"Gen5\"},{\"name\":\"GEN5\"}]}]}]}"
+      }
+    ],
+    "Expected": {
+      "gp_gen5": {
+        "State": 0,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "sql-mi-name-null": {
+    "Provider": "sql-mi",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 200,
+        "Body": "{\"supportedManagedInstanceVersions\":[{\"supportedEditions\":[{\"name\":null,\"supportedFamilies\":[{\"name\":\"Gen5\"},{\"name\":null}]}]}]}"
+      }
+    ],
+    "Expected": {
+      "_gen5": {
+        "State": 0,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "sql-mi-unicode-root-alias": {
+    "Provider": "sql-mi",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 200,
+        "Body": "{\"ſupportedManagedInstanceVersions\":[{\"supportedEditions\":[{\"NAME\":\"GeneralPurpose\",\"SUPPORTEDFAMILIES\":[{\"NAME\":\"Gen5\"}]}]}]}"
+      }
+    ],
+    "Expected": {
+      "gp_gen5": {
+        "State": 0,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "sql-mi-next-ignored": {
+    "Provider": "sql-mi",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 200,
+        "Body": "{\"supportedManagedInstanceVersions\":[{\"supportedEditions\":[{\"name\":\"GeneralPurpose\",\"supportedFamilies\":[{\"name\":\"Gen5\"}]}]}] ,\"nextLink\":42}"
+      }
+    ],
+    "Expected": {
+      "gp_gen5": {
+        "State": 0,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "sql-db-shared-payload": {
+    "Provider": "sql-db",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 200,
+        "Body": "{\"supportedServerVersions\":[{\"supportedEditions\":[{\"supportedServiceLevelObjectives\":[{\"sku\":{\"name\":\"SQL_D\"},\"status\":\"Disabled\"}]}]}],\"supportedManagedInstanceVersions\":[{\"supportedEditions\":[{\"name\":\"GeneralPurpose\",\"supportedFamilies\":[{\"name\":\"Gen5\"}]}]}]}"
+      }
+    ],
+    "Expected": {
+      "sql_d": {
+        "State": 2,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "sql-mi-shared-payload": {
+    "Provider": "sql-mi",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 200,
+        "Body": "{\"supportedServerVersions\":[{\"supportedEditions\":[{\"supportedServiceLevelObjectives\":[{\"sku\":{\"name\":\"SQL_D\"},\"status\":\"Disabled\"}]}]}],\"supportedManagedInstanceVersions\":[{\"supportedEditions\":[{\"name\":\"GeneralPurpose\",\"supportedFamilies\":[{\"name\":\"Gen5\"}]}]}]}"
+      }
+    ],
+    "Expected": {
+      "gp_gen5": {
+        "State": 0,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "sql-db-direct-upper-region": {
+    "Provider": "sql-db",
+    "Region": "EASTUS",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/EASTUS/capabilities?api-version=2021-11-01",
+        "Status": 200,
+        "Body": "{\"supportedServerVersions\":[{\"supportedEditions\":[{\"supportedServiceLevelObjectives\":[{\"sku\":{\"name\":\"S\"}}]}]}]}"
+      }
+    ],
+    "Expected": {
+      "s": {
+        "State": 0,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "sql-mi-direct-upper-region": {
+    "Provider": "sql-mi",
+    "Region": "EASTUS",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/EASTUS/capabilities?api-version=2021-11-01",
+        "Status": 200,
+        "Body": "{\"supportedManagedInstanceVersions\":[{\"supportedEditions\":[{\"name\":\"GeneralPurpose\",\"supportedFamilies\":[{\"name\":\"Gen5\"}]}]}]}"
+      }
+    ],
+    "Expected": {
+      "gp_gen5": {
+        "State": 0,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "sql-db-direct-display-region": {
+    "Provider": "sql-db",
+    "Region": "East US",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/East%20US/capabilities?api-version=2021-11-01",
+        "Status": 200,
+        "Body": "{\"supportedServerVersions\":[{\"supportedEditions\":[{\"supportedServiceLevelObjectives\":[{\"sku\":{\"name\":\"S\"}}]}]}]}"
+      }
+    ],
+    "Expected": {
+      "s": {
+        "State": 0,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "sql-mi-direct-display-region": {
+    "Provider": "sql-mi",
+    "Region": "East US",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/East%20US/capabilities?api-version=2021-11-01",
+        "Status": 200,
+        "Body": "{\"supportedManagedInstanceVersions\":[{\"supportedEditions\":[{\"name\":\"GeneralPurpose\",\"supportedFamilies\":[{\"name\":\"Gen5\"}]}]}]}"
+      }
+    ],
+    "Expected": {
+      "gp_gen5": {
+        "State": 0,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "storage-paged-last-state": {
+    "Provider": "storage",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"S\"}],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01&$skiptoken=synthetic\"}"
+      },
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01&$skiptoken=synthetic",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"s\",\"restrictions\":[{\"type\":\"Location\",\"reasonCode\":\"NotAvailableForSubscription\"}]}]}"
+      }
+    ],
+    "Expected": {
+      "s": {
+        "State": 1,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "cognitive-paged-kinds-collapse": {
+    "Provider": "cognitive",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"S0\",\"kind\":\"OpenAI\"}],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01&$skiptoken=synthetic\"}"
+      },
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01&$skiptoken=synthetic",
+        "Status": 200,
+        "Body": "{\"value\":[{\"name\":\"S0\",\"kind\":\"SpeechServices\"}]}"
+      }
+    ],
+    "Expected": {
+      "s0": {
+        "State": 0,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  },
+  "sql-db-surrogate-name": {
+    "Provider": "sql-db",
+    "Region": "eastus",
+    "Pages": [
+      {
+        "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+        "Status": 200,
+        "Body": "{\"supportedServerVersions\":[{\"supportedEditions\":[{\"supportedServiceLevelObjectives\":[{\"sku\":{\"name\":\"\\ud800\"}}]}]}]}"
+      }
+    ],
+    "Expected": {
+      "�": {
+        "State": 0,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false,
+    "Cancelled": false
+  }
+}`
+const otherIndependentCacheCalls = `[
+  {
+    "Label": "db-first",
+    "Subscription": "11111111-1111-1111-1111-111111111111",
+    "Type": "MICROSOFT.SQL/SERVERS/DATABASES",
+    "Region": "East US",
+    "Expected": {
+      "sql_d": {
+        "State": 2,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false
+  },
+  {
+    "Label": "db-normalized-reuse",
+    "Subscription": "11111111-1111-1111-1111-111111111111",
+    "Type": "microsoft.sql/servers/databases",
+    "Region": "eastus",
+    "Expected": {
+      "sql_d": {
+        "State": 2,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false
+  },
+  {
+    "Label": "mi-separate-key",
+    "Subscription": "11111111-1111-1111-1111-111111111111",
+    "Type": "microsoft.sql/managedinstances",
+    "Region": "East US",
+    "Expected": {
+      "gp_gen5": {
+        "State": 0,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false
+  },
+  {
+    "Label": "db-subscription-separate",
+    "Subscription": "22222222-2222-2222-2222-222222222222",
+    "Type": "microsoft.sql/servers/databases",
+    "Region": "eastus",
+    "Expected": {
+      "sql_d": {
+        "State": 2,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false
+  },
+  {
+    "Label": "db-region-separate",
+    "Subscription": "11111111-1111-1111-1111-111111111111",
+    "Type": "microsoft.sql/servers/databases",
+    "Region": "West US",
+    "Expected": {
+      "sql_d": {
+        "State": 2,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false
+  },
+  {
+    "Label": "cognitive-name-trim",
+    "Subscription": "11111111-1111-1111-1111-111111111111",
+    "Type": "microsoft.cognitiveservices/accounts",
+    "Region": "East US",
+    "Expected": {
+      "s0": {
+        "State": 0,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false
+  },
+  {
+    "Label": "storage-name-trim",
+    "Subscription": "11111111-1111-1111-1111-111111111111",
+    "Type": "microsoft.storage/storageaccounts",
+    "Region": "East US",
+    "Expected": {
+      "standard_lrs": {
+        "State": 0,
+        "BlockedZones": null
+      }
+    },
+    "Failed": false
+  }
+]`
+const otherIndependentCachePages = `[
+  {
+    "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+    "Status": 200,
+    "Body": "{\"supportedServerVersions\":[{\"supportedEditions\":[{\"supportedServiceLevelObjectives\":[{\"sku\":{\"name\":\"SQL_D\"},\"status\":\"Disabled\"}]}]}],\"supportedManagedInstanceVersions\":[{\"supportedEditions\":[{\"name\":\"GeneralPurpose\",\"supportedFamilies\":[{\"name\":\"Gen5\"}]}]}]}"
+  },
+  {
+    "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+    "Status": 200,
+    "Body": "{\"supportedServerVersions\":[{\"supportedEditions\":[{\"supportedServiceLevelObjectives\":[{\"sku\":{\"name\":\"SQL_D\"},\"status\":\"Disabled\"}]}]}],\"supportedManagedInstanceVersions\":[{\"supportedEditions\":[{\"name\":\"GeneralPurpose\",\"supportedFamilies\":[{\"name\":\"Gen5\"}]}]}]}"
+  },
+  {
+    "URL": "https://management.azure.com/subscriptions/22222222-2222-2222-2222-222222222222/providers/Microsoft.Sql/locations/eastus/capabilities?api-version=2021-11-01",
+    "Status": 200,
+    "Body": "{\"supportedServerVersions\":[{\"supportedEditions\":[{\"supportedServiceLevelObjectives\":[{\"sku\":{\"name\":\"SQL_D\"},\"status\":\"Disabled\"}]}]}],\"supportedManagedInstanceVersions\":[{\"supportedEditions\":[{\"name\":\"GeneralPurpose\",\"supportedFamilies\":[{\"name\":\"Gen5\"}]}]}]}"
+  },
+  {
+    "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Sql/locations/westus/capabilities?api-version=2021-11-01",
+    "Status": 200,
+    "Body": "{\"supportedServerVersions\":[{\"supportedEditions\":[{\"supportedServiceLevelObjectives\":[{\"sku\":{\"name\":\"SQL_D\"},\"status\":\"Disabled\"}]}]}],\"supportedManagedInstanceVersions\":[{\"supportedEditions\":[{\"name\":\"GeneralPurpose\",\"supportedFamilies\":[{\"name\":\"Gen5\"}]}]}]}"
+  },
+  {
+    "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CognitiveServices/skus?api-version=2024-10-01",
+    "Status": 200,
+    "Body": "{\"value\":[{\"name\":\" S0 \",\"locations\":[\"East US\"]}]}"
+  },
+  {
+    "URL": "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Storage/skus?api-version=2023-01-01",
+    "Status": 200,
+    "Body": "{\"value\":[{\"name\":\" Standard_LRS \",\"locations\":[\"East US\"]}]}"
+  }
+]`
+
+func TestRegionOtherSKUCapture(t *testing.T) {
+	output:=os.Getenv("REGION_OTHER_SKU_CAPTURE_OUTPUT")
+	if output=="" {t.Fatal("missing other SKU capture output")}
+	oldTransport,oldClient:=http.DefaultTransport,http.DefaultClient
+	http.DefaultTransport=computeCaptureTripwire{}
+	http.DefaultClient=&http.Client{Transport:computeCaptureTripwire{}}
+	defer func(){http.DefaultTransport,http.DefaultClient=oldTransport,oldClient}()
+	blobs:=map[string]string{
+		"provider.go":"7f71b296d332001ae12e49a021b6fee44f88a970",
+		"cache.go":"5be9c158fd38c609b06ffc67537cd07b838fc9d5",
+		"restrictions.go":"8d053daf58c7c8a18f39b579e95d4a53f8ebd55a",
+		"storage.go":"b5a3a8d020c8143c64d296d48e8c51ae3b0ca2cf",
+		"cognitiveservices.go":"7b3dc63af21f12213004c6e91d9eaaa06c8a2189",
+		"sql.go":"1cb1e6430f11476e66e8bbb13bc0cc2ad5e0a43f",
+		"../types/types.go":"f9b61fb74075e5a2297be1b898067b8cb047f9b3",
+		"../../../../az/http_client.go":"05d85c5a50ee81f088731160020a914af83e1ca5",
+		"compute_sku_capture_test.go":"024dd96e96c48e12a7c76831ab5a58c9e56185f5",
+	}
+	for path,want:=range blobs {
+		raw,err:=os.ReadFile(path);if err!=nil {t.Fatal(err)}
+		h:=sha1.Sum(append([]byte(fmt.Sprintf("blob %d\x00",len(raw))),raw...))
+		if fmt.Sprintf("%x",h)!=want {t.Fatal("original source or immutable Compute fixture changed",path)}
+	}
+	cases:=map[string]otherCaptureCase{}
+	if err:=json.Unmarshal([]byte(otherIndependentCases),&cases);err!=nil {t.Fatal(err)}
+	if len(cases)!=178 {t.Fatal("independent other SKU matrix incomplete")}
+	results:=map[string]computeCaptureResult{}
+	names:=make([]string,0,len(cases));for name:=range cases {names=append(names,name)};sort.Strings(names)
+	for _,name:=range names {
+		fixture:=cases[name]
+		s:=&computeCaptureTransport{pages:fixture.Pages,requests:[]computeCaptureRequest{}}
+		ctx,cancel:=context.WithTimeout(context.Background(),3*time.Second)
+		if fixture.Cancelled {cancel()}
+		var provider SKUProvider
+		switch fixture.Provider {
+		case "storage":provider=StorageProvider{}
+		case "cognitive":provider=CognitiveServicesProvider{}
+		case "sql-db":provider=SQLDatabaseProvider{}
+		case "sql-mi":provider=SQLManagedInstanceProvider{}
+		default:t.Fatal("unknown other SKU fixture provider")
+		}
+		got,err:=provider.FetchSKUs(ctx,computeCaptureSubscription,fixture.Region,computeCaptureClient(s))
+		cancel()
+		computeCaptureEqual(t,name,got,fixture.Expected,err,fixture.Failed)
+		count:=len(fixture.Pages);if fixture.Cancelled {count=0}
+		computeCaptureTransportCheck(t,s,count)
+		results[name]=computeCaptureResult{Entries:got,Failed:err!=nil,Requests:s.requests}
+	}
+	cacheCalls:=[]otherCaptureCacheCall{}
+	cachePages:=[]computeCapturePage{}
+	if json.Unmarshal([]byte(otherIndependentCacheCalls),&cacheCalls)!=nil||json.Unmarshal([]byte(otherIndependentCachePages),&cachePages)!=nil {t.Fatal("independent cache fixture")}
+	cache:=NewCache()
+	cacheTransport:=&computeCaptureTransport{pages:cachePages,requests:[]computeCaptureRequest{}}
+	client:=computeCaptureClient(cacheTransport)
+	cacheResults:=map[string]computeCaptureResult{}
+	for _,call:=range cacheCalls {
+		ctx,cancel:=context.WithTimeout(context.Background(),3*time.Second)
+		got,err:=cache.GetSKUAvailability(ctx,call.Subscription,call.Type,call.Region,client)
+		cancel()
+		computeCaptureEqual(t,call.Label,got,call.Expected,err,call.Failed)
+		copyMap:=map[string]types.SKUAvailability{}
+		for key,value:=range got {value.BlockedZones=append([]string(nil),value.BlockedZones...);copyMap[key]=value}
+		if got==nil {copyMap=nil}
+		cacheResults[call.Label]=computeCaptureResult{Entries:copyMap,Failed:err!=nil,Requests:append([]computeCaptureRequest{},cacheTransport.requests...)}
+	}
+	computeCaptureTransportCheck(t,cacheTransport,6)
+	write:=func(name string,value any){
+		raw,err:=json.MarshalIndent(value,"","  ");if err!=nil {t.Fatal(err)}
+		if err=os.MkdirAll(output,0700);err!=nil {t.Fatal(err)}
+		if err=os.WriteFile(filepath.Join(output,name),append(raw,'\n'),0600);err!=nil {t.Fatal(err)}
+	}
+	write("source-other-sku-inputs.json",struct{
+		Blobs map[string]string
+		Cases map[string]otherCaptureCase
+		CacheCalls []otherCaptureCacheCall
+		CachePages []computeCapturePage
+		Seam string
+	}{blobs,cases,cacheCalls,cachePages,"Unchanged original providers; fake credential/explicit Compute capture transporter; MaxRetries=-1 differs from production defaults; no Azure or model-deployment/quota certification"})
+	write("source-other-sku-outputs.json",struct{
+		Cases map[string]computeCaptureResult
+		Cache map[string]computeCaptureResult
+	}{results,cacheResults})
+}

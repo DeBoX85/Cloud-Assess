@@ -1,3 +1,76 @@
+# FN123: QA helper import dirtied native checkout, 2026-10-13
+
+Candidate71f885f3/native38457808095/Linux115504929633 FAILED actual package
+integration: ValueError candidate packaging requires a clean source checkout.
+Complete54647log: five cleanup policy tests passed (one Windows-only skipped),
+all12actual builtCLI checks passed; packaging stopped before later race/fuzz/
+production-mutation/vulnerability gates. Local qa_temp_cleanup import introduced
+Python __pycache__; existing package scripts disable bytecode writing.
+Fix BOTH new import entry points with sys.dont_write_bytecode=True BEFORE importing
+the task-owned helper. Preserve packaging clean-source enforcement unchanged.
+No manifest change, ignore addition, cleanup deletion or acceptance transfer.
+
+An intermediate user update incorrectly guessed an undeclared package input before
+reading the complete traceback. Corrected explicitly once the clean-checkout error
+was inspected. A proof helper also compared this failed partial Linux80controls
+against the prior complete287 and rejected the mismatch; that rejection is not a
+new product failure or complete mutation pass. Prevention: inspect conclusion and
+full failing trace before diagnosis or full-log control comparison. Fresh complete
+corrected-head gates and actual superseded Windows outcome remain required.
+
+---
+
+# FN122: Windows built CLI cleanup sharing violation, 2026-10-13
+
+Candidate2797a54dd05b674118b53895d4c50857f4e64800/native38453521543/
+Windows115490389956 FAILED at Verify built Windows CLI preflight and compiled
+dependency evidence (2026-10-13T19:40:08Z to19:40:20Z). Complete74223log shows
+test_zone_only_skips_unused_yaml_discovery cleanup raising PermissionError WinError32
+on its owned reports with spaces/cloud-assess.exe copy. All12functional tests
+reported no assertion failure; cleanup is still a required failure. Native source
+and collector controls passed earlier; later docs/packages/branding/security steps
+were skipped. Linux115490390648 succeeded independently; neither accepts Windows.
+
+subprocess.run already waits for each executable; the log cannot identify the lock
+holder. Do not claim antivirus or a background CLI process as established cause.
+Narrow test-only remedy retries ONLY winerror32 for eight cleanup attempts with
+seven delays totaling4.5seconds. Persistent locks and unrelated errors propagate,
+without ignore_cleanup_errors or weakened CLI/tripwire checks. Both gates exercise
+classification/exhaustion and controlled native Windows delete-sharing lock release.
+Fresh full corrected-head gates/review and distinct accepted-push proof required.
+Historical failure remains failed, not overwritten by a successful rerun.
+
+---
+
+# FN121: Automated review cited a different identity hash, 2026-10-13
+
+Review5508793396/marker6153259878 completed actual candidate2797a54 on2026-10-13.
+Finding4263013800 attributed Codex authorship to cited2d9c3090a0260d505eec804e804750b4cf407f00.
+Re-read actual published head2797a54 author AND committer Denis Bogunic with required
+noreply identity, independently reproduced raw SHA1 from actual metadata. Cited
+2d9c3090 returns404 in this repo, origin unknown. No actual identity rewrite justified.
+Evidence reply4263081154 and resolved threadPRRT_kwDOUdPf9c6sBg4z preserve disposition.
+One reviewed identity-evidence discrepancy existed; do not report zero findings or
+infer independent human approval. Repeat actual-head evidence for fresh review.
+No Git identity, source pin, guard or protection bypass changed.
+
+---
+
+# FN120: Remaining SKU first strict observation preparation, 2026-10-13
+
+Pilotbfe22446/source38452136762/job115485455692 FAILED at missing
+source-other-sku-inputs.json only AFTER original11harnesses/provider178independent
+fullmaps/7cachecalls/request boundaries/source+APRL+module guards passed.
+This was the predeclared first unretained observation, not compilation or fixture
+failure and not acceptance. Full1361309log/23records315chunks independently SHA256;
+all21earlier full remote bytes/Gitblob matched unchanged. Retain original new
+input111334bytes81ffb150/output132253bytesc7721666 verbatim and require fresh strict
+current-head equality; do not alter expected source behavior to get green output.
+New native17controls/fullQA/review/merge/push proof remain independently required.
+No source/pin/security/native guard weakened. Prior FN118-119 histories retained.
+
+---
+
 # FN119: Preserve earlier source manifest controls when extending (2026-10-13)
 
 Self-review before PR138 acceptance found the first21record byte-guard extension
