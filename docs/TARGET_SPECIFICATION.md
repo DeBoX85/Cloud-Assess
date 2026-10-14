@@ -1,3 +1,23 @@
+# Section 2 correction candidate, review started 2026-10-14
+
+This is the current authority; older Section 1 stop/preparation paragraphs below are historical. The user authorized Section 2 continuation at 23:23 Europe/Berlin. Full manual review covers all 13 assigned packages and 51 baseline Go files (25 production, 26 tests), with independent full-content/Git-blob checks. Six P2 finding groups reproduced after compilation on both hosts and are corrected in separate commits. Full corrected-candidate QA and review are pending; do not credit Section 2 complete yet.
+
+Read [Section 2 report](SYSTEMATIC_REVIEW_SECTION2_20261014.md), [change journal](SYSTEMATIC_REVIEW_CHANGELOG_20261014.md) and [live PR142](https://github.com/DeBoX85/Cloud-Assess/pull/142). Production correction ancestry ends at `cece5532c1ac79fd2f4964b1594bbafc06a0c61d`; current candidate refs may include subsequent helper/documentation or review fixes. PR142 stays draft/unmerged; protected baseline is `a6fee427e19feeef28691737ea9bc5026086efa0`.
+
+Finding groups: SR-F04 terminal stage health; SR-F05 nested registry ownership; SR-F06 caller context in Cost/Diagnostics workers; SR-F07 one Diagnostics response/EOF; SR-F08 requested-batch setting scope; SR-F09 documented Cost 200/204 success. Seven compiling controls and one coordinator integration regression are retained. The first Cost status fixture failed before transport and is not status proof; corrected 10-second fixture/calls==1 reproduced all five invalid statuses on both hosts. A misplaced guard was caught in an unpublished draft and corrected before ref advance.
+
+Reproduction-only `ac08820a66cdcbf55dfe39314f03b2138b11a48c`: native38642216627 failed only the declared Go tests on Linux116120286515 and Windows116120287313, after compilation/formatting/build; source38642216664 passed separately. Full logs/hashes, predecessor fixture classification, fix/parent and rollback dependencies are in the report. These failing runs are evidence, not acceptance.
+
+NEXT: inspect complete latest-head native/source QA and automated review; address real findings, reconcile coverage and publish the Section 2 checkpoint. Do not replay completed work. Stop for the user's re-evaluation before Section 3. Audit remains 1/4 sections complete and 9/41 finally verified packages while candidate QA is pending.
+
+Section 1 code00ba2716 and documentation7911764 passed both hosts/source; exact-current success is never inherited. Source captures/pins/dependencies/schemas remain unchanged; no Azure action, live parity or release approval. Source-compatible numeric Arc SQL and other business-row/volume limits are explicitly residual. One module-only advisory remained in prior scans; inspect fresh results rather than assuming current clearance.
+
+Project state remains: accepted target region adapters1/7, source captures7/7, public region unavailable. Six adapters, coordinator/public region, FullCost/other parity, AR-02/load, live/fresh OS, advisory and human/license/security/Gate004/release work remain. After the entire audit, resume Storage contract/tests and remaining adapter/integration work; draft PR141 holds Storage analysis. Laptop/Azure restoration is unconfirmed. Sections 3–4 planning budget is 6–11 active review hours plus material fixes/repeat QA; no reliable overall weighted percentage or release ETA.
+
+Recovery: freshly inspect task/protected refs, PR142 and actual run heads/results; read this current report and journal. Scratch/tool stores may disappear. Use normal targeted revert commits after dependency/QA assessment; never reset protected history or modify retained source captures to hide regressions.
+
+---
+
 # Section 1 stopping checkpoint, 2026-10-14
 
 This is the authoritative current state; earlier preparation paragraphs below are retained history. Section 1 code review and corrective QA are complete on code candidate `00ba2716f76366f6663de15531fdef4de6b812f8`, tree `e5098c01f631e0186d244631c61b4fad95cdda44`. This documentation-only successor does not claim exact-head QA inherited from its parent. PR142 remains draft and unmerged; protected baseline is still `a6fee427e19feeef28691737ea9bc5026086efa0`.
