@@ -16,6 +16,7 @@ import (
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
+	"github.com/DeBoX85/Cloud-Assess/internal/assessment"
 	"github.com/DeBoX85/Cloud-Assess/internal/azure"
 )
 
@@ -588,5 +589,64 @@ func TestComputeDiskSKUJSONEdgesAndContext(t *testing.T) {
 	page, code := decodeDiskPage(ctx, []byte(diskEnvelope(diskAvailableRow, "")), "eastus", map[string]SKUAvailability{}, 0, 0)
 	if code == "" || page.values != nil {
 		t.Fatalf("cancelled decoder admitted page: %#v %s", page, code)
+	}
+}
+
+func TestComputeDiskSKUAvailabilityIntegration(t *testing.T) {
+	cases := []struct {
+		name string
+		replies []diskReply
+		status string
+		available, unavailable, unknown int
+		percent float64
+		missing []string
+		warnings []string
+	}{
+		{"complete-present-and-absent", []diskReply{{body: diskEnvelope(diskAvailableRow, "")}}, "complete", 1, 1, 0, 50, []string{"microsoft.compute/disks:Absent"}, []string{}},
+		{"complete-empty", []diskReply{{body: diskEnvelope("", "")}}, "complete", 0, 2, 0, 0, []string{"microsoft.compute/disks:Absent", "microsoft.compute/disks:Premium_LRS"}, []string{}},
+		{"partial-retained-prefix", []diskReply{{body: diskEnvelope(diskAvailableRow, diskNextURL)}, {err: errors.New("second page failed")}}, "partial", 0, 0, 2, 100, []string{"microsoft.compute/disks:Absent (unknown)", "microsoft.compute/disks:Premium_LRS (unknown)"}, []string{"availability_sku_unknown"}},
+		{"unknown-first-page", []diskReply{{err: errors.New("first page failed")}}, "unknown", 0, 0, 2, 100, []string{"microsoft.compute/disks:Absent (unknown)", "microsoft.compute/disks:Premium_LRS (unknown)"}, []string{"availability_sku_unknown"}},
+	}
+	for _, test := range cases {
+		t.Run(test.name, func(t *testing.T) {
+			collected, err, _ := diskCollect(t, test.replies...)
+			if err != nil || collected == nil || collected.Status != test.status {
+				t.Fatalf("collection=%#v error=%v", collected, err)
+			}
+			counts := emptyInventoryCounts()
+			counts.ResourceTypesByRegion["westeurope"] = map[string]int64{"microsoft.compute/disks": 2}
+			counts.SKUsByTypeAndRegion["microsoft.compute/disks"] = map[string]map[string]int64{"westeurope": {"Premium_LRS": 900, "Absent": 1}}
+			inventory := &InventoryCalculation{Subscriptions: map[string]InventoryCounts{diskTestID: counts}}
+			evidence := AvailabilityEvidence{
+				SubscriptionID: diskTestID, TargetRegion: "eastus", InventoryComplete: true, ProvidersComplete: true,
+				Locations: map[string]map[string]bool{"microsoft.compute/disks": {"eastus": true}},
+				SKUEnabled: true, SKUs: map[string]SKUEvidence{"microsoft.compute/disks": collected.Evidence()},
+				ZoneCounts: map[string]int{"westeurope": 3, "eastus": 2},
+			}
+			value, err := CalculateAvailability(context.Background(), map[string]string{diskTestID: "Selected"}, inventory,
+				AvailabilityRequest{SubscriptionID: diskTestID, SourceRegion: "westeurope", TargetRegion: "eastus"}, evidence)
+			if err != nil || value == nil {
+				t.Fatalf("calculation=%#v error=%v", value, err)
+			}
+			want := Comparison{
+				SubscriptionID: diskTestID, SubscriptionName: "Selected", SourceRegion: "westeurope", TargetRegion: "eastus",
+				SourceResourceTypeCount: 1, AvailableTypes: 1, AvailabilityPercent: 100,
+				MissingResourceTypes: []string{}, MissingSKUs: test.missing, RestrictedSKUs: []string{}, ZoneRestrictedSKUs: []string{},
+				TotalSKUsChecked: 2, AvailableSKUs: test.available, UnavailableSKUs: test.unavailable, UnknownSKUs: test.unknown,
+				SKUAvailabilityPercent: test.percent, SourceZoneCount: 3, TargetZoneCount: 2,
+			}
+			codes := []string{}
+			for _, warning := range value.Health.Warnings {
+				codes = append(codes, warning.Code)
+			}
+			wantStatus := assessment.StageCompleted
+			if len(test.warnings) != 0 {
+				wantStatus = assessment.StageCompletedWithWarnings
+			}
+			if !reflect.DeepEqual(value.Comparison, want) || value.Health.Status != wantStatus ||
+				value.Health.Records != 1 || !reflect.DeepEqual(codes, test.warnings) {
+				t.Fatalf("calculation=%#v want comparison=%#v status=%v warnings=%v", value, want, wantStatus, test.warnings)
+			}
+		})
 	}
 }

@@ -34,7 +34,7 @@ controls = (
     ("zone-order", "sort.Strings(value.BlockedZones)", "sort.Sort(sort.Reverse(sort.StringSlice(value.BlockedZones)))", "TestComputeDiskSKULiteralStates"),
     ("prior-collision", "if _, exists := prior[key]; exists {", "if false {", "TestComputeDiskSKUAtomicFailureAndSnapshot"),
     ("atomic-page", "page.values[key] = value", "page.values[key] = value\n\t\tprior[key] = value", "TestComputeDiskSKUAtomicFailureAndSnapshot"),
-    ("partial-snapshot", "if c == nil || c.Status != \"complete\" {", "if c == nil {", "TestComputeDiskSKUAtomicFailureAndSnapshot"),
+    ("partial-snapshot", "if c == nil || c.Status != \"complete\" {", "if c == nil {", "TestComputeDiskSKUAvailabilityIntegration"),
     ("snapshot-slice", "value.BlockedZones = append([]string{}, value.BlockedZones...)", "// omitted slice copy", "TestComputeDiskSKUAtomicFailureAndSnapshot"),
     ("page-bytes", "len(body) > MaxQuotaPageBytes", "false", "TestComputeDiskSKUBounds"),
     ("aggregate-bytes", "len(body) > MaxQuotaTotalBytes-total", "false", "TestComputeDiskSKUBounds"),
