@@ -23,6 +23,8 @@ def check(select):
 original = SOURCE.read_bytes()
 text = original.decode('utf-8')
 controls = (
+    ("null-terminator", 'present && !bytes.Equal(bytes.TrimSpace(raw), []byte("null")) && !diskScalar(raw, &page.next)', 'present && !diskScalar(raw, &page.next)', "TestComputeDiskSKUNullPaginationTerminator"),
+    ("status-error-pair", "if response != nil && response.StatusCode != http.StatusOK {", "if err == nil && response != nil && response.StatusCode != http.StatusOK {", "TestComputeDiskSKUHTTPStatusClassification"),
     ("request-version", "computeDiskSKUVersion = \"2021-07-01\"", "computeDiskSKUVersion = \"2023-03-01\"", "TestComputeDiskSKULiteralStates"),
     ("continuation-origin", "!strings.EqualFold(target.Host, c.transport.origin.Host)", "false", "TestComputeDiskSKURequestsAndContinuation"),
     ("continuation-path", "target.Path != first.Path", "false", "TestComputeDiskSKURequestsAndContinuation"),

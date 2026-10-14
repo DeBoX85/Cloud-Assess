@@ -476,7 +476,7 @@ func decodeDiskPage(ctx context.Context, body []byte, region string, prior map[s
 	if !valid {
 		return diskDecodedPage{}, "sku_invalid_response"
 	}
-	if raw, present := envelope["nextLink"]; present && !diskScalar(raw, &page.next) {
+	if raw, present := envelope["nextLink"]; present && !bytes.Equal(bytes.TrimSpace(raw), []byte("null")) && !diskScalar(raw, &page.next) {
 		return diskDecodedPage{}, "sku_invalid_response"
 	}
 	decoder := json.NewDecoder(bytes.NewReader(body))
@@ -599,11 +599,11 @@ func (c *ComputeDiskSKUCollector) Collect(ctx context.Context, subscriptions map
 		if errors.Is(err, context.DeadlineExceeded) {
 			return nil, context.DeadlineExceeded
 		}
+		if response != nil && response.StatusCode != http.StatusOK {
+			return fail("sku_status_invalid")
+		}
 		if err != nil || response == nil {
 			return fail("sku_request_failed")
-		}
-		if response.StatusCode != http.StatusOK {
-			return fail("sku_status_invalid")
 		}
 		if len(body) > MaxQuotaPageBytes || len(body) > MaxQuotaTotalBytes-total {
 			return fail("sku_byte_limit")

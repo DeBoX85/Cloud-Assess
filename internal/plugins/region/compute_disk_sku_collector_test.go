@@ -124,8 +124,8 @@ func TestComputeDiskSKULiteralStates(t *testing.T) {
 func TestComputeDiskSKURejectsMalformedPages(t *testing.T) {
 	cases := []string{
 		`null`, `[]`, `{}`, `{"value":null}`, `{"value":{}}`, `{"Value":[]}`,
-		`{"value":[null]}`, `{"value":[],"nextLink":null}`, `{"value":[],"NextLink":""}`,
-		`{"value":[],"nextLink":2}`, `{"value":[],"value":[]}`, `{"value":[],"VALUE":[]}`,
+		`{"value":[null]}`, `{"value":[],"NextLink":""}`,
+		`{"value":[],"nextLink":2}`, `{"value":[],"nextLink":true}`, `{"value":[],"nextLink":[]}`, `{"value":[],"nextLink":{}}`, `{"value":[],"value":[]}`, `{"value":[],"VALUE":[]}`,
 		`{"value":[]}{}`, `{"value":[]}garbage`, `{"value":[],"x":"\ud800"}`,
 		`{"value":[],"x":"\u0000"}`, `{"value":[],"x":"\uffff"}`,
 	}

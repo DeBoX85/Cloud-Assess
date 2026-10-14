@@ -1,3 +1,27 @@
+# FN126-FN127 reproduced and corrected candidate prepared, 2026-10-14
+
+Both named review findings reproduced after successful compilation of unchanged
+81ecaedf collector89ff64b2 on BOTH native hosts in38499748980:
+Windows115643626239 and Linux115643626517. Complete logs and full hashed
+formatter bytes retained. Prior null-negative fixture was a mistaken contract,
+not a trusted service oracle: immutable primary2021-07-01 examples at1cdcc541/
+9d403f67/def2413e/f1c254f7 all use nextLink:null. Move ONLY that terminal case to
+positive independently declared first/later/healthy-filtered-primary examples;
+nonstring2/true/array/object and aliases still reject. Source captures unchanged.
+
+Correction accepts omitted/empty/null terminators while preserving all URI guards.
+After terminal context checks, non-nil non-200 status is classified before the
+remaining error/nil-response case; 200+error stays request failure.
+Actual bounded-client403/429/500/307 plus partial-prefix pairs,200+error and
+terminal context pairs have independent fixed expected FailureCode/evidence.
+Two new compiling guard controls bring disk total23 and full native expected
+314Linux/309Windows, preserving every prior291/286 identity. Corrected preparation,
+fresh final native/source/current-head review/protected merge/distinct actual
+accepted-push proof remain mandatory. Neither findings nor correction is accepted
+yet; public region and all other deferred gates remain unavailable/open.
+
+---
+
 # Review findings FN126-FN127: candidate withheld, 2026-10-14
 
 Automated inline comments4266037791/4266037797 on exact81ecaedf (formal PRR_kwDOUdPf9c8AAAABSI4uOQ/
