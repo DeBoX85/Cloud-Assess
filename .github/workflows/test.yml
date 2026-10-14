@@ -55,6 +55,9 @@ jobs:
 
           test "$(git -C internal/rules/upstream/aprl rev-parse HEAD)" = "$expected_aprl"
 
+      - name: Verify Section 1 compiling regressions
+        run: python3 scripts/tests/section1-regressions.py
+
       - name: Verify ARG response framing compiling controls
         run: python3 scripts/tests/arg-response-framing-mutation.py
 
@@ -319,6 +322,9 @@ jobs:
 
       - name: Verify Windows workflow native-command failure propagation
         run: python scripts/tests/workflow-command-failures.py
+
+      - name: Verify Section 1 compiling regressions
+        run: python scripts/tests/section1-regressions.py
 
       - name: Verify ARG response framing compiling controls
         run: python scripts/tests/arg-response-framing-mutation.py

@@ -54,7 +54,8 @@ func ExecuteRecommendations(
 		return []assessment.Finding{}, []RuleWarning{}, nil
 	}
 
-	ctx, cancel := context.WithCancel(ctx)
+	parentContext := ctx
+	ctx, cancel := context.WithCancel(parentContext)
 	defer cancel()
 
 	jobs := make(chan assessment.RecommendationDefinition)
@@ -158,6 +159,9 @@ func ExecuteRecommendations(
 			warnings = append(warnings, *outcome.warning)
 		}
 		findings = append(findings, outcome.findings...)
+	}
+	if err := parentContext.Err(); err != nil {
+		return nil, warnings, fmt.Errorf("recommendation execution interrupted: %w", err)
 	}
 	if firstErr != nil {
 		return nil, warnings, firstErr
