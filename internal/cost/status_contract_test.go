@@ -15,10 +15,12 @@ import (
 func TestCostHTTPRequiresDocumentedQueryCompletionStatus(t *testing.T) {
 	for _, status := range []int{200, 201, 202, 203, 204, 205, 206} {
 		t.Run(strconv.Itoa(status), func(t *testing.T) {
-			options := azure.DefaultHTTPClientOptions(time.Second)
+			calls := 0
+			options := azure.DefaultHTTPClientOptions(10 * time.Second)
 			options.MaxRetries = -1
 			options.Scope = "https://management.azure.com/.default"
 			options.Transport = costContractTransport(func(request *http.Request) (*http.Response, error) {
+				calls++
 				payload := `{"properties":{"rows":[[1,"Storage","USD"]]}}`
 				if status == http.StatusNoContent {
 					payload = ""
@@ -27,6 +29,9 @@ func TestCostHTTPRequiresDocumentedQueryCompletionStatus(t *testing.T) {
 			})
 			scanner := NewWithClient(azure.NewHTTPClient(costContractCredential{}, options), "https://management.azure.com")
 			result, err := scanner.scanAt(context.Background(), map[string]string{"sub": "Synthetic"}, time.Date(2026, 10, 14, 0, 0, 0, 0, time.UTC))
+			if calls != 1 {
+				t.Fatalf("Cost status fixture did not reach response: status=%d calls=%d error=%v", status, calls, err)
+			}
 			if status == http.StatusOK {
 				if err != nil || len(result.Records) != 1 {
 					t.Fatalf("documented cost response failed: result=%+v error=%v", result, err)
