@@ -1,3 +1,20 @@
+# Disk collector preparation correction, 2026-10-14
+
+PR140 cd9d0807 remains unaccepted. Focused preparation38497615288:
+Windows115636893592 passed all collector cases, vet and21compiling controls
+with restored named baselines (full210814log). Linux115636894116 passed the
+collector baseline (including race), then FAILED while decoding intentionally
+malformed mutation-test diagnostic bytes as UTF-8. This is a Python harness
+failure, not evidence that the failing mutation passed or production was accepted.
+Preserve the failed run. Use explicit UTF-8/backslashreplace only for subprocess
+diagnostics and quoted malformed-body test output; ASCII named runtime-failure
+and compile/restoration checks remain mandatory. No fixture result, collector
+admission rule, source pin, module or caller budget is relaxed.
+Adopt independently reconstructed native gofmt output. Both hosts and full
+final-head native/source/review/merge/distinct-push evidence remain required.
+
+---
+
 # Corrective QA verified; first disk collector continuation, 2026-10-14
 
 ARG fix459f73dd: complete focused Linux115626163022/full84049 and

@@ -11,7 +11,7 @@ GO = os.environ.get('QA_GO', 'go')
 
 def run(select):
     return subprocess.run([GO, 'test', './internal/plugins/region', '-run', select, '-count=1', '-v'],
-                          cwd=ROOT, capture_output=True, text=True, timeout=180)
+                          cwd=ROOT, capture_output=True, text=True, encoding='utf-8', errors='backslashreplace', timeout=180)
 
 
 def check(select):

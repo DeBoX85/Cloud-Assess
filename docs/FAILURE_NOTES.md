@@ -1,3 +1,17 @@
+# FN125: Linux disk mutation diagnostics were not UTF-8, 2026-10-14
+
+Unaccepted PR140 cd9d0807 preparation38497615288/Linux115636894116 passed
+collector baseline/race, then failed Python subprocess stdout decoding of an
+intentionally invalid byte0xff emitted by a malformed-JSON mutation assertion.
+Windows115636893592 completed all21compiling controls and restored baselines.
+This is a test-harness portability failure, not a production acceptance or an
+undetected-control pass. Preserve both results. Explicit UTF-8/backslashreplace
+for diagnostics and Go quoted malformed body output preserve every fixture,
+ASCII named failure, compile check, restore check and production admission rule.
+Both-host corrected preparation and complete current-head acceptance remain due.
+
+---
+
 # FN124: ARG first-document success ignored invalid suffix, 2026-10-14
 
 Manual code review found HTTPTransport.Do decoded one JSON document then drained
