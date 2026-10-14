@@ -1,12 +1,41 @@
+# Section 1 stopping checkpoint, 2026-10-14
+
+This is the authoritative current state; earlier preparation paragraphs below are retained history. Section 1 code review and corrective QA are complete on code candidate `00ba2716f76366f6663de15531fdef4de6b812f8`, tree `e5098c01f631e0186d244631c61b4fad95cdda44`. This documentation-only successor does not claim exact-head QA inherited from its parent. PR142 remains draft and unmerged; protected baseline is still `a6fee427e19feeef28691737ea9bc5026086efa0`.
+
+Coverage: all nine Section 1 packages, 95 baseline Go files plus two new regression files, reviewed and reconciled. Audit checkpoints completed: **1/4 (25% by sections)**. Package coverage: **9/41 (22.0% by directory count)**. Neither is a weighted overall-project percentage, a claim that all modules are reviewed, or defect-free certification.
+
+Three confirmed Section 1 P2 defects corrected: terminal ARG executor context/error priority, nonunique inventory paging order, and undocumented ARG201–206 completed-query admission. Four compiling counterfactual/restoration controls are retained on Linux and Windows. First-review gaps in the correction and test oracle were reproduced/corrected; the current review on00ba2716 completed with no major issues reported. Historical repro runs/fix parents/hashes remain in the report and journal.
+
+NEXT: stop for the user's planned re-evaluation. Do not start Section 2 automatically or replay completed fixes. Once continuation is authorized, review Section 2's 13 assessment/collector packages against the coverage map, including business-row completeness and request/memory budgets. Sections 2–4 need approximately **9–15 active review hours**, plus material findings and repeated QA. Overall project release ETA remains unverified.
+
+Project scope remains: accepted region target adapters1/7, source captures7/7, public region unavailable; six adapters, coordinator/public region, FullCost/other parity, AR-02/load, live/fresh-OS, advisory disposition, Gate004/license/security/human and release checks remain. After the entire audit resume Storage contract/tests, then remaining adapters and integration. Storage analysis remains on draft PR141. Laptop/Azure restoration is unconfirmed; no Azure call or write occurred.
+
+Recovery: freshly inspect PR142/task/protected refs; use the latest Section 1 report and change journal, retaining the distinction between verified code head and documentation successor. Follow documented normal revert commits with dependency review and appropriate QA; do not reset protected history or rewrite pinned source fixtures.
+
+## Verified code-head evidence
+
+All following evidence is for `00ba2716f76366f6663de15531fdef4de6b812f8`, not this documentation-only successor:
+- Native [run38570549786](https://github.com/DeBoX85/Cloud-Assess/actions/runs/38570549786), pull_request event, completed/success. Linux job115874677557:61steps, all success except conditional failure-evidence step appropriately skipped. Windows115874677774:46steps, all success.
+- Complete returned Linux log:100982characters; SHA-256 `997e3543589bae24fec402b113caffa6fe6538e9d2a064e39ff95918d3b00dee`. Windows:82461characters/82463UTF-8 bytes; SHA-256 `fa29a05b2d4d79cd49708bbd00c6385de2041d875a8c8ac1e3015063dce24912`. Hashes retain original line endings; control identities alone normalize terminal CRLF.
+- All prior control identities retained; four new compiling Go regressions/restorations passed. Linux318total (317Go-labeled controls plus one shell bootstrap control), Windows313Go-labeled controls.
+- Race suite, formatting/module/dependency/provenance/docs checks, bounded fuzzing, vet, native CLI/branding/package checks passed; total Linux statement coverage85.2%. Both vulnerability scans:0reachable,0imported-package,1module-only advisory. Advisory disposition remains open.
+- Source [run38570546281](https://github.com/DeBoX85/Cloud-Assess/actions/runs/38570546281), same actual head/pull_request event, completed/success; job115874269869 all7steps success. Complete log1360512characters; SHA-256 `21914898e23c78a09179f39dbc1651537dbf175f676a0d623c6dcb743a0690cf`. Reconstructed315chunks/23captures with per-capture SHA-256; every capture matched fresh candidate file bytes, API Git-blob SHA and baseline retained blob.
+- Source/AZQR `8e4f0577f3615e6c9014c031bcad079f235369cc`, tree `17d93b20c303f90f7843036be82f0dc32f3260f1`, APRL `60eaddda76541f6adbc1c5ffa686829807e55e29` unchanged.
+- Automated review result6169320382 and marker6168441214 completed2026-10-14T13:20:05.783287Z on00ba2716 with no major issues reported. This is not human or release approval.
+- All17changed candidate files were freshly read back and their full authored contents/Git-blob hashes matched; final diff inspected. Protected branch and PRdraft/unmerged state independently re-read.
+- This successor changes only eight Markdown records. It records completed parent-code QA and the user stopping point. Fresh successor checks must be inspected before any merge; no accepted-push QA exists for these corrections.
+
+---
+
 # Section 1 systemic review, 2026-10-14
 
 ## Current state and next action
 
-**Source/test review is complete for Section 1; correction verification and the section checkpoint are still pending.** No protected acceptance, completed whole-codebase audit or release readiness is claimed.
+**Section 1 code review and correction QA are complete on verified code candidate `00ba2716f76366f6663de15531fdef4de6b812f8`; this is the planned user re-evaluation checkpoint.** No protected acceptance, completed whole-codebase audit or release readiness is claimed.
 
 The accepted baseline remains `a6fee427e19feeef28691737ea9bc5026086efa0`. Read [live PR142](https://github.com/DeBoX85/Cloud-Assess/pull/142) and current branch refs for the actual candidate head and latest QA/review results. Earlier preparation records are history and must not be replayed.
 
-The next action is to inspect the **latest candidate's complete native and source evidence and its exact-head review**, address remaining findings, reconcile the coverage and publish the Section 1 stopping-point assessment. Do not repeat the already completed original cancellation or inventory corrections and their original reproduction runs. Do not start Section 2 before the planned user re-evaluation.
+The next action is the user's planned progress re-evaluation. The documentation-only successor records verified code evidence on00ba2716; it does not inherit exact-head workflow acceptance. Inspect fresh branch refs and any successor checks before merging. Do not repeat the already completed original cancellation or inventory corrections and their original reproduction runs. Do not start Section 2 before the planned user re-evaluation.
 
 ## Coverage and intent
 
@@ -14,15 +43,15 @@ All 95 baseline Go files in nine package directories received a source/test pass
 
 | Package | Production | Baseline tests | Review |
 | --- | ---: | ---: | --- |
-| `cmd/cloud-assess` | 4 | 12 | Source/test pass; final correction QA pending |
-| `internal/app` | 1 | 9 | Source/test pass; final correction QA pending |
-| `internal/config` | 2 | 3 | Source/test pass; final correction QA pending |
-| `internal/assessment` | 8 | 0 | Source/test pass; final correction QA pending |
-| `internal/azure` | 8 | 7 | Source/test pass; final correction QA pending |
-| `internal/arg` | 6 | 11 | Source/test pass; final correction QA pending |
-| `internal/discovery` | 5 | 6 | Source/test pass; final correction QA pending |
-| `internal/throttling` | 1 | 1 | Source/test pass; final correction QA pending |
-| `internal/orchestration` | 3 | 8 | Source/test pass; final correction QA pending |
+| `cmd/cloud-assess` | 4 | 12 | Reviewed; correction QA verified at00ba2716 |
+| `internal/app` | 1 | 9 | Reviewed; correction QA verified at00ba2716 |
+| `internal/config` | 2 | 3 | Reviewed; correction QA verified at00ba2716 |
+| `internal/assessment` | 8 | 0 | Reviewed; correction QA verified at00ba2716 |
+| `internal/azure` | 8 | 7 | Reviewed; correction QA verified at00ba2716 |
+| `internal/arg` | 6 | 11 | Reviewed; correction QA verified at00ba2716 |
+| `internal/discovery` | 5 | 6 | Reviewed; correction QA verified at00ba2716 |
+| `internal/throttling` | 1 | 1 | Reviewed; correction QA verified at00ba2716 |
+| `internal/orchestration` | 3 | 8 | Reviewed; correction QA verified at00ba2716 |
 
 The review traces flags and known-field filter parsing, prepared owned scope, SDK discovery, ARG batching/pagination and rule workers, ordered stage execution and application exits/rendering. It checks the target specification's semantic AZQR compatibility, read-oriented Azure operations, adjustable branding, explicit stage health and separate completeness/severity. Source-compatible behavior is retained unless an explicit, evidenced reliability correction is documented.
 
@@ -43,7 +72,7 @@ Public impact qualification: the stage runner independently checks context aroun
 | Original terminal-work cases | `432f2034aa3eed973670ab5b3a31cd1775d94611` | 38561749374; Linux115844262674, Windows115844263005 | Compiled unchanged production; five expected cases failed |
 | Remaining caller-priority cases | `a77e558f06bee40edc23f6e450f356f4cbc5bd87` | 38565950638; Linux115859094976, Windows115859094769 | Canceled/deadline cases returned plain query failure; ordinary-error control passed |
 | First correction | `5dd97b0f530d578e17767a4eea14510b72ee6f6a` | Parent432f2034 | Original cases corrected; caller-priority coverage was insufficient |
-| Parent-priority correction | `e65e66cd74d8e08ebfe1ea4452f6391a65e12878` | Parenta77e558f | Parent retained separately; fresh final QA pending |
+| Parent-priority correction | `e65e66cd74d8e08ebfe1ea4452f6391a65e12878` | Parenta77e558f | Parent retained separately; full code QA verified at00ba2716 |
 
 ### SR-F02, P2: inventory pagination has non-unique sort keys
 
@@ -63,16 +92,16 @@ The shared HTTP client accepts generic 2xx success. The ARG2024-04-01 endpoint d
 
 Regression head `57ef9f93b9d0618e8fde87eb9323f91349b0ff54` adds actual shared HTTPClient/mocked-transport cases for200 versus201–206 before changing the production transport. Linux native38567759652/job115864719992 compiled and demonstrated all six unexpected statuses returning a successful empty result. Windows job115864720321 also compiled and demonstrated the same six failures; both full logs were read.
 
-The correction adds an endpoint-specific HTTP200 guard before decoding. It closes the response through the existing defer and retains valid empty200 behavior. A fourth compiling/restoration control removes this guard and must recover the independently declared failure. Correction commit1f93442eca7e949c9b31f7af20b594c91ff10b62, parent57ef9f93b9d0618e8fde87eb9323f91349b0ff54, contains the guard and fourth control. Final exact-head QA remains pending.
+The correction adds an endpoint-specific HTTP200 guard before decoding. It closes the response through the existing defer and retains valid empty200 behavior. A fourth compiling/restoration control removes this guard and must recover the independently declared failure. Correction commit1f93442eca7e949c9b31f7af20b594c91ff10b62, parent57ef9f93b9d0618e8fde87eb9323f91349b0ff54, contains the guard and fourth control. Code QA is verified at00ba2716; the checkpoint documentation successor is a separate head.
 
 ## Review feedback disposition
 
 Review of1243461f8ee884d9b0071e13bb219ab8f403ac45 found:
 - 4270844237: caller cancellation lost to plain worker error. Reproduced independently on both hosts and corrected in e65e66cd.
 - 4270844250: paging fixture independence gap. Replaced with projected-row sorting, calibration and production mutation controls.
-- 4270844258: obsolete current resume instruction. This report is rewritten around actual pending final QA and checkpoint reconciliation.
+- 4270844258: obsolete current resume instruction. The current report is reconciled to completed code QA and the user's checkpoint.
 
-These are technical findings assessed against the user's task. References to old AGENTS procedures in automated comments do not reinstate the instructions the user revoked. The review is not clearance for later commits; request/inspect review on the final actual candidate.
+These are technical findings assessed against the user's task. References to old AGENTS procedures in automated comments do not reinstate the instructions the user revoked. The first review is not clearance for later commits. The new review on00ba2716 completed2026-10-14T13:20:05.783287Z with no major issues reported (marker6168441214 and result6169320382); it is automated review, not human or release approval.
 
 Import cleanup `a98f2170d39c9dd8a53335c2bd147f4f9fc6496b` groups standard and external imports in the CLI. It changes no behavior.
 
