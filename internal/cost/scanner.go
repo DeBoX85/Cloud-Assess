@@ -79,6 +79,9 @@ func (s *Scanner) scanAt(
 		Records:  []assessment.CostRecord{},
 		Warnings: []assessment.AssessmentWarning{},
 	}
+	if err := ctx.Err(); err != nil {
+		return result, err
+	}
 	if len(subscriptions) == 0 {
 		return result, nil
 	}
@@ -121,6 +124,9 @@ func (s *Scanner) scanAt(
 		go func() {
 			defer wg.Done()
 			for subscriptionID := range jobs {
+				if workerCtx.Err() != nil {
+					return
+				}
 				records, warnings, err := s.querySubscription(
 					workerCtx,
 					subscriptionID,
@@ -161,6 +167,9 @@ func (s *Scanner) scanAt(
 			firstErr = subscription.err
 		}
 	}
+	if err := ctx.Err(); err != nil {
+		return result, err
+	}
 	if firstErr != nil {
 		return result, firstErr
 	}
@@ -183,6 +192,9 @@ func (s *Scanner) scanAt(
 		}
 		return result.Warnings[i].Message < result.Warnings[j].Message
 	})
+	if err := ctx.Err(); err != nil {
+		return result, err
+	}
 	return result, nil
 }
 

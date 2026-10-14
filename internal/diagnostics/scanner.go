@@ -81,6 +81,10 @@ func (s *Scanner) Scan(
 	}
 
 	for _, resource := range resources {
+		if err := ctx.Err(); err != nil {
+			result.Findings = nil
+			return result, err
+		}
 		resourceID := normalize(resource.ID)
 		if enabled[resourceID] {
 			continue
@@ -118,6 +122,10 @@ func (s *Scanner) Scan(
 		})
 	}
 
+	if err := ctx.Err(); err != nil {
+		result.Findings = nil
+		return result, err
+	}
 	return result, nil
 }
 
@@ -131,6 +139,9 @@ func (s *Scanner) ListResourcesWithDiagnosticSettings(
 	enabled := map[string]bool{}
 	warnings := []assessment.AssessmentWarning{}
 
+	if err := ctx.Err(); err != nil {
+		return nil, warnings, err
+	}
 	resourceIDs := make([]string, 0, len(resources))
 	for _, resource := range resources {
 		if Supports(resource.Type) {
@@ -192,6 +203,9 @@ func (s *Scanner) ListResourcesWithDiagnosticSettings(
 		go func() {
 			defer wg.Done()
 			for ids := range jobs {
+				if workerCtx.Err() != nil {
+					return
+				}
 				batchEnabled, batchWarnings, err := s.scanBatch(workerCtx, ids)
 				results <- batchResult{enabled: batchEnabled, warnings: batchWarnings, err: err}
 				if err != nil {
@@ -230,6 +244,9 @@ func (s *Scanner) ListResourcesWithDiagnosticSettings(
 		for resourceID := range batch.enabled {
 			enabled[resourceID] = true
 		}
+	}
+	if err := ctx.Err(); err != nil {
+		return enabled, warnings, err
 	}
 	if firstErr != nil {
 		return enabled, warnings, firstErr
