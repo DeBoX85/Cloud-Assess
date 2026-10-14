@@ -1,3 +1,11 @@
+# Section 2 authorized and in progress, 2026-10-14
+
+The user authorized continuation at23:23Europe/Berlin. Section1 remains complete; Section2 review now covers13packages/51Go files. Read [Section2active report](SYSTEMATIC_REVIEW_SECTION2_20261014.md) for the latest coverage, findings and next step. Earlier Section1stop instructions below are historical and do not cancel this authorization.
+
+Entry baseline is7911764ebd9fff9968589df8ee4c953a16a03d1c, whose native38574597736 and source38574597703 now completed/success. Both native jobs/steps freshly checked. PR142 remains draft/unmerged and protected code staysa6fee427e19feeef28691737ea9bc5026086efa0. Audit remains1/4sections complete; Section2not yet verified. Proceed with source/test review, independent reproduction and primary-source checks, then corrective QA and the Section2re-evaluation stop. No Azure action is authorized by this entry.
+
+---
+
 # Section 1 stopping checkpoint, 2026-10-14
 
 This is the authoritative current state; earlier preparation paragraphs below are retained history. Section 1 code review and corrective QA are complete on code candidate `00ba2716f76366f6663de15531fdef4de6b812f8`, tree `e5098c01f631e0186d244631c61b4fad95cdda44`. This documentation-only successor does not claim exact-head QA inherited from its parent. PR142 remains draft and unmerged; protected baseline is still `a6fee427e19feeef28691737ea9bc5026086efa0`.
