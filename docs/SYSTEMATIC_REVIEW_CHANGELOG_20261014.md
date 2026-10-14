@@ -1,21 +1,32 @@
-# Active Section 1 findings and backtracking, 2026-10-14
+# Active Section 1 changes and evidence, 2026-10-14
 
-This candidate is not yet accepted. Exact final-head outcomes: [PR142](https://github.com/DeBoX85/Cloud-Assess/pull/142). Source/test pass spans all95baseline Section1files, with fresh full-content/blob checks. Full corrective native/source/review and section checkpoint remain pending.
+Current state and next action are governed by [Section 1 report](SYSTEMATIC_REVIEW_SECTION1_20261014.md) and [live PR142](https://github.com/DeBoX85/Cloud-Assess/pull/142). This is a correction candidate; final full QA/review and section reconciliation are pending.
 
-| Finding | Original reproduction | Fix commit and parent | State at preparation |
+| Entry | Change | Commit and parent | Verification state |
 | --- | --- | --- | --- |
-| SR-F01/P2 terminal executor context incorrectly returns success | 432f2034aa3eed973670ab5b3a31cd1775d94611; native38561749374, Linux115844262674 and Windows115844263005, five failing cases after compilation | 5dd97b0f530d578e17767a4eea14510b72ee6f6a; parent432f2034aa3eed973670ab5b3a31cd1775d94611 | Fixed; internal/arg passed both hosts in38563129439; full final gates pending |
-| SR-F02/P2 tied inventory sorting permits duplicate/missing page records | e012a94d8077abf180917408156b12cfa69f47ec; native38563129439, Linux115848958752 and Windows115848959368, deterministic1001resource fixture fails duplicate0999 | 9d1872b1a1737da05db512addae8479e530aa238; parente012a94d8077abf180917408156b12cfa69f47ec | Fixed query order; final verification pending |
-| SR-S01 import organization | Static CLI import review; style only | a98f2170d39c9dd8a53335c2bd147f4f9fc6496b; parent9d1872b1a1737da05db512addae8479e530aa238 | Standard/external grouping; no behavior claim |
+| SR-03 | Original cancellation expectations before production edits | 432f2034aa3eed973670ab5b3a31cd1775d94611; parente4064ba12e2b2a7299bad093f7876cc73244b5bd | Both-host expected failures in38561749374 |
+| SR-04 | First cancellation correction | 5dd97b0f530d578e17767a4eea14510b72ee6f6a; parent432f2034 | Original cases pass; later caller-priority review gap retained |
+| SR-05 | Initial tied-page fixture, now superseded | e012a94d8077abf180917408156b12cfa69f47ec; parent5dd97b0f | Both-host failures recorded; old fixture too dependent on ID token, not final oracle |
+| SR-06 | Unique inventory tie-breaker | 9d1872b1a1737da05db512addae8479e530aa238; parente012a94d | Stronger model/control verification follows |
+| SR-07 | Standard/external import organization | a98f2170d39c9dd8a53335c2bd147f4f9fc6496b; parent9d1872b1 | Style only |
+| SR-08 | First candidate and review | 1243461f8ee884d9b0071e13bb219ab8f403ac45; parenta98f2170 | Review5517988620 found three issues; not clearance; native38564627993 superseded |
+| SR-09 | Parent-priority expectations and stronger modeled rows | a77e558f06bee40edc23f6e450f356f4cbc5bd87; parent1243461 | Caller priority fails and discovery model/calibration passes on both in38565950638 |
+| SR-10 | Correct parent priority and add three restoration controls | e65e66cd74d8e08ebfe1ea4452f6391a65e12878; parenta77e558f | Three controls passed both hosts in38567759652; complete workflow still intentionally red |
+| SR-11 | Completed-query HTTP status expectations before guard | 57ef9f93b9d0618e8fde87eb9323f91349b0ff54; parente65e66cd | Both-host six unexpected-status failures in38567759652 |
+| SR-12 | HTTP200guard and fourth control | 1f93442eca7e949c9b31f7af20b594c91ff10b62; parent57ef9f93 | Final verification pending |
+| SR-13 | Rewrite active report/resume steps, update coverage and clarify control counts | Successor of1f93442e; exact documentation commit from PR142/history | Readback and final candidate gates required |
 
-SR-20261014-03: add regression-only cancellation commit432f2034, retain full Linux64338/Windows51809logs. No original production edit; source run38561749344 success metadata.
-SR-20261014-04: apply isolated cancellation fix5dd97b0f; original expectations unchanged, add stopping-remaining-definitions case.
-SR-20261014-05: add inventory fixturee012a94d before query correction; retain full Linux63105/Windows50413logs with sole expected inventory failure and arg pass. Source38563129370 success metadata.
-SR-20261014-06: isolate inventory correction9d1872b1 and import groupinga98f2170, then publish full candidate/recovery/coverage notes. Full final QA pending; do not treat these regression runs as complete native gates.
+Review issue disposition:4270844237(parent priority) reproduced and corrected;4270844250(model independence) corrected with value-based sorting/calibration and compiled counterfactual controls;4270844258(obsolete resume instruction) corrected by rewriting the current report. Do not resolve review discussions merely because changes are authored; use actual final corrective evidence.
 
-Primary contract and precise failure/impact details are in [Section1report](SYSTEMATIC_REVIEW_SECTION1_20261014.md). Future rollback can target the isolated fix commit; assess subsequent dependencies and repeat tests. Regression commits preserve independent expectations so a reverted defect is detected. No source capture, pin, dependency or Azure data migration changed.
+DOC-02: old314Linux aggregate includes one shell control. Preserve the count, but describe it accurately as313Go+one shell before the four additions. Windows309was Go-labeled. This is counting terminology, not a dropped or failed control.
 
-Q-02 resolved for this section: the positional resource-ID helpers exactly match pinned source semantics; their broader collector admission/business-record implications remain cross-section questions. Q-01 request memory/volume budgets remain owned by the relevant Section2/3adapters and final Section4review. No universal boundedness claim is made.
+All source captures and previous expected source outputs remain immutable. Superseded self-authored target fixtures remain in historical commits for backtracking; they are explicitly replaced rather than presented as independent proof. Every control requires a healthy baseline, compiled failing variant, exact production-byte restoration and a healthy restored test. Go build failure, timeouts or missing diagnostic are not accepted detections.
+
+Rollback: identify the exact isolated fix and parent, inspect later dependencies, create an ordinary revert on a task branch, rerun the meaningful regressions and required gates, and use protected PR acceptance. A reverted defect should fail retained expectations. Do not reset protected history, blindly revert a multi-change merge, rewrite fixtures or perform Azure rollback.
+
+At this checkpoint, a scratch-only Python patch attempt was rejected because two operations targeted the same file; no repository mutation occurred. It was corrected with a normal update and local AST parsing passed. Hosted Go execution remains the authority; no local Go run is claimed. Complete reproduction-log hashes and distinctions between character/UTF-8 byte counts are in the Section 1 report.
+
+Historical records below preserve earlier states and must not govern current restart steps.
 
 ---
 

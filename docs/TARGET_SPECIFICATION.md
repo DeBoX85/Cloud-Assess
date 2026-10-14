@@ -1,10 +1,10 @@
-# Section 1 reliability correction candidate, 2026-10-14
+# Section 1 API and lifecycle reliability correction candidate, 2026-10-14
 
-Current audit/acceptance status is in [SESSION_HANDOVER](SESSION_HANDOVER.md) and [PR142](https://github.com/DeBoX85/Cloud-Assess/pull/142). Candidate changes preserve source data and successful semantic assessment behavior while correcting executor terminal context and inventory paging reliability.
+Current state: [SESSION_HANDOVER](SESSION_HANDOVER.md), [Section 1 report](SYSTEMATIC_REVIEW_SECTION1_20261014.md), [PR142](https://github.com/DeBoX85/Cloud-Assess/pull/142). Final exact-head QA and acceptance remain pending; historical states below are not current authority.
 
-Inventory ordering now proposes a unique id asc tie-breaker after existing subscriptionId/resourceGroup keys. This deliberately improves the pinned source's non-unique ordering, following Microsoft paging guidance. Projection/scope/filter/batch contracts stay; changing-estate snapshot consistency is not guaranteed. The direct recommendation executor must return wrapped terminal context instead of silently successful unfinished execution, while preserving initiating ordinary query errors. The stage runner already independently checks task cancellation.
+The candidate preserves healthy semantic source data while correcting three failure contracts: direct ARG recommendation execution returns terminal caller context, preserving ordinary initiating error when only internal sibling cancellation fires; inventory adds id asc after existing subscription/resource-group sorting; ARG2024-04-01 accepts only its documented HTTP200completed-query success. Other2xx responses cannot become valid empty assessment success. The stronger inventory oracle derives projection/sorting from independent rows, with four calibration cases and compiling production controls. These deliberate reliability corrections do not guarantee changing-estate snapshot consistency.
 
-Both old behaviors reproduced after compilation on Linux/Windows with independent expectations before production corrections; full final candidate QA and acceptance remain pending. No source capture/fixture or pin changed. See [Section1report](SYSTEMATIC_REVIEW_SECTION1_20261014.md). Historical status below remains historical; product goals stay semantic equivalence, read-oriented Azure assessment, branding and explicit health.
+Original source captures, pins, schemas and dependency graph remain unchanged. Both-host failing evidence precedes each production correction. The current resume action is final candidate QA/review and Section1checkpoint reconciliation, not replaying completed changes. No Azure write or release action is authorized by this audit record.
 
 ---
 

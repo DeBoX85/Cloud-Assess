@@ -2,11 +2,18 @@
 
 ## Section 1 current work
 
-All95baseline files in the nine Section1packages (38production/57tests) have received a source/test pass; refreshed full contents match the baseline inventory blobs. Section1is not complete until correction QA, remaining boundaries and checkpoint reconciliation finish.
+All 95 baseline Go files in its nine packages received source/test review and full baseline content/blob checks. The candidate adds two Go test files and one Python regression helper; current totals are253Go and47Python. Baseline file inventory below remains754blobs/251Go/46Python for traceability.
 
-SR-F01 cancellation is reproduced on BOTH native hosts against unchanged code, correction commit5dd97b0f530d578e17767a4eea14510b72ee6f6a. SR-F02 tied inventory pagination is reproduced synthetically on BOTH hosts against the unchanged query; correction is prepared and full QA is pending. Both findings and precise native results are detailed in [Section1working report](SYSTEMATIC_REVIEW_SECTION1_20261014.md). Adding unique ID sorting is a deliberate target reliability correction backed by Microsoft guidance, not live snapshot assurance. An import-grouping cleanup is style only.
+Three confirmed findings and the automated review's corrective feedback are documented in [Section 1 report](SYSTEMATIC_REVIEW_SECTION1_20261014.md). Final native/source/review evidence and checkpoint reconciliation are pending. Audit completion remains0/4sections and0/41finally verified packages at candidate preparation. Previous initial-read counts are historical.
 
-Progress:0/4sections complete,0/41packages finally verified in this audit. Initial read counts in earlier paragraphs below are historical. Section2/3still own collector/plugin-specific request budgets and broader business-record semantics. No additional feature or Azure operation has been introduced.
+| Candidate delta | Purpose | State |
+| --- | --- | --- |
+| `internal/arg/executor_cancellation_test.go` | Terminal work, caller priority and ordinary-error control | Reviewed; final native QA pending |
+| `internal/discovery/inventory_paging_order_test.go` | Value-based projection/sorting and model calibration | Reviewed; final native QA pending |
+| `scripts/tests/section1-regressions.py` | Four compiling counterfactuals and exact-byte restoration | Immediate helper review/AST pass; final native QA pending |
+| `.github/workflows/test.yml` | Execute these controls on both hosts | Relevant paths reviewed; final native QA pending |
+
+No section outside Section1is claimed complete. Sections2/3still own collector/plugin budgets and business-row semantics; Section4reconciles all tooling/configuration/query/dependency/provenance/delivery coverage and this candidate delta.
 
 ## Status and baseline
 

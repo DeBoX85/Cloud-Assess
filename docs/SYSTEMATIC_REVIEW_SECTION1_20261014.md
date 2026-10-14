@@ -1,77 +1,126 @@
-# Section 1 review working checkpoint, 2026-10-14
+# Section 1 systemic review, 2026-10-14
 
-**In progress; not accepted and not a completed section checkpoint.**
+## Current state and next action
 
-Baseline: a6fee427e19feeef28691737ea9bc5026086efa0. Scope covers nine package directories and95baseline Go files (38production,57tests). All received a source/test pass across the initial and current sessions. Fresh correction QA, unresolved architecture questions and final coverage reconciliation remain pending. Files fetched solely for specific cross-module contracts outside this scope are not credited as fully reviewed packages.
+**Source/test review is complete for Section 1; correction verification and the section checkpoint are still pending.** No protected acceptance, completed whole-codebase audit or release readiness is claimed.
 
-## Findings
+The accepted baseline remains `a6fee427e19feeef28691737ea9bc5026086efa0`. Read [live PR142](https://github.com/DeBoX85/Cloud-Assess/pull/142) and current branch refs for the actual candidate head and latest QA/review results. Earlier preparation records are history and must not be replayed.
 
-### SR-F01: ARG recommendation executor can silently return success on terminal context, P2
+The next action is to inspect the **latest candidate's complete native and source evidence and its exact-head review**, address remaining findings, reconcile the coverage and publish the Section 1 stopping-point assessment. Do not repeat the already completed original cancellation or inventory corrections and their original reproduction runs. Do not start Section 2 before the planned user re-evaluation.
 
-Confirmed by native run38561749374 on unchanged production executor blob23422ce441240a46b60583b88ed30fb1e3b092e5 at regression-only head432f2034aa3eed973670ab5b3a31cd1775d94611.
-Linux job115844262674/full64338characters failed only the race test step; Windows115844263005/full51809failed only Go packages step. Both compiled and failed the four canceled/deadline definitions/empty cases plus cancellation during filtering; error was nil. This is expected regression failure, not a formatter/build/infrastructure failure.
+## Coverage and intent
 
-Public-impact qualification: stages.Runner checks ctx.Err before and after each enabled task and marks it failed. This finding does not establish false-complete public scans. It is an inaccurate library postcondition and cancellation boundary for direct/composed executor use.
+All 95 baseline Go files in nine package directories received a source/test pass and fresh full-content/Git-blob verification: 38 production files and 57 test files. The candidate adds two Go test files, giving 97 current Section 1 Go files. The new regression-control Python helper and changed CI execution path are also reviewed for their immediate correctness; broader tooling review remains Section 4.
 
-Correction: inspect context before scheduling, check it after receiving a job, and inspect it after joining workers. Preserve firstErr before final context checking so internally canceling sibling workers does not replace the initiating query error with context.Canceled. Return nil findings on terminal context. Ordinary successful empty definitions still retain existing empty-slice semantics.
+| Package | Production | Baseline tests | Review |
+| --- | ---: | ---: | --- |
+| `cmd/cloud-assess` | 4 | 12 | Source/test pass; final correction QA pending |
+| `internal/app` | 1 | 9 | Source/test pass; final correction QA pending |
+| `internal/config` | 2 | 3 | Source/test pass; final correction QA pending |
+| `internal/assessment` | 8 | 0 | Source/test pass; final correction QA pending |
+| `internal/azure` | 8 | 7 | Source/test pass; final correction QA pending |
+| `internal/arg` | 6 | 11 | Source/test pass; final correction QA pending |
+| `internal/discovery` | 5 | 6 | Source/test pass; final correction QA pending |
+| `internal/throttling` | 1 | 1 | Source/test pass; final correction QA pending |
+| `internal/orchestration` | 3 | 8 | Source/test pass; final correction QA pending |
 
-State: confirmed; correction prepared/published in the successor commit; fresh verification pending. Regression expectations were authored before production correction and remain unchanged.
+The review traces flags and known-field filter parsing, prepared owned scope, SDK discovery, ARG batching/pagination and rule workers, ordered stage execution and application exits/rendering. It checks the target specification's semantic AZQR compatibility, read-oriented Azure operations, adjustable branding, explicit stage health and separate completeness/severity. Source-compatible behavior is retained unless an explicit, evidenced reliability correction is documented.
 
-### SR-F02: inventory pagination uses non-unique ordering, P2 reliability risk
+Full fixture/query ownership, collector-specific request budgets, business-record validity, standalone plugin/rendering contracts and delivery/security/license readiness remain assigned to Sections 2–4. Reading specific dependency functions here does not complete their package review.
 
-ResourceInventoryQuery orders only by subscriptionId and resourceGroup. Multiple resources share both keys. The unchanged pinned source internal/scanners/resources.go uses the same query, independently read at8e4f0577f3615e6c9014c031bcad079f235369cc.
+## Confirmed findings and corrections
 
-Microsoft's primary guidance, accessed2026-10-14, explicitly documents that ties can reorder across pages even in static environments and recommends adding a unique ID to ordering:
-https://learn.microsoft.com/en-us/azure/governance/resource-graph/concepts/paging-results
+### SR-F01, P2: terminal cancellation can be reported incorrectly by the rule executor
 
-Contract proposed before correction: append id asc as the final sort key; preserve projection, filters, batch scope and page size. This is an intentional reliability correction to source behavior, not a claim of byte-identical source query. It does not guarantee a snapshot in a changing estate.
+The baseline can return nil error after canceled/expired work is skipped. Its first corrective candidate also retained the baseline's plain-worker-error priority, allowing an unwrapped transport error to mask the caller's terminal context.
 
-A1001resource/two-page deterministic integration fixture is declared before the query change. It exercises actual target HTTP decoder, ARG pager and discovery with all resources sharing subscription/RG. Without a unique tie-breaker, its service model returns a duplicate and omits the final ID while retaining page counts. The fixture models documented allowed reordering; it does not execute KQL or claim live Azure reproduction.
+Correction retains the parent context separately. Check context before scheduling and after receiving work. After joining workers, prioritize **parent** cancellation/deadline, then preserve the initiating ordinary query error when only the executor's sibling context was canceled. Successful ordinary empty-definition behavior stays unchanged; terminal work returns nil findings with a wrapped context error.
 
-Semantic-compatibility check: projectTargetResources uses normalized resource-ID keys and compareDataset sorts those keys. Complete inventory identity/data, rather than tied source row order, is the semantic contract. Original source captures remain immutable. State: confirmed static/design risk; synthetic reproduction pending; no production query correction yet.
+Public impact qualification: the stage runner independently checks context around tasks, and the coordinator returns terminal context for failed assessments. The direct/composed executor was inaccurate; these reproductions do not establish false-complete public scans.
 
-## Architecture and intent observations
+| Evidence | Head | Native run and jobs | Outcome |
+| --- | --- | --- | --- |
+| Original terminal-work cases | `432f2034aa3eed973670ab5b3a31cd1775d94611` | 38561749374; Linux115844262674, Windows115844263005 | Compiled unchanged production; five expected cases failed |
+| Remaining caller-priority cases | `a77e558f06bee40edc23f6e450f356f4cbc5bd87` | 38565950638; Linux115859094976, Windows115859094769 | Canceled/deadline cases returned plain query failure; ordinary-error control passed |
+| First correction | `5dd97b0f530d578e17767a4eea14510b72ee6f6a` | Parent432f2034 | Original cases corrected; caller-priority coverage was insufficient |
+| Parent-priority correction | `e65e66cd74d8e08ebfe1ea4452f6391a65e12878` | Parenta77e558f | Parent retained separately; fresh final QA pending |
 
-- CLI flags/configuration feed a prepared owned request; scanner expansion and inventory tag decisions are kept in runtime indexes.
-- Filters use a single known-field YAML document; legacy/unknown keys, null assessment and multiple documents fail before credential factories. Include precedence and nearest recorded parent tag scope match source contracts.
-- Explicit unresolved subscription scope fails before inventory; reports retain requested/resolved/unresolved evidence. Filter-only and all-visible empty scopes intentionally preserve source behavior and do not certify RBAC/estate coverage.
-- SDK scope discovery constrains HTTPS origin before authentication, disables provider registration and rejects continuation cycles. Default HTTP redirects are disabled. Trusted injected transports/policies have explicitly documented obligations.
-- ARG batches at300subscriptions and1000rows, checks tokenless truncation and repeated tokens, preserves malformed-row/unsupported-table source semantics and propagates transport failures.
-- Coordinator owns per-scan state, stage configuration and mutable plugin inputs. Scope and inventory/Graph are critical; optional failures retain other valid datasets and expose partial health.
-- Stage runner handles cancellation before/after enabled tasks. Application renders available status/results before returning failure/partial/severity exits; local rendering is outside assessment-timeout budget by contract.
-- Plugin names require exact registered spelling, so AI-specific preflight checks are not bypassed through name normalization.
-- Positional resource-ID behavior supports source-compatible parent structural scope; broad arbitrary-ID parsing remains a question to reconcile across collectors, not a demonstrated security admission bug.
-- Bounded/unbounded HTTP methods and scope pager total budgets must be traced through remaining collector/plugin sections. Existing docs explicitly avoid a universal volume cap; no new safety guarantee is inferred.
-- Cross-module references checked here include stages.Runner, plugin registry and inventory equivalence projection/comparison. Their remaining standalone module review stays assigned to their planned sections.
+### SR-F02, P2: inventory pagination has non-unique sort keys
 
-## Evidence and remaining work
+The target and pinned source order inventory by subscription ID and resource group. Multiple resources share both keys. Microsoft's primary guidance documents duplicate/missing paginated records even in static environments when ties reorder.
 
-Regression-only source run38561749344 completed/success. It is separate from the failing native reproduction. No protected code change or acceptance occurred.
+Correction `9d1872b1a1737da05db512addae8479e530aa238`, parent `e012a94d8077abf180917408156b12cfa69f47ec`, appends `id asc` only. Projection, scope, filtering and batching remain unchanged. This is a deliberate target reliability improvement; it does not guarantee a snapshot in a changing estate.
 
-Next: publish the small SR-F01 correction with retained repro evidence, run SR-F02's independently declared fixture against the old query, then correct only the query ordering. Inspect new native QA and source evidence on the final candidate, review the exact diff and checkpoint Section1 honestly before asking for progress re-evaluation.
+The initial 1001-resource fixture inferred complete pages from an ID token. Review correctly found that insufficiently independent. That old fixture and its native results are retained as historical evidence, **not** as final proof. Its replacement computes projected ID values and sorts independently constructed rows using the query's actual ordering. The second page uses another permitted input ordering for equal keys. Calibration checks tied keys, unique ascending and descending keys, and a non-unique projected ID. It is a narrow deterministic model, not a KQL engine or live Azure reproduction.
 
-If service interruption occurs, read the latest audit branch and PR142 before retrying a mutation. Regression-only commit432f2034 is retained for backtracking; revert actual correction commits using normal Git history and repeat QA rather than resetting protected history.
+The stronger discovery tests passed on both hosts in 38565950638. Permanent compiling controls then remove the production tie-breaker and replace its ID projection with a non-unique subscription field. Each must fail the actual discovery regression after compilation, followed by exact-byte restoration and a healthy rerun. The old token-presence-only fixture would not detect the latter error.
 
-## Source-contract checks after initial investigation
+Inventory semantic projection compares normalized resource-ID keys, not the source's ambiguous tied row order. Original source captures and independent source oracles remain immutable.
 
-Pinned AZQR models.go blob3724182c006dcb8adc42fd2d6fe877d32ebf1aea contains the same positional resource-ID helpers. Their parent-type/name extraction is deliberately source-compatible, not general ARM-ID validation. Preserve it here; remaining collectors must validate their own contracts.
+### SR-F03, P2: ARG transport admits undocumented 2xx statuses as complete queries
 
-Official context source for the actual project toolchain, golang/go taggo1.26.9 src/context/context.go blobd00ac67e38296573d20520dbd7aceb2fd1a52906, confirms terminal Err semantics. A generic pkg.go.dev page resolved togo1.27.2, so it was not treated as version-specific evidence. The tool could not open the versioned package page; the pinned official source was read instead. No toolchain upgrade is made.
+The shared HTTP client accepts generic 2xx success. The ARG2024-04-01 endpoint documents completed-query success as HTTP200 and other statuses as unexpected errors. The endpoint-specific transport must enforce that contract before accepting data.
 
-Microsoft REST2024-04-01 documents top maximum1000, opaque skipToken and string-enum resultTruncated examples. Its prose paging page uses Boolean terminology, so wire decoding follows versioned REST contracts/examples rather than assuming a Boolean JSON field.
+Regression head `57ef9f93b9d0618e8fde87eb9323f91349b0ff54` adds actual shared HTTPClient/mocked-transport cases for200 versus201–206 before changing the production transport. Linux native38567759652/job115864719992 compiled and demonstrated all six unexpected statuses returning a successful empty result. Windows job115864720321 also compiled and demonstrated the same six failures; both full logs were read.
 
-Import organization in cmd/cloud-assess/command.go is corrected separately: standard-library imports together, external imports together. No semantic behavior changes are attributed to that cleanup.
+The correction adds an endpoint-specific HTTP200 guard before decoding. It closes the response through the existing defer and retains valid empty200 behavior. A fourth compiling/restoration control removes this guard and must recover the independently declared failure. Correction commit1f93442eca7e949c9b31f7af20b594c91ff10b62, parent57ef9f93b9d0618e8fde87eb9323f91349b0ff54, contains the guard and fourth control. Final exact-head QA remains pending.
 
-Existing source-compatible missing-ID stopping and tolerant null/empty row decoding remain explicit compatibility behavior. Section2must assess business-record validity and completeness implications; these are not silently relabeled as newly fixed defects here.
+## Review feedback disposition
 
-## Two-host reproduction and correction preparation
+Review of1243461f8ee884d9b0071e13bb219ab8f403ac45 found:
+- 4270844237: caller cancellation lost to plain worker error. Reproduced independently on both hosts and corrected in e65e66cd.
+- 4270844250: paging fixture independence gap. Replaced with projected-row sorting, calibration and production mutation controls.
+- 4270844258: obsolete current resume instruction. This report is rewritten around actual pending final QA and checkpoint reconciliation.
 
-SR-F02 regression-only query evidence at e012a94d8077abf180917408156b12cfa69f47ec:
-native38563129439 Linux115848958752/full63105characters and Windows115848959368/full50413both compiled and failed ONLY inventory_paging_order_test's duplicate0999assertion in Go test steps. Both reported internal/arg passing, including the cancellation correction and added remaining-definitions case. Later mandatory steps skipped after intentional test failure are not credited as passes.
+These are technical findings assessed against the user's task. References to old AGENTS procedures in automated comments do not reinstate the instructions the user revoked. The review is not clearance for later commits; request/inspect review on the final actual candidate.
 
-SR-F01 fix commit5dd97b0f530d578e17767a4eea14510b72ee6f6a, parent432f2034aa3eed973670ab5b3a31cd1775d94611.
-SR-F02 fix commit9d1872b1a1737da05db512addae8479e530aa238, parente012a94d8077abf180917408156b12cfa69f47ec.
-Import-only cleanupa98f2170d39c9dd8a53335c2bd147f4f9fc6496b, parent9d1872b1a1737da05db512addae8479e530aa238.
-Each correction is isolated for backtracking/revert. Original source captures and pins are unchanged; neither source oracles nor earlier independent expectations were adjusted to make tests pass.
+Import cleanup `a98f2170d39c9dd8a53335c2bd147f4f9fc6496b` groups standard and external imports in the CLI. It changes no behavior.
 
-Final candidate includes all these changes plus recovery notes. Full exact-head native/source QA and review remain pending at preparation. Use live PR142 for current immutable head and subsequent results, not earlier regression runs.
+## Architecture and residual boundaries
+
+- Prepared requests own filter slices/maps, stage configuration and selected plugins. Per-scan state is local; tested repeated/concurrent coordinator use retains caller ownership.
+- Invalid explicit scope and unresolved requested subscriptions fail before inventory. Retained scope evidence distinguishes missing selection from valid zero-data scope, without claiming RBAC or estate coverage.
+- SDK scope requests constrain HTTPS origin before authentication, reject redirects/cycles and disable automatic provider registration. Injected transports/policies remain trusted code.
+- ARG limits batches to300subscriptions and pages to1000rows, rejects explicit tokenless truncation and repeated tokens, and retains source-specific row/unsupported-table behavior.
+- Scope/inventory/Graph failures stop execution; ordinary optional failures preserve other data and mark partial health. Context interruption stops further stages.
+- Application reporting persists available health/results before execution/partial/severity exits. Rendering and local CLI initialization are outside the opt-in assessment deadline by contract.
+- Exact registered plugin names are validated before AI-specific preflight; case normalization does not bypass that ordering.
+- Positional resource-ID helpers match pinned source semantics exactly. They are not general ARM-ID validators; endpoint-specific admission and business-row implications remain separate.
+- Request volume/memory budgets across all collectors and plugins remain Section2/3 work. No universal boundedness, hard kill, live parity or load guarantee is inferred.
+- Source-compatible missing-ID stopping and tolerant null/empty rows need their business-validity/completeness implications assessed in Section2. Preserve their intentional compatibility status while assessing residual risk.
+
+## Primary-source checks
+
+Checked2026-10-14:
+- Microsoft ARG paging: https://learn.microsoft.com/en-us/azure/governance/resource-graph/concepts/paging-results
+- ARG REST2024-04-01 response/page-size/wire contract: https://learn.microsoft.com/en-us/rest/api/azureresourcegraph/resourcegraph/resources/resources?view=rest-azureresourcegraph-resourcegraph-2024-04-01
+- Kusto sort defaults and direction: https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/orderoperator
+- Go context at the actual project taggo1.26.9: official golang/go src/context/context.go, Git blobd00ac67e38296573d20520dbd7aceb2fd1a52906. A generic package-doc page resolved togo1.27.2, so the pinned source was used instead.
+- Original AZQR8e4f0577f3615e6c9014c031bcad079f235369cc: inventory query and models.go positional helpers; models blob3724182c006dcb8adc42fd2d6fe877d32ebf1aea.
+
+REST examples use string-enum truncation metadata despite generic Boolean terminology in the prose paging article. Decode according to the actual versioned wire contract. No dependency/toolchain/source-pin change is made.
+
+## QA, counting and backtracking
+
+Expected red tests are not infrastructure failures. Successful baseline/restored controls do not turn an otherwise failed or canceled workflow into an accepted candidate. Read all job steps and complete logs on the exact final head.
+
+The old Linux314control count consists of313named Go mutation rejections plus one syntactically valid shell bootstrap control. Windows has309Go-labeled controls. Do not call all314Go compiling controls. The candidate adds four Go controls; expected totals are318Linux (317Go plus one shell) and313Windows, with every old identity preserved.
+
+Each reproduction and correction is retained in Git with its parent. Use ordinary revert commits after dependency assessment and appropriate QA; do not reset protected history, rewrite independent source fixtures or conceal failed review/QA. Candidate/new-source and distinct accepted-push evidence remain different states.
+
+Read [active journal](SYSTEMATIC_REVIEW_CHANGELOG_20261014.md) and [handover](SESSION_HANDOVER.md). PR142 provides the actual live candidate and QA outcome. After Section1is verified, stop for user re-evaluation; Sections2–4 and overall release work remain open.
+
+## Reproduction log integrity
+
+The full returned UTF-8 logs were hashed for recovery, retaining platform line endings. Character counts and UTF-8 byte counts are different where BOM/non-ASCII appears.
+
+| Reproduction | Job | Characters | SHA-256 of returned UTF-8 |
+| --- | --- | ---: | --- |
+| Original cancellation Linux | 115844262674 | 64338 | `d9f6408fc815bc109df14de24cd9eb60f950ac55bc07e7e248a8e53c939cf0a5` |
+| Original cancellation Windows | 115844263005 | 51809 | `d1d4ebbe88f4d64fa8625e1d63cbd5626ec20ecc742e3991f0a913530cf165a5` |
+| Initial weaker paging Linux | 115848958752 | 63105 | `d6185362816586d8a6c977011ac4f61142564792bf82714058a81a3237cdf8ff` |
+| Initial weaker paging Windows | 115848959368 | 50413 | `7d7e742e441672b60dffccc739a7b7ca0898d3134146f031040f89fdc4a39881` |
+| Parent priority Linux | 115859094976 | 62888 | `8d95dfbf39cfa126f59d7e96e29b2c30265998f7b905c787cd52346e41c8f4b3` |
+| Parent priority Windows | 115859094769 | 50901 | `a29e345092b5f5c4d8b59a2d902d51b0bf3fd0447eb6fbdb6de4100316971f5b` |
+| ARG status Linux | 115864719992 | 65138 | `bb5f8be4e1f1b64f6e47daafb3861555243f3a7ba4c94ae6d03e86bb4180b1c4` |
+| ARG status Windows | 115864720321 | 51286 | `f7bbe97fd233d2eedcfe60d0d404ecc6fcad8d355f4c3e87cdddf29d5deea7b7` |
