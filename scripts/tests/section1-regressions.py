@@ -8,6 +8,19 @@ import subprocess
 ROOT = Path(__file__).resolve().parents[2]
 CASES = [
     (
+        "arg-completed-status",
+        ROOT / "internal/arg/http_transport.go",
+        "./internal/arg",
+        "^TestARGHTTPTransportRequiresDocumentedCompletedQueryStatus$",
+        "\tif response.StatusCode != http.StatusOK {\n"
+        "\t\treturn nil, fmt.Errorf("
+        "\"ARG response status %d is not a completed query\", "
+        "response.StatusCode)\n"
+        "\t}\n",
+        "",
+        "undocumented ARG status admitted as complete query",
+    ),
+    (
         "parent-terminal-priority",
         ROOT / "internal/arg/executor.go",
         "./internal/arg",
