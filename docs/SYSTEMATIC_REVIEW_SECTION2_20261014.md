@@ -73,3 +73,11 @@ Audit remains1/4sections complete and9/41finally reviewed packages. Section2plan
 ## SR-S04 reproduction preparation
 
 New internal/stages/runner_terminal_context_test.go exercises canceled/deadline caller context during an optional final task that returns a plain transport error, followed only by a disabled task. Expected terminal health is failed with the appropriate context code. An ordinary-error control must remain partial/stage_failed. Returned record/warning evidence must remain retained. Production runner remains unchanged at baseline blob 7f3ec14d2f7b150619446984ddd9659b9761d8e4. Pending native reproduction; do not credit this as a confirmed failure until full job evidence is inspected.
+
+## Additional independent reproduction preparation
+
+SR-S05: scanner ByKey returns a shallow Service copy, sharing ResourceTypes with the global registry. Independent expected Storage mapping and both ByKey/All mutation paths are declared before correction; private registry access is used only to restore the old implementation's state after the negative test, not to derive the expectation. Pending native confirmation.
+
+SR-S06: Cost and Diagnostics worker collectors can lose caller cancellation during the final request. Independent canceling clients return either a valid response or a plain transport error. Cost must return the caller terminal error; Diagnostics must return it before inferring missing-setting findings. These are direct-library postconditions; public stage runner/coordinator have separate interruption guards. Production collectors remain unchanged; native repro pending.
+
+Reproduction-only predecessor6b34a7a3 has a running native gate and successful source gate. It may be superseded by this expanded regression-only head under normal workflow concurrency; canceled predecessors are not counted as confirmed or accepted evidence. No production fix has been made.
