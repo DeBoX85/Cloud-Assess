@@ -1,0 +1,54 @@
+name: Code review ARG reproduction
+
+on:
+  pull_request:
+    branches: [bootstrap/core-v1]
+
+permissions:
+  contents: read
+
+jobs:
+  reproduce:
+    if: github.head_ref == 'docs/region-sku-target-analysis-20261013'
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-24.04
+            python: python3
+          - os: windows-2022
+            python: python
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16
+        with:
+          go-version: '1.26.9'
+          cache: true
+      - name: Format, compile and reproduce the accepted parser finding
+        shell: bash
+        env:
+          GOTOOLCHAIN: local
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: |
+          ${{ matrix.python }} - <<'PY'
+          import hashlib, json, pathlib, subprocess
+          source = pathlib.Path('internal/arg/http_transport.go').read_bytes()
+          blob = hashlib.sha1(b'blob ' + str(len(source)).encode() + b'\0' + source).hexdigest()
+          assert blob == '3c93b2bb583f14aca5bfa245574d4102c4dc6835', blob
+          path = pathlib.Path('internal/arg/http_transport_suffix_test.go')
+          subprocess.run(['gofmt', '-w', str(path)], check=True)
+          data = path.read_bytes()
+          chunks = [data[i:i+3000].hex() for i in range(0, len(data), 3000)]
+          for index, content in enumerate(chunks):
+              print('AUDIT_QA_FORMAT_HEX ' + json.dumps(dict(path=str(path), index=index, count=len(chunks), sha256=hashlib.sha256(data).hexdigest(), content=content)), flush=True)
+          subprocess.run(['go', 'test', './internal/arg', '-run', '^$', '-count=1'], check=True)
+          result = subprocess.run(['go', 'test', './internal/arg', '-run', '^TestHTTPTransportRejectsTrailingData$', '-count=1', '-v'], capture_output=True, text=True, timeout=120)
+          print(result.stdout)
+          print(result.stderr)
+          assert result.returncode != 0, 'Original parser did not reproduce finding'
+          assert 'want failed query, not successful prefix' in result.stdout, 'Not the named runtime assertion failure'
+          assert '[build failed]' not in result.stdout + result.stderr, 'Compile failure is not reproduction'
+          print('AUDIT_ARG_FINDING_REPRODUCED: original parser compiled; named buffered/split invalid trailing-data assertions failed as expected')
+          PY
