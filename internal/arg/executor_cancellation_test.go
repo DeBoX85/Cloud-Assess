@@ -54,3 +54,20 @@ func TestExecuteRecommendationsCancellationDuringFilteringIsNotSuccess(t *testin
 		t.Fatalf("cancellation after query represented as success: filtered=%d findings=%v error=%v", filtered, findings, err)
 	}
 }
+
+func TestExecuteRecommendationsCancellationStopsRemainingDefinitions(t *testing.T) {
+	ctx, cancel := context.WithCancel(context.Background())
+	defer cancel()
+	id := "/subscriptions/sub/resourceGroups/rg/providers/Microsoft.Test/widgets/one"
+	q := &fakeQuerier{results: map[string]*Result{"query": findingResult(id, "one")}}
+	definitions := []assessment.RecommendationDefinition{{ID: "one", Query: "query"}, {ID: "two", Query: "query"}}
+	filtered := 0
+	findings, _, err := ExecuteRecommendations(ctx, q, definitions, nil, func(string) bool {
+		filtered++
+		cancel()
+		return false
+	}, 1)
+	if filtered != 1 || len(q.calls) != 1 || !errors.Is(err, context.Canceled) || findings != nil {
+		t.Fatalf("remaining definitions started after cancellation: filtered=%d calls=%v findings=%v error=%v", filtered, q.calls, findings, err)
+	}
+}
