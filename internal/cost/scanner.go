@@ -236,7 +236,7 @@ func (s *Scanner) querySubscription(
 		subscriptionID,
 		apiVersion,
 	)
-	responseBody, _, err := s.client.Post(ctx, url, azure.NopReadSeekCloser{Reader: bytes.NewReader(body)})
+	responseBody, response, err := s.client.Post(ctx, url, azure.NopReadSeekCloser{Reader: bytes.NewReader(body)})
 	if err != nil {
 		if errorCode, ok := azure.IsSkippableResponseError(err); ok {
 			return nil, []assessment.AssessmentWarning{{
@@ -249,6 +249,12 @@ func (s *Scanner) querySubscription(
 			}}, nil
 		}
 		return nil, nil, fmt.Errorf("query costs for subscription %s: %w", subscriptionID, err)
+	}
+	if response == nil {
+		return nil, nil, fmt.Errorf("Cost Management query returned no HTTP response")
+	}
+	if response.StatusCode != http.StatusOK && response.StatusCode != http.StatusNoContent {
+		return nil, nil, fmt.Errorf("Cost Management response status %d is not a completed query", response.StatusCode)
 	}
 	if len(bytes.TrimSpace(responseBody)) == 0 {
 		return []assessment.CostRecord{}, nil, nil
