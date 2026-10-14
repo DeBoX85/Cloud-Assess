@@ -1,4 +1,4 @@
-name: Code review ARG corrective QA
+name: Review and Compute disk collector preparation
 
 on:
   pull_request:
@@ -36,7 +36,7 @@ jobs:
         run: |
           ${{ matrix.python }} - <<'PY'
           import hashlib, json, os, pathlib, subprocess, sys
-          paths = [pathlib.Path('internal/arg/http_transport.go'), pathlib.Path('internal/arg/http_transport_suffix_test.go')]
+          paths = [pathlib.Path('internal/arg/http_transport.go'), pathlib.Path('internal/arg/http_transport_suffix_test.go'), pathlib.Path('internal/plugins/region/compute_disk_sku_collector.go'), pathlib.Path('internal/plugins/region/compute_disk_sku_collector_test.go')]
           for path in paths:
               subprocess.run(['gofmt', '-w', str(path)], check=True)
               data = path.read_bytes()
@@ -62,6 +62,14 @@ jobs:
           subprocess.run(command, check=True)
           subprocess.run([sys.executable, 'scripts/tests/arg-response-framing-mutation.py'], check=True)
           subprocess.run(['go', 'vet', './internal/arg'], check=True)
+          region = ['go', 'test']
+          if os.name != 'nt':
+              region.append('-race')
+          region.extend(['./internal/plugins/region', '-run', '^TestComputeDiskSKU', '-count=1', '-v'])
+          subprocess.run(region, check=True)
+          subprocess.run([sys.executable, 'scripts/tests/compute-disk-sku-collector-mutation.py'], check=True)
+          subprocess.run(['go', 'vet', './internal/plugins/region'], check=True)
+          print('COMPUTE_DISK_SKU_PREPARATION_PASS: literal maps, request/transport/bound/ownership cases and compiling production controls passed', flush=True)
           assert source.read_bytes() == corrected, 'Original corrected source not restored'
           print('AUDIT_ARG_CORRECTIVE_QA_PASS: complete ARG cases, four compiling controls and restored source', flush=True)
           PY

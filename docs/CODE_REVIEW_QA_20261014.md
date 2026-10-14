@@ -1,3 +1,24 @@
+# Corrective QA verified; first disk collector continuation, 2026-10-14
+
+ARG fix459f73dd: complete focused Linux115626163022/full84049 and
+Windows115626163109/full85385 both passed. Baseline compiled-old bug reconfirmed,
+all ARG tests (Linux race), vet,4compiling controls and restored source passed.
+Complete current core native38494207758 also passed: Linux115626163433/full97812/
+59steps/291controls; Windows115626163757/full78227/44steps/286controls.
+Every earlier287/282named identity preserved. Complete formatter files/source hash
+matched authored core/test code. This completes the corrective QA phase before
+continuation; no independent-human approval or final combined acceptance inferred.
+
+Now implementing disk-only internal collector under published concrete contract.
+Added15literal full states/maps,80+malformed fixtures, exact bounds, actual transport
+canary/closures, snapshots and8concurrent owned results.21compiling production
+controls require specific named runtime failures and restored named baselines.
+WIP files and preparation are not proof until complete logs/formatter bytes read.
+Final edited head must own all native/source/review/merge/push evidence; do not
+transfer this core-only pass. Other review scope/deferred gates stay as recorded.
+
+---
+
 # Confirmed finding and corrective QA preparation, 2026-10-14
 
 P2 ARG trailing-data bug is reproduced on Linux and Windows after successful

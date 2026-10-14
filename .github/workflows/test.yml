@@ -58,6 +58,9 @@ jobs:
       - name: Verify ARG response framing compiling controls
         run: python3 scripts/tests/arg-response-framing-mutation.py
 
+      - name: Verify Compute disk SKU collector compiling controls
+        run: python3 scripts/tests/compute-disk-sku-collector-mutation.py
+
       - name: Verify retained source capture byte guard
         run: python3 scripts/tests/region-source-capture.py
 
@@ -319,6 +322,9 @@ jobs:
 
       - name: Verify ARG response framing compiling controls
         run: python scripts/tests/arg-response-framing-mutation.py
+
+      - name: Verify Compute disk SKU collector compiling controls
+        run: python scripts/tests/compute-disk-sku-collector-mutation.py
 
       - name: Verify Windows retained source capture byte guard
         run: python scripts/tests/region-source-capture.py

@@ -1,3 +1,47 @@
+# First Compute disk SKU collector WIP, 2026-10-14
+
+Protected baseline remains PR1396f923c1d VERIFIED OFFLINE. PR140 DRAFT/UNACCEPTED.
+Requested code review identified confirmed P2 ARG framing bug, reproduced compiled
+original on BOTH hosts with18independent bad-suffix cases. Corrective preparation
+459f73dd passed: Linux115626163022/full84049 and Windows115626163109/full85385,
+all ARG cases/vet, Linux race,4compiling controls/restored source and complete
+formatter bytes/hashes matched. COMPLETE core QA38494207758 also passed:
+Linux115626163433/full97812/59steps/291controls and Windows115626163757/full78227/
+44steps/286controls. Every earlier287/282control identity preserved plus4ARG.
+Source38494207746 succeeded; full independent raw reconstruction remains indexed
+with final edited-head proof, not transferred from metadata-only source status.
+
+Continuation now adds ONLY internal Compute disk SKU collection. API/schema and
+11first literal cases were published before production code. Immutable primary
+schema1cdcc541/b8528692/version2021-07-01 re-read and Gitblob independently checked.
+New code binds selected UUID/physical region, uses bounded GET, validates exact
+origin/path/version/query before each call, fully admits pages, validates metadata/
+restriction.values/reason/scope/precedence, owns maps/zones per call, and exposes
+partial diagnostics only as unknown/empty scoring snapshots. No SDK/module/pin
+change, shared cache or public region activation. WIP implementation is not accepted.
+
+Independent tests declare15literal full-map cases, malformed/null/alias/Unicode/
+restriction/metadata matrices, complete-empty and prior-empty partial failures,
+whole-page/collision/snapshot/cancellation/scoped-request checks, exact/first-excess
+page/aggregate bytes,64pages,65,536raw-work/name/text/JSON depth/key/token and skiptoken
+edges. Actual bounded ARM client with fake credential/transport verifies GET/
+literal URL/audience/no body/no registration/response closure/status handling.
+Eight concurrent calls verify owned per-run maps.21named compiling production
+controls preserve restored named baselines; all earlier source/ARG/native controls stay.
+
+Hosted preparation will format/reconstruct full4Go files, run ARG+disk cases,
+Linux race/Windows native/vet and compiling controls. This new head still needs
+its OWN complete native/source/review/files/tree/identity/preview/protected merge/
+DISTINCT actual accepted-push verification. Remove temporary helper before final.
+Current implemented disk collector is WIP; accepted target collector count remains0/7.
+Source capture coverage7/7 stays. Other SKU families/coordinator/public integration/
+FullCost/B6-B7/AR-02/module-only/live/load/freshOS/Gate004/licensing/human/release stay.
+Laptop access unconfirmed; no Azure/scope/write/fixture/role/substitution/exposure.
+Next inspect focused preparation, fix actual failures, retain formatter bytes,
+then complete final current-head review/QA. Earlier entries remain history.
+
+---
+
 # Code review correction and QA, 2026-10-14
 
 Protected baseline remains PR1396f923c1d VERIFIED OFFLINE. PR140 is DRAFT/UNACCEPTED.
