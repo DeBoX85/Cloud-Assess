@@ -1,3 +1,51 @@
+# FN128: merge-verifier API field preflight correction, 2026-10-14
+
+Preflight verifier initially checked verification.valid, but actual GitHub Git API field is verification.verified. Baseline6f signed metadata verified:true/reason:valid was read; corrected exact API field and reproduced full signed raw SHA1 before any merge. No production/ref change or failed signature is inferred.
+The corrected verifier reproduced signed baseline6f923c1d and actual protected
+PR140a6fee427e19feeef28691737ea9bc5026086efa0 with full payload/signature bytes including final newline.
+No invalid Git signature or source identity was found. A guessed
+internal/plugins/region/inventory_runtime.go fetch returned NOT_FOUND; existing
+inventory types and availability tests supplied verified actual integration
+interfaces, and all new integration cases compiled/passed on both hosts.
+
+---
+
+# PR140 merged; distinct actual accepted-push verification pending, 2026-10-14
+
+Current protected baseline is PR140 a6fee427e19feeef28691737ea9bc5026086efa0.
+Signed Git commit/raw SHA1 reproduced, Denis author/GitHub committer, verified
+signature, tree1b13eec931b510592e42608fe8605ebdc287b0a9, ordered parents
+6f923c1dd40a3396db65415510f599a328ed38b5 and
+01e8de6244214204e4b34530c62e42c2c83221e3; original protected ref and merged PR
+read back exactly. Active ruleset23890737/no bypass/integration15368 gates
+enforced; expected-head protected merge succeeded.
+
+Candidate full QA38500431232: Linux115645943577/full100868/60steps (only
+conditional failure upload skipped)/314controls and Windows115645943804/
+full81672/45steps all-success/309controls. Every earlier291/286 identity
+retained plus23disk controls. Source38500431285/115645861513/full1360507:
+all7steps-success,23records315chunks, each SHA256 and fresh full candidate
+UTF8/Gitblob matched. Final automated marker6159203561 completed on01e8de6
+2026-10-14T02:23:10.953464Z; no-major-issues comment6159475528; both old
+findings resolved with concrete reproduction/correction QA evidence.
+
+DISTINCT actual merge-head PUSH runs38502782779(native) and38502782765(source)
+are pending complete log/hash/fresh-merge readback verification. Candidate passes
+do not substitute. Target verified acceptance remains pending for first disk
+adapter; source capture coverage7/7 is separate. No public region activation,
+Azure access inference or release readiness claim.
+
+This task-owned checkpoint/Storage analysis branch is DRAFT/UNACCEPTED.
+Storage analysis examines full immutable primary2023-01-01 schema and248-row
+example; grouped name/kind/region semantics, display/stage locations, lack of
+schema paging and absence-of-location evidence still need a concrete contract.
+No Storage production code is authorized by this analysis itself; continue the
+existing user-authorized offline project scope after publishing concrete cases.
+Other6SKUtypes/coordinator/FullCost/AR-02/module-only/load/freshOS/live/Gate004/
+licensing/human/release remain open. Laptop access unconfirmed; no Azure actions.
+
+---
+
 # Corrected disk acceptance candidate, 2026-10-14
 
 PR140 remains UNACCEPTED pending this final head's complete gates.
