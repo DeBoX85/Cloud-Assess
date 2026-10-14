@@ -6,6 +6,8 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"regexp"
+	"slices"
 	"strconv"
 	"strings"
 	"testing"
@@ -13,11 +15,14 @@ import (
 	"github.com/DeBoX85/Cloud-Assess/internal/arg"
 )
 
-// This deterministic fixture models the documented service freedom to reorder
-// equal sort keys between pages. It does not execute KQL or claim live evidence.
+// This model evaluates the leading ID projection and ordinary column sorting
+// over independently constructed rows. Equal keys have different allowed input
+// ordering on the second request. It is not a general KQL engine or live evidence.
 type tiedInventoryPoster struct {
 	calls int
 }
+
+var modeledIDProjection = regexp.MustCompile(`(?i)\|\s*project\s+id\s*=\s*tostring\(\s*([a-z][a-z0-9]*)\s*\)\s*,`)
 
 func (p *tiedInventoryPoster) PostStream(_ context.Context, _ string, body io.ReadSeekCloser) (*http.Response, error) {
 	var request arg.Request
@@ -36,35 +41,71 @@ func (p *tiedInventoryPoster) PostStream(_ context.Context, _ string, body io.Re
 			return nil, fmt.Errorf("unexpected inventory continuation")
 		}
 	}
+	project := modeledIDProjection.FindStringSubmatch(request.Query)
 	order := strings.Split(request.Query, "| order by ")
-	if len(order) != 2 {
-		return nil, fmt.Errorf("inventory sort clause missing")
+	if len(project) != 2 || len(order) != 2 {
+		return nil, fmt.Errorf("unsupported fixture projection or ordering")
 	}
-	unique := false
-	for _, column := range strings.Split(order[1], ",") {
-		fields := strings.Fields(strings.ToLower(column))
-		if len(fields) > 0 && fields[0] == "id" {
-			unique = true
-		}
+	type sortColumn struct {
+		name      string
+		ascending bool
 	}
-	rows := make([]map[string]any, 0, 1000)
-	for index := offset; index < min(offset+1000, 1001); index++ {
-		identity := index
-		if offset == 1000 && !unique {
-			// Same subscription/RG keys allow the prior last item to move here,
-			// replacing the final distinct item without changing page counts.
-			identity = 999
+	columns := []sortColumn{}
+	for _, text := range strings.Split(order[1], ",") {
+		fields := strings.Fields(strings.ToLower(text))
+		if len(fields) < 1 || len(fields) > 2 || len(fields) == 2 && fields[1] != "asc" && fields[1] != "desc" {
+			return nil, fmt.Errorf("unsupported fixture sort column")
 		}
-		rows = append(rows, map[string]any{
-			"id":             fmt.Sprintf("/subscriptions/sub/resourceGroups/shared/providers/Microsoft.Test/widgets/%04d", identity),
-			"subscriptionId": "sub",
-			"resourceGroup":  "shared",
+		columns = append(columns, sortColumn{fields[0], len(fields) == 2 && fields[1] == "asc"})
+	}
+	rows := make([]map[string]string, 0, 1001)
+	for index := 0; index < 1001; index++ {
+		// Values and identities are derived only from the independent fixture,
+		// never from the query's alleged uniqueness or the implementation result.
+		raw := map[string]string{
+			"id":             fmt.Sprintf("/subscriptions/sub/resourceGroups/shared/providers/Microsoft.Test/widgets/%04d", index),
+			"subscriptionid": "sub",
+			"resourcegroup":  "shared",
 			"type":           "Microsoft.Test/widgets",
-			"name":           fmt.Sprintf("%04d", identity),
+			"name":           fmt.Sprintf("%04d", index),
 			"kind":           "test",
+		}
+		id, ok := raw[strings.ToLower(project[1])]
+		if !ok {
+			return nil, fmt.Errorf("unsupported fixture projection field")
+		}
+		raw["id"] = id
+		rows = append(rows, raw)
+	}
+	if offset > 0 {
+		rows[999], rows[1000] = rows[1000], rows[999]
+	}
+	for _, col := range columns {
+		if _, ok := rows[0][col.name]; !ok {
+			return nil, fmt.Errorf("unsupported fixture ordering field")
+		}
+	}
+	slices.SortStableFunc(rows, func(a, b map[string]string) int {
+		for _, col := range columns {
+			comparison := strings.Compare(a[col.name], b[col.name])
+			if comparison != 0 {
+				if !col.ascending {
+					comparison = -comparison
+				}
+				return comparison
+			}
+		}
+		return 0
+	})
+	page := make([]map[string]string, 0, 1000)
+	for _, row := range rows[offset:min(offset+1000, len(rows))] {
+		page = append(page, map[string]string{
+			"id": row["id"], "subscriptionId": row["subscriptionid"],
+			"resourceGroup": row["resourcegroup"], "type": row["type"],
+			"name": row["name"], "kind": row["kind"],
 		})
 	}
-	payload := map[string]any{"data": rows, "count": len(rows), "totalRecords": 1001, "resultTruncated": "false"}
+	payload := map[string]any{"data": page, "count": len(page), "totalRecords": 1001, "resultTruncated": "false"}
 	if offset == 0 {
 		payload["$skipToken"] = "1000"
 	}
@@ -97,5 +138,38 @@ func TestInventoryPagingRetainsAllResourcesWithTiedSubscriptionAndGroup(t *testi
 		if !seen[id] {
 			t.Fatalf("inventory paging omitted resource: %s", id)
 		}
+	}
+}
+
+func TestInventoryPagingModelUsesActualProjectedAndSortedValues(t *testing.T) {
+	const projection = "resources | project id=tostring(id), subscriptionId=tostring(subscriptionId), resourceGroup=tostring(resourceGroup), type=tostring(type), name=tostring(name), kind=tostring(kind)"
+	for _, tc := range []struct {
+		name, query string
+		wantUnique  int
+	}{
+		{"tied keys", projection + " | order by subscriptionId, resourceGroup", 1000},
+		{"unique ascending", projection + " | order by subscriptionId, resourceGroup, id asc", 1001},
+		{"unique descending", projection + " | order by subscriptionId, resourceGroup, id desc", 1001},
+		{"nonunique projected id", strings.Replace(projection, "id=tostring(id)", "id=tostring(subscriptionId)", 1) + " | order by subscriptionId, resourceGroup, id asc", 1},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			poster := &tiedInventoryPoster{}
+			client := arg.NewClient(arg.NewHTTPTransportWithClient(poster, "https://example.test/graph"))
+			result, err := client.Query(context.Background(), tc.query, map[string]string{"sub": "Synthetic"})
+			if err != nil || result == nil || len(result.Data) != 1001 || poster.calls != 2 {
+				t.Fatalf("model query failed: result=%v error=%v calls=%d", result, err, poster.calls)
+			}
+			unique := map[string]bool{}
+			for _, raw := range result.Data {
+				var row map[string]string
+				if err := json.Unmarshal(raw, &row); err != nil {
+					t.Fatal(err)
+				}
+				unique[row["id"]] = true
+			}
+			if len(unique) != tc.wantUnique {
+				t.Fatalf("model ignored actual projection or ordering: unique=%d want=%d", len(unique), tc.wantUnique)
+			}
+		})
 	}
 }
