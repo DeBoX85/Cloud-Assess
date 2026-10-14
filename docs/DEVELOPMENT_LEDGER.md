@@ -1,6 +1,21 @@
+# Section 2 CI envelope correction in progress
+
+This is current recovery authority. Code head4284ffeccc4bfd7c2bf7e257311b310937a29226 is still unaccepted: native38646061400 Linux116133085260 was canceled after1213seconds (22:13:01–22:33:14UTC), with timeout-minutes20 configured. Task head stayed4284and no newer workflow superseded it. This timing and GitHub's documented job timeout behavior support a CI-envelope timeout classification, not a product assertion failure. Check-run annotations are unavailable through the connector's allowed Fetch endpoints, so the cause is inferred from configuration, elapsed time and complete logs.
+
+All325Linux control identities were present, including all318previous ones; race/coverage/fuzz/vet passed and govulncheck printed0reachable/0imported-package/1module-only advisory before cancellation. The canceled gate is not accepted. Returned full log102984characters/102988UTF-8 bytes, SHA-256b436bbeef0e848451675682bddca340063e37f3039bed6e713dc701cd9f86079. Windows116133085006 completed/success with all47steps. Complete returned log83777characters/83779UTF-8 bytes SHA-25612dd4081a0f592ef20d511ed01c9947e041fde9d64ea6b13da85ffbb2f62e5e4; all320control identities were present, with all313previous ones retained. Its complete scan reported0reachable/0imported-package/1module-only advisory. This successful job does not override the canceled Linux job or accept the overall run.
+
+QA-S2-02 correction: increase only the bounded Linux job envelope from20to25minutes for the added controls/full-suite runtime. Retain every required test, control identity, coverage floor, individual Go/Python/fuzz timeout, pins, source checks, permissions and failure propagation. Windows remains30minutes. This changes CI execution allowance, not application timeouts or product/load acceptance criteria. Primary guidance:
+https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idtimeout-minutes
+
+The earlier7ce5compile defect was corrected in4284; its HTTP and decoded Cost response locals are now distinct. Both hosts' seven new controls and ordinary full Go suites passed, and source38646061358/23captures/315chunks matched fresh retained bytes/pins; automated review4284reported no major issues. These partial results do not turn a canceled native run into acceptance.
+
+NEXT: preserve current Windows outcome, publish the documented workflow-envelope successor, require complete new native/source/review on the actual successor, then save Section2checkpoint and stop for user re-evaluation. Section2is not complete yet; Section3has not started. PR142 stays draft/unmerged, protectedbaselinea6fee427unchanged, no Azure action or dependency/source-capture/pin change.
+
+---
+
 # Section 2 QA correction: Cost local response name, 2026-10-14 UTC
 
-Current candidate7ce5cf2273edc6e95183ad3a8eabfa9fe6a11c38 FAILED native38645472872 on both hosts at the Section2control healthy Cost baseline. The new HTTP response local collided with the existing decoded queryResult local. This is QA-S2-01, an introduced compile defect, not an expected compiling mutation rejection or one of the baseline product findings. No passing acceptance is claimed.
+Superseded candidate7ce5cf2273edc6e95183ad3a8eabfa9fe6a11c38 FAILED native38645472872 on both hosts at the Section2control healthy Cost baseline. The new HTTP response local collided with the existing decoded queryResult local. This is QA-S2-01, an introduced compile defect, not an expected compiling mutation rejection or one of the baseline product findings. No passing acceptance is claimed.
 
 Full returned Linux116131114362 log32401characters SHA-256e1b2405ac4e98a4345c38927190217527a3e718a1f5c3ab8a69e37ac9eb7f363; Windows116131113918 log32221characters SHA-256de5bc2f083ffe07634230daf35c3a7a80b6f25213fdd3e72833c57ca5bd53781. First two Section2controls passed/restored on both; later controls and full QA were not reached. Source38645472929 passed separately, with23captures/315chunks verified against retained baseline blobs; it does not clear native failure.
 
