@@ -13,7 +13,7 @@ import (
 
 type terminalDiagnosticsClient struct {
 	cancel context.CancelFunc
-	plain bool
+	plain  bool
 }
 
 func (p terminalDiagnosticsClient) PostStream(_ context.Context, _ string, body io.ReadSeekCloser) (*http.Response, error) {

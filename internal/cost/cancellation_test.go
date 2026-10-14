@@ -11,7 +11,7 @@ import (
 
 type terminalCostPoster struct {
 	cancel context.CancelFunc
-	plain bool
+	plain  bool
 }
 
 func (p terminalCostPoster) Post(_ context.Context, _ string, body io.ReadSeekCloser) ([]byte, *http.Response, error) {
