@@ -34,7 +34,9 @@ jobs:
         run: |
           ${{ matrix.python }} - <<'PY'
           import hashlib, json, pathlib, subprocess
-          source = pathlib.Path('internal/arg/http_transport.go').read_bytes()
+          source = subprocess.run(['git', 'show', 'HEAD:internal/arg/http_transport.go'], check=True, capture_output=True).stdout
+          checkout = pathlib.Path('internal/arg/http_transport.go').read_bytes()
+          assert checkout.replace(b'\r\n', b'\n') == source, 'Checkout differs beyond native CRLF conversion'
           blob = hashlib.sha1(b'blob ' + str(len(source)).encode() + b'\0' + source).hexdigest()
           assert blob == '3c93b2bb583f14aca5bfa245574d4102c4dc6835', blob
           path = pathlib.Path('internal/arg/http_transport_suffix_test.go')

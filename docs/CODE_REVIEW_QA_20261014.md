@@ -1,3 +1,18 @@
+# Windows reproduction preparation correction, 2026-10-14
+
+Linux115622579941 reproduced the compiled original parser gap with18buffered/split
+runtime failures; full37454log, formatter2778bytes/c1fbc2a4 matched authored test.
+Windows115622579696 FAILED BEFORE compilation at raw checkout byte SHA assertion.
+Its486532f9 was independently reproduced by LF-to-CRLF checkout conversion of the
+original3c93b2bb blob. This is preparation failure, not Windows parser evidence.
+Use git show HEAD:<path> for canonical Git blob verification; independently require
+native checkout equal canonical bytes after ONLY CRLF conversion. No arbitrary
+normalization, source edit or lowered expected identity. Re-run both reproductions.
+An immediate PR read also lagged after a successful leased branch update; actual
+original branch ref and repeated PR read matched. No duplicate mutation was made.
+
+---
+
 # Code review and QA checkpoint, 2026-10-14
 
 Status: UNACCEPTED review work on PR140, before continuation into target disk code.
