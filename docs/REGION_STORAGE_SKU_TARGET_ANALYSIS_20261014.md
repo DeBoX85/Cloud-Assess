@@ -46,3 +46,21 @@ paging; fixed raw/decoded/item/byte limits; ownership and scope; literal positiv
 complete-map/primary-example/scoring cases plus compiling independent controls.
 No production code until concrete contract and independent expectations published.
 No original SDK/module/pin/capture changes, public activation or Azure writes.
+
+
+## Verified inventory-kind provenance
+
+Accepted discovery already projects ARG kind into a typed inventory row and copies
+it to assessment.Resource.Kind (internal/discovery/resources.go). Region inventory
+renders resource.Kind and charges it among bounded labels (inventory.go).
+InventoryCounts.SKUsByTypeAndRegion and current SKUEvidence.Values still aggregate
+by SKU name without kind. Raw kind is available; a future coordinator must preserve
+it for a scoped, bounded per-SKU required-kind projection rather than reconstruct
+kind from a SKU name or a rendered/redacted cell.
+
+Proposed reconciliation to develop before production edits: collect and own typed
+SKU+kind groups, combine legitimate same-group regional rows, and project only
+against the source resource kinds actually required for each SKU. Availability
+across different required kinds needs an explicit conservative aggregation rule;
+missing/ambiguous kind needs honest unknown evidence. This is a design option,
+not an implemented interface, accepted contract or verified availability promise.
