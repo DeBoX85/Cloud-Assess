@@ -55,6 +55,12 @@ jobs:
 
           test "$(git -C internal/rules/upstream/aprl rev-parse HEAD)" = "$expected_aprl"
 
+      - name: Verify ARG response framing compiling controls
+        run: python3 scripts/tests/arg-response-framing-mutation.py
+
+      - name: Verify Compute disk SKU collector compiling controls
+        run: python3 scripts/tests/compute-disk-sku-collector-mutation.py
+
       - name: Verify retained source capture byte guard
         run: python3 scripts/tests/region-source-capture.py
 
@@ -313,6 +319,12 @@ jobs:
 
       - name: Verify Windows workflow native-command failure propagation
         run: python scripts/tests/workflow-command-failures.py
+
+      - name: Verify ARG response framing compiling controls
+        run: python scripts/tests/arg-response-framing-mutation.py
+
+      - name: Verify Compute disk SKU collector compiling controls
+        run: python scripts/tests/compute-disk-sku-collector-mutation.py
 
       - name: Verify Windows retained source capture byte guard
         run: python scripts/tests/region-source-capture.py

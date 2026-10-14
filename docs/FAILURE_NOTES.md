@@ -1,3 +1,153 @@
+# Corrected disk acceptance candidate, 2026-10-14
+
+PR140 remains UNACCEPTED pending this final head's complete gates.
+Review findings FN126(null final pagination) and FN127(actual HTTP status/error
+classification) reproduced after original81ecaedf collector compilation on BOTH
+hosts. Corrected3c45e682 preparation38499969754 now passed BOTH:
+Linux115644340197/full191938 and Windows115644340086/full193132;
+all independent full-map/scoring/metadata/request/transport/cancellation/ownership/
+exact-excess budget cases,23 compiling disk controls and restored baselines, vet,
+Linux race/native Windows. Three complete formatter files were byte-identical:
+collector18107/f4c8fd2e, cases35093/ad654952, reviewcases6080/00f7ebd0.
+Only documented null pagination expectation was corrected using three full pinned
+Microsoft examples; all original23source records/315chunks remain immutable.
+ARG corrective QA and4controls remain part of final mandatory native gates.
+
+The temporary hosted helper is removed. Full native expected314Linux/309Windows
+must preserve every previous291/286 identity plus23disk controls; read complete
+logs/allsteps, fresh source capture proof and final-head automated review.
+Resolve existing findings only with specific correction/QA evidence; still require
+protected expected-head merge and DISTINCT actual accepted-push native/source QA.
+Source coverage7/7 is not target acceptance: target remains0/7 until this candidate
+finishes acceptance. Public region unavailable, no Azure access/authorization
+inferred from expected laptop availability. Other adapters/coordinator/FullCost/
+AR-02/load/module-only/freshOS/live/Gate004/licensing/human/release gates remain open.
+
+---
+
+# FN126-FN127 reproduced and corrected candidate prepared, 2026-10-14
+
+Both named review findings reproduced after successful compilation of unchanged
+81ecaedf collector89ff64b2 on BOTH native hosts in38499748980:
+Windows115643626239 and Linux115643626517. Complete logs and full hashed
+formatter bytes retained. Prior null-negative fixture was a mistaken contract,
+not a trusted service oracle: immutable primary2021-07-01 examples at1cdcc541/
+9d403f67/def2413e/f1c254f7 all use nextLink:null. Move ONLY that terminal case to
+positive independently declared first/later/healthy-filtered-primary examples;
+nonstring2/true/array/object and aliases still reject. Source captures unchanged.
+
+Correction accepts omitted/empty/null terminators while preserving all URI guards.
+After terminal context checks, non-nil non-200 status is classified before the
+remaining error/nil-response case; 200+error stays request failure.
+Actual bounded-client403/429/500/307 plus partial-prefix pairs,200+error and
+terminal context pairs have independent fixed expected FailureCode/evidence.
+Two new compiling guard controls bring disk total23 and full native expected
+314Linux/309Windows, preserving every prior291/286 identity. Corrected preparation,
+fresh final native/source/current-head review/protected merge/distinct actual
+accepted-push proof remain mandatory. Neither findings nor correction is accepted
+yet; public region and all other deferred gates remain unavailable/open.
+
+---
+
+# FN126-FN127: candidate review defects, 2026-10-14
+
+# Review findings FN126-FN127: candidate withheld, 2026-10-14
+
+Automated inline comments4266037791/4266037797 on exact81ecaedf (formal PRR_kwDOUdPf9c8AAAABSI4uOQ/
+submitted2026-10-14T02:07:48Z) found:
+P1 null final nextLink incorrectly rejected; P2 actual bounded HTTP status+error
+pairs wrongly classified sku_request_failed. Independently checked original
+production bounded_get.go and three immutable primary 2021-07-01 examples at
+spec commit1cdcc541:9d403f67/def2413e/f1c254f7, all nextLink:null.
+The prior contract's present-string-only terminator policy was incorrect and
+must be revised to accept omitted, empty or JSON null ONLY as end-of-list.
+Other malformed/aliased/unsafe continuations remain rejected before auth.
+Context cancellation/deadline retain priority; other non-200 response statuses
+must be classified sku_status_invalid even with the production getter error pair;
+200+transport/read error and nil response remain sku_request_failed.
+New independently declared exact primary-example/disk/later-null and actual-client
+403/429/500/307 plus partial/transport/context fixtures are published before source
+correction. Hosted preparation must compile old candidate and reproduce BOTH named
+failures on BOTH hosts. No old native/source/review pass accepts corrected code.
+Original pins/captures/SDK/modules/limits and unavailable public region stay.
+
+---
+
+# FN125: Linux disk mutation diagnostics were not UTF-8, 2026-10-14
+
+Unaccepted PR140 cd9d0807 preparation38497615288/Linux115636894116 passed
+collector baseline/race, then failed Python subprocess stdout decoding of an
+intentionally invalid byte0xff emitted by a malformed-JSON mutation assertion.
+Windows115636893592 completed all21compiling controls and restored baselines.
+This is a test-harness portability failure, not a production acceptance or an
+undetected-control pass. Preserve both results. Explicit UTF-8/backslashreplace
+for diagnostics and Go quoted malformed body output preserve every fixture,
+ASCII named failure, compile check, restore check and production admission rule.
+Corrected d6522441 preparation38498406144 passed BOTH hosts: Linux115639343203/full209208 and Windows115639343353/full210645,21controls each plus restored baselines. Initial full native38497615312/Linux115636894028/full33184 failed for the same decoder cause; Windows115636894367 was cancelled by fail-fast. Integration8aa581a7 Linux115639719277/full218068 passed. Full final-head/current review/protected merge/distinct accepted-push evidence remains required.
+
+---
+
+# FN124: ARG first-document success ignored invalid suffix, 2026-10-14
+
+Manual code review found HTTPTransport.Do decoded one JSON document then drained
+response.Body without checking bytes already buffered by the decoder or validating
+remaining suffix. A valid ARG prefix followed by extra JSON/garbage falsely returned
+successful data. Independently declared new tests reproduced18named failures on
+BOTH hosts after original source compilation in38493524807/Linux115623988968/
+Windows115623989223. Fixed framing now streams buffered+remaining bytes through a
+JSON-whitespace EOF check, without additional arbitrary-value allocation.
+Positive valid/unknown-metadata rows, body closure and I/O/context errors stay.
+Four compiling production controls and fresh complete final QA are required.
+
+The initial Windows prep115622579696 failed canonical hash assertion before
+compilation because checkout CRLF changed raw bytes. Independently reproduced
+486532f9 from original3c93b2bb plus ONLY LF-to-CRLF. Corrected Git object verification
+uses git show and separately reconciles native checkout line endings. No parser/
+source identity change or weaker digest. Preserve that setup failure separately.
+Immediate PR metadata briefly lagged a successful leased ref write; separate ref
+and repeated PR read matched, avoiding a duplicate mutation.
+Prevention: validate complete response framing, including decoder buffers; retain
+canonical-object versus platform-checkout distinctions in cross-host proof tools.
+
+---
+
+# FN121-FN123 final accepted-push outcome, 2026-10-13
+
+PR1396f923c1d VERIFIED OFFLINE. DISTINCT actual accepted-push source38461446822/
+115517353822 SUCCESS/full1359930/23records315chunks/SHA256/fullfreshacceptedbytes/
+Gitblobs. Native38461447085 BOTH hosts SUCCESS: Linux115517355506/full95996/
+58steps/287controls; Windows115517355831/full76534/43steps/282controls.
+Both native Windows candidate and accepted push passed the actual sharing-lock
+fixture and all12CLI/default/custom package checks. Go1.26.9/pins/security retained.
+Earlier cleanup/dirty-checkout failures and superseded cancelled Windows stay
+historical, not renamed success. No waived guard or independent-human approval.
+New documentation/contract proposal is UNACCEPTED and owns its next exact-head QA.
+
+---
+
+# FN121-FN123 correction outcomes, 2026-10-13
+
+Final0b96d0b candidate source38458562406 succeeded with full23/315proof.
+Native38458562489 BOTH hosts succeeded: Linux115507803319/full96216/
+287controls and Windows115507802989/full77327/282controls, all12CLI checks,
+both package profiles and actual native Windows sharing-lock policy test.
+Earlier2797a54 Windows cleanup FAILED and71f885f3 Linux package clean-source FAILED
+stay failed. Superseded71f885f3 Windows115504929805 CANCELLED.
+The latest review completed0b96d0b without new inline findings; the earlier
+identity-evidence discrepancy remains documented, not erased.
+Merge6f923c1d verified; distinct push source38461446822 succeeded. Its native
+38461447085 remains pending and must not borrow candidate outcomes.
+
+Two independent local proof helpers initially used abbreviated byteguard labels
+and removed the signed signature's final continuation newline. Both rejected their
+own reconstruction; neither was a product failure. Read actual emitted control
+identities and preserve the complete signature including its final continuation;
+then all287actual controls and the baseline/final signed raw SHA1 matched.
+No native guard, signature, source oracle or Git object was changed to make proof
+pass. Preserve raw evidence and distinguish verifier setup from repository failure.
+
+---
+
 # FN123: QA helper import dirtied native checkout, 2026-10-13
 
 Candidate71f885f3/native38457808095/Linux115504929633 FAILED actual package

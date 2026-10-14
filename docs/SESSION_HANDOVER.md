@@ -1,3 +1,356 @@
+# Corrected disk acceptance candidate, 2026-10-14
+
+PR140 remains UNACCEPTED pending this final head's complete gates.
+Review findings FN126(null final pagination) and FN127(actual HTTP status/error
+classification) reproduced after original81ecaedf collector compilation on BOTH
+hosts. Corrected3c45e682 preparation38499969754 now passed BOTH:
+Linux115644340197/full191938 and Windows115644340086/full193132;
+all independent full-map/scoring/metadata/request/transport/cancellation/ownership/
+exact-excess budget cases,23 compiling disk controls and restored baselines, vet,
+Linux race/native Windows. Three complete formatter files were byte-identical:
+collector18107/f4c8fd2e, cases35093/ad654952, reviewcases6080/00f7ebd0.
+Only documented null pagination expectation was corrected using three full pinned
+Microsoft examples; all original23source records/315chunks remain immutable.
+ARG corrective QA and4controls remain part of final mandatory native gates.
+
+The temporary hosted helper is removed. Full native expected314Linux/309Windows
+must preserve every previous291/286 identity plus23disk controls; read complete
+logs/allsteps, fresh source capture proof and final-head automated review.
+Resolve existing findings only with specific correction/QA evidence; still require
+protected expected-head merge and DISTINCT actual accepted-push native/source QA.
+Source coverage7/7 is not target acceptance: target remains0/7 until this candidate
+finishes acceptance. Public region unavailable, no Azure access/authorization
+inferred from expected laptop availability. Other adapters/coordinator/FullCost/
+AR-02/load/module-only/freshOS/live/Gate004/licensing/human/release gates remain open.
+
+---
+
+# FN126-FN127 reproduced and corrected candidate prepared, 2026-10-14
+
+Both named review findings reproduced after successful compilation of unchanged
+81ecaedf collector89ff64b2 on BOTH native hosts in38499748980:
+Windows115643626239 and Linux115643626517. Complete logs and full hashed
+formatter bytes retained. Prior null-negative fixture was a mistaken contract,
+not a trusted service oracle: immutable primary2021-07-01 examples at1cdcc541/
+9d403f67/def2413e/f1c254f7 all use nextLink:null. Move ONLY that terminal case to
+positive independently declared first/later/healthy-filtered-primary examples;
+nonstring2/true/array/object and aliases still reject. Source captures unchanged.
+
+Correction accepts omitted/empty/null terminators while preserving all URI guards.
+After terminal context checks, non-nil non-200 status is classified before the
+remaining error/nil-response case; 200+error stays request failure.
+Actual bounded-client403/429/500/307 plus partial-prefix pairs,200+error and
+terminal context pairs have independent fixed expected FailureCode/evidence.
+Two new compiling guard controls bring disk total23 and full native expected
+314Linux/309Windows, preserving every prior291/286 identity. Corrected preparation,
+fresh final native/source/current-head review/protected merge/distinct actual
+accepted-push proof remain mandatory. Neither findings nor correction is accepted
+yet; public region and all other deferred gates remain unavailable/open.
+
+---
+
+# Review findings FN126-FN127: candidate withheld, 2026-10-14
+
+Automated inline comments4266037791/4266037797 on exact81ecaedf (formal PRR_kwDOUdPf9c8AAAABSI4uOQ/
+submitted2026-10-14T02:07:48Z) found:
+P1 null final nextLink incorrectly rejected; P2 actual bounded HTTP status+error
+pairs wrongly classified sku_request_failed. Independently checked original
+production bounded_get.go and three immutable primary 2021-07-01 examples at
+spec commit1cdcc541:9d403f67/def2413e/f1c254f7, all nextLink:null.
+The prior contract's present-string-only terminator policy was incorrect and
+must be revised to accept omitted, empty or JSON null ONLY as end-of-list.
+Other malformed/aliased/unsafe continuations remain rejected before auth.
+Context cancellation/deadline retain priority; other non-200 response statuses
+must be classified sku_status_invalid even with the production getter error pair;
+200+transport/read error and nil response remain sku_request_failed.
+New independently declared exact primary-example/disk/later-null and actual-client
+403/429/500/307 plus partial/transport/context fixtures are published before source
+correction. Hosted preparation must compile old candidate and reproduce BOTH named
+failures on BOTH hosts. No old native/source/review pass accepts corrected code.
+Original pins/captures/SDK/modules/limits and unavailable public region stay.
+
+---
+
+# Final disk candidate prepared, 2026-10-14
+
+PR140 remains UNACCEPTED until this final head owns all required evidence.
+Confirmed P2 ARG framing correction and all original-source pins are retained.
+Corrected preparation d6522441/38498406144 passed BOTH hosts:
+Linux115639343203/full209208 and Windows115639343353/full210645,
+all21compiling disk controls and restored baselines, ARG4controls, vet,
+Linux race/native Windows. Integration revision8aa581a7 adds independently
+declared full Comparison/health/warning expectations for complete, empty,
+partial and failed collection; partial diagnostic prefix projects unknown/empty.
+Integration Linux115639719277/full218068 passed allcases/21controls/race/vet;
+Windows preparation still being checked at candidate preparation time.
+All4Go formatter files reconstructed with complete chunks/SHA256; final test
+formatter35033bytes/ab26806f adopted without changing fixture expectations.
+
+Source integration38498526849/115639719399 SUCCESS/full1360586:
+23records315chunks, all SHA256 and fresh full head bytes/Gitblobs matched;
+original8e4f0577/tree17d93b20/APRL60eaddda unchanged. This preparation does not
+substitute for fresh final-head and distinct accepted-push evidence.
+Temporary hosted preparation helper is removed from final candidate.
+Full native gates preserve prior291Linux/286Windows controls plus21disk controls
+(expected312/307); count alone is insufficient, compare every earlier identity.
+Inspect allsteps/full logs and current-head automated review, correct findings,
+then protected expected-head merge and DISTINCT actual accepted-push QA.
+Public region remains unavailable. Target SKU adapter acceptance is still0/7
+until this candidate is accepted; source capture coverage7/7 is separate.
+Other families/coordinator/adapters/FullCost/B6-B7/AR-02/module-only advisory/
+load/fresh-OS/live/licensing/Gate004/human/release work remains open.
+Laptop availability is unconfirmed; no Azure authorization inferred.
+
+---
+
+# Disk collector preparation correction, 2026-10-14
+
+PR140 cd9d0807 remains unaccepted. Focused preparation38497615288:
+Windows115636893592 passed all collector cases, vet and21compiling controls
+with restored named baselines (full210814log). Linux115636894116 passed the
+collector baseline (including race), then FAILED while decoding intentionally
+malformed mutation-test diagnostic bytes as UTF-8. This is a Python harness
+failure, not evidence that the failing mutation passed or production was accepted.
+Preserve the failed run. Use explicit UTF-8/backslashreplace only for subprocess
+diagnostics and quoted malformed-body test output; ASCII named runtime-failure
+and compile/restoration checks remain mandatory. No fixture result, collector
+admission rule, source pin, module or caller budget is relaxed.
+Adopt independently reconstructed native gofmt output. Both hosts and full
+final-head native/source/review/merge/distinct-push evidence remain required.
+
+---
+
+# First Compute disk SKU collector WIP, 2026-10-14
+
+Protected baseline remains PR1396f923c1d VERIFIED OFFLINE. PR140 DRAFT/UNACCEPTED.
+Requested code review identified confirmed P2 ARG framing bug, reproduced compiled
+original on BOTH hosts with18independent bad-suffix cases. Corrective preparation
+459f73dd passed: Linux115626163022/full84049 and Windows115626163109/full85385,
+all ARG cases/vet, Linux race,4compiling controls/restored source and complete
+formatter bytes/hashes matched. COMPLETE core QA38494207758 also passed:
+Linux115626163433/full97812/59steps/291controls and Windows115626163757/full78227/
+44steps/286controls. Every earlier287/282control identity preserved plus4ARG.
+Source38494207746 succeeded; full independent raw reconstruction remains indexed
+with final edited-head proof, not transferred from metadata-only source status.
+
+Continuation now adds ONLY internal Compute disk SKU collection. API/schema and
+11first literal cases were published before production code. Immutable primary
+schema1cdcc541/b8528692/version2021-07-01 re-read and Gitblob independently checked.
+New code binds selected UUID/physical region, uses bounded GET, validates exact
+origin/path/version/query before each call, fully admits pages, validates metadata/
+restriction.values/reason/scope/precedence, owns maps/zones per call, and exposes
+partial diagnostics only as unknown/empty scoring snapshots. No SDK/module/pin
+change, shared cache or public region activation. WIP implementation is not accepted.
+
+Independent tests declare15literal full-map cases, malformed/null/alias/Unicode/
+restriction/metadata matrices, complete-empty and prior-empty partial failures,
+whole-page/collision/snapshot/cancellation/scoped-request checks, exact/first-excess
+page/aggregate bytes,64pages,65,536raw-work/name/text/JSON depth/key/token and skiptoken
+edges. Actual bounded ARM client with fake credential/transport verifies GET/
+literal URL/audience/no body/no registration/response closure/status handling.
+Eight concurrent calls verify owned per-run maps.21named compiling production
+controls preserve restored named baselines; all earlier source/ARG/native controls stay.
+
+Hosted preparation will format/reconstruct full4Go files, run ARG+disk cases,
+Linux race/Windows native/vet and compiling controls. This new head still needs
+its OWN complete native/source/review/files/tree/identity/preview/protected merge/
+DISTINCT actual accepted-push verification. Remove temporary helper before final.
+Current implemented disk collector is WIP; accepted target collector count remains0/7.
+Source capture coverage7/7 stays. Other SKU families/coordinator/public integration/
+FullCost/B6-B7/AR-02/module-only/live/load/freshOS/Gate004/licensing/human/release stay.
+Laptop access unconfirmed; no Azure/scope/write/fixture/role/substitution/exposure.
+Next inspect focused preparation, fix actual failures, retain formatter bytes,
+then complete final current-head review/QA. Earlier entries remain history.
+
+---
+
+# Code review correction and QA, 2026-10-14
+
+Protected baseline remains PR1396f923c1d VERIFIED OFFLINE. PR140 is DRAFT/UNACCEPTED.
+The user requested code review, QA, then continuation. Focused risk review found
+one confirmed P2 ARG framing bug: valid first JSON prefixes followed by extra JSON
+or garbage could return successful query results. No universal no-bugs claim.
+[Review report](CODE_REVIEW_QA_20261014.md) records scope, evidence and remaining gates.
+
+Corrected reproduction71555102/run38493524807 passed on BOTH hosts:
+Linux115623988968/full37682log and Windows115623989223/full38665log.
+Both compiled the original3c93b2bb ARG blob and observed18named independent runtime
+failures for buffered/split invalid suffixes. The initial Windows preparation failed
+raw hashing only because of independently confirmed CRLF conversion; its failed
+115622579696/full23568log is retained in review history, not called parser evidence.
+
+This slice applies streaming EOF/JSON-whitespace admission over decoder.Buffered
+and the original body, with fixed1024byte scratch, without allocating a second
+JSON value. Valid rows/future metadata, body close and wrapped I/O/context errors
+stay. Four compiling production controls verify buffered bytes, bad suffixes,
+late I/O error and premature EOF, with restored positive baseline after each.
+Native gates add those controls; source/SDK/modules/Go1.26.9/pins stay unchanged.
+Hosted corrective preparation formats/readbacks both edited Go files, independently
+reconfirms the old compiled failure, runs all ARG cases (Linux race/Windows native),
+four controls and vet. This edited head still requires its OWN complete final QA/
+review/preview/protected expected-head merge and distinct accepted-push proof.
+
+Next finish corrective focused QA, remove the temporary helper at final acceptance,
+then continue ONLY the internal Compute disk collector under its published contract.
+Source characterization7/7 stays; target collectors remain0/7 until implementation.
+Other adapters/integration/public region/AR-02/module-only/live/load/freshOS/B6-B7/
+Gate004/licensing/human/release gates remain open. Laptop access unconfirmed;
+existing nonproduction/read-only/no-fixture/no-role/no-substitution/no-exposure
+boundaries remain. Earlier headers are historical snapshots.
+
+---
+
+# Current authority: PR139 VERIFIED OFFLINE, 2026-10-13
+
+[PR139](https://github.com/DeBoX85/Cloud-Assess/pull/139) is merged and VERIFIED
+OFFLINE at6f923c1dd40a3396db65415510f599a328ed38b5.
+Tree1e3827f306dab4d95684b3e047c154f505ec4e33; ordered parents
+20695e7ce7d22d958cec54e122cf4f5947b1e8e7 and
+0b96d0bde1c3302cc270e4f4d06af679f316f4bb.
+Protected expected-head merge, signature/raw signed SHA1, Denis author/GitHub
+committer, unchanged protection/no bypass and final protected/merged ref verified.
+
+| Proof | Full verified evidence |
+| --- | --- |
+| Final candidate source38458562406/job115507481824 | SUCCESS,1360586log,23records315contiguous chunks/SHA256/fullfresh bytes/Gitblobs |
+| Candidate native38458562489 | Linux115507803319:96216log,58steps (conditional failure upload skipped),287controls; Windows115507802989:77327log,43steps,282controls |
+| Current-head review6153259878 | Completed0b96d0b on2026-10-13T19:58:19.396982Z; no new inline findings; earlier identity thread resolved with evidence |
+| DISTINCT accepted-push source38461446822/job115517353822 | SUCCESS,1359930log,actual6f923c1d checkout,all7steps/11original harnesses/23records315chunks independently SHA256/fullfreshacceptedbytes/Gitblobs |
+| DISTINCT accepted-push native38461447085 | Linux115517355506:95996log,58steps (conditional failure upload skipped),287controls; Windows115517355831:76534log,43steps,282controls |
+
+All previous named control identities are preserved on both hosts, including all7
+actual source byteguard names. Both candidate and push native Windows ran all5
+cleanup policy tests, including a controlled real delete-sharing lock, without skip.
+All12CLI checks, default/custom packages, branding/docs, modules/Go1.26.9, Linux
+race/84.7% coverage/five bounded fuzz targets/vet and security passed. Security is
+0reachable/0imported/1module; module-only GO-2026-5932 stays open.
+All17final changed full files/Gitblobs and256directory trees were independently
+verified before expected-head merge. Every source/SDK/APRL/module pin is unchanged.
+
+Source SKU characterization covers7/7registered types: Compute VM/VMSS/disks and
+Storage/Cognitive/SQL DB/MI. New178cases/7cache calls join89Compute cases.
+This is synthetic source evidence, not Windows-originalSDK/Azure deployability,
+quota/capacity/live/sovereign proof. Target region SKU collectors remain0/7.
+No public region activation or release approval follows from this milestone.
+
+This task-owned proposal is a documentation/contract DRAFT and remains UNACCEPTED.
+[Compute disk SKU contract](REGION_COMPUTE_DISK_SKU_COLLECTOR_20261013.md) now specifies
+the first disk-only target slice, documented2021-07-01 API/schema, metadata matrix,
+restriction precedence, safe optional-filter continuation, owned snapshots,
+partial-to-unknown scoring boundary, bounds and11literal cases before target code.
+[Broader analysis](REGION_SKU_TARGET_ANALYSIS_20261013.md) retains the other-family
+decisions and scope. No collector has been implemented on this branch.
+Its own acceptance requires fresh complete exact-head native/source/review/
+publication/tree/identity/preview/protected merge and DISTINCT accepted-push proof.
+Do not transfer PR139 passes to future target code or this edited proposal.
+
+Exact next: verify live protected/WIP proposal refs and the concrete pre-edit
+contract, then implement only the internal Compute disk collector with independent
+full-map/transport/bound/ownership/health cases and compiling production controls.
+Other SKU families, region coordinator/public execution, FullCost/other adapters,
+B6-B7/load/freshOS/maintenance/Gate004/licensing/human/release gates stay separate.
+
+FN120 missing-golden preparation, FN121 identity-evidence discrepancy, FN122
+Windows cleanup sharing violation and FN123 helper bytecode dirty-checkout regression
+remain preserved. Superseded71f885f3 Windows115504929805 was CANCELLED, not accepted.
+Earlier failed/partial heads stay failed/partial; final corrected passes do not
+erase them. Cleanup retries only sharing32 eight attempts/4.5seconds delay;
+persistent locks/unrelated errors and all12CLI checks still fail honestly.
+Both import entry points disable bytecode writing before the local helper import;
+package clean-source enforcement is unchanged.
+
+Laptop access remains unconfirmed. Existing confirmed nonproduction/DV001/read-only/
+no-fixture/no-role/no-substitution/no-exposure/no-release boundaries remain.
+Continue independent offline work; never infer access from elapsed time.
+Earlier headers below are dated historical snapshots.
+
+---
+
+# Compute disk SKU contract preparation, 2026-10-13
+
+PR139 merged at6f923c1d/tree1e3827f3. Distinct push source38461446822 succeeded
+with complete23record315chunk proof. Actual-push native38461447085 is still running;
+do not call this VERIFIED OFFLINE until both full logs have been checked.
+
+This task-owned branch adds a proposed
+[Compute disk SKU collector contract](REGION_COMPUTE_DISK_SKU_COLLECTOR_20261013.md)
+before production edits. It closes optional metadata admission, pagination/filter,
+owned snapshot, raw-work/text and diagnostic decisions from the earlier analysis.
+The first slice is disks only, with documented2021-07-01 Resource SKUs, not source
+2023-03-01. Source oracles stay original. No target collector or public region code
+is implemented. VM/VMSS and other SKU families remain deferred.
+
+This proposal remains UNACCEPTED and has no QA/review acceptance yet. Exact next:
+finish PR139 distinct actual-push proof, update the current checkpoint, then review
+the concrete contract before target production edits. All earlier snapshots and
+failures stay intact. Laptop access remains unconfirmed; no Azure scope/action
+or release approval is inferred.
+
+---
+
+# PR139 merged; accepted-push verification pending, 2026-10-13
+
+Protected development now points to PR139 merge
+6f923c1dd40a3396db65415510f599a328ed38b5, tree
+1e3827f306dab4d95684b3e047c154f505ec4e33. Ordered parents:
+20695e7ce7d22d958cec54e122cf4f5947b1e8e7 and
+0b96d0bde1c3302cc270e4f4d06af679f316f4bb.
+Protected expected-head merge, valid signature, independently reproduced signed
+SHA1, Denis author/GitHub committer and actual ref/merged PR all verified.
+PR138 remains the last fully VERIFIED OFFLINE baseline until the distinct push
+checks finish. PR139 is merged, not yet fully verified and not release approved.
+
+Current candidate0b96d0b: source38458562406/job115507481824 succeeded; full
+1360586log, all23records315contiguous chunks/SHA256/fullfresh bytes/Gitblobs matched.
+Linux38458562489/job115507803319 succeeded: full96216log,58steps with only conditional
+failure upload skipped,287named controls exactly preserved,84.7% coverage,
+five bounded fuzz targets, race/vet/CLI/packages/docs/security passed.
+Windows115507802989 succeeded: full77327log,43steps,282named controls preserved,
+all5cleanup policy tests including real native sharing lock,12CLI/default/custom
+packages/branding/docs/security passed. Review6153259878 completed0b96d0b on
+2026-10-13T19:58:19.396982Z with no new inline findings; earlier identity thread
+resolved with primary evidence, no independent-person approval inferred.
+All17final changed full files/Gitblobs and256directory trees independently verified.
+
+Distinct actual accepted-push source38461446822/job115517353822 succeeded:
+full1359930log, actual6f923c1d checkout, all7steps/11original harnesses/pins,
+all23records315chunks independently SHA256/fullfreshacceptedremote/Gitblobs matched.
+Push native38461447085/quality115517355506/windows115517355831 still pending.
+Verify both complete full logs before marking PR139 VERIFIED OFFLINE.
+Live [PR139](https://github.com/DeBoX85/Cloud-Assess/pull/139) indexes results.
+
+All7registered original SKU resource types now have synthetic source observations.
+New178provider cases/7cache calls join accepted89Compute cases; source execution
+is Linux original code and native literal oracles, not Windows original SDK or Azure
+deployability/quota/capacity certification. Target region SKU collectors remain0/7;
+region coordinator/public execution and other adapters remain open.
+[Next target analysis](REGION_SKU_TARGET_ANALYSIS_20261013.md) records the evidence
+projection boundary and a first Compute disk design. It is analysis, NOT a finished
+pre-edit contract or target code. Close optional metadata/continuation/admission
+details and publish a concrete contract before implementation. Never change pinned
+source oracles to resemble target corrections.
+
+This task-owned documentation checkpoint is UNACCEPTED. Its own exact-head QA,
+review, file/tree/identity/preview/protected merge and separate push proof remain
+required if proposed for acceptance. Earlier headers are historical snapshots.
+
+FN120 missing-golden preparation, FN121 identity-evidence discrepancy, FN122
+Windows cleanup lock and FN123 bytecode dirty-checkout regression remain preserved.
+Superseded71f885f3 Windows115504929805 was CANCELLED, not accepted.
+Sharing32-only cleanup has eight attempts/4.5seconds delay; persistent locks and
+other errors still fail. Both entry points prevent Python bytecode writes before
+local helper imports; package clean-source enforcement and all12CLI checks remain.
+
+Laptop access remains unconfirmed. Continue independent offline work. Existing
+confirmed nonproduction/DV001/read-only/no-fixture/no-role/no-substitution/no-exposure/
+no-release boundaries remain. Source/SDK/APRL/modules/Go1.26.9/x-net0.60 are unchanged.
+Module-only GO-2026-5932 remains open; zero reachable/imported is not graph-free.
+Other integration/live/load/freshOS/B6-B7/Gate004/licensing/human/release gates remain.
+Exact next: finish actual accepted-push native verification, update this checkpoint,
+then close target contract details before production edits.
+
+---
+
 # PR139 cleanup QA entry-point correction, 2026-10-13 evening
 
 Protected baseline remains VERIFIED OFFLINE PR13820695e7; PR139 UNACCEPTED.
