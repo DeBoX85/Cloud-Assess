@@ -1,9 +1,41 @@
+# Final disk candidate prepared, 2026-10-14
+
+PR140 remains UNACCEPTED until this final head owns all required evidence.
+Confirmed P2 ARG framing correction and all original-source pins are retained.
+Corrected preparation d6522441/38498406144 passed BOTH hosts:
+Linux115639343203/full209208 and Windows115639343353/full210645,
+all21compiling disk controls and restored baselines, ARG4controls, vet,
+Linux race/native Windows. Integration revision8aa581a7 adds independently
+declared full Comparison/health/warning expectations for complete, empty,
+partial and failed collection; partial diagnostic prefix projects unknown/empty.
+Integration Linux115639719277/full218068 passed allcases/21controls/race/vet;
+Windows preparation still being checked at candidate preparation time.
+All4Go formatter files reconstructed with complete chunks/SHA256; final test
+formatter35033bytes/ab26806f adopted without changing fixture expectations.
+
+Source integration38498526849/115639719399 SUCCESS/full1360586:
+23records315chunks, all SHA256 and fresh full head bytes/Gitblobs matched;
+original8e4f0577/tree17d93b20/APRL60eaddda unchanged. This preparation does not
+substitute for fresh final-head and distinct accepted-push evidence.
+Temporary hosted preparation helper is removed from final candidate.
+Full native gates preserve prior291Linux/286Windows controls plus21disk controls
+(expected312/307); count alone is insufficient, compare every earlier identity.
+Inspect allsteps/full logs and current-head automated review, correct findings,
+then protected expected-head merge and DISTINCT actual accepted-push QA.
+Public region remains unavailable. Target SKU adapter acceptance is still0/7
+until this candidate is accepted; source capture coverage7/7 is separate.
+Other families/coordinator/adapters/FullCost/B6-B7/AR-02/module-only advisory/
+load/fresh-OS/live/licensing/Gate004/human/release work remains open.
+Laptop availability is unconfirmed; no Azure authorization inferred.
+
+---
+
 # Compute disk SKU target reconciliation, 2026-10-13
 
 Status: proposed pre-edit contract, UNACCEPTED task-owned WIP. PR139 merged at
 6f923c1d and its distinct accepted-push native/source proof is VERIFIED OFFLINE.
 Verify live refs and this published concrete contract before production edits.
-This document specifies proposed behavior; no target collector exists yet.
+This historical pre-edit section specified behavior before implementation. The candidate now implements an internal disk-only collector; current status is governed by the checkpoint above.
 
 First target SKU slice: Microsoft.Compute/disks only. VM/VMSS and all other SKU
 families remain deferred. No public region execution, report coordinator, cache,

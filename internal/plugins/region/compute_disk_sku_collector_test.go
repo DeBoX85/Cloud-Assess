@@ -594,13 +594,13 @@ func TestComputeDiskSKUJSONEdgesAndContext(t *testing.T) {
 
 func TestComputeDiskSKUAvailabilityIntegration(t *testing.T) {
 	cases := []struct {
-		name string
-		replies []diskReply
-		status string
+		name                            string
+		replies                         []diskReply
+		status                          string
 		available, unavailable, unknown int
-		percent float64
-		missing []string
-		warnings []string
+		percent                         float64
+		missing                         []string
+		warnings                        []string
 	}{
 		{"complete-present-and-absent", []diskReply{{body: diskEnvelope(diskAvailableRow, "")}}, "complete", 1, 1, 0, 50, []string{"microsoft.compute/disks:Absent"}, []string{}},
 		{"complete-empty", []diskReply{{body: diskEnvelope("", "")}}, "complete", 0, 2, 0, 0, []string{"microsoft.compute/disks:Absent", "microsoft.compute/disks:Premium_LRS"}, []string{}},
@@ -619,7 +619,7 @@ func TestComputeDiskSKUAvailabilityIntegration(t *testing.T) {
 			inventory := &InventoryCalculation{Subscriptions: map[string]InventoryCounts{diskTestID: counts}}
 			evidence := AvailabilityEvidence{
 				SubscriptionID: diskTestID, TargetRegion: "eastus", InventoryComplete: true, ProvidersComplete: true,
-				Locations: map[string]map[string]bool{"microsoft.compute/disks": {"eastus": true}},
+				Locations:  map[string]map[string]bool{"microsoft.compute/disks": {"eastus": true}},
 				SKUEnabled: true, SKUs: map[string]SKUEvidence{"microsoft.compute/disks": collected.Evidence()},
 				ZoneCounts: map[string]int{"westeurope": 3, "eastus": 2},
 			}

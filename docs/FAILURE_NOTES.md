@@ -8,7 +8,7 @@ This is a test-harness portability failure, not a production acceptance or an
 undetected-control pass. Preserve both results. Explicit UTF-8/backslashreplace
 for diagnostics and Go quoted malformed body output preserve every fixture,
 ASCII named failure, compile check, restore check and production admission rule.
-Both-host corrected preparation and complete current-head acceptance remain due.
+Corrected d6522441 preparation38498406144 passed BOTH hosts: Linux115639343203/full209208 and Windows115639343353/full210645,21controls each plus restored baselines. Initial full native38497615312/Linux115636894028/full33184 failed for the same decoder cause; Windows115636894367 was cancelled by fail-fast. Integration8aa581a7 Linux115639719277/full218068 passed. Full final-head/current review/protected merge/distinct accepted-push evidence remains required.
 
 ---
 
