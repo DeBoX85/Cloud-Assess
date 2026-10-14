@@ -3,6 +3,7 @@ package diagnostics
 import (
 	"context"
 	"encoding/json"
+	"errors"
 	"io"
 	"net/http"
 	"strings"
@@ -76,3 +77,38 @@ func TestDiagnosticsRejectsSettingsOutsideRequestedBatch(t *testing.T) {
 }
 
 var _ io.ReadCloser = (*batchFramingBody)(nil)
+
+type batchSuffixFailureBody struct {
+	*strings.Reader
+	failure error
+	closes  int
+}
+
+func (b *batchSuffixFailureBody) Read(p []byte) (int, error) {
+	n, err := b.Reader.Read(p)
+	if err == io.EOF {
+		return 0, b.failure
+	}
+	return n, err
+}
+
+func (b *batchSuffixFailureBody) Close() error {
+	b.closes++
+	return nil
+}
+
+func TestDiagnosticsTrailingReadPreservesErrorCause(t *testing.T) {
+	for _, cause := range []error{errors.New("synthetic suffix read failure"), context.DeadlineExceeded} {
+		t.Run(cause.Error(), func(t *testing.T) {
+			body := &batchSuffixFailureBody{Reader: strings.NewReader(`{"responses":[{"httpStatusCode":200,"content":{"value":[]}}]}`), failure: cause}
+			client := &fakeBatchClient{handler: func(armBatchRequest) (*http.Response, error) {
+				return &http.Response{StatusCode: http.StatusOK, Body: body}, nil
+			}}
+			resource := assessment.Resource{ID: "/subscriptions/sub/resourceGroups/rg/providers/Microsoft.Storage/storageAccounts/one", Type: "Microsoft.Storage/storageAccounts"}
+			result, err := NewWithClient(client, "https://management.azure.com").Scan(context.Background(), []assessment.Resource{resource}, nil, nil)
+			if !errors.Is(err, cause) || len(result.Findings) != 0 || body.closes != 1 {
+				t.Fatalf("batch trailing-read failure lost: cause=%v error=%v findings=%d closes=%d", cause, err, len(result.Findings), body.closes)
+			}
+		})
+	}
+}
