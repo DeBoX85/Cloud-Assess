@@ -1,3 +1,30 @@
+# Corrected disk acceptance candidate, 2026-10-14
+
+PR140 remains UNACCEPTED pending this final head's complete gates.
+Review findings FN126(null final pagination) and FN127(actual HTTP status/error
+classification) reproduced after original81ecaedf collector compilation on BOTH
+hosts. Corrected3c45e682 preparation38499969754 now passed BOTH:
+Linux115644340197/full191938 and Windows115644340086/full193132;
+all independent full-map/scoring/metadata/request/transport/cancellation/ownership/
+exact-excess budget cases,23 compiling disk controls and restored baselines, vet,
+Linux race/native Windows. Three complete formatter files were byte-identical:
+collector18107/f4c8fd2e, cases35093/ad654952, reviewcases6080/00f7ebd0.
+Only documented null pagination expectation was corrected using three full pinned
+Microsoft examples; all original23source records/315chunks remain immutable.
+ARG corrective QA and4controls remain part of final mandatory native gates.
+
+The temporary hosted helper is removed. Full native expected314Linux/309Windows
+must preserve every previous291/286 identity plus23disk controls; read complete
+logs/allsteps, fresh source capture proof and final-head automated review.
+Resolve existing findings only with specific correction/QA evidence; still require
+protected expected-head merge and DISTINCT actual accepted-push native/source QA.
+Source coverage7/7 is not target acceptance: target remains0/7 until this candidate
+finishes acceptance. Public region unavailable, no Azure access/authorization
+inferred from expected laptop availability. Other adapters/coordinator/FullCost/
+AR-02/load/module-only/freshOS/live/Gate004/licensing/human/release gates remain open.
+
+---
+
 # FN126-FN127 reproduced and corrected candidate prepared, 2026-10-14
 
 Both named review findings reproduced after successful compilation of unchanged
@@ -145,7 +172,7 @@ Use whole JSON admission first: valid UTF8/no invalid-surrogate replacement/
 controls/noncharacters, canonical known property spelling, no case-folded duplicate
 object keys, bounded depth/tokens/keys/string lengths. Require envelope object,
 explicit non-null value array and non-null row objects. Present nextLink must be a
-string; omitted or empty ends paging, present null fails.
+string or JSON null; omitted, empty or null ends paging, present null fails.
 
 Every row requires valid resourceType and name and charges raw work/text. Rows
 of other resource types are excluded after their identity and JSON admission,
