@@ -1,3 +1,73 @@
+# Review and QA complete; PR140 verified offline, 2026-10-14
+
+PR140 merged at a6fee427e19feeef28691737ea9bc5026086efa0 and completed
+candidate AND distinct actual accepted-push verification on both native hosts.
+The protected branch still points to that verified merge. Signed commit/raw SHA1,
+human identities, tree1b13eec931b510592e42608fe8605ebdc287b0a9 and ordered parents
+6f923c1d/01e8de62 matched; protected expected-head merge used active ruleset23890737
+and required integration15368 checks, with no bypass.
+
+Three confirmed defects are corrected:
+| Severity | Defect | Verified correction |
+| --- | --- | --- |
+| P2 | ARG accepted a valid JSON prefix followed by extra data | Validate buffered and remaining bytes as JSON whitespace through EOF |
+| P1 | Disk collector rejected documented nextLink:null final pages | Accept omitted, empty or null terminators; keep nonstring and unsafe-link rejection |
+| P2 | Disk collector lost HTTP status classification from actual bounded-client errors | Preserve terminal context priority, then classify non-200 response status before remaining transport failures |
+
+Each defect reproduced after unchanged production compilation on Linux and Windows.
+ARG FN124 includes18bad suffix cases and4compiling controls. Disk FN126/FN127 use
+three full immutable Microsoft2021-07-01 examples plus actual bounded-client and
+partial-prefix fixtures;23compiling disk controls, restored baselines, vet and
+Linux race/native Windows passed. FN125 preserves the UTF-8 mutation diagnostic
+failure and its exact harness correction. Full formatter bytes matched both hosts.
+No original source capture or independent fixture was rewritten to resemble target
+code; only the mistaken null-terminal target expectation was explicitly corrected
+from primary evidence.
+
+Complete final candidate QA38500431232:
+Linux115645943577/full100868/60steps (conditional failure upload only skipped)/
+314controls; Windows115645943804/full81672/45steps/all-success/309controls.
+Every earlier291Linux/286Windows identity retained plus23disk controls.
+Candidate source38500431285/115645861513/full1360507:7successful steps,
+23records315chunks/SHA256/fresh full candidate UTF8 and Gitblob equality.
+Final automated marker6159203561 completed on01e8de6 at
+2026-10-14T02:23:10.953464Z; no-major-issues comment6159475528 reviewed
+01e8de6244. Both original threads resolved with specific correction QA evidence.
+This automated review is not independent-human or release approval.
+
+DISTINCT actual merge-head PUSH native38502782779:
+Linux115653354934/full100555/60steps (same conditional skip)/314controls;
+Windows115653354646/full81129/45steps/all-success/309controls.
+All314/309candidate identities independently preserved, not only matching counts.
+Actual PUSH source38502782765/115653354694/full1359850:7successful steps,
+23records315chunks, each SHA256 and fresh full a6fee427 merge bytes/Gitblobs matched.
+Both runs explicitly event=push/head=a6fee427/branch=bootstrap/core-v1/completed
+success; final protected ref matched. No candidate/push substitution.
+Original AZQR8e4f0577/tree17d93b20/APRL60eaddda, source/SDK/modules and
+Go1.26.9 remain pinned. Dependency scan still reports0reachable/0imported and
+1module-only advisory; the graph is not declared advisory-free.
+
+Progress measures distinct scopes: source SKU captures7/7; target SKU adapters
+1/7 (14.3%), with Compute disks now verified internally. These are not a weighted
+overall project percentage. Public region execution is still unavailable.
+Remaining6types, coordinator/public integration, FullCost/other adapters,
+AR-02/load/fresh-OS/live/Gate004/licensing/human/release work remain open.
+Overall release ETA requires those contracts, integration and live/laptop QA;
+the completed review/first-disk phase has no remaining acceptance step.
+
+Continuation: full immutable primary Storage2023-01-01 schema/common/example
+read and Gitblob checked. The248-row example repeats5names across kinds/regions;
+source discovery retains kind, while SKU counts lose it. Storage grouping,
+kind-aware projection, display/stage locations and no-schema-paging rules need
+a concrete pre-edit contract and independent expectations before production code.
+This checkpoint/Storage-analysis branch remains task-owned DRAFT/UNACCEPTED;
+its prose records verified PR140 evidence and does not accept new Storage code.
+Laptops/Azure scope have not been reverified; no Azure action or live claim.
+
+Historical checkpoints below remain as historical evidence; this outcome governs.
+
+---
+
 # PR140 merged; distinct actual accepted-push verification pending, 2026-10-14
 
 Current protected baseline is PR140 a6fee427e19feeef28691737ea9bc5026086efa0.
