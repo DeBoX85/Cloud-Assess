@@ -1,3 +1,43 @@
+# Section 2 stopping checkpoint, review started 2026-10-14
+
+Section 2 source/test review and corrective code QA are complete on `1c5d300ce2f726a36b0bc4e3eac09fc82588f337`, tree `a8147abfea11cbcd21151be447e51347c331a0bc`. This documentation-only successor records that verified code evidence and the user's planned re-evaluation stop. It does not inherit exact-head workflow acceptance. PR142 remains draft/unmerged; protected accepted baseline stays `a6fee427e19feeef28691737ea9bc5026086efa0`.
+
+Coverage: all 13 Section 2 package directories, 51 baseline Go files (25 production/26 tests), six added tests inside the section and one coordinator integration test in Section 1. Whole audit: **2/4 sections complete (50% by section count)**, **22/41 package directories reviewed (53.7% by directory count)**. These are unweighted review counts, not overall project completion or defect-free certification. Current repository: 260 Go files and 48 Python files; the original inventory remains traceable.
+
+Six baseline P2 finding groups (SR-F04–SR-F09) were reproduced after compilation on both hosts and corrected in isolated commits. Seven compiling/restoration controls and the final-Cost coordinator regression passed. Introduced QA-S2-01 (Cost local-name collision) failed candidate 7ce5on both hosts and was corrected in 4284; it was never accepted. Earlier automated no-major-issues feedback did not override that failure. Exact heads, parents, logs/hashes, fixture correction, source contracts and rollback dependencies are in the [Section 2 report](SYSTEMATIC_REVIEW_SECTION2_20261014.md) and [journal](SYSTEMATIC_REVIEW_CHANGELOG_20261014.md).
+
+NEXT: stop for the user's re-evaluation. On authorized continuation, start Section 3's 15 plugin/reporting/platform packages; Section 4's four Go directories and all remaining tooling/delivery/data/provenance/docs follow. Do not replay completed fixes. Inspect live PR142/task/protected refs and any documentation-successor checks before a merge; no accepted-push proof exists for the unmerged audit. A new chat should read this current record and the current reports, then validate actual run heads/results.
+
+Remaining audit estimate: **6–11 active review hours**, plus substantial findings and repeated QA. Overall weighted project progress and release ETA remain unverified. Source-compatible Arc SQL numeric decoding, core business-row/volume constraints and other residuals are explicitly recorded; review completion does not close them silently.
+
+Project state remains: accepted region target adapters 1/7 (14.3% of that specific scope), source captures7/7, public region unavailable. Six adapters, coordinator/public region, FullCost/other parity, AR-02/load, live/fresh OS, module-only advisory disposition, human/license/security/Gate004 and release remain. After the entire audit, resume Storage contract/tests and remaining adapter/integration work; PR141 retains draft Storage analysis. Laptop/Azure restoration is unconfirmed. No Azure action or source pin/capture/dependency/schema/KQL change occurred.
+
+Normal targeted revert commits must account for dependent helpers and tests, especially shared Diagnostics/Cost edits and the later HTTP variable correction. Do not reset protected history or rewrite retained source fixtures. Scratch and tool stores can disappear; the repository history is the recovery record.
+
+## Verified code-head QA evidence
+
+All evidence below targets `1c5d300ce2f726a36b0bc4e3eac09fc82588f337`, tree `a8147abfea11cbcd21151be447e51347c331a0bc`. The eventual documentation successor has separate checks and must not be treated as exact-head accepted by these results.
+
+Native run [38649413582](https://github.com/DeBoX85/Cloud-Assess/actions/runs/38649413582). Linux job 116144226683 completed successfully with 62 steps: 61 successful and the conditional failure-evidence step appropriately skipped. Race tests, 85.2% total statement coverage, bounded fuzzing, vet, builds/smoke tests, installation/package checks and all compiling controls passed. Its 325 control identities contain every previous 318 identity plus exactly seven Section 2 controls. Identity comparison removes only log timestamps and terminal CR; hashes preserve the complete returned UTF-8 content.
+
+Source run [38649413551](https://github.com/DeBoX85/Cloud-Assess/actions/runs/38649413551), job 116144226354, completed successfully. All 23 captures/315 chunks were reconstructed, index/count/duplicate/chunk hashes and Git blobs independently checked, and all 23 fresh candidate files matched. AZQR `8e4f0577f3615e6c9014c031bcad079f235369cc`, tree `17d93b20c303f90f7843036be82f0dc32f3260f1`, and APRL `60eaddda76541f6adbc1c5ffa686829807e55e29` remain unchanged.
+
+Windows job 116144227611 completed successfully, all 47 steps. Native Windows Go tests, CLI/preflight, PowerShell 5.1 checks, builds/smoke, branding, package/isolated-install and all compiling controls passed. Its 320 identities contain all previous 313 identities plus exactly the same seven Section 2 controls. Overall native run completed/success at the stated code head. Both fresh vulnerability scans report 0 reachable, 0 imported-package and 1 module-only advisory; that advisory remains open.
+
+| Exact returned log | Job | Characters | UTF-8 bytes | SHA-256 |
+| --- | ---: | ---: | ---: | --- |
+| Linux | 116144226683 | 101775 | 101779 | `3c1af7d4e581c77bead3bcfc8acd0822b8067d88017056ca3647490c59f6f9e6` |
+| Windows | 116144227611 | 82321 | 82323 | `ab0dc13c5f79a81d5fd7d7fdb465fbcc79a66f0429c5a7a7dadc3590d6b57aa8` |
+| Source captures | 116144226354 | 1359878 | 1359954 | `b6c80e8f7169a0188f9c0b147929b14282cd0391a053135f9a9be32bdff0ca1f` |
+
+This evidence closes corrective code QA for Section 2. It does not merge PR142, provide protected accepted-push proof, close release/live gates or accept an unverified documentation-successor head. CI triggered by this documentation checkpoint is separately pending at publication; inspect live PR142/checks for its later outcome. No code, source captures, dependency versions, query/schema or workflow settings change in this checkpoint.
+
+---
+
+## Historical records below — superseded progress and resume actions
+
+The checkpoint above is current authority. Earlier in-progress/failed/pending snapshots below are retained for audit and rollback history, not instructions to replay completed work. The module/file inventory tables are reconciled to the completed checkpoints; baseline blob identities remain unchanged.
+
 # Section 2 CI envelope correction in progress
 
 This is current recovery authority. Code head4284ffeccc4bfd7c2bf7e257311b310937a29226 is still unaccepted: native38646061400 Linux116133085260 was canceled after1213seconds (22:13:01–22:33:14UTC), with timeout-minutes20 configured. Task head stayed4284and no newer workflow superseded it. This timing and GitHub's documented job timeout behavior support a CI-envelope timeout classification, not a product assertion failure. Check-run annotations are unavailable through the connector's allowed Fetch endpoints, so the cause is inferred from configuration, elapsed time and complete logs.

@@ -1,3 +1,43 @@
+# Section 2 stopping checkpoint, review started 2026-10-14
+
+Section 2 source/test review and corrective code QA are complete on `1c5d300ce2f726a36b0bc4e3eac09fc82588f337`, tree `a8147abfea11cbcd21151be447e51347c331a0bc`. This documentation-only successor records that verified code evidence and the user's planned re-evaluation stop. It does not inherit exact-head workflow acceptance. PR142 remains draft/unmerged; protected accepted baseline stays `a6fee427e19feeef28691737ea9bc5026086efa0`.
+
+Coverage: all 13 Section 2 package directories, 51 baseline Go files (25 production/26 tests), six added tests inside the section and one coordinator integration test in Section 1. Whole audit: **2/4 sections complete (50% by section count)**, **22/41 package directories reviewed (53.7% by directory count)**. These are unweighted review counts, not overall project completion or defect-free certification. Current repository: 260 Go files and 48 Python files; the original inventory remains traceable.
+
+Six baseline P2 finding groups (SR-F04–SR-F09) were reproduced after compilation on both hosts and corrected in isolated commits. Seven compiling/restoration controls and the final-Cost coordinator regression passed. Introduced QA-S2-01 (Cost local-name collision) failed candidate 7ce5on both hosts and was corrected in 4284; it was never accepted. Earlier automated no-major-issues feedback did not override that failure. Exact heads, parents, logs/hashes, fixture correction, source contracts and rollback dependencies are in the [Section 2 report](SYSTEMATIC_REVIEW_SECTION2_20261014.md) and [journal](SYSTEMATIC_REVIEW_CHANGELOG_20261014.md).
+
+NEXT: stop for the user's re-evaluation. On authorized continuation, start Section 3's 15 plugin/reporting/platform packages; Section 4's four Go directories and all remaining tooling/delivery/data/provenance/docs follow. Do not replay completed fixes. Inspect live PR142/task/protected refs and any documentation-successor checks before a merge; no accepted-push proof exists for the unmerged audit. A new chat should read this current record and the current reports, then validate actual run heads/results.
+
+Remaining audit estimate: **6–11 active review hours**, plus substantial findings and repeated QA. Overall weighted project progress and release ETA remain unverified. Source-compatible Arc SQL numeric decoding, core business-row/volume constraints and other residuals are explicitly recorded; review completion does not close them silently.
+
+Project state remains: accepted region target adapters 1/7 (14.3% of that specific scope), source captures7/7, public region unavailable. Six adapters, coordinator/public region, FullCost/other parity, AR-02/load, live/fresh OS, module-only advisory disposition, human/license/security/Gate004 and release remain. After the entire audit, resume Storage contract/tests and remaining adapter/integration work; PR141 retains draft Storage analysis. Laptop/Azure restoration is unconfirmed. No Azure action or source pin/capture/dependency/schema/KQL change occurred.
+
+Normal targeted revert commits must account for dependent helpers and tests, especially shared Diagnostics/Cost edits and the later HTTP variable correction. Do not reset protected history or rewrite retained source fixtures. Scratch and tool stores can disappear; the repository history is the recovery record.
+
+## Verified code-head QA evidence
+
+All evidence below targets `1c5d300ce2f726a36b0bc4e3eac09fc82588f337`, tree `a8147abfea11cbcd21151be447e51347c331a0bc`. The eventual documentation successor has separate checks and must not be treated as exact-head accepted by these results.
+
+Native run [38649413582](https://github.com/DeBoX85/Cloud-Assess/actions/runs/38649413582). Linux job 116144226683 completed successfully with 62 steps: 61 successful and the conditional failure-evidence step appropriately skipped. Race tests, 85.2% total statement coverage, bounded fuzzing, vet, builds/smoke tests, installation/package checks and all compiling controls passed. Its 325 control identities contain every previous 318 identity plus exactly seven Section 2 controls. Identity comparison removes only log timestamps and terminal CR; hashes preserve the complete returned UTF-8 content.
+
+Source run [38649413551](https://github.com/DeBoX85/Cloud-Assess/actions/runs/38649413551), job 116144226354, completed successfully. All 23 captures/315 chunks were reconstructed, index/count/duplicate/chunk hashes and Git blobs independently checked, and all 23 fresh candidate files matched. AZQR `8e4f0577f3615e6c9014c031bcad079f235369cc`, tree `17d93b20c303f90f7843036be82f0dc32f3260f1`, and APRL `60eaddda76541f6adbc1c5ffa686829807e55e29` remain unchanged.
+
+Windows job 116144227611 completed successfully, all 47 steps. Native Windows Go tests, CLI/preflight, PowerShell 5.1 checks, builds/smoke, branding, package/isolated-install and all compiling controls passed. Its 320 identities contain all previous 313 identities plus exactly the same seven Section 2 controls. Overall native run completed/success at the stated code head. Both fresh vulnerability scans report 0 reachable, 0 imported-package and 1 module-only advisory; that advisory remains open.
+
+| Exact returned log | Job | Characters | UTF-8 bytes | SHA-256 |
+| --- | ---: | ---: | ---: | --- |
+| Linux | 116144226683 | 101775 | 101779 | `3c1af7d4e581c77bead3bcfc8acd0822b8067d88017056ca3647490c59f6f9e6` |
+| Windows | 116144227611 | 82321 | 82323 | `ab0dc13c5f79a81d5fd7d7fdb465fbcc79a66f0429c5a7a7dadc3590d6b57aa8` |
+| Source captures | 116144226354 | 1359878 | 1359954 | `b6c80e8f7169a0188f9c0b147929b14282cd0391a053135f9a9be32bdff0ca1f` |
+
+This evidence closes corrective code QA for Section 2. It does not merge PR142, provide protected accepted-push proof, close release/live gates or accept an unverified documentation-successor head. CI triggered by this documentation checkpoint is separately pending at publication; inspect live PR142/checks for its later outcome. No code, source captures, dependency versions, query/schema or workflow settings change in this checkpoint.
+
+---
+
+## Historical records below — superseded progress and resume actions
+
+The checkpoint above is current authority. Earlier in-progress/failed/pending snapshots below are retained for audit and rollback history, not instructions to replay completed work. The module/file inventory tables are reconciled to the completed checkpoints; baseline blob identities remain unchanged.
+
 # Section 2 CI envelope correction in progress
 
 This is current recovery authority. Code head4284ffeccc4bfd7c2bf7e257311b310937a29226 is still unaccepted: native38646061400 Linux116133085260 was canceled after1213seconds (22:13:01–22:33:14UTC), with timeout-minutes20 configured. Task head stayed4284and no newer workflow superseded it. This timing and GitHub's documented job timeout behavior support a CI-envelope timeout classification, not a product assertion failure. Check-run annotations are unavailable through the connector's allowed Fetch endpoints, so the cause is inferred from configuration, elapsed time and complete logs.
@@ -133,23 +173,23 @@ A file read is not a completed module review. Initial source review means the li
 
 | Package directory | Production files | Test files | Review state |
 | --- | ---: | ---: | --- |
-| `cmd/cloud-assess` | 4 | 12 | Source/test pass; correction QA pending |
-| `internal/advisor` | 2 | 3 | Pending |
-| `internal/app` | 1 | 9 | Source/test pass; correction QA pending |
-| `internal/arcsql` | 1 | 1 | Pending |
-| `internal/arg` | 6 | 11 | Source/test pass; correction QA pending |
-| `internal/assessment` | 8 | 0 | Source/test pass; correction QA pending |
-| `internal/azure` | 8 | 7 | Source/test pass; correction QA pending |
+| `cmd/cloud-assess` | 4 | 12 | Section 1 verified at 7911764 |
+| `internal/advisor` | 2 | 3 | Section 2 verified at 1c5d300 |
+| `internal/app` | 1 | 9 | Section 1 verified at 7911764 |
+| `internal/arcsql` | 1 | 1 | Section 2 verified at 1c5d300 |
+| `internal/arg` | 6 | 11 | Section 1 verified at 7911764 |
+| `internal/assessment` | 8 | 0 | Section 1 verified at 7911764 |
+| `internal/azure` | 8 | 7 | Section 1 verified at 7911764 |
 | `internal/branding` | 2 | 1 | Pending |
-| `internal/config` | 2 | 3 | Source/test pass; correction QA pending |
-| `internal/cost` | 2 | 4 | Pending |
-| `internal/defender` | 1 | 1 | Pending |
-| `internal/diagnostics` | 2 | 1 | Pending |
-| `internal/discovery` | 5 | 6 | Source/test pass; correction QA pending |
+| `internal/config` | 2 | 3 | Section 1 verified at 7911764 |
+| `internal/cost` | 2 | 4 | Section 2 verified at 1c5d300 |
+| `internal/defender` | 1 | 1 | Section 2 verified at 1c5d300 |
+| `internal/diagnostics` | 2 | 1 | Section 2 verified at 1c5d300 |
+| `internal/discovery` | 5 | 6 | Section 1 verified at 7911764 |
 | `internal/equivalence` | 3 | 2 | Pending |
-| `internal/findings` | 2 | 2 | Pending |
-| `internal/gate` | 1 | 1 | Pending |
-| `internal/orchestration` | 3 | 8 | Source/test pass; correction QA pending |
+| `internal/findings` | 2 | 2 | Section 2 verified at 1c5d300 |
+| `internal/gate` | 1 | 1 | Section 2 verified at 1c5d300 |
+| `internal/orchestration` | 3 | 8 | Section 1 verified at 7911764 |
 | `internal/plugins` | 4 | 5 | Pending |
 | `internal/plugins/aigov` | 5 | 5 | Pending |
 | `internal/plugins/carbon` | 2 | 2 | Pending |
@@ -157,7 +197,7 @@ A file read is not a completed module review. Initial source review means the li
 | `internal/plugins/servicehealth` | 2 | 1 | Pending |
 | `internal/plugins/sqleol` | 2 | 1 | Pending |
 | `internal/plugins/zone` | 1 | 1 | Pending |
-| `internal/policy` | 1 | 1 | Pending |
+| `internal/policy` | 1 | 1 | Section 2 verified at 1c5d300 |
 | `internal/redact` | 1 | 1 | Pending |
 | `internal/renderers/csv` | 1 | 1 | Pending |
 | `internal/renderers/excel` | 1 | 1 | Pending |
@@ -165,11 +205,11 @@ A file read is not a completed module review. Initial source review means the li
 | `internal/renderers/sarif` | 1 | 1 | Pending |
 | `internal/renderers/tables` | 2 | 1 | Pending |
 | `internal/reportfile` | 3 | 2 | Initial source review; integration verification pending |
-| `internal/result` | 3 | 3 | Pending |
-| `internal/rules` | 5 | 4 | Pending |
-| `internal/scanners` | 1 | 1 | Pending |
-| `internal/skus` | 1 | 1 | Pending |
-| `internal/stages` | 3 | 3 | Pending |
+| `internal/result` | 3 | 3 | Section 2 verified at 1c5d300 |
+| `internal/rules` | 5 | 4 | Section 2 verified at 1c5d300 |
+| `internal/scanners` | 1 | 1 | Section 2 verified at 1c5d300 |
+| `internal/skus` | 1 | 1 | Section 2 verified at 1c5d300 |
+| `internal/stages` | 3 | 3 | Section 2 verified at 1c5d300 |
 | `internal/throttling` | 1 | 1 | Source/test pass; correction QA pending |
 | `tools/brand-build` | 1 | 0 | Pending |
 | `tools/diagnostics-probe` | 1 | 1 | Pending |
@@ -384,11 +424,11 @@ Only files actually examined in this initial pass are marked initial-pass. All o
 | `examples/filters/cloud-assess-storage-vm.yml` | `907a7c2f7f8746af07b49afc1739a581121fc8f2` | Pending |
 | `go.mod` | `cb0d71e91bf9ce889c50a1ae5b5da9a962a4e502` | Pending |
 | `go.sum` | `26a56ee20d2be4fa9ee61ea93af8da6788e400b2` | Pending |
-| `internal/advisor/metadata.go` | `97dd140e5f0bf49b1377ed4c7d713cb6cfdf7be2` | Section 2 source/test reviewed; corrected QA pending |
-| `internal/advisor/metadata_http_test.go` | `b8a81318ef8f86e7a5c2748b761a21f5fe62ba5d` | Section 2 source/test reviewed; corrected QA pending |
-| `internal/advisor/pagination_context_test.go` | `e9afac187046b6addde7d5e6100a58f22694fd07` | Section 2 source/test reviewed; corrected QA pending |
-| `internal/advisor/scanner.go` | `a636cd01e963469ac1a959da415bfc1c893f944c` | Section 2 source/test reviewed; corrected QA pending |
-| `internal/advisor/scanner_test.go` | `b7a0d87604cc26613dfe71514bbd751e3dc5e2c2` | Section 2 source/test reviewed; corrected QA pending |
+| `internal/advisor/metadata.go` | `97dd140e5f0bf49b1377ed4c7d713cb6cfdf7be2` | Section 2 reviewed; code QA verified at 1c5d300 |
+| `internal/advisor/metadata_http_test.go` | `b8a81318ef8f86e7a5c2748b761a21f5fe62ba5d` | Section 2 reviewed; code QA verified at 1c5d300 |
+| `internal/advisor/pagination_context_test.go` | `e9afac187046b6addde7d5e6100a58f22694fd07` | Section 2 reviewed; code QA verified at 1c5d300 |
+| `internal/advisor/scanner.go` | `a636cd01e963469ac1a959da415bfc1c893f944c` | Section 2 reviewed; code QA verified at 1c5d300 |
+| `internal/advisor/scanner_test.go` | `b7a0d87604cc26613dfe71514bbd751e3dc5e2c2` | Section 2 reviewed; code QA verified at 1c5d300 |
 | `internal/app/arg_completeness_test.go` | `d18d1c9971b2e947d1360431de5de66accafd8d3` | Section 1 reviewed; code QA verified at00ba2716 |
 | `internal/app/branding_report_test.go` | `a85b5d4806e27de8cde0f6750093b6e914eb94b8` | Section 1 reviewed; code QA verified at00ba2716 |
 | `internal/app/e2e_test.go` | `c6f2dbb636fed2697cab6b716cf2eec762e32f93` | Section 1 reviewed; code QA verified at00ba2716 |
@@ -401,8 +441,8 @@ Only files actually examined in this initial pass are marked initial-pass. All o
 | `internal/app/testdata/optional-stage-projections.json` | `074ee2a6918414bbb578ef945836fe6152e765fa` | Pending |
 | `internal/app/timeout_test.go` | `20a50b7df1fa03506a66c6a2e1340b1363c46213` | Section 1 reviewed; code QA verified at00ba2716 |
 | `internal/app/yaml_plugins_test.go` | `3b46b7aedae9a9b944d893416012c603d6fcec36` | Section 1 reviewed; code QA verified at00ba2716 |
-| `internal/arcsql/scanner.go` | `d4f9f0230c26842e02d62fbda9730132a050c59f` | Section 2 source/test reviewed; corrected QA pending |
-| `internal/arcsql/scanner_test.go` | `4cd0d0130a7652adc66ba6c0881b66611524f5ad` | Section 2 source/test reviewed; corrected QA pending |
+| `internal/arcsql/scanner.go` | `d4f9f0230c26842e02d62fbda9730132a050c59f` | Section 2 reviewed; code QA verified at 1c5d300 |
+| `internal/arcsql/scanner_test.go` | `4cd0d0130a7652adc66ba6c0881b66611524f5ad` | Section 2 reviewed; code QA verified at 1c5d300 |
 | `internal/arg/body_completion_test.go` | `a72f3191415ed7291785b1808b3fdef07ab16289` | Section 1 reviewed; code QA verified at00ba2716 |
 | `internal/arg/client.go` | `19c6d785b64b8dfd992e47975abdeefc5e03efa7` | Section 1 reviewed; code QA verified at00ba2716 |
 | `internal/arg/client_test.go` | `7de891afdf0262813347d5a4a289a9cb8a70371e` | Section 1 reviewed; code QA verified at00ba2716 |
@@ -451,17 +491,17 @@ Only files actually examined in this initial pass are marked initial-pass. All o
 | `internal/config/filters_test.go` | `03fee8985cf11b60be583f3f06a89c3ba6d4c84c` | Section 1 reviewed; code QA verified at00ba2716 |
 | `internal/config/load.go` | `46a03a41bf947dad526a3a828aaecb3687174dd8` | Section 1 reviewed; code QA verified at00ba2716 |
 | `internal/config/load_test.go` | `f4ca80921d24affa2b368ba9ec739bbb7e11e0df` | Section 1 reviewed; code QA verified at00ba2716 |
-| `internal/cost/continuation_test.go` | `2a2f9e4ce072da9d2ef7232886dd7e7515a4aaf5` | Section 2 source/test reviewed; corrected QA pending |
-| `internal/cost/http_contract_test.go` | `2d93b9d1801eef11b9c9545c172e2c94c3e8149b` | Section 2 source/test reviewed; corrected QA pending |
-| `internal/cost/period.go` | `ee7f36b63acef11043e2f4e42722499ccb658426` | Section 2 source/test reviewed; corrected QA pending |
-| `internal/cost/period_test.go` | `192d0e94f67b3631d58e3372240b3b6fa0796b8f` | Section 2 source/test reviewed; corrected QA pending |
-| `internal/cost/scanner.go` | `aaa7d4f85d576e7e76f2965513c23d53ea5f11ef` | Section 2 source/test reviewed; corrected QA pending |
-| `internal/cost/scanner_test.go` | `f4e7a4b3d908c37c41cc67d2be78643f1dc0d0fc` | Section 2 source/test reviewed; corrected QA pending |
-| `internal/defender/scanner.go` | `7e843f0e826f5c7a1b928eb22c4de525c6bd48f5` | Section 2 source/test reviewed; corrected QA pending |
-| `internal/defender/scanner_test.go` | `a72483ee1c6c6f0f4aad402328e8c2d58cf89d9b` | Section 2 source/test reviewed; corrected QA pending |
-| `internal/diagnostics/recommendations.go` | `9fb8f241d68502dd425ebb6e2f40f8414dcc5ba6` | Section 2 source/test reviewed; corrected QA pending |
-| `internal/diagnostics/scanner.go` | `b9c3cb25c28b1282c06866344effe0590539b13e` | Section 2 source/test reviewed; corrected QA pending |
-| `internal/diagnostics/scanner_test.go` | `7bfcb1ac7a56ad33a14ec79a91de08ff78951bd3` | Section 2 source/test reviewed; corrected QA pending |
+| `internal/cost/continuation_test.go` | `2a2f9e4ce072da9d2ef7232886dd7e7515a4aaf5` | Section 2 reviewed; code QA verified at 1c5d300 |
+| `internal/cost/http_contract_test.go` | `2d93b9d1801eef11b9c9545c172e2c94c3e8149b` | Section 2 reviewed; code QA verified at 1c5d300 |
+| `internal/cost/period.go` | `ee7f36b63acef11043e2f4e42722499ccb658426` | Section 2 reviewed; code QA verified at 1c5d300 |
+| `internal/cost/period_test.go` | `192d0e94f67b3631d58e3372240b3b6fa0796b8f` | Section 2 reviewed; code QA verified at 1c5d300 |
+| `internal/cost/scanner.go` | `aaa7d4f85d576e7e76f2965513c23d53ea5f11ef` | Section 2 reviewed; code QA verified at 1c5d300 |
+| `internal/cost/scanner_test.go` | `f4e7a4b3d908c37c41cc67d2be78643f1dc0d0fc` | Section 2 reviewed; code QA verified at 1c5d300 |
+| `internal/defender/scanner.go` | `7e843f0e826f5c7a1b928eb22c4de525c6bd48f5` | Section 2 reviewed; code QA verified at 1c5d300 |
+| `internal/defender/scanner_test.go` | `a72483ee1c6c6f0f4aad402328e8c2d58cf89d9b` | Section 2 reviewed; code QA verified at 1c5d300 |
+| `internal/diagnostics/recommendations.go` | `9fb8f241d68502dd425ebb6e2f40f8414dcc5ba6` | Section 2 reviewed; code QA verified at 1c5d300 |
+| `internal/diagnostics/scanner.go` | `b9c3cb25c28b1282c06866344effe0590539b13e` | Section 2 reviewed; code QA verified at 1c5d300 |
+| `internal/diagnostics/scanner_test.go` | `7bfcb1ac7a56ad33a14ec79a91de08ff78951bd3` | Section 2 reviewed; code QA verified at 1c5d300 |
 | `internal/discovery/azure_scope.go` | `57efd23ef843fe916788d1b757842a1263dda2a0` | Section 1 reviewed; code QA verified at00ba2716 |
 | `internal/discovery/azure_scope_test.go` | `c97ce7cd715b431b7be30ac39b00c98e57767b7c` | Section 1 reviewed; code QA verified at00ba2716 |
 | `internal/discovery/management_groups.go` | `543c870651d9a4ef2a77b5879162a977c9fbb86a` | Section 1 reviewed; code QA verified at00ba2716 |
@@ -478,12 +518,12 @@ Only files actually examined in this initial pass are marked initial-pass. All o
 | `internal/equivalence/projection.go` | `cb7f31799442cba5227e13096d7f4c9dcd7d95c2` | Pending |
 | `internal/equivalence/projection_test.go` | `3915be9d5907fced529204bb5ecf18b78df7a012` | Pending |
 | `internal/equivalence/types.go` | `f7be9b21a3aeabc654730ca4086e0b4e7a3f5ecb` | Pending |
-| `internal/findings/applicability.go` | `366dde9e246f1a8e92fd58f975dec70652ea98b2` | Section 2 source/test reviewed; corrected QA pending |
-| `internal/findings/applicability_test.go` | `068c908fa55bbcff01202294876dcf3d8198a0c3` | Section 2 source/test reviewed; corrected QA pending |
-| `internal/findings/summary.go` | `e4fc5b01bd25c668a85c3b77584b1a1d3223823a` | Section 2 source/test reviewed; corrected QA pending |
-| `internal/findings/summary_test.go` | `62cad5632c5402f649c1a4d88e7d7f203f584924` | Section 2 source/test reviewed; corrected QA pending |
-| `internal/gate/gate.go` | `35e3d887aff375b3ca63b673dfd090641dc5c4b4` | Section 2 source/test reviewed; corrected QA pending |
-| `internal/gate/gate_test.go` | `45b96ba6241d71a11f7437960f424e0e68b52d4d` | Section 2 source/test reviewed; corrected QA pending |
+| `internal/findings/applicability.go` | `366dde9e246f1a8e92fd58f975dec70652ea98b2` | Section 2 reviewed; code QA verified at 1c5d300 |
+| `internal/findings/applicability_test.go` | `068c908fa55bbcff01202294876dcf3d8198a0c3` | Section 2 reviewed; code QA verified at 1c5d300 |
+| `internal/findings/summary.go` | `e4fc5b01bd25c668a85c3b77584b1a1d3223823a` | Section 2 reviewed; code QA verified at 1c5d300 |
+| `internal/findings/summary_test.go` | `62cad5632c5402f649c1a4d88e7d7f203f584924` | Section 2 reviewed; code QA verified at 1c5d300 |
+| `internal/gate/gate.go` | `35e3d887aff375b3ca63b673dfd090641dc5c4b4` | Section 2 reviewed; code QA verified at 1c5d300 |
+| `internal/gate/gate_test.go` | `45b96ba6241d71a11f7437960f424e0e68b52d4d` | Section 2 reviewed; code QA verified at 1c5d300 |
 | `internal/orchestration/aigov_test.go` | `bc8b62daac1199850b224cfb8a1962745222a020` | Section 1 reviewed; code QA verified at00ba2716 |
 | `internal/orchestration/carbon_test.go` | `92f21c2937f4d9a5fd4e970f9c0370e644b4f2f3` | Section 1 reviewed; code QA verified at00ba2716 |
 | `internal/orchestration/coordinator.go` | `ffd707e55b58f486525aa5a884cebe29ee807c00` | Section 1 reviewed; code QA verified at00ba2716 |
@@ -627,8 +667,8 @@ Only files actually examined in this initial pass are marked initial-pass. All o
 | `internal/plugins/zone/scanner.go` | `1ba211bad8d2b0558b91481d177acb35417a568d` | Pending |
 | `internal/plugins/zone/scanner_test.go` | `842fa2d7be23836ec7277bc5dcd2541f9e72a836` | Pending |
 | `internal/plugins/zone/testdata/source-rows.json` | `f9812b012cbe5c704a85808a70ed802e5eac513a` | Pending |
-| `internal/policy/scanner.go` | `1a549afefd7be50e0262336f733d8d5f76901a3d` | Section 2 source/test reviewed; corrected QA pending |
-| `internal/policy/scanner_test.go` | `74d77a818ba3d0164d141b3ee1b0656503d7e53e` | Section 2 source/test reviewed; corrected QA pending |
+| `internal/policy/scanner.go` | `1a549afefd7be50e0262336f733d8d5f76901a3d` | Section 2 reviewed; code QA verified at 1c5d300 |
+| `internal/policy/scanner_test.go` | `74d77a818ba3d0164d141b3ee1b0656503d7e53e` | Section 2 reviewed; code QA verified at 1c5d300 |
 | `internal/redact/subscription.go` | `74ca62b17ae958c03803be3b8d0550cd1a3c9852` | Pending |
 | `internal/redact/subscription_test.go` | `9ce7ed9ac1ac9e8b8e25e260e4105c6b82ddd78c` | Pending |
 | `internal/renderers/csv/csv.go` | `8ebe602a03cf70048c495d39881c1ef25242ddf0` | Pending |
@@ -647,14 +687,14 @@ Only files actually examined in this initial pass are marked initial-pass. All o
 | `internal/reportfile/windows_acl_test.go` | `8c96f8f89e9f48f433067bdef47f7bab45f610da` | Initial pass; module verification pending |
 | `internal/reportfile/write.go` | `161ed19e385bbdfaab5c802cd7397d741918dab5` | Initial pass; module verification pending |
 | `internal/reportfile/write_test.go` | `4ef1773e1f6953a4c4c520d1b0118e509ce9e84e` | Initial pass; module verification pending |
-| `internal/result/plugin_tables.go` | `9703654451984758e91b8c962ae5626f31e79b96` | Section 2 source/test reviewed; corrected QA pending |
-| `internal/result/plugin_tables_test.go` | `4a52a5a19bcc8658a2b8aa5b1832a3d89ca26a07` | Section 2 source/test reviewed; corrected QA pending |
-| `internal/result/result.go` | `f099c293a44707535ffe624c201eddcf240847f0` | Section 2 source/test reviewed; corrected QA pending |
-| `internal/result/result_test.go` | `bac7ad307b4c7f79d19831e1229d36293d9ef97e` | Section 2 source/test reviewed; corrected QA pending |
-| `internal/result/scope.go` | `a65bc4f42d7c973cb399fd3a06c7f30019bfb7fa` | Section 2 source/test reviewed; corrected QA pending |
-| `internal/result/scope_test.go` | `ed3ae54acdd9b33e90ab318836810fd3ac1523c4` | Section 2 source/test reviewed; corrected QA pending |
-| `internal/rules/catalog.go` | `e2d0a9ba82323ccb01dd837d14f7c25cf5d22c6d` | Section 2 source/test reviewed; corrected QA pending |
-| `internal/rules/catalog_test.go` | `e67a3d090bead57e968e2464c2de205b16494f12` | Section 2 source/test reviewed; corrected QA pending |
+| `internal/result/plugin_tables.go` | `9703654451984758e91b8c962ae5626f31e79b96` | Section 2 reviewed; code QA verified at 1c5d300 |
+| `internal/result/plugin_tables_test.go` | `4a52a5a19bcc8658a2b8aa5b1832a3d89ca26a07` | Section 2 reviewed; code QA verified at 1c5d300 |
+| `internal/result/result.go` | `f099c293a44707535ffe624c201eddcf240847f0` | Section 2 reviewed; code QA verified at 1c5d300 |
+| `internal/result/result_test.go` | `bac7ad307b4c7f79d19831e1229d36293d9ef97e` | Section 2 reviewed; code QA verified at 1c5d300 |
+| `internal/result/scope.go` | `a65bc4f42d7c973cb399fd3a06c7f30019bfb7fa` | Section 2 reviewed; code QA verified at 1c5d300 |
+| `internal/result/scope_test.go` | `ed3ae54acdd9b33e90ab318836810fd3ac1523c4` | Section 2 reviewed; code QA verified at 1c5d300 |
+| `internal/rules/catalog.go` | `e2d0a9ba82323ccb01dd837d14f7c25cf5d22c6d` | Section 2 reviewed; code QA verified at 1c5d300 |
+| `internal/rules/catalog_test.go` | `e67a3d090bead57e968e2464c2de205b16494f12` | Section 2 reviewed; code QA verified at 1c5d300 |
 | `internal/rules/custom/azure-resources/AAD/domainServices/kql/domain-003.kql` | `e12039b0a994213b4a6f8853f29f6f65d1a763c0` | Pending |
 | `internal/rules/custom/azure-resources/AAD/domainServices/recommendations.yaml` | `0003baeba38685767edb681b531619db4e811331` | Pending |
 | `internal/rules/custom/azure-resources/AVS/privateClouds/kql/avs-003.kql` | `543d4f8db8286ba960bac40b0ce64b4687adad30` | Pending |
@@ -884,11 +924,11 @@ Only files actually examined in this initial pass are marked initial-pass. All o
 | `internal/rules/custom/azure-resources/Web/sites/kql/logics-010.kql` | `f5b6ed4dd275e23b272b5a27e6ea16c2a2034697` | Pending |
 | `internal/rules/custom/azure-resources/Web/sites/kql/logics-013.kql` | `5a7cbef0b6e93bd18a42ac2632da334ac440533b` | Pending |
 | `internal/rules/custom/azure-resources/Web/sites/recommendations.yaml` | `109ad04ed1e8f6b8127dcab01b27f6b7acda5730` | Pending |
-| `internal/rules/embedded.go` | `5c3e0ce214e8d1571b9d1977b8f4a7f1d0dd326f` | Section 2 source/test reviewed; corrected QA pending |
-| `internal/rules/embedded_test.go` | `82611bcda9beb4d44c9a817f79379ad94d4591d4` | Section 2 source/test reviewed; corrected QA pending |
-| `internal/rules/inspection.go` | `97a998b23916134245f23fd15f0de1d4134897e7` | Section 2 source/test reviewed; corrected QA pending |
-| `internal/rules/inspection_test.go` | `8ff8d0177243a95bab178cabb8b4d4bebebe125f` | Section 2 source/test reviewed; corrected QA pending |
-| `internal/rules/provenance.go` | `0315d420dfc05b39cf03a6e782769d630d66ef8a` | Section 2 source/test reviewed; corrected QA pending |
+| `internal/rules/embedded.go` | `5c3e0ce214e8d1571b9d1977b8f4a7f1d0dd326f` | Section 2 reviewed; code QA verified at 1c5d300 |
+| `internal/rules/embedded_test.go` | `82611bcda9beb4d44c9a817f79379ad94d4591d4` | Section 2 reviewed; code QA verified at 1c5d300 |
+| `internal/rules/inspection.go` | `97a998b23916134245f23fd15f0de1d4134897e7` | Section 2 reviewed; code QA verified at 1c5d300 |
+| `internal/rules/inspection_test.go` | `8ff8d0177243a95bab178cabb8b4d4bebebe125f` | Section 2 reviewed; code QA verified at 1c5d300 |
+| `internal/rules/provenance.go` | `0315d420dfc05b39cf03a6e782769d630d66ef8a` | Section 2 reviewed; code QA verified at 1c5d300 |
 | `internal/rules/testdata/yaml-source-conversion.json` | `9300ce7cdfe2042eff327ad115155b552b5d9993` | Pending |
 | `internal/rules/upstream/orphan-resources/Compute/kql/2b3c4d5e-6f7a-8b9c-0d1e-2f3a4b5c6d7e.kql` | `6da9ddf8a618384f0e4eca13e9aaff0a10020979` | Pending |
 | `internal/rules/upstream/orphan-resources/Compute/kql/3c4d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f.kql` | `08d24b6a265942641352d2070f7d14837bcdf07e` | Pending |
@@ -918,19 +958,19 @@ Only files actually examined in this initial pass are marked initial-pass. All o
 | `internal/rules/upstream/orphan-resources/Web/kql/2d3e4f5a-6b7c-8d9e-0f1a-2b3c4d5e6f7a.kql` | `5b24c04785f2a7643e456422649e2a5fcb797233` | Pending |
 | `internal/rules/upstream/orphan-resources/Web/kql/3e4f5a6b-7c8d-9e0f-1a2b-3c4d5e6f7a8b.kql` | `6943b999b51378e6a299205d8b5c3e6258f12426` | Pending |
 | `internal/rules/upstream/orphan-resources/Web/queries.yaml` | `2b64eb02bef2594ac77cce67d804fbd14218167b` | Pending |
-| `internal/rules/yaml_plugins.go` | `5a43f569f3ceceab829b9a26dd1d46c6732b5076` | Section 2 source/test reviewed; corrected QA pending |
-| `internal/rules/yaml_plugins_test.go` | `d02f2967b009aa549c422017ce8292b3a851b9e8` | Section 2 source/test reviewed; corrected QA pending |
-| `internal/scanners/registry.go` | `24512b10be30824c62f11bf83bc66e0b04e11eb6` | Section 2 source/test reviewed; corrected QA pending |
-| `internal/scanners/registry_test.go` | `16f8f679331a50d1346c10292bdb72e73674fb71` | Section 2 source/test reviewed; corrected QA pending |
+| `internal/rules/yaml_plugins.go` | `5a43f569f3ceceab829b9a26dd1d46c6732b5076` | Section 2 reviewed; code QA verified at 1c5d300 |
+| `internal/rules/yaml_plugins_test.go` | `d02f2967b009aa549c422017ce8292b3a851b9e8` | Section 2 reviewed; code QA verified at 1c5d300 |
+| `internal/scanners/registry.go` | `24512b10be30824c62f11bf83bc66e0b04e11eb6` | Section 2 reviewed; code QA verified at 1c5d300 |
+| `internal/scanners/registry_test.go` | `16f8f679331a50d1346c10292bdb72e73674fb71` | Section 2 reviewed; code QA verified at 1c5d300 |
 | `internal/skus/known_skus.yaml` | `a2d97a60ec445ce4023a1a5a9b6c4dca76e31f5a` | Pending |
-| `internal/skus/skus.go` | `396cc4b7172f536b08d91355f8f64e9e4f0b97a1` | Section 2 source/test reviewed; corrected QA pending |
-| `internal/skus/skus_test.go` | `6d1b6e6d89e4ac3a47c49fa54fbf34ec31db79dc` | Section 2 source/test reviewed; corrected QA pending |
-| `internal/stages/config.go` | `307eabbb30b2b988cdc6e2fc750b3bce55d993d9` | Section 2 source/test reviewed; corrected QA pending |
-| `internal/stages/config_test.go` | `804ccc644facc788b357fb36e54d06fe21c50e05` | Section 2 source/test reviewed; corrected QA pending |
-| `internal/stages/options.go` | `d0138077d1784f5e82cde165af8eb62b410e55d2` | Section 2 source/test reviewed; corrected QA pending |
-| `internal/stages/options_test.go` | `8245b9a14a468022ded93bdf62ab23538ecd6e16` | Section 2 source/test reviewed; corrected QA pending |
-| `internal/stages/runner.go` | `7f3ec14d2f7b150619446984ddd9659b9761d8e4` | Section 2 source/test reviewed; corrected QA pending |
-| `internal/stages/runner_test.go` | `6e6b6f6bbeb0db79a0b4d2c1a21cbd5ef46c3be7` | Section 2 source/test reviewed; corrected QA pending |
+| `internal/skus/skus.go` | `396cc4b7172f536b08d91355f8f64e9e4f0b97a1` | Section 2 reviewed; code QA verified at 1c5d300 |
+| `internal/skus/skus_test.go` | `6d1b6e6d89e4ac3a47c49fa54fbf34ec31db79dc` | Section 2 reviewed; code QA verified at 1c5d300 |
+| `internal/stages/config.go` | `307eabbb30b2b988cdc6e2fc750b3bce55d993d9` | Section 2 reviewed; code QA verified at 1c5d300 |
+| `internal/stages/config_test.go` | `804ccc644facc788b357fb36e54d06fe21c50e05` | Section 2 reviewed; code QA verified at 1c5d300 |
+| `internal/stages/options.go` | `d0138077d1784f5e82cde165af8eb62b410e55d2` | Section 2 reviewed; code QA verified at 1c5d300 |
+| `internal/stages/options_test.go` | `8245b9a14a468022ded93bdf62ab23538ecd6e16` | Section 2 reviewed; code QA verified at 1c5d300 |
+| `internal/stages/runner.go` | `7f3ec14d2f7b150619446984ddd9659b9761d8e4` | Section 2 reviewed; code QA verified at 1c5d300 |
+| `internal/stages/runner_test.go` | `6e6b6f6bbeb0db79a0b4d2c1a21cbd5ef46c3be7` | Section 2 reviewed; code QA verified at 1c5d300 |
 | `internal/throttling/policy.go` | `0558c864c40152c4df848fe4c9c2a10fead10e0c` | Section 1 reviewed; code QA verified at00ba2716 |
 | `internal/throttling/policy_test.go` | `753939b0001fd7709b3ec2fde99cf2e197e707e0` | Section 1 reviewed; code QA verified at00ba2716 |
 | `scripts/bootstrap-workspace.sh` | `53be7d565640c8d873760f8e063163e231233f86` | Pending |
