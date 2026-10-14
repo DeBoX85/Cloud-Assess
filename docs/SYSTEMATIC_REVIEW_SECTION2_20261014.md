@@ -8,7 +8,7 @@ Scope is all13assigned package directories and51Go files (25production,26tests):
 
 Review priorities: canonical finding/applicability/severity/health semantics; recommendation catalog precedence and extension inputs; stage cancellation/optional failures; collector scope, pagination, row/empty/malformed/completeness contracts; provider-specific endpoints and request/memory budgets; owned deterministic results and semantic pinned-source compatibility.
 
-Findings: none newly confirmed at this starting record. Suspicions require independent failing reproduction or primary-source contract verification before classification/correction. Keep source captures/pins/dependencies immutable unless an evidenced, separately reviewed change is necessary.
+Findings: no new confirmed defect yet. SR-S04 is suspected: caller cancellation/deadline during an optional final task can be masked by a plain task error, leaving stage_failed/partial rather than terminal-context/failed. Independent regression declared before production correction; healthy ordinary-error control preserves partial semantics. Suspicions require independent failing reproduction or primary-source contract verification before classification/correction. Keep source captures/pins/dependencies immutable unless an evidenced, separately reviewed change is necessary.
 
 NEXT: fetch exact baseline file contents, review each production module with all assigned tests, double-check uncertain API/source contracts, record findings and exact repro/fix/rollback evidence. Publish durable intermediate checkpoints when findings or completed package coverage change. Stop after Section2corrective QA/reconciliation for the user's next re-evaluation; do not startSection3automatically.
 
@@ -69,3 +69,7 @@ Audit remains1/4sections complete and9/41finally reviewed packages. Section2plan
 | `internal/stages/options_test.go` | `8245b9a14a468022ded93bdf62ab23538ecd6e16` | Pending full review |
 | `internal/stages/runner.go` | `7f3ec14d2f7b150619446984ddd9659b9761d8e4` | Pending full review |
 | `internal/stages/runner_test.go` | `6e6b6f6bbeb0db79a0b4d2c1a21cbd5ef46c3be7` | Pending full review |
+
+## SR-S04 reproduction preparation
+
+New internal/stages/runner_terminal_context_test.go exercises canceled/deadline caller context during an optional final task that returns a plain transport error, followed only by a disabled task. Expected terminal health is failed with the appropriate context code. An ordinary-error control must remain partial/stage_failed. Returned record/warning evidence must remain retained. Production runner remains unchanged at baseline blob 7f3ec14d2f7b150619446984ddd9659b9761d8e4. Pending native reproduction; do not credit this as a confirmed failure until full job evidence is inspected.
