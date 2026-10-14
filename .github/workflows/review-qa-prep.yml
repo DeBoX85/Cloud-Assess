@@ -1,0 +1,52 @@
+name: Disk collector review regression preparation
+on:
+  pull_request:
+    branches: [bootstrap/core-v1]
+permissions:
+  contents: read
+jobs:
+  verify:
+    if: github.head_ref == 'docs/region-sku-target-analysis-20261013'
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-24.04
+            python: python3
+          - os: windows-2022
+            python: python
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16
+        with:
+          go-version: '1.26.9'
+          cache: true
+      - name: Reproduce compiled candidate findings
+        shell: bash
+        env:
+          GOTOOLCHAIN: local
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: |
+          ${{ matrix.python }} - <<'PY'
+          import hashlib, json, pathlib, subprocess
+          source = pathlib.Path('internal/plugins/region/compute_disk_sku_collector.go')
+          canonical = subprocess.run(['git', 'show', 'HEAD:' + source.as_posix()], check=True, capture_output=True).stdout
+          assert hashlib.sha1(b'blob ' + str(len(canonical)).encode() + b'\0' + canonical).hexdigest() == '89ff64b2fcc98bda6d2dfdf1c6248b259c6fae01'
+          assert source.read_bytes().replace(b'\r\n', b'\n') == canonical
+          path = pathlib.Path('internal/plugins/region/compute_disk_sku_review_test.go')
+          subprocess.run(['gofmt', '-w', str(path)], check=True)
+          data = path.read_bytes()
+          chunks = [data[i:i+3000].hex() for i in range(0, len(data), 3000)]
+          for index, content in enumerate(chunks):
+              print('AUDIT_QA_FORMAT_HEX ' + json.dumps(dict(path=path.as_posix(), index=index, count=len(chunks), sha256=hashlib.sha256(data).hexdigest(), content=content)), flush=True)
+          subprocess.run(['go', 'test', './internal/plugins/region', '-run', '^$', '-count=1'], check=True)
+          for name in ['TestComputeDiskSKUNullPaginationTerminator', 'TestComputeDiskSKUHTTPStatusClassification']:
+              result = subprocess.run(['go', 'test', './internal/plugins/region', '-run', '^' + name + '$', '-count=1', '-v'], capture_output=True, text=True, encoding='utf-8', errors='backslashreplace', timeout=180)
+              assert result.returncode != 0 and '--- FAIL: ' + name in result.stdout and '[build failed]' not in result.stdout + result.stderr, result.stdout + result.stderr
+              print(result.stdout, flush=True)
+              print('DISK_REVIEW_FINDING_REPRODUCED: compiled current production fails independent ' + name, flush=True)
+          PY

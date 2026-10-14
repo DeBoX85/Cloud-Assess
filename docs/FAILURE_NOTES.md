@@ -1,3 +1,27 @@
+# FN126-FN127: candidate review defects, 2026-10-14
+
+# Review findings FN126-FN127: candidate withheld, 2026-10-14
+
+Automated inline comments4266037791/4266037797 on exact81ecaedf (formal PRR_kwDOUdPf9c8AAAABSI4uOQ/
+submitted2026-10-14T02:07:48Z) found:
+P1 null final nextLink incorrectly rejected; P2 actual bounded HTTP status+error
+pairs wrongly classified sku_request_failed. Independently checked original
+production bounded_get.go and three immutable primary 2021-07-01 examples at
+spec commit1cdcc541:9d403f67/def2413e/f1c254f7, all nextLink:null.
+The prior contract's present-string-only terminator policy was incorrect and
+must be revised to accept omitted, empty or JSON null ONLY as end-of-list.
+Other malformed/aliased/unsafe continuations remain rejected before auth.
+Context cancellation/deadline retain priority; other non-200 response statuses
+must be classified sku_status_invalid even with the production getter error pair;
+200+transport/read error and nil response remain sku_request_failed.
+New independently declared exact primary-example/disk/later-null and actual-client
+403/429/500/307 plus partial/transport/context fixtures are published before source
+correction. Hosted preparation must compile old candidate and reproduce BOTH named
+failures on BOTH hosts. No old native/source/review pass accepts corrected code.
+Original pins/captures/SDK/modules/limits and unavailable public region stay.
+
+---
+
 # FN125: Linux disk mutation diagnostics were not UTF-8, 2026-10-14
 
 Unaccepted PR140 cd9d0807 preparation38497615288/Linux115636894116 passed
