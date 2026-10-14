@@ -1,3 +1,24 @@
+# Active Section 1 findings and backtracking, 2026-10-14
+
+This candidate is not yet accepted. Exact final-head outcomes: [PR142](https://github.com/DeBoX85/Cloud-Assess/pull/142). Source/test pass spans all95baseline Section1files, with fresh full-content/blob checks. Full corrective native/source/review and section checkpoint remain pending.
+
+| Finding | Original reproduction | Fix commit and parent | State at preparation |
+| --- | --- | --- | --- |
+| SR-F01/P2 terminal executor context incorrectly returns success | 432f2034aa3eed973670ab5b3a31cd1775d94611; native38561749374, Linux115844262674 and Windows115844263005, five failing cases after compilation | 5dd97b0f530d578e17767a4eea14510b72ee6f6a; parent432f2034aa3eed973670ab5b3a31cd1775d94611 | Fixed; internal/arg passed both hosts in38563129439; full final gates pending |
+| SR-F02/P2 tied inventory sorting permits duplicate/missing page records | e012a94d8077abf180917408156b12cfa69f47ec; native38563129439, Linux115848958752 and Windows115848959368, deterministic1001resource fixture fails duplicate0999 | 9d1872b1a1737da05db512addae8479e530aa238; parente012a94d8077abf180917408156b12cfa69f47ec | Fixed query order; final verification pending |
+| SR-S01 import organization | Static CLI import review; style only | a98f2170d39c9dd8a53335c2bd147f4f9fc6496b; parent9d1872b1a1737da05db512addae8479e530aa238 | Standard/external grouping; no behavior claim |
+
+SR-20261014-03: add regression-only cancellation commit432f2034, retain full Linux64338/Windows51809logs. No original production edit; source run38561749344 success metadata.
+SR-20261014-04: apply isolated cancellation fix5dd97b0f; original expectations unchanged, add stopping-remaining-definitions case.
+SR-20261014-05: add inventory fixturee012a94d before query correction; retain full Linux63105/Windows50413logs with sole expected inventory failure and arg pass. Source38563129370 success metadata.
+SR-20261014-06: isolate inventory correction9d1872b1 and import groupinga98f2170, then publish full candidate/recovery/coverage notes. Full final QA pending; do not treat these regression runs as complete native gates.
+
+Primary contract and precise failure/impact details are in [Section1report](SYSTEMATIC_REVIEW_SECTION1_20261014.md). Future rollback can target the isolated fix commit; assess subsequent dependencies and repeat tests. Regression commits preserve independent expectations so a reverted defect is detected. No source capture, pin, dependency or Azure data migration changed.
+
+Q-02 resolved for this section: the positional resource-ID helpers exactly match pinned source semantics; their broader collector admission/business-record implications remain cross-section questions. Q-01 request memory/volume budgets remain owned by the relevant Section2/3adapters and final Section4review. No universal boundedness claim is made.
+
+---
+
 # Systematic audit recovery note, 2026-10-14
 
 Accepted-branch historical status still described PR140 as pending. Fresh refs, merged PR and accepted-push metadata confirm a6fee427 is accepted offline; detailed full-verification notes remain on draft PR141. Audit-branch handover now explicitly records both states. This is DOC-01 recovery-documentation drift, not a newly discovered runtime failure. Original failure entries below remain intact. See [active findings/change journal](SYSTEMATIC_REVIEW_CHANGELOG_20261014.md) for uncertainty, corrective evidence and backtracking.

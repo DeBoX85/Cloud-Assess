@@ -1,3 +1,13 @@
+# Section 1 reliability correction candidate, 2026-10-14
+
+Current audit/acceptance status is in [SESSION_HANDOVER](SESSION_HANDOVER.md) and [PR142](https://github.com/DeBoX85/Cloud-Assess/pull/142). Candidate changes preserve source data and successful semantic assessment behavior while correcting executor terminal context and inventory paging reliability.
+
+Inventory ordering now proposes a unique id asc tie-breaker after existing subscriptionId/resourceGroup keys. This deliberately improves the pinned source's non-unique ordering, following Microsoft paging guidance. Projection/scope/filter/batch contracts stay; changing-estate snapshot consistency is not guaranteed. The direct recommendation executor must return wrapped terminal context instead of silently successful unfinished execution, while preserving initiating ordinary query errors. The stage runner already independently checks task cancellation.
+
+Both old behaviors reproduced after compilation on Linux/Windows with independent expectations before production corrections; full final candidate QA and acceptance remain pending. No source capture/fixture or pin changed. See [Section1report](SYSTEMATIC_REVIEW_SECTION1_20261014.md). Historical status below remains historical; product goals stay semantic equivalence, read-oriented Azure assessment, branding and explicit health.
+
+---
+
 # Current security remediation authority, 2026-10-11
 
 Read [SESSION_HANDOVER.md](SESSION_HANDOVER.md), the

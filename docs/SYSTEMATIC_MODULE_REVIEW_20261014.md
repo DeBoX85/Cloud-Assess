@@ -1,5 +1,13 @@
 # Systematic module review, 2026-10-14
 
+## Section 1 current work
+
+All95baseline files in the nine Section1packages (38production/57tests) have received a source/test pass; refreshed full contents match the baseline inventory blobs. Section1is not complete until correction QA, remaining boundaries and checkpoint reconciliation finish.
+
+SR-F01 cancellation is reproduced on BOTH native hosts against unchanged code, correction commit5dd97b0f530d578e17767a4eea14510b72ee6f6a. SR-F02 tied inventory pagination is reproduced synthetically on BOTH hosts against the unchanged query; correction is prepared and full QA is pending. Both findings and precise native results are detailed in [Section1working report](SYSTEMATIC_REVIEW_SECTION1_20261014.md). Adding unique ID sorting is a deliberate target reliability correction backed by Microsoft guidance, not live snapshot assurance. An import-grouping cleanup is style only.
+
+Progress:0/4sections complete,0/41packages finally verified in this audit. Initial read counts in earlier paragraphs below are historical. Section2/3still own collector/plugin-specific request budgets and broader business-record semantics. No additional feature or Azure operation has been introduced.
+
 ## Status and baseline
 
 **In progress, not a completed whole-codebase review.** Authorized by the user's request for a full systemic module-by-module assessment. The earlier three corrected defects are findings from a focused review; they are not a codebase-wide total.
@@ -36,23 +44,23 @@ A file read is not a completed module review. Initial source review means the li
 
 | Package directory | Production files | Test files | Review state |
 | --- | ---: | ---: | --- |
-| `cmd/cloud-assess` | 4 | 12 | Pending |
+| `cmd/cloud-assess` | 4 | 12 | Source/test pass; correction QA pending |
 | `internal/advisor` | 2 | 3 | Pending |
-| `internal/app` | 1 | 9 | Pending |
+| `internal/app` | 1 | 9 | Source/test pass; correction QA pending |
 | `internal/arcsql` | 1 | 1 | Pending |
-| `internal/arg` | 6 | 11 | Pending |
-| `internal/assessment` | 8 | 0 | Initial source review; integration verification pending |
-| `internal/azure` | 8 | 7 | Initial source review; integration verification pending |
+| `internal/arg` | 6 | 11 | Source/test pass; correction QA pending |
+| `internal/assessment` | 8 | 0 | Source/test pass; correction QA pending |
+| `internal/azure` | 8 | 7 | Source/test pass; correction QA pending |
 | `internal/branding` | 2 | 1 | Pending |
-| `internal/config` | 2 | 3 | Pending |
+| `internal/config` | 2 | 3 | Source/test pass; correction QA pending |
 | `internal/cost` | 2 | 4 | Pending |
 | `internal/defender` | 1 | 1 | Pending |
 | `internal/diagnostics` | 2 | 1 | Pending |
-| `internal/discovery` | 5 | 6 | Pending |
+| `internal/discovery` | 5 | 6 | Source/test pass; correction QA pending |
 | `internal/equivalence` | 3 | 2 | Pending |
 | `internal/findings` | 2 | 2 | Pending |
 | `internal/gate` | 1 | 1 | Pending |
-| `internal/orchestration` | 3 | 8 | Pending |
+| `internal/orchestration` | 3 | 8 | Source/test pass; correction QA pending |
 | `internal/plugins` | 4 | 5 | Pending |
 | `internal/plugins/aigov` | 5 | 5 | Pending |
 | `internal/plugins/carbon` | 2 | 2 | Pending |
@@ -73,7 +81,7 @@ A file read is not a completed module review. Initial source review means the li
 | `internal/scanners` | 1 | 1 | Pending |
 | `internal/skus` | 1 | 1 | Pending |
 | `internal/stages` | 3 | 3 | Pending |
-| `internal/throttling` | 1 | 1 | Pending |
+| `internal/throttling` | 1 | 1 | Source/test pass; correction QA pending |
 | `tools/brand-build` | 1 | 0 | Pending |
 | `tools/diagnostics-probe` | 1 | 1 | Pending |
 | `tools/equivalence` | 1 | 2 | Pending |
@@ -155,24 +163,24 @@ Only files actually examined in this initial pass are marked initial-pass. All o
 | `NOTICE.md` | `9982f8f54cc3c15181c3c120801c2599afb4c7f4` | Pending |
 | `README.md` | `e26277addbd403cf47c7a7f133270ddf2f66953a` | Intent read; reconciliation pending |
 | `THIRD_PARTY_LICENSES.md` | `d8a2e12097e44a66d27683a118bfc1f30cdb5afe` | Pending |
-| `cmd/cloud-assess/aigov_execution_test.go` | `26737a531244a72859ba49f38d88bd6a97ae3191` | Pending |
-| `cmd/cloud-assess/aigov_preflight_test.go` | `bd7768201aa4d0e4b6f50ad1c9919a6893f45a00` | Pending |
-| `cmd/cloud-assess/carbon_execution_test.go` | `334bfc568d3009b92f37bb76c1eea1db811d3226` | Pending |
-| `cmd/cloud-assess/command.go` | `529406d69d9add6dbaa94c665737d9f7a4816ddc` | Pending |
-| `cmd/cloud-assess/command_test.go` | `e2bd19e9dbaa38f50337101862e856263151da12` | Pending |
-| `cmd/cloud-assess/filter_schema_audit_test.go` | `981fa1e465b67d1a11c38c4efdde24035e5c709e` | Pending |
-| `cmd/cloud-assess/main.go` | `f63e26324925d093dc8178274e06fa745ffc6d14` | Pending |
-| `cmd/cloud-assess/plugins.go` | `d6eae94b62a49f9f863557235cbfa4535a77dbec` | Pending |
-| `cmd/cloud-assess/plugins_test.go` | `3c4ed15d27290135894bf27947d3d489985cf543` | Pending |
-| `cmd/cloud-assess/process_test.go` | `ece5916832edf0563507b9e21e3c4f95be50b1e0` | Pending |
-| `cmd/cloud-assess/rules.go` | `32896773fa8f52799347cc9f2067da0bc6f2d8fa` | Pending |
-| `cmd/cloud-assess/rules_test.go` | `f6abda3b4a2fb35a0ff1752e109ea8cd489df0ce` | Pending |
-| `cmd/cloud-assess/scanners_test.go` | `7ac24f32caef0b84a824e80025ddf6a1037d7758` | Pending |
-| `cmd/cloud-assess/servicehealth_execution_test.go` | `057bda19fe3511d456d53124a85d43d15b31bb06` | Pending |
-| `cmd/cloud-assess/sqleol_execution_test.go` | `18d6997d2a772d23f55499e81aadfc7f579c761e` | Pending |
+| `cmd/cloud-assess/aigov_execution_test.go` | `26737a531244a72859ba49f38d88bd6a97ae3191` | Section 1 source/test pass; correction QA pending |
+| `cmd/cloud-assess/aigov_preflight_test.go` | `bd7768201aa4d0e4b6f50ad1c9919a6893f45a00` | Section 1 source/test pass; correction QA pending |
+| `cmd/cloud-assess/carbon_execution_test.go` | `334bfc568d3009b92f37bb76c1eea1db811d3226` | Section 1 source/test pass; correction QA pending |
+| `cmd/cloud-assess/command.go` | `529406d69d9add6dbaa94c665737d9f7a4816ddc` | Section 1 source/test pass; correction QA pending |
+| `cmd/cloud-assess/command_test.go` | `e2bd19e9dbaa38f50337101862e856263151da12` | Section 1 source/test pass; correction QA pending |
+| `cmd/cloud-assess/filter_schema_audit_test.go` | `981fa1e465b67d1a11c38c4efdde24035e5c709e` | Section 1 source/test pass; correction QA pending |
+| `cmd/cloud-assess/main.go` | `f63e26324925d093dc8178274e06fa745ffc6d14` | Section 1 source/test pass; correction QA pending |
+| `cmd/cloud-assess/plugins.go` | `d6eae94b62a49f9f863557235cbfa4535a77dbec` | Section 1 source/test pass; correction QA pending |
+| `cmd/cloud-assess/plugins_test.go` | `3c4ed15d27290135894bf27947d3d489985cf543` | Section 1 source/test pass; correction QA pending |
+| `cmd/cloud-assess/process_test.go` | `ece5916832edf0563507b9e21e3c4f95be50b1e0` | Section 1 source/test pass; correction QA pending |
+| `cmd/cloud-assess/rules.go` | `32896773fa8f52799347cc9f2067da0bc6f2d8fa` | Section 1 source/test pass; correction QA pending |
+| `cmd/cloud-assess/rules_test.go` | `f6abda3b4a2fb35a0ff1752e109ea8cd489df0ce` | Section 1 source/test pass; correction QA pending |
+| `cmd/cloud-assess/scanners_test.go` | `7ac24f32caef0b84a824e80025ddf6a1037d7758` | Section 1 source/test pass; correction QA pending |
+| `cmd/cloud-assess/servicehealth_execution_test.go` | `057bda19fe3511d456d53124a85d43d15b31bb06` | Section 1 source/test pass; correction QA pending |
+| `cmd/cloud-assess/sqleol_execution_test.go` | `18d6997d2a772d23f55499e81aadfc7f579c761e` | Section 1 source/test pass; correction QA pending |
 | `cmd/cloud-assess/testdata/rules-reference.json` | `992b347802179b23bb611440e77d5be59d052f01` | Pending |
 | `cmd/cloud-assess/testdata/scanner-keys-reference.json` | `2719845c92c1098a4a22d4dc4fa6f390ec1198e5` | Pending |
-| `cmd/cloud-assess/zone_execution_test.go` | `bfd21f46475553f00bd9c47d45a1f60c2affa53f` | Pending |
+| `cmd/cloud-assess/zone_execution_test.go` | `bfd21f46475553f00bd9c47d45a1f60c2affa53f` | Section 1 source/test pass; correction QA pending |
 | `docs/ACCESS_MODEL.md` | `7fae8708891ed906bf1dbfbcd7f122d2d5d5f042` | Pending |
 | `docs/AI_GOVERNANCE.md` | `524934212cd531b8b7a4e57e47df4902f3897e74` | Pending |
 | `docs/AI_GOVERNANCE_EXECUTION.md` | `686096f2a2bdcb633e1ff3b9ccfb43838ef98df5` | Pending |
@@ -292,68 +300,68 @@ Only files actually examined in this initial pass are marked initial-pass. All o
 | `internal/advisor/pagination_context_test.go` | `e9afac187046b6addde7d5e6100a58f22694fd07` | Pending |
 | `internal/advisor/scanner.go` | `a636cd01e963469ac1a959da415bfc1c893f944c` | Pending |
 | `internal/advisor/scanner_test.go` | `b7a0d87604cc26613dfe71514bbd751e3dc5e2c2` | Pending |
-| `internal/app/arg_completeness_test.go` | `d18d1c9971b2e947d1360431de5de66accafd8d3` | Pending |
-| `internal/app/branding_report_test.go` | `a85b5d4806e27de8cde0f6750093b6e914eb94b8` | Pending |
-| `internal/app/e2e_test.go` | `c6f2dbb636fed2697cab6b716cf2eec762e32f93` | Pending |
-| `internal/app/optional_stage_http_test.go` | `1758ffd07d33ee7f17ab8c9ac21c7905bbc44bd2` | Pending |
-| `internal/app/plugin_tables_test.go` | `e6f021a83e2d6b62df5af65122baac1708bd7dff` | Pending |
-| `internal/app/scan.go` | `7a8400c35c19ca7c3e1ce75fcf843b73de4a155b` | Pending |
-| `internal/app/scan_test.go` | `5bfc08b37a18d7b1a4fe320e86735aca51f0866a` | Pending |
-| `internal/app/scope_test.go` | `e82fc2304cd70abecb91ba29ce28e092035a958d` | Pending |
+| `internal/app/arg_completeness_test.go` | `d18d1c9971b2e947d1360431de5de66accafd8d3` | Section 1 source/test pass; correction QA pending |
+| `internal/app/branding_report_test.go` | `a85b5d4806e27de8cde0f6750093b6e914eb94b8` | Section 1 source/test pass; correction QA pending |
+| `internal/app/e2e_test.go` | `c6f2dbb636fed2697cab6b716cf2eec762e32f93` | Section 1 source/test pass; correction QA pending |
+| `internal/app/optional_stage_http_test.go` | `1758ffd07d33ee7f17ab8c9ac21c7905bbc44bd2` | Section 1 source/test pass; correction QA pending |
+| `internal/app/plugin_tables_test.go` | `e6f021a83e2d6b62df5af65122baac1708bd7dff` | Section 1 source/test pass; correction QA pending |
+| `internal/app/scan.go` | `7a8400c35c19ca7c3e1ce75fcf843b73de4a155b` | Section 1 source/test pass; correction QA pending |
+| `internal/app/scan_test.go` | `5bfc08b37a18d7b1a4fe320e86735aca51f0866a` | Section 1 source/test pass; correction QA pending |
+| `internal/app/scope_test.go` | `e82fc2304cd70abecb91ba29ce28e092035a958d` | Section 1 source/test pass; correction QA pending |
 | `internal/app/testdata/README.md` | `f1e0fe410f7a6b4008c12356f6c31b0c113eae0b` | Pending |
 | `internal/app/testdata/optional-stage-projections.json` | `074ee2a6918414bbb578ef945836fe6152e765fa` | Pending |
-| `internal/app/timeout_test.go` | `20a50b7df1fa03506a66c6a2e1340b1363c46213` | Pending |
-| `internal/app/yaml_plugins_test.go` | `3b46b7aedae9a9b944d893416012c603d6fcec36` | Pending |
+| `internal/app/timeout_test.go` | `20a50b7df1fa03506a66c6a2e1340b1363c46213` | Section 1 source/test pass; correction QA pending |
+| `internal/app/yaml_plugins_test.go` | `3b46b7aedae9a9b944d893416012c603d6fcec36` | Section 1 source/test pass; correction QA pending |
 | `internal/arcsql/scanner.go` | `d4f9f0230c26842e02d62fbda9730132a050c59f` | Pending |
 | `internal/arcsql/scanner_test.go` | `4cd0d0130a7652adc66ba6c0881b66611524f5ad` | Pending |
-| `internal/arg/body_completion_test.go` | `a72f3191415ed7291785b1808b3fdef07ab16289` | Pending |
-| `internal/arg/client.go` | `19c6d785b64b8dfd992e47975abdeefc5e03efa7` | Pending |
-| `internal/arg/client_test.go` | `7de891afdf0262813347d5a4a289a9cb8a70371e` | Pending |
-| `internal/arg/completeness_test.go` | `369578ea6871c1de732b2ab0b274f501e5378355` | Pending |
-| `internal/arg/errors.go` | `7911871d473ec7773c9af0d8519ab27a69039c67` | Pending |
-| `internal/arg/errors_test.go` | `4662fd2c280f266413a4cd0fa1f30c95c559fb41` | Pending |
-| `internal/arg/executor.go` | `23422ce441240a46b60583b88ed30fb1e3b092e5` | Pending |
-| `internal/arg/executor_test.go` | `0f0203f8b1993f127b0ee11bedddd4463b49ef9b` | Pending |
-| `internal/arg/findings.go` | `68a9a7bbc7941bacd64966d9bf9cb0f2be778561` | Pending |
-| `internal/arg/findings_test.go` | `16d076666f8565bd34c3d3151831e6c6cc1a6b50` | Pending |
-| `internal/arg/http_transport.go` | `5928b3abda9c90b46d41f19aa4d49b432258af13` | Pending |
-| `internal/arg/http_transport_suffix_test.go` | `420bf27921d2b12008926bb2fba09da679464ca1` | Pending |
-| `internal/arg/http_transport_test.go` | `51920ccb610fab38c91069e85f62b17969409a7c` | Pending |
-| `internal/arg/pagination_context_test.go` | `736346f36b0d998c02650c0dd2542010f69ebd36` | Pending |
-| `internal/arg/rows.go` | `e432b57f7351879a92f1563cbfe09b3a8ebf6d07` | Pending |
-| `internal/arg/rows_property_test.go` | `279d2ec7e4bde004761258012ea412882b418f72` | Pending |
-| `internal/arg/rows_test.go` | `c30ac9df118bb87c9479ef12585e0d8be3ffe296` | Pending |
-| `internal/assessment/advisor.go` | `600c865cf1e575c7eb1ea3b276425b4d4c40118c` | Initial pass; module verification pending |
-| `internal/assessment/arcsql.go` | `7805b19d055e20fea2efa08245e19d7b96af746d` | Initial pass; module verification pending |
-| `internal/assessment/cost.go` | `1ea0f29b29b434462725a9b5830500dbc8d802d2` | Initial pass; module verification pending |
-| `internal/assessment/defender.go` | `81342db7f4ccd410667b2eb67cdec527faa5db7f` | Initial pass; module verification pending |
-| `internal/assessment/plugin_tables.go` | `8582cd8d953ccb39726e67e8bd0b55ef7e94c179` | Initial pass; module verification pending |
-| `internal/assessment/policy.go` | `cf2c01227b6809b8286439c4557d48aa4ba12c5b` | Initial pass; module verification pending |
-| `internal/assessment/severity.go` | `eca6a403f225234868146b83a49535a54efd6037` | Initial pass; module verification pending |
-| `internal/assessment/types.go` | `5219513683b189cba4498eaff379f31fb67965ea` | Initial pass; module verification pending |
-| `internal/azure/arm_boundary.go` | `e3606208cf4a1f1a80d99494b95eb9f1bd6a75cc` | Initial pass; module verification pending |
-| `internal/azure/arm_boundary_test.go` | `9a1958596435f8e38eb5f2d46f5387b2879839d4` | Initial pass; module verification pending |
-| `internal/azure/bounded_get.go` | `71413fe6db9a4bedd4715fecc59458b175923a9d` | Initial pass; module verification pending |
-| `internal/azure/bounded_get_test.go` | `7679ce7fbbd0efb10be7b5561a393be8b2db5452` | Initial pass; module verification pending |
-| `internal/azure/bounded_post_test.go` | `f111eab3f9982cf7939a58fec094cf1311d46123` | Initial pass; module verification pending |
-| `internal/azure/client_options.go` | `af6ea4b0f6d3eba0bf0f5d47f4d0e8c1973d28d8` | Initial pass; module verification pending |
-| `internal/azure/client_options_test.go` | `a40acbc5b66ef314348321132af8b5eaacc7f7ba` | Initial pass; module verification pending |
-| `internal/azure/cloud.go` | `c5d9a2a080bc689180bfa15041c5636df13f2a44` | Initial pass; module verification pending |
-| `internal/azure/cloud_test.go` | `d56a6172defc3af21166f0468a7fe6d44345a51d` | Initial pass; module verification pending |
-| `internal/azure/credential.go` | `5afa22163e2bae2f03aa427ff5744eddc6b9023a` | Initial pass; module verification pending |
-| `internal/azure/errors.go` | `d28cde817367348b86877961c0b76ab74afcd21d` | Initial pass; module verification pending |
-| `internal/azure/http_client.go` | `a096e389ea6124faa4253f98186562d069b2b5b9` | Initial pass; module verification pending |
-| `internal/azure/http_client_test.go` | `6367f9ae4eefdec7125212c09d51942c02571c4a` | Initial pass; module verification pending |
-| `internal/azure/resourceid.go` | `1033f240db30820066a4e09af50097c8c29149e8` | Initial pass; module verification pending |
-| `internal/azure/resourceid_test.go` | `66a16170e9be8277dd83d94f9eb3c1a896246946` | Initial pass; module verification pending |
+| `internal/arg/body_completion_test.go` | `a72f3191415ed7291785b1808b3fdef07ab16289` | Section 1 source/test pass; correction QA pending |
+| `internal/arg/client.go` | `19c6d785b64b8dfd992e47975abdeefc5e03efa7` | Section 1 source/test pass; correction QA pending |
+| `internal/arg/client_test.go` | `7de891afdf0262813347d5a4a289a9cb8a70371e` | Section 1 source/test pass; correction QA pending |
+| `internal/arg/completeness_test.go` | `369578ea6871c1de732b2ab0b274f501e5378355` | Section 1 source/test pass; correction QA pending |
+| `internal/arg/errors.go` | `7911871d473ec7773c9af0d8519ab27a69039c67` | Section 1 source/test pass; correction QA pending |
+| `internal/arg/errors_test.go` | `4662fd2c280f266413a4cd0fa1f30c95c559fb41` | Section 1 source/test pass; correction QA pending |
+| `internal/arg/executor.go` | `23422ce441240a46b60583b88ed30fb1e3b092e5` | Section 1 source/test pass; correction QA pending |
+| `internal/arg/executor_test.go` | `0f0203f8b1993f127b0ee11bedddd4463b49ef9b` | Section 1 source/test pass; correction QA pending |
+| `internal/arg/findings.go` | `68a9a7bbc7941bacd64966d9bf9cb0f2be778561` | Section 1 source/test pass; correction QA pending |
+| `internal/arg/findings_test.go` | `16d076666f8565bd34c3d3151831e6c6cc1a6b50` | Section 1 source/test pass; correction QA pending |
+| `internal/arg/http_transport.go` | `5928b3abda9c90b46d41f19aa4d49b432258af13` | Section 1 source/test pass; correction QA pending |
+| `internal/arg/http_transport_suffix_test.go` | `420bf27921d2b12008926bb2fba09da679464ca1` | Section 1 source/test pass; correction QA pending |
+| `internal/arg/http_transport_test.go` | `51920ccb610fab38c91069e85f62b17969409a7c` | Section 1 source/test pass; correction QA pending |
+| `internal/arg/pagination_context_test.go` | `736346f36b0d998c02650c0dd2542010f69ebd36` | Section 1 source/test pass; correction QA pending |
+| `internal/arg/rows.go` | `e432b57f7351879a92f1563cbfe09b3a8ebf6d07` | Section 1 source/test pass; correction QA pending |
+| `internal/arg/rows_property_test.go` | `279d2ec7e4bde004761258012ea412882b418f72` | Section 1 source/test pass; correction QA pending |
+| `internal/arg/rows_test.go` | `c30ac9df118bb87c9479ef12585e0d8be3ffe296` | Section 1 source/test pass; correction QA pending |
+| `internal/assessment/advisor.go` | `600c865cf1e575c7eb1ea3b276425b4d4c40118c` | Section 1 source/test pass; correction QA pending |
+| `internal/assessment/arcsql.go` | `7805b19d055e20fea2efa08245e19d7b96af746d` | Section 1 source/test pass; correction QA pending |
+| `internal/assessment/cost.go` | `1ea0f29b29b434462725a9b5830500dbc8d802d2` | Section 1 source/test pass; correction QA pending |
+| `internal/assessment/defender.go` | `81342db7f4ccd410667b2eb67cdec527faa5db7f` | Section 1 source/test pass; correction QA pending |
+| `internal/assessment/plugin_tables.go` | `8582cd8d953ccb39726e67e8bd0b55ef7e94c179` | Section 1 source/test pass; correction QA pending |
+| `internal/assessment/policy.go` | `cf2c01227b6809b8286439c4557d48aa4ba12c5b` | Section 1 source/test pass; correction QA pending |
+| `internal/assessment/severity.go` | `eca6a403f225234868146b83a49535a54efd6037` | Section 1 source/test pass; correction QA pending |
+| `internal/assessment/types.go` | `5219513683b189cba4498eaff379f31fb67965ea` | Section 1 source/test pass; correction QA pending |
+| `internal/azure/arm_boundary.go` | `e3606208cf4a1f1a80d99494b95eb9f1bd6a75cc` | Section 1 source/test pass; correction QA pending |
+| `internal/azure/arm_boundary_test.go` | `9a1958596435f8e38eb5f2d46f5387b2879839d4` | Section 1 source/test pass; correction QA pending |
+| `internal/azure/bounded_get.go` | `71413fe6db9a4bedd4715fecc59458b175923a9d` | Section 1 source/test pass; correction QA pending |
+| `internal/azure/bounded_get_test.go` | `7679ce7fbbd0efb10be7b5561a393be8b2db5452` | Section 1 source/test pass; correction QA pending |
+| `internal/azure/bounded_post_test.go` | `f111eab3f9982cf7939a58fec094cf1311d46123` | Section 1 source/test pass; correction QA pending |
+| `internal/azure/client_options.go` | `af6ea4b0f6d3eba0bf0f5d47f4d0e8c1973d28d8` | Section 1 source/test pass; correction QA pending |
+| `internal/azure/client_options_test.go` | `a40acbc5b66ef314348321132af8b5eaacc7f7ba` | Section 1 source/test pass; correction QA pending |
+| `internal/azure/cloud.go` | `c5d9a2a080bc689180bfa15041c5636df13f2a44` | Section 1 source/test pass; correction QA pending |
+| `internal/azure/cloud_test.go` | `d56a6172defc3af21166f0468a7fe6d44345a51d` | Section 1 source/test pass; correction QA pending |
+| `internal/azure/credential.go` | `5afa22163e2bae2f03aa427ff5744eddc6b9023a` | Section 1 source/test pass; correction QA pending |
+| `internal/azure/errors.go` | `d28cde817367348b86877961c0b76ab74afcd21d` | Section 1 source/test pass; correction QA pending |
+| `internal/azure/http_client.go` | `a096e389ea6124faa4253f98186562d069b2b5b9` | Section 1 source/test pass; correction QA pending |
+| `internal/azure/http_client_test.go` | `6367f9ae4eefdec7125212c09d51942c02571c4a` | Section 1 source/test pass; correction QA pending |
+| `internal/azure/resourceid.go` | `1033f240db30820066a4e09af50097c8c29149e8` | Section 1 source/test pass; correction QA pending |
+| `internal/azure/resourceid_test.go` | `66a16170e9be8277dd83d94f9eb3c1a896246946` | Section 1 source/test pass; correction QA pending |
 | `internal/branding/branding.go` | `25146592055fd30be1a1f8abdabe529bc3ec48a1` | Pending |
 | `internal/branding/profile.go` | `bf4ca310e6b376c421ff495e9cd58a7f5a4b8b53` | Pending |
 | `internal/branding/profile_test.go` | `842b40ef97ec9f2c2a0cfbb1e3c7c147ecd6e434` | Pending |
-| `internal/config/filter_property_test.go` | `a6d146f1216fa04825ddb9c9f1b40edb77e3e533` | Pending |
-| `internal/config/filters.go` | `896a08214bf42d63fa543a7777f59ce4e63dea89` | Pending |
-| `internal/config/filters_test.go` | `03fee8985cf11b60be583f3f06a89c3ba6d4c84c` | Pending |
-| `internal/config/load.go` | `46a03a41bf947dad526a3a828aaecb3687174dd8` | Pending |
-| `internal/config/load_test.go` | `f4ca80921d24affa2b368ba9ec739bbb7e11e0df` | Pending |
+| `internal/config/filter_property_test.go` | `a6d146f1216fa04825ddb9c9f1b40edb77e3e533` | Section 1 source/test pass; correction QA pending |
+| `internal/config/filters.go` | `896a08214bf42d63fa543a7777f59ce4e63dea89` | Section 1 source/test pass; correction QA pending |
+| `internal/config/filters_test.go` | `03fee8985cf11b60be583f3f06a89c3ba6d4c84c` | Section 1 source/test pass; correction QA pending |
+| `internal/config/load.go` | `46a03a41bf947dad526a3a828aaecb3687174dd8` | Section 1 source/test pass; correction QA pending |
+| `internal/config/load_test.go` | `f4ca80921d24affa2b368ba9ec739bbb7e11e0df` | Section 1 source/test pass; correction QA pending |
 | `internal/cost/continuation_test.go` | `2a2f9e4ce072da9d2ef7232886dd7e7515a4aaf5` | Pending |
 | `internal/cost/http_contract_test.go` | `2d93b9d1801eef11b9c9545c172e2c94c3e8149b` | Pending |
 | `internal/cost/period.go` | `ee7f36b63acef11043e2f4e42722499ccb658426` | Pending |
@@ -365,17 +373,17 @@ Only files actually examined in this initial pass are marked initial-pass. All o
 | `internal/diagnostics/recommendations.go` | `9fb8f241d68502dd425ebb6e2f40f8414dcc5ba6` | Pending |
 | `internal/diagnostics/scanner.go` | `b9c3cb25c28b1282c06866344effe0590539b13e` | Pending |
 | `internal/diagnostics/scanner_test.go` | `7bfcb1ac7a56ad33a14ec79a91de08ff78951bd3` | Pending |
-| `internal/discovery/azure_scope.go` | `57efd23ef843fe916788d1b757842a1263dda2a0` | Pending |
-| `internal/discovery/azure_scope_test.go` | `c97ce7cd715b431b7be30ac39b00c98e57767b7c` | Pending |
-| `internal/discovery/management_groups.go` | `543c870651d9a4ef2a77b5879162a977c9fbb86a` | Pending |
-| `internal/discovery/management_groups_test.go` | `739abd7868270c71576597071ca544cb654bee9e` | Pending |
-| `internal/discovery/pager_cycle.go` | `a0cb960c6198507f7169abed61bcae6e0a9d81cc` | Pending |
-| `internal/discovery/pager_cycle_test.go` | `306fc3c24494d962b5b20428eb76580b4fdb1da9` | Pending |
-| `internal/discovery/pager_security_test.go` | `02c4be2faf09c4c3a575db33a57cba2e715c729c` | Pending |
-| `internal/discovery/resources.go` | `82f177ccf0d8232f64ca40690a131c5da9c31aca` | Pending |
-| `internal/discovery/resources_test.go` | `8a9a351608e3461868f389f7d3fffaf642f69945` | Pending |
-| `internal/discovery/subscriptions.go` | `c91a85d1fc43231acbb71cbbeae2099396b335c1` | Pending |
-| `internal/discovery/subscriptions_test.go` | `9a728c5df3099cc22571a6920c2d8afbc456c6e2` | Pending |
+| `internal/discovery/azure_scope.go` | `57efd23ef843fe916788d1b757842a1263dda2a0` | Section 1 source/test pass; correction QA pending |
+| `internal/discovery/azure_scope_test.go` | `c97ce7cd715b431b7be30ac39b00c98e57767b7c` | Section 1 source/test pass; correction QA pending |
+| `internal/discovery/management_groups.go` | `543c870651d9a4ef2a77b5879162a977c9fbb86a` | Section 1 source/test pass; correction QA pending |
+| `internal/discovery/management_groups_test.go` | `739abd7868270c71576597071ca544cb654bee9e` | Section 1 source/test pass; correction QA pending |
+| `internal/discovery/pager_cycle.go` | `a0cb960c6198507f7169abed61bcae6e0a9d81cc` | Section 1 source/test pass; correction QA pending |
+| `internal/discovery/pager_cycle_test.go` | `306fc3c24494d962b5b20428eb76580b4fdb1da9` | Section 1 source/test pass; correction QA pending |
+| `internal/discovery/pager_security_test.go` | `02c4be2faf09c4c3a575db33a57cba2e715c729c` | Section 1 source/test pass; correction QA pending |
+| `internal/discovery/resources.go` | `82f177ccf0d8232f64ca40690a131c5da9c31aca` | Section 1 source/test pass; correction QA pending |
+| `internal/discovery/resources_test.go` | `8a9a351608e3461868f389f7d3fffaf642f69945` | Section 1 source/test pass; correction QA pending |
+| `internal/discovery/subscriptions.go` | `c91a85d1fc43231acbb71cbbeae2099396b335c1` | Section 1 source/test pass; correction QA pending |
+| `internal/discovery/subscriptions_test.go` | `9a728c5df3099cc22571a6920c2d8afbc456c6e2` | Section 1 source/test pass; correction QA pending |
 | `internal/equivalence/compare.go` | `1d0b77de42d21c555c96bad6f473964d765fb544` | Pending |
 | `internal/equivalence/compare_guard_test.go` | `e59fe464f75e415870fef0bcb6cc096c38ae55c0` | Pending |
 | `internal/equivalence/projection.go` | `cb7f31799442cba5227e13096d7f4c9dcd7d95c2` | Pending |
@@ -387,17 +395,17 @@ Only files actually examined in this initial pass are marked initial-pass. All o
 | `internal/findings/summary_test.go` | `62cad5632c5402f649c1a4d88e7d7f203f584924` | Pending |
 | `internal/gate/gate.go` | `35e3d887aff375b3ca63b673dfd090641dc5c4b4` | Pending |
 | `internal/gate/gate_test.go` | `45b96ba6241d71a11f7437960f424e0e68b52d4d` | Pending |
-| `internal/orchestration/aigov_test.go` | `bc8b62daac1199850b224cfb8a1962745222a020` | Pending |
-| `internal/orchestration/carbon_test.go` | `92f21c2937f4d9a5fd4e970f9c0370e644b4f2f3` | Pending |
-| `internal/orchestration/coordinator.go` | `ffd707e55b58f486525aa5a884cebe29ee807c00` | Pending |
-| `internal/orchestration/coordinator_test.go` | `8fd79a0a2bb2f2d6589f141e4a264d5d4a94b2cd` | Pending |
-| `internal/orchestration/cost_completion_test.go` | `ba66c3d68abbce8faa0341a53602d58461ebe68b` | Pending |
-| `internal/orchestration/operations.go` | `db99c5d23dbc08715280421b5c1ae237e237077b` | Pending |
-| `internal/orchestration/scope.go` | `76c5849a372ff6ed1818428f734f3252c4e3827e` | Pending |
-| `internal/orchestration/scope_test.go` | `c24febd19ede835a5a5bb66d8e23d2a53956a5fb` | Pending |
-| `internal/orchestration/servicehealth_test.go` | `3ca35440ad643206fda80027e53ed4ec84e230f2` | Pending |
-| `internal/orchestration/sqleol_test.go` | `11d8ba70a4d5415a82d929ebf2ca18ecc3b3da12` | Pending |
-| `internal/orchestration/zone_test.go` | `f79682ee7cf4a9d5c8a7a864b34410710990fd95` | Pending |
+| `internal/orchestration/aigov_test.go` | `bc8b62daac1199850b224cfb8a1962745222a020` | Section 1 source/test pass; correction QA pending |
+| `internal/orchestration/carbon_test.go` | `92f21c2937f4d9a5fd4e970f9c0370e644b4f2f3` | Section 1 source/test pass; correction QA pending |
+| `internal/orchestration/coordinator.go` | `ffd707e55b58f486525aa5a884cebe29ee807c00` | Section 1 source/test pass; correction QA pending |
+| `internal/orchestration/coordinator_test.go` | `8fd79a0a2bb2f2d6589f141e4a264d5d4a94b2cd` | Section 1 source/test pass; correction QA pending |
+| `internal/orchestration/cost_completion_test.go` | `ba66c3d68abbce8faa0341a53602d58461ebe68b` | Section 1 source/test pass; correction QA pending |
+| `internal/orchestration/operations.go` | `db99c5d23dbc08715280421b5c1ae237e237077b` | Section 1 source/test pass; correction QA pending |
+| `internal/orchestration/scope.go` | `76c5849a372ff6ed1818428f734f3252c4e3827e` | Section 1 source/test pass; correction QA pending |
+| `internal/orchestration/scope_test.go` | `c24febd19ede835a5a5bb66d8e23d2a53956a5fb` | Section 1 source/test pass; correction QA pending |
+| `internal/orchestration/servicehealth_test.go` | `3ca35440ad643206fda80027e53ed4ec84e230f2` | Section 1 source/test pass; correction QA pending |
+| `internal/orchestration/sqleol_test.go` | `11d8ba70a4d5415a82d929ebf2ca18ecc3b3da12` | Section 1 source/test pass; correction QA pending |
+| `internal/orchestration/zone_test.go` | `f79682ee7cf4a9d5c8a7a864b34410710990fd95` | Section 1 source/test pass; correction QA pending |
 | `internal/plugins/aigov/decoder.go` | `c31875f5576165af668ce95eaa2408767321a203` | Pending |
 | `internal/plugins/aigov/decoder_test.go` | `76e9df63a13a056b7799877dbeaf4b0282c71b3c` | Pending |
 | `internal/plugins/aigov/discovery.go` | `63e8d826cd8e4cb4fd51a6ea86a5c4cc40a86660` | Pending |
@@ -834,8 +842,8 @@ Only files actually examined in this initial pass are marked initial-pass. All o
 | `internal/stages/options_test.go` | `8245b9a14a468022ded93bdf62ab23538ecd6e16` | Pending |
 | `internal/stages/runner.go` | `7f3ec14d2f7b150619446984ddd9659b9761d8e4` | Pending |
 | `internal/stages/runner_test.go` | `6e6b6f6bbeb0db79a0b4d2c1a21cbd5ef46c3be7` | Pending |
-| `internal/throttling/policy.go` | `0558c864c40152c4df848fe4c9c2a10fead10e0c` | Pending |
-| `internal/throttling/policy_test.go` | `753939b0001fd7709b3ec2fde99cf2e197e707e0` | Pending |
+| `internal/throttling/policy.go` | `0558c864c40152c4df848fe4c9c2a10fead10e0c` | Section 1 source/test pass; correction QA pending |
+| `internal/throttling/policy_test.go` | `753939b0001fd7709b3ec2fde99cf2e197e707e0` | Section 1 source/test pass; correction QA pending |
 | `scripts/bootstrap-workspace.sh` | `53be7d565640c8d873760f8e063163e231233f86` | Pending |
 | `scripts/branding-profile.py` | `f97eb370157f18d3b36b355f479413ebbff445b9` | Pending |
 | `scripts/capture-region-source.py` | `59c5a4915600dda8c786aa8b0643bd8af7365bfb` | Pending |

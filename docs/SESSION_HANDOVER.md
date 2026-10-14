@@ -1,3 +1,28 @@
+# Section 1 correction candidate and interruption checkpoint, 2026-10-14
+
+This is a candidate preparation record, not protected acceptance or completed full audit. Check [live PR142](https://github.com/DeBoX85/Cloud-Assess/pull/142) and current refs for later outcomes. Task branch: audit/systematic-module-review-20261014. Protected accepted code remains a6fee427e19feeef28691737ea9bc5026086efa0.
+
+Section1covers nine packages/95baseline Go files,38production/57tests. All have received a source/test pass and fresh full-content/blob readback against the baseline inventory. Current audit completion remains0/4sections and0/41finally verified packages pending corrective QA and checkpoint reconciliation.
+
+Two findings reproduced after successful unchanged-code compilation on BOTH native hosts:
+- SR-F01/P2: ARG rule executor can return nil error on terminal cancellation/deadline. Native38561749374, Linux115844262674/full64338 and Windows115844263005/full51809failed only Go test steps. Public stage runner's separate context checks limit CLI impact; this is a library boundary correction.
+- SR-F02/P2: inventory query sorts by tied subscription/RG keys. Documented primary Microsoft risk plus deterministic1001resource/two-page HTTP/ARG/discovery repro at e012a94d; native38563129439 Linux115848958752/full63105 and Windows115848959368/full50413failed only expected duplicate0999assertion. This is synthetic, not live Azure reproduction.
+
+Corrections are isolated:
+1. Cancellation:5dd97b0f530d578e17767a4eea14510b72ee6f6a, parent432f2034aa3eed973670ab5b3a31cd1775d94611. Check context before scheduling, after receiving a job and after joining workers; preserve initiating query error before sibling-cancellation error. Both second-repro runs passed internal/arg, but full candidate gates remain required.
+2. Inventory order:9d1872b1a1737da05db512addae8479e530aa238, parente012a94d8077abf180917408156b12cfa69f47ec. Append id asc only; preserve projection/filters/batching and immutable source captures. Deliberate reliability improvement to pinned source behavior, no changing-estate snapshot guarantee.
+3. Import style:a98f2170d39c9dd8a53335c2bd147f4f9fc6496b, parent9d1872b1a1737da05db512addae8479e530aa238. Standard/external grouping only.
+
+Read [Section1working report](SYSTEMATIC_REVIEW_SECTION1_20261014.md), [coverage](SYSTEMATIC_MODULE_REVIEW_20261014.md) and [active change journal](SYSTEMATIC_REVIEW_CHANGELOG_20261014.md). Exact final native/source/review outcomes belong to the actual candidate head shown by PR142. Do not call an expected red run an infrastructure fault or acceptance; do not transfer passed code-package checks into a full gate pass.
+
+Next: inspect final candidate native/source evidence and exact diff/current-head review; correct any real findings, reconcile coverage, then stop at Section1checkpoint for user re-evaluation. Do not automatically start Section2. Preserve each fix's parent/repro and use normal revert commits after dependency assessment and QA, never protected history resets.
+
+Overall project status: core and several plugins accepted offline; target region SKU adapters1/7 versus source captures7/7, public region unavailable. Six adapters/coordinator/public/FullCost/other parity work, live/fresh-OS/load/AR-02/advisory disposition/Gate004/license/security/human/release remain open. Storage work is paused; after the whole audit, resume its contract and independent tests, then remaining adapters/integration/parity/release gates. No trustworthy weighted overall project percentage or release ETA exists. Original pins unchanged. Laptop/Azure restoration remains unconfirmed and no Azure action occurs.
+
+Source checks: current Microsoft paging and REST2024-04-01 contracts; actual Go1.26.9 context source; pinned AZQR inventory and resource-ID helpers. Broader collector/plugin request budgets and business-row health remain assigned to Section2/3, with whole-system reconciliation in Section4. Historical counts/status below remain history.
+
+---
+
 # Active recovery checkpoint: four-section systematic audit, 2026-10-14
 
 This checkpoint supersedes the status of historical entries below. It is on task branch `audit/systematic-module-review-20261014`, not yet merged into `bootstrap/core-v1`. A new session must read this branch's handover and audit notes, then freshly inspect refs/PRs before making changes.

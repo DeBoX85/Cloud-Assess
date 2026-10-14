@@ -51,3 +51,27 @@ Regression-only source run38561749344 completed/success. It is separate from the
 Next: publish the small SR-F01 correction with retained repro evidence, run SR-F02's independently declared fixture against the old query, then correct only the query ordering. Inspect new native QA and source evidence on the final candidate, review the exact diff and checkpoint Section1 honestly before asking for progress re-evaluation.
 
 If service interruption occurs, read the latest audit branch and PR142 before retrying a mutation. Regression-only commit432f2034 is retained for backtracking; revert actual correction commits using normal Git history and repeat QA rather than resetting protected history.
+
+## Source-contract checks after initial investigation
+
+Pinned AZQR models.go blob3724182c006dcb8adc42fd2d6fe877d32ebf1aea contains the same positional resource-ID helpers. Their parent-type/name extraction is deliberately source-compatible, not general ARM-ID validation. Preserve it here; remaining collectors must validate their own contracts.
+
+Official context source for the actual project toolchain, golang/go taggo1.26.9 src/context/context.go blobd00ac67e38296573d20520dbd7aceb2fd1a52906, confirms terminal Err semantics. A generic pkg.go.dev page resolved togo1.27.2, so it was not treated as version-specific evidence. The tool could not open the versioned package page; the pinned official source was read instead. No toolchain upgrade is made.
+
+Microsoft REST2024-04-01 documents top maximum1000, opaque skipToken and string-enum resultTruncated examples. Its prose paging page uses Boolean terminology, so wire decoding follows versioned REST contracts/examples rather than assuming a Boolean JSON field.
+
+Import organization in cmd/cloud-assess/command.go is corrected separately: standard-library imports together, external imports together. No semantic behavior changes are attributed to that cleanup.
+
+Existing source-compatible missing-ID stopping and tolerant null/empty row decoding remain explicit compatibility behavior. Section2must assess business-record validity and completeness implications; these are not silently relabeled as newly fixed defects here.
+
+## Two-host reproduction and correction preparation
+
+SR-F02 regression-only query evidence at e012a94d8077abf180917408156b12cfa69f47ec:
+native38563129439 Linux115848958752/full63105characters and Windows115848959368/full50413both compiled and failed ONLY inventory_paging_order_test's duplicate0999assertion in Go test steps. Both reported internal/arg passing, including the cancellation correction and added remaining-definitions case. Later mandatory steps skipped after intentional test failure are not credited as passes.
+
+SR-F01 fix commit5dd97b0f530d578e17767a4eea14510b72ee6f6a, parent432f2034aa3eed973670ab5b3a31cd1775d94611.
+SR-F02 fix commit9d1872b1a1737da05db512addae8479e530aa238, parente012a94d8077abf180917408156b12cfa69f47ec.
+Import-only cleanupa98f2170d39c9dd8a53335c2bd147f4f9fc6496b, parent9d1872b1a1737da05db512addae8479e530aa238.
+Each correction is isolated for backtracking/revert. Original source captures and pins are unchanged; neither source oracles nor earlier independent expectations were adjusted to make tests pass.
+
+Final candidate includes all these changes plus recovery notes. Full exact-head native/source QA and review remain pending at preparation. Use live PR142 for current immutable head and subsequent results, not earlier regression runs.
