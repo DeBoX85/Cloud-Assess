@@ -1,4 +1,4 @@
-# Systematic module review — 2026-10-14
+# Systematic module review, 2026-10-14
 
 ## Status and baseline
 
@@ -87,13 +87,52 @@ A file read is not a completed module review. Initial source review means the li
 - Report staging source and both test files have received an initial pass. Existing-output preservation on render failure, Unix private permissions, symlink rejection and Windows DACL preservation are represented in tests. Fresh-OS validation, rename behavior and integration paths remain open.
 - No additional defect has yet been confirmed or reproduced in this new systematic review. This is not a conclusion that the reviewed code or repository is defect-free.
 
-## Next review sequence
+## Four-section review plan and checkpoint policy
 
-1. Trace Azure helper call sites and complete discovery/configuration/CLI scope review.
-2. Review ARG, rules/scanners, orchestration, stage health, findings/result aggregation and renderers.
-3. Review every auxiliary collector and plugin, including internal-only region libraries.
-4. Review Python/PowerShell/shell tools, workflows, queries/configuration, dependencies, licenses and documentation alignment.
-5. Reproduce confirmed findings, implement regression-backed corrections, run required native gates and reconcile every inventory entry.
+User instruction recorded 2026-10-14 at 13:38 Europe/Berlin. Audit takes priority over further Storage implementation. Review stops at each section checkpoint for a progress re-evaluation before advancing; this is a review boundary, not new permission for Azure actions or release.
+
+| Section | Scope | Review effort | Natural stopping point |
+| --- | --- | --- | --- |
+| 1. Foundations, scope and execution | CLI/app/config, assessment contracts, Azure/ARG requests, discovery, throttling and orchestration; intent and architecture baseline | 3–5 active hours | Trace a scan from user inputs to validated scope and request execution; reconcile ownership, cancellation, bounded work and partial failure. Publish reviewed files, findings, fixes, verification and estimate. |
+| 2. Assessment logic and collectors | Rules/scanners, findings, stages, results, severity gates and all core auxiliary datasets | 3–4 active hours | Reconcile data and health from collectors to canonical assessment, including malformed/empty/partial/failure paths and source semantic expectations. Publish checkpoint. |
+| 3. Plugins, reporting and platform protections | Every plugin including internal-only region, all renderers, redaction, branding and report staging | 4–7 active hours | Trace plugin results through every output and platform boundary. Reconcile internal/public feature limits, deterministic behavior, privacy and source expectations. Publish checkpoint. |
+| 4. Tooling, delivery and final integrated QA | Equivalence and developer tools, all Python/PowerShell/shell scripts, CI, dependency/license/provenance checks, configuration, queries and current docs; whole-system reconciliation | 2–4 active hours | Required offline QA and final inventory reconciliation; report closed findings, deferred risks, verified architecture/intent alignment and separate live/release gaps. Publish final assessment. |
+
+Total estimated review effort stays **12–20 active hours**. With ordinary fixes and repeat native QA, allow **2–4 working days**. No measured active-hours completion is claimed. Stage budgets include checkpoint reporting and review QA; remediation depends on findings. Each checkpoint revises the estimate from actual work rather than treating elapsed calendar time as progress.
+
+A section is complete only when its mapped source/tests have been examined, relevant call paths and intent checked, findings resolved or explicitly deferred with reasons, appropriate verification performed, and the checkpoint saved. Cross-section dependencies stay open with an owner section; the final audit cannot be called complete while they remain unassessed.
+
+All 41 Go package directories map exactly once:
+
+- Section 1: `cmd/cloud-assess`, `internal/app`, `internal/config`, `internal/assessment`, `internal/azure`, `internal/arg`, `internal/discovery`, `internal/throttling`, `internal/orchestration`.
+- Section 2: `internal/rules`, `internal/scanners`, `internal/findings`, `internal/stages`, `internal/result`, `internal/gate`, `internal/advisor`, `internal/arcsql`, `internal/cost`, `internal/defender`, `internal/diagnostics`, `internal/policy`, `internal/skus`.
+- Section 3: `internal/plugins`, `internal/plugins/zone`, `internal/plugins/servicehealth`, `internal/plugins/sqleol`, `internal/plugins/carbon`, `internal/plugins/aigov`, `internal/plugins/region`, `internal/renderers/csv`, `internal/renderers/excel`, `internal/renderers/json`, `internal/renderers/sarif`, `internal/renderers/tables`, `internal/reportfile`, `internal/redact`, `internal/branding`.
+- Section 4: `internal/equivalence`, `tools/brand-build`, `tools/diagnostics-probe`, `tools/equivalence`.
+
+Non-Go scripts/workflows belong to section 4. Queries/configuration/fixtures receive semantic review alongside their owning module, then completeness/provenance reconciliation in section 4. Architectural relationships are traced across all sections.
+
+## Current progress and evidence discipline
+
+- Accepted project baseline: PR140 merge `a6fee427e19feeef28691737ea9bc5026086efa0`; protected ref freshly rechecked.
+- Core scan and multiple plugin migrations are implemented and accepted offline; release readiness remains incomplete.
+- Region source SKU captures: 7/7. Accepted target SKU adapters: 1/7, Compute disks, or 14.3% of that specific adapter scope. Public region execution remains unavailable.
+- New systematic audit: **0/4 sections complete; 0/41 packages complete**. Section 1 has started. Initial pass covers 19 production Go files and nine test files across assessment/Azure/reportfile; reportfile belongs to section 3. These counts describe initial reads, not fully verified coverage or an overall project percentage.
+- No reliable weighted overall project completion percentage is available: the remaining features, live evidence, security/license review and release gates have different effort and no agreed weighting. Do not substitute adapter or audit percentages.
+- Freshly rechecked PR140 merged status and accepted-push native `38502782779` and source `38502782765`: both event=push, head=a6fee427, completed/success. Earlier complete-log verification is documented separately in PR141; this checkpoint rechecked metadata, not a repeat of full log reconstruction.
+- PR141 remains open/draft at `6cd002cb77fcead75a602b06a75625a178a84e49`. It contains detailed prior acceptance evidence and Storage analysis. Do not merge it implicitly, call it accepted, or credit it as production Storage code.
+- Outstanding project work: six further SKU adapter types, coordinator/public region integration, FullCost/other migrations, AR-02/load, fresh-OS/live parity, dependency module-only advisory disposition, Gate004, license/security/human review and release. No release ETA is inferred from the audit estimate.
+
+For uncertain or potentially outdated facts, record the question before relying on it; verify against current primary documentation, a version-pinned API specification or directly inspected dependency/source. Record source URL, version/commit, access date, exact claim and result. Reproduce behavior where applicable. Unresolved uncertainty stays explicitly open and cannot silently become a contract or fixture expectation.
+
+Primary references rechecked on 2026-10-14:
+- Go review guidance: https://go.dev/wiki/CodeReviewComments
+- Python PEP 8: https://peps.python.org/pep-0008/
+- Microsoft PSScriptAnalyzer: https://learn.microsoft.com/en-us/powershell/utility-modules/psscriptanalyzer/overview?view=ps-modules
+- GitHub Actions security: https://docs.github.com/en/actions/reference/security/secure-use
+
+These inform review; no lint/analyzer execution or architecture compliance is claimed merely from reading guidance. Preserve intentional compatibility and platform constraints instead of mechanically imposing style rules.
+
+See [active change journal](SYSTEMATIC_REVIEW_CHANGELOG_20261014.md) for findings, correction evidence, commit ancestry and recovery/revert procedure.
 
 ## File-level initial source/test coverage
 

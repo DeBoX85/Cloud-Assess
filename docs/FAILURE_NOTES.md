@@ -1,3 +1,9 @@
+# Systematic audit recovery note, 2026-10-14
+
+Accepted-branch historical status still described PR140 as pending. Fresh refs, merged PR and accepted-push metadata confirm a6fee427 is accepted offline; detailed full-verification notes remain on draft PR141. Audit-branch handover now explicitly records both states. This is DOC-01 recovery-documentation drift, not a newly discovered runtime failure. Original failure entries below remain intact. See [active findings/change journal](SYSTEMATIC_REVIEW_CHANGELOG_20261014.md) for uncertainty, corrective evidence and backtracking.
+
+---
+
 # Corrected disk acceptance candidate, 2026-10-14
 
 PR140 remains UNACCEPTED pending this final head's complete gates.

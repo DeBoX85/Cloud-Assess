@@ -1,3 +1,46 @@
+# Active recovery checkpoint: four-section systematic audit, 2026-10-14
+
+This checkpoint supersedes the status of historical entries below. It is on task branch `audit/systematic-module-review-20261014`, not yet merged into `bootstrap/core-v1`. A new session must read this branch's handover and audit notes, then freshly inspect refs/PRs before making changes.
+
+## Verified project state
+
+Protected baseline is `a6fee427e19feeef28691737ea9bc5026086efa0`, tree `1b13eec931b510592e42608fe8605ebdc287b0a9`, PR140 merged. Fresh reads confirm accepted-push native run38502782779 and source run38502782765 both completed/success on that exact push head. Earlier full logs, controls, source-byte proofs and corrective evidence are recorded in draft PR141's checkpoint at `6cd002cb77fcead75a602b06a75625a178a84e49`; no new complete-log pass is claimed here.
+
+Three prior focused-review defects are corrected in the accepted baseline: FN124 ARG trailing data admission, FN126 documented disk null pagination and FN127 disk HTTP status/error classification. They are not a whole-codebase defect total.
+
+Core scan and multiple plugin migrations are accepted offline. Source SKU capture scope is7/7; target SKU adapters1/7 (14.3% of that scope), internal Compute disks. Public region remains unavailable. Six remaining adapters, coordinator/public integration, FullCost/other migrations, AR-02/load, fresh-OS/live evidence, advisory disposition, Gate004/license/security/human/release work remain open. No defensible weighted overall project percentage or release ETA is established.
+
+PR141 is still OPEN/DRAFT at6cd002cb. Storage analysis is documentation only; implementation is paused while the new audit takes priority. Its corrected acceptance record was not present at the top of accepted-branch handover. This new checkpoint resolves that recovery ambiguity on the audit branch while preserving historical entries and PR141.
+
+## Active work and stopping points
+
+User requested four logical audit sections and active notes at13:38 Europe/Berlin on2026-10-14:
+1. Foundations, scope and execution:3–5active hours.
+2. Assessment logic and auxiliary collectors:3–4active hours.
+3. Plugins, outputs and platform protections:4–7active hours.
+4. Tooling/dependencies/delivery and final integrated QA:2–4active hours.
+
+Stop after each section to publish coverage, findings, fixes, verification, open questions and revised ETA for user re-evaluation. Total review estimate12–20active hours; ordinary fixes/repeat QA planning allowance2–4working days. These are effort estimates, not automatic background execution.
+
+Current audit progress:0/4sections complete;0/41packages complete. Initial pass19production Go files plus9test files in assessment/Azure/reportfile, not completed module validation. Section1started; reportfile initial work is credited only as preliminary section3 work. No new confirmed production defect or code correction in this audit yet.
+
+Read [audit scope and file coverage](SYSTEMATIC_MODULE_REVIEW_20261014.md) and [findings/change journal](SYSTEMATIC_REVIEW_CHANGELOG_20261014.md). Package mapping covers all41exactly once; section4 also covers46Python/fourPowerShell/twoShell/fourCIworkflows and non-code provenance/config/docs reconciliation.
+
+## Resume procedure after interruption
+
+1. Fetch protected ref, audit ref, open PR141 and recent runs. Do not treat memory, local caches or this recorded ref as necessarily latest.
+2. Read latest audit-branch SESSION_HANDOVER, SYSTEMATIC_MODULE_REVIEW and SYSTEMATIC_REVIEW_CHANGELOG, then authoritative target/intent documents. If this branch merged later, follow verified ancestry and newer checkpoint.
+3. Confirm pins: original AZQR8e4f0577f3615e6c9014c031bcad079f235369cc, source tree17d93b20c303f90f7843036be82f0dc32f3260f1, APRL60eaddda76541f6adbc1c5ffa686829807e55e29. Keep captures immutable.
+4. Continue section1 with CLI/configuration/scope/discovery and Azure/ARG call sites. Trace bounded/unbounded clients, destination/credential guards, ownership, cancellation and partial-failure propagation. Positional resource-ID helper behavior is an open question, not a confirmed bug.
+5. Verify uncertain or changing details from primary/version-pinned sources and record outcomes. Do not credit fetches as reviewed code, metadata success as new full-log verification, or offline tests as live validation.
+6. Checkpoint after substantive findings/fixes, before lengthy QA, after QA and at each section stop. Use small remote-read batches; a previous broad batch failed and was not credited.
+7. For each fix, retain original repro, before/after behavior, file/blob/parent and fix commit, original expectations, regression evidence and rollback plan. Separate unrelated fixes into reviewable commits.
+8. Revert reviewed changes through Git revert in a task branch with repeat required QA and protected PR flow. Never reset/force-update protected history or silently rewrite source fixtures.
+
+No laptop/Azure restoration has been confirmed. Azure scope stays read-oriented; no provisioning, RBAC changes or production-scope substitutions. Automated review is not independent human/release approval. Previous user instructions revoked the earlier AGENTS procedural constraints; do not reinstate obsolete local permission requirements. Follow currently applicable higher-priority policies and actual user-authorized scope.
+
+---
+
 # Corrected disk acceptance candidate, 2026-10-14
 
 PR140 remains UNACCEPTED pending this final head's complete gates.
