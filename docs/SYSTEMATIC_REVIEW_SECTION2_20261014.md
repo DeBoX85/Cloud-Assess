@@ -81,3 +81,13 @@ SR-S05: scanner ByKey returns a shallow Service copy, sharing ResourceTypes with
 SR-S06: Cost and Diagnostics worker collectors can lose caller cancellation during the final request. Independent canceling clients return either a valid response or a plain transport error. Cost must return the caller terminal error; Diagnostics must return it before inferring missing-setting findings. These are direct-library postconditions; public stage runner/coordinator have separate interruption guards. Production collectors remain unchanged; native repro pending.
 
 Reproduction-only predecessor6b34a7a3 has a running native gate and successful source gate. It may be superseded by this expanded regression-only head under normal workflow concurrency; canceled predecessors are not counted as confirmed or accepted evidence. No production fix has been made.
+
+## Endpoint response-contract reproduction preparation
+
+SR-S07: Diagnostics stream decoding currently consumes only the first JSON object. Tests declare valid whitespace controls, four trailing-content variants and exact body-close ownership before correction. The pinned source has the same loose decoder, independently read; this is proposed target reliability hardening on malformed responses, not healthy-data divergence.
+
+SR-S08: a valid-looking diagnostic setting from a different requested batch is admitted into the shared enabled map. Declared one-resource/two-batch fixture retains owned/case-insensitive healthy control and requires explicit error on foreign batch evidence before generating findings. Microsoft2021-05-01-preview List is scoped to resourceUri; actual returned ID sample belongs to that parent. Reference also admits parsed IDs without scope binding. No live API misbehavior is claimed.
+
+SR-S09: Cost adapter ignores endpoint-specific HTTP completion status. Official Azure SDK armcostmanagement/v1.1.1 (the pinned source dependency) query_client.go, blobfcce0881a833b237333f35de9dba97976b36d153, explicitly allows only200/204 for API2021-10-01. The generic latest Microsoft Learn page resolves2026-06-01 and versioned2021-10-01 page was inaccessible, so the actual tagged primary SDK was used. Declared tests exercise the shared production HTTPClient/mocked transport:200row and204empty healthy controls,201/202/203/205/206 negative cases. No Azure call.
+
+All are still suspected pending native compiling reproduction. Native predecessors may be canceled by normal concurrency; full evidence on this final regression-only head is authoritative. No production correction yet.
