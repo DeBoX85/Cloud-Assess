@@ -295,6 +295,10 @@ func (s *Scanner) scanBatch(
 
 	enabled := map[string]bool{}
 	warnings := []assessment.AssessmentWarning{}
+	requested := make(map[string]bool, len(resourceIDs))
+	for _, resourceID := range resourceIDs {
+		requested[normalize(resourceID)] = true
+	}
 	for _, item := range batch.Responses {
 		if item.HTTPStatusCode != http.StatusOK {
 			// The reference implementation leaves this resource absent from the enabled map,
@@ -319,6 +323,9 @@ func (s *Scanner) scanBatch(
 					Message: "diagnostic settings response contained a setting without a parseable resource ID",
 				})
 				continue
+			}
+			if !requested[resourceID] {
+				return nil, warnings, fmt.Errorf("diagnostic settings response contains a resource outside the requested batch")
 			}
 			enabled[resourceID] = true
 		}
