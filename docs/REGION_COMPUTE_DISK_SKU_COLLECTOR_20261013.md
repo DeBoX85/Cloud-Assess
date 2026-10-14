@@ -172,7 +172,7 @@ Use whole JSON admission first: valid UTF8/no invalid-surrogate replacement/
 controls/noncharacters, canonical known property spelling, no case-folded duplicate
 object keys, bounded depth/tokens/keys/string lengths. Require envelope object,
 explicit non-null value array and non-null row objects. Present nextLink must be a
-string or JSON null; omitted, empty or null ends paging, present null fails.
+string or JSON null; omitted, empty or null ends paging; other non-string values fail.
 
 Every row requires valid resourceType and name and charges raw work/text. Rows
 of other resource types are excluded after their identity and JSON admission,
