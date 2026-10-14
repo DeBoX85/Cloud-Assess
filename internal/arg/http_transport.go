@@ -68,16 +68,40 @@ func (t *HTTPTransport) Do(ctx context.Context, request Request) (*Response, err
 		}
 	}
 
-	if err := json.NewDecoder(response.Body).Decode(queryResponse); err != nil {
+	decoder := json.NewDecoder(response.Body)
+	if err := decoder.Decode(queryResponse); err != nil {
 		return nil, fmt.Errorf("decode ARG response: %w", err)
 	}
 	if queryResponse.Data == nil {
 		return nil, fmt.Errorf("decode ARG response: missing or null data array")
 	}
-	if _, err := io.Copy(io.Discard, response.Body); err != nil {
-		return nil, fmt.Errorf("read ARG response body: %w", err)
+	if err := readARGResponseEnd(io.MultiReader(decoder.Buffered(), response.Body)); err != nil {
+		return nil, err
 	}
 	return queryResponse, nil
+}
+
+// Reject any non-whitespace after the one response document, including bytes
+// already buffered by json.Decoder. Stream the suffix with fixed memory instead
+// of decoding and allocating another arbitrary JSON value.
+func readARGResponseEnd(reader io.Reader) error {
+	var buffer [1024]byte
+	for {
+		n, err := reader.Read(buffer[:])
+		for _, value := range buffer[:n] {
+			switch value {
+			case ' ', '\t', '\r', '\n':
+			default:
+				return fmt.Errorf("decode ARG response: unexpected trailing data")
+			}
+		}
+		if err == io.EOF {
+			return nil
+		}
+		if err != nil {
+			return fmt.Errorf("read ARG response body: %w", err)
+		}
+	}
 }
 
 func headerValue(headers http.Header, name string) string {

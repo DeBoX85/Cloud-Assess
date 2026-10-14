@@ -1,3 +1,26 @@
+# Confirmed finding and corrective QA preparation, 2026-10-14
+
+P2 ARG trailing-data bug is reproduced on Linux and Windows after successful
+compilation of original canonical blob3c93b2bb. Run38493524807:
+Linux115623988968/full37682 and Windows115623989223/full38665,18named buffered/split
+cases each. Formatter2778bytes/c1fbc2a4 independently matches authored new tests.
+Initial Windows115622579696/full23568FAILED raw checkout hash because of
+CRLF conversion; canonical identity was unchanged. Corrected checker uses git show
+and ONLY native CRLF reconciliation. Keep that failed preparation as history.
+
+Correction validates both decoder-buffered bytes and remaining body as JSON
+whitespace until EOF, streaming with1024byte scratch. It does not decode/allocate
+a second arbitrary JSON value. Three independent test functions preserve one full
+literal row/future metadata, reject18bad suffix cases including late extra data,
+and verify body closure and wrapped read/context errors.
+Four compiling production controls have separate named assertions and restored
+baselines. Full ARG package/transport tests and vet on both hosts, Linux race,
+formatter/fullfile proof and all source/native final gates remain required.
+This source fix is a deliberate target protocol-framing correction; original
+source captures/pins/module graph are untouched. No live/whole-repo safety claim.
+
+---
+
 # Windows reproduction preparation correction, 2026-10-14
 
 Linux115622579941 reproduced the compiled original parser gap with18buffered/split

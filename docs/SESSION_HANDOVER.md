@@ -1,3 +1,39 @@
+# Code review correction and QA, 2026-10-14
+
+Protected baseline remains PR1396f923c1d VERIFIED OFFLINE. PR140 is DRAFT/UNACCEPTED.
+The user requested code review, QA, then continuation. Focused risk review found
+one confirmed P2 ARG framing bug: valid first JSON prefixes followed by extra JSON
+or garbage could return successful query results. No universal no-bugs claim.
+[Review report](CODE_REVIEW_QA_20261014.md) records scope, evidence and remaining gates.
+
+Corrected reproduction71555102/run38493524807 passed on BOTH hosts:
+Linux115623988968/full37682log and Windows115623989223/full38665log.
+Both compiled the original3c93b2bb ARG blob and observed18named independent runtime
+failures for buffered/split invalid suffixes. The initial Windows preparation failed
+raw hashing only because of independently confirmed CRLF conversion; its failed
+115622579696/full23568log is retained in review history, not called parser evidence.
+
+This slice applies streaming EOF/JSON-whitespace admission over decoder.Buffered
+and the original body, with fixed1024byte scratch, without allocating a second
+JSON value. Valid rows/future metadata, body close and wrapped I/O/context errors
+stay. Four compiling production controls verify buffered bytes, bad suffixes,
+late I/O error and premature EOF, with restored positive baseline after each.
+Native gates add those controls; source/SDK/modules/Go1.26.9/pins stay unchanged.
+Hosted corrective preparation formats/readbacks both edited Go files, independently
+reconfirms the old compiled failure, runs all ARG cases (Linux race/Windows native),
+four controls and vet. This edited head still requires its OWN complete final QA/
+review/preview/protected expected-head merge and distinct accepted-push proof.
+
+Next finish corrective focused QA, remove the temporary helper at final acceptance,
+then continue ONLY the internal Compute disk collector under its published contract.
+Source characterization7/7 stays; target collectors remain0/7 until implementation.
+Other adapters/integration/public region/AR-02/module-only/live/load/freshOS/B6-B7/
+Gate004/licensing/human/release gates remain open. Laptop access unconfirmed;
+existing nonproduction/read-only/no-fixture/no-role/no-substitution/no-exposure
+boundaries remain. Earlier headers are historical snapshots.
+
+---
+
 # Current authority: PR139 VERIFIED OFFLINE, 2026-10-13
 
 [PR139](https://github.com/DeBoX85/Cloud-Assess/pull/139) is merged and VERIFIED

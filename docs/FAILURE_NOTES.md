@@ -1,3 +1,27 @@
+# FN124: ARG first-document success ignored invalid suffix, 2026-10-14
+
+Manual code review found HTTPTransport.Do decoded one JSON document then drained
+response.Body without checking bytes already buffered by the decoder or validating
+remaining suffix. A valid ARG prefix followed by extra JSON/garbage falsely returned
+successful data. Independently declared new tests reproduced18named failures on
+BOTH hosts after original source compilation in38493524807/Linux115623988968/
+Windows115623989223. Fixed framing now streams buffered+remaining bytes through a
+JSON-whitespace EOF check, without additional arbitrary-value allocation.
+Positive valid/unknown-metadata rows, body closure and I/O/context errors stay.
+Four compiling production controls and fresh complete final QA are required.
+
+The initial Windows prep115622579696 failed canonical hash assertion before
+compilation because checkout CRLF changed raw bytes. Independently reproduced
+486532f9 from original3c93b2bb plus ONLY LF-to-CRLF. Corrected Git object verification
+uses git show and separately reconciles native checkout line endings. No parser/
+source identity change or weaker digest. Preserve that setup failure separately.
+Immediate PR metadata briefly lagged a successful leased ref write; separate ref
+and repeated PR read matched, avoiding a duplicate mutation.
+Prevention: validate complete response framing, including decoder buffers; retain
+canonical-object versus platform-checkout distinctions in cross-host proof tools.
+
+---
+
 # FN121-FN123 final accepted-push outcome, 2026-10-13
 
 PR1396f923c1d VERIFIED OFFLINE. DISTINCT actual accepted-push source38461446822/

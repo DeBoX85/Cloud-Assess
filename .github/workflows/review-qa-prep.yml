@@ -1,4 +1,4 @@
-name: Code review ARG reproduction
+name: Code review ARG corrective QA
 
 on:
   pull_request:
@@ -8,7 +8,7 @@ permissions:
   contents: read
 
 jobs:
-  reproduce:
+  verify:
     if: github.head_ref == 'docs/region-sku-target-analysis-20261013'
     strategy:
       fail-fast: false
@@ -22,35 +22,46 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          fetch-depth: 0
       - uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16
         with:
           go-version: '1.26.9'
           cache: true
-      - name: Format, compile and reproduce the accepted parser finding
+      - name: Verify baseline finding, corrective cases and compiling controls
         shell: bash
         env:
           GOTOOLCHAIN: local
           PYTHONDONTWRITEBYTECODE: '1'
         run: |
           ${{ matrix.python }} - <<'PY'
-          import hashlib, json, pathlib, subprocess
-          source = subprocess.run(['git', 'show', 'HEAD:internal/arg/http_transport.go'], check=True, capture_output=True).stdout
-          checkout = pathlib.Path('internal/arg/http_transport.go').read_bytes()
-          assert checkout.replace(b'\r\n', b'\n') == source, 'Checkout differs beyond native CRLF conversion'
-          blob = hashlib.sha1(b'blob ' + str(len(source)).encode() + b'\0' + source).hexdigest()
-          assert blob == '3c93b2bb583f14aca5bfa245574d4102c4dc6835', blob
-          path = pathlib.Path('internal/arg/http_transport_suffix_test.go')
-          subprocess.run(['gofmt', '-w', str(path)], check=True)
-          data = path.read_bytes()
-          chunks = [data[i:i+3000].hex() for i in range(0, len(data), 3000)]
-          for index, content in enumerate(chunks):
-              print('AUDIT_QA_FORMAT_HEX ' + json.dumps(dict(path=str(path), index=index, count=len(chunks), sha256=hashlib.sha256(data).hexdigest(), content=content)), flush=True)
-          subprocess.run(['go', 'test', './internal/arg', '-run', '^$', '-count=1'], check=True)
-          result = subprocess.run(['go', 'test', './internal/arg', '-run', '^TestHTTPTransportRejectsTrailingData$', '-count=1', '-v'], capture_output=True, text=True, timeout=120)
-          print(result.stdout)
-          print(result.stderr)
-          assert result.returncode != 0, 'Original parser did not reproduce finding'
-          assert 'want failed query, not successful prefix' in result.stdout, 'Not the named runtime assertion failure'
-          assert '[build failed]' not in result.stdout + result.stderr, 'Compile failure is not reproduction'
-          print('AUDIT_ARG_FINDING_REPRODUCED: original parser compiled; named buffered/split invalid trailing-data assertions failed as expected')
+          import hashlib, json, os, pathlib, subprocess, sys
+          paths = [pathlib.Path('internal/arg/http_transport.go'), pathlib.Path('internal/arg/http_transport_suffix_test.go')]
+          for path in paths:
+              subprocess.run(['gofmt', '-w', str(path)], check=True)
+              data = path.read_bytes()
+              chunks = [data[i:i+3000].hex() for i in range(0, len(data), 3000)]
+              for index, content in enumerate(chunks):
+                  print('AUDIT_QA_FORMAT_HEX ' + json.dumps(dict(path=path.as_posix(), index=index, count=len(chunks), sha256=hashlib.sha256(data).hexdigest(), content=content)), flush=True)
+          source = paths[0]
+          corrected = source.read_bytes()
+          original = subprocess.run(['git', 'show', '6f923c1dd40a3396db65415510f599a328ed38b5:internal/arg/http_transport.go'], check=True, capture_output=True).stdout
+          assert hashlib.sha1(b'blob ' + str(len(original)).encode() + b'\0' + original).hexdigest() == '3c93b2bb583f14aca5bfa245574d4102c4dc6835'
+          try:
+              source.write_bytes(original)
+              subprocess.run(['go', 'test', './internal/arg', '-run', '^$', '-count=1'], check=True)
+              result = subprocess.run(['go', 'test', './internal/arg', '-run', '^TestHTTPTransportRejectsTrailingData$', '-count=1', '-v'], capture_output=True, text=True, timeout=120)
+              assert result.returncode != 0 and 'want failed query, not successful prefix' in result.stdout and '[build failed]' not in result.stdout + result.stderr
+              print('AUDIT_ARG_BASELINE_RECONFIRMED: compiled old parser still fails named independent cases', flush=True)
+          finally:
+              source.write_bytes(corrected)
+          command = ['go', 'test']
+          if os.name != 'nt':
+              command.append('-race')
+          command.extend(['./internal/arg', '-count=1', '-v'])
+          subprocess.run(command, check=True)
+          subprocess.run([sys.executable, 'scripts/tests/arg-response-framing-mutation.py'], check=True)
+          subprocess.run(['go', 'vet', './internal/arg'], check=True)
+          assert source.read_bytes() == corrected, 'Original corrected source not restored'
+          print('AUDIT_ARG_CORRECTIVE_QA_PASS: complete ARG cases, four compiling controls and restored source', flush=True)
           PY
