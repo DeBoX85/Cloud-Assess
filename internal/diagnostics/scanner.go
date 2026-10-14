@@ -278,8 +278,16 @@ func (s *Scanner) scanBatch(
 	defer response.Body.Close()
 
 	var batch armBatchResponse
-	if err := json.NewDecoder(response.Body).Decode(&batch); err != nil {
+	decoder := json.NewDecoder(response.Body)
+	if err := decoder.Decode(&batch); err != nil {
 		return nil, nil, fmt.Errorf("decode diagnostic settings batch response: %w", err)
+	}
+	var trailing any
+	if err := decoder.Decode(&trailing); err != io.EOF {
+		if err != nil {
+			return nil, nil, fmt.Errorf("read diagnostic settings batch trailing content: %w", err)
+		}
+		return nil, nil, fmt.Errorf("diagnostic settings batch response has trailing content")
 	}
 	if len(batch.Responses) != len(resourceIDs) {
 		return nil, nil, fmt.Errorf("diagnostic settings batch returned %d subresponses for %d requests", len(batch.Responses), len(resourceIDs))
