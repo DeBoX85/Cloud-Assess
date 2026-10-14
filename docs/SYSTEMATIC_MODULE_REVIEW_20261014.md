@@ -1,3 +1,13 @@
+# Section 2 QA correction: Cost local response name, 2026-10-14 UTC
+
+Current candidate7ce5cf2273edc6e95183ad3a8eabfa9fe6a11c38 FAILED native38645472872 on both hosts at the Section2control healthy Cost baseline. The new HTTP response local collided with the existing decoded queryResult local. This is QA-S2-01, an introduced compile defect, not an expected compiling mutation rejection or one of the baseline product findings. No passing acceptance is claimed.
+
+Full returned Linux116131114362 log32401characters SHA-256e1b2405ac4e98a4345c38927190217527a3e718a1f5c3ab8a69e37ac9eb7f363; Windows116131113918 log32221characters SHA-256de5bc2f083ffe07634230daf35c3a7a80b6f25213fdd3e72833c57ca5bd53781. First two Section2controls passed/restored on both; later controls and full QA were not reached. Source38645472929 passed separately, with23captures/315chunks verified against retained baseline blobs; it does not clear native failure.
+
+Correction: rename only the HTTP local to httpResponse, retain decoded response, and update the exact Cost-status mutation anchor. Fresh full candidate QA and exact-head review are required. Read live PR142/current refs for actual successor; do not transfer previous results. The Section2checkpoint remains pending and Section3has not started.
+
+---
+
 # Section 2 correction candidate, review started 2026-10-14
 
 This is the current authority; older Section 1 stop/preparation paragraphs below are historical. The user authorized Section 2 continuation at 23:23 Europe/Berlin. Full manual review covers all 13 assigned packages and 51 baseline Go files (25 production, 26 tests), with independent full-content/Git-blob checks. Six P2 finding groups reproduced after compilation on both hosts and are corrected in separate commits. Full corrected-candidate QA and review are pending; do not credit Section 2 complete yet.

@@ -84,11 +84,11 @@ CASES = [
         "internal/cost/scanner.go",
         "./internal/cost",
         "^TestCostHTTPRequiresDocumentedQueryCompletionStatus$",
-        "\tif response.StatusCode != http.StatusOK && "
-        "response.StatusCode != http.StatusNoContent {\n"
+        "\tif httpResponse.StatusCode != http.StatusOK && "
+        "httpResponse.StatusCode != http.StatusNoContent {\n"
         "\t\treturn nil, nil, fmt.Errorf("
         "\"Cost Management response status %d is not a completed query\", "
-        "response.StatusCode)\n\t}\n",
+        "httpResponse.StatusCode)\n\t}\n",
         "",
         "undocumented Cost status admitted as completed query",
     ),
