@@ -1,3 +1,19 @@
+# Section 3 authorized and in progress, 2026-10-15
+
+The user authorized continuation at 05:04 Europe/Oslo. Complete the full Section 3 module review, independent reproduction/primary-source checks, isolated fixes and full corrective QA; stop for re-evaluation before Section 4. Earlier stop instructions below are historical.
+
+Entry head `798d7be21e393f1e85503303e3d8eb83d311913d` is draft/unmerged in [PR142](https://github.com/DeBoX85/Cloud-Assess/pull/142). Its native38652456544 and source38652456593 now completed/success on that exact head (fresh run/job metadata; full log reconciliation follows). Protected baseline stays `a6fee427e19feeef28691737ea9bc5026086efa0`. Audit remains **2/4 complete (50% by section count), 22/41 package directories (53.7% by count)**; Section 3 is not complete. These are unweighted audit counts, not project completion.
+
+Section 3 inventory: **15 package directories, 94 Go files (43 production/51 tests), 24439 lines including tests**. All local files independently Git-blob checked against the exact entry commit. Read the [active Section 3 report](SYSTEMATIC_REVIEW_SECTION3_20261015.md) for file-level coverage, findings, fixes, QA and rollback. Source pins/captures/dependencies/schema are unchanged; no Azure action or laptop access assumed.
+
+NEXT: complete report/privacy/branding and plugin contracts, then small adapters, AI governance and region calculations/collectors, including all tests. Independently substantiate suspected defects before production changes, keep compatibility limits explicit, publish coherent code/notes checkpoints and read them back. Require full corrective Linux/Windows/source QA; remain unmerged and stop before Section 4.
+
+After the FULL audit resume Storage contract/tests and remaining region adapters/integration. Source captures7/7, accepted target adapters1/7, public region unavailable. FullCost/other parity, AR-02/load, live/fresh OS, module-only advisory disposition, human/license/security/Gate004/release remain. Prior remaining-audit budget6–11active hours plus substantial fixes/repeat QA; weighted overall progress and release ETA unverified. Do not replay completed Sections 1–2 or begin feature work during this audit.
+
+---
+
+## Historical records below — superseded resume instructions
+
 # Section 2 stopping checkpoint, review started 2026-10-14
 
 Section 2 source/test review and corrective code QA are complete on `1c5d300ce2f726a36b0bc4e3eac09fc82588f337`, tree `a8147abfea11cbcd21151be447e51347c331a0bc`. This documentation-only successor records that verified code evidence and the user's planned re-evaluation stop. It does not inherit exact-head workflow acceptance. PR142 remains draft/unmerged; protected accepted baseline stays `a6fee427e19feeef28691737ea9bc5026086efa0`.
