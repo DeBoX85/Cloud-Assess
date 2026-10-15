@@ -8,7 +8,15 @@ All15packages/94Go files (43production/51tests), with immediate data/contract bo
 
 ## Findings and decisions
 
-No confirmed Section 3 finding yet. Reportfile, redact and branding have initial complete source/test reads; integration/source-contract reconciliation remains pending, so manifest coverage is pending.
+### SR-F10 — SARIF result ID differs from its published descriptor, P2
+
+Confirmed locally after compilation on unchanged production at entry798d7be: definitions and findings are joined case-insensitively by the canonical summary, but SARIF writes the finding's original ID while publishing the definition's ID. Two independent casing cases fail exact descriptor-reference assertions; the same-case control passes. Test: `internal/renderers/sarif/rule_reference_test.go`, `TestRuleReferencesUsePublishedDescriptorIdentity`. No production fix yet.
+
+Pinned AZQR `internal/renderers/sarif/sarif.go` at8e4f0577 also uses the raw finding ID after a lower-case join. This is a proposed deliberate correction to inherited behavior, not a target-only source divergence. Official OASIS SARIF2.1.0+Errata01 §§3.27.5/3.27.7/3.52.4 establish descriptor-reference identity; https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html. Use the published descriptor's spelling in SARIF results while retaining canonical input identity, rule metadata, dedup, resource identities and normalized fingerprints. No format/schema/pin/dependency change.
+
+Before production edits, acceptance is: same-case and both casing directions resolve to the actual published descriptor; rendering does not mutate canonical input; existing results/fingerprints/empty/SLA/report privacy behavior remains. Change only the SARIF private result builder/call site, add the independent regression and a compiling reversal/restoration control in both native jobs. Native Windows reproduction/controls and full corrected-head QA remain pending; local red is evidence, not acceptance. Rollback must account for the new expected identity and helper anchor; ordinary targeted reverts only.
+
+Reportfile/redact/branding, all renderers, root plugin projection boundaries, zone, service-health and SQL-EOL source/tests have initial complete reads. Carbon projection source/tests are also read. Contract/integration reconciliation remains pending; no final package completion is credited yet. Human core projection redaction boundaries and zone JSON alias handling remain review questions, not confirmed findings.
 
 ## QA and recovery
 
@@ -20,25 +28,25 @@ NEXT: continue full source/test review and update this record/handover after coh
 
 | File | Baseline Git blob | Lines | Review state |
 | --- | --- | ---: | --- |
-| `internal/plugins/aigov_projection.go` | `408b7cda42858faeab5b18b9fcba43cf8aa80c01` | 112 | Pending |
-| `internal/plugins/aigov_projection_test.go` | `c016c61fe54c6d006a3b186374245a4018fd4289` | 81 | Pending |
-| `internal/plugins/carbon_projection.go` | `626c3b24d2e2adb7dec5a53c0fef7f8d216efd89` | 95 | Pending |
-| `internal/plugins/carbon_projection_test.go` | `a2b0221abaa4b345d67afd7f7877829beb2562d5` | 115 | Pending |
-| `internal/plugins/registry.go` | `0e7e6810d481c5c7e806ee6469daf3c03f3f33c4` | 186 | Pending |
-| `internal/plugins/registry_test.go` | `202b7a54f20738d90cf1f7650280ecd235c2a96b` | 55 | Pending |
-| `internal/plugins/servicehealth_projection_test.go` | `ff9b4db92f36855a592f79a7c23ecbf08fba5170` | 91 | Pending |
-| `internal/plugins/sqleol_projection.go` | `a925e0545eaa0e9b4be51a58705d46c0004f56fe` | 70 | Pending |
-| `internal/plugins/sqleol_projection_test.go` | `cb8616b373409d017318f1d9f5bf20131a4492e0` | 87 | Pending |
-| `internal/plugins/zone/scanner.go` | `1ba211bad8d2b0558b91481d177acb35417a568d` | 314 | Pending |
-| `internal/plugins/zone/scanner_test.go` | `842fa2d7be23836ec7277bc5dcd2541f9e72a836` | 331 | Pending |
-| `internal/plugins/servicehealth/query.go` | `7624c0a3d23788f8c3e1565b2f35f55102b7e48f` | 72 | Pending |
-| `internal/plugins/servicehealth/scanner.go` | `ffdc63d0b4669ad6ab23908deea1e69a4785ccd0` | 328 | Pending |
-| `internal/plugins/servicehealth/scanner_test.go` | `1ef072fe74f1fd0024a1aaf56f38a162cead182c` | 355 | Pending |
-| `internal/plugins/sqleol/query.go` | `bb408e06215f9fb2d667dbc6372033b5e83d7858` | 7 | Pending |
-| `internal/plugins/sqleol/scanner.go` | `2abf52dfc1ca3fda34e97dda898b7aa1d8631cc0` | 289 | Pending |
-| `internal/plugins/sqleol/scanner_test.go` | `5ad2c6c14c6ecf23820ea989a8cfb8b62dc34ae1` | 418 | Pending |
-| `internal/plugins/carbon/projection.go` | `868599a28286a303671cc8a76ecd06d90f13d1e0` | 158 | Pending |
-| `internal/plugins/carbon/projection_test.go` | `105315a948c25c97be421b699e13eec17c3234e1` | 190 | Pending |
+| `internal/plugins/aigov_projection.go` | `408b7cda42858faeab5b18b9fcba43cf8aa80c01` | 112 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/aigov_projection_test.go` | `c016c61fe54c6d006a3b186374245a4018fd4289` | 81 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/carbon_projection.go` | `626c3b24d2e2adb7dec5a53c0fef7f8d216efd89` | 95 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/carbon_projection_test.go` | `a2b0221abaa4b345d67afd7f7877829beb2562d5` | 115 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/registry.go` | `0e7e6810d481c5c7e806ee6469daf3c03f3f33c4` | 186 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/registry_test.go` | `202b7a54f20738d90cf1f7650280ecd235c2a96b` | 55 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/servicehealth_projection_test.go` | `ff9b4db92f36855a592f79a7c23ecbf08fba5170` | 91 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/sqleol_projection.go` | `a925e0545eaa0e9b4be51a58705d46c0004f56fe` | 70 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/sqleol_projection_test.go` | `cb8616b373409d017318f1d9f5bf20131a4492e0` | 87 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/zone/scanner.go` | `1ba211bad8d2b0558b91481d177acb35417a568d` | 314 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/zone/scanner_test.go` | `842fa2d7be23836ec7277bc5dcd2541f9e72a836` | 331 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/servicehealth/query.go` | `7624c0a3d23788f8c3e1565b2f35f55102b7e48f` | 72 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/servicehealth/scanner.go` | `ffdc63d0b4669ad6ab23908deea1e69a4785ccd0` | 328 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/servicehealth/scanner_test.go` | `1ef072fe74f1fd0024a1aaf56f38a162cead182c` | 355 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/sqleol/query.go` | `bb408e06215f9fb2d667dbc6372033b5e83d7858` | 7 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/sqleol/scanner.go` | `2abf52dfc1ca3fda34e97dda898b7aa1d8631cc0` | 289 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/sqleol/scanner_test.go` | `5ad2c6c14c6ecf23820ea989a8cfb8b62dc34ae1` | 418 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/carbon/projection.go` | `868599a28286a303671cc8a76ecd06d90f13d1e0` | 158 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/carbon/projection_test.go` | `105315a948c25c97be421b699e13eec17c3234e1` | 190 | Initial complete read; contract/QA reconciliation pending |
 | `internal/plugins/carbon/scanner.go` | `d0aff9de47afad2c1a1b8c3fcd3ff9819ac5b1fd` | 447 | Pending |
 | `internal/plugins/carbon/scanner_test.go` | `f8e1e5dca08bcc1706a5a48ff804bf45044d326e` | 625 | Pending |
 | `internal/plugins/aigov/decoder.go` | `c31875f5576165af668ce95eaa2408767321a203` | 454 | Pending |
@@ -93,24 +101,28 @@ NEXT: continue full source/test review and update this record/handover after coh
 | `internal/plugins/region/service_test.go` | `f683d274a5b208d4d54a7d1081de3f43aaba1581` | 377 | Pending |
 | `internal/plugins/region/vm_quota_capture_test.go` | `18476fb14c4385d67e7d7fd16ccabbcc7ba8b52c` | 77 | Pending |
 | `internal/plugins/region/vm_quota_collector_test.go` | `47546d5e6b3d79e9d0baa230f6739a3b75fbfa72` | 218 | Pending |
-| `internal/renderers/csv/csv.go` | `8ebe602a03cf70048c495d39881c1ef25242ddf0` | 71 | Pending |
-| `internal/renderers/csv/csv_test.go` | `b2f6517219ecad4c61b098150499b337d860fb80` | 134 | Pending |
-| `internal/renderers/excel/excel.go` | `198b681647d0037dd60ec7562aeb3b528cdae131` | 233 | Pending |
-| `internal/renderers/excel/excel_test.go` | `70a0c6cf21a57b15da8edd92bd507c6209fa6f3f` | 147 | Pending |
-| `internal/renderers/json/json.go` | `78c02db82280bc9a268ae87961e9ed070ae852ee` | 200 | Pending |
-| `internal/renderers/json/json_test.go` | `08b95ca48d84313fbf7dcba50bb49f4aba104146` | 235 | Pending |
-| `internal/renderers/sarif/sarif.go` | `137df562533618bf40fc3c7d65f962b77410d6c4` | 224 | Pending |
-| `internal/renderers/sarif/sarif_test.go` | `06e983fd422dd55265f8941ecd5afff61e1903b5` | 145 | Pending |
-| `internal/renderers/tables/plugins.go` | `c9c95c5016a9ce7354cabf0ee98e6ecfec38b10d` | 161 | Pending |
-| `internal/renderers/tables/tables.go` | `cdec577a766f02a56c201b76b127954ae22d2318` | 289 | Pending |
-| `internal/renderers/tables/tables_test.go` | `f7dd4bded84371943f6457ea831f20e53179444b` | 142 | Pending |
-| `internal/reportfile/privacy_other.go` | `6712be13d06fc37bf2756daac4a08df91c2effb6` | 5 | Pending |
-| `internal/reportfile/privacy_windows.go` | `00532ec043814f2c39d7d6b3458d801f4118ef91` | 38 | Pending |
-| `internal/reportfile/windows_acl_test.go` | `8c96f8f89e9f48f433067bdef47f7bab45f610da` | 43 | Pending |
-| `internal/reportfile/write.go` | `161ed19e385bbdfaab5c802cd7397d741918dab5` | 44 | Pending |
-| `internal/reportfile/write_test.go` | `4ef1773e1f6953a4c4c520d1b0118e509ce9e84e` | 83 | Pending |
-| `internal/redact/subscription.go` | `74ca62b17ae958c03803be3b8d0550cd1a3c9852` | 25 | Pending |
-| `internal/redact/subscription_test.go` | `9ce7ed9ac1ac9e8b8e25e260e4105c6b82ddd78c` | 30 | Pending |
-| `internal/branding/branding.go` | `25146592055fd30be1a1f8abdabe529bc3ec48a1` | 38 | Pending |
-| `internal/branding/profile.go` | `bf4ca310e6b376c421ff495e9cd58a7f5a4b8b53` | 177 | Pending |
-| `internal/branding/profile_test.go` | `842b40ef97ec9f2c2a0cfbb1e3c7c147ecd6e434` | 86 | Pending |
+| `internal/renderers/csv/csv.go` | `8ebe602a03cf70048c495d39881c1ef25242ddf0` | 71 | Initial complete read; contract/QA reconciliation pending |
+| `internal/renderers/csv/csv_test.go` | `b2f6517219ecad4c61b098150499b337d860fb80` | 134 | Initial complete read; contract/QA reconciliation pending |
+| `internal/renderers/excel/excel.go` | `198b681647d0037dd60ec7562aeb3b528cdae131` | 233 | Initial complete read; contract/QA reconciliation pending |
+| `internal/renderers/excel/excel_test.go` | `70a0c6cf21a57b15da8edd92bd507c6209fa6f3f` | 147 | Initial complete read; contract/QA reconciliation pending |
+| `internal/renderers/json/json.go` | `78c02db82280bc9a268ae87961e9ed070ae852ee` | 200 | Initial complete read; contract/QA reconciliation pending |
+| `internal/renderers/json/json_test.go` | `08b95ca48d84313fbf7dcba50bb49f4aba104146` | 235 | Initial complete read; contract/QA reconciliation pending |
+| `internal/renderers/sarif/sarif.go` | `137df562533618bf40fc3c7d65f962b77410d6c4` | 224 | Initial complete read; contract/QA reconciliation pending |
+| `internal/renderers/sarif/sarif_test.go` | `06e983fd422dd55265f8941ecd5afff61e1903b5` | 145 | Initial complete read; contract/QA reconciliation pending |
+| `internal/renderers/tables/plugins.go` | `c9c95c5016a9ce7354cabf0ee98e6ecfec38b10d` | 161 | Initial complete read; contract/QA reconciliation pending |
+| `internal/renderers/tables/tables.go` | `cdec577a766f02a56c201b76b127954ae22d2318` | 289 | Initial complete read; contract/QA reconciliation pending |
+| `internal/renderers/tables/tables_test.go` | `f7dd4bded84371943f6457ea831f20e53179444b` | 142 | Initial complete read; contract/QA reconciliation pending |
+| `internal/reportfile/privacy_other.go` | `6712be13d06fc37bf2756daac4a08df91c2effb6` | 5 | Initial complete read; contract/QA reconciliation pending |
+| `internal/reportfile/privacy_windows.go` | `00532ec043814f2c39d7d6b3458d801f4118ef91` | 38 | Initial complete read; contract/QA reconciliation pending |
+| `internal/reportfile/windows_acl_test.go` | `8c96f8f89e9f48f433067bdef47f7bab45f610da` | 43 | Initial complete read; contract/QA reconciliation pending |
+| `internal/reportfile/write.go` | `161ed19e385bbdfaab5c802cd7397d741918dab5` | 44 | Initial complete read; contract/QA reconciliation pending |
+| `internal/reportfile/write_test.go` | `4ef1773e1f6953a4c4c520d1b0118e509ce9e84e` | 83 | Initial complete read; contract/QA reconciliation pending |
+| `internal/redact/subscription.go` | `74ca62b17ae958c03803be3b8d0550cd1a3c9852` | 25 | Initial complete read; contract/QA reconciliation pending |
+| `internal/redact/subscription_test.go` | `9ce7ed9ac1ac9e8b8e25e260e4105c6b82ddd78c` | 30 | Initial complete read; contract/QA reconciliation pending |
+| `internal/branding/branding.go` | `25146592055fd30be1a1f8abdabe529bc3ec48a1` | 38 | Initial complete read; contract/QA reconciliation pending |
+| `internal/branding/profile.go` | `bf4ca310e6b376c421ff495e9cd58a7f5a4b8b53` | 177 | Initial complete read; contract/QA reconciliation pending |
+| `internal/branding/profile_test.go` | `842b40ef97ec9f2c2a0cfbb1e3c7c147ecd6e434` | 86 | Initial complete read; contract/QA reconciliation pending |
+
+Reproduction log `sarif-reference-reproduction.log`: 785bytes, SHA-256`70df2911c589990e7411b3ca9fa7f1e213b0bc1558304ee2092a42de7746496e`; declared assertion failure, not compile failure.
+
+Baseline local Section3 race suite completed exit0 across all15packages before adding the new failing regression; full log 2145bytes SHA-256`6fe5512aeefcad71e613dbcaded8c8de6394af1b77d31d8ba048da4ae7c37e20`. This does not replace source review or native Windows acceptance.

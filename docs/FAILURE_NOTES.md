@@ -1,3 +1,9 @@
+# Section 3 material finding checkpoint, 2026-10-15
+
+SR-F10 SARIF mixed-case descriptor-reference defect is confirmed by two compiling local failures with a passing same-case control; correction is documented before production edits in [active report](SYSTEMATIC_REVIEW_SECTION3_20261015.md). No Section3 production fix or completion yet. Baseline local race tests passed all15packages. The new regression is intentionally failing on unchanged production; pending/failing CI is reproduction evidence only, never acceptance. Continue remaining full review and source contracts, apply isolated fixes and obtain full corrected exact-head native/source QA; stop before Section4. Audit remains2/4sections and22/41packages finally verified, PR142 draft/unmerged. No Azure/pin/dependency changes. See report for exact log hashes, source/OASIS contract and rollback requirements.
+
+---
+
 # Section 3 authorized and in progress, 2026-10-15
 
 The user authorized continuation at 05:04 Europe/Oslo. Complete the full Section 3 module review, independent reproduction/primary-source checks, isolated fixes and full corrective QA; stop for re-evaluation before Section 4. Earlier stop instructions below are historical.
