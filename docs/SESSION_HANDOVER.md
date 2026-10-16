@@ -1,3 +1,29 @@
+# Section3 corrective checkpoint and STOP rule, 2026-10-16
+
+All94 baseline Go files (43production/51tests), both added regressions and all15Section3package contracts/integration boundaries are reviewed. [Active report](SYSTEMATIC_REVIEW_SECTION3_20261015.md), [contract map](SYSTEMATIC_REVIEW_SECTION3_CONTRACTS_20261016.md) and [failure notes](FAILURE_NOTES.md) retain findings, full reproduction/log hashes, fixes and rollback. SR-F10 is fixed in7384439 with complete earlier native/source proof. SR-F11 is corrected in this checkpoint after both-host compiling reproduction at b82de398; its regression expectations are unchanged and both compiling reversal/restoration controls pass locally. Parent for this correction is b82de3982c1bdec21a0a50bcbfa21a2a2aa08069.
+
+Own exact-head nativeLinux/Windows/source gates are initially pending AT PUBLICATION. The top current [PR142 evidence index](https://github.com/DeBoX85/Cloud-Assess/pull/142) supplies the actual commit/tree/parent/tested-preview/runs/full-log hashes and verified final disposition, per QA_PROCESS's rule avoiding a documentation/CI loop. Do not transfer an earlier pass. After full proof, the checkpoint is3/4audit sections and37/41package directories by unweighted count, not project completion or defect-free certification.
+
+RESUME: verify actual live refs and this checkpoint's own gates; finish corrective QA only if still pending, then STOP for the user's re-evaluation BEFORE Section4. Do not republish/replay completed corrections, spawn sub-agents, start Section4/features, mark ready or merge. PR142 stays draft/unmerged; protected bootstrap/core-v1 remains a6fee427e19feeef28691737ea9bc5026086efa0. All pins/captures/schema/dependencies stay unchanged (AZQR8e4f0577/tree17d93b20, APRL60eaddda, Go1.26.9/x-net0.60.0). No Azure operations or dependency refresh.
+
+Public region remains unavailable; source SKU coverage7/7 is distinct from accepted target1/7. Storage PR141/other adapters/FullCost/coordinator/AR-02/load/live/freshOS/module-only advisory/human/license/security/Gate004/release remain open. No protected acceptance/push or independent-person review is claimed. Earlier estimates/status/resume instructions below are historical.
+
+---
+
+## Historical records below
+
+# SR-F10 full corrective QA and SR-F11 published reproduction, 2026-10-16
+
+SR-F10 correction7384439c4058feb8c3f7a2241a6b1a8e45950163/tree434f498ee2668cfb80e61687fe01a1a50ae0d372/parent e9dd8d182054a768ff6ab65a91072f7fc11f5615 completed native38837602499 SUCCESS on Linux116770101098 and Windows116770100656; source38837602502/job116770100933 also SUCCESS. Every mandatory step passed; only conditional Linux failure-evidence upload skipped. All326Linux and321Windows named controls contain every previous325/320 identity plus exactly the SARIF compiling reversal/restoration control. Both native full Go suites, Linux race85.2%coverage/five bounded fuzz/vet, actual CLI/default+custom packages/isolated install/branding/PowerShell/docs/provenance/inventory and scans passed. Both scans report0reachable/0imported-package/1module-only advisory; the last remains open.
+
+Full exact returned log hashes: Linux102675characters/102679UTF8bytes SHA256309ed6c59f0c4b23fc5c1d8d6fee1d16de3936b70f2cabe61b25e928e9d88d76; Windows84106/84108 SHA2561d154ea37adc6d414f18d43da1eb8010672515939122ca17df3f1298f27f5350; source1359863/1359939 SHA256073baad731d40ce0d768ba04f98fd484853b7433c339f593911a993599efdc35.23captures/315unique contiguous chunks independently reconstructed/hashed/byte-matched plus all23fresh published files909865bytes independently fetched/matched. Pinned source/tree/APRL and tested preview5e6970718289fe0e25b2b7a28467510535776a10 exact fix tree and ordered protected-base/fix parents verified. No build/race/error marker in completed corrective logs.
+
+Current published reproduction head is b82de3982c1bdec21a0a50bcbfa21a2a2aa08069/tree1f93508d21ccc8841476967231c17a7e52ca82b0/parent7384439. Full six-file readback/independent local tree/Denis author+committer and expected-ref publication verified. PR142 remains draft/unmerged; protected base remains a6fee427. It adds independent zone regression and pre-edit contract with production zone unchanged. SR-F11 remains UNFIXED; both-host compiling reproduction is pending. Prior SARIF green is not this changed head acceptance.
+
+All94 baseline Go initial reads and15-package contract/integration reconciliation are now recorded in [contract map](SYSTEMATIC_REVIEW_SECTION3_CONTRACTS_20261016.md). No final Section3package/section credit until SR-F11 corrected full QA. NEXT: inspect this exact reproduction head native failures, apply isolated decoder-equivalent zone guard/control under the already published contract, verify full corrected Linux/Windows/source gates and publish the completed Section3 stopping checkpoint. STOP before Section4 for user reevaluation. No Azure, dependency/pin/capture/schema change.
+
+---
+
 # Section 3 continuation: SR-F11 reproduction and pre-edit correction contract, 2026-10-16
 
 Current published correction head is 7384439c4058feb8c3f7a2241a6b1a8e45950163, tree434f498ee2668cfb80e61687fe01a1a50ae0d372, parent e9dd8d182054a768ff6ab65a91072f7fc11f5615. All eight published changed files were independently read back and blob/tree/parent/Denis identity matched. PR142 remains draft/unmerged; protected bootstrap/core-v1 remains a6fee427e19feeef28691737ea9bc5026086efa0. SR-F10 fixed locally and both-host compiling reversal/restoration controls passed; full native38837602499 remains pending, source38837602502 succeeded separately. Full log/capture reconciliation is still required.

@@ -1,3 +1,13 @@
+# Current restart instruction: finish gates if needed, then STOP before Section4
+
+```text
+Continue only the Section3 checkpoint in PR142 on audit/systematic-module-review-20261014. First verify live refs/draft/unmerged state and read the latest top PR142 evidence index, docs/HANDOVER_CHECKPOINT_20261016.md, docs/SESSION_HANDOVER.md, docs/SYSTEMATIC_REVIEW_SECTION3_20261015.md and docs/SYSTEMATIC_REVIEW_SECTION3_CONTRACTS_20261016.md. All94baseline Go files/15packages have full source/test/contract reconciliation; SR-F10 and SR-F11 corrections and both compiling controls are implemented. If the exact current checkpoint still lacks complete nativeLinux/Windows/source QA, finish only that already-authorized verification and substantiate any failure before correction. If its full proof is complete, report the completed Section3 checkpoint and STOP for my re-evaluation. Do not start Section4 or replay completed fixes, mark ready, merge, spawn sub-agents or resume features. Keep PR142 draft/unmerged and preserve all pins/captures/dependencies/schema. No Azure operations or dependency refresh. The old prompt below is history and does not authorize Section4.
+```
+
+---
+
+## Historical restart prompt
+
 # Cloud-Assess new-conversation prompt — 2026-10-16
 
 Copy the complete text below into a new conversation. It authorizes continuation of the existing Section 3 task; the live branch and handover remain authoritative over this snapshot.

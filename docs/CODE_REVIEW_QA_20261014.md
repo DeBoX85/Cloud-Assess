@@ -1,3 +1,17 @@
+# Section3 corrective checkpoint and STOP rule, 2026-10-16
+
+All94 baseline Go files (43production/51tests), both added regressions and all15Section3package contracts/integration boundaries are reviewed. [Active report](SYSTEMATIC_REVIEW_SECTION3_20261015.md), [contract map](SYSTEMATIC_REVIEW_SECTION3_CONTRACTS_20261016.md) and [failure notes](FAILURE_NOTES.md) retain findings, full reproduction/log hashes, fixes and rollback. SR-F10 is fixed in7384439 with complete earlier native/source proof. SR-F11 is corrected in this checkpoint after both-host compiling reproduction at b82de398; its regression expectations are unchanged and both compiling reversal/restoration controls pass locally. Parent for this correction is b82de3982c1bdec21a0a50bcbfa21a2a2aa08069.
+
+Own exact-head nativeLinux/Windows/source gates are initially pending AT PUBLICATION. The top current [PR142 evidence index](https://github.com/DeBoX85/Cloud-Assess/pull/142) supplies the actual commit/tree/parent/tested-preview/runs/full-log hashes and verified final disposition, per QA_PROCESS's rule avoiding a documentation/CI loop. Do not transfer an earlier pass. After full proof, the checkpoint is3/4audit sections and37/41package directories by unweighted count, not project completion or defect-free certification.
+
+RESUME: verify actual live refs and this checkpoint's own gates; finish corrective QA only if still pending, then STOP for the user's re-evaluation BEFORE Section4. Do not republish/replay completed corrections, spawn sub-agents, start Section4/features, mark ready or merge. PR142 stays draft/unmerged; protected bootstrap/core-v1 remains a6fee427e19feeef28691737ea9bc5026086efa0. All pins/captures/schema/dependencies stay unchanged (AZQR8e4f0577/tree17d93b20, APRL60eaddda, Go1.26.9/x-net0.60.0). No Azure operations or dependency refresh.
+
+Public region remains unavailable; source SKU coverage7/7 is distinct from accepted target1/7. Storage PR141/other adapters/FullCost/coordinator/AR-02/load/live/freshOS/module-only advisory/human/license/security/Gate004/release remain open. No protected acceptance/push or independent-person review is claimed. Earlier estimates/status/resume instructions below are historical.
+
+---
+
+## Historical records below
+
 # Current handover authority — 2026-10-16
 
 Read [handover checkpoint](HANDOVER_CHECKPOINT_20261016.md), [restart prompt](NEW_CHAT_PROMPT_20261016.md) and [Section 3 active report](SYSTEMATIC_REVIEW_SECTION3_20261015.md) first. This entry supersedes earlier current-state, pause and next-action paragraphs below; historical contracts, failures and evidence remain preserved.

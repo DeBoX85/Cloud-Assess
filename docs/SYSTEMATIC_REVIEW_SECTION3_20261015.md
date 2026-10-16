@@ -1,3 +1,52 @@
+# Section3 final corrective checkpoint and stopping rule, 2026-10-16
+
+All94 baseline Go files (43production/51tests) and both independent added regressions have full reads; contract/data/integration reconciliation covers all15Section3packages. Read the [active report](SYSTEMATIC_REVIEW_SECTION3_20261015.md) and [contract map](SYSTEMATIC_REVIEW_SECTION3_CONTRACTS_20261016.md). Sections1-2 stay complete; no Section4 review is claimed.
+
+This checkpoint implements SR-F11 after both-host compiling reproduction and the published pre-edit contract. Its only production change is the zone private duplicate-key guard using Unicode SimpleFold equivalence, matching pinned Go1.26.9 encoding/json. Long-s field overwrites and sigma duplicates reject; unique Unicode metadata remains accepted; already-rejected Kelvin continuation remains a control. The independent zone regression is byte-identical to b82de398 (blob651e4782e1af6a8cebc443b4c8755e59e7f96c02). The new compiling reversal restores strings.ToLower, requires the named behavioral failure, restores exact bytes and passes baseline. Both existing native jobs already run this Section3 runner. SR-F10 remains fixed at7384439; its original regression, canonical IDs, resource identities, dedup and fingerprint code are unchanged.
+
+Own final-head Linux/Windows/source checks are initially PENDING AT PUBLICATION. The top current disposition in [PR142](https://github.com/DeBoX85/Cloud-Assess/pull/142) is the authoritative exact authored commit/tree/parent/tested-preview/run/job/full-log-hash/control/capture index. Never transfer7384439 or a reproduction-head pass. QA_PROCESS permits final evidence in the PR to avoid a self-referential documentation/CI loop. Once that exact checkpoint has all required proof, Section3 is complete:3/4audit sections and37/41package directories by unweighted count, not overall project progress or defect-free certification.
+
+RESUME ONLY by verifying live PR142/task/protected refs and that checkpoint's actual gates. Finish outstanding corrective QA if still pending; after verified success STOP for the user's re-evaluation. Do not republish an already-existing correction, replay Sections1-2, start Section4, merge, mark ready or resume Storage/features. PR142 stays draft/unmerged; protected bootstrap/core-v1 remains a6fee427e19feeef28691737ea9bc5026086efa0. No protected acceptance/push evidence exists for this unmerged audit.
+
+Preserve AZQR8e4f0577f3615e6c9014c031bcad079f235369cc/tree17d93b20c303f90f7843036be82f0dc32f3260f1, APRL60eaddda76541f6adbc1c5ffa686829807e55e29, Go1.26.9/x-net0.60.0, all source captures/schema/dependencies. No Azure operations, RBAC/fixtures, production-scope substitute, pin/capture/dependency refresh or release approval. Source SKU coverage7/7 is distinct from accepted target adapters1/7; public region remains unavailable. FullCost/remaining adapters/coordinator, AR-02/load, live/freshOS, module-only advisory, human/license/security/Gate004/release remain open. Section4 and later Storage PR141 require the documented later authorization/sequence.
+
+## Correction, reproduction and rollback index
+
+- SR-F10: fix7384439c4058feb8c3f7a2241a6b1a8e45950163/tree434f498ee2668cfb80e61687fe01a1a50ae0d372, parent e9dd8d182054a768ff6ab65a91072f7fc11f5615. Full native38837602499/source38837602502 proof is retained below. New final head still needs its own complete gates.
+- SR-F11: regression/contract b82de3982c1bdec21a0a50bcbfa21a2a2aa08069/tree1f93508d21ccc8841476967231c17a7e52ca82b0/parent7384439. Native38840067841 FAILED after compilation on Linux116777875249 and Windows116777874877 with exactly physical_zone_long_s, mappings_long_s and unknown_sigma_duplicate assertions. No build failure/race warning; later steps skipped are not acceptance. Source38840067774/job116777874590 success is separate metadata evidence, not final corrective capture credit.
+- Full reproduction log Linux65940characters/65944UTF8bytes SHA2569697dd36d8dd8d0672011f09264dbe6eb18d04e2666080d00f234ff3043d6e7d; Windows52546/52548 SHA256e3156da5ccc941bbace07ff960862efc299e9eb104fef778041a2d865e2040e2.
+- SR-F11 correction is this checkpoint, directly parented by b82de398; obtain its exact SHA/tree from the verified PR index. Local corrected full zone suite and vet, both Section3 compiling controls/restored baselines, pinned gofmt and immutable-regression check pass. Full native/source proof remains mandatory.
+- Rollback: ordinary targeted revert commits after dependency review. Revert each affected production expression/helper case together, keep independent expectations and historical captures, and deliberately expect the corresponding regression to turn red. Later zone/SARIF controls share one runner, so do not blindly revert the entire earlier helper/workflow when successors depend on it. Never force/reset protected history or delete failing expectations.
+
+## QA-S3-02 local orchestration correction
+
+The first corrected zone suite was accidentally launched concurrently with its source-mutating control. Although both exited0, that suite result is discarded because compile/read timing was uncertain. The control restored exact source bytes; the complete suite was rerun serially afterward and passed, followed by vet and empty pinned formatter output. No concurrent mutation/test suite result is used for acceptance. Prevention: await control completion/restoration before any other source-consuming checks. Earlier PowerShell-PATH/SeSecurityPrivilege trials and QA-S3-01 formatting failure remain below; none was hidden or used to relax a test.
+
+| Local log | Bytes | SHA256 |
+| --- | ---: | --- |
+| zone-corrected-suite.log | 66 | f62f2bb226228bf852582703947be2bbceb993d1250629626dbf900fe2b574bf |
+| zone-corrected-suite-serial.log | 66 | 3b62de273177f0cd9093bc37684c125395bd587b9665e73920d580428dc730cc |
+| zone-corrected-vet.log | 0 | e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 |
+| section3-corrected-control.log | 177 | 7d43439b3143b352d4e97f6e773dfd71bad759340da93eb33fc2bcf335c2d103 |
+
+Manual final diff/contract reconciliation is a bounded self-review. Earlier automated review comments are earlier-head evidence; no callable independent final Code Review tool or independent-person approval is claimed. All mandatory native controls, coverage/fuzz/security/source guards stay intact. Only the PR's verified current-head evidence can close corrective QA.
+
+---
+
+## Historical records below
+
+# SR-F10 full corrective QA and SR-F11 published reproduction, 2026-10-16
+
+SR-F10 correction7384439c4058feb8c3f7a2241a6b1a8e45950163/tree434f498ee2668cfb80e61687fe01a1a50ae0d372/parent e9dd8d182054a768ff6ab65a91072f7fc11f5615 completed native38837602499 SUCCESS on Linux116770101098 and Windows116770100656; source38837602502/job116770100933 also SUCCESS. Every mandatory step passed; only conditional Linux failure-evidence upload skipped. All326Linux and321Windows named controls contain every previous325/320 identity plus exactly the SARIF compiling reversal/restoration control. Both native full Go suites, Linux race85.2%coverage/five bounded fuzz/vet, actual CLI/default+custom packages/isolated install/branding/PowerShell/docs/provenance/inventory and scans passed. Both scans report0reachable/0imported-package/1module-only advisory; the last remains open.
+
+Full exact returned log hashes: Linux102675characters/102679UTF8bytes SHA256309ed6c59f0c4b23fc5c1d8d6fee1d16de3936b70f2cabe61b25e928e9d88d76; Windows84106/84108 SHA2561d154ea37adc6d414f18d43da1eb8010672515939122ca17df3f1298f27f5350; source1359863/1359939 SHA256073baad731d40ce0d768ba04f98fd484853b7433c339f593911a993599efdc35.23captures/315unique contiguous chunks independently reconstructed/hashed/byte-matched plus all23fresh published files909865bytes independently fetched/matched. Pinned source/tree/APRL and tested preview5e6970718289fe0e25b2b7a28467510535776a10 exact fix tree and ordered protected-base/fix parents verified. No build/race/error marker in completed corrective logs.
+
+Current published reproduction head is b82de3982c1bdec21a0a50bcbfa21a2a2aa08069/tree1f93508d21ccc8841476967231c17a7e52ca82b0/parent7384439. Full six-file readback/independent local tree/Denis author+committer and expected-ref publication verified. PR142 remains draft/unmerged; protected base remains a6fee427. It adds independent zone regression and pre-edit contract with production zone unchanged. SR-F11 remains UNFIXED; both-host compiling reproduction is pending. Prior SARIF green is not this changed head acceptance.
+
+All94 baseline Go initial reads and15-package contract/integration reconciliation are now recorded in [contract map](SYSTEMATIC_REVIEW_SECTION3_CONTRACTS_20261016.md). No final Section3package/section credit until SR-F11 corrected full QA. NEXT: inspect this exact reproduction head native failures, apply isolated decoder-equivalent zone guard/control under the already published contract, verify full corrected Linux/Windows/source gates and publish the completed Section3 stopping checkpoint. STOP before Section4 for user reevaluation. No Azure, dependency/pin/capture/schema change.
+
+---
+
 # Section 3 continuation: SR-F11 reproduction and pre-edit correction contract, 2026-10-16
 
 Current published correction head is 7384439c4058feb8c3f7a2241a6b1a8e45950163, tree434f498ee2668cfb80e61687fe01a1a50ae0d372, parent e9dd8d182054a768ff6ab65a91072f7fc11f5615. All eight published changed files were independently read back and blob/tree/parent/Denis identity matched. PR142 remains draft/unmerged; protected bootstrap/core-v1 remains a6fee427e19feeef28691737ea9bc5026086efa0. SR-F10 fixed locally and both-host compiling reversal/restoration controls passed; full native38837602499 remains pending, source38837602502 succeeded separately. Full log/capture reconciliation is still required.
@@ -105,100 +154,100 @@ NEXT: continue full source/test review and update this record/handover after coh
 
 | File | Baseline Git blob | Lines | Review state |
 | --- | --- | ---: | --- |
-| `internal/plugins/aigov_projection.go` | `408b7cda42858faeab5b18b9fcba43cf8aa80c01` | 112 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/aigov_projection_test.go` | `c016c61fe54c6d006a3b186374245a4018fd4289` | 81 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/carbon_projection.go` | `626c3b24d2e2adb7dec5a53c0fef7f8d216efd89` | 95 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/carbon_projection_test.go` | `a2b0221abaa4b345d67afd7f7877829beb2562d5` | 115 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/registry.go` | `0e7e6810d481c5c7e806ee6469daf3c03f3f33c4` | 186 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/registry_test.go` | `202b7a54f20738d90cf1f7650280ecd235c2a96b` | 55 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/servicehealth_projection_test.go` | `ff9b4db92f36855a592f79a7c23ecbf08fba5170` | 91 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/sqleol_projection.go` | `a925e0545eaa0e9b4be51a58705d46c0004f56fe` | 70 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/sqleol_projection_test.go` | `cb8616b373409d017318f1d9f5bf20131a4492e0` | 87 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/zone/scanner.go` | `1ba211bad8d2b0558b91481d177acb35417a568d` | 314 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/zone/scanner_test.go` | `842fa2d7be23836ec7277bc5dcd2541f9e72a836` | 331 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/servicehealth/query.go` | `7624c0a3d23788f8c3e1565b2f35f55102b7e48f` | 72 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/servicehealth/scanner.go` | `ffdc63d0b4669ad6ab23908deea1e69a4785ccd0` | 328 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/servicehealth/scanner_test.go` | `1ef072fe74f1fd0024a1aaf56f38a162cead182c` | 355 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/sqleol/query.go` | `bb408e06215f9fb2d667dbc6372033b5e83d7858` | 7 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/sqleol/scanner.go` | `2abf52dfc1ca3fda34e97dda898b7aa1d8631cc0` | 289 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/sqleol/scanner_test.go` | `5ad2c6c14c6ecf23820ea989a8cfb8b62dc34ae1` | 418 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/carbon/projection.go` | `868599a28286a303671cc8a76ecd06d90f13d1e0` | 158 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/carbon/projection_test.go` | `105315a948c25c97be421b699e13eec17c3234e1` | 190 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/carbon/scanner.go` | `d0aff9de47afad2c1a1b8c3fcd3ff9819ac5b1fd` | 447 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/carbon/scanner_test.go` | `f8e1e5dca08bcc1706a5a48ff804bf45044d326e` | 625 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/aigov/decoder.go` | `c31875f5576165af668ce95eaa2408767321a203` | 454 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/aigov/decoder_test.go` | `76e9df63a13a056b7799877dbeaf4b0282c71b3c` | 143 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/aigov/discovery.go` | `63e8d826cd8e4cb4fd51a6ea86a5c4cc40a86660` | 314 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/aigov/discovery_test.go` | `9f32084ed4059b885f158ef28044403b1c206503` | 633 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/aigov/execution.go` | `558d79cdb2526dcff5256741061737c3a2bc8f7b` | 70 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/aigov/execution_test.go` | `e63932442c8fce7f51b4f9a88657d8ffd49c0bd6` | 113 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/aigov/projection.go` | `90ceacb770826aff716c4d1ebc2e106ba0b6211c` | 312 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/aigov/projection_test.go` | `20454b562bb0645b53157958e97f249e5de66acb` | 345 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/aigov/scanner.go` | `c00e0ee00be57cf8bc7256322fbc62722f64a768` | 463 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/aigov/scanner_test.go` | `3da3767d71fefb91d76576f712044c742bc929be` | 749 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/region/auxiliary.go` | `15ab8323b5b4dd7974105eb15994d777f160ad35` | 260 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/region/auxiliary_test.go` | `1526c4508c2a25a009305b9accf7eb5daa4c05b9` | 342 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/region/availability.go` | `94360cfbe6a59a3debdf1a8f002cf7b062f8e264` | 308 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/region/availability_capture_test.go` | `a212b8f605c28d8eac7137c893de3dc4f89ddaa5` | 146 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/region/availability_test.go` | `695105d71c28c64980de19334f1a4370c3057869` | 329 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/region/compute_disk_sku_collector.go` | `d7a5b8b2e1facd7a36b157acc9eadd4d91a57465` | 633 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/region/compute_disk_sku_collector_test.go` | `76ce22e83bc9fe9fe4bdb51520782a0fed4cc97e` | 652 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/region/compute_disk_sku_review_test.go` | `8789739cb653347be8b596e9fccb7e4836410212` | 65 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/region/compute_sku_capture_test.go` | `2ef251506b2c6752a02685016aacee513bdf1978` | 193 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/region/cost.go` | `dc7c43cdcfc46c2fa67e00aaafbc5cf0faeec149` | 235 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/region/cost_enrichment.go` | `94a9cc17e8d70a02852274a69bfd6a6f5eb193d5` | 278 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/region/cost_enrichment_capture_test.go` | `92cdcf06990aa8a5139c1966ee9b2ff9a62eec84` | 96 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/region/cost_enrichment_test.go` | `c64816dd1daa8be6695b2d10076c267854955a7b` | 468 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/region/cost_test.go` | `48712680a4eb91785d889a3c2796bfb3b6e623a3` | 251 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/region/inventory.go` | `6157171769aaca1a4e78a026a4dc7f02a610bb87` | 134 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/region/inventory_aggregation.go` | `9828cf3a30056e2456028b6e746e1e23afd5782c` | 197 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/region/inventory_aggregation_test.go` | `b23fbf28124fdb72a78d5b86c85fff897e4cd30c` | 316 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/region/inventory_capture_test.go` | `c7f85db283725e33b2d89a4df85dfdf6e8f8638e` | 107 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/region/inventory_test.go` | `ac97771893275ad42fc5272a435e8a9dae57d718` | 294 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/region/latency.go` | `1a4a037e8d6c1c80aed1d7d51c66a5d5d1ae1090` | 217 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/region/latency_capture_test.go` | `877e215f1212f85096033acf9636618620479d13` | 99 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/region/latency_test.go` | `60ea39a005cf1f1aff3f13c3889700706fc46dc2` | 258 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/region/other_sku_capture_test.go` | `c73799952e61070813757283c13dc66079408ee7` | 1961 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/region/primary.go` | `3a7fb0b9601a525f91c385d0016ce0b8ff532303` | 322 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/region/primary_test.go` | `6219219eca501b00af02a8af6fb23bb4a51c5d78` | 335 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/region/provider_locations_capture_test.go` | `87112d5d3876fba242dbd2e0bb6ec9e24b35085f` | 183 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/region/provider_locations_collector.go` | `8c85347d96488f2d4b1440da3f98a64ab3657413` | 324 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/region/provider_locations_collector_test.go` | `9d1180be0e50e0f7fca5d30bbda00cb25eeb3ca6` | 547 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/region/quota_capture_test.go` | `78a92620225e5e317e7af84dba73d6971828c326` | 80 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/region/quota_collector.go` | `e2a44936371ec66600f33e2378b80ec689ee8b3f` | 352 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/region/quota_collector_test.go` | `70a85e863018ef976e4f54a92318f3503d26b3f1` | 543 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/region/quota_runtime.go` | `a2be4a680e2c3d705ed1198d1cbb509a04e44713` | 234 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/region/quota_runtime_test.go` | `5ac53f03b1614a386b37fd92ed8071885b3efab2` | 353 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/region/reservation_capture_test.go` | `31377c86e8b54423d799279c6d29ca3870cc1e72` | 114 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/region/reservation_collector.go` | `c5b9c83e5d41be27798d7ab208f2568cca437c49` | 357 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/region/reservation_collector_test.go` | `d617b44f6701b59234fbfb3866c08035a26fdf02` | 566 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/region/reservation_runtime.go` | `bc6e23eca781e5b5ad81be2f416e2f9c36ec58c8` | 269 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/region/reservation_runtime_test.go` | `1ec9bffe0cddf1e624c2b92be434ed8ee7952370` | 421 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/region/service.go` | `e2e53165c2a4cb597c2bc36c239557189ad68ccd` | 356 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/region/service_test.go` | `f683d274a5b208d4d54a7d1081de3f43aaba1581` | 377 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/region/vm_quota_capture_test.go` | `18476fb14c4385d67e7d7fd16ccabbcc7ba8b52c` | 77 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/region/vm_quota_collector_test.go` | `47546d5e6b3d79e9d0baa230f6739a3b75fbfa72` | 218 | Initial complete read; contract/QA reconciliation pending |
-| `internal/renderers/csv/csv.go` | `8ebe602a03cf70048c495d39881c1ef25242ddf0` | 71 | Initial complete read; contract/QA reconciliation pending |
-| `internal/renderers/csv/csv_test.go` | `b2f6517219ecad4c61b098150499b337d860fb80` | 134 | Initial complete read; contract/QA reconciliation pending |
-| `internal/renderers/excel/excel.go` | `198b681647d0037dd60ec7562aeb3b528cdae131` | 233 | Initial complete read; contract/QA reconciliation pending |
-| `internal/renderers/excel/excel_test.go` | `70a0c6cf21a57b15da8edd92bd507c6209fa6f3f` | 147 | Initial complete read; contract/QA reconciliation pending |
-| `internal/renderers/json/json.go` | `78c02db82280bc9a268ae87961e9ed070ae852ee` | 200 | Initial complete read; contract/QA reconciliation pending |
-| `internal/renderers/json/json_test.go` | `08b95ca48d84313fbf7dcba50bb49f4aba104146` | 235 | Initial complete read; contract/QA reconciliation pending |
-| `internal/renderers/sarif/sarif.go` | `137df562533618bf40fc3c7d65f962b77410d6c4` | 224 | Initial complete read; contract/QA reconciliation pending |
-| `internal/renderers/sarif/sarif_test.go` | `06e983fd422dd55265f8941ecd5afff61e1903b5` | 145 | Initial complete read; contract/QA reconciliation pending |
-| `internal/renderers/tables/plugins.go` | `c9c95c5016a9ce7354cabf0ee98e6ecfec38b10d` | 161 | Initial complete read; contract/QA reconciliation pending |
-| `internal/renderers/tables/tables.go` | `cdec577a766f02a56c201b76b127954ae22d2318` | 289 | Initial complete read; contract/QA reconciliation pending |
-| `internal/renderers/tables/tables_test.go` | `f7dd4bded84371943f6457ea831f20e53179444b` | 142 | Initial complete read; contract/QA reconciliation pending |
-| `internal/reportfile/privacy_other.go` | `6712be13d06fc37bf2756daac4a08df91c2effb6` | 5 | Initial complete read; contract/QA reconciliation pending |
-| `internal/reportfile/privacy_windows.go` | `00532ec043814f2c39d7d6b3458d801f4118ef91` | 38 | Initial complete read; contract/QA reconciliation pending |
-| `internal/reportfile/windows_acl_test.go` | `8c96f8f89e9f48f433067bdef47f7bab45f610da` | 43 | Initial complete read; contract/QA reconciliation pending |
-| `internal/reportfile/write.go` | `161ed19e385bbdfaab5c802cd7397d741918dab5` | 44 | Initial complete read; contract/QA reconciliation pending |
-| `internal/reportfile/write_test.go` | `4ef1773e1f6953a4c4c520d1b0118e509ce9e84e` | 83 | Initial complete read; contract/QA reconciliation pending |
-| `internal/redact/subscription.go` | `74ca62b17ae958c03803be3b8d0550cd1a3c9852` | 25 | Initial complete read; contract/QA reconciliation pending |
-| `internal/redact/subscription_test.go` | `9ce7ed9ac1ac9e8b8e25e260e4105c6b82ddd78c` | 30 | Initial complete read; contract/QA reconciliation pending |
-| `internal/branding/branding.go` | `25146592055fd30be1a1f8abdabe529bc3ec48a1` | 38 | Initial complete read; contract/QA reconciliation pending |
-| `internal/branding/profile.go` | `bf4ca310e6b376c421ff495e9cd58a7f5a4b8b53` | 177 | Initial complete read; contract/QA reconciliation pending |
-| `internal/branding/profile_test.go` | `842b40ef97ec9f2c2a0cfbb1e3c7c147ecd6e434` | 86 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/aigov_projection.go` | `408b7cda42858faeab5b18b9fcba43cf8aa80c01` | 112 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/aigov_projection_test.go` | `c016c61fe54c6d006a3b186374245a4018fd4289` | 81 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/carbon_projection.go` | `626c3b24d2e2adb7dec5a53c0fef7f8d216efd89` | 95 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/carbon_projection_test.go` | `a2b0221abaa4b345d67afd7f7877829beb2562d5` | 115 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/registry.go` | `0e7e6810d481c5c7e806ee6469daf3c03f3f33c4` | 186 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/registry_test.go` | `202b7a54f20738d90cf1f7650280ecd235c2a96b` | 55 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/servicehealth_projection_test.go` | `ff9b4db92f36855a592f79a7c23ecbf08fba5170` | 91 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/sqleol_projection.go` | `a925e0545eaa0e9b4be51a58705d46c0004f56fe` | 70 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/sqleol_projection_test.go` | `cb8616b373409d017318f1d9f5bf20131a4492e0` | 87 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/zone/scanner.go` | `1ba211bad8d2b0558b91481d177acb35417a568d` | 314 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/zone/scanner_test.go` | `842fa2d7be23836ec7277bc5dcd2541f9e72a836` | 331 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/servicehealth/query.go` | `7624c0a3d23788f8c3e1565b2f35f55102b7e48f` | 72 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/servicehealth/scanner.go` | `ffdc63d0b4669ad6ab23908deea1e69a4785ccd0` | 328 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/servicehealth/scanner_test.go` | `1ef072fe74f1fd0024a1aaf56f38a162cead182c` | 355 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/sqleol/query.go` | `bb408e06215f9fb2d667dbc6372033b5e83d7858` | 7 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/sqleol/scanner.go` | `2abf52dfc1ca3fda34e97dda898b7aa1d8631cc0` | 289 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/sqleol/scanner_test.go` | `5ad2c6c14c6ecf23820ea989a8cfb8b62dc34ae1` | 418 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/carbon/projection.go` | `868599a28286a303671cc8a76ecd06d90f13d1e0` | 158 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/carbon/projection_test.go` | `105315a948c25c97be421b699e13eec17c3234e1` | 190 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/carbon/scanner.go` | `d0aff9de47afad2c1a1b8c3fcd3ff9819ac5b1fd` | 447 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/carbon/scanner_test.go` | `f8e1e5dca08bcc1706a5a48ff804bf45044d326e` | 625 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/aigov/decoder.go` | `c31875f5576165af668ce95eaa2408767321a203` | 454 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/aigov/decoder_test.go` | `76e9df63a13a056b7799877dbeaf4b0282c71b3c` | 143 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/aigov/discovery.go` | `63e8d826cd8e4cb4fd51a6ea86a5c4cc40a86660` | 314 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/aigov/discovery_test.go` | `9f32084ed4059b885f158ef28044403b1c206503` | 633 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/aigov/execution.go` | `558d79cdb2526dcff5256741061737c3a2bc8f7b` | 70 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/aigov/execution_test.go` | `e63932442c8fce7f51b4f9a88657d8ffd49c0bd6` | 113 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/aigov/projection.go` | `90ceacb770826aff716c4d1ebc2e106ba0b6211c` | 312 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/aigov/projection_test.go` | `20454b562bb0645b53157958e97f249e5de66acb` | 345 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/aigov/scanner.go` | `c00e0ee00be57cf8bc7256322fbc62722f64a768` | 463 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/aigov/scanner_test.go` | `3da3767d71fefb91d76576f712044c742bc929be` | 749 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/region/auxiliary.go` | `15ab8323b5b4dd7974105eb15994d777f160ad35` | 260 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/region/auxiliary_test.go` | `1526c4508c2a25a009305b9accf7eb5daa4c05b9` | 342 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/region/availability.go` | `94360cfbe6a59a3debdf1a8f002cf7b062f8e264` | 308 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/region/availability_capture_test.go` | `a212b8f605c28d8eac7137c893de3dc4f89ddaa5` | 146 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/region/availability_test.go` | `695105d71c28c64980de19334f1a4370c3057869` | 329 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/region/compute_disk_sku_collector.go` | `d7a5b8b2e1facd7a36b157acc9eadd4d91a57465` | 633 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/region/compute_disk_sku_collector_test.go` | `76ce22e83bc9fe9fe4bdb51520782a0fed4cc97e` | 652 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/region/compute_disk_sku_review_test.go` | `8789739cb653347be8b596e9fccb7e4836410212` | 65 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/region/compute_sku_capture_test.go` | `2ef251506b2c6752a02685016aacee513bdf1978` | 193 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/region/cost.go` | `dc7c43cdcfc46c2fa67e00aaafbc5cf0faeec149` | 235 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/region/cost_enrichment.go` | `94a9cc17e8d70a02852274a69bfd6a6f5eb193d5` | 278 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/region/cost_enrichment_capture_test.go` | `92cdcf06990aa8a5139c1966ee9b2ff9a62eec84` | 96 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/region/cost_enrichment_test.go` | `c64816dd1daa8be6695b2d10076c267854955a7b` | 468 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/region/cost_test.go` | `48712680a4eb91785d889a3c2796bfb3b6e623a3` | 251 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/region/inventory.go` | `6157171769aaca1a4e78a026a4dc7f02a610bb87` | 134 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/region/inventory_aggregation.go` | `9828cf3a30056e2456028b6e746e1e23afd5782c` | 197 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/region/inventory_aggregation_test.go` | `b23fbf28124fdb72a78d5b86c85fff897e4cd30c` | 316 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/region/inventory_capture_test.go` | `c7f85db283725e33b2d89a4df85dfdf6e8f8638e` | 107 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/region/inventory_test.go` | `ac97771893275ad42fc5272a435e8a9dae57d718` | 294 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/region/latency.go` | `1a4a037e8d6c1c80aed1d7d51c66a5d5d1ae1090` | 217 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/region/latency_capture_test.go` | `877e215f1212f85096033acf9636618620479d13` | 99 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/region/latency_test.go` | `60ea39a005cf1f1aff3f13c3889700706fc46dc2` | 258 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/region/other_sku_capture_test.go` | `c73799952e61070813757283c13dc66079408ee7` | 1961 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/region/primary.go` | `3a7fb0b9601a525f91c385d0016ce0b8ff532303` | 322 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/region/primary_test.go` | `6219219eca501b00af02a8af6fb23bb4a51c5d78` | 335 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/region/provider_locations_capture_test.go` | `87112d5d3876fba242dbd2e0bb6ec9e24b35085f` | 183 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/region/provider_locations_collector.go` | `8c85347d96488f2d4b1440da3f98a64ab3657413` | 324 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/region/provider_locations_collector_test.go` | `9d1180be0e50e0f7fca5d30bbda00cb25eeb3ca6` | 547 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/region/quota_capture_test.go` | `78a92620225e5e317e7af84dba73d6971828c326` | 80 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/region/quota_collector.go` | `e2a44936371ec66600f33e2378b80ec689ee8b3f` | 352 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/region/quota_collector_test.go` | `70a85e863018ef976e4f54a92318f3503d26b3f1` | 543 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/region/quota_runtime.go` | `a2be4a680e2c3d705ed1198d1cbb509a04e44713` | 234 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/region/quota_runtime_test.go` | `5ac53f03b1614a386b37fd92ed8071885b3efab2` | 353 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/region/reservation_capture_test.go` | `31377c86e8b54423d799279c6d29ca3870cc1e72` | 114 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/region/reservation_collector.go` | `c5b9c83e5d41be27798d7ab208f2568cca437c49` | 357 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/region/reservation_collector_test.go` | `d617b44f6701b59234fbfb3866c08035a26fdf02` | 566 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/region/reservation_runtime.go` | `bc6e23eca781e5b5ad81be2f416e2f9c36ec58c8` | 269 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/region/reservation_runtime_test.go` | `1ec9bffe0cddf1e624c2b92be434ed8ee7952370` | 421 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/region/service.go` | `e2e53165c2a4cb597c2bc36c239557189ad68ccd` | 356 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/region/service_test.go` | `f683d274a5b208d4d54a7d1081de3f43aaba1581` | 377 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/region/vm_quota_capture_test.go` | `18476fb14c4385d67e7d7fd16ccabbcc7ba8b52c` | 77 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/plugins/region/vm_quota_collector_test.go` | `47546d5e6b3d79e9d0baa230f6739a3b75fbfa72` | 218 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/renderers/csv/csv.go` | `8ebe602a03cf70048c495d39881c1ef25242ddf0` | 71 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/renderers/csv/csv_test.go` | `b2f6517219ecad4c61b098150499b337d860fb80` | 134 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/renderers/excel/excel.go` | `198b681647d0037dd60ec7562aeb3b528cdae131` | 233 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/renderers/excel/excel_test.go` | `70a0c6cf21a57b15da8edd92bd507c6209fa6f3f` | 147 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/renderers/json/json.go` | `78c02db82280bc9a268ae87961e9ed070ae852ee` | 200 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/renderers/json/json_test.go` | `08b95ca48d84313fbf7dcba50bb49f4aba104146` | 235 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/renderers/sarif/sarif.go` | `137df562533618bf40fc3c7d65f962b77410d6c4` | 224 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/renderers/sarif/sarif_test.go` | `06e983fd422dd55265f8941ecd5afff61e1903b5` | 145 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/renderers/tables/plugins.go` | `c9c95c5016a9ce7354cabf0ee98e6ecfec38b10d` | 161 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/renderers/tables/tables.go` | `cdec577a766f02a56c201b76b127954ae22d2318` | 289 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/renderers/tables/tables_test.go` | `f7dd4bded84371943f6457ea831f20e53179444b` | 142 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/reportfile/privacy_other.go` | `6712be13d06fc37bf2756daac4a08df91c2effb6` | 5 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/reportfile/privacy_windows.go` | `00532ec043814f2c39d7d6b3458d801f4118ef91` | 38 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/reportfile/windows_acl_test.go` | `8c96f8f89e9f48f433067bdef47f7bab45f610da` | 43 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/reportfile/write.go` | `161ed19e385bbdfaab5c802cd7397d741918dab5` | 44 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/reportfile/write_test.go` | `4ef1773e1f6953a4c4c520d1b0118e509ce9e84e` | 83 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/redact/subscription.go` | `74ca62b17ae958c03803be3b8d0550cd1a3c9852` | 25 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/redact/subscription_test.go` | `9ce7ed9ac1ac9e8b8e25e260e4105c6b82ddd78c` | 30 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/branding/branding.go` | `25146592055fd30be1a1f8abdabe529bc3ec48a1` | 38 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/branding/profile.go` | `bf4ca310e6b376c421ff495e9cd58a7f5a4b8b53` | 177 | Full read and contract review complete; exact-head QA disposition in PR142 |
+| `internal/branding/profile_test.go` | `842b40ef97ec9f2c2a0cfbb1e3c7c147ecd6e434` | 86 | Full read and contract review complete; exact-head QA disposition in PR142 |
 
 Reproduction log `sarif-reference-reproduction.log`: 785bytes, SHA-256`70df2911c589990e7411b3ca9fa7f1e213b0bc1558304ee2092a42de7746496e`; declared assertion failure, not compile failure.
 

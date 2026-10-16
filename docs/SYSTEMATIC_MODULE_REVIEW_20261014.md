@@ -1,3 +1,17 @@
+# Section3 corrective checkpoint and STOP rule, 2026-10-16
+
+All94 baseline Go files (43production/51tests), both added regressions and all15Section3package contracts/integration boundaries are reviewed. [Active report](SYSTEMATIC_REVIEW_SECTION3_20261015.md), [contract map](SYSTEMATIC_REVIEW_SECTION3_CONTRACTS_20261016.md) and [failure notes](FAILURE_NOTES.md) retain findings, full reproduction/log hashes, fixes and rollback. SR-F10 is fixed in7384439 with complete earlier native/source proof. SR-F11 is corrected in this checkpoint after both-host compiling reproduction at b82de398; its regression expectations are unchanged and both compiling reversal/restoration controls pass locally. Parent for this correction is b82de3982c1bdec21a0a50bcbfa21a2a2aa08069.
+
+Own exact-head nativeLinux/Windows/source gates are initially pending AT PUBLICATION. The top current [PR142 evidence index](https://github.com/DeBoX85/Cloud-Assess/pull/142) supplies the actual commit/tree/parent/tested-preview/runs/full-log hashes and verified final disposition, per QA_PROCESS's rule avoiding a documentation/CI loop. Do not transfer an earlier pass. After full proof, the checkpoint is3/4audit sections and37/41package directories by unweighted count, not project completion or defect-free certification.
+
+RESUME: verify actual live refs and this checkpoint's own gates; finish corrective QA only if still pending, then STOP for the user's re-evaluation BEFORE Section4. Do not republish/replay completed corrections, spawn sub-agents, start Section4/features, mark ready or merge. PR142 stays draft/unmerged; protected bootstrap/core-v1 remains a6fee427e19feeef28691737ea9bc5026086efa0. All pins/captures/schema/dependencies stay unchanged (AZQR8e4f0577/tree17d93b20, APRL60eaddda, Go1.26.9/x-net0.60.0). No Azure operations or dependency refresh.
+
+Public region remains unavailable; source SKU coverage7/7 is distinct from accepted target1/7. Storage PR141/other adapters/FullCost/coordinator/AR-02/load/live/freshOS/module-only advisory/human/license/security/Gate004/release remain open. No protected acceptance/push or independent-person review is claimed. Earlier estimates/status/resume instructions below are historical.
+
+---
+
+## Historical records below
+
 # Current handover authority — 2026-10-16
 
 Read [handover checkpoint](HANDOVER_CHECKPOINT_20261016.md), [restart prompt](NEW_CHAT_PROMPT_20261016.md) and [Section 3 active report](SYSTEMATIC_REVIEW_SECTION3_20261015.md) first. This entry supersedes earlier current-state, pause and next-action paragraphs below; historical contracts, failures and evidence remain preserved.
@@ -203,6 +217,8 @@ The existing accepted CI evidence remains historical baseline evidence; no new Q
 
 ## Module coverage
 
+The table retains original baseline production/test counts; two added Section3 regressions are indexed in the active report. The inherited throttling module label is reconciled to its already-verified Section1 file-level state at00ba2716, without repeating that review. Non-Go tooling/data rows remain for Section4; immediate Section3 contract/capture checks are recorded separately.
+
 A file read is not a completed module review. Initial source review means the listed source has been examined, while intent reconciliation, call-site tracing, test adequacy and fresh execution may remain open.
 
 | Package directory | Production files | Test files | Review state |
@@ -214,7 +230,7 @@ A file read is not a completed module review. Initial source review means the li
 | `internal/arg` | 6 | 11 | Section 1 verified at 7911764 |
 | `internal/assessment` | 8 | 0 | Section 1 verified at 7911764 |
 | `internal/azure` | 8 | 7 | Section 1 verified at 7911764 |
-| `internal/branding` | 2 | 1 | Pending |
+| `internal/branding` | 2 | 1 | Section3 full review; final QA disposition in PR142 |
 | `internal/config` | 2 | 3 | Section 1 verified at 7911764 |
 | `internal/cost` | 2 | 4 | Section 2 verified at 1c5d300 |
 | `internal/defender` | 1 | 1 | Section 2 verified at 1c5d300 |
@@ -224,27 +240,27 @@ A file read is not a completed module review. Initial source review means the li
 | `internal/findings` | 2 | 2 | Section 2 verified at 1c5d300 |
 | `internal/gate` | 1 | 1 | Section 2 verified at 1c5d300 |
 | `internal/orchestration` | 3 | 8 | Section 1 verified at 7911764 |
-| `internal/plugins` | 4 | 5 | Pending |
-| `internal/plugins/aigov` | 5 | 5 | Pending |
-| `internal/plugins/carbon` | 2 | 2 | Pending |
-| `internal/plugins/region` | 15 | 27 | Pending |
-| `internal/plugins/servicehealth` | 2 | 1 | Pending |
-| `internal/plugins/sqleol` | 2 | 1 | Pending |
-| `internal/plugins/zone` | 1 | 1 | Pending |
+| `internal/plugins` | 4 | 5 | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/aigov` | 5 | 5 | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/carbon` | 2 | 2 | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/region` | 15 | 27 | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/servicehealth` | 2 | 1 | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/sqleol` | 2 | 1 | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/zone` | 1 | 1 | Section3 full review; final QA disposition in PR142 |
 | `internal/policy` | 1 | 1 | Section 2 verified at 1c5d300 |
-| `internal/redact` | 1 | 1 | Pending |
-| `internal/renderers/csv` | 1 | 1 | Pending |
-| `internal/renderers/excel` | 1 | 1 | Pending |
-| `internal/renderers/json` | 1 | 1 | Pending |
-| `internal/renderers/sarif` | 1 | 1 | Pending |
-| `internal/renderers/tables` | 2 | 1 | Pending |
-| `internal/reportfile` | 3 | 2 | Initial source review; integration verification pending |
+| `internal/redact` | 1 | 1 | Section3 full review; final QA disposition in PR142 |
+| `internal/renderers/csv` | 1 | 1 | Section3 full review; final QA disposition in PR142 |
+| `internal/renderers/excel` | 1 | 1 | Section3 full review; final QA disposition in PR142 |
+| `internal/renderers/json` | 1 | 1 | Section3 full review; final QA disposition in PR142 |
+| `internal/renderers/sarif` | 1 | 1 | Section3 full review; final QA disposition in PR142 |
+| `internal/renderers/tables` | 2 | 1 | Section3 full review; final QA disposition in PR142 |
+| `internal/reportfile` | 3 | 2 | Section3 full review; final QA disposition in PR142 |
 | `internal/result` | 3 | 3 | Section 2 verified at 1c5d300 |
 | `internal/rules` | 5 | 4 | Section 2 verified at 1c5d300 |
 | `internal/scanners` | 1 | 1 | Section 2 verified at 1c5d300 |
 | `internal/skus` | 1 | 1 | Section 2 verified at 1c5d300 |
 | `internal/stages` | 3 | 3 | Section 2 verified at 1c5d300 |
-| `internal/throttling` | 1 | 1 | Source/test pass; correction QA pending |
+| `internal/throttling` | 1 | 1 | Section1 reviewed; code QA verified at00ba2716 |
 | `tools/brand-build` | 1 | 0 | Pending |
 | `tools/diagnostics-probe` | 1 | 1 | Pending |
 | `tools/equivalence` | 1 | 2 | Pending |
@@ -517,9 +533,9 @@ Only files actually examined in this initial pass are marked initial-pass. All o
 | `internal/azure/http_client_test.go` | `6367f9ae4eefdec7125212c09d51942c02571c4a` | Section 1 reviewed; code QA verified at00ba2716 |
 | `internal/azure/resourceid.go` | `1033f240db30820066a4e09af50097c8c29149e8` | Section 1 reviewed; code QA verified at00ba2716 |
 | `internal/azure/resourceid_test.go` | `66a16170e9be8277dd83d94f9eb3c1a896246946` | Section 1 reviewed; code QA verified at00ba2716 |
-| `internal/branding/branding.go` | `25146592055fd30be1a1f8abdabe529bc3ec48a1` | Pending |
-| `internal/branding/profile.go` | `bf4ca310e6b376c421ff495e9cd58a7f5a4b8b53` | Pending |
-| `internal/branding/profile_test.go` | `842b40ef97ec9f2c2a0cfbb1e3c7c147ecd6e434` | Pending |
+| `internal/branding/branding.go` | `25146592055fd30be1a1f8abdabe529bc3ec48a1` | Section3 full review; final QA disposition in PR142 |
+| `internal/branding/profile.go` | `bf4ca310e6b376c421ff495e9cd58a7f5a4b8b53` | Section3 full review; final QA disposition in PR142 |
+| `internal/branding/profile_test.go` | `842b40ef97ec9f2c2a0cfbb1e3c7c147ecd6e434` | Section3 full review; final QA disposition in PR142 |
 | `internal/config/filter_property_test.go` | `a6d146f1216fa04825ddb9c9f1b40edb77e3e533` | Section 1 reviewed; code QA verified at00ba2716 |
 | `internal/config/filters.go` | `896a08214bf42d63fa543a7777f59ce4e63dea89` | Section 1 reviewed; code QA verified at00ba2716 |
 | `internal/config/filters_test.go` | `03fee8985cf11b60be583f3f06a89c3ba6d4c84c` | Section 1 reviewed; code QA verified at00ba2716 |
@@ -569,16 +585,16 @@ Only files actually examined in this initial pass are marked initial-pass. All o
 | `internal/orchestration/servicehealth_test.go` | `3ca35440ad643206fda80027e53ed4ec84e230f2` | Section 1 reviewed; code QA verified at00ba2716 |
 | `internal/orchestration/sqleol_test.go` | `11d8ba70a4d5415a82d929ebf2ca18ecc3b3da12` | Section 1 reviewed; code QA verified at00ba2716 |
 | `internal/orchestration/zone_test.go` | `f79682ee7cf4a9d5c8a7a864b34410710990fd95` | Section 1 reviewed; code QA verified at00ba2716 |
-| `internal/plugins/aigov/decoder.go` | `c31875f5576165af668ce95eaa2408767321a203` | Pending |
-| `internal/plugins/aigov/decoder_test.go` | `76e9df63a13a056b7799877dbeaf4b0282c71b3c` | Pending |
-| `internal/plugins/aigov/discovery.go` | `63e8d826cd8e4cb4fd51a6ea86a5c4cc40a86660` | Pending |
-| `internal/plugins/aigov/discovery_test.go` | `9f32084ed4059b885f158ef28044403b1c206503` | Pending |
-| `internal/plugins/aigov/execution.go` | `558d79cdb2526dcff5256741061737c3a2bc8f7b` | Pending |
-| `internal/plugins/aigov/execution_test.go` | `e63932442c8fce7f51b4f9a88657d8ffd49c0bd6` | Pending |
-| `internal/plugins/aigov/projection.go` | `90ceacb770826aff716c4d1ebc2e106ba0b6211c` | Pending |
-| `internal/plugins/aigov/projection_test.go` | `20454b562bb0645b53157958e97f249e5de66acb` | Pending |
-| `internal/plugins/aigov/scanner.go` | `c00e0ee00be57cf8bc7256322fbc62722f64a768` | Pending |
-| `internal/plugins/aigov/scanner_test.go` | `3da3767d71fefb91d76576f712044c742bc929be` | Pending |
+| `internal/plugins/aigov/decoder.go` | `c31875f5576165af668ce95eaa2408767321a203` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/aigov/decoder_test.go` | `76e9df63a13a056b7799877dbeaf4b0282c71b3c` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/aigov/discovery.go` | `63e8d826cd8e4cb4fd51a6ea86a5c4cc40a86660` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/aigov/discovery_test.go` | `9f32084ed4059b885f158ef28044403b1c206503` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/aigov/execution.go` | `558d79cdb2526dcff5256741061737c3a2bc8f7b` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/aigov/execution_test.go` | `e63932442c8fce7f51b4f9a88657d8ffd49c0bd6` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/aigov/projection.go` | `90ceacb770826aff716c4d1ebc2e106ba0b6211c` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/aigov/projection_test.go` | `20454b562bb0645b53157958e97f249e5de66acb` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/aigov/scanner.go` | `c00e0ee00be57cf8bc7256322fbc62722f64a768` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/aigov/scanner_test.go` | `3da3767d71fefb91d76576f712044c742bc929be` | Section3 full review; final QA disposition in PR142 |
 | `internal/plugins/aigov/testdata/capture_test.go.txt` | `4ceeb21fb1ab73b17719440753afb36fd0bac1dd` | Pending |
 | `internal/plugins/aigov/testdata/deployments-input.json` | `2e071f26e617982d775d8a1bd3b508de7c53d24b` | Pending |
 | `internal/plugins/aigov/testdata/metrics-input.json` | `b6c7407eb3364d385f42d39d291d6c3da4201152` | Pending |
@@ -586,12 +602,12 @@ Only files actually examined in this initial pass are marked initial-pass. All o
 | `internal/plugins/aigov/testdata/source-deployment-denied.json` | `a93a7f65d04110b9df491125a088a3a43b04a28f` | Pending |
 | `internal/plugins/aigov/testdata/source-empty.json` | `49196550c01e0dd866d9d73919bb165185bfec1f` | Pending |
 | `internal/plugins/aigov/testdata/source-unknown-include-tag.json` | `49196550c01e0dd866d9d73919bb165185bfec1f` | Pending |
-| `internal/plugins/aigov_projection.go` | `408b7cda42858faeab5b18b9fcba43cf8aa80c01` | Pending |
-| `internal/plugins/aigov_projection_test.go` | `c016c61fe54c6d006a3b186374245a4018fd4289` | Pending |
-| `internal/plugins/carbon/projection.go` | `868599a28286a303671cc8a76ecd06d90f13d1e0` | Pending |
-| `internal/plugins/carbon/projection_test.go` | `105315a948c25c97be421b699e13eec17c3234e1` | Pending |
-| `internal/plugins/carbon/scanner.go` | `d0aff9de47afad2c1a1b8c3fcd3ff9819ac5b1fd` | Pending |
-| `internal/plugins/carbon/scanner_test.go` | `f8e1e5dca08bcc1706a5a48ff804bf45044d326e` | Pending |
+| `internal/plugins/aigov_projection.go` | `408b7cda42858faeab5b18b9fcba43cf8aa80c01` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/aigov_projection_test.go` | `c016c61fe54c6d006a3b186374245a4018fd4289` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/carbon/projection.go` | `868599a28286a303671cc8a76ecd06d90f13d1e0` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/carbon/projection_test.go` | `105315a948c25c97be421b699e13eec17c3234e1` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/carbon/scanner.go` | `d0aff9de47afad2c1a1b8c3fcd3ff9819ac5b1fd` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/carbon/scanner_test.go` | `f8e1e5dca08bcc1706a5a48ff804bf45044d326e` | Section3 full review; final QA disposition in PR142 |
 | `internal/plugins/carbon/testdata/capture_test.go.txt` | `6c7d1bcdb70761c8f955e335d29f1a7f50d86225` | Pending |
 | `internal/plugins/carbon/testdata/source-all.json` | `4a15cc42ae1b2a3feea8bc076ee7c3b9ec506df7` | Pending |
 | `internal/plugins/carbon/testdata/source-batched.json` | `00c4f21c40937d67226fa1871ebf4f1fa1f023a1` | Pending |
@@ -599,49 +615,49 @@ Only files actually examined in this initial pass are marked initial-pass. All o
 | `internal/plugins/carbon/testdata/source-denied.json` | `5f2649fa1110a4206e1c0b7aa8db6464b0c99e7d` | Pending |
 | `internal/plugins/carbon/testdata/source-empty.json` | `5f2649fa1110a4206e1c0b7aa8db6464b0c99e7d` | Pending |
 | `internal/plugins/carbon/testdata/source-filtered.json` | `ed56b94a9d0a199b95def82693830f33ef998f64` | Pending |
-| `internal/plugins/carbon_projection.go` | `626c3b24d2e2adb7dec5a53c0fef7f8d216efd89` | Pending |
-| `internal/plugins/carbon_projection_test.go` | `a2b0221abaa4b345d67afd7f7877829beb2562d5` | Pending |
-| `internal/plugins/region/auxiliary.go` | `15ab8323b5b4dd7974105eb15994d777f160ad35` | Pending |
-| `internal/plugins/region/auxiliary_test.go` | `1526c4508c2a25a009305b9accf7eb5daa4c05b9` | Pending |
-| `internal/plugins/region/availability.go` | `94360cfbe6a59a3debdf1a8f002cf7b062f8e264` | Pending |
-| `internal/plugins/region/availability_capture_test.go` | `a212b8f605c28d8eac7137c893de3dc4f89ddaa5` | Pending |
-| `internal/plugins/region/availability_test.go` | `695105d71c28c64980de19334f1a4370c3057869` | Pending |
-| `internal/plugins/region/compute_disk_sku_collector.go` | `d7a5b8b2e1facd7a36b157acc9eadd4d91a57465` | Pending |
-| `internal/plugins/region/compute_disk_sku_collector_test.go` | `76ce22e83bc9fe9fe4bdb51520782a0fed4cc97e` | Pending |
-| `internal/plugins/region/compute_disk_sku_review_test.go` | `8789739cb653347be8b596e9fccb7e4836410212` | Pending |
-| `internal/plugins/region/compute_sku_capture_test.go` | `2ef251506b2c6752a02685016aacee513bdf1978` | Pending |
-| `internal/plugins/region/cost.go` | `dc7c43cdcfc46c2fa67e00aaafbc5cf0faeec149` | Pending |
-| `internal/plugins/region/cost_enrichment.go` | `94a9cc17e8d70a02852274a69bfd6a6f5eb193d5` | Pending |
-| `internal/plugins/region/cost_enrichment_capture_test.go` | `92cdcf06990aa8a5139c1966ee9b2ff9a62eec84` | Pending |
-| `internal/plugins/region/cost_enrichment_test.go` | `c64816dd1daa8be6695b2d10076c267854955a7b` | Pending |
-| `internal/plugins/region/cost_test.go` | `48712680a4eb91785d889a3c2796bfb3b6e623a3` | Pending |
+| `internal/plugins/carbon_projection.go` | `626c3b24d2e2adb7dec5a53c0fef7f8d216efd89` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/carbon_projection_test.go` | `a2b0221abaa4b345d67afd7f7877829beb2562d5` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/region/auxiliary.go` | `15ab8323b5b4dd7974105eb15994d777f160ad35` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/region/auxiliary_test.go` | `1526c4508c2a25a009305b9accf7eb5daa4c05b9` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/region/availability.go` | `94360cfbe6a59a3debdf1a8f002cf7b062f8e264` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/region/availability_capture_test.go` | `a212b8f605c28d8eac7137c893de3dc4f89ddaa5` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/region/availability_test.go` | `695105d71c28c64980de19334f1a4370c3057869` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/region/compute_disk_sku_collector.go` | `d7a5b8b2e1facd7a36b157acc9eadd4d91a57465` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/region/compute_disk_sku_collector_test.go` | `76ce22e83bc9fe9fe4bdb51520782a0fed4cc97e` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/region/compute_disk_sku_review_test.go` | `8789739cb653347be8b596e9fccb7e4836410212` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/region/compute_sku_capture_test.go` | `2ef251506b2c6752a02685016aacee513bdf1978` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/region/cost.go` | `dc7c43cdcfc46c2fa67e00aaafbc5cf0faeec149` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/region/cost_enrichment.go` | `94a9cc17e8d70a02852274a69bfd6a6f5eb193d5` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/region/cost_enrichment_capture_test.go` | `92cdcf06990aa8a5139c1966ee9b2ff9a62eec84` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/region/cost_enrichment_test.go` | `c64816dd1daa8be6695b2d10076c267854955a7b` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/region/cost_test.go` | `48712680a4eb91785d889a3c2796bfb3b6e623a3` | Section3 full review; final QA disposition in PR142 |
 | `internal/plugins/region/data/latency.json` | `363e872a014e0a4f92b5e43ecc9ee6cad3962bc3` | Pending |
-| `internal/plugins/region/inventory.go` | `6157171769aaca1a4e78a026a4dc7f02a610bb87` | Pending |
-| `internal/plugins/region/inventory_aggregation.go` | `9828cf3a30056e2456028b6e746e1e23afd5782c` | Pending |
-| `internal/plugins/region/inventory_aggregation_test.go` | `b23fbf28124fdb72a78d5b86c85fff897e4cd30c` | Pending |
-| `internal/plugins/region/inventory_capture_test.go` | `c7f85db283725e33b2d89a4df85dfdf6e8f8638e` | Pending |
-| `internal/plugins/region/inventory_test.go` | `ac97771893275ad42fc5272a435e8a9dae57d718` | Pending |
-| `internal/plugins/region/latency.go` | `1a4a037e8d6c1c80aed1d7d51c66a5d5d1ae1090` | Pending |
-| `internal/plugins/region/latency_capture_test.go` | `877e215f1212f85096033acf9636618620479d13` | Pending |
-| `internal/plugins/region/latency_test.go` | `60ea39a005cf1f1aff3f13c3889700706fc46dc2` | Pending |
-| `internal/plugins/region/other_sku_capture_test.go` | `c73799952e61070813757283c13dc66079408ee7` | Pending |
-| `internal/plugins/region/primary.go` | `3a7fb0b9601a525f91c385d0016ce0b8ff532303` | Pending |
-| `internal/plugins/region/primary_test.go` | `6219219eca501b00af02a8af6fb23bb4a51c5d78` | Pending |
-| `internal/plugins/region/provider_locations_capture_test.go` | `87112d5d3876fba242dbd2e0bb6ec9e24b35085f` | Pending |
-| `internal/plugins/region/provider_locations_collector.go` | `8c85347d96488f2d4b1440da3f98a64ab3657413` | Pending |
-| `internal/plugins/region/provider_locations_collector_test.go` | `9d1180be0e50e0f7fca5d30bbda00cb25eeb3ca6` | Pending |
-| `internal/plugins/region/quota_capture_test.go` | `78a92620225e5e317e7af84dba73d6971828c326` | Pending |
-| `internal/plugins/region/quota_collector.go` | `e2a44936371ec66600f33e2378b80ec689ee8b3f` | Pending |
-| `internal/plugins/region/quota_collector_test.go` | `70a85e863018ef976e4f54a92318f3503d26b3f1` | Pending |
-| `internal/plugins/region/quota_runtime.go` | `a2be4a680e2c3d705ed1198d1cbb509a04e44713` | Pending |
-| `internal/plugins/region/quota_runtime_test.go` | `5ac53f03b1614a386b37fd92ed8071885b3efab2` | Pending |
-| `internal/plugins/region/reservation_capture_test.go` | `31377c86e8b54423d799279c6d29ca3870cc1e72` | Pending |
-| `internal/plugins/region/reservation_collector.go` | `c5b9c83e5d41be27798d7ab208f2568cca437c49` | Pending |
-| `internal/plugins/region/reservation_collector_test.go` | `d617b44f6701b59234fbfb3866c08035a26fdf02` | Pending |
-| `internal/plugins/region/reservation_runtime.go` | `bc6e23eca781e5b5ad81be2f416e2f9c36ec58c8` | Pending |
-| `internal/plugins/region/reservation_runtime_test.go` | `1ec9bffe0cddf1e624c2b92be434ed8ee7952370` | Pending |
-| `internal/plugins/region/service.go` | `e2e53165c2a4cb597c2bc36c239557189ad68ccd` | Pending |
-| `internal/plugins/region/service_test.go` | `f683d274a5b208d4d54a7d1081de3f43aaba1581` | Pending |
+| `internal/plugins/region/inventory.go` | `6157171769aaca1a4e78a026a4dc7f02a610bb87` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/region/inventory_aggregation.go` | `9828cf3a30056e2456028b6e746e1e23afd5782c` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/region/inventory_aggregation_test.go` | `b23fbf28124fdb72a78d5b86c85fff897e4cd30c` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/region/inventory_capture_test.go` | `c7f85db283725e33b2d89a4df85dfdf6e8f8638e` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/region/inventory_test.go` | `ac97771893275ad42fc5272a435e8a9dae57d718` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/region/latency.go` | `1a4a037e8d6c1c80aed1d7d51c66a5d5d1ae1090` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/region/latency_capture_test.go` | `877e215f1212f85096033acf9636618620479d13` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/region/latency_test.go` | `60ea39a005cf1f1aff3f13c3889700706fc46dc2` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/region/other_sku_capture_test.go` | `c73799952e61070813757283c13dc66079408ee7` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/region/primary.go` | `3a7fb0b9601a525f91c385d0016ce0b8ff532303` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/region/primary_test.go` | `6219219eca501b00af02a8af6fb23bb4a51c5d78` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/region/provider_locations_capture_test.go` | `87112d5d3876fba242dbd2e0bb6ec9e24b35085f` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/region/provider_locations_collector.go` | `8c85347d96488f2d4b1440da3f98a64ab3657413` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/region/provider_locations_collector_test.go` | `9d1180be0e50e0f7fca5d30bbda00cb25eeb3ca6` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/region/quota_capture_test.go` | `78a92620225e5e317e7af84dba73d6971828c326` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/region/quota_collector.go` | `e2a44936371ec66600f33e2378b80ec689ee8b3f` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/region/quota_collector_test.go` | `70a85e863018ef976e4f54a92318f3503d26b3f1` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/region/quota_runtime.go` | `a2be4a680e2c3d705ed1198d1cbb509a04e44713` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/region/quota_runtime_test.go` | `5ac53f03b1614a386b37fd92ed8071885b3efab2` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/region/reservation_capture_test.go` | `31377c86e8b54423d799279c6d29ca3870cc1e72` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/region/reservation_collector.go` | `c5b9c83e5d41be27798d7ab208f2568cca437c49` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/region/reservation_collector_test.go` | `d617b44f6701b59234fbfb3866c08035a26fdf02` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/region/reservation_runtime.go` | `bc6e23eca781e5b5ad81be2f416e2f9c36ec58c8` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/region/reservation_runtime_test.go` | `1ec9bffe0cddf1e624c2b92be434ed8ee7952370` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/region/service.go` | `e2e53165c2a4cb597c2bc36c239557189ad68ccd` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/region/service_test.go` | `f683d274a5b208d4d54a7d1081de3f43aaba1581` | Section3 full review; final QA disposition in PR142 |
 | `internal/plugins/region/testdata/aux_capture_test.go.txt` | `e79411f6b378b76b5f676bf8c48e2bac549cb45a` | Pending |
 | `internal/plugins/region/testdata/availability_capture_test.go.txt` | `25f3064df53ecfe557f4d825896b00ca93dd6e52` | Pending |
 | `internal/plugins/region/testdata/capture_test.go.txt` | `ef8950b2abbaab17fcd4be24e0a68048ff56e611` | Pending |
@@ -679,48 +695,48 @@ Only files actually examined in this initial pass are marked initial-pass. All o
 | `internal/plugins/region/testdata/source-vm-quota-inputs.json` | `9d593a0ac1fcca636a2b2c597fe52fbf87d275d6` | Pending |
 | `internal/plugins/region/testdata/source-vm-quota-outputs.json` | `7c810647dfee30cd9028219efc67fc348934bd0f` | Pending |
 | `internal/plugins/region/testdata/vm_quota_capture_test.go.txt` | `f90d337ce7fa5e7940e5167bd8860ac3993dcb53` | Pending |
-| `internal/plugins/region/vm_quota_capture_test.go` | `18476fb14c4385d67e7d7fd16ccabbcc7ba8b52c` | Pending |
-| `internal/plugins/region/vm_quota_collector_test.go` | `47546d5e6b3d79e9d0baa230f6739a3b75fbfa72` | Pending |
-| `internal/plugins/registry.go` | `0e7e6810d481c5c7e806ee6469daf3c03f3f33c4` | Pending |
-| `internal/plugins/registry_test.go` | `202b7a54f20738d90cf1f7650280ecd235c2a96b` | Pending |
-| `internal/plugins/servicehealth/query.go` | `7624c0a3d23788f8c3e1565b2f35f55102b7e48f` | Pending |
-| `internal/plugins/servicehealth/scanner.go` | `ffdc63d0b4669ad6ab23908deea1e69a4785ccd0` | Pending |
-| `internal/plugins/servicehealth/scanner_test.go` | `1ef072fe74f1fd0024a1aaf56f38a162cead182c` | Pending |
+| `internal/plugins/region/vm_quota_capture_test.go` | `18476fb14c4385d67e7d7fd16ccabbcc7ba8b52c` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/region/vm_quota_collector_test.go` | `47546d5e6b3d79e9d0baa230f6739a3b75fbfa72` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/registry.go` | `0e7e6810d481c5c7e806ee6469daf3c03f3f33c4` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/registry_test.go` | `202b7a54f20738d90cf1f7650280ecd235c2a96b` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/servicehealth/query.go` | `7624c0a3d23788f8c3e1565b2f35f55102b7e48f` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/servicehealth/scanner.go` | `ffdc63d0b4669ad6ab23908deea1e69a4785ccd0` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/servicehealth/scanner_test.go` | `1ef072fe74f1fd0024a1aaf56f38a162cead182c` | Section3 full review; final QA disposition in PR142 |
 | `internal/plugins/servicehealth/testdata/source-output.json` | `2b3f846ecada1657f18a267347f4146bfd362ebe` | Pending |
-| `internal/plugins/servicehealth_projection_test.go` | `ff9b4db92f36855a592f79a7c23ecbf08fba5170` | Pending |
-| `internal/plugins/sqleol/query.go` | `bb408e06215f9fb2d667dbc6372033b5e83d7858` | Pending |
+| `internal/plugins/servicehealth_projection_test.go` | `ff9b4db92f36855a592f79a7c23ecbf08fba5170` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/sqleol/query.go` | `bb408e06215f9fb2d667dbc6372033b5e83d7858` | Section3 full review; final QA disposition in PR142 |
 | `internal/plugins/sqleol/query.kql` | `1857e4320d16c20b16dd368ee43d56a84ad5206f` | Pending |
-| `internal/plugins/sqleol/scanner.go` | `2abf52dfc1ca3fda34e97dda898b7aa1d8631cc0` | Pending |
-| `internal/plugins/sqleol/scanner_test.go` | `5ad2c6c14c6ecf23820ea989a8cfb8b62dc34ae1` | Pending |
+| `internal/plugins/sqleol/scanner.go` | `2abf52dfc1ca3fda34e97dda898b7aa1d8631cc0` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/sqleol/scanner_test.go` | `5ad2c6c14c6ecf23820ea989a8cfb8b62dc34ae1` | Section3 full review; final QA disposition in PR142 |
 | `internal/plugins/sqleol/testdata/source-empty.json` | `20f7fdf1a1c2c631d6162fe8de656a6846bc220e` | Pending |
 | `internal/plugins/sqleol/testdata/source-filtered.json` | `73698041e621001011a08c62ace3f3e694e99498` | Pending |
 | `internal/plugins/sqleol/testdata/source-input.json` | `cc6a0937194fa89f73d1681e8eae27d05cfc3c28` | Pending |
 | `internal/plugins/sqleol/testdata/source-output.json` | `93adcc1de871cd99e9a2acef7f4c196009318164` | Pending |
-| `internal/plugins/sqleol_projection.go` | `a925e0545eaa0e9b4be51a58705d46c0004f56fe` | Pending |
-| `internal/plugins/sqleol_projection_test.go` | `cb8616b373409d017318f1d9f5bf20131a4492e0` | Pending |
-| `internal/plugins/zone/scanner.go` | `1ba211bad8d2b0558b91481d177acb35417a568d` | Pending |
-| `internal/plugins/zone/scanner_test.go` | `842fa2d7be23836ec7277bc5dcd2541f9e72a836` | Pending |
+| `internal/plugins/sqleol_projection.go` | `a925e0545eaa0e9b4be51a58705d46c0004f56fe` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/sqleol_projection_test.go` | `cb8616b373409d017318f1d9f5bf20131a4492e0` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/zone/scanner.go` | `1ba211bad8d2b0558b91481d177acb35417a568d` | Section3 full review; final QA disposition in PR142 |
+| `internal/plugins/zone/scanner_test.go` | `842fa2d7be23836ec7277bc5dcd2541f9e72a836` | Section3 full review; final QA disposition in PR142 |
 | `internal/plugins/zone/testdata/source-rows.json` | `f9812b012cbe5c704a85808a70ed802e5eac513a` | Pending |
 | `internal/policy/scanner.go` | `1a549afefd7be50e0262336f733d8d5f76901a3d` | Section 2 reviewed; code QA verified at 1c5d300 |
 | `internal/policy/scanner_test.go` | `74d77a818ba3d0164d141b3ee1b0656503d7e53e` | Section 2 reviewed; code QA verified at 1c5d300 |
-| `internal/redact/subscription.go` | `74ca62b17ae958c03803be3b8d0550cd1a3c9852` | Pending |
-| `internal/redact/subscription_test.go` | `9ce7ed9ac1ac9e8b8e25e260e4105c6b82ddd78c` | Pending |
-| `internal/renderers/csv/csv.go` | `8ebe602a03cf70048c495d39881c1ef25242ddf0` | Pending |
-| `internal/renderers/csv/csv_test.go` | `b2f6517219ecad4c61b098150499b337d860fb80` | Pending |
-| `internal/renderers/excel/excel.go` | `198b681647d0037dd60ec7562aeb3b528cdae131` | Pending |
-| `internal/renderers/excel/excel_test.go` | `70a0c6cf21a57b15da8edd92bd507c6209fa6f3f` | Pending |
-| `internal/renderers/json/json.go` | `78c02db82280bc9a268ae87961e9ed070ae852ee` | Pending |
-| `internal/renderers/json/json_test.go` | `08b95ca48d84313fbf7dcba50bb49f4aba104146` | Pending |
-| `internal/renderers/sarif/sarif.go` | `137df562533618bf40fc3c7d65f962b77410d6c4` | Pending |
-| `internal/renderers/sarif/sarif_test.go` | `06e983fd422dd55265f8941ecd5afff61e1903b5` | Pending |
-| `internal/renderers/tables/plugins.go` | `c9c95c5016a9ce7354cabf0ee98e6ecfec38b10d` | Pending |
-| `internal/renderers/tables/tables.go` | `cdec577a766f02a56c201b76b127954ae22d2318` | Pending |
-| `internal/renderers/tables/tables_test.go` | `f7dd4bded84371943f6457ea831f20e53179444b` | Pending |
-| `internal/reportfile/privacy_other.go` | `6712be13d06fc37bf2756daac4a08df91c2effb6` | Initial pass; module verification pending |
-| `internal/reportfile/privacy_windows.go` | `00532ec043814f2c39d7d6b3458d801f4118ef91` | Initial pass; module verification pending |
-| `internal/reportfile/windows_acl_test.go` | `8c96f8f89e9f48f433067bdef47f7bab45f610da` | Initial pass; module verification pending |
-| `internal/reportfile/write.go` | `161ed19e385bbdfaab5c802cd7397d741918dab5` | Initial pass; module verification pending |
-| `internal/reportfile/write_test.go` | `4ef1773e1f6953a4c4c520d1b0118e509ce9e84e` | Initial pass; module verification pending |
+| `internal/redact/subscription.go` | `74ca62b17ae958c03803be3b8d0550cd1a3c9852` | Section3 full review; final QA disposition in PR142 |
+| `internal/redact/subscription_test.go` | `9ce7ed9ac1ac9e8b8e25e260e4105c6b82ddd78c` | Section3 full review; final QA disposition in PR142 |
+| `internal/renderers/csv/csv.go` | `8ebe602a03cf70048c495d39881c1ef25242ddf0` | Section3 full review; final QA disposition in PR142 |
+| `internal/renderers/csv/csv_test.go` | `b2f6517219ecad4c61b098150499b337d860fb80` | Section3 full review; final QA disposition in PR142 |
+| `internal/renderers/excel/excel.go` | `198b681647d0037dd60ec7562aeb3b528cdae131` | Section3 full review; final QA disposition in PR142 |
+| `internal/renderers/excel/excel_test.go` | `70a0c6cf21a57b15da8edd92bd507c6209fa6f3f` | Section3 full review; final QA disposition in PR142 |
+| `internal/renderers/json/json.go` | `78c02db82280bc9a268ae87961e9ed070ae852ee` | Section3 full review; final QA disposition in PR142 |
+| `internal/renderers/json/json_test.go` | `08b95ca48d84313fbf7dcba50bb49f4aba104146` | Section3 full review; final QA disposition in PR142 |
+| `internal/renderers/sarif/sarif.go` | `137df562533618bf40fc3c7d65f962b77410d6c4` | Section3 full review; final QA disposition in PR142 |
+| `internal/renderers/sarif/sarif_test.go` | `06e983fd422dd55265f8941ecd5afff61e1903b5` | Section3 full review; final QA disposition in PR142 |
+| `internal/renderers/tables/plugins.go` | `c9c95c5016a9ce7354cabf0ee98e6ecfec38b10d` | Section3 full review; final QA disposition in PR142 |
+| `internal/renderers/tables/tables.go` | `cdec577a766f02a56c201b76b127954ae22d2318` | Section3 full review; final QA disposition in PR142 |
+| `internal/renderers/tables/tables_test.go` | `f7dd4bded84371943f6457ea831f20e53179444b` | Section3 full review; final QA disposition in PR142 |
+| `internal/reportfile/privacy_other.go` | `6712be13d06fc37bf2756daac4a08df91c2effb6` | Section3 full review; final QA disposition in PR142 |
+| `internal/reportfile/privacy_windows.go` | `00532ec043814f2c39d7d6b3458d801f4118ef91` | Section3 full review; final QA disposition in PR142 |
+| `internal/reportfile/windows_acl_test.go` | `8c96f8f89e9f48f433067bdef47f7bab45f610da` | Section3 full review; final QA disposition in PR142 |
+| `internal/reportfile/write.go` | `161ed19e385bbdfaab5c802cd7397d741918dab5` | Section3 full review; final QA disposition in PR142 |
+| `internal/reportfile/write_test.go` | `4ef1773e1f6953a4c4c520d1b0118e509ce9e84e` | Section3 full review; final QA disposition in PR142 |
 | `internal/result/plugin_tables.go` | `9703654451984758e91b8c962ae5626f31e79b96` | Section 2 reviewed; code QA verified at 1c5d300 |
 | `internal/result/plugin_tables_test.go` | `4a52a5a19bcc8658a2b8aa5b1832a3d89ca26a07` | Section 2 reviewed; code QA verified at 1c5d300 |
 | `internal/result/result.go` | `f099c293a44707535ffe624c201eddcf240847f0` | Section 2 reviewed; code QA verified at 1c5d300 |

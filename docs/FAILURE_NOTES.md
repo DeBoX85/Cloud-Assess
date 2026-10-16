@@ -1,3 +1,71 @@
+# Section3 final corrective checkpoint and stopping rule, 2026-10-16
+
+All94 baseline Go files (43production/51tests) and both independent added regressions have full reads; contract/data/integration reconciliation covers all15Section3packages. Read the [active report](SYSTEMATIC_REVIEW_SECTION3_20261015.md) and [contract map](SYSTEMATIC_REVIEW_SECTION3_CONTRACTS_20261016.md). Sections1-2 stay complete; no Section4 review is claimed.
+
+This checkpoint implements SR-F11 after both-host compiling reproduction and the published pre-edit contract. Its only production change is the zone private duplicate-key guard using Unicode SimpleFold equivalence, matching pinned Go1.26.9 encoding/json. Long-s field overwrites and sigma duplicates reject; unique Unicode metadata remains accepted; already-rejected Kelvin continuation remains a control. The independent zone regression is byte-identical to b82de398 (blob651e4782e1af6a8cebc443b4c8755e59e7f96c02). The new compiling reversal restores strings.ToLower, requires the named behavioral failure, restores exact bytes and passes baseline. Both existing native jobs already run this Section3 runner. SR-F10 remains fixed at7384439; its original regression, canonical IDs, resource identities, dedup and fingerprint code are unchanged.
+
+Own final-head Linux/Windows/source checks are initially PENDING AT PUBLICATION. The top current disposition in [PR142](https://github.com/DeBoX85/Cloud-Assess/pull/142) is the authoritative exact authored commit/tree/parent/tested-preview/run/job/full-log-hash/control/capture index. Never transfer7384439 or a reproduction-head pass. QA_PROCESS permits final evidence in the PR to avoid a self-referential documentation/CI loop. Once that exact checkpoint has all required proof, Section3 is complete:3/4audit sections and37/41package directories by unweighted count, not overall project progress or defect-free certification.
+
+RESUME ONLY by verifying live PR142/task/protected refs and that checkpoint's actual gates. Finish outstanding corrective QA if still pending; after verified success STOP for the user's re-evaluation. Do not republish an already-existing correction, replay Sections1-2, start Section4, merge, mark ready or resume Storage/features. PR142 stays draft/unmerged; protected bootstrap/core-v1 remains a6fee427e19feeef28691737ea9bc5026086efa0. No protected acceptance/push evidence exists for this unmerged audit.
+
+Preserve AZQR8e4f0577f3615e6c9014c031bcad079f235369cc/tree17d93b20c303f90f7843036be82f0dc32f3260f1, APRL60eaddda76541f6adbc1c5ffa686829807e55e29, Go1.26.9/x-net0.60.0, all source captures/schema/dependencies. No Azure operations, RBAC/fixtures, production-scope substitute, pin/capture/dependency refresh or release approval. Source SKU coverage7/7 is distinct from accepted target adapters1/7; public region remains unavailable. FullCost/remaining adapters/coordinator, AR-02/load, live/freshOS, module-only advisory, human/license/security/Gate004/release remain open. Section4 and later Storage PR141 require the documented later authorization/sequence.
+
+## Correction, reproduction and rollback index
+
+- SR-F10: fix7384439c4058feb8c3f7a2241a6b1a8e45950163/tree434f498ee2668cfb80e61687fe01a1a50ae0d372, parent e9dd8d182054a768ff6ab65a91072f7fc11f5615. Full native38837602499/source38837602502 proof is retained below. New final head still needs its own complete gates.
+- SR-F11: regression/contract b82de3982c1bdec21a0a50bcbfa21a2a2aa08069/tree1f93508d21ccc8841476967231c17a7e52ca82b0/parent7384439. Native38840067841 FAILED after compilation on Linux116777875249 and Windows116777874877 with exactly physical_zone_long_s, mappings_long_s and unknown_sigma_duplicate assertions. No build failure/race warning; later steps skipped are not acceptance. Source38840067774/job116777874590 success is separate metadata evidence, not final corrective capture credit.
+- Full reproduction log Linux65940characters/65944UTF8bytes SHA2569697dd36d8dd8d0672011f09264dbe6eb18d04e2666080d00f234ff3043d6e7d; Windows52546/52548 SHA256e3156da5ccc941bbace07ff960862efc299e9eb104fef778041a2d865e2040e2.
+- SR-F11 correction is this checkpoint, directly parented by b82de398; obtain its exact SHA/tree from the verified PR index. Local corrected full zone suite and vet, both Section3 compiling controls/restored baselines, pinned gofmt and immutable-regression check pass. Full native/source proof remains mandatory.
+- Rollback: ordinary targeted revert commits after dependency review. Revert each affected production expression/helper case together, keep independent expectations and historical captures, and deliberately expect the corresponding regression to turn red. Later zone/SARIF controls share one runner, so do not blindly revert the entire earlier helper/workflow when successors depend on it. Never force/reset protected history or delete failing expectations.
+
+## QA-S3-02 local orchestration correction
+
+The first corrected zone suite was accidentally launched concurrently with its source-mutating control. Although both exited0, that suite result is discarded because compile/read timing was uncertain. The control restored exact source bytes; the complete suite was rerun serially afterward and passed, followed by vet and empty pinned formatter output. No concurrent mutation/test suite result is used for acceptance. Prevention: await control completion/restoration before any other source-consuming checks. Earlier PowerShell-PATH/SeSecurityPrivilege trials and QA-S3-01 formatting failure remain below; none was hidden or used to relax a test.
+
+| Local log | Bytes | SHA256 |
+| --- | ---: | --- |
+| zone-corrected-suite.log | 66 | f62f2bb226228bf852582703947be2bbceb993d1250629626dbf900fe2b574bf |
+| zone-corrected-suite-serial.log | 66 | 3b62de273177f0cd9093bc37684c125395bd587b9665e73920d580428dc730cc |
+| zone-corrected-vet.log | 0 | e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 |
+| section3-corrected-control.log | 177 | 7d43439b3143b352d4e97f6e773dfd71bad759340da93eb33fc2bcf335c2d103 |
+
+Manual final diff/contract reconciliation is a bounded self-review. Earlier automated review comments are earlier-head evidence; no callable independent final Code Review tool or independent-person approval is claimed. All mandatory native controls, coverage/fuzz/security/source guards stay intact. Only the PR's verified current-head evidence can close corrective QA.
+
+---
+
+## Historical records below
+
+# SR-F10 full corrective QA and SR-F11 published reproduction, 2026-10-16
+
+SR-F10 correction7384439c4058feb8c3f7a2241a6b1a8e45950163/tree434f498ee2668cfb80e61687fe01a1a50ae0d372/parent e9dd8d182054a768ff6ab65a91072f7fc11f5615 completed native38837602499 SUCCESS on Linux116770101098 and Windows116770100656; source38837602502/job116770100933 also SUCCESS. Every mandatory step passed; only conditional Linux failure-evidence upload skipped. All326Linux and321Windows named controls contain every previous325/320 identity plus exactly the SARIF compiling reversal/restoration control. Both native full Go suites, Linux race85.2%coverage/five bounded fuzz/vet, actual CLI/default+custom packages/isolated install/branding/PowerShell/docs/provenance/inventory and scans passed. Both scans report0reachable/0imported-package/1module-only advisory; the last remains open.
+
+Full exact returned log hashes: Linux102675characters/102679UTF8bytes SHA256309ed6c59f0c4b23fc5c1d8d6fee1d16de3936b70f2cabe61b25e928e9d88d76; Windows84106/84108 SHA2561d154ea37adc6d414f18d43da1eb8010672515939122ca17df3f1298f27f5350; source1359863/1359939 SHA256073baad731d40ce0d768ba04f98fd484853b7433c339f593911a993599efdc35.23captures/315unique contiguous chunks independently reconstructed/hashed/byte-matched plus all23fresh published files909865bytes independently fetched/matched. Pinned source/tree/APRL and tested preview5e6970718289fe0e25b2b7a28467510535776a10 exact fix tree and ordered protected-base/fix parents verified. No build/race/error marker in completed corrective logs.
+
+Current published reproduction head is b82de3982c1bdec21a0a50bcbfa21a2a2aa08069/tree1f93508d21ccc8841476967231c17a7e52ca82b0/parent7384439. Full six-file readback/independent local tree/Denis author+committer and expected-ref publication verified. PR142 remains draft/unmerged; protected base remains a6fee427. It adds independent zone regression and pre-edit contract with production zone unchanged. SR-F11 remains UNFIXED; both-host compiling reproduction is pending. Prior SARIF green is not this changed head acceptance.
+
+All94 baseline Go initial reads and15-package contract/integration reconciliation are now recorded in [contract map](SYSTEMATIC_REVIEW_SECTION3_CONTRACTS_20261016.md). No final Section3package/section credit until SR-F11 corrected full QA. NEXT: inspect this exact reproduction head native failures, apply isolated decoder-equivalent zone guard/control under the already published contract, verify full corrected Linux/Windows/source gates and publish the completed Section3 stopping checkpoint. STOP before Section4 for user reevaluation. No Azure, dependency/pin/capture/schema change.
+
+---
+
+# Section3 continuation findings and local executor limits, 2026-10-16
+
+SR-F10 isolated published correction7384439c4058feb8c3f7a2241a6b1a8e45950163 fixes the published-descriptor reference; original independent regression expectations are unchanged. Native full QA remains pending; source38837602502 passed separately with23/315 independently verified captures. No later-head acceptance is inferred.
+
+SR-F11 is a confirmed P2 zone duplicate-key guard defect. strings.ToLower does not match Go1.26.9 JSON Unicode SimpleFold: long-s aliases overwrite physicalZone or availabilityZoneMappings after the guard. Independent literal reproduction also rejects nested sigma duplicate keys; unique Unicode metadata and the already-caught Kelvin continuation remain positive controls. Before production edits the contract is recorded in [Section3 report](SYSTEMATIC_REVIEW_SECTION3_20261015.md). Reproduction-only commit b82de3982c1bdec21a0a50bcbfa21a2a2aa08069/tree1f93508d21ccc8841476967231c17a7e52ca82b0/parent7384439 has been created and fully read back; branch publication/native reproduction is pending at this note. Never label a red compiling reproduction as acceptance. Prevention is a decoder-equivalent ambiguity guard plus an isolated compiling reversal/restoration control on each required host.
+
+Local Section3 trial is not a full pass:14 packages succeeded but reportfile could not find PowerShell in the custom PATH. Corrected PATH then reached Set-Acl but the restricted executor lacks SeSecurityPrivilege. No sandbox escalation, privilege/ACL change or expectation relaxation was attempted. Native Windows package tests at7384439 have now succeeded; full later-head native QA still required. This is an executor limitation, not a new ACL product finding.
+
+| Local failed trial | UTF8 bytes | SHA256 |
+| --- | ---: | --- |
+| section3-suite.log | 2286 | 8408dc2a1f1ac523f595b6d92eef9c17a55b6f8035b23210a7b2b572fcceab9b |
+| reportfile-acl-restored-path.log | 833 | b24f918d1b017a9eeb24a0fb990a554b58a3f50537a6b90154616f1746c05881 |
+| zone-unicode-reproduction.log | 1576 | ac91cd36fd05f9363866a794e8e1da9bb2c5c04cc8f5d75da95bcbf7af112797 |
+| zone-unicode-reproduction-complete.log | 1836 | 1c2c56a7c8098347f93196f856fd8bcafc870a71239fa7dbae88bf76ac6f44f3 |
+
+The first zone probe preceded the independent mappings case; the complete second probe has three named assertion failures, both controls passing and no build failure. Failed/superseded evidence stays retained. No Azure access, dependency/pin/capture refresh or protected merge.
+
+---
+
 # Current handover authority — 2026-10-16
 
 Read [handover checkpoint](HANDOVER_CHECKPOINT_20261016.md), [restart prompt](NEW_CHAT_PROMPT_20261016.md) and [Section 3 active report](SYSTEMATIC_REVIEW_SECTION3_20261015.md) first. This entry supersedes earlier current-state, pause and next-action paragraphs below; historical contracts, failures and evidence remain preserved.

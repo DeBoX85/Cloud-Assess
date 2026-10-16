@@ -16,6 +16,15 @@ CASES = [
         "\t\tRuleID: finding.RecommendationID,",
         "SARIF result does not reference its published descriptor",
     ),
+    (
+        "zone-unicode-fold",
+        "internal/plugins/zone/scanner.go",
+        "./internal/plugins/zone",
+        "^TestZone(RejectsUnicodeFoldDuplicateKeys|UniqueUnicodeMetadataRemainsValid)$",
+        "folded := foldJSONKey(name)",
+        "folded := strings.ToLower(name)",
+        "Unicode fold duplicate admitted as zone evidence",
+    ),
 ]
 
 
