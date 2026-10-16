@@ -21,7 +21,7 @@ func TestRuleReferencesUsePublishedDescriptorIdentity(t *testing.T) {
 		t.Run(tc.name, func(t *testing.T) {
 			data := result.Build(result.Input{
 				Recommendations: []assessment.RecommendationDefinition{{ID: tc.definition, Recommendation: "Synthetic rule", Category: "Security", Impact: "High"}},
-				Findings: []assessment.Finding{{RecommendationID: tc.finding, Recommendation: "Synthetic rule", Category: "Security", Impact: "High", ResourceID: "/subscriptions/11111111-1111-4111-8111-111111111111/resourceGroups/synthetic/providers/Microsoft.Test/widgets/one"}},
+				Findings:        []assessment.Finding{{RecommendationID: tc.finding, Recommendation: "Synthetic rule", Category: "Security", Impact: "High", ResourceID: "/subscriptions/11111111-1111-4111-8111-111111111111/resourceGroups/synthetic/providers/Microsoft.Test/widgets/one"}},
 			})
 			encoded, err := Marshal(data, "synthetic")
 			if err != nil {
@@ -31,10 +31,14 @@ func TestRuleReferencesUsePublishedDescriptorIdentity(t *testing.T) {
 				Runs []struct {
 					Tool struct {
 						Driver struct {
-							Rules []struct{ ID string `json:"id"` } `json:"rules"`
+							Rules []struct {
+								ID string `json:"id"`
+							} `json:"rules"`
 						} `json:"driver"`
 					} `json:"tool"`
-					Results []struct{ RuleID string `json:"ruleId"` } `json:"results"`
+					Results []struct {
+						RuleID string `json:"ruleId"`
+					} `json:"results"`
 				} `json:"runs"`
 			}
 			if err := json.Unmarshal(encoded, &report); err != nil {

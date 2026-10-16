@@ -1,3 +1,9 @@
+# QA-S3-01: regression checkpoint formatting, 2026-10-16
+
+The first SARIF regression-only checkpoint ed30ef4 compiled and reproduced SR-F10 on Windows, but Linux stopped at gofmt before its Go suite. The test was published before pinned formatting. Applied Go1.26.9 gofmt only; independent expectations still fail locally, production unchanged. See [Section3 report](SYSTEMATIC_REVIEW_SECTION3_20261015.md) for failed run/job/full-log hashes. Do not count the Linux failure as product reproduction. Require empty pinned gofmt diff before each Go publication, including WIP tests. No accepted faulty candidate or protected merge.
+
+---
+
 # Section 3 material finding checkpoint, 2026-10-15
 
 SR-F10 SARIF mixed-case descriptor-reference defect is confirmed by two compiling local failures with a passing same-case control; correction is documented before production edits in [active report](SYSTEMATIC_REVIEW_SECTION3_20261015.md). No Section3 production fix or completion yet. Baseline local race tests passed all15packages. The new regression is intentionally failing on unchanged production; pending/failing CI is reproduction evidence only, never acceptance. Continue remaining full review and source contracts, apply isolated fixes and obtain full corrected exact-head native/source QA; stop before Section4. Audit remains2/4sections and22/41packages finally verified, PR142 draft/unmerged. No Azure/pin/dependency changes. See report for exact log hashes, source/OASIS contract and rollback requirements.
