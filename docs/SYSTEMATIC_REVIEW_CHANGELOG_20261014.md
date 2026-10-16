@@ -1,3 +1,21 @@
+# Current handover authority — 2026-10-16
+
+Read [handover checkpoint](HANDOVER_CHECKPOINT_20261016.md), [restart prompt](NEW_CHAT_PROMPT_20261016.md) and [Section 3 active report](SYSTEMATIC_REVIEW_SECTION3_20261015.md) first. This entry supersedes earlier current-state, pause and next-action paragraphs below; historical contracts, failures and evidence remain preserved.
+
+The user requested a new-conversation handoff during Section 3. Audit Sections 1–2 are complete; Section 3 is incomplete, with 42/94 baseline Go files initially read and no Section 3 package finally verified. Audit counts remain **2/4 sections (50%), 22/41 package directories (53.7%)**; neither measures weighted overall project completion. Section 3 has 15 packages/94 baseline Go files (43 production,51 tests), plus one added SARIF regression. AI governance10Go files and region42Go files remain, alongside contract/data/architecture reconciliation across the initial reads.
+
+Verified code/test head `b293e9533b06667d15b5e7efb6a20b39a9ea8427`, tree `71a1adb10c20ac23b0a55bd361c88b2204a2b048`, is draft/unmerged in [PR142](https://github.com/DeBoX85/Cloud-Assess/pull/142). Protected `bootstrap/core-v1` stays `a6fee427e19feeef28691737ea9bc5026086efa0`. **SR-F10 is reproduced and UNFIXED**: SARIF mixed-case result IDs do not match their published rule descriptors. Formatted regression-only native38829684903 fails the declared two assertions on BOTH Linux116745335663 and Windows116745335627 after compilation; Linux formatting passes and no race warning was observed. Source38829684879 succeeds separately. Red is reproduction, never acceptance. Earlier ed30ef4 Linux formatting failure is QA-S3-01 and is corrected in b293e95; do not repeat it.
+
+NEXT: verify live refs/PR142 and actual files; implement the documented isolated SR-F10 correction without mutating canonical IDs or fingerprints, add compiling reversal/restoration control to both required jobs, complete ALL remaining Section 3 source/test/contract review, fix substantiated findings, obtain full corrected exact-head Linux/Windows/source QA, then publish the Section 3 checkpoint and STOP for re-evaluation before Section 4. Continuation of Section 3 is already authorized. Do not start Section 4, merge protected history, repeat Sections 1–2 or resume feature development as part of this handoff.
+
+Remaining estimate: Section 3 **5–8 active hours**, Section 4 **2–4 active hours**, plus material fixes/repeat QA. This replaces the earlier optimistic6–11hour combined estimate; it is not a wall-clock completion promise. Overall project percentage/release ETA are unverified. After the FULL audit resume Storage contract/tests on draft [PR141](https://github.com/DeBoX85/Cloud-Assess/pull/141), then remaining adapters/integration. Source captures7/7, accepted target SKU adapters1/7, public region unavailable. FullCost/other parity, AR-02/load, live/fresh OS, module-only advisory disposition, human/license/security/Gate004/release remain open. No Azure access/write, fixture/RBAC change, dependency/pin/capture/schema update or production-scope substitution is authorized by this handoff.
+
+This documentation successor changes no Go/Python/workflow/data. Its new checks are separate and initially pending; the known unfixed regression can keep native CI red. Inspect live PR142 for the actual documentation head/results. Earlier passing code evidence must not be transferred to a failing/changed head.
+
+---
+
+## Historical record below
+
 # Section 3 material finding checkpoint, 2026-10-15
 
 SR-F10 SARIF mixed-case descriptor-reference defect is confirmed by two compiling local failures with a passing same-case control; correction is documented before production edits in [active report](SYSTEMATIC_REVIEW_SECTION3_20261015.md). No Section3 production fix or completion yet. Baseline local race tests passed all15packages. The new regression is intentionally failing on unchanged production; pending/failing CI is reproduction evidence only, never acceptance. Continue remaining full review and source contracts, apply isolated fixes and obtain full corrected exact-head native/source QA; stop before Section4. Audit remains2/4sections and22/41packages finally verified, PR142 draft/unmerged. No Azure/pin/dependency changes. See report for exact log hashes, source/OASIS contract and rollback requirements.

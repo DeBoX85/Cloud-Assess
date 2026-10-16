@@ -1,3 +1,36 @@
+# Current handover authority — 2026-10-16
+
+Read [handover checkpoint](HANDOVER_CHECKPOINT_20261016.md), [restart prompt](NEW_CHAT_PROMPT_20261016.md) and [Section 3 active report](SYSTEMATIC_REVIEW_SECTION3_20261015.md) first. This entry supersedes earlier current-state, pause and next-action paragraphs below; historical contracts, failures and evidence remain preserved.
+
+The user requested a new-conversation handoff during Section 3. Audit Sections 1–2 are complete; Section 3 is incomplete, with 42/94 baseline Go files initially read and no Section 3 package finally verified. Audit counts remain **2/4 sections (50%), 22/41 package directories (53.7%)**; neither measures weighted overall project completion. Section 3 has 15 packages/94 baseline Go files (43 production,51 tests), plus one added SARIF regression. AI governance10Go files and region42Go files remain, alongside contract/data/architecture reconciliation across the initial reads.
+
+Verified code/test head `b293e9533b06667d15b5e7efb6a20b39a9ea8427`, tree `71a1adb10c20ac23b0a55bd361c88b2204a2b048`, is draft/unmerged in [PR142](https://github.com/DeBoX85/Cloud-Assess/pull/142). Protected `bootstrap/core-v1` stays `a6fee427e19feeef28691737ea9bc5026086efa0`. **SR-F10 is reproduced and UNFIXED**: SARIF mixed-case result IDs do not match their published rule descriptors. Formatted regression-only native38829684903 fails the declared two assertions on BOTH Linux116745335663 and Windows116745335627 after compilation; Linux formatting passes and no race warning was observed. Source38829684879 succeeds separately. Red is reproduction, never acceptance. Earlier ed30ef4 Linux formatting failure is QA-S3-01 and is corrected in b293e95; do not repeat it.
+
+NEXT: verify live refs/PR142 and actual files; implement the documented isolated SR-F10 correction without mutating canonical IDs or fingerprints, add compiling reversal/restoration control to both required jobs, complete ALL remaining Section 3 source/test/contract review, fix substantiated findings, obtain full corrected exact-head Linux/Windows/source QA, then publish the Section 3 checkpoint and STOP for re-evaluation before Section 4. Continuation of Section 3 is already authorized. Do not start Section 4, merge protected history, repeat Sections 1–2 or resume feature development as part of this handoff.
+
+Remaining estimate: Section 3 **5–8 active hours**, Section 4 **2–4 active hours**, plus material fixes/repeat QA. This replaces the earlier optimistic6–11hour combined estimate; it is not a wall-clock completion promise. Overall project percentage/release ETA are unverified. After the FULL audit resume Storage contract/tests on draft [PR141](https://github.com/DeBoX85/Cloud-Assess/pull/141), then remaining adapters/integration. Source captures7/7, accepted target SKU adapters1/7, public region unavailable. FullCost/other parity, AR-02/load, live/fresh OS, module-only advisory disposition, human/license/security/Gate004/release remain open. No Azure access/write, fixture/RBAC change, dependency/pin/capture/schema update or production-scope substitution is authorized by this handoff.
+
+This documentation successor changes no Go/Python/workflow/data. Its new checks are separate and initially pending; the known unfixed regression can keep native CI red. Inspect live PR142 for the actual documentation head/results. Earlier passing code evidence must not be transferred to a failing/changed head.
+
+---
+
+## Historical record below
+
+## Current verified reproduction evidence
+
+Exact formatted code/test head b293e9533b06667d15b5e7efb6a20b39a9ea8427, tree71a1adb10c20ac23b0a55bd361c88b2204a2b048, parent ed30ef46910df31593656ba0910a6242173201e8. No Section3production correction exists. Native [38829684903](https://github.com/DeBoX85/Cloud-Assess/actions/runs/38829684903) completed/failure. Both hosts compile and fail ONLY TestRuleReferencesUsePublishedDescriptorIdentity/upper_finding and /upper_descriptor; same-identity control passes. Linux Verify formatting succeeded. No build failure or data-race warning in complete returned logs. Later full gates were not reached and are not credited. Source [38829684879](https://github.com/DeBoX85/Cloud-Assess/actions/runs/38829684879) completed/success separately.
+
+| Host | Job | Full characters | Exact UTF-8 bytes | SHA-256 |
+| --- | ---: | ---: | ---: | --- |
+| Linux | 116745335663 | 64933 | 64937 | `be17229af65f4d016371bc7324c8b6bb53d6b94b0bd197bc50dad302a8c1b47a` |
+| Windows | 116745335627 | 51425 | 51427 | `5742e9e63e5f15ccbb1696596bcf708646592cd9a57caa08cf427872fdce3b1f` |
+
+Earlier Linux formatting failure QA-S3-01 is retained below and is not product reproduction. Current pinned Go1.26.9 formatter was rechecked with empty output on the published regression. The launcher and toolchain are ephemeral workspace dependencies, not repository modifications. An old absolute toolchain path disappeared and was restored by the existing Go launcher; re-check tool availability in a new environment. Baseline local race-suite evidence (all15packages before adding this regression) is preserved below, not final acceptance.
+
+---
+
+## Earlier Section 3 records and baseline manifest
+
 # Section 3 systemic review — active record
 
 Entry baseline: `798d7be21e393f1e85503303e3d8eb83d311913d`. No Section 3 completion or new product defect is claimed at preparation.
@@ -14,9 +47,9 @@ Confirmed locally after compilation on unchanged production at entry798d7be: def
 
 Pinned AZQR `internal/renderers/sarif/sarif.go` at8e4f0577 also uses the raw finding ID after a lower-case join. This is a proposed deliberate correction to inherited behavior, not a target-only source divergence. Official OASIS SARIF2.1.0+Errata01 §§3.27.5/3.27.7/3.52.4 establish descriptor-reference identity; https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html. Use the published descriptor's spelling in SARIF results while retaining canonical input identity, rule metadata, dedup, resource identities and normalized fingerprints. No format/schema/pin/dependency change.
 
-Before production edits, acceptance is: same-case and both casing directions resolve to the actual published descriptor; rendering does not mutate canonical input; existing results/fingerprints/empty/SLA/report privacy behavior remains. Change only the SARIF private result builder/call site, add the independent regression and a compiling reversal/restoration control in both native jobs. Native Windows reproduction/controls and full corrected-head QA remain pending; local red is evidence, not acceptance. Rollback must account for the new expected identity and helper anchor; ordinary targeted reverts only.
+Before production edits, acceptance is: same-case and both casing directions resolve to the actual published descriptor; rendering does not mutate canonical input; existing results/fingerprints/empty/SLA/report privacy behavior remains. Change only the SARIF private result builder/call site, add the independent regression and a compiling reversal/restoration control in both native jobs. Both-host reproduction is now verified at b293e95; compiling correction controls and full corrected-head QA remain pending. Red is evidence, not acceptance. Rollback must account for the new expected identity and helper anchor; ordinary targeted reverts only.
 
-Reportfile/redact/branding, all renderers, root plugin projection boundaries, zone, service-health and SQL-EOL source/tests have initial complete reads. Carbon projection source/tests are also read. Contract/integration reconciliation remains pending; no final package completion is credited yet. Human core projection redaction boundaries and zone JSON alias handling remain review questions, not confirmed findings.
+Reportfile/redact/branding, all renderers, root plugin projection boundaries, zone, service-health and SQL-EOL source/tests have initial complete reads. Carbon projection and request-scanner source/tests are also initially read. Contract/integration reconciliation remains pending; no final package completion is credited yet. Human core projection redaction boundaries and zone JSON alias handling remain review questions, not confirmed findings.
 
 ## QA and recovery
 
@@ -47,8 +80,8 @@ NEXT: continue full source/test review and update this record/handover after coh
 | `internal/plugins/sqleol/scanner_test.go` | `5ad2c6c14c6ecf23820ea989a8cfb8b62dc34ae1` | 418 | Initial complete read; contract/QA reconciliation pending |
 | `internal/plugins/carbon/projection.go` | `868599a28286a303671cc8a76ecd06d90f13d1e0` | 158 | Initial complete read; contract/QA reconciliation pending |
 | `internal/plugins/carbon/projection_test.go` | `105315a948c25c97be421b699e13eec17c3234e1` | 190 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/carbon/scanner.go` | `d0aff9de47afad2c1a1b8c3fcd3ff9819ac5b1fd` | 447 | Pending |
-| `internal/plugins/carbon/scanner_test.go` | `f8e1e5dca08bcc1706a5a48ff804bf45044d326e` | 625 | Pending |
+| `internal/plugins/carbon/scanner.go` | `d0aff9de47afad2c1a1b8c3fcd3ff9819ac5b1fd` | 447 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/carbon/scanner_test.go` | `f8e1e5dca08bcc1706a5a48ff804bf45044d326e` | 625 | Initial complete read; contract/QA reconciliation pending |
 | `internal/plugins/aigov/decoder.go` | `c31875f5576165af668ce95eaa2408767321a203` | 454 | Pending |
 | `internal/plugins/aigov/decoder_test.go` | `76e9df63a13a056b7799877dbeaf4b0282c71b3c` | 143 | Pending |
 | `internal/plugins/aigov/discovery.go` | `63e8d826cd8e4cb4fd51a6ea86a5c4cc40a86660` | 314 | Pending |

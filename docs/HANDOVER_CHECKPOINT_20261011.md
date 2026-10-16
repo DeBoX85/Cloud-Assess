@@ -1,3 +1,9 @@
+# Superseded handover — current index 2026-10-16
+
+This dated snapshot is retained as history. Its old next actions and pending states are superseded by [HANDOVER_CHECKPOINT_20261016.md](HANDOVER_CHECKPOINT_20261016.md), [NEW_CHAT_PROMPT_20261016.md](NEW_CHAT_PROMPT_20261016.md) and [SESSION_HANDOVER.md](SESSION_HANDOVER.md). Start with those current records and live PR142; do not replay this historical prompt or accept an old passing head as current proof. Original evidence and contracts below remain unchanged.
+
+---
+
 # Current accepted provider source phase, 2026-10-12
 
 Read [HANDOVER_CHECKPOINT_20261012.md](HANDOVER_CHECKPOINT_20261012.md) and
