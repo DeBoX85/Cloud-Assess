@@ -2905,7 +2905,7 @@ SHA-256: c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4
 
 ## Cloud Assess and incorporated source/rule attribution / NOTICE.md
 
-SHA-256: bdb9ed2d832c2df6d9d7bebe5d454d68cb13bf9e98efa4b01b8ca127db9447a9
+SHA-256: f35317f4d453447a4a6cad8be9b9d64bed7948841ecd89c7428de1f930a533bd
 
 # Notices and Attribution
 
@@ -2942,6 +2942,12 @@ The imported snapshot revision is recorded in `internal/rules/provenance.go`.
 ## Generated dependency notices
 
 The source/rule license texts above do not replace a dependency inventory. The current [generated inventory and notices](docs/DEPENDENCIES.md) are checked for freshness in CI. Before any release or redistribution, regenerate from the actual release tree and dependency graph, review platform/artifact contents and these attributions for completeness, and include the required license texts with the distribution.
+
+## Azure REST API specifications test fixture
+
+The Storage SKU primary example in internal/plugins/region/testdata/storage-primary-2023-01-01-SKUList.json is copied unchanged from Azure/azure-rest-api-specs commit `1cdcc5414764d20e8815554c8b89708c10747c18`.
+
+Copyright (c) 2017 Microsoft. Licensed under the MIT License. The complete original notice and permission text are retained in [storage-primary-LICENSE.txt](internal/plugins/region/testdata/storage-primary-LICENSE.txt). This fixture is primary schema/example evidence, separate from the pinned AZQR source captures.
 
 
 ## Cloud Assess and incorporated source/rule attribution / THIRD_PARTY_LICENSES.md
