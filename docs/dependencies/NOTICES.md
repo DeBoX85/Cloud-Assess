@@ -2905,7 +2905,7 @@ SHA-256: c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4
 
 ## Cloud Assess and incorporated source/rule attribution / NOTICE.md
 
-SHA-256: bdb9ed2d832c2df6d9d7bebe5d454d68cb13bf9e98efa4b01b8ca127db9447a9
+SHA-256: a2499d319da4f039f6e9102bfd6ea7201390333430f95e82131d640e681c19d6
 
 # Notices and Attribution
 
@@ -2942,6 +2942,14 @@ The imported snapshot revision is recorded in `internal/rules/provenance.go`.
 ## Generated dependency notices
 
 The source/rule license texts above do not replace a dependency inventory. The current [generated inventory and notices](docs/DEPENDENCIES.md) are checked for freshness in CI. Before any release or redistribution, regenerate from the actual release tree and dependency graph, review platform/artifact contents and these attributions for completeness, and include the required license texts with the distribution.
+
+## Azure REST API specifications test fixture
+
+The Storage SKU primary example in internal/plugins/region/testdata/storage-primary-2023-01-01-SKUList.json is copied unchanged from Azure/azure-rest-api-specs commit `1cdcc5414764d20e8815554c8b89708c10747c18`.
+
+Copyright (c) 2017 Microsoft. Licensed under the MIT License. The complete original notice and permission text are retained in [storage-primary-LICENSE.txt](internal/plugins/region/testdata/storage-primary-LICENSE.txt). This fixture is primary schema/example evidence, separate from the pinned AZQR source captures.
+
+The Compute Resource SKUs schema and three complete primary examples in internal/plugins/region/testdata/compute-primary-2021-07-01-*.json are also copied unchanged from the same Azure REST API specifications commit. Their original Git blobs and SHA256 hashes are recorded in docs/REGION_VM_VMSS_SKU_CONTRACT_20261016.md. The same complete MIT license in storage-primary-LICENSE.txt applies. These are primary contract evidence, separate from immutable AZQR captures.
 
 
 ## Cloud Assess and incorporated source/rule attribution / THIRD_PARTY_LICENSES.md
