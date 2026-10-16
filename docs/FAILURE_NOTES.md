@@ -1,3 +1,11 @@
+# Current continuation authority: Storage collector implementation, 2026-10-16
+
+The user authorized the bounded collector slice after completed [PR144](https://github.com/DeBoX85/Cloud-Assess/pull/144), cd5d234. Read [the active implementation record](REGION_STORAGE_SKU_COLLECTOR_20261016.md), frozen contract and this branch's live draft PR. Current branch feat/storage-sku-collector-20261016. This checkpoint is test preparation only: all71frozen collector scenarios are consumed, but the proposed API is absent and the expected missing-symbol build failure is not a product pass. Publish/inspect both-host preparation, then continue the already-authorized bounded implementation, independent boundaries/controls and full exact-head QA. STOP after the collector checkpoint, before required-kind coordinator or public integration.
+
+Earlier contract stop instructions below are historical. PR141/142/143/144 remain draft/unmerged at their verified heads; protected a6fee427 is unchanged. Retain all audit fixes/regressions, original captures and source/dependency/public-schema pins. No Azure operation, fixture/RBAC change, dependency refresh, protected merge, sub-agents or release approval.
+
+---
+
 ## QA-SC-01: generated attribution correction
 
 Initial contract head `15422be7e60326832040ad233fd6d53d17315fbb` failed native run38875550761/Linux116889620954 at the unchanged dependency/license freshness check: docs/dependencies/NOTICES.md was stale after the new NOTICE.md attribution. Formatting and preceding controls passed; subsequent skipped checks are not passes. Full returned failed log53127characters, SHA256`06ebc37225dfd10c7f79d2b26840021d6f2edb7186c62c3aab01b42bec94b4a1`. Source38875550677/job116889619866 passed separately on that initial head, not the correction.
