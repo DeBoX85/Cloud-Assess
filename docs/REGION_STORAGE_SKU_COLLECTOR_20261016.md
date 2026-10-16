@@ -1,3 +1,44 @@
+# Storage implementation candidate prepared, 2026-10-16
+
+Status at publication: implementation/local verification complete; full own exact-head Linux/Windows/source QA pending. The live PR145 final evidence index provides actual final SHA/tree/parent/preview, jobs/full logs/control identities and final disposition. Keep draft/unmerged and do not transfer prior evidence to this candidate. STOP after complete corrected-head proof before coordinator/public integration.
+
+## Implementation and retained contract
+
+New storage_sku_collector.go implements the exact published API. Collect validates scope/aliases/physical target before one bounded Storage2023-01-01 global GET, preserves status/context priority, rejects undocumented paging, validates/bounds the entire JSON envelope including filtered/ignored metadata, and admits all rows atomically. It unions SKU+kind regional/restriction evidence without overwrite; preserves unknown optional metadata, explicit display mappings, stage exclusion, scoped source-compatible restriction states and capability conflicts. Missing kind/type remains unqualified rather than falsely unavailable. Operational failure exposes empty unknown evidence, never a valid prefix or unsupported success.
+
+Evidence validates/copies stable collection and required-kind inputs under entry/text limits. Only inventory-required kinds participate, with no caller-map/slice aliases. Any unresolved required group yields exactly unknown/empty for the Storage entry in the existing name-only consumer. It does not infer inventory kind, build the required-kind coordinator, change percentage arithmetic/schema, register a plugin or add CLI/network execution. Full decoder/unknown/output returns preserve terminal context.
+
+The original71scenario JSON and exact primary fixture are byte-identical to cd5d234. The full manifest runner from f0707bb and boundary/client tests from07eb37d remain unchanged through implementation. Supplemental review tests retain late unknown cancellation, nonrequired-kind isolation and hard-restriction precedence. Existing audit/source/Compute controls and assertions are unchanged.
+
+## Local verification
+
+- All71frozen manifest scenarios and the entire primary248-row fixture passed, including exact complete grouped maps/projection maps and request/context/error expectations.
+- All body/row/group/JSON/alias/scope/projection boundary, actual bounded-client body-closure/audience/status-error, repeated/concurrent ownership and deterministic in-work cancellation tests passed.
+- All25new production reversals compiled, failed their named independent assertion, restored exact original bytes and passed restored baselines. Control output2215bytes SHA256ceec94ce21e61bf5b791b65ed735599def5ba85e2df3cce8e2b5135f45fd4b4f.
+- Complete local go test -race ./... and go vet ./... passed serially AFTER the source-mutating controls completed/restored. Race log2618bytes SHA256e3e7348322690479672758db7e209f9879e9df804ff8176fa2d6207f987a648c; vet log0bytes SHA256e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855. Focused corrected log11705bytes SHA256b018de0bd7de392cfda5edc3f26cabf9f9413c678d571eb20af4baaf221e2e24.
+
+The workflow adds exactly one mandatory Storage-control step to each existing native job. All prior steps/controls, fuzz/property budgets, coverage floor and source/capture checks remain unchanged. Whole-job wall budgets increase by5minutes each, Linux25->30 and Windows30->35, solely to accommodate the25additional compile/fail/restore controls; jobs remain bounded. This is new mandatory work, not suppression or a relaxed assertion. Expected unique control identities are old328+25=353Linux and old323+25=348Windows, with exact prior identity retention required.
+
+## QA-ST-01: implementation review cancellation correction
+
+The first unpublished implementation passed all71frozen cases and published boundary tests. Supplemental TestStorageSKULateUnknownCancellation independently reproduced a missing final terminal-context check on the nil/unknown Evidence return. Full failing local log349bytes SHA256eee81479507ec3846a9c8af8dd24d65e4ee5459fd3f0402cebdd66b2f0a3fed5. This was a new unaccepted feature gap, not a previously accepted audit defect. A private incomplete-return helper now checks ctx.Err on every unknown path. The unchanged supplemental regression and a compiling reversal/restoration control pass; no oracle expectation changed.
+
+QA-ST-02: first local control invocation rejected its request-version anchor because gofmt aligned the constant with two spaces. It restored original source and was not credited as a product pass. The exact helper anchor was corrected, then the complete25control run succeeded. First helper log51bytes SHA25607e44a3e8945f7053a8b1fe716823f21507a3330468e20759a241ed11d75323b. Prevent recurrence by inspecting formatted production before freezing literal anchors; mutations must compile and fail named tests, not merely return nonzero.
+
+## Publication, recovery and rollback
+
+The predecessor test-only heads f0707bb and07eb37d are durable and intentionally missing the API; their red is preparation only. Both first-host native missing-symbol logs are retained: Linux116981113328/33822characters/33824bytes SHA256e29436b13a727d3518be60f5570ac1905450db06aad6c70ae4adf7882732da87; Windows116981113477/33189characters/33191bytes SHA256c98e350c03b5f9e73a32e3920ea0ac546476738a8b7175114cf92f0dc62c9f17. Additional boundary-preparation38904120528 is also expected red; source38904120413 succeeded separately. No preparation result accepts production.
+
+Local shell fetch works and push lacks credentials; connected expected-head publication is used without changing credentials/permissions. Verify exact blobs/tree/parent/Denis identity and live ref after publication. Historical Linux/Windows workspaces and local metadata-only commits remain preserved. If interrupted, inspect live PR145 and current recovery authority before replaying work.
+
+Rollback uses a targeted successor commit after dependency review. Remove/revert the production collector, its mutation helper, two native execution steps and corresponding job-budget allowance together, retaining independent tests and history; the API regression should intentionally return red. Do not reset/force protected history, delete expectations or refresh captures. No schema/data/Azure rollback is required for this internal library.
+
+Next after completed checkpoint evaluation: VM/VMSS pre-edit contract under REGION_COMPUTE_SKU_SOURCE_20261013.md and REGION_SKU_TARGET_ANALYSIS_20261013.md. Required-kind coordinator and public/all-format execution remain deferred. Accepted target adapters remain1/7 until protected disposition; this Storage candidate is unmerged. Source captures7/7, remaining adapters/FullCost/ancillary parity/AR-02/load/live/nonempty/sovereign/visibility/Arc/freshOS/hosted maintenance/module-only advisory/human/license/security/Gate004/release remain open. No sub-agents or Azure operations.
+
+---
+
+## Historical test preparation
+
 ## Published preparation and exact budget interpretation
 
 Preparation f0707bb1983dd0d9578cee84ce06999155d20641/treeb1678a8663e00e3d7a246270ada95b7846ff4aa1 is published in draft PR145. Native38903459610/Linux116981113328 and Windows116981113477 both stop on the three declared missing API symbols; this is expected preparation, not an accepted product failure/pass. Source38903459779 succeeded separately. Shell push lacked credentials; connected publication/readback succeeded without identity/permission changes. The metadata-equivalent local ac671a6 marker is preserved; the task worktree now uses genuine remote ancestry.

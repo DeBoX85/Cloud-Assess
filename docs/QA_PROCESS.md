@@ -1,3 +1,13 @@
+# Current continuation authority: bounded Storage collector candidate, 2026-10-16
+
+The user authorized continuation after completed contract PR144/cd5d234. The bounded Storage collector is now implemented locally under the frozen contract; all71manifest scenarios, independent limits/lifecycle/cancellation/ownership cases,25compiling reversal/restoration controls and the complete local race/vet suites passed. The original71oracle, primary example and published preparation tests are unchanged. See [the active implementation record](REGION_STORAGE_SKU_COLLECTOR_20261016.md) and live draft PR145 for the actual final head/tree/parents and its own native/source outcome. Full candidate QA is pending at publication; earlier preparation/source passes do not certify this head.
+
+Continue the already-authorized exact-head QA if still pending, then STOP at the completed collector checkpoint before required-kind coordinator or public integration. After checkpoint evaluation, the next bounded development task is a VM/VMSS pre-edit contract against the pinned [Compute source observations](REGION_COMPUTE_SKU_SOURCE_20261013.md) and [target analysis](REGION_SKU_TARGET_ANALYSIS_20261013.md), with immutable primary examples and independent expectations before code. Do not activate region selection or skip remaining adapters.
+
+PR141/142/143/144 remain draft/unmerged at their verified heads; PR145 stays draft/unmerged and protected bootstrap/core-v1 stays a6fee427. Accepted target SKU adapters remain1/7; this is an unaccepted second-family candidate, not accepted2/7 or live proof. Source captures remain7/7. Retain all audit corrections/regressions, original captures, dependencies/pins and public schemas. No Azure operations, dependency refresh, sub-agents, protected merge or release approval.
+
+---
+
 # Current continuation authority: Storage collector implementation, 2026-10-16
 
 The user authorized the bounded collector slice after completed [PR144](https://github.com/DeBoX85/Cloud-Assess/pull/144), cd5d234. Read [the active implementation record](REGION_STORAGE_SKU_COLLECTOR_20261016.md), frozen contract and this branch's live draft PR. Current branch feat/storage-sku-collector-20261016. This checkpoint is test preparation only: all71frozen collector scenarios are consumed, but the proposed API is absent and the expected missing-symbol build failure is not a product pass. Publish/inspect both-host preparation, then continue the already-authorized bounded implementation, independent boundaries/controls and full exact-head QA. STOP after the collector checkpoint, before required-kind coordinator or public integration.
