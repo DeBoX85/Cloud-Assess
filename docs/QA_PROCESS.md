@@ -1,3 +1,13 @@
+# Current continuation authority: Storage pre-edit contract, 2026-10-16
+
+The user authorized the next bounded slice after completed reconciliation [PR143](https://github.com/DeBoX85/Cloud-Assess/pull/143), head `8e482c8d7c3a3b438ad4688be1a9718c5880a85a`. That integration's own Linux/Windows/source QA is complete. This successor defines [the Storage contract](REGION_STORAGE_SKU_CONTRACT_20261016.md), preserves an immutable primary example/license, adds71literal future collector scenarios and three executable tests of the existing availability consumer. No Storage collector, required-kind coordinator or public execution is implemented.
+
+Active proposal branch: `docs/storage-sku-contract-20261016`. This successor's own full exact-head QA is pending at publication; read its live draft PR for the final commit/tree/parents, preview, logs and actual outcome. After publication/readback and full QA, STOP at the contract/expectation checkpoint before implementing the proposed API. The next implementation slice must publish compiling tests consuming the frozen manifest before production edits; a missing-API compilation failure is test preparation, never a product pass. Do not claim the71collector scenarios have executed.
+
+PR141/142/143 stay draft/unmerged at their existing heads; protected bootstrap/core-v1 remains `a6fee427e19feeef28691737ea9bc5026086efa0`. Audit corrections and regressions are retained. No Azure operations, source capture/pin/module/SDK/public-schema refresh, protected merge, sub-agents or release approval. Prior status and stop instructions below are historical; preserve their evidence and behavioral contracts unless explicitly superseded.
+
+---
+
 # Current continuation authority: audit and Storage reconciliation, 2026-10-16
 
 The user authorized continuation to the next natural stopping point after reviewing the completed audit. This checkpoint reconciles the audited code with PR141's Storage analysis; it does not implement Storage or accept a protected merge. Read [the reconciliation record](AUDIT_STORAGE_RECONCILIATION_20261016.md) and this branch's live draft PR for its exact head and own QA outcome. PR142 remains the completed, draft/unmerged audit at `1c6c479341ee3d272bf0a93b539f2421d00f09a2`; its native/source evidence is complete, not pending. Protected `bootstrap/core-v1` remains `a6fee427e19feeef28691737ea9bc5026086efa0`.
