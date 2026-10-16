@@ -111,3 +111,39 @@ func TestComputeVMSKUProjectionConsumer(t *testing.T) {
 		}
 	}
 }
+
+func TestComputeVMSKULaterPageCancellation(t *testing.T) {
+	for _, cause := range []error{context.Canceled, context.DeadlineExceeded} {
+		for _, callerTerminal := range []bool{false, true} {
+			ctx := &storageTerminalContext{Context: context.Background(), done: make(chan struct{})}
+			calls := 0
+			collector, err := NewComputeVMSKUCollector("https://management.azure.com", vmGetterFunc(func(_ context.Context, target string, limit int64) ([]byte, *http.Response, error) {
+				calls++
+				if limit != 1048576 {
+					t.Fatal("later-page request lost body bound", limit)
+				}
+				if calls == 1 {
+					if target != vmTestURL {
+						t.Fatal("first URL", target)
+					}
+					body := strings.TrimSuffix(vmReadyBody, "}") + `,"nextLink":"` + vmNext(1) + `"}`
+					return []byte(body), &http.Response{StatusCode: 200}, nil
+				}
+				if calls != 2 || target != "https://management.azure.com"+vmNext(1) {
+					t.Fatal("continuation URL/count", target, calls)
+				}
+				if callerTerminal {
+					ctx.finish(cause)
+				}
+				return []byte(vmReadyBody), &http.Response{StatusCode: 500}, fmt.Errorf("opaque later-page canary: %w", cause)
+			}))
+			if err != nil {
+				t.Fatal(err)
+			}
+			got, err := collector.Collect(ctx, map[string]string{vmTestID: "selected"}, vmRequest())
+			if calls != 2 || got != nil || !errors.Is(err, cause) {
+				t.Fatal("terminal later page must discard admitted prefix", callerTerminal, got, err, calls)
+			}
+		}
+	}
+}

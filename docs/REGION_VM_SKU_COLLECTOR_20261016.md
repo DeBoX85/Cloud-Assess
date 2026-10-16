@@ -1,3 +1,9 @@
+## QA-VM-03: explicit terminal context after an admitted page
+
+Final coverage review added four direct later-page assertions: caller cancellation/deadline and wrapped getter cancellation/deadline, each after a successfully admitted nonempty first page. Exact first/continuation URLs,1MiB request bounds,two calls and nil-result/context-error priority over a second-page HTTP500 are asserted. The full region suite and repository vet pass after this addition. No production behavior change or failure was observed; this completes an explicit frozen-contract coverage obligation. Prevention: review first/later outcomes separately before declaring the test matrix complete.
+
+Production blob0fa5008b5fc24fcf4a9d0a96b72e1aeececdf0ac,32control helper,original runner/frozen67oracle/primary files and all earlier tests/limits remain unchanged. Local later-page full-region log69bytes SHA25641a1aadb95d27018ede9c90f0d49782f3b2f3f10dbd160d2505344e39cef981f; vet empty log SHA256e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855. Candidate721dd3c is superseded; its native38946081219/source38946080445 outcomes do not certify this added test head. Fresh complete own-head gates and final live PR147 index remain mandatory. STOP only at the completed collector checkpoint.
+
 ## VM implementation candidate prepared and locally verified
 
 The bounded collector now implements the frozen Resource SKUs2021-07-01/mandatory location-filter contract. It reuses only unchanged safe origin/continuation/metadata primitives, adds a private raw/projection accounting guard, preserves strict optional metadata and uppercase zoneDetails.Name, and never activates the coordinator/public command. VMSS-bound complete collections project unsupported/empty. Existing scoring excludes unsupported VMSS evidence and emits availability_sku_unsupported; it does not manufacture checked/unknown counts.
