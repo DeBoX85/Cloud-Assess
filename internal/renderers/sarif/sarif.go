@@ -115,7 +115,8 @@ func Marshal(data *result.AssessmentResult, version string) ([]byte, error) {
 			continue
 		}
 		ruleID := normalize(finding.RecommendationID)
-		if _, ok := impacted[ruleID]; !ok {
+		recommendation, ok := impacted[ruleID]
+		if !ok {
 			continue
 		}
 		key := findingKey{ruleID: ruleID, resourceID: normalize(finding.ResourceID)}
@@ -123,7 +124,7 @@ func Marshal(data *result.AssessmentResult, version string) ([]byte, error) {
 			continue
 		}
 		seen[key] = struct{}{}
-		results = append(results, buildResult(finding))
+		results = append(results, buildResult(finding, recommendation.ID))
 	}
 
 	brand := branding.Default()
@@ -180,9 +181,9 @@ func buildRule(recommendation findings.RecommendationSummary) rule {
 	}
 }
 
-func buildResult(finding assessment.Finding) sarifResult {
+func buildResult(finding assessment.Finding, publishedRuleID string) sarifResult {
 	return sarifResult{
-		RuleID: finding.RecommendationID,
+		RuleID: publishedRuleID,
 		Level:  level(finding.Impact),
 		Message: message{Text: fmt.Sprintf(
 			"%s: %s",
