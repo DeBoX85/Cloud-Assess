@@ -1,3 +1,11 @@
+## QA-SC-01: generated attribution correction
+
+Initial contract head `15422be7e60326832040ad233fd6d53d17315fbb` failed native run38875550761/Linux116889620954 at the unchanged dependency/license freshness check: docs/dependencies/NOTICES.md was stale after the new NOTICE.md attribution. Formatting and preceding controls passed; subsequent skipped checks are not passes. Full returned failed log53127characters, SHA256`06ebc37225dfd10c7f79d2b26840021d6f2edb7186c62c3aab01b42bec94b4a1`. Source38875550677/job116889619866 passed separately on that initial head, not the correction.
+
+Correction replaces exactly the generated NOTICE.md section with its new complete text and SHA256, following the unchanged generator's section construction; every other generated-notice byte and inventory.json/module/pin/capture byte remains unchanged. This is required attribution synchronization for the new primary fixture, not a dependency refresh or check relaxation. Fresh full exact-head native/source QA is required. Prevent recurrence by synchronizing generated attribution whenever a root license/notice input changes. The failed candidate and logs remain in history.
+
+---
+
 # Current continuation authority: Storage pre-edit contract, 2026-10-16
 
 The user authorized the next bounded slice after completed reconciliation [PR143](https://github.com/DeBoX85/Cloud-Assess/pull/143), head `8e482c8d7c3a3b438ad4688be1a9718c5880a85a`. That integration's own Linux/Windows/source QA is complete. This successor defines [the Storage contract](REGION_STORAGE_SKU_CONTRACT_20261016.md), preserves an immutable primary example/license, adds71literal future collector scenarios and three executable tests of the existing availability consumer. No Storage collector, required-kind coordinator or public execution is implemented.
