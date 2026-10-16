@@ -1,3 +1,25 @@
+# Section 3 continuation: SR-F11 reproduction and pre-edit correction contract, 2026-10-16
+
+Current published correction head is 7384439c4058feb8c3f7a2241a6b1a8e45950163, tree434f498ee2668cfb80e61687fe01a1a50ae0d372, parent e9dd8d182054a768ff6ab65a91072f7fc11f5615. All eight published changed files were independently read back and blob/tree/parent/Denis identity matched. PR142 remains draft/unmerged; protected bootstrap/core-v1 remains a6fee427e19feeef28691737ea9bc5026086efa0. SR-F10 fixed locally and both-host compiling reversal/restoration controls passed; full native38837602499 remains pending, source38837602502 succeeded separately. Full log/capture reconciliation is still required.
+
+All remaining52 baseline Go files have now received complete initial reads: AI10 and region42, including all1961 lines of other_sku_capture_test.go. Thus initial reads cover94/94 baseline files, plus added regressions; this is not final package or Section3 acceptance. Contract/data/integration reconciliation remains active. The baseline manifest below preserves exact entry blobs and reading history. Region source-only seven-family captures do not certify more than the accepted one target disk adapter; public region execution remains unavailable.
+
+## SR-F11: zone Unicode-fold duplicate keys, P2, REPRODUCED and UNFIXED
+
+The documented ZONE_MAPPING.md contract rejects duplicate JSON keys including case variants, while allowing unknown additional properties. Zone validateJSON uses strings.ToLower; pinned Go1.26.9 encoding/json fold.go/decode.go use Unicode SimpleFold equivalence for struct-field matching. Distinct spellings physicalZone/phyſicalZone and availabilityZoneMappings/availabilityZoneMappingſ pass the zone guard but the decoder accepts the second alias and overwrites the first value. Literal independent cases demonstrate a forged physical zone or a healthy empty mapping list. A nested unknown Σ/ς duplicate also escapes the declared duplicate-key guard. This is a target safety-guard defect, not a reason to modify the pinned source or captures.
+
+Independent regression internal/plugins/zone/unicode_key_test.go requires zero admitted rows and the exact zone_invalid_response failure for each duplicate. Unique unknown Unicode metadata remains accepted with all original rows. Kelvin nextLinK is already rejected by the existing guard and remains a passing control; no continuation-erasure defect is claimed. Local Windows Go1.26.9 compiles and reproduces three named assertion failures. Both-host reproduction is pending.
+
+BEFORE production edits: replace only the private zone duplicate-key equivalence with the same minimum Unicode SimpleFold orbit used by pinned encoding/json, preserving original API fields, Unicode metadata acceptance, source rows, pagination, prefix retention, cancellation, row/byte/depth/worker limits and sanitized failures. No shared JSON refactor. Keep all independent expectations. Add a compiling control that restores strings.ToLower at this one guard, requires the named Unicode assertion failure, restores exact bytes and requires the clean baseline, in both existing native Section3 jobs. Review carbon/AI/region siblings: carbon/AI reject noncanonical known fields via EqualFold, and regional JSON guards already use SimpleFold; no equivalent overwrite reproduced there.
+
+Correction acceptance requires independent duplicate/unique controls, complete zone tests, both native compiling controls, full corrected exact-head Linux/Windows/source QA with fresh retained-capture byte/hash proof, and unchanged pins/dependencies/schema. Isolate production correction after this regression/contract checkpoint. Rollback is an ordinary targeted revert after checking helper-anchor successors; preserving the independent regression intentionally restores red. Do not delete failing expectations or force/reset history.
+
+Local Section3 package trial passed14 packages but reportfile failed because PowerShell was initially absent from PATH; a corrected-PATH focused trial then failed Set-Acl due to executor SeSecurityPrivilege. This restricted local environment does not establish a Windows ACL product defect or a full local suite pass. Native Windows reportfile QA remains mandatory; no ACL expectation is relaxed.
+
+NEXT: complete SR-F10 full-log QA, publish/read back this regression/contract, obtain both-host SR-F11 reproduction, apply isolated correction and control, finish contract reconciliation and corrective full QA. Stop at completed Section3 for user reevaluation before Section4. No Azure operations or dependency/pin/capture refresh.
+
+---
+
 # Section 3 resumed: SR-F10 correction candidate, 2026-10-16
 
 Live PR142/task ref verified at e9dd8d182054a768ff6ab65a91072f7fc11f5615; protected bootstrap/core-v1 remains a6fee427e19feeef28691737ea9bc5026086efa0. PR142 remains draft/unmerged. The four requested handover documents and root AGENTS.md were read. This entry supersedes the earlier unfixed/paused resume paragraphs; historical evidence is retained.
@@ -104,58 +126,58 @@ NEXT: continue full source/test review and update this record/handover after coh
 | `internal/plugins/carbon/projection_test.go` | `105315a948c25c97be421b699e13eec17c3234e1` | 190 | Initial complete read; contract/QA reconciliation pending |
 | `internal/plugins/carbon/scanner.go` | `d0aff9de47afad2c1a1b8c3fcd3ff9819ac5b1fd` | 447 | Initial complete read; contract/QA reconciliation pending |
 | `internal/plugins/carbon/scanner_test.go` | `f8e1e5dca08bcc1706a5a48ff804bf45044d326e` | 625 | Initial complete read; contract/QA reconciliation pending |
-| `internal/plugins/aigov/decoder.go` | `c31875f5576165af668ce95eaa2408767321a203` | 454 | Pending |
-| `internal/plugins/aigov/decoder_test.go` | `76e9df63a13a056b7799877dbeaf4b0282c71b3c` | 143 | Pending |
-| `internal/plugins/aigov/discovery.go` | `63e8d826cd8e4cb4fd51a6ea86a5c4cc40a86660` | 314 | Pending |
-| `internal/plugins/aigov/discovery_test.go` | `9f32084ed4059b885f158ef28044403b1c206503` | 633 | Pending |
-| `internal/plugins/aigov/execution.go` | `558d79cdb2526dcff5256741061737c3a2bc8f7b` | 70 | Pending |
-| `internal/plugins/aigov/execution_test.go` | `e63932442c8fce7f51b4f9a88657d8ffd49c0bd6` | 113 | Pending |
-| `internal/plugins/aigov/projection.go` | `90ceacb770826aff716c4d1ebc2e106ba0b6211c` | 312 | Pending |
-| `internal/plugins/aigov/projection_test.go` | `20454b562bb0645b53157958e97f249e5de66acb` | 345 | Pending |
-| `internal/plugins/aigov/scanner.go` | `c00e0ee00be57cf8bc7256322fbc62722f64a768` | 463 | Pending |
-| `internal/plugins/aigov/scanner_test.go` | `3da3767d71fefb91d76576f712044c742bc929be` | 749 | Pending |
-| `internal/plugins/region/auxiliary.go` | `15ab8323b5b4dd7974105eb15994d777f160ad35` | 260 | Pending |
-| `internal/plugins/region/auxiliary_test.go` | `1526c4508c2a25a009305b9accf7eb5daa4c05b9` | 342 | Pending |
-| `internal/plugins/region/availability.go` | `94360cfbe6a59a3debdf1a8f002cf7b062f8e264` | 308 | Pending |
-| `internal/plugins/region/availability_capture_test.go` | `a212b8f605c28d8eac7137c893de3dc4f89ddaa5` | 146 | Pending |
-| `internal/plugins/region/availability_test.go` | `695105d71c28c64980de19334f1a4370c3057869` | 329 | Pending |
-| `internal/plugins/region/compute_disk_sku_collector.go` | `d7a5b8b2e1facd7a36b157acc9eadd4d91a57465` | 633 | Pending |
-| `internal/plugins/region/compute_disk_sku_collector_test.go` | `76ce22e83bc9fe9fe4bdb51520782a0fed4cc97e` | 652 | Pending |
-| `internal/plugins/region/compute_disk_sku_review_test.go` | `8789739cb653347be8b596e9fccb7e4836410212` | 65 | Pending |
-| `internal/plugins/region/compute_sku_capture_test.go` | `2ef251506b2c6752a02685016aacee513bdf1978` | 193 | Pending |
-| `internal/plugins/region/cost.go` | `dc7c43cdcfc46c2fa67e00aaafbc5cf0faeec149` | 235 | Pending |
-| `internal/plugins/region/cost_enrichment.go` | `94a9cc17e8d70a02852274a69bfd6a6f5eb193d5` | 278 | Pending |
-| `internal/plugins/region/cost_enrichment_capture_test.go` | `92cdcf06990aa8a5139c1966ee9b2ff9a62eec84` | 96 | Pending |
-| `internal/plugins/region/cost_enrichment_test.go` | `c64816dd1daa8be6695b2d10076c267854955a7b` | 468 | Pending |
-| `internal/plugins/region/cost_test.go` | `48712680a4eb91785d889a3c2796bfb3b6e623a3` | 251 | Pending |
-| `internal/plugins/region/inventory.go` | `6157171769aaca1a4e78a026a4dc7f02a610bb87` | 134 | Pending |
-| `internal/plugins/region/inventory_aggregation.go` | `9828cf3a30056e2456028b6e746e1e23afd5782c` | 197 | Pending |
-| `internal/plugins/region/inventory_aggregation_test.go` | `b23fbf28124fdb72a78d5b86c85fff897e4cd30c` | 316 | Pending |
-| `internal/plugins/region/inventory_capture_test.go` | `c7f85db283725e33b2d89a4df85dfdf6e8f8638e` | 107 | Pending |
-| `internal/plugins/region/inventory_test.go` | `ac97771893275ad42fc5272a435e8a9dae57d718` | 294 | Pending |
-| `internal/plugins/region/latency.go` | `1a4a037e8d6c1c80aed1d7d51c66a5d5d1ae1090` | 217 | Pending |
-| `internal/plugins/region/latency_capture_test.go` | `877e215f1212f85096033acf9636618620479d13` | 99 | Pending |
-| `internal/plugins/region/latency_test.go` | `60ea39a005cf1f1aff3f13c3889700706fc46dc2` | 258 | Pending |
-| `internal/plugins/region/other_sku_capture_test.go` | `c73799952e61070813757283c13dc66079408ee7` | 1961 | Pending |
-| `internal/plugins/region/primary.go` | `3a7fb0b9601a525f91c385d0016ce0b8ff532303` | 322 | Pending |
-| `internal/plugins/region/primary_test.go` | `6219219eca501b00af02a8af6fb23bb4a51c5d78` | 335 | Pending |
-| `internal/plugins/region/provider_locations_capture_test.go` | `87112d5d3876fba242dbd2e0bb6ec9e24b35085f` | 183 | Pending |
-| `internal/plugins/region/provider_locations_collector.go` | `8c85347d96488f2d4b1440da3f98a64ab3657413` | 324 | Pending |
-| `internal/plugins/region/provider_locations_collector_test.go` | `9d1180be0e50e0f7fca5d30bbda00cb25eeb3ca6` | 547 | Pending |
-| `internal/plugins/region/quota_capture_test.go` | `78a92620225e5e317e7af84dba73d6971828c326` | 80 | Pending |
-| `internal/plugins/region/quota_collector.go` | `e2a44936371ec66600f33e2378b80ec689ee8b3f` | 352 | Pending |
-| `internal/plugins/region/quota_collector_test.go` | `70a85e863018ef976e4f54a92318f3503d26b3f1` | 543 | Pending |
-| `internal/plugins/region/quota_runtime.go` | `a2be4a680e2c3d705ed1198d1cbb509a04e44713` | 234 | Pending |
-| `internal/plugins/region/quota_runtime_test.go` | `5ac53f03b1614a386b37fd92ed8071885b3efab2` | 353 | Pending |
-| `internal/plugins/region/reservation_capture_test.go` | `31377c86e8b54423d799279c6d29ca3870cc1e72` | 114 | Pending |
-| `internal/plugins/region/reservation_collector.go` | `c5b9c83e5d41be27798d7ab208f2568cca437c49` | 357 | Pending |
-| `internal/plugins/region/reservation_collector_test.go` | `d617b44f6701b59234fbfb3866c08035a26fdf02` | 566 | Pending |
-| `internal/plugins/region/reservation_runtime.go` | `bc6e23eca781e5b5ad81be2f416e2f9c36ec58c8` | 269 | Pending |
-| `internal/plugins/region/reservation_runtime_test.go` | `1ec9bffe0cddf1e624c2b92be434ed8ee7952370` | 421 | Pending |
-| `internal/plugins/region/service.go` | `e2e53165c2a4cb597c2bc36c239557189ad68ccd` | 356 | Pending |
-| `internal/plugins/region/service_test.go` | `f683d274a5b208d4d54a7d1081de3f43aaba1581` | 377 | Pending |
-| `internal/plugins/region/vm_quota_capture_test.go` | `18476fb14c4385d67e7d7fd16ccabbcc7ba8b52c` | 77 | Pending |
-| `internal/plugins/region/vm_quota_collector_test.go` | `47546d5e6b3d79e9d0baa230f6739a3b75fbfa72` | 218 | Pending |
+| `internal/plugins/aigov/decoder.go` | `c31875f5576165af668ce95eaa2408767321a203` | 454 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/aigov/decoder_test.go` | `76e9df63a13a056b7799877dbeaf4b0282c71b3c` | 143 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/aigov/discovery.go` | `63e8d826cd8e4cb4fd51a6ea86a5c4cc40a86660` | 314 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/aigov/discovery_test.go` | `9f32084ed4059b885f158ef28044403b1c206503` | 633 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/aigov/execution.go` | `558d79cdb2526dcff5256741061737c3a2bc8f7b` | 70 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/aigov/execution_test.go` | `e63932442c8fce7f51b4f9a88657d8ffd49c0bd6` | 113 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/aigov/projection.go` | `90ceacb770826aff716c4d1ebc2e106ba0b6211c` | 312 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/aigov/projection_test.go` | `20454b562bb0645b53157958e97f249e5de66acb` | 345 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/aigov/scanner.go` | `c00e0ee00be57cf8bc7256322fbc62722f64a768` | 463 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/aigov/scanner_test.go` | `3da3767d71fefb91d76576f712044c742bc929be` | 749 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/region/auxiliary.go` | `15ab8323b5b4dd7974105eb15994d777f160ad35` | 260 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/region/auxiliary_test.go` | `1526c4508c2a25a009305b9accf7eb5daa4c05b9` | 342 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/region/availability.go` | `94360cfbe6a59a3debdf1a8f002cf7b062f8e264` | 308 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/region/availability_capture_test.go` | `a212b8f605c28d8eac7137c893de3dc4f89ddaa5` | 146 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/region/availability_test.go` | `695105d71c28c64980de19334f1a4370c3057869` | 329 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/region/compute_disk_sku_collector.go` | `d7a5b8b2e1facd7a36b157acc9eadd4d91a57465` | 633 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/region/compute_disk_sku_collector_test.go` | `76ce22e83bc9fe9fe4bdb51520782a0fed4cc97e` | 652 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/region/compute_disk_sku_review_test.go` | `8789739cb653347be8b596e9fccb7e4836410212` | 65 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/region/compute_sku_capture_test.go` | `2ef251506b2c6752a02685016aacee513bdf1978` | 193 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/region/cost.go` | `dc7c43cdcfc46c2fa67e00aaafbc5cf0faeec149` | 235 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/region/cost_enrichment.go` | `94a9cc17e8d70a02852274a69bfd6a6f5eb193d5` | 278 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/region/cost_enrichment_capture_test.go` | `92cdcf06990aa8a5139c1966ee9b2ff9a62eec84` | 96 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/region/cost_enrichment_test.go` | `c64816dd1daa8be6695b2d10076c267854955a7b` | 468 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/region/cost_test.go` | `48712680a4eb91785d889a3c2796bfb3b6e623a3` | 251 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/region/inventory.go` | `6157171769aaca1a4e78a026a4dc7f02a610bb87` | 134 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/region/inventory_aggregation.go` | `9828cf3a30056e2456028b6e746e1e23afd5782c` | 197 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/region/inventory_aggregation_test.go` | `b23fbf28124fdb72a78d5b86c85fff897e4cd30c` | 316 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/region/inventory_capture_test.go` | `c7f85db283725e33b2d89a4df85dfdf6e8f8638e` | 107 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/region/inventory_test.go` | `ac97771893275ad42fc5272a435e8a9dae57d718` | 294 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/region/latency.go` | `1a4a037e8d6c1c80aed1d7d51c66a5d5d1ae1090` | 217 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/region/latency_capture_test.go` | `877e215f1212f85096033acf9636618620479d13` | 99 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/region/latency_test.go` | `60ea39a005cf1f1aff3f13c3889700706fc46dc2` | 258 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/region/other_sku_capture_test.go` | `c73799952e61070813757283c13dc66079408ee7` | 1961 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/region/primary.go` | `3a7fb0b9601a525f91c385d0016ce0b8ff532303` | 322 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/region/primary_test.go` | `6219219eca501b00af02a8af6fb23bb4a51c5d78` | 335 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/region/provider_locations_capture_test.go` | `87112d5d3876fba242dbd2e0bb6ec9e24b35085f` | 183 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/region/provider_locations_collector.go` | `8c85347d96488f2d4b1440da3f98a64ab3657413` | 324 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/region/provider_locations_collector_test.go` | `9d1180be0e50e0f7fca5d30bbda00cb25eeb3ca6` | 547 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/region/quota_capture_test.go` | `78a92620225e5e317e7af84dba73d6971828c326` | 80 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/region/quota_collector.go` | `e2a44936371ec66600f33e2378b80ec689ee8b3f` | 352 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/region/quota_collector_test.go` | `70a85e863018ef976e4f54a92318f3503d26b3f1` | 543 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/region/quota_runtime.go` | `a2be4a680e2c3d705ed1198d1cbb509a04e44713` | 234 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/region/quota_runtime_test.go` | `5ac53f03b1614a386b37fd92ed8071885b3efab2` | 353 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/region/reservation_capture_test.go` | `31377c86e8b54423d799279c6d29ca3870cc1e72` | 114 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/region/reservation_collector.go` | `c5b9c83e5d41be27798d7ab208f2568cca437c49` | 357 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/region/reservation_collector_test.go` | `d617b44f6701b59234fbfb3866c08035a26fdf02` | 566 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/region/reservation_runtime.go` | `bc6e23eca781e5b5ad81be2f416e2f9c36ec58c8` | 269 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/region/reservation_runtime_test.go` | `1ec9bffe0cddf1e624c2b92be434ed8ee7952370` | 421 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/region/service.go` | `e2e53165c2a4cb597c2bc36c239557189ad68ccd` | 356 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/region/service_test.go` | `f683d274a5b208d4d54a7d1081de3f43aaba1581` | 377 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/region/vm_quota_capture_test.go` | `18476fb14c4385d67e7d7fd16ccabbcc7ba8b52c` | 77 | Initial complete read; contract/QA reconciliation pending |
+| `internal/plugins/region/vm_quota_collector_test.go` | `47546d5e6b3d79e9d0baa230f6739a3b75fbfa72` | 218 | Initial complete read; contract/QA reconciliation pending |
 | `internal/renderers/csv/csv.go` | `8ebe602a03cf70048c495d39881c1ef25242ddf0` | 71 | Initial complete read; contract/QA reconciliation pending |
 | `internal/renderers/csv/csv_test.go` | `b2f6517219ecad4c61b098150499b337d860fb80` | 134 | Initial complete read; contract/QA reconciliation pending |
 | `internal/renderers/excel/excel.go` | `198b681647d0037dd60ec7562aeb3b528cdae131` | 233 | Initial complete read; contract/QA reconciliation pending |

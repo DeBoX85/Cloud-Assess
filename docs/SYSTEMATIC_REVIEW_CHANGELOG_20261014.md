@@ -1,3 +1,25 @@
+# Section 3 continuation: SR-F11 reproduction and pre-edit correction contract, 2026-10-16
+
+Current published correction head is 7384439c4058feb8c3f7a2241a6b1a8e45950163, tree434f498ee2668cfb80e61687fe01a1a50ae0d372, parent e9dd8d182054a768ff6ab65a91072f7fc11f5615. All eight published changed files were independently read back and blob/tree/parent/Denis identity matched. PR142 remains draft/unmerged; protected bootstrap/core-v1 remains a6fee427e19feeef28691737ea9bc5026086efa0. SR-F10 fixed locally and both-host compiling reversal/restoration controls passed; full native38837602499 remains pending, source38837602502 succeeded separately. Full log/capture reconciliation is still required.
+
+All remaining52 baseline Go files have now received complete initial reads: AI10 and region42, including all1961 lines of other_sku_capture_test.go. Thus initial reads cover94/94 baseline files, plus added regressions; this is not final package or Section3 acceptance. Contract/data/integration reconciliation remains active. The baseline manifest below preserves exact entry blobs and reading history. Region source-only seven-family captures do not certify more than the accepted one target disk adapter; public region execution remains unavailable.
+
+## SR-F11: zone Unicode-fold duplicate keys, P2, REPRODUCED and UNFIXED
+
+The documented ZONE_MAPPING.md contract rejects duplicate JSON keys including case variants, while allowing unknown additional properties. Zone validateJSON uses strings.ToLower; pinned Go1.26.9 encoding/json fold.go/decode.go use Unicode SimpleFold equivalence for struct-field matching. Distinct spellings physicalZone/phyſicalZone and availabilityZoneMappings/availabilityZoneMappingſ pass the zone guard but the decoder accepts the second alias and overwrites the first value. Literal independent cases demonstrate a forged physical zone or a healthy empty mapping list. A nested unknown Σ/ς duplicate also escapes the declared duplicate-key guard. This is a target safety-guard defect, not a reason to modify the pinned source or captures.
+
+Independent regression internal/plugins/zone/unicode_key_test.go requires zero admitted rows and the exact zone_invalid_response failure for each duplicate. Unique unknown Unicode metadata remains accepted with all original rows. Kelvin nextLinK is already rejected by the existing guard and remains a passing control; no continuation-erasure defect is claimed. Local Windows Go1.26.9 compiles and reproduces three named assertion failures. Both-host reproduction is pending.
+
+BEFORE production edits: replace only the private zone duplicate-key equivalence with the same minimum Unicode SimpleFold orbit used by pinned encoding/json, preserving original API fields, Unicode metadata acceptance, source rows, pagination, prefix retention, cancellation, row/byte/depth/worker limits and sanitized failures. No shared JSON refactor. Keep all independent expectations. Add a compiling control that restores strings.ToLower at this one guard, requires the named Unicode assertion failure, restores exact bytes and requires the clean baseline, in both existing native Section3 jobs. Review carbon/AI/region siblings: carbon/AI reject noncanonical known fields via EqualFold, and regional JSON guards already use SimpleFold; no equivalent overwrite reproduced there.
+
+Correction acceptance requires independent duplicate/unique controls, complete zone tests, both native compiling controls, full corrected exact-head Linux/Windows/source QA with fresh retained-capture byte/hash proof, and unchanged pins/dependencies/schema. Isolate production correction after this regression/contract checkpoint. Rollback is an ordinary targeted revert after checking helper-anchor successors; preserving the independent regression intentionally restores red. Do not delete failing expectations or force/reset history.
+
+Local Section3 package trial passed14 packages but reportfile failed because PowerShell was initially absent from PATH; a corrected-PATH focused trial then failed Set-Acl due to executor SeSecurityPrivilege. This restricted local environment does not establish a Windows ACL product defect or a full local suite pass. Native Windows reportfile QA remains mandatory; no ACL expectation is relaxed.
+
+NEXT: complete SR-F10 full-log QA, publish/read back this regression/contract, obtain both-host SR-F11 reproduction, apply isolated correction and control, finish contract reconciliation and corrective full QA. Stop at completed Section3 for user reevaluation before Section4. No Azure operations or dependency/pin/capture refresh.
+
+---
+
 # Section 3 resumed: SR-F10 correction candidate, 2026-10-16
 
 Live PR142/task ref verified at e9dd8d182054a768ff6ab65a91072f7fc11f5615; protected bootstrap/core-v1 remains a6fee427e19feeef28691737ea9bc5026086efa0. PR142 remains draft/unmerged. The four requested handover documents and root AGENTS.md were read. This entry supersedes the earlier unfixed/paused resume paragraphs; historical evidence is retained.
