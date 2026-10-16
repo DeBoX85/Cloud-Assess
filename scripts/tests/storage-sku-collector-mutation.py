@@ -22,7 +22,8 @@ def check(select):
 
 
 original = SOURCE.read_bytes()
-text = original.decode('utf-8')
+# Git may check out CRLF on Windows; anchors use logical LF while restoration keeps original bytes.
+text = original.decode('utf-8').replace('\r\n', '\n')
 manifest = 'TestStorageSKUFrozenManifest'
 controls = (
     ('request-version', 'storageSKUVersion  = "2023-01-01"', 'storageSKUVersion  = "2021-07-01"', manifest),
