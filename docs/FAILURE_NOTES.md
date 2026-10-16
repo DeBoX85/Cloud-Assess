@@ -1,3 +1,11 @@
+# Current continuation authority: audit and Storage reconciliation, 2026-10-16
+
+The user authorized continuation to the next natural stopping point after reviewing the completed audit. This checkpoint reconciles the audited code with PR141's Storage analysis; it does not implement Storage or accept a protected merge. Read [the reconciliation record](AUDIT_STORAGE_RECONCILIATION_20261016.md) and this branch's live draft PR for its exact head and own QA outcome. PR142 remains the completed, draft/unmerged audit at `1c6c479341ee3d272bf0a93b539f2421d00f09a2`; its native/source evidence is complete, not pending. Protected `bootstrap/core-v1` remains `a6fee427e19feeef28691737ea9bc5026086efa0`.
+
+This successor has separate mandatory QA, pending at publication. Verify its own final PR evidence before claiming it passed; do not transfer PR142's results. After complete publication/readback and exact-head QA, STOP at the integration checkpoint for evaluation before starting the Storage contract/independent-expectation slice. No collector code, protected merge, Azure operation, dependency/pin/capture/schema refresh, sub-agents or release approval is authorized by this checkpoint. Earlier status and next-action paragraphs below are historical; retain their behavioral contracts and evidence unless explicitly superseded.
+
+---
+
 # Current audit recovery authority, 2026-10-16
 
 The Section 4 review and SR-F12 correction are prepared. Their exact-head QA is pending at publication; read [the active report](SYSTEMATIC_REVIEW_SECTION4_20261016.md), [final assessment](SYSTEMATIC_REVIEW_FINAL_ASSESSMENT_20261016.md) and [PR142 evidence index](https://github.com/DeBoX85/Cloud-Assess/pull/142) for actual final head/results. Do not replay completed fixes. Finish this checkpoint's QA if pending, then stop for final audit re-evaluation. PR142 stays draft/unmerged; protected a6fee427, pins/captures/dependencies/schema remain unchanged. No Azure operations, refreshes or sub-agents. Feature work resumes at draft PR141 Storage contract/tests only after audit disposition. Earlier dated status/next-action paragraphs are history; behavioral contracts remain active unless explicitly corrected.
@@ -296,6 +304,132 @@ Historical records below preserve earlier states and must not govern current res
 # Systematic audit recovery note, 2026-10-14
 
 Accepted-branch historical status still described PR140 as pending. Fresh refs, merged PR and accepted-push metadata confirm a6fee427 is accepted offline; detailed full-verification notes remain on draft PR141. Audit-branch handover now explicitly records both states. This is DOC-01 recovery-documentation drift, not a newly discovered runtime failure. Original failure entries below remain intact. See [active findings/change journal](SYSTEMATIC_REVIEW_CHANGELOG_20261014.md) for uncertainty, corrective evidence and backtracking.
+
+---
+
+
+
+---
+
+## Preserved Storage proposal history from PR141
+
+The following entry predates the completed audit. Its earlier stop/next-step statements are historical; the current continuation authority above governs.
+
+# Review and QA complete; PR140 verified offline, 2026-10-14
+
+PR140 merged at a6fee427e19feeef28691737ea9bc5026086efa0 and completed
+candidate AND distinct actual accepted-push verification on both native hosts.
+The protected branch still points to that verified merge. Signed commit/raw SHA1,
+human identities, tree1b13eec931b510592e42608fe8605ebdc287b0a9 and ordered parents
+6f923c1d/01e8de62 matched; protected expected-head merge used active ruleset23890737
+and required integration15368 checks, with no bypass.
+
+Three confirmed defects are corrected:
+| Severity | Defect | Verified correction |
+| --- | --- | --- |
+| P2 | ARG accepted a valid JSON prefix followed by extra data | Validate buffered and remaining bytes as JSON whitespace through EOF |
+| P1 | Disk collector rejected documented nextLink:null final pages | Accept omitted, empty or null terminators; keep nonstring and unsafe-link rejection |
+| P2 | Disk collector lost HTTP status classification from actual bounded-client errors | Preserve terminal context priority, then classify non-200 response status before remaining transport failures |
+
+Each defect reproduced after unchanged production compilation on Linux and Windows.
+ARG FN124 includes18bad suffix cases and4compiling controls. Disk FN126/FN127 use
+three full immutable Microsoft2021-07-01 examples plus actual bounded-client and
+partial-prefix fixtures;23compiling disk controls, restored baselines, vet and
+Linux race/native Windows passed. FN125 preserves the UTF-8 mutation diagnostic
+failure and its exact harness correction. Full formatter bytes matched both hosts.
+No original source capture or independent fixture was rewritten to resemble target
+code; only the mistaken null-terminal target expectation was explicitly corrected
+from primary evidence.
+
+Complete final candidate QA38500431232:
+Linux115645943577/full100868/60steps (conditional failure upload only skipped)/
+314controls; Windows115645943804/full81672/45steps/all-success/309controls.
+Every earlier291Linux/286Windows identity retained plus23disk controls.
+Candidate source38500431285/115645861513/full1360507:7successful steps,
+23records315chunks/SHA256/fresh full candidate UTF8 and Gitblob equality.
+Final automated marker6159203561 completed on01e8de6 at
+2026-10-14T02:23:10.953464Z; no-major-issues comment6159475528 reviewed
+01e8de6244. Both original threads resolved with specific correction QA evidence.
+This automated review is not independent-human or release approval.
+
+DISTINCT actual merge-head PUSH native38502782779:
+Linux115653354934/full100555/60steps (same conditional skip)/314controls;
+Windows115653354646/full81129/45steps/all-success/309controls.
+All314/309candidate identities independently preserved, not only matching counts.
+Actual PUSH source38502782765/115653354694/full1359850:7successful steps,
+23records315chunks, each SHA256 and fresh full a6fee427 merge bytes/Gitblobs matched.
+Both runs explicitly event=push/head=a6fee427/branch=bootstrap/core-v1/completed
+success; final protected ref matched. No candidate/push substitution.
+Original AZQR8e4f0577/tree17d93b20/APRL60eaddda, source/SDK/modules and
+Go1.26.9 remain pinned. Dependency scan still reports0reachable/0imported and
+1module-only advisory; the graph is not declared advisory-free.
+
+Progress measures distinct scopes: source SKU captures7/7; target SKU adapters
+1/7 (14.3%), with Compute disks now verified internally. These are not a weighted
+overall project percentage. Public region execution is still unavailable.
+Remaining6types, coordinator/public integration, FullCost/other adapters,
+AR-02/load/fresh-OS/live/Gate004/licensing/human/release work remain open.
+Overall release ETA requires those contracts, integration and live/laptop QA;
+the completed review/first-disk phase has no remaining acceptance step.
+
+Continuation: full immutable primary Storage2023-01-01 schema/common/example
+read and Gitblob checked. The248-row example repeats5names across kinds/regions;
+source discovery retains kind, while SKU counts lose it. Storage grouping,
+kind-aware projection, display/stage locations and no-schema-paging rules need
+a concrete pre-edit contract and independent expectations before production code.
+This checkpoint/Storage-analysis branch remains task-owned DRAFT/UNACCEPTED;
+its prose records verified PR140 evidence and does not accept new Storage code.
+Laptops/Azure scope have not been reverified; no Azure action or live claim.
+
+Historical checkpoints below remain as historical evidence; this outcome governs.
+
+---
+
+# FN128: merge-verifier API field preflight correction, 2026-10-14
+
+Preflight verifier initially checked verification.valid, but actual GitHub Git API field is verification.verified. Baseline6f signed metadata verified:true/reason:valid was read; corrected exact API field and reproduced full signed raw SHA1 before any merge. No production/ref change or failed signature is inferred.
+The corrected verifier reproduced signed baseline6f923c1d and actual protected
+PR140a6fee427e19feeef28691737ea9bc5026086efa0 with full payload/signature bytes including final newline.
+No invalid Git signature or source identity was found. A guessed
+internal/plugins/region/inventory_runtime.go fetch returned NOT_FOUND; existing
+inventory types and availability tests supplied verified actual integration
+interfaces, and all new integration cases compiled/passed on both hosts.
+
+---
+
+# PR140 merged; distinct actual accepted-push verification pending, 2026-10-14
+
+Current protected baseline is PR140 a6fee427e19feeef28691737ea9bc5026086efa0.
+Signed Git commit/raw SHA1 reproduced, Denis author/GitHub committer, verified
+signature, tree1b13eec931b510592e42608fe8605ebdc287b0a9, ordered parents
+6f923c1dd40a3396db65415510f599a328ed38b5 and
+01e8de6244214204e4b34530c62e42c2c83221e3; original protected ref and merged PR
+read back exactly. Active ruleset23890737/no bypass/integration15368 gates
+enforced; expected-head protected merge succeeded.
+
+Candidate full QA38500431232: Linux115645943577/full100868/60steps (only
+conditional failure upload skipped)/314controls and Windows115645943804/
+full81672/45steps all-success/309controls. Every earlier291/286 identity
+retained plus23disk controls. Source38500431285/115645861513/full1360507:
+all7steps-success,23records315chunks, each SHA256 and fresh full candidate
+UTF8/Gitblob matched. Final automated marker6159203561 completed on01e8de6
+2026-10-14T02:23:10.953464Z; no-major-issues comment6159475528; both old
+findings resolved with concrete reproduction/correction QA evidence.
+
+DISTINCT actual merge-head PUSH runs38502782779(native) and38502782765(source)
+are pending complete log/hash/fresh-merge readback verification. Candidate passes
+do not substitute. Target verified acceptance remains pending for first disk
+adapter; source capture coverage7/7 is separate. No public region activation,
+Azure access inference or release readiness claim.
+
+This task-owned checkpoint/Storage analysis branch is DRAFT/UNACCEPTED.
+Storage analysis examines full immutable primary2023-01-01 schema and248-row
+example; grouped name/kind/region semantics, display/stage locations, lack of
+schema paging and absence-of-location evidence still need a concrete contract.
+No Storage production code is authorized by this analysis itself; continue the
+existing user-authorized offline project scope after publishing concrete cases.
+Other6SKUtypes/coordinator/FullCost/AR-02/module-only/load/freshOS/live/Gate004/
+licensing/human/release remain open. Laptop access unconfirmed; no Azure actions.
 
 ---
 
