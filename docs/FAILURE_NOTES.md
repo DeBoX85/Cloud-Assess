@@ -1,3 +1,13 @@
+# Section 4 SR-F12 pre-edit checkpoint, 2026-10-16
+
+Continue the authorized Section4 review. Live entry c8a15c7984d61cb9a20f777767aa5a3c5a430b34/tree1600a692d57a8cf970ec6998a21ad48784d99f38 and protected a6fee427 were verified. The recovered local3aefcaa has the identical entry tree but different commit metadata; it was preserved unchanged, and a fresh genuine-ancestry worktree was created at the live head. PR142 is draft/unmerged.
+
+SR-F12 conflicting duplicate equivalence rows are reproduced locally and UNFIXED. The independent literal real-command regression and pre-edit correction/rollback contract are in [the active Section4 report](SYSTEMATIC_REVIEW_SECTION4_20261016.md). This test-only checkpoint deliberately retains the faulty production; inspect both native hosts' compiling failures before correcting. All nine conflict assertions fail locally; identical normalized duplicate and resource-type aggregation controls pass. No earlier green certifies this changed head.
+
+NEXT: obtain/inspect native reproduction; apply only the published private duplicate conflict guard, retain original regression, add a compiling reversal/restoration control in both native jobs, finish scripts/workflows/provenance/docs reconciliation and full corrected exact-head QA. Section4 is incomplete. No sub-agents, Azure operations, dependency/pin/capture/schema refresh, protected merge or release approval. After final audit disposition, development resumes Storage contract/tests in draftPR141, not a new region implementation.
+
+---
+
 # Section3 final corrective checkpoint and stopping rule, 2026-10-16
 
 All94 baseline Go files (43production/51tests) and both independent added regressions have full reads; contract/data/integration reconciliation covers all15Section3packages. Read the [active report](SYSTEMATIC_REVIEW_SECTION3_20261015.md) and [contract map](SYSTEMATIC_REVIEW_SECTION3_CONTRACTS_20261016.md). Sections1-2 stay complete; no Section4 review is claimed.

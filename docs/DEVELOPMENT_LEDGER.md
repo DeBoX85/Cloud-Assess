@@ -1,3 +1,13 @@
+# Section 4 SR-F12 pre-edit checkpoint, 2026-10-16
+
+Continue the authorized Section4 review. Live entry c8a15c7984d61cb9a20f777767aa5a3c5a430b34/tree1600a692d57a8cf970ec6998a21ad48784d99f38 and protected a6fee427 were verified. The recovered local3aefcaa has the identical entry tree but different commit metadata; it was preserved unchanged, and a fresh genuine-ancestry worktree was created at the live head. PR142 is draft/unmerged.
+
+SR-F12 conflicting duplicate equivalence rows are reproduced locally and UNFIXED. The independent literal real-command regression and pre-edit correction/rollback contract are in [the active Section4 report](SYSTEMATIC_REVIEW_SECTION4_20261016.md). This test-only checkpoint deliberately retains the faulty production; inspect both native hosts' compiling failures before correcting. All nine conflict assertions fail locally; identical normalized duplicate and resource-type aggregation controls pass. No earlier green certifies this changed head.
+
+NEXT: obtain/inspect native reproduction; apply only the published private duplicate conflict guard, retain original regression, add a compiling reversal/restoration control in both native jobs, finish scripts/workflows/provenance/docs reconciliation and full corrected exact-head QA. Section4 is incomplete. No sub-agents, Azure operations, dependency/pin/capture/schema refresh, protected merge or release approval. After final audit disposition, development resumes Storage contract/tests in draftPR141, not a new region implementation.
+
+---
+
 # Section3 corrective checkpoint and STOP rule, 2026-10-16
 
 All94 baseline Go files (43production/51tests), both added regressions and all15Section3package contracts/integration boundaries are reviewed. [Active report](SYSTEMATIC_REVIEW_SECTION3_20261015.md), [contract map](SYSTEMATIC_REVIEW_SECTION3_CONTRACTS_20261016.md) and [failure notes](FAILURE_NOTES.md) retain findings, full reproduction/log hashes, fixes and rollback. SR-F10 is fixed in7384439 with complete earlier native/source proof. SR-F11 is corrected in this checkpoint after both-host compiling reproduction at b82de398; its regression expectations are unchanged and both compiling reversal/restoration controls pass locally. Parent for this correction is b82de3982c1bdec21a0a50bcbfa21a2a2aa08069.

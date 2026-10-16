@@ -1,3 +1,13 @@
+# Section 4 SR-F12 pre-edit checkpoint, 2026-10-16
+
+Continue the authorized Section4 review. Live entry c8a15c7984d61cb9a20f777767aa5a3c5a430b34/tree1600a692d57a8cf970ec6998a21ad48784d99f38 and protected a6fee427 were verified. The recovered local3aefcaa has the identical entry tree but different commit metadata; it was preserved unchanged, and a fresh genuine-ancestry worktree was created at the live head. PR142 is draft/unmerged.
+
+SR-F12 conflicting duplicate equivalence rows are reproduced locally and UNFIXED. The independent literal real-command regression and pre-edit correction/rollback contract are in [the active Section4 report](SYSTEMATIC_REVIEW_SECTION4_20261016.md). This test-only checkpoint deliberately retains the faulty production; inspect both native hosts' compiling failures before correcting. All nine conflict assertions fail locally; identical normalized duplicate and resource-type aggregation controls pass. No earlier green certifies this changed head.
+
+NEXT: obtain/inspect native reproduction; apply only the published private duplicate conflict guard, retain original regression, add a compiling reversal/restoration control in both native jobs, finish scripts/workflows/provenance/docs reconciliation and full corrected exact-head QA. Section4 is incomplete. No sub-agents, Azure operations, dependency/pin/capture/schema refresh, protected merge or release approval. After final audit disposition, development resumes Storage contract/tests in draftPR141, not a new region implementation.
+
+---
+
 # Section 4 authorized and in progress, 2026-10-16
 
 The user re-evaluated completed Section 3 and authorized continuation in proper order. Continue Section 4 under [the active report](SYSTEMATIC_REVIEW_SECTION4_20261016.md), then reconcile the final audit disposition before returning to Storage contract/tests in draft PR141. This supersedes the earlier wait-before-Section4 instructions below. Sections 1–3 remain complete at98b8915 with full exact-head evidence in PR142; Section4 is IN PROGRESS, not complete. Keep PR142 draft/unmerged, preserve all pins/captures/dependencies/schema and independent expectations. No Azure operations, dependency refresh, sub-agents, protected merge or release approval is implied. Verify live refs and actual workspace before replaying work.
