@@ -1,3 +1,9 @@
+## Both-host missing-API preparation inspected
+
+Native run38942895647 failed at existing Compute disk control compilation because the new runner references the absent VM API. Linux117114709102 and Windows117114708851 both reported only ComputeVMSKUGroup/NewComputeVMSKUCollector/ComputeVMSKURequest missing. Earlier audit/ARG controls passed; later skipped checks are not credited. Separate source38942895643/117114709120 succeeded. Full log fingerprints: {"Linux":{"job":117114709102,"characters":33767,"bytes":33769,"sha256":"53855572291db2e56b87fa8259a9d987c7b33a1d609ebfd3469b5cccf302e5d4"},"Windows":{"job":117114708851,"characters":33279,"bytes":33281,"sha256":"4059e4c931306866e07d149a28cda605ca3468dbad7ed3fc8735364f3f72d397"}}. These are preparation results only.
+
+The supplemental boundary file was authored before production and is now published as a second test-preparation checkpoint. It covers exact/excess page/aggregate/page-count/group/scope/JSON/work/continuation/projection input budgets, actual bounded HTTP/context/closure, corruption, ownership and late cancellation. This second head also lacks the API and is not acceptance. The unchanged first runner and frozen67-case manifest remain the oracle. Continue the authorized implementation, then require full final-head gates.
+
 # Bounded VM catalog collector, 2026-10-16
 
 Active branch feat/vm-sku-collector-20261016, exact base37954dd425957997844f7b9f33b2356e1dbdcca7. The user authorized this next bounded collector after evaluating completed PR146. Frozen contract and67literal cases/4primary files remain byte-identical. VMSS-bound evidence projects unsupported/empty; no VMSS scoring/coordinator/public execution.
