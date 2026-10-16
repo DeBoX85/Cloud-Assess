@@ -1,3 +1,25 @@
+# Section 3 resumed: SR-F10 correction candidate, 2026-10-16
+
+Live PR142/task ref verified at e9dd8d182054a768ff6ab65a91072f7fc11f5615; protected bootstrap/core-v1 remains a6fee427e19feeef28691737ea9bc5026086efa0. PR142 remains draft/unmerged. The four requested handover documents and root AGENTS.md were read. This entry supersedes the earlier unfixed/paused resume paragraphs; historical evidence is retained.
+
+SR-F10 production correction now passes local Windows Go1.26.9 regression and full SARIF package tests. Results use the published descriptor ID through the private builder argument. Canonical IDs, dedup keys, resource identities and fingerprint code are unchanged; the original regression file/expectations are byte-identical to e9dd8d1. scripts/tests/section3-regressions.py deliberately restores the old result-ID expression, requires a compiling named assertion failure, restores exact production bytes and requires the clean test to pass. Both native jobs now run this control. These are LOCAL corrective results only; full exact-head Linux/Windows/source acceptance is pending. Section3 remains incomplete; no package receives final credit.
+
+Fresh handoff-head native38835324513 failed only the two declared mixed-case assertions after compilation on Linux116763053490 and Windows116763053350; no build-failure or race-warning marker appeared in complete returned logs. Source38835324499 succeeded separately. Later native steps skipped are not credited.
+
+Recovery: current short-path workspace C:/workspace/ca3-20261016/repo was reconstructed from the exact e9dd8d1 archive. All773 tracked file blobs matched before edits; reconstructed Git tree fbfdf3dcb71d997518d53c2da195a497e7265ee2 matched. Its local root commit is a reconstruction marker, not remote ancestry. Go1.26.9 official Windows archive SHA256 d722201a9c0c086d1610e111c48203009af690892ed708072bd5ae20160e7a59 was verified. Shell Git networking failed, but direct fetch and authenticated GitHub publication work. APRL archive extraction first hit Windows path length; same pinned archive re-extracted to the short path. Pinned module downloads do not refresh go.mod/go.sum. None of these setup events is a product finding.
+
+Parent for this isolated correction: e9dd8d182054a768ff6ab65a91072f7fc11f5615. Identify its resulting commit/tree from live PR142 and read-back before resuming. Rollback is an ordinary targeted revert of the production/helper/workflow changes together, after dependency review; that intentionally restores the known red original regression, whose expectations must not be removed. No protected reset, pin/capture/schema/dependency change or Azure action.
+
+NEXT: inspect fresh exact-head native/source controls and full outcomes; finish AI/region complete reads plus all94-file contract/data/integration reconciliation, independently fix any substantiated finding, obtain complete corrective QA and publish the completed Section3checkpoint. STOP before Section4 for the user.
+
+Local log bytes and SHA256:
+
+- sarif-baseline-proxy: 785 bytes, 42617cc4fcfac2dfbcaf6cb9ba57b31571af5be569b62d6f901d64f9b2b48935
+- section3-control: 93 bytes, 732e82dba98a06831cc2db36a587f640066ddc8d64cdacf99c55382425bf7c10
+- sarif-suite: 69 bytes, 965b4edb6305ea551f55e400142cec634cce87998840ef0b7ce5122b8e58af8b
+
+---
+
 # Current handover authority — 2026-10-16
 
 Read [handover checkpoint](HANDOVER_CHECKPOINT_20261016.md), [restart prompt](NEW_CHAT_PROMPT_20261016.md) and [Section 3 active report](SYSTEMATIC_REVIEW_SECTION3_20261015.md) first. This entry supersedes earlier current-state, pause and next-action paragraphs below; historical contracts, failures and evidence remain preserved.
