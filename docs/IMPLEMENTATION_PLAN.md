@@ -1,3 +1,9 @@
+# Current audit recovery authority, 2026-10-16
+
+The Section 4 review and SR-F12 correction are prepared. Their exact-head QA is pending at publication; read [the active report](SYSTEMATIC_REVIEW_SECTION4_20261016.md), [final assessment](SYSTEMATIC_REVIEW_FINAL_ASSESSMENT_20261016.md) and [PR142 evidence index](https://github.com/DeBoX85/Cloud-Assess/pull/142) for actual final head/results. Do not replay completed fixes. Finish this checkpoint's QA if pending, then stop for final audit re-evaluation. PR142 stays draft/unmerged; protected a6fee427, pins/captures/dependencies/schema remain unchanged. No Azure operations, refreshes or sub-agents. Feature work resumes at draft PR141 Storage contract/tests only after audit disposition. Earlier dated status/next-action paragraphs are history; behavioral contracts remain active unless explicitly corrected.
+
+---
+
 # Current security remediation authority, 2026-10-11
 
 Read [SESSION_HANDOVER.md](SESSION_HANDOVER.md), the
@@ -173,7 +179,9 @@ Reports are rendered before exit 2 or 3 is returned, preserving evidence for CI 
 
 The CI foundation from step 29 is already partly implemented ahead of sequence. It checks pinned source-data provenance, formatting, module graph cleanliness, branding boundaries, PowerShell validation-helper behavior, the actual CLI build, root/scan help and version smoke tests, race-enabled tests, a minimum statement-coverage floor, `go vet`, and reachable vulnerabilities. External actions are commit-pinned. Required CI additionally executes built-CLI offline preflight/report-preservation cases and compares compiled dependencies with the generated inventory under CGO-disabled amd64 builds; see [BUILT_CLI_VALIDATION.md](BUILT_CLI_VALIDATION.md). Development candidate packaging adds notices/checksums/build metadata and isolated extraction/runtime checks; see [PACKAGE_BUILDS.md](PACKAGE_BUILDS.md). Successful live installed scans, release publication and approval remain future work.
 
-## Current known gaps
+## Historical known gaps at the initial core checkpoint
+
+This snapshot is retained for traceability. Current implemented/deferred features and next actions are indexed in [SESSION_HANDOVER.md](SESSION_HANDOVER.md) and the active systematic review; do not replay the completed plugin inspection or migration work below.
 
 The generic core `scan` path is runnable and semantically equivalent for the live behaviors exercised so far, but core v1 is not yet declared release-complete.
 
