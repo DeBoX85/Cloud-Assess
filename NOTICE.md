@@ -33,3 +33,9 @@ The imported snapshot revision is recorded in `internal/rules/provenance.go`.
 ## Generated dependency notices
 
 The source/rule license texts above do not replace a dependency inventory. The current [generated inventory and notices](docs/DEPENDENCIES.md) are checked for freshness in CI. Before any release or redistribution, regenerate from the actual release tree and dependency graph, review platform/artifact contents and these attributions for completeness, and include the required license texts with the distribution.
+
+## Azure REST API specifications test fixture
+
+The Storage SKU primary example in internal/plugins/region/testdata/storage-primary-2023-01-01-SKUList.json is copied unchanged from Azure/azure-rest-api-specs commit `1cdcc5414764d20e8815554c8b89708c10747c18`.
+
+Copyright (c) 2017 Microsoft. Licensed under the MIT License. The complete original notice and permission text are retained in [storage-primary-LICENSE.txt](internal/plugins/region/testdata/storage-primary-LICENSE.txt). This fixture is primary schema/example evidence, separate from the pinned AZQR source captures.

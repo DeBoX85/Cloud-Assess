@@ -20,7 +20,7 @@ concurrency:
 jobs:
   quality:
     runs-on: ubuntu-24.04
-    timeout-minutes: 20
+    timeout-minutes: 25
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -54,6 +54,18 @@ jobs:
           test "$actual_skus" = "$expected_skus"
 
           test "$(git -C internal/rules/upstream/aprl rev-parse HEAD)" = "$expected_aprl"
+
+      - name: Verify Section 1 compiling regressions
+        run: python3 scripts/tests/section1-regressions.py
+
+      - name: Verify Section 2 compiling regressions
+        run: python3 scripts/tests/section2-regressions.py
+
+      - name: Verify Section 3 compiling regressions
+        run: python3 scripts/tests/section3-regressions.py
+
+      - name: Verify Section 4 compiling regressions
+        run: python3 scripts/tests/section4-regressions.py
 
       - name: Verify ARG response framing compiling controls
         run: python3 scripts/tests/arg-response-framing-mutation.py
@@ -319,6 +331,18 @@ jobs:
 
       - name: Verify Windows workflow native-command failure propagation
         run: python scripts/tests/workflow-command-failures.py
+
+      - name: Verify Section 1 compiling regressions
+        run: python scripts/tests/section1-regressions.py
+
+      - name: Verify Section 2 compiling regressions
+        run: python scripts/tests/section2-regressions.py
+
+      - name: Verify Section 3 compiling regressions
+        run: python scripts/tests/section3-regressions.py
+
+      - name: Verify Section 4 compiling regressions
+        run: python scripts/tests/section4-regressions.py
 
       - name: Verify ARG response framing compiling controls
         run: python scripts/tests/arg-response-framing-mutation.py
