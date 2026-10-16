@@ -20,7 +20,7 @@ concurrency:
 jobs:
   quality:
     runs-on: ubuntu-24.04
-    timeout-minutes: 30
+    timeout-minutes: 35
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -75,6 +75,9 @@ jobs:
 
       - name: Verify Storage SKU collector compiling controls
         run: python3 scripts/tests/storage-sku-collector-mutation.py
+
+      - name: Verify VM SKU collector compiling controls
+        run: python3 scripts/tests/compute-vm-sku-collector-mutation.py
 
       - name: Verify retained source capture byte guard
         run: python3 scripts/tests/region-source-capture.py
@@ -300,7 +303,7 @@ jobs:
 
   windows-validation:
     runs-on: windows-2022
-    timeout-minutes: 35
+    timeout-minutes: 40
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -355,6 +358,9 @@ jobs:
 
       - name: Verify Storage SKU collector compiling controls
         run: python scripts/tests/storage-sku-collector-mutation.py
+
+      - name: Verify VM SKU collector compiling controls
+        run: python scripts/tests/compute-vm-sku-collector-mutation.py
 
       - name: Verify Windows retained source capture byte guard
         run: python scripts/tests/region-source-capture.py

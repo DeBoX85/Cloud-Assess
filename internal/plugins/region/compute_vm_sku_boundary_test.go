@@ -210,7 +210,7 @@ func TestComputeVMSKUContinuationLimits(t *testing.T) {
 			calls++
 			body := `{"value":[]}`
 			if calls == 1 {
-				body = `{"value":[],"nextLink":"` + vmNext(1) + strings.Repeat("x", n-1) + `"}`
+				body = `{"value":[],"nextLink":"` + strings.Replace(vmNext(1), "&api-version=", strings.Repeat("x", n-1)+"&api-version=", 1) + `"}`
 			}
 			return []byte(body), &http.Response{StatusCode: 200}, nil
 		}))
@@ -224,7 +224,7 @@ func TestComputeVMSKUContinuationLimits(t *testing.T) {
 	for _, n := range []int{8192, 8193} {
 		pad := n - len(base)
 		escaped := strings.Repeat("%61", pad/3) + strings.Repeat("a", pad%3)
-		link := base + escaped
+		link := strings.Replace(base, "&api-version=", escaped+"&api-version=", 1)
 		calls := 0
 		c, _ := NewComputeVMSKUCollector("https://management.azure.com", vmGetterFunc(func(context.Context, string, int64) ([]byte, *http.Response, error) {
 			calls++
@@ -278,7 +278,7 @@ func TestComputeVMSKUProjectionBoundsAndCorruption(t *testing.T) {
 			t.Fatal("65536 projection logical entries", extra, e)
 		}
 	}
-	// Collection binding labels use exactly104bytes: UUID36+eastus6+resourceType34+complete8, plus actual resource type length checked below.
+	// Charge the literal binding lengths once, separately from group names and zone labels.
 	binding := len(vmTestID) + len("eastus") + len(vmTestType) + len("complete")
 	for _, extra := range []int{0, 1} {
 		c := vmEmptyCollection()

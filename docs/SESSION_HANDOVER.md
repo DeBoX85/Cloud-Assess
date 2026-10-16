@@ -1,3 +1,13 @@
+# Current continuation authority: bounded VM collector candidate, 2026-10-16
+
+The user authorized implementation after completed PR146/37954dd. The internal VM catalog collector is locally implemented: all67unchanged frozen scenarios, primary integrity, supplemental limits/HTTP/context/ownership/projection/scoring tests and32compiling reversals/restored baselines passed. The complete region package and repository-wide vet passed. Read [the active collector record](REGION_VM_SKU_COLLECTOR_20261016.md), frozen contract and live draft [PR147](https://github.com/DeBoX85/Cloud-Assess/pull/147) for actual final head/tree/parent/preview and its own full QA. Full Linux/Windows/source gates are pending at publication; test-preparation failures and predecessor green do not certify this candidate.
+
+Continue this candidate's full exact-head QA, verify all353priorLinux+32VM=385 and348priorWindows+32VM=380control identities, full logs/packages/scans and complete pinned-source capture proof; finalize the PR evidence index, then STOP at the completed bounded VM collector checkpoint. No VMSS eligibility, required-kind coordinator or public execution in this slice. The next distinct contract after checkpoint evaluation is VMSS eligibility reconciliation from primary evidence; keep scoring unsupported while that contract is unresolved.
+
+PR141-147 remain draft/open/unmerged. Protected bootstrap/core-v1 stays a6fee427; accepted target adapters remain1/7, source characterization7/7. Frozen67-case manifest, first runner, four primary files and pre-edit contract remain unchanged; only the supplemental token-limit request builder was corrected as QA-VM-01. Preserve prior audit fixes/controls/source23captures/modules/pins/public schemas and all open roadmap/live/security/license/release obligations. No Azure operations, resource fixtures/RBAC, refresh, sub-agents, protected merge or release. Earlier missing-API/pending/branch/stop paragraphs below are history.
+
+---
+
 # Current continuation authority: bounded VM collector implementation, 2026-10-16
 
 The user authorized continuation after completed draft PR146/37954dd. Its own full Linux/Windows/source gates passed and the final evidence index remains in [PR146](https://github.com/DeBoX85/Cloud-Assess/pull/146). Continue the bounded VM catalog collector under the frozen [contract](REGION_VM_VMSS_SKU_CONTRACT_20261016.md); VMSS scoring remains unsupported. Read [the active collector record](REGION_VM_SKU_COLLECTOR_20261016.md) and the live draft implementation PR for actual current head and QA.
