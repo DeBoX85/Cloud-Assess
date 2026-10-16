@@ -134,6 +134,7 @@ func TestComputeVMSKULaterPageCancellation(t *testing.T) {
 				}
 				if callerTerminal {
 					ctx.finish(cause)
+					return []byte(vmReadyBody), &http.Response{StatusCode: 500}, errors.New("opaque nonterminal getter error")
 				}
 				return []byte(vmReadyBody), &http.Response{StatusCode: 500}, fmt.Errorf("opaque later-page canary: %w", cause)
 			}))

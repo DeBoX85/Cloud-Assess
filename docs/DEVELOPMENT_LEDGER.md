@@ -1,3 +1,5 @@
+QA-VM-03 refinement: the later-page caller cancellation/deadline cases now return a nonterminal getter error with HTTP500, independently isolating caller-context priority. Getter-terminal cases retain wrapped cancellation/deadline. This corrects test isolation only; no production or frozen-oracle change. Superseded 8d66bde evidence is historical; require full fresh native/source gates for the corrected test revision.
+
 ## QA-VM-03: explicit terminal context after an admitted page
 
 Final coverage review added four direct later-page assertions: caller cancellation/deadline and wrapped getter cancellation/deadline, each after a successfully admitted nonempty first page. Exact first/continuation URLs,1MiB request bounds,two calls and nil-result/context-error priority over a second-page HTTP500 are asserted. The full region suite and repository vet pass after this addition. No production behavior change or failure was observed; this completes an explicit frozen-contract coverage obligation. Prevention: review first/later outcomes separately before declaring the test matrix complete.
