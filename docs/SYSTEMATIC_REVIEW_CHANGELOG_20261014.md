@@ -1,3 +1,15 @@
+# Current continuation authority: VM/VMSS pre-edit contract, 2026-10-16
+
+The user requested all relevant handover/status updates and continuation to the next natural stopping point. [Storage collector completion](STORAGE_COLLECTOR_COMPLETION_20261016.md) and the [full PR145 evidence snapshot](STORAGE_COLLECTOR_PR145_EVIDENCE_20261016.md) now record its completed exact-head Linux/Windows/source proof. Do not rerun the completed Storage slice or treat the historical pending wording below as current.
+
+Active branch: docs/vm-vmss-contract-20261016, based on verified PR145 a14128bc94bf531dd1c28553db14d2be011b2214. Read [the VM/VMSS pre-edit contract](REGION_VM_VMSS_SKU_CONTRACT_20261016.md). This slice freezes primary Compute schema/examples and literal future expectations; it adds no VM collector, production change, new executable control or public integration. VM size catalog and VMSS deployment eligibility are explicitly separate; VMSS evidence remains unsupported in the first proposed collector. Future manifest scenarios have NOT executed against the absent API.
+
+This successor requires its OWN complete Linux/Windows/source gates. At publication these are pending; its live draft PR is the final exact-head commit/tree/parent/preview/log evidence index. Finish those gates, update that index, then STOP at the contract/expectation checkpoint before writing VM production code. A later implementation must first publish compiling tests consuming the frozen oracle and inspect the expected missing-API preparation; compilation failure is never a product pass.
+
+PR141-145 remain draft/open/unmerged at their recorded heads; protected bootstrap/core-v1 remains a6fee427e19feeef28691737ea9bc5026086efa0. Accepted target adapters remain 1/7; Storage is an unaccepted candidate, and this contract adds no accepted adapter. Source characterization remains 7/7. Preserve all audit corrections, 353 Linux / 348 Windows controls, original 23 source captures, pins/dependencies/public schemas and open roadmap/live/security/license/release obligations. No Azure operations, fixtures/RBAC, refresh, sub-agents, protected merge or release authorization. Earlier dated next actions and stop instructions below are historical unless their behavioral contracts remain applicable.
+
+---
+
 # Current audit recovery authority, 2026-10-16
 
 The Section 4 review and SR-F12 correction are prepared. Their exact-head QA is pending at publication; read [the active report](SYSTEMATIC_REVIEW_SECTION4_20261016.md), [final assessment](SYSTEMATIC_REVIEW_FINAL_ASSESSMENT_20261016.md) and [PR142 evidence index](https://github.com/DeBoX85/Cloud-Assess/pull/142) for actual final head/results. Do not replay completed fixes. Finish this checkpoint's QA if pending, then stop for final audit re-evaluation. PR142 stays draft/unmerged; protected a6fee427, pins/captures/dependencies/schema remain unchanged. No Azure operations, refreshes or sub-agents. Feature work resumes at draft PR141 Storage contract/tests only after audit disposition. Earlier dated status/next-action paragraphs are history; behavioral contracts remain active unless explicitly corrected.

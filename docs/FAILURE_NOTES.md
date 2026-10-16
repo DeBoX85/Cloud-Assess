@@ -1,3 +1,23 @@
+## QA-VC-01: local contract-preparation guards, 2026-10-16
+
+The first local notice update stopped at an assertion because it treated headings inside NOTICE.md as generated-section boundaries. The corrected operation replaces the exact old root-notice text/hash in original Git bytes and verifies every other generated-notice byte remains identical, including mixed embedded line endings. Local link checking also caught PR-body-relative docs/ links in the saved evidence snapshot; those now use immutable candidate URLs. Both were caught before publication, corrected and rechecked; neither is a product test pass or baseline audit finding. Future manifest self-review corrected projection expectations to include only requested names and made error-case evidence null before freezing. Preserve these contract-preparation corrections separately from executable collector QA.
+
+## QA-VC-02: preserve historical bytes before publication
+
+A local suffix-equality guard caught Windows default-text-decoding changes in historical failure notes. The first local commit0581205 was not published. All16status files were rebuilt as new UTF-8 prefixes plus exact original Git bytes; the old content is preserved byte-for-byte. The correction also records that the collection text cap is dominated by the tighter aggregate wire cap, so future QA must test private accounting separately rather than claim an unreachable public exact-cap case. Explicit Python exit checking prevents subsequent command execution after a failed preparation step. No failed preparation is credited as product QA.
+
+# Current continuation authority: VM/VMSS pre-edit contract, 2026-10-16
+
+The user requested all relevant handover/status updates and continuation to the next natural stopping point. [Storage collector completion](STORAGE_COLLECTOR_COMPLETION_20261016.md) and the [full PR145 evidence snapshot](STORAGE_COLLECTOR_PR145_EVIDENCE_20261016.md) now record its completed exact-head Linux/Windows/source proof. Do not rerun the completed Storage slice or treat the historical pending wording below as current.
+
+Active branch: docs/vm-vmss-contract-20261016, based on verified PR145 a14128bc94bf531dd1c28553db14d2be011b2214. Read [the VM/VMSS pre-edit contract](REGION_VM_VMSS_SKU_CONTRACT_20261016.md). This slice freezes primary Compute schema/examples and literal future expectations; it adds no VM collector, production change, new executable control or public integration. VM size catalog and VMSS deployment eligibility are explicitly separate; VMSS evidence remains unsupported in the first proposed collector. Future manifest scenarios have NOT executed against the absent API.
+
+This successor requires its OWN complete Linux/Windows/source gates. At publication these are pending; its live draft PR is the final exact-head commit/tree/parent/preview/log evidence index. Finish those gates, update that index, then STOP at the contract/expectation checkpoint before writing VM production code. A later implementation must first publish compiling tests consuming the frozen oracle and inspect the expected missing-API preparation; compilation failure is never a product pass.
+
+PR141-145 remain draft/open/unmerged at their recorded heads; protected bootstrap/core-v1 remains a6fee427e19feeef28691737ea9bc5026086efa0. Accepted target adapters remain 1/7; Storage is an unaccepted candidate, and this contract adds no accepted adapter. Source characterization remains 7/7. Preserve all audit corrections, 353 Linux / 348 Windows controls, original 23 source captures, pins/dependencies/public schemas and open roadmap/live/security/license/release obligations. No Azure operations, fixtures/RBAC, refresh, sub-agents, protected merge or release authorization. Earlier dated next actions and stop instructions below are historical unless their behavioral contracts remain applicable.
+
+---
+
 ## Storage collector Windows QA correction, 2026-10-16
 
 Candidate `c2d5c5df48fa0e4939b5b3a3b7b67f9bd391ca8c` failed Windows native job `116989921866` in run `38906095075`: the new mutation helper decoded raw CRLF checkout bytes while its multiline anchors used LF. Six controls ran before `stage-physical` rejected the mismatched anchor. The helper restored the original source in its `finally` block. This is QA-ST-03, a control portability defect, not a product pass or frozen-oracle change. Full failed Windows log: 36,704 characters, 36,706 UTF-8 bytes, SHA256 `8bf7ffc77d1bcfdc47a788cf544e8189481f4141ad3feaf388df80aaa0380337`.
