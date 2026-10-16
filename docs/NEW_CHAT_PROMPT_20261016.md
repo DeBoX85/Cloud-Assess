@@ -1,3 +1,11 @@
+# Section 4 authorized and in progress, 2026-10-16
+
+The user re-evaluated completed Section 3 and authorized continuation in proper order. Continue Section 4 under [the active report](SYSTEMATIC_REVIEW_SECTION4_20261016.md), then reconcile the final audit disposition before returning to Storage contract/tests in draft PR141. This supersedes the earlier wait-before-Section4 instructions below. Sections 1–3 remain complete at98b8915 with full exact-head evidence in PR142; Section4 is IN PROGRESS, not complete. Keep PR142 draft/unmerged, preserve all pins/captures/dependencies/schema and independent expectations. No Azure operations, dependency refresh, sub-agents, protected merge or release approval is implied. Verify live refs and actual workspace before replaying work.
+
+---
+
+## Historical checkpoint below
+
 # Current restart instruction: finish gates if needed, then STOP before Section4
 
 ```text

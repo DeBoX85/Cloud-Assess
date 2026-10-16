@@ -1,3 +1,11 @@
+# Section 4 authorized and in progress, 2026-10-16
+
+The user re-evaluated completed Section 3 and authorized continuation in proper order. Continue Section 4 under [the active report](SYSTEMATIC_REVIEW_SECTION4_20261016.md), then reconcile the final audit disposition before returning to Storage contract/tests in draft PR141. This supersedes the earlier wait-before-Section4 instructions below. Sections 1–3 remain complete at98b8915 with full exact-head evidence in PR142; Section4 is IN PROGRESS, not complete. Keep PR142 draft/unmerged, preserve all pins/captures/dependencies/schema and independent expectations. No Azure operations, dependency refresh, sub-agents, protected merge or release approval is implied. Verify live refs and actual workspace before replaying work.
+
+---
+
+## Historical checkpoint below
+
 # Section3 corrective checkpoint and STOP rule, 2026-10-16
 
 All94 baseline Go files (43production/51tests), both added regressions and all15Section3package contracts/integration boundaries are reviewed. [Active report](SYSTEMATIC_REVIEW_SECTION3_20261015.md), [contract map](SYSTEMATIC_REVIEW_SECTION3_CONTRACTS_20261016.md) and [failure notes](FAILURE_NOTES.md) retain findings, full reproduction/log hashes, fixes and rollback. SR-F10 is fixed in7384439 with complete earlier native/source proof. SR-F11 is corrected in this checkpoint after both-host compiling reproduction at b82de398; its regression expectations are unchanged and both compiling reversal/restoration controls pass locally. Parent for this correction is b82de3982c1bdec21a0a50bcbfa21a2a2aa08069.
