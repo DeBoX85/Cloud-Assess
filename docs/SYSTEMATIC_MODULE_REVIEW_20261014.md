@@ -1,3 +1,9 @@
+# Current audit recovery authority, 2026-10-16
+
+The Section 4 review and SR-F12 correction are prepared. Their exact-head QA is pending at publication; read [the active report](SYSTEMATIC_REVIEW_SECTION4_20261016.md), [final assessment](SYSTEMATIC_REVIEW_FINAL_ASSESSMENT_20261016.md) and [PR142 evidence index](https://github.com/DeBoX85/Cloud-Assess/pull/142) for actual final head/results. Do not replay completed fixes. Finish this checkpoint's QA if pending, then stop for final audit re-evaluation. PR142 stays draft/unmerged; protected a6fee427, pins/captures/dependencies/schema remain unchanged. No Azure operations, refreshes or sub-agents. Feature work resumes at draft PR141 Storage contract/tests only after audit disposition. Earlier dated status/next-action paragraphs are history; behavioral contracts remain active unless explicitly corrected.
+
+---
+
 # Section 4 authorized and in progress, 2026-10-16
 
 The user re-evaluated completed Section 3 and authorized continuation in proper order. Continue Section 4 under [the active report](SYSTEMATIC_REVIEW_SECTION4_20261016.md), then reconcile the final audit disposition before returning to Storage contract/tests in draft PR141. This supersedes the earlier wait-before-Section4 instructions below. Sections 1–3 remain complete at98b8915 with full exact-head evidence in PR142; Section4 is IN PROGRESS, not complete. Keep PR142 draft/unmerged, preserve all pins/captures/dependencies/schema and independent expectations. No Azure operations, dependency refresh, sub-agents, protected merge or release approval is implied. Verify live refs and actual workspace before replaying work.
@@ -244,7 +250,7 @@ A file read is not a completed module review. Initial source review means the li
 | `internal/defender` | 1 | 1 | Section 2 verified at 1c5d300 |
 | `internal/diagnostics` | 2 | 1 | Section 2 verified at 1c5d300 |
 | `internal/discovery` | 5 | 6 | Section 1 verified at 7911764 |
-| `internal/equivalence` | 3 | 2 | Pending |
+| `internal/equivalence` | 3 | 2 | Section 4 reviewed; final QA disposition in PR142 |
 | `internal/findings` | 2 | 2 | Section 2 verified at 1c5d300 |
 | `internal/gate` | 1 | 1 | Section 2 verified at 1c5d300 |
 | `internal/orchestration` | 3 | 8 | Section 1 verified at 7911764 |
@@ -269,9 +275,9 @@ A file read is not a completed module review. Initial source review means the li
 | `internal/skus` | 1 | 1 | Section 2 verified at 1c5d300 |
 | `internal/stages` | 3 | 3 | Section 2 verified at 1c5d300 |
 | `internal/throttling` | 1 | 1 | Section1 reviewed; code QA verified at00ba2716 |
-| `tools/brand-build` | 1 | 0 | Pending |
-| `tools/diagnostics-probe` | 1 | 1 | Pending |
-| `tools/equivalence` | 1 | 2 | Pending |
+| `tools/brand-build` | 1 | 0 | Section 4 reviewed; final QA disposition in PR142 |
+| `tools/diagnostics-probe` | 1 | 1 | Section 4 reviewed; final QA disposition in PR142 |
+| `tools/equivalence` | 1 | 2 | Section 4 reviewed; final QA disposition in PR142 |
 
 ## Initial observations — not confirmed new defects
 

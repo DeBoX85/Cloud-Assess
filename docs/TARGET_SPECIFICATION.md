@@ -1,3 +1,9 @@
+# Current audit recovery authority, 2026-10-16
+
+The Section 4 review and SR-F12 correction are prepared. Their exact-head QA is pending at publication; read [the active report](SYSTEMATIC_REVIEW_SECTION4_20261016.md), [final assessment](SYSTEMATIC_REVIEW_FINAL_ASSESSMENT_20261016.md) and [PR142 evidence index](https://github.com/DeBoX85/Cloud-Assess/pull/142) for actual final head/results. Do not replay completed fixes. Finish this checkpoint's QA if pending, then stop for final audit re-evaluation. PR142 stays draft/unmerged; protected a6fee427, pins/captures/dependencies/schema remain unchanged. No Azure operations, refreshes or sub-agents. Feature work resumes at draft PR141 Storage contract/tests only after audit disposition. Earlier dated status/next-action paragraphs are history; behavioral contracts remain active unless explicitly corrected.
+
+---
+
 # Section3 corrective checkpoint and STOP rule, 2026-10-16
 
 All94 baseline Go files (43production/51tests), both added regressions and all15Section3package contracts/integration boundaries are reviewed. [Active report](SYSTEMATIC_REVIEW_SECTION3_20261015.md), [contract map](SYSTEMATIC_REVIEW_SECTION3_CONTRACTS_20261016.md) and [failure notes](FAILURE_NOTES.md) retain findings, full reproduction/log hashes, fixes and rollback. SR-F10 is fixed in7384439 with complete earlier native/source proof. SR-F11 is corrected in this checkpoint after both-host compiling reproduction at b82de398; its regression expectations are unchanged and both compiling reversal/restoration controls pass locally. Parent for this correction is b82de3982c1bdec21a0a50bcbfa21a2a2aa08069.

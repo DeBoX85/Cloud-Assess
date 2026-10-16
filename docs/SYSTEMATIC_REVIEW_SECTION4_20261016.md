@@ -1,3 +1,38 @@
+# Section 4 corrective checkpoint, 2026-10-16
+
+Review and contract reconciliation are complete; final corrective acceptance is IN PROGRESS. All 11 baseline Go files in the four remaining packages, the independent SR-F12 regression and all 62 initial script/workflow/support files received full reads. [Contracts and exact manifest](SYSTEMATIC_REVIEW_SECTION4_CONTRACTS_20261016.md) and [final assessment](SYSTEMATIC_REVIEW_FINAL_ASSESSMENT_20261016.md) reconcile architecture, data/provenance, current documentation, findings and remaining work. The complete four-section index accounts for all 251 baseline Go files and all 41 packages, plus 12 added Go regressions. This does not credit Section 4 completion before final QA or measure project completion.
+
+SR-F12 production correction is implemented after the independent test/contract publication at 10efcd48f8fc3dd832350f03c7b4abd37bf0d5ad / tree 5e41c5dafb6a8f29c7f6a40e1a284f21200713fc, the direct parent of this candidate. The private `put` rejects conflicting projected fields by permanently setting noncomparability, keeps the first row for diagnostic deltas only and emits one sanitized sorted dataset note. Identical normalized records remain deduplicated and resource-type count aggregation is unchanged. No identity, numeric/provenance/SLA normalization, public schema or source input changed. Original independent regression blob 126f45bc1980a750245474d70ee7fe490f087917 is unchanged.
+
+Both native hosts reproduced exactly the nine declared child failures in native 38856474803: seven false exit 0 and two missing-comparability-precondition assertions. Linux formatting passed; no build-failure or data-race marker appears in either complete log. All earlier completed steps passed; later skipped steps are not accepted. Source 38856474640 passed separately with eleven harnesses, all 23 captures / 315 chunks / 909,865 bytes and source/tree/APRL identities independently reconstructed/hashed/compared. Its full log is indexed in the contracts record. Earlier c8a15c7 native 38855113862 was canceled when superseded; it has no accepted native proof.
+
+| Complete reproduction log | Job | Characters | UTF-8 bytes | SHA-256 |
+| --- | ---: | ---: | ---: | --- |
+| linux | 116829220849 | 69360 | 69365 | `ae6c321d702dbb72b47c1a7708fb75a28730e82af1bc10ef3bf5038d500c3e27` |
+| windows | 116829220610 | 56115 | 56117 | `ccd9e52cb638c3857397e326756a1b3812040976dd9a68281c2e5e5634ffd6c1` |
+
+The new `scripts/tests/section4-regressions.py` control compiles the deliberately disabled conflict branch, restores actual old last-row overwrite behavior, requires the named independent assertion failure, restores exact original bytes and requires the clean baseline. Both existing native jobs now run it; every previous step/control/timeout/floor/pin remains. Local control/restoration, all four Section 4 package race tests and vet pass. The full local race suite and full vet subsequently passed; their log hashes are recorded below. Source-mutating controls and source-consuming tests were run serially.
+
+Full exact-head Linux, Windows and source QA is PENDING AT PUBLICATION. The live [PR142 evidence index](https://github.com/DeBoX85/Cloud-Assess/pull/142) records actual final candidate/tree/parent/tested preview/runs/log hashes/control identities and completion, under QA_PROCESS's rule avoiding documentation-only CI loops. Do not use earlier green as this candidate's acceptance. Keep PR142 draft/unmerged and protected a6fee427 unchanged. No protected merge/accepted-push or independent-person approval is claimed.
+
+NEXT: finish this exact head's full QA and final diff/ref readback; if complete in PR142, STOP at the final audit checkpoint for user re-evaluation/disposition. Do not replay SR-F12, start feature code or merge. After the audit disposition resume Storage contract/tests in draft PR141 at 6cd002cb77fcead75a602b06a75625a178a84e49, then remaining region work. No Azure operations, dependency/pin/capture/schema refresh or sub-agents.
+
+Rollback: targeted ordinary revert of this candidate's production guard and new runner/workflow steps together, after checking later dependencies. Preserve the independent regression, all original controls and historical records; the known failure intentionally becomes red. No protected reset, assertion removal, source capture regeneration or data migration.
+
+## Completed local corrective QA before publication
+
+Full local `go test -race -count=1 ./...` passed all 41 package directories (the development builder has no Go test file and is exercised by native binary integration). Full `go vet ./...` passed. The Section 4 compiling reversal/restoration control ran and restored exact production bytes BEFORE the focused and full suites. Pinned formatting is clean, all 50 current Python files parse, shell syntax and authored links pass, the independent SR-F12 regression remains blob126f45bc1980a750245474d70ee7fe490f087917, and dependency/source data are unchanged. Full native/Linux/Windows/source gates still require their own exact-head results.
+
+| Local log | Bytes | SHA-256 |
+| --- | ---: | --- |
+| section4-control-local.log | 96 | `fa09ae7addba9f013b3bac988404bd21e6db72d30ab2d5e273807fdbb9ecb44d` |
+| section4-corrected-local.log | 266 | `b0314d355c6e3d4cef9db29ee8b63eb2e97705649908117edce4ad218aa55d86` |
+| section4-full-race-local.log | 2618 | `180f2676d81e3cb9f4e8d80171897a13bd5d75b4df2dcc7b583253599b949bb6` |
+| section4-vet-local.log | 0 | `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855` |
+| section4-inventory-local.log | 31 | `e258f36d40a08392b39a931c079fda94ef0d79aedb906fd0dd8599087cdd2988` |
+
+## Historical entry and published pre-edit contract below
+
 # Section 4 systemic review, 2026-10-16
 
 Status: IN PROGRESS. The user re-evaluated the completed Section 3 checkpoint and authorized continuing in proper order. This supersedes earlier instructions to wait before Section 4, without changing the draft/unmerged PR142, no-Azure or no-refresh boundaries. No merge or release approval is inferred.

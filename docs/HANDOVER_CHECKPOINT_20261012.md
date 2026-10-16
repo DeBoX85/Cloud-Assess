@@ -1,3 +1,9 @@
+# Current audit recovery authority, 2026-10-16
+
+The Section 4 review and SR-F12 correction are prepared. Their exact-head QA is pending at publication; read [the active report](SYSTEMATIC_REVIEW_SECTION4_20261016.md), [final assessment](SYSTEMATIC_REVIEW_FINAL_ASSESSMENT_20261016.md) and [PR142 evidence index](https://github.com/DeBoX85/Cloud-Assess/pull/142) for actual final head/results. Do not replay completed fixes. Finish this checkpoint's QA if pending, then stop for final audit re-evaluation. PR142 stays draft/unmerged; protected a6fee427, pins/captures/dependencies/schema remain unchanged. No Azure operations, refreshes or sub-agents. Feature work resumes at draft PR141 Storage contract/tests only after audit disposition. Earlier dated status/next-action paragraphs are history; behavioral contracts remain active unless explicitly corrected.
+
+---
+
 # Superseded handover — current index 2026-10-16
 
 This dated snapshot is retained as history. Its old next actions and pending states are superseded by [HANDOVER_CHECKPOINT_20261016.md](HANDOVER_CHECKPOINT_20261016.md), [NEW_CHAT_PROMPT_20261016.md](NEW_CHAT_PROMPT_20261016.md) and [SESSION_HANDOVER.md](SESSION_HANDOVER.md). Start with those current records and live PR142; do not replay this historical prompt or accept an old passing head as current proof. Original evidence and contracts below remain unchanged.

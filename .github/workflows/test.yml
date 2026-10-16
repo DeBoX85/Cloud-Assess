@@ -64,6 +64,9 @@ jobs:
       - name: Verify Section 3 compiling regressions
         run: python3 scripts/tests/section3-regressions.py
 
+      - name: Verify Section 4 compiling regressions
+        run: python3 scripts/tests/section4-regressions.py
+
       - name: Verify ARG response framing compiling controls
         run: python3 scripts/tests/arg-response-framing-mutation.py
 
@@ -337,6 +340,9 @@ jobs:
 
       - name: Verify Section 3 compiling regressions
         run: python scripts/tests/section3-regressions.py
+
+      - name: Verify Section 4 compiling regressions
+        run: python scripts/tests/section4-regressions.py
 
       - name: Verify ARG response framing compiling controls
         run: python scripts/tests/arg-response-framing-mutation.py
