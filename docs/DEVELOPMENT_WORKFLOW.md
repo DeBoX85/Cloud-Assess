@@ -2,6 +2,10 @@
 
 Current implementation/acceptance state is in [CURRENT_STATE.md](CURRENT_STATE.md). Research and baseline measurements are in [the research record](DEVELOPMENT_WORKFLOW_RESEARCH_20261017.md). The original parallel workflow was verified in PR148; later changes require their own exact-revision QA. Verification does not imply protected acceptance.
 
+## Continuity
+
+Follow [the continuity procedure](CONTINUITY.md) proactively during active work. [CONTINUE](CONTINUE.md) routes recovery and [RESTART_PROMPT](RESTART_PROMPT.md) is the stable copy-ready prompt. Update compact state and publish coherent WIP after meaningful slices, before long QA/environment work and before transitions; aim for 20-30 active-minute safe-boundary checkpoints. Preserve uncertain outcomes explicitly and verify remote publication. Do not wait for a user handoff request. No zero-loss, precise token-threshold or background-work guarantee is implied.
+
 ## Developer loop
 
 1. Read AGENTS.md, CURRENT_STATE, the applicable contract and relevant failure notes. Verify live refs and the actual worktree before edits. Preserve unrelated work.

@@ -1,3 +1,11 @@
+# Proactive continuity protocol, 2026-10-17
+
+The user requested reassessment and formalization of interruption recovery with a copy-ready prompt. Added stable CONTINUE/RESTART_PROMPT and a detailed CONTINUITY procedure; connected AGENTS, README, workflow and principal handover/QA/execution entrypoints. Kept CURRENT_STATE as the single active-state authority; historical handoffs/prompts remain historical. Defined safe-boundary, best-effort 20-30 active-minute checkpoints, uncertain-operation recovery, remote readback, successor routing, evidence retention and environment recreation. No automatic chat transfer, outage prediction, precise token threshold or zero-loss guarantee is claimed.
+
+Prepared on a separate successor branch docs/continuity-protocol-20261017 from PR150/4c1ddc0c5593afd175925e8d9a43a370d25c0757, preserving PR150 and all earlier heads. Explicitly named gate logic/check inventory for independent review and collection/partial failure/scoring/report/exit agreement for integration tests. Those obligations remain open. Product, CI executable files, pins/captures/dependencies/public schemas and protected baseline are unchanged. Local and own-head hosted QA/readback outcomes belong in the task PR evidence index; pending preparation is not verification. Next development remains PR150 outstanding QA, then bounded VMSS catalog contract/independent expectations with scoring unsupported. Rollback this task through a new task-owned revert, without resetting unrelated work or protected history.
+
+---
+
 # Verified safeguards and session handoff, 2026-10-17
 
 PR149/fcc153659d8e1333cf0a3c4741f2ba984890c9df completed all8workers/both protected-name gates, full source reconstruction and all3hosted gate-probe cases. Original385/380control identities are retained. No protected acceptance or independent human review is implied. The user requested a new-chat handoff; [CURRENT_STATE](CURRENT_STATE.md), [handoff](HANDOFF_20261017.md), prompt and relevant resume/procedure entrypoints now route to the final live evidence. VMSS catalog/deployment reconciliation is preserved as research only; unsupported scoring remains. The documentation-only successor has its own QA pending at publication. Complete it if still outstanding, then follow the bounded contract/expectation next action. Preserve unrelated work and all constraints.

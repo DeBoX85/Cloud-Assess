@@ -1,6 +1,6 @@
 # Cloud Assess
 
-Latest session transition: [handoff](docs/HANDOFF_20261017.md) and [new-chat prompt](docs/NEW_CHAT_PROMPT_20261016.md). Current development status and resume point: [CURRENT_STATE](docs/CURRENT_STATE.md). QA safeguards and continuity assessment: [safeguards](docs/QA_SAFEGUARDS_RECONCILIATION_20261017.md). Verified draft work is distinct from protected acceptance. Developer preflight and isolated parallel QA: [development workflow](docs/DEVELOPMENT_WORKFLOW.md).
+New chat or interruption: [start here](docs/CONTINUE.md), [copy the restart prompt](docs/RESTART_PROMPT.md), and follow [continuity procedure](docs/CONTINUITY.md). Historical [handoff](docs/HANDOFF_20261017.md) is retained. Current development status and resume point: [CURRENT_STATE](docs/CURRENT_STATE.md). QA safeguards and continuity assessment: [safeguards](docs/QA_SAFEGUARDS_RECONCILIATION_20261017.md). Verified draft work is distinct from protected acceptance. Developer preflight and isolated parallel QA: [development workflow](docs/DEVELOPMENT_WORKFLOW.md).
 
 Azure cloud assessment toolkit.
 
@@ -8,7 +8,7 @@ Cloud Assess is a new Azure assessment engine built from a clean repository whil
 
 ## Current status
 
-**New session or interruption: start with [the session handover](docs/SESSION_HANDOVER.md).** It identifies the verified implementation, active work, evidence, constraints and exact restart procedure.
+**New session or interruption: start with [CONTINUE](docs/CONTINUE.md), then the linked current state.** It identifies the verified implementation, active work, evidence, constraints and exact restart procedure.
 
 The core generic `cloud-assess scan` path is implemented and covered by deterministic, cross-package, race-enabled, and executable smoke tests.
 

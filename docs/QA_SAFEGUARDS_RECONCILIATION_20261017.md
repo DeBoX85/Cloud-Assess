@@ -34,9 +34,9 @@ Historical behavioral contracts are not cancelled by a status header. Immutable 
 | Fast feedback without reducing depth | Preflight and isolated workers retained; original commands, mutation identities, race/fuzz budgets and coverage floor remain mandatory |
 | Fail-closed orchestration | Local adversarial tests plus hosted success/failure/skipped probes required for this changed revision |
 | Durable exact-revision evidence and recovery | Draft publication, commit/tree/parent/readback, native/source logs and stable resume routing required |
-| Independent review | Open; self-review is not independent review, and no protected acceptance/release approval is implied |
+| Independent review | Open before protected acceptance: independently review both gate logic and retained check inventory; self-review is not independent review, and no protected acceptance/release approval is implied |
 | Next feature tests | Resolve VMSS SKU versus deployment eligibility from primary/pinned evidence before implementation; freeze independent literal expectations first |
-| Region integration | Before public enablement require collector-to-report success/degraded/unsupported/failure cases, deterministic pagination/cancellation/volume and API-call bounds, and output completeness |
+| Region integration | Before public enablement require collector-to-report success/degraded/unsupported/failure cases covering collection, partial failures, scoring, reporting and exit-status agreement, deterministic pagination/cancellation/volume and API-call bounds, and output completeness |
 | Live/operational/release | Representative authorized Azure scenarios, fresh-OS installs, nested non-production traversal, advisory/license/security/Gate004 review remain open |
 
 No additional generic gate is justified solely to increase the test count. Add the feature/integration/scale checks when the corresponding behavior exists, preserve current negative controls now, and do not create Azure fixtures or silently refresh dependencies to obtain a green result. The residual module-only advisory remains open.
