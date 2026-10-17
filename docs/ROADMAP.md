@@ -9,6 +9,18 @@ The Cognitive three-task batch is verified offline in PR157. The active [SQL fou
 ---
 
 
+# SQL task2 completion and task3 transition
+
+Task2 COMPLETE VERIFIED OFFLINE in draft PR160 at46223812aedbb63e37f619466fc4ba8a8b5f5bdd/treeead9da2e0d580ff695c92502b06bdb3752fdc8d0, sole parent original6900abc. Own quality39073359343 all8workers/bothgates and source39073359338 passed. Every full log/step reviewed;455Linux/450Windows exact identities conserved and23captures/315chunks/909865bytes reconstructed against candidateGit blobs. Coverage86.1%/unchanged75%floor; module-only advisory OPEN. All9complete corrected files/metadata/ref and ordered preview87ccae9a read back. Final PR160 body independently read back.
+
+Durable evidencea1653e3b99865deba0b5d1cf84a5768fbd231b11/tree15ac8aa541e5ca48efb542de15c7886eb7ade53a/parent exact46223812.62members/3784630UTF8memberbytes/460473bundlebytes SHA2568315717ca6af3f115778a69337801758975ccf432db057c808b3cbe68632030a. Existing bounded verifier and full3file remote readback passed. Archive is storage only, not a code successor/certification. Full original failed39073018480 and corrected39073359343 logs retained. Original PR159/6900abc preserves failed Windows license-integrity evidence; do not certify it using successor success.
+
+Same SQL four-task batch: task1 COMPLETE PR158; task2 COMPLETE PR160; task3 Database NEXT, task4MI NOT STARTED. This handover is updated BEFORE task3. Code base is verified46223812, never administrative/evidence branches. On feat/sql-database-capability-20261017 first publish strict JSON-tagged runner consuming all153unchanged frozen Database cases; inspect BOTH actual native missing APIs before ANY production edits. Then bounded collector/catalog, every actual pinned schema definition, independent limits/context/HTTP/ownership/status/metadata controls, additive CI inventory, compiling reversals/exact restoration, coherent implementation+runner rollback to verified task2 tree/restoration and full own native/source QA/archive. Update handover BEFORE task4, which separately publishes163case MI runner and inspects missing constructor on BOTH hosts before MI edits. No SQL API/runner exists at this checkpoint. No critical input needed.
+
+QA-SQL-01: exact retained MIT license now has -text protection. Windows1097bytes/21CRLF failed; unchanged1076bytes/hash restored and tests pass. No frozen bytes/expectations changed. QA-SQL-02: pinned SQL schema actually has26definitions plus commonSku, not28in earlier frozen narrative; inventory/resolved refs retained in PR160 evidence. Validate ALL named26plusSku, preserve frozen contract/oracles verbatim. QA-SQL-03: original Linux archive helper emitted Windows backslash members; unchanged bounded verifier rejected before publication. Reviewed additive recovery helper uses as_posix(); original helper retained, rebuilt archive passed.
+
+
+
 # SQL task2 native correction checkpoint
 
 Updated2026-10-17 22:00UTC. Same SQL batch: task1 COMPLETE PR158; task2 correction candidate on docs/sql-contract-byte-preservation-20261017 from canonical6900abc; tasks3Database/4MI NOT STARTED. Read the live successor linked from PR159 for actual head/preview/QA. PR159 full16file readback completed; its own native Windows QA exposed QA-SQL-01, not certified. Source39073018473 passed23captures/315chunks/909865bytes. The narrow .gitattributes fix preserves the exact license bytes and all frozen expectations. Fresh own8workers/bothgates/source/full-log review and durable task2 archive remain mandatory. Update handover BEFORE task3, then publish its consuming runner and inspect BOTH native missing APIs before production edits. No critical user input.

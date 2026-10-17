@@ -25,3 +25,5 @@ Current status authority: [CURRENT_STATE](CURRENT_STATE.md). Detailed evidence b
 For a meaningful change record: stable task/finding ID; UTC timestamp; requirement and before/after behavior; author/actor and authorization; base/proposal/parent/tree; changed paths; dependencies; decisions and uncertainties; exact QA/run/job and evidence references; acceptance status; revert target/order and post-revert checks. Git author identity is traceability, not proof of independent review or publisher authenticity. Link existing journals/contracts instead of duplicating their content. For unknown remote outcomes, record intended target and safe inspection step until reconciled.
 
 QA-SQL-01: task2 Windows license checkout correction; reproduced failure/fixed-byte baseline passed; full successor QA/archive pending. Task3/4 gated on task2 closure. See CURRENT_STATE and FAILURE_NOTES.
+
+SQL task2 CLOSED offline at PR160/46223812, final own QA/archive/readback complete. QA-SQL-01/02/03 resolved/clarified with retained evidence. Same batch task3Database NEXT, task4MI pending; publish/inspect both-host missing APIs first. Independent/live/release rows remain OPEN.
