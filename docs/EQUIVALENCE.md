@@ -512,6 +512,8 @@ Numeric strings such as Cost values and Arc SQL vCore values are normalized befo
 
 Duplicate resource-type counts with identical subscription display name and resource type are aggregated because the pinned reference JSON does not include subscription ID in that table.
 
+Other records with identical normalized identity and projected fields are deduplicated. If two records have that identity but disagree on a compared field, the projection is non-comparable and the command writes a non-equivalent report with exit 1. Later matching rows cannot erase the conflict. Dataset-level diagnostics omit raw identities and values; ordinary diff records still require private storage. This deliberately rejects ambiguous evidence rather than using the last row as proof of equivalence. See [Section 4 SR-F12](SYSTEMATIC_REVIEW_SECTION4_20261016.md).
+
 ## Diff model
 
 Each dataset reports:
