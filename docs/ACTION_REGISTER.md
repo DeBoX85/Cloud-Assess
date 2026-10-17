@@ -6,9 +6,9 @@ Current status authority: [CURRENT_STATE](CURRENT_STATE.md). Detailed evidence b
 | --- | --- | --- | --- | --- |
 | DC-001 | Verified offline | Agent | PR150 own-head QA completed; remain draft/unmerged | [PR150 final index](https://github.com/DeBoX85/Cloud-Assess/pull/150), head 4c1ddc0 |
 | DC-002 | Verified offline | Agent | PR151 own-head QA completed; remain draft/unmerged | [PR151 final index](https://github.com/DeBoX85/Cloud-Assess/pull/151), head ba9eeb9 |
-| DC-003 | In progress | Agent | Publish/review evidence bundle and verifier under [controls contract](DEVELOPMENT_CONTROLS_20261017.md); run own-head QA | Active controls PR final index when verified |
-| DC-004 | In progress | Agent | Publish rollback runbook and retained local rehearsal; distinguish remaining operational exercises | Controls record and retained command evidence |
-| DC-005 | In progress | Agent | Finish bounded source/test logging assessment; no product schema change | Logging assessment with explicit limitations |
+| DC-003 | Implemented, own QA pending | Agent | Publish/review evidence bundle and verifier under [controls contract](DEVELOPMENT_CONTROLS_20261017.md); run own-head QA | Active controls PR final index when verified |
+| DC-004 | Local rehearsal verified; own QA pending | Agent | Publish rollback runbook and retained local rehearsal; distinguish remaining operational exercises | Controls record and retained command evidence |
+| DC-005 | Assessment complete; own QA pending | Agent | Finish bounded source/test logging assessment; no product schema change | Logging assessment with explicit limitations |
 | DC-006 | Open | Agent / repository administrator if needed | Workflow failure-artifact retention is 14 days; actual repository-wide setting is not verified. Verify accessible setting, record owner/retention for off-repository backup | Explicit setting evidence and retention/restore record; CI links alone insufficient |
 | DC-007 | Open | Independent reviewer | Before protected acceptance review gate logic and retained check inventory; no subagents authorized | Named independent review and disposition |
 | DC-008 | Open | Agent | Region collector-to-report integration must cover success/partial/unsupported/failure, scoring/report/exit agreement and completeness | Future bounded integration contract and exact-head tests |
@@ -16,6 +16,7 @@ Current status authority: [CURRENT_STATE](CURRENT_STATE.md). Detailed evidence b
 | DC-010 | Open before release | Release owner / reviewer | Version-stamped releases, retained trustworthy artifacts, fresh OS, installed rollback, licensing/security/provenance/Gate004 | [Gate004](QUALITY_GATE_004_PLAN.md), [package limits](PACKAGE_BUILDS.md) and release decision |
 | DC-011 | Next feature, not started | Agent | After controls checkpoint QA, bounded VMSS catalog-only contract and independent expectations; scoring unsupported | [VMSS research](VMSS_CATALOG_RECONCILIATION_20261017.md) and future contract |
 | DC-012 | Open | Agent | Extend rollback proof to representative production-code behavior with dependents before claiming broad rollback readiness | Isolated rehearsal plus behavioral tests; current proof is Git/static only |
+| DC-013 | Open design obligation | Agent | Evaluate optional safe diagnostic correlation only through a separate contract if operational requirements justify it; no blanket logger/product schema change now | [Logging assessment](LOGGING_ASSESSMENT_20261017.md), then bounded design/tests if authorized |
 
 ## Per-change record
 

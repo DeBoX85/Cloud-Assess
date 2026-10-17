@@ -1,3 +1,9 @@
+# QA-DC-01: rejected additive-check script path, 2026-10-17
+
+During local development-controls preparation, workflow generation and preflight correctly rejected the new additive check because its script field used evidence-bundle.py rather than the required repository-relative scripts/tests/evidence-bundle.py. No generated workflow was written and no candidate was accepted. Corrected only the two new inventory values; unchanged generator validation/baseline and all predecessor checks remain intact. Prevention: inspect existing additive entries/schema before extending the inventory; execute generation and preflight as separately checked commands. The separate initial real-bundle test also correctly failed while its planned archive was absent; after creation it passed. Neither preparation failure is a product defect or a QA pass. Require corrected full local and own-head hosted QA.
+
+---
+
 # Continuity and CI inventory corrections, 2026-10-17
 
 Review found competing dated current/STOP sections and ambiguity between offline verification and protected acceptance. Stable authority headers and a mandatory rejecting handoff guard now route resume decisions to CURRENT_STATE while retaining historical evidence and behavioral contracts. The frozen CI inventory also lacked an explicit safe extension path; additive checks now have a constrained per-platform schema without baseline replacement or conditional/error-ignoring execution. Hosted probe verification distinguishes intended validator rejection from unrelated infrastructure failure. A skipped job is not scheduled and may have no runner labels; require native labels only for workers that actually run. No product failure or live validation is claimed. See [reconciliation](QA_SAFEGUARDS_RECONCILIATION_20261017.md).

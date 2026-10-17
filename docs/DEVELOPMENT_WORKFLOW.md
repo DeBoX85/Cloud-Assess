@@ -6,6 +6,10 @@ Current implementation/acceptance state is in [CURRENT_STATE.md](CURRENT_STATE.m
 
 Follow [the continuity procedure](CONTINUITY.md) proactively during active work. [CONTINUE](CONTINUE.md) routes recovery and [RESTART_PROMPT](RESTART_PROMPT.md) is the stable copy-ready prompt. Update compact state and publish coherent WIP after meaningful slices, before long QA/environment work and before transitions; aim for 20-30 active-minute safe-boundary checkpoints. Preserve uncertain outcomes explicitly and verify remote publication. Do not wait for a user handoff request. No zero-loss, precise token-threshold or background-work guarantee is implied.
 
+## Development-control records
+
+Use [ACTION_REGISTER](ACTION_REGISTER.md) for compact ownership/dependency/closure tracking, [ROLLBACK](ROLLBACK.md) for targeted reversal/restoration and [EVIDENCE_RETENTION](EVIDENCE_RETENTION.md) for durable synthetic evidence. [Logging assessment](LOGGING_ASSESSMENT_20261017.md) records runtime boundaries without changing product schemas. The [controls contract](DEVELOPMENT_CONTROLS_20261017.md) defines this bounded tooling slice. Follow frozen-head successor routing rather than rewriting preserved PR heads.
+
 ## Developer loop
 
 1. Read AGENTS.md, CURRENT_STATE, the applicable contract and relevant failure notes. Verify live refs and the actual worktree before edits. Preserve unrelated work.

@@ -1,3 +1,13 @@
+# Development controls implemented, 2026-10-17
+
+Pre-edit contract4032e7416d747262118c41a38682b7b9ce13327a was published/read back before the evidence-verifier implementation. Added bounded read-only verification with independent valid/tamper/inventory/path/JSON/expansion and actual CLI success/failure tests, plus committed real-bundle validation. Added required checks through the existing additive Linux/Windows native inventory and generator, without baseline replacement. The initial real-bundle test correctly failed while its planned file was absent; after generating the archive all8test groups passed, including checkout-byte preservation. No product failure is inferred.
+
+Retained44members of synthetic CI/local proof (526101-byte base64 gzip bundle) with per-member hashes and metadata, rollback commands and source/control reconstruction summaries. Added rollback runbook/change records and a bounded source/test logging assessment. Local Git reversal/restoration and synthetic mainline/dependency-conflict abort passed; production/native/installed rollback and global runtime correlation remain unproven. Repository-wide retention/off-repository backup remain open; failure artifact retention14days is observed. No private Azure data or product/public-schema change.
+
+Resolved a real continuity conflict: frozen bookmark PR151 cannot receive pointer commits while its head must be preserved. Use an explicit successor link in its live PR body after successor readback, and teach that route in current CONTINUE/CONTINUITY. Preserve original commit snapshots. Static/negative/real-bundle/doc validation and full own-head QA/readback outcomes belong in live PR152. No protected acceptance/release/live/independent-person proof. Next after verified controls checkpoint remains bounded VMSS catalog contract/independent expectations, scoring unsupported.
+
+---
+
 # Development-controls contract, 2026-10-17
 
 PR150 and PR151 exact-head native/source QA are complete and indexed separately in their live PR bodies. Full decoded logs and job/step metadata reviewed; direct predecessor control conservation is 385 Linux/380 Windows with no missing/extra/duplicate identities. Each source job reconstructed all23captures/315chunks/909865bytes against exact Git blobs and emitted hashes. Both draft heads and protected baseline remain unchanged. One module-only advisory stays open.

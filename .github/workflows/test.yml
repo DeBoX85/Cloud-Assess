@@ -199,6 +199,9 @@ jobs:
       - name: Verify handoff authority consistency
         run: python3 scripts/tests/handoff.py
 
+      - name: Verify durable evidence bundle integrity
+        run: python3 scripts/tests/evidence-bundle.py
+
       - name: Retain synthetic QA failure evidence
         if: failure()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
@@ -477,6 +480,9 @@ jobs:
 
       - name: Verify handoff authority consistency
         run: python scripts/tests/handoff.py
+
+      - name: Verify durable evidence bundle integrity
+        run: python scripts/tests/evidence-bundle.py
 
   windows-controls-1:
     runs-on: windows-2022

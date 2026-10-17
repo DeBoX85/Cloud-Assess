@@ -49,7 +49,7 @@ Do not create a commit solely to replace its own pending QA text with its pass a
 
 ## Transfer and limitations
 
-At natural checkpoints give the user the stable restart-prompt link. Maintain explicit successor routing as described in CONTINUE before moving work to another branch. Archive dated prompts as history; do not append new current instructions to a growing historical prompt. Historical evidence remains intact.
+At natural checkpoints give the user the stable restart-prompt link. Maintain explicit successor routing as described in CONTINUE before moving work to another branch. When the bookmark head must stay frozen, update its live PR continuation link after successor readback; do not move that head merely for routing. Archive dated prompts as history; do not append new current instructions to a growing historical prompt. Historical evidence remains intact.
 
 No process guarantees zero loss if the service fails before publication. The recovery point is the last successfully published and read-back checkpoint; work since then may need reconstruction. The agent cannot save after an outage, promise unattended progress, detect every hard chat limit or initiate a replacement chat. No scheduled automation, external messaging or infrastructure is needed for this procedure. The user normally only opens a new chat and pastes the saved prompt.
 

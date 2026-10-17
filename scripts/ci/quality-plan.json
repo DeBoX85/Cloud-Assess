@@ -104,6 +104,11 @@
         "name": "Verify handoff authority consistency",
         "script": "scripts/tests/handoff.py",
         "worker": "native"
+      },
+      {
+        "name": "Verify durable evidence bundle integrity",
+        "script": "scripts/tests/evidence-bundle.py",
+        "worker": "native"
       }
     ],
     "windows": [
@@ -115,6 +120,11 @@
       {
         "name": "Verify handoff authority consistency",
         "script": "scripts/tests/handoff.py",
+        "worker": "native"
+      },
+      {
+        "name": "Verify durable evidence bundle integrity",
+        "script": "scripts/tests/evidence-bundle.py",
         "worker": "native"
       }
     ]
