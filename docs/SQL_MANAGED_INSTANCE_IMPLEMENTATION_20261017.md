@@ -1,0 +1,9 @@
+# SQL Managed Instance preparation, same four-task batch
+
+Task1/2/3 complete; Database verified codee2acce427/PR163/evidence026bbb61 and completion handoverb8f12f2e were published/read back BEFORE this task. CURRENT_STATE/live task PR own actual status.
+
+First separate MI consuming runner uses the preserved explicit JSON-tagged strict shared wire harness for all163unchanged literals (134collector/29direct), including complete collection/catalog/error, one-GET URL/count/1MiB bound, input preservation and bidirectional ownership. Unknown fields/trailing JSON reject. MI constructor is ABSENT. Publish/read back and inspect BOTH actual Linux/Windows native missing NewSQLManagedInstanceSKUCollector before MI production edits. Expected compilation failure is preparation, not runtime coverage or product regression/pass.
+
+Then add bounded MI constructor/traversal/catalog preserving Database first runner/oracle/42control bytes and behavior. Use family.sku directly, four full coordinates, ancestor status/metadata validation, no SKU reconstruction or mode selection; catalog only/not_assessed warning always. Preserve all26pinned shape definitions+commonSku. Independent MI bounds/public counts/text/input/output proof/context/HTTP/ownership/compiling reversals and additive generated CI inventory; coherent MI implementation+runner rollback to verified Database tree6a9f557e/restoration/region tests. Require own final8workers/bothgates/source/all logs/497Linux+492Windows predecessor identities plus frozen MI additions/23captures/archive/full readback/final handover. No scoring/public integration.
+
+No critical input; no Azure/fixture/RBAC/refresh/subagents/protected merge/bypass/release. Preserve all previous heads/frozen manifests/primaries/captures/pins/unrelated work. Independent review/backup/broader operational/live/release/advisory remain open.
