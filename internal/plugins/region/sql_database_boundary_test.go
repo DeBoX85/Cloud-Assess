@@ -358,7 +358,7 @@ func TestSQLDatabaseUnselectedEmptyLabel(t *testing.T) {
 }
 func TestSQLDatabaseProjectionBinding(t *testing.T) {
 	scope, q, _ := sqlBoundaryInput()
-	q.ResourceType = "microsoft.sql/managedinstances"
+	q.ResourceType = "microsoft.sql/servers/elasticpools"
 	var c *SQLCapabilityCollection
 	out, e := c.Catalog(context.Background(), scope, q, nil)
 	if e == nil || !reflect.DeepEqual(out, SQLCatalogEvidence{}) {

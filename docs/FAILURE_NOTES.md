@@ -2373,3 +2373,7 @@ QA-SQL-01: exact retained MIT license now has -text protection. Windows1097bytes
 ## QA-SQL-04: supplemental test declaration order
 
 A local generated required-text test referenced its required slice before declaration. Compiler rejected it; moved the declaration before accounting checks. Affected cases pass after correction. Frozen bytes and production unchanged; compile failure is not test coverage.
+
+## QA-SQL-05: shared catalog family test isolation
+
+The Database-only supplemental TestSQLDatabaseProjectionBinding used expected MI as an invalid family on a nil shared SQLCapabilityCollection. That would conflict with the FROZEN task4MI nil-catalog contract once support is added. Correct only that supplemental test to use genuinely unsupported microsoft.sql/servers/elasticpools. Database constructor's MI rejection remains unchanged because constructors are family-bound. First strict Database runner, frozen153Database/163MI oracles, production/schema/limit code and all42control plans remain unchanged. This is a test-isolation correction, not a new production behavior or frozen expectation rewrite. Preserve prior413550cf/PR162; its native/source/rollback evidence does not certify the corrected head. Require fresh complete own QA/source/rollback/archive.
