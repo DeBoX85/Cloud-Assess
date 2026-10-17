@@ -2979,3 +2979,7 @@ Private raw evidence is outside Git, historically on the user's laptop. Ask only
 ## Fresh-session procedure
 
 Read root AGENTS.md and this record; fetch live branch/open proposals and final PR evidence. Verify exact accepted/proposal commit/tree/parents/identity, current rule/pins and actual executor inventory. Read the next task's linked authoritative source/contract; report verified state/next task before editing. Complete focused feedback plus mandatory exact-head native QA, maintain records after material changes and verify protected acceptance remotely. Final acceptance evidence may first live in PR bodies, then be indexed at the next material checkpoint to avoid self-referential commits.
+
+## SQL Database preparation continuation
+
+First153case strict runner prepared; target APIs absent. Actual runner publication/readback and BOTH native missing-API logs must be inspected before production. Same batch, task4 not started. CURRENT_STATE and SQL_DATABASE_IMPLEMENTATION_20261017.md own preparation status.
