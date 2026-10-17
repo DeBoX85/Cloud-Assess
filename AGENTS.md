@@ -1,6 +1,6 @@
 # Repository agent continuity and QA
 
-Before changing this repository, read `docs/SESSION_HANDOVER.md`, its current-state/authority map and the linked development execution/QA plans. Verify live refs and open proposals; a historical hash or old workspace path is not necessarily current. Explicit user instructions take precedence over repository guidance.
+Before changing this repository, read `docs/CURRENT_STATE.md`, then `docs/SESSION_HANDOVER.md` and its authority map and the linked development execution/QA plans. Verify live refs and open proposals; a historical hash or old workspace path is not necessarily current. Explicit user instructions take precedence over repository guidance.
 
 Maintain the handover proactively during active work: update it after each coherent implementation slice, material finding/decision, accepted merge, changed resume point, and before switching tasks or ending a session. Keep task state, verified baseline, uncertainty, exact next action and evidence links accurate. Update the development ledger, roadmap and failure notes where material. Preserve historical gate snapshots; do not relabel missing/live evidence as passed.
 
