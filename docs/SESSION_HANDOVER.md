@@ -4,7 +4,7 @@ Read [CURRENT_STATE](CURRENT_STATE.md) for current status, authorization and the
 
 For new sessions use [CONTINUE](CONTINUE.md), the [copy-ready prompt](RESTART_PROMPT.md) and [continuity procedure](CONTINUITY.md). The [2026-10-17 handoff](HANDOFF_20261017.md) is a historical recovery snapshot; the active task PR owns its exact-revision outcomes.
 
-The active [Cognitive three-task workstream](COGNITIVE_SKU_WORKSTREAM_20261017.md) records current authorization and transitions; CURRENT_STATE and the live task PR own actual status.
+The active [Cognitive three-task workstream](COGNITIVE_SKU_WORKSTREAM_20261017.md) records current authorization and transitions; task1 is verified offline and task2 freezes the [catalog contract](COGNITIVE_SKU_CONTRACT_20261017.md). CURRENT_STATE and the live task PR own actual status.
 
 ---
 

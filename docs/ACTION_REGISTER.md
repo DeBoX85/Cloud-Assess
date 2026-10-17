@@ -17,7 +17,7 @@ Current status authority: [CURRENT_STATE](CURRENT_STATE.md). Detailed evidence b
 | DC-011 | Verified offline PR154 | Agent | Pure VMSS diagnostic checkpoint and24new controls per platform complete; scoring unsupported; preserve exact-head evidence | [Implementation record](VMSS_CATALOG_IMPLEMENTATION_20261017.md), frozen contract and active PR final index |
 | DC-012 | Open | Agent | PR152 retained local Linux SARIF reversal/restoration with compiling regression failures. Extend platform/installed/dependency breadth before broad rollback claims | Isolated rehearsal plus behavioral tests; current proof is Git/static only |
 | DC-013 | Open design obligation | Agent | Evaluate optional safe diagnostic correlation only through a separate contract if operational requirements justify it; no blanket logger/product schema change now | [Logging assessment](LOGGING_ASSESSMENT_20261017.md), then bounded design/tests if authorized |
-| DC-014 | Task1 prepared; own QA pending | Agent | Complete Cognitive reconciliation, then contract/independent oracle, then bounded collector with docs/handover between each | [Three-task workstream](COGNITIVE_SKU_WORKSTREAM_20261017.md), active PR final index |
+| DC-014 | Task1 verified offline; task2 own QA pending | Agent | PR155 verified; freeze143-case Cognitive contract/primary evidence, then bounded collector after both-host preparation; docs/handover between each | [Three-task workstream](COGNITIVE_SKU_WORKSTREAM_20261017.md), active PR final index |
 
 ## Per-change record
 
