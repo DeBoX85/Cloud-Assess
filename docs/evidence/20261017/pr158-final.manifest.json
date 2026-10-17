@@ -1,0 +1,183 @@
+{
+  "format": "cloud-assess-evidence-v1",
+  "classification": "reviewed-synthetic-ci-local",
+  "bundle_sha256": "f3424fbd4eab55640b337c18ec6b4a343f1fad5c0548dd70edf191af7fc43635",
+  "decoded_sha256": "5a4dfd237f9f169407c17106f0b0d1f18e46487f8b066eb3a1b4cd2c20920b47",
+  "revisions": {
+    "candidate": "df426dbf8aadd26d5f91875a9af52fde23124a4a",
+    "preview": "00ae81b3a4b6c19b4ea2abc6bee10464d031b86e",
+    "protected": "a6fee427e19feeef28691737ea9bc5026086efa0"
+  },
+  "members": [
+    {
+      "path": "39035368875/117403983265.log",
+      "bytes": 1359867,
+      "sha256": "d2889e5fe7e8997eedee09f60fc5ed18ed2aff502285e4c9c67e08421150bb7c"
+    },
+    {
+      "path": "39035368875/jobs.json",
+      "bytes": 2139,
+      "sha256": "59ae27aaa3fcf0e16db637e242bc4310d1d5790fbad05563c69ba2a49fa00a9d"
+    },
+    {
+      "path": "39035368875/review.json",
+      "bytes": 4514,
+      "sha256": "9b7054d76521cf29df97532b9051ade39f3198b8a6fdb848367c679a2f05f378"
+    },
+    {
+      "path": "39035368875/run.json",
+      "bytes": 12769,
+      "sha256": "43e3f7805a5e03567d54251fd3dd5c9caa03f2caa276195dcb108a91021850f2"
+    },
+    {
+      "path": "39035368902/117403983460.log",
+      "bytes": 50627,
+      "sha256": "0c4b3f05b132603c172cffb419dd91413cd163ab734126af562befa59b33e1c3"
+    },
+    {
+      "path": "39035368902/117403983625.log",
+      "bytes": 45595,
+      "sha256": "8d62dde71254ed4f94069a4db29cf8b8bacbf8436766ae7e4f7e670f161f62f6"
+    },
+    {
+      "path": "39035368902/117403983641.log",
+      "bytes": 42236,
+      "sha256": "3ccf46c3878c45cdd7061a00cecaf348c9688fd2947b3c4117dc9b78ad3ec987"
+    },
+    {
+      "path": "39035368902/117403983646.log",
+      "bytes": 43090,
+      "sha256": "aafecdbfd15e607d394e7f073e63b3c9648f02112c58b62195a0b3460d3efa7d"
+    },
+    {
+      "path": "39035368902/117403983652.log",
+      "bytes": 63722,
+      "sha256": "5d31d161b3e67aba271303fe92a65b016d9f181033351d37af8de5a5750b631d"
+    },
+    {
+      "path": "39035368902/117403983672.log",
+      "bytes": 41542,
+      "sha256": "6c82aa39aadb6de3d39ae7a1499eda64410945fc5bb17c265177b5fbd12e0499"
+    },
+    {
+      "path": "39035368902/117403983695.log",
+      "bytes": 53349,
+      "sha256": "49e1e225c324b0e0915be4f11e6bc620871fdd93a21093ada765cfee6d35293b"
+    },
+    {
+      "path": "39035368902/117403983719.log",
+      "bytes": 44534,
+      "sha256": "68fdbfc75d934fadc1a9fbd1650c7a2f4b658f3254abac6204d7317330d26561"
+    },
+    {
+      "path": "39035368902/117405962787.log",
+      "bytes": 16417,
+      "sha256": "c7f3896e5d4de24a8522dfceea97533ff6272fc816d780e5bee5e89bbf535e45"
+    },
+    {
+      "path": "39035368902/117407521219.log",
+      "bytes": 16441,
+      "sha256": "a9fb3cb2051c8b9e23e1a63c5d70da2d7cccec396067e45a6f2bf4bbfe6b2f46"
+    },
+    {
+      "path": "39035368902/jobs.json",
+      "bytes": 41601,
+      "sha256": "208202c127c979551ef9999bbf0ba9d7f885a5340f48dcd0f9b570392c09d758"
+    },
+    {
+      "path": "39035368902/review.json",
+      "bytes": 7643,
+      "sha256": "d7017382189ff28768d1c7f26cf5e5750858381b9345b50760682e146bacb6c8"
+    },
+    {
+      "path": "39035368902/run.json",
+      "bytes": 12721,
+      "sha256": "2a29caf1023ae23409ce40f0453411cd2bff22bd8395800bd328c2166ac00eca"
+    },
+    {
+      "path": "build-sql-evidence.py",
+      "bytes": 10130,
+      "sha256": "901bf095cafbf69d68fd52cf3beadca56a61e2409df82dc4626ab069fe8cf1b7"
+    },
+    {
+      "path": "review-sql-source.py",
+      "bytes": 2198,
+      "sha256": "c0dead5824d8af7dc8abb64c6aadd843fa6f3104dfa260e35a62f4374545f1d8"
+    },
+    {
+      "path": "review-sql.py",
+      "bytes": 5815,
+      "sha256": "08c93c5e23b68f1587f7d7a1bf83eeaf74b0bf92608a9b726022e1eb67fecbe7"
+    },
+    {
+      "path": "sql-helper-writer-review.json",
+      "bytes": 492,
+      "sha256": "20e4bde69e6fee7699d0fc6ede567abc54ad7e0444210978e703ec6f9ea2b4d6"
+    },
+    {
+      "path": "sql-orchestration-publisher.js",
+      "bytes": 3298,
+      "sha256": "9c9305d8025fd8289f3b1d14deb62e619bf16ed51e36147c3be6ddd03574e401"
+    },
+    {
+      "path": "sql-orchestration-quality.js",
+      "bytes": 597,
+      "sha256": "263ec854a2d92fe6114ebed6b5ac5be5f5c10427710761aca25356c9c7776bf5"
+    },
+    {
+      "path": "sql-orchestration-save.js",
+      "bytes": 1234,
+      "sha256": "6f7440a5e9caac9425ce1a589580212f038c57c84437efb21bebeacf27452e1f"
+    },
+    {
+      "path": "sql-orchestration-source.js",
+      "bytes": 593,
+      "sha256": "48a5e53850e4145b783b70c99704d5242193870ddf07e807b6b36a89dacd530c"
+    },
+    {
+      "path": "sql-research/AZQR-LICENSE.txt",
+      "bytes": 1074,
+      "sha256": "7df20dcdf9197e9945c14858d41c60f11b52b93e5b69e2b63416b874d598d322"
+    },
+    {
+      "path": "sql-research/LocationCapabilities.json",
+      "bytes": 38062,
+      "sha256": "8246593e56c6d2708186a3603f9d92ee64ef2cc292931c7db09753471e506040"
+    },
+    {
+      "path": "sql-research/LocationCapabilityListByLocation.json",
+      "bytes": 119773,
+      "sha256": "f4b992d87b9e6e8bae6a7693092b4028dfa60bc7a79f132a8b658acebc9b57dd"
+    },
+    {
+      "path": "sql-research/REST-LICENSE.txt",
+      "bytes": 1076,
+      "sha256": "b37363bf2295aa0acde60ce78a60034a71a0955075fc01aa09cc23eadff44436"
+    },
+    {
+      "path": "sql-research/common-types.json",
+      "bytes": 5904,
+      "sha256": "709781a78cdfb4ac27edcd4bdc7709e4667b3e33eaf4f91ae1d2c21a42b9a1c3"
+    },
+    {
+      "path": "sql-research/primary-analysis.json",
+      "bytes": 18968,
+      "sha256": "96d4e94fbddb0751a15db1d3df22b761ec581b2c04b392dcaaf0a898df29fe2b"
+    },
+    {
+      "path": "sql-research/sql-source.go",
+      "bytes": 5670,
+      "sha256": "96e30b5fae627c6f03d66ab7f9a2da759f8584a6db564bc0649ada0d71e29900"
+    },
+    {
+      "path": "sql-task1-local-review.json",
+      "bytes": 188,
+      "sha256": "733ddd7fdc463a543d1429e627f7e25289ca61383138c329c6fe9fa0a0ae28e2"
+    },
+    {
+      "path": "sql-task1-preflight.log",
+      "bytes": 546,
+      "sha256": "4aababa85d873af65a1bbbde4749eb249c56f329534378a5f2278adbf9750761"
+    }
+  ]
+}
