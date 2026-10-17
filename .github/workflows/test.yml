@@ -375,6 +375,9 @@ jobs:
       - name: Verify provider collector compiling controls
         run: python3 scripts/tests/region-provider-locations-collector-mutation.py
 
+      - name: Verify VMSS catalog compiling controls
+        run: python3 scripts/tests/vmss-catalog-mutation.py
+
   quality:
     if: ${{ always() }}
     needs: [linux-native, linux-controls-1, linux-controls-2, linux-controls-3]
@@ -644,6 +647,9 @@ jobs:
       - name: Verify Windows reservation collector tests reject selected mutations
         shell: pwsh
         run: python scripts/tests/region-reservation-collector-mutation.py
+
+      - name: Verify VMSS catalog compiling controls
+        run: python scripts/tests/vmss-catalog-mutation.py
 
   windows-validation:
     if: ${{ always() }}

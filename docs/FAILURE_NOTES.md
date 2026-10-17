@@ -1,3 +1,15 @@
+# QA-VMSS-02: final-return cancellation control isolation, 2026-10-17
+
+The late-return reversal compiled but passed the initial cancellation sweep: that sweep calibrated its last observation from the currently tested implementation, so removing the final check shortened the sweep itself. Added a fixed nine-observation nil-result schedule for both cancellation/deadline, kept unchanged during reversal, and retargeted this control. Retained the broader sweep for other input/error paths. No production guard or frozen expectation changed. Preserve the second failed-control transcript and require the corrected reversal to fail its named assertion before claiming coverage. Prevention: a guard reversal must not also redefine its own test schedule; independently fix the sensitive terminal boundary.
+
+---
+
+# QA-VMSS-01: independent selection guard isolation, 2026-10-17
+
+The first local compiling reversal of the new catalog selected-binding check did not fail the frozen manifest test: its unselected expected request also mismatched collection binding, so the surviving guard still rejected it. This is a test-isolation gap, not a product defect or a pass for the reversal. Added a nil-collection/unselected request and a separate unrelated empty selection label to isolate the respective guards; retargeted two reversal controls. No frozen expectation, production guard or limit was changed. Preserve the first failed-control transcript, rerun the corrected controls and require full own-head native/source QA. Prevention: isolate each security/binding precondition from neighboring rejection paths when claiming independent reversal coverage.
+
+---
+
 # QA-DC-01: rejected additive-check script path, 2026-10-17
 
 During local development-controls preparation, workflow generation and preflight correctly rejected the new additive check because its script field used evidence-bundle.py rather than the required repository-relative scripts/tests/evidence-bundle.py. No generated workflow was written and no candidate was accepted. Corrected only the two new inventory values; unchanged generator validation/baseline and all predecessor checks remain intact. Prevention: inspect existing additive entries/schema before extending the inventory; execute generation and preflight as separately checked commands. The separate initial real-bundle test also correctly failed while its planned archive was absent; after creation it passed. Neither preparation failure is a product defect or a QA pass. Require corrected full local and own-head hosted QA.

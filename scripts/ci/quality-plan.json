@@ -109,6 +109,11 @@
         "name": "Verify durable evidence bundle integrity",
         "script": "scripts/tests/evidence-bundle.py",
         "worker": "native"
+      },
+      {
+        "name": "Verify VMSS catalog compiling controls",
+        "script": "scripts/tests/vmss-catalog-mutation.py",
+        "worker": "controls-3"
       }
     ],
     "windows": [
@@ -126,6 +131,11 @@
         "name": "Verify durable evidence bundle integrity",
         "script": "scripts/tests/evidence-bundle.py",
         "worker": "native"
+      },
+      {
+        "name": "Verify VMSS catalog compiling controls",
+        "script": "scripts/tests/vmss-catalog-mutation.py",
+        "worker": "controls-3"
       }
     ]
   }

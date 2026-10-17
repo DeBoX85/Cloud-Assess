@@ -2,7 +2,7 @@
 
 Read [CURRENT_STATE](CURRENT_STATE.md) for current status, authorization and the next action, and [development workflow](DEVELOPMENT_WORKFLOW.md) for procedure. Dated progress and resume sections below are historical snapshots; behavioral requirements remain in force unless explicitly revised. The live task PR records exact-revision QA outcomes separately from protected acceptance.
 
-New sessions use [CONTINUE](CONTINUE.md), the [restart prompt](RESTART_PROMPT.md) and current task PR. Next task/verification state is in CURRENT_STATE; VMSS contract details are in [the catalog contract](VMSS_CATALOG_CONTRACT_20261017.md). Dated handoffs remain historical snapshots.
+New sessions use [CONTINUE](CONTINUE.md), the [restart prompt](RESTART_PROMPT.md) and current task PR. Next task/verification state is in CURRENT_STATE; VMSS contract details are in [the catalog contract](VMSS_CATALOG_CONTRACT_20261017.md), with the separate [diagnostic candidate](VMSS_CATALOG_IMPLEMENTATION_20261017.md) in draft PR154. Dated handoffs remain historical snapshots.
 
 ---
 
