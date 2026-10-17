@@ -27,3 +27,5 @@ For a meaningful change record: stable task/finding ID; UTC timestamp; requireme
 QA-SQL-01: task2 Windows license checkout correction; reproduced failure/fixed-byte baseline passed; full successor QA/archive pending. Task3/4 gated on task2 closure. See CURRENT_STATE and FAILURE_NOTES.
 
 SQL task2 CLOSED offline at PR160/46223812, final own QA/archive/readback complete. QA-SQL-01/02/03 resolved/clarified with retained evidence. Same batch task3Database NEXT, task4MI pending; publish/inspect both-host missing APIs first. Independent/live/release rows remain OPEN.
+
+SQL Database task3: local42compiling reversals/exact restoration and full SQL baseline complete; final candidate preflight/own hosted QA/atomic rollback/archive pending. Task4MI gated on complete task3 and handover. Final identity expectations497Linux/492Windows.

@@ -5159,3 +5159,7 @@ This is recoverable WIP, NOT final QA certification. Pending: compiling named re
 ## Database compiling-control recovery checkpoint
 
 42plans and generated additive both-platform CI step prepared. Runtime reset interrupted first local run after12completed reversals; process absence and exact3source-file restoration verified before standard42suite restart. Partial log is not full evidence. CURRENT_STATE owns actual pending controls, rollback and final QA. No frozen/API/primary changes from this tooling checkpoint.
+
+## Database final-candidate preparation
+
+42compiling named reversals/exact restored baselines and final SQL baseline passed, exit0. First interrupted12-control run is retained but not counted. Final independent pinned-type/coordinate/alias review tests added. Generated CI additions preserve all455Linux/450Windows predecessor identities and add42per platform, final497/492. Publication/own final8workers/bothgates/source/rollback/archive remain pending; CURRENT_STATE/live implementation PR own actual outcomes. Preserve first runner/oracles/primaries/pins. Update handover before MI; no critical input or boundary change.
