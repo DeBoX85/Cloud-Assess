@@ -1,3 +1,11 @@
+# Cognitive task3 runner preparation, 2026-10-17
+
+Task2 verified offline at PR156/2d65a772/tree50b51df3 after all8native workers/bothgates in39008247168 and source39008247280. Full10logs reviewed;409Linux/404Windows identities and23captures/315chunks/909865bytes preserved. Coverage85.7%, unchanged75%floor; one module-only advisory remains open. Artifact209f15da339915be8ad7f0993b3985fad0770e3e retains22members/1878170memberbytes; all3files/identity/tree/parent read back and bounded verifier passed. Existing protecteda6fee427/previous draft heads preserved. This updates development/handover BETWEEN tasks as requested.
+
+Task3 strict JSON-tagged runner consumes143frozen scenarios with unknown-field/trailing rejection, complete collection/catalog/error comparisons, exact URLs/calls/1MiB getter bounds and input/output ownership. API absent; expected missing-API compilation is preparation, not product regression or acceptance. Publish/read back and inspect actual BOTH native logs before production edits. Then bounded collector/catalog, independent limits/HTTP/context/ownership/compiling reversals and atomic rollback+restoration/fullQA. [Implementation record](COGNITIVE_SKU_IMPLEMENTATION_20261017.md) owns details. No Azure/refresh/subagents/protected merge/release; no critical input needed. Independent backup/review/broad operational/live/release remain open.
+
+---
+
 # Cognitive task2 contract and independent future oracle, 2026-10-17
 
 Task1 is verified offline in PR155/002fa148, tree10d40682, after full native/source review:409Linux/404Windows identities,23captures/315chunks/909865bytes,85.7%coverage/floor75 and existing one module-only advisory. Corrected actual-head quality39006846906/source39006846900 supersede the table-presentation preparation runs; artifacta53d58c16487e404e8a7e42023338c84a0844d45 retains complete proof and primary research. All previous draft heads/protecteda6fee427 preserved. Updated workstream/CURRENT_STATE/action/handover routing between tasks under the user's three-task authorization.

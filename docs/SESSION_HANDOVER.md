@@ -1,3 +1,11 @@
+# Cognitive task3 runner preparation, 2026-10-17
+
+Task2 verified offline at PR156/2d65a772/tree50b51df3 after all8native workers/bothgates in39008247168 and source39008247280. Full10logs reviewed;409Linux/404Windows identities and23captures/315chunks/909865bytes preserved. Coverage85.7%, unchanged75%floor; one module-only advisory remains open. Artifact209f15da339915be8ad7f0993b3985fad0770e3e retains22members/1878170memberbytes; all3files/identity/tree/parent read back and bounded verifier passed. Existing protecteda6fee427/previous draft heads preserved. This updates development/handover BETWEEN tasks as requested.
+
+Task3 strict JSON-tagged runner consumes143frozen scenarios with unknown-field/trailing rejection, complete collection/catalog/error comparisons, exact URLs/calls/1MiB getter bounds and input/output ownership. API absent; expected missing-API compilation is preparation, not product regression or acceptance. Publish/read back and inspect actual BOTH native logs before production edits. Then bounded collector/catalog, independent limits/HTTP/context/ownership/compiling reversals and atomic rollback+restoration/fullQA. [Implementation record](COGNITIVE_SKU_IMPLEMENTATION_20261017.md) owns details. No Azure/refresh/subagents/protected merge/release; no critical input needed. Independent backup/review/broad operational/live/release remain open.
+
+---
+
 # Current status and authority
 
 Read [CURRENT_STATE](CURRENT_STATE.md) for current status, authorization and the next action, and [development workflow](DEVELOPMENT_WORKFLOW.md) for procedure. Dated progress and resume sections below are historical snapshots; behavioral requirements remain in force unless explicitly revised. The live task PR records exact-revision QA outcomes separately from protected acceptance.
