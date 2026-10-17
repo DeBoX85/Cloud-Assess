@@ -1,3 +1,11 @@
+# VMSS catalog runner preparation, 2026-10-17
+
+Verified live PR153/ccfee397, tree24089ad9, parent0067731; draft/open/unmerged and protecteda6fee427 unchanged. Its complete native/source proof retained385/380controls and23captures; final evidence archive8ec04807 is storage only. Created isolated feat/vmss-catalog-diagnostics-20261017 from the verified code head, preserving all predecessor/local marker/unrelated work.
+
+Added strict explicit JSON wire types and unknown-field/trailing-JSON rejection for all61unchanged literal cases. Runner checks complete outputs, sanitized/canonical errors, input preservation, owned storage, exact getter URLs/counts/1MiB bounds and unchanged unsupported scoring after projection. Local preparation fails at absent VMSSCatalogEvidence/VMSSCatalog symbols only; no production code exists yet and no case pass is claimed. Publication/native preparation are pending at this snapshot. Inspect both actual native logs before implementation, then independent boundaries/reversals and full exact-head QA. Original fixture hash remains e09f3814ebc647265ea2aa7e8614e855ee24a96e4eefd4fa4897d7d739e881c0. See [implementation record](VMSS_CATALOG_IMPLEMENTATION_20261017.md). No Azure, refresh, subagents, protected merge or release.
+
+---
+
 # VMSS catalog-only contract and prior QA reconciliation, 2026-10-17
 
 Verified live PR152/0067731b73cef1f0a9e201b680c5c85fc38f6672, draft/unmerged; protecteda6fee427 unchanged. Its full native/source/probe proof and durable artifact7be2df394b99ec47d7e405326fcfffda2cfaec10 are complete; all385/380controls and23captures retained. Indexed later local Linux SARIF reversal/restoration and retained remaining operational/backup/independent/live/release obligations. The artifact branch is not a feature successor.
