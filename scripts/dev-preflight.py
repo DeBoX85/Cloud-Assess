@@ -30,6 +30,8 @@ def main():
     checked(['git', 'diff', '--check', 'HEAD'])
     checked([sys.executable, str(ROOT / 'scripts/ci/generate_quality_workflow.py')])
     checked([sys.executable, str(ROOT / 'scripts/tests/ci-workflow.py')])
+    checked([sys.executable, str(ROOT / 'scripts/tests/gate-probe.py')])
+    checked([sys.executable, str(ROOT / 'scripts/tests/handoff.py')])
     if not args.static_only:
         tracked = checked(['git', 'ls-files', '-z', '--', '*.go'], capture=True).split('\0')
         extra = checked(['git', 'ls-files', '--others', '--exclude-standard', '-z', '--', '*.go'], capture=True).split('\0')

@@ -1,3 +1,9 @@
+# Current status and authority
+
+Read [CURRENT_STATE](CURRENT_STATE.md) for current status, authorization and the next action, and [development workflow](DEVELOPMENT_WORKFLOW.md) for procedure. Dated progress and resume sections below are historical snapshots; behavioral requirements remain in force unless explicitly revised. The live task PR records exact-revision QA outcomes separately from protected acceptance.
+
+---
+
 # Current status and resume authority
 
 Read [CURRENT_STATE](CURRENT_STATE.md) first, then [the development/QA workflow](DEVELOPMENT_WORKFLOW.md) and the active draft PR final evidence index. Earlier dated status and resume paragraphs below are retained historical snapshots. The user authorized the bounded CI/preflight/handoff improvement after completed PR147; finish its own QA, then stop at the tooling checkpoint. No protected merge or product integration is authorized by this task.

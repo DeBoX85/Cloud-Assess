@@ -1,3 +1,9 @@
+# Current status and authority
+
+Read [CURRENT_STATE](CURRENT_STATE.md) for current status, authorization and the next action, and [development workflow](DEVELOPMENT_WORKFLOW.md) for procedure. Dated progress and resume sections below are historical snapshots; behavioral requirements remain in force unless explicitly revised. The live task PR records exact-revision QA outcomes separately from protected acceptance.
+
+---
+
 QA-VM-03 refinement: the later-page caller cancellation/deadline cases now return a nonterminal getter error with HTTP500, independently isolating caller-context priority. Getter-terminal cases retain wrapped cancellation/deadline. This corrects test isolation only; no production or frozen-oracle change. Superseded 8d66bde evidence is historical; require full fresh native/source gates for the corrected test revision.
 
 ## QA-VM-03: explicit terminal context after an admitted page

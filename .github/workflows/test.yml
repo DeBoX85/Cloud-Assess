@@ -193,6 +193,12 @@ jobs:
       - name: Check reachable vulnerabilities
         run: go run golang.org/x/vuln/cmd/govulncheck@v1.8.0 ./...
 
+      - name: Verify hosted gate contract definitions
+        run: python3 scripts/tests/gate-probe.py
+
+      - name: Verify handoff authority consistency
+        run: python3 scripts/tests/handoff.py
+
       - name: Retain synthetic QA failure evidence
         if: failure()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
@@ -465,6 +471,12 @@ jobs:
 
       - name: Check Windows reachable vulnerabilities
         run: go run golang.org/x/vuln/cmd/govulncheck@v1.8.0 ./...
+
+      - name: Verify hosted gate contract definitions
+        run: python scripts/tests/gate-probe.py
+
+      - name: Verify handoff authority consistency
+        run: python scripts/tests/handoff.py
 
   windows-controls-1:
     runs-on: windows-2022

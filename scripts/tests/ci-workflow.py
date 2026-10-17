@@ -74,6 +74,11 @@ class ConservationTests(unittest.TestCase):
                 _, steps = workflow.split_steps(after[job_id])
                 self.assertIn('Verify parallel workflow conservation and gate guards', steps)
                 del steps['Verify parallel workflow conservation and gate guards']
+                plan = json.loads(workflow.PLAN.read_text(encoding='utf-8'))
+                for addition in plan['additions'][platform]:
+                    if job_id == platform + '-' + addition['worker']:
+                        self.assertIn(addition['name'], steps)
+                        del steps[addition['name']]
                 for block in steps.values():
                     block = block.replace('go test -count=1 -covermode=atomic', 'go test -covermode=atomic')
                     block = block.replace('run: go test -count=1 ./...', 'run: go test ./...')
@@ -122,6 +127,33 @@ class ConservationTests(unittest.TestCase):
                 groups[0].append(groups[1][0])
             else:
                 groups[0][0] = 'Nonexistent or foreign-platform suite'
+            with patch.object(workflow, 'read_baseline', return_value=(header, baseline, changed)):
+                with self.assertRaises(ValueError):
+                    workflow.generate()
+
+
+class AdditiveInventoryTests(unittest.TestCase):
+    def test_process_checks_are_mandatory_on_both_native_workers(self):
+        _, jobs = workflow.split_jobs(workflow.WORKFLOW.read_text(encoding='utf-8'))
+        for platform in ('linux', 'windows'):
+            _, steps = workflow.split_steps(jobs[platform + '-native'])
+            for name, script in [('Verify hosted gate contract definitions', 'gate-probe.py'), ('Verify handoff authority consistency', 'handoff.py')]:
+                self.assertIn(name, steps)
+                self.assertIn('run: ' + ('python3' if platform == 'linux' else 'python') + ' scripts/tests/' + script, steps[name])
+                self.assertNotIn('        if:', steps[name])
+                self.assertNotIn('continue-on-error', steps[name])
+
+    def test_additive_inventory_rejects_replacement_skip_and_foreign_paths(self):
+        header, baseline, plan = workflow.read_baseline()
+        bad = [
+            {'name': 'Checkout', 'script': 'scripts/tests/gate-probe.py', 'worker': 'native'},
+            {'name': 'Extra check', 'script': '../outside.py', 'worker': 'native'},
+            {'name': 'Extra check', 'script': 'scripts/tests/gate-probe.py', 'worker': 'other'},
+            {'name': 'Extra check', 'script': 'scripts/tests/gate-probe.py', 'worker': 'native', 'if': 'false'},
+        ]
+        for addition in bad:
+            changed = json.loads(json.dumps(plan))
+            changed['additions']['linux'].append(addition)
             with patch.object(workflow, 'read_baseline', return_value=(header, baseline, changed)):
                 with self.assertRaises(ValueError):
                     workflow.generate()

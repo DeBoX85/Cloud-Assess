@@ -63,14 +63,34 @@ def generate():
         setup = ['Checkout', 'Set up Go']
         if list(steps)[:2] != setup:
             raise ValueError('baseline setup changed')
+        additions = plan.get('additions', {})
+        if set(additions) != {'linux', 'windows'} or not isinstance(additions[platform], list):
+            raise ValueError('explicit per-platform additive inventory required')
+        extras = {}
+        for addition in additions[platform]:
+            if not isinstance(addition, dict) or set(addition) != {'name', 'script', 'worker'}:
+                raise ValueError('additive checks have only name, script and worker fields')
+            name, script, worker = addition['name'], addition['script'], addition['worker']
+            if (not isinstance(name, str) or not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9 ()/-]{0,119}', name) or
+                    name in steps or any(name == prior['name'] for group in extras.values() for prior in group) or
+                    worker not in ('native', 'controls-1', 'controls-2', 'controls-3') or
+                    not isinstance(script, str) or not re.fullmatch(r'scripts/tests/[a-z0-9][a-z0-9-]*\.py', script) or
+                    not (ROOT / script).is_file()):
+                raise ValueError('invalid or duplicate additive required check')
+            extras.setdefault(platform + '-' + worker, []).append(addition)
         native = [name for name in steps if name not in controls]
         for worker, names in [(platform + '-native', native)] + [(platform + '-controls-' + str(i + 1), setup + group) for i, group in enumerate(groups)]:
             out += '  ' + worker + ':\n' + preamble + '    steps:\n'
+            py = 'python3' if platform == 'linux' else 'python'
+            extra_blocks = ''.join('      - name: ' + e['name'] + '\n        run: ' + py + ' ' + e['script'] + '\n\n' for e in extras.get(worker, []))
+            inserted = False
             for index, name in enumerate(names):
                 # Fail quickly on workflow drift, before expensive suites begin.
                 if index == 2:
-                    py = 'python3' if platform == 'linux' else 'python'
                     out += '      - name: Verify parallel workflow conservation and gate guards\n        run: ' + py + ' scripts/tests/ci-workflow.py\n\n'
+                if name == 'Retain synthetic QA failure evidence':
+                    out += extra_blocks
+                    inserted = True
                 block = steps[name]
                 # Keep build caching, but require this final native run to execute tests.
                 if name == 'Test Go packages on Windows':
@@ -78,6 +98,8 @@ def generate():
                 if name == 'Verify coverage floor':
                     block = block.replace('go test -covermode=atomic', 'go test -count=1 -covermode=atomic')
                 out += block + '\n'
+            if not inserted:
+                out += extra_blocks
         gate = 'quality' if platform == 'linux' else 'windows-validation'
         workers = [platform + '-native'] + [platform + '-controls-' + str(i) for i in (1, 2, 3)]
         out += '  ' + gate + ':\n'

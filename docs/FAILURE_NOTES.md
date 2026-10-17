@@ -1,3 +1,9 @@
+# Continuity and CI inventory corrections, 2026-10-17
+
+Review found competing dated current/STOP sections and ambiguity between offline verification and protected acceptance. Stable authority headers and a mandatory rejecting handoff guard now route resume decisions to CURRENT_STATE while retaining historical evidence and behavioral contracts. The frozen CI inventory also lacked an explicit safe extension path; additive checks now have a constrained per-platform schema without baseline replacement or conditional/error-ignoring execution. Hosted probe verification distinguishes intended validator rejection from unrelated infrastructure failure. A skipped job is not scheduled and may have no runner labels; require native labels only for workers that actually run. No product failure or live validation is claimed. See [reconciliation](QA_SAFEGUARDS_RECONCILIATION_20261017.md).
+
+---
+
 # CI tooling local validation limits, 2026-10-17
 
 The first generated-workflow preflight rejected a trailing blank line; generation now emits one canonical final newline and the guard suite passes. A local Windows native-command test could not create its default sandbox temp script; retrying with a task-owned workspace temp directory reached the local PowerShell policy and was rejected with AuthorizationManager UnauthorizedAccess. Neither attempt is a test pass. Do not weaken execution policy or change the existing assertions; mandatory hosted native Windows/Linux runs must verify the actual package/branding blocks after their job locator update. Local focused Go preparation separately verifies every copied APRL file against its pinned Git blob. See [current state](CURRENT_STATE.md) and the tooling PR final evidence index for later disposition.

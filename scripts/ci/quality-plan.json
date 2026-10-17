@@ -92,5 +92,31 @@
         "Verify Windows reservation collector tests reject selected mutations"
       ]
     ]
+  },
+  "additions": {
+    "linux": [
+      {
+        "name": "Verify hosted gate contract definitions",
+        "script": "scripts/tests/gate-probe.py",
+        "worker": "native"
+      },
+      {
+        "name": "Verify handoff authority consistency",
+        "script": "scripts/tests/handoff.py",
+        "worker": "native"
+      }
+    ],
+    "windows": [
+      {
+        "name": "Verify hosted gate contract definitions",
+        "script": "scripts/tests/gate-probe.py",
+        "worker": "native"
+      },
+      {
+        "name": "Verify handoff authority consistency",
+        "script": "scripts/tests/handoff.py",
+        "worker": "native"
+      }
+    ]
   }
 }
