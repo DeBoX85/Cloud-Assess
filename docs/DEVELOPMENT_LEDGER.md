@@ -5171,3 +5171,7 @@ The Database-only supplemental TestSQLDatabaseProjectionBinding used expected MI
 ## SQL task3 completion before task4
 
 Database VERIFIED OFFLINE in PR163/e2acce427, own quality39076605881/source39076605862 all8workers/bothgates/23captures;497Linux/492Windows controls exact, coverage86.3%/floor75. Evidence026bbb61 retains110members, full readback/bounded verification and atomic source rollback/restoration. Task4MI NEXT; this update precedes its runner/production. CURRENT_STATE/live PR163 own exact outcomes and next action. Publish163case MI runner and inspect BOTH actual native missing constructors before MI edits. Same batch; no critical input/boundary change.
+
+## MI first runner preparation
+
+After verified Database completion/handover, separate163case strict MI consumer prepared while constructor absent. Publish/read back and inspect BOTH native missing constructors before production. First Database runner/oracles/42controls unchanged. CURRENT_STATE and SQL_MANAGED_INSTANCE_IMPLEMENTATION_20261017.md own preparation status; same final task4, not a new batch.

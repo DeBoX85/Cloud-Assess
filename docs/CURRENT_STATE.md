@@ -13,7 +13,7 @@ Published means durable code exists. Verified offline means the exact revision p
 
 ## Active handoff and next action
 
-Same authorized SQL four-task batch: task1 COMPLETE PR158; task2 COMPLETE VERIFIED OFFLINE PR160/46223812; task3 Database COMPLETE VERIFIED OFFLINE PR163/e2acce427ff4a415f4613cf13d11f4b86952865b/tree6a9f557e735de2bfad368f838b35fb7af44d7be2. Task4MI NEXT, not started. This handover is updated BEFORE task4. No critical input. Read live PR163 final exact-revision index; pending-at-publication text is historical.
+Same authorized SQL four-task batch: task1 COMPLETE PR158; task2 COMPLETE VERIFIED OFFLINE PR160/46223812; task3 Database COMPLETE VERIFIED OFFLINE PR163/e2acce427ff4a415f4613cf13d11f4b86952865b/tree6a9f557e735de2bfad368f838b35fb7af44d7be2. Task4MI strict163case RUNNER PREPARATION; constructor absent. Publication/readback and BOTH actual native missing constructors pending before any MI production edits. Read SQL_MANAGED_INSTANCE_IMPLEMENTATION_20261017.md. This handover is updated BEFORE task4. No critical input. Read live PR163 final exact-revision index; pending-at-publication text is historical.
 
 Database own quality39076605881 all8workers/bothgates and source39076605862 passed. Every full log/step reviewed;497Linux/492Windows exact identities (455/450predecessor+42SQL controls), no missing/extra/duplicates. All23captures/315chunks/909865bytes reconstructed against exact candidateGit blobs. Coverage86.3%/unchanged75%floor, one module-only advisory OPEN. All153unchanged Database cases/supplemental tests pass. Actual BOTH native missing APIs were inspected BEFORE production at runnerb6064ce7/PR161 in39074581742 Linux117518982054/Windows117518982212. First runner/frozen manifests/primaries/captures/pins unchanged.
 
