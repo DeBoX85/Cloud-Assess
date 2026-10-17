@@ -1,0 +1,485 @@
+name: Go quality gate
+
+on:
+  push:
+    branches:
+      - main
+      - bootstrap/core-v1
+  pull_request:
+    branches:
+      - main
+      - bootstrap/core-v1
+
+permissions:
+  contents: read
+
+concurrency:
+  group: go-quality-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          submodules: recursive
+          fetch-depth: 1
+
+      - name: Set up Go
+        uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # v6.5.0
+        with:
+          go-version: '1.26.9'
+          cache: true
+
+      - name: Verify pinned source-data provenance
+        shell: bash
+        run: |
+          set -euo pipefail
+          expected_aprl='60eaddda76541f6adbc1c5ffa686829807e55e29'
+          expected_aor='a3ff1cafbc0a74ea4e4d2cc5aa2812f7c1dab9f5'
+          expected_custom='674b9b3dcb443ce6dc445b48e1db47e4a0ca7082'
+          expected_skus='a2d97a60ec445ce4023a1a5a9b6c4dca76e31f5a'
+
+          actual_aprl="$(git rev-parse HEAD:internal/rules/upstream/aprl)"
+          actual_aor="$(git rev-parse HEAD:internal/rules/upstream/orphan-resources)"
+          actual_custom="$(git rev-parse HEAD:internal/rules/custom)"
+          actual_skus="$(git hash-object internal/skus/known_skus.yaml)"
+
+          test "$actual_aprl" = "$expected_aprl"
+          test "$actual_aor" = "$expected_aor"
+          test "$actual_custom" = "$expected_custom"
+          test "$actual_skus" = "$expected_skus"
+
+          test "$(git -C internal/rules/upstream/aprl rev-parse HEAD)" = "$expected_aprl"
+
+      - name: Verify Section 1 compiling regressions
+        run: python3 scripts/tests/section1-regressions.py
+
+      - name: Verify Section 2 compiling regressions
+        run: python3 scripts/tests/section2-regressions.py
+
+      - name: Verify Section 3 compiling regressions
+        run: python3 scripts/tests/section3-regressions.py
+
+      - name: Verify Section 4 compiling regressions
+        run: python3 scripts/tests/section4-regressions.py
+
+      - name: Verify ARG response framing compiling controls
+        run: python3 scripts/tests/arg-response-framing-mutation.py
+
+      - name: Verify Compute disk SKU collector compiling controls
+        run: python3 scripts/tests/compute-disk-sku-collector-mutation.py
+
+      - name: Verify Storage SKU collector compiling controls
+        run: python3 scripts/tests/storage-sku-collector-mutation.py
+
+      - name: Verify VM SKU collector compiling controls
+        run: python3 scripts/tests/compute-vm-sku-collector-mutation.py
+
+      - name: Verify retained source capture byte guard
+        run: python3 scripts/tests/region-source-capture.py
+
+      - name: Verify availability source oracle mutations
+        run: python3 scripts/tests/region-availability-capture-mutation.py
+
+      - name: Verify latency source oracle mutations
+        run: python3 scripts/tests/region-latency-capture-mutation.py
+
+      - name: Verify cost enrichment source oracle mutations
+        run: python3 scripts/tests/region-cost-enrichment-capture-mutation.py
+      - name: Quota source oracle compiling controls
+        run: python3 scripts/tests/region-quota-capture-mutation.py
+      - name: VM quota SDK source oracle compiling controls
+        run: python3 scripts/tests/region-vm-quota-capture-mutation.py
+      - name: Reservation SDK source oracle compiling controls
+        run: python3 scripts/tests/region-reservation-capture-mutation.py
+      - name: Provider locations source oracle compiling controls
+        run: python3 scripts/tests/region-provider-locations-capture-mutation.py
+
+      - name: Compute SKU source oracle compiling controls
+        run: python3 scripts/tests/region-compute-sku-capture-mutation.py
+
+      - name: Remaining SKU source oracle compiling controls
+        run: python3 scripts/tests/region-other-sku-capture-mutation.py
+
+      - name: Verify formatting
+        shell: bash
+        run: |
+          set -euo pipefail
+          files="$(git ls-files '*.go')"
+          unformatted="$(gofmt -l $files)"
+          if [ -n "$unformatted" ]; then
+            echo 'The following Go files are not gofmt-formatted:'
+            echo "$unformatted"
+            gofmt -d $files
+            exit 1
+          fi
+
+      - name: Verify module graph
+        shell: bash
+        run: |
+          set -euo pipefail
+          go mod tidy
+          git diff --exit-code -- go.mod go.sum
+
+      - name: Test dependency inventory safeguards
+        run: python3 scripts/tests/dependency-inventory.py
+
+      - name: Verify offline workspace bootstrap boundaries
+        run: |
+          bash -n scripts/bootstrap-workspace.sh
+          python3 scripts/tests/bootstrap-workspace.py
+
+      - name: Verify Windows workflow native-command failure propagation
+        run: python3 scripts/tests/workflow-command-failures.py
+
+      - name: Verify dependency and license inventory freshness
+        run: python3 scripts/dependency-inventory.py --check
+
+      - name: Validate branding builder and actual native executables
+        run: |
+          python3 scripts/tests/branding.py
+          python3 scripts/tests/branding-reports.py
+
+      - name: Verify product branding boundaries
+        shell: bash
+        run: |
+          set -euo pipefail
+          if grep -RInE --include='*.go' 'azqr_action_plan|Use:[[:space:]]*"azqr"|github\.com/Azure/azqr|Azure Quick Review 🚀' cmd internal; then
+            echo 'Legacy product identity found in executable Go source.'
+            exit 1
+          fi
+
+      - name: Parse PowerShell validation scripts
+        shell: pwsh
+        run: |
+          $parseFailed = $false
+          Get-ChildItem -Path ./scripts -Include *.ps1,*.psm1 -File -Recurse | ForEach-Object {
+            $tokens = $null
+            $errors = $null
+            [System.Management.Automation.Language.Parser]::ParseFile($_.FullName, [ref]$tokens, [ref]$errors) | Out-Null
+            if ($errors.Count -gt 0) {
+              $parseFailed = $true
+              Write-Host "PowerShell parse errors in $($_.FullName):"
+              $errors | ForEach-Object { Write-Error $_.Message }
+            }
+          }
+          if ($parseFailed) {
+            exit 1
+          }
+
+      - name: Test PowerShell validation helpers
+        shell: pwsh
+        run: ./scripts/tests/live-equivalence.tests.ps1
+
+      - name: Build CLI
+        env:
+          CGO_ENABLED: '0'
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p .build
+          go build -trimpath -buildvcs=true -o .build/cloud-assess ./cmd/cloud-assess
+
+      - name: Smoke-test CLI help
+        shell: bash
+        run: |
+          set -euo pipefail
+          ./.build/cloud-assess --help >/dev/null
+          ./.build/cloud-assess scan --help >/dev/null
+          ./.build/cloud-assess --version >/dev/null
+
+      - name: Verify QA temporary-directory cleanup policy
+        run: python3 scripts/tests/qa-temp-cleanup.py
+
+      - name: Verify built CLI preflight and compiled dependency evidence
+        run: python3 scripts/tests/built-cli.py --binary .build/cloud-assess
+
+      - name: Verify authored documentation and operator examples
+        run: python3 scripts/tests/documentation.py --binary .build/cloud-assess --powershell pwsh
+
+      - name: Test candidate package integrity and isolated installation
+        run: |
+          python3 scripts/tests/package-candidate.py --binary .build/cloud-assess
+          python3 scripts/tests/branded-package.py
+
+      - name: Test with race detector
+        run: go test -race -count=1 ./...
+
+      - name: Verify coverage floor
+        shell: bash
+        run: |
+          set -euo pipefail
+          go test -covermode=atomic -coverprofile=.build/coverage.out ./...
+          total="$(go tool cover -func=.build/coverage.out | awk '/^total:/ {gsub("%", "", $3); print $3}')"
+          echo "Total statement coverage: ${total}%"
+          awk -v total="$total" 'BEGIN { if ((total + 0) < 75.0) exit 1 }'
+
+      - name: Bounded comparator, scope and row-decoder fuzzing
+        shell: bash
+        run: |
+          set -euo pipefail
+          go test -run '^$' -fuzz '^FuzzCompareFieldSymmetry$' -fuzztime 100000x -timeout 60s -parallel 2 ./internal/equivalence
+          go test -run '^$' -fuzz '^FuzzExactResourceExclusionPreservesOtherResource$' -fuzztime 500000x -timeout 60s -parallel 2 ./internal/config
+          go test -run '^$' -fuzz '^FuzzDecodeRowsIsolationAndAccounting$' -fuzztime 100000x -timeout 60s -parallel 2 ./internal/arg
+          go test -run '^$' -fuzz '^FuzzBoundedAIWire$' -fuzztime 5000x -timeout 60s -parallel 2 ./internal/plugins/aigov
+          go test -run '^$' -fuzz '^FuzzDiscoveryEnvelope$' -fuzztime 5000x -timeout 60s -parallel 2 ./internal/plugins/aigov
+
+      - name: Test maintenance proposal publication
+        run: python3 scripts/tests/maintenance-publication.py
+
+      - name: Test maintenance generation recipes
+        run: python3 scripts/tests/maintenance-generation.py
+
+      - name: Verify comparator tests reject selected mutations
+        run: python3 scripts/tests/qa-mutation.py
+
+      - name: Verify AI request boundary tests reject selected mutations
+        run: python3 scripts/tests/ai-request-mutation.py
+
+      - name: Verify AI public execution tests reject selected mutations
+        run: python3 scripts/tests/ai-execution-mutation.py
+
+      - name: Verify region primary tests reject selected mutations
+        run: python3 scripts/tests/region-primary-mutation.py
+
+      - name: Verify region auxiliary tests reject selected mutations
+        run: python3 scripts/tests/region-auxiliary-mutation.py
+
+      - name: Verify region service tests reject selected mutations
+        run: python3 scripts/tests/region-service-mutation.py
+
+      - name: Verify region cost tests reject selected mutations
+        run: python3 scripts/tests/region-cost-mutation.py
+
+      - name: Verify region inventory tests reject selected mutations
+        run: python3 scripts/tests/region-inventory-mutation.py
+
+      - name: Verify region inventory aggregation tests reject selected mutations
+        run: python3 scripts/tests/region-inventory-aggregation-mutation.py
+
+      - name: Verify region availability tests reject selected mutations
+        run: python3 scripts/tests/region-availability-mutation.py
+
+      - name: Verify region latency tests reject selected mutations
+        run: python3 scripts/tests/region-latency-mutation.py
+      - name: Verify region cost enrichment tests reject selected mutations
+        run: python3 scripts/tests/region-cost-enrichment-mutation.py
+
+      - name: Verify region quota runtime tests reject selected mutations
+        run: python3 scripts/tests/region-quota-runtime-mutation.py
+
+      - name: Verify region reservation runtime tests reject selected mutations
+        run: python3 scripts/tests/region-reservation-runtime-mutation.py
+
+      - name: Verify REST quota collector tests reject selected mutations
+        run: python3 scripts/tests/region-quota-collector-mutation.py
+
+      - name: Verify reservation collector tests reject selected mutations
+        run: python3 scripts/tests/region-reservation-collector-mutation.py
+
+      - name: Verify provider collector compiling controls
+        run: python3 scripts/tests/region-provider-locations-collector-mutation.py
+
+      - name: Vet
+        run: go vet ./...
+
+      - name: Check reachable vulnerabilities
+        run: go run golang.org/x/vuln/cmd/govulncheck@v1.8.0 ./...
+
+      - name: Retain synthetic QA failure evidence
+        if: failure()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: synthetic-qa-failure-${{ github.run_id }}
+          path: |
+            internal/**/testdata/fuzz/**
+            .build/coverage.out
+          if-no-files-found: ignore
+          retention-days: 14
+
+  windows-validation:
+    runs-on: windows-2022
+    timeout-minutes: 40
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          submodules: recursive
+
+      - name: Set up Go
+        uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # v6.5.0
+        with:
+          go-version: '1.26.9'
+          cache: true
+
+      - name: Parse scripts with Windows PowerShell 5.1
+        shell: powershell
+        run: |
+          $parseFailed = $false
+          Get-ChildItem -Path ./scripts -Include *.ps1,*.psm1 -File -Recurse | ForEach-Object {
+            $tokens = $null
+            $errors = $null
+            [System.Management.Automation.Language.Parser]::ParseFile($_.FullName, [ref]$tokens, [ref]$errors) | Out-Null
+            if ($errors.Count -gt 0) {
+              $parseFailed = $true
+              $errors | ForEach-Object { Write-Error $_.Message }
+            }
+          }
+          if ($parseFailed) { exit 1 }
+
+      - name: Test Windows PowerShell validation helpers
+        shell: powershell
+        run: ./scripts/tests/live-equivalence.tests.ps1
+
+      - name: Verify Windows workflow native-command failure propagation
+        run: python scripts/tests/workflow-command-failures.py
+
+      - name: Verify Section 1 compiling regressions
+        run: python scripts/tests/section1-regressions.py
+
+      - name: Verify Section 2 compiling regressions
+        run: python scripts/tests/section2-regressions.py
+
+      - name: Verify Section 3 compiling regressions
+        run: python scripts/tests/section3-regressions.py
+
+      - name: Verify Section 4 compiling regressions
+        run: python scripts/tests/section4-regressions.py
+
+      - name: Verify ARG response framing compiling controls
+        run: python scripts/tests/arg-response-framing-mutation.py
+
+      - name: Verify Compute disk SKU collector compiling controls
+        run: python scripts/tests/compute-disk-sku-collector-mutation.py
+
+      - name: Verify Storage SKU collector compiling controls
+        run: python scripts/tests/storage-sku-collector-mutation.py
+
+      - name: Verify VM SKU collector compiling controls
+        run: python scripts/tests/compute-vm-sku-collector-mutation.py
+
+      - name: Verify Windows retained source capture byte guard
+        run: python scripts/tests/region-source-capture.py
+
+      - name: Verify Windows availability source oracle mutations
+        run: python scripts/tests/region-availability-capture-mutation.py
+
+      - name: Verify Windows latency source oracle mutations
+        run: python scripts/tests/region-latency-capture-mutation.py
+
+      - name: Verify Windows cost enrichment source oracle mutations
+        run: python scripts/tests/region-cost-enrichment-capture-mutation.py
+      - name: Quota source oracle compiling controls
+        run: python scripts/tests/region-quota-capture-mutation.py
+      - name: VM quota SDK source oracle compiling controls
+        run: python scripts/tests/region-vm-quota-capture-mutation.py
+      - name: Reservation SDK source oracle compiling controls
+        run: python scripts/tests/region-reservation-capture-mutation.py
+      - name: Provider locations source oracle compiling controls
+        run: python scripts/tests/region-provider-locations-capture-mutation.py
+
+      - name: Compute SKU source oracle compiling controls
+        run: python scripts/tests/region-compute-sku-capture-mutation.py
+
+      - name: Remaining SKU source oracle compiling controls
+        run: python scripts/tests/region-other-sku-capture-mutation.py
+
+      - name: Test Go packages on Windows
+        run: go test ./...
+
+      - name: Verify Windows AI request boundary tests reject selected mutations
+        run: python scripts/tests/ai-request-mutation.py
+
+      - name: Verify Windows AI public execution tests reject selected mutations
+        run: python scripts/tests/ai-execution-mutation.py
+
+      - name: Verify Windows region primary tests reject selected mutations
+        run: python scripts/tests/region-primary-mutation.py
+
+      - name: Verify Windows region auxiliary tests reject selected mutations
+        run: python scripts/tests/region-auxiliary-mutation.py
+
+      - name: Verify Windows region service tests reject selected mutations
+        run: python scripts/tests/region-service-mutation.py
+
+      - name: Verify Windows region cost tests reject selected mutations
+        run: python scripts/tests/region-cost-mutation.py
+
+      - name: Verify Windows region inventory tests reject selected mutations
+        run: python scripts/tests/region-inventory-mutation.py
+
+      - name: Verify Windows region inventory aggregation tests reject selected mutations
+        run: python scripts/tests/region-inventory-aggregation-mutation.py
+
+      - name: Verify Windows region availability tests reject selected mutations
+        run: python scripts/tests/region-availability-mutation.py
+
+      - name: Verify Windows region latency tests reject selected mutations
+        run: python scripts/tests/region-latency-mutation.py
+      - name: Verify Windows region cost enrichment tests reject selected mutations
+        shell: pwsh
+        run: python scripts/tests/region-cost-enrichment-mutation.py
+
+      - name: Verify Windows region quota runtime tests reject selected mutations
+        shell: pwsh
+        run: python scripts/tests/region-quota-runtime-mutation.py
+
+      - name: Verify Windows region reservation runtime tests reject selected mutations
+        shell: pwsh
+        run: python scripts/tests/region-reservation-runtime-mutation.py
+
+      - name: Verify Windows REST quota collector tests reject selected mutations
+        shell: pwsh
+        run: python scripts/tests/region-quota-collector-mutation.py
+
+      - name: Verify Windows reservation collector tests reject selected mutations
+        shell: pwsh
+        run: python scripts/tests/region-reservation-collector-mutation.py
+
+      - name: Verify Windows provider collector compiling controls
+        run: python scripts/tests/region-provider-locations-collector-mutation.py
+
+      - name: Build and smoke-test Windows CLI
+        env:
+          CGO_ENABLED: '0'
+        shell: powershell
+        run: |
+          New-Item -ItemType Directory -Path .build -Force | Out-Null
+          go build -trimpath -buildvcs=true -o .build/cloud-assess.exe ./cmd/cloud-assess
+          if ($LASTEXITCODE -ne 0) { throw 'Windows CLI build failed.' }
+          & ./.build/cloud-assess.exe --help | Out-Null
+          if ($LASTEXITCODE -ne 0) { throw 'Windows root help failed.' }
+          & ./.build/cloud-assess.exe scan --help | Out-Null
+          if ($LASTEXITCODE -ne 0) { throw 'Windows scan help failed.' }
+          & ./.build/cloud-assess.exe --version | Out-Null
+          if ($LASTEXITCODE -ne 0) { throw 'Windows version failed.' }
+
+      - name: Verify QA temporary-directory cleanup policy
+        run: python scripts/tests/qa-temp-cleanup.py
+
+      - name: Verify built Windows CLI preflight and compiled dependency evidence
+        run: python scripts/tests/built-cli.py --binary .build/cloud-assess.exe
+
+      - name: Verify Windows documentation and operator examples
+        run: python scripts/tests/documentation.py --binary .build/cloud-assess.exe --powershell powershell
+
+      - name: Validate branding builder and actual native executables
+        run: |
+          python scripts/tests/branding.py
+          if ($LASTEXITCODE -ne 0) { throw 'Native branding CLI checks failed.' }
+          python scripts/tests/branding-reports.py
+          if ($LASTEXITCODE -ne 0) { throw 'Native branding report checks failed.' }
+
+      - name: Test Windows candidate package integrity and isolated installation
+        run: |
+          python scripts/tests/package-candidate.py --binary .build/cloud-assess.exe
+          if ($LASTEXITCODE -ne 0) { throw 'Default native package checks failed.' }
+          python scripts/tests/branded-package.py
+          if ($LASTEXITCODE -ne 0) { throw 'Custom native package checks failed.' }
+
+      - name: Check Windows reachable vulnerabilities
+        run: go run golang.org/x/vuln/cmd/govulncheck@v1.8.0 ./...
