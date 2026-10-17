@@ -41,6 +41,9 @@ func ExecuteRecommendations(
 	if querier == nil {
 		return nil, nil, fmt.Errorf("ARG querier is not configured")
 	}
+	if err := ctx.Err(); err != nil {
+		return nil, nil, fmt.Errorf("recommendation execution interrupted: %w", err)
+	}
 	if workers <= 0 {
 		workers = DefaultRuleWorkers
 	}
@@ -51,7 +54,8 @@ func ExecuteRecommendations(
 		return []assessment.Finding{}, []RuleWarning{}, nil
 	}
 
-	ctx, cancel := context.WithCancel(ctx)
+	parentContext := ctx
+	ctx, cancel := context.WithCancel(parentContext)
 	defer cancel()
 
 	jobs := make(chan assessment.RecommendationDefinition)
@@ -66,6 +70,9 @@ func ExecuteRecommendations(
 				return
 			case definition, ok := <-jobs:
 				if !ok {
+					return
+				}
+				if ctx.Err() != nil {
 					return
 				}
 				if definition.Query == "" {
@@ -153,8 +160,14 @@ func ExecuteRecommendations(
 		}
 		findings = append(findings, outcome.findings...)
 	}
+	if err := parentContext.Err(); err != nil {
+		return nil, warnings, fmt.Errorf("recommendation execution interrupted: %w", err)
+	}
 	if firstErr != nil {
 		return nil, warnings, firstErr
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, warnings, fmt.Errorf("recommendation execution interrupted: %w", err)
 	}
 
 	sort.Slice(findings, func(i, j int) bool {
