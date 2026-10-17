@@ -43,7 +43,7 @@ For final QA, inspect all four worker logs per platform plus both validator logs
 
 ## Remaining boundaries
 
-This tooling slice adds no feature parity, accepted target adapter, live Azure evidence, dependency/advisory closure, protected merge or release. Supported-platform, fresh-OS, load, hosted maintenance and human/security/license/Gate004 decisions remain open. The next feature contract after this tooling checkpoint is still VMSS eligibility reconciliation; preserve unsupported VMSS scoring until resolved.
+This tooling slice adds no feature parity, accepted target adapter, live Azure evidence, dependency/advisory closure, protected merge or release. Supported-platform, fresh-OS, load, hosted maintenance and human/security/license/Gate004 decisions remain open. The next bounded task is recorded in CURRENT_STATE; preserve unsupported VMSS scoring until a separate justified contract and tests resolve it.
 
 ## Hosted gate regression probes
 

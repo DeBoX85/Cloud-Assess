@@ -1,6 +1,6 @@
 # Repository agent continuity and QA
 
-Before changing this repository, use `docs/CONTINUE.md` as the stable restart entry point and read `docs/CURRENT_STATE.md`, then `docs/SESSION_HANDOVER.md` and its authority map and the linked development execution/QA plans. Verify live refs and open proposals; a historical hash or old workspace path is not necessarily current. Explicit user instructions take precedence over repository guidance.
+Before changing this repository, use `docs/CONTINUE.md` as the stable restart entry point and read `docs/CURRENT_STATE.md`, then the authority map in `docs/SESSION_HANDOVER.md` and applicable contract, execution and QA sections. Load historical narratives only when needed; do not dump entire growing ledgers or logs into chat context. Preserve complete evidence and required review coverage while keeping reads and user-facing updates targeted. Verify live refs and open proposals; a historical hash or old workspace path is not necessarily current. Explicit user instructions take precedence over repository guidance.
 
 Follow `docs/CONTINUITY.md` for checkpoint triggers, uncertain-operation recovery and successor routing. Keep `docs/RESTART_PROMPT.md` copy-ready and provide its link at natural checkpoints without waiting for the user to request a handoff. Aim for durable checkpoints every 20-30 active minutes at safe boundaries; this is best effort, not background execution or outage-proof recovery.
 

@@ -1,3 +1,13 @@
+# VMSS catalog-only contract and prior QA reconciliation, 2026-10-17
+
+Verified live PR152/0067731b73cef1f0a9e201b680c5c85fc38f6672, draft/unmerged; protecteda6fee427 unchanged. Its full native/source/probe proof and durable artifact7be2df394b99ec47d7e405326fcfffda2cfaec10 are complete; all385/380controls and23captures retained. Indexed later local Linux SARIF reversal/restoration and retained remaining operational/backup/independent/live/release obligations. The artifact branch is not a feature successor.
+
+The user authorized continued development with practical context economy while preserving QA/precision. Rechecked Microsoft FAQ, SKU restrictions and Resource SKUs2021-07-01; no source/dependency/API refresh. Defined distinct pure VMSS catalog diagnostics with explicit source/target binding, fixed limitation, not_assessed deployment and unchanged unsupported scoring. Froze61future cases (93385bytes SHA256e09f3814ebc647265ea2aa7e8614e855ee24a96e4eefd4fa4897d7d739e881c0) plus a byte-integrity test; these cases have NOT run against the absent API. No production collector/scoring/report/coordinator/schema change. The original67VM cases and all source captures are unchanged.
+
+Prepublication premise review corrected one invalid-name vector to use actual leading padding: internal ASCII spaces alone are allowed by the existing name contract. This is a fixture-authoring correction before freeze/publication, not a product defect or relaxed assertion. Updated current state, compact action register, README/region/roadmap and targeted-read guidance. Own full QA/readback remains pending; active PR owns actual outcomes. Next after contract verification: publish consuming runner/missing-API preparation, then bounded pure projection with independent boundary/reversal checks. Preserve existing heads, pins, no Azure/subagents/protected merge/release.
+
+---
+
 # Development controls implemented, 2026-10-17
 
 Pre-edit contract4032e7416d747262118c41a38682b7b9ce13327a was published/read back before the evidence-verifier implementation. Added bounded read-only verification with independent valid/tamper/inventory/path/JSON/expansion and actual CLI success/failure tests, plus committed real-bundle validation. Added required checks through the existing additive Linux/Windows native inventory and generator, without baseline replacement. The initial real-bundle test correctly failed while its planned file was absent; after generating the archive all8test groups passed, including checkout-byte preservation. No product failure is inferred.

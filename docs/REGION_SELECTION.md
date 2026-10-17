@@ -2,6 +2,8 @@
 
 Read [CURRENT_STATE](CURRENT_STATE.md) for current status, authorization and the next action, and [development workflow](DEVELOPMENT_WORKFLOW.md) for procedure. Dated progress and resume sections below are historical snapshots; behavioral requirements remain in force unless explicitly revised. The live task PR records exact-revision QA outcomes separately from protected acceptance.
 
+The [VMSS catalog-only contract](VMSS_CATALOG_CONTRACT_20261017.md) defines future internal diagnostics; scoring/deployment eligibility remain unsupported. Current task status stays in CURRENT_STATE.
+
 ---
 
 # Current continuation authority: bounded VM collector candidate, 2026-10-16
