@@ -132,7 +132,7 @@ func (c *SQLCapabilityCollection) Catalog(ctx context.Context, selected map[stri
 					return fail("limit")
 				}
 			}
-			if !sqlValidDatabaseGroup(key, g) {
+			if (kind == sqlDatabaseType && !sqlValidDatabaseGroup(key, g)) || (kind == sqlManagedInstanceType && !sqlValidManagedInstanceGroup(key, g)) {
 				return fail("invalid")
 			}
 		}
@@ -142,7 +142,7 @@ func (c *SQLCapabilityCollection) Catalog(ctx context.Context, selected map[stri
 		if !budget.entry() || !budget.label(s, MaxSQLCoordinateBytes) {
 			return fail("limit")
 		}
-		key, valid := sqlCoordinate(s)
+		key, valid := sqlCapabilityCoordinate(s, kind)
 		if !valid || names[key] {
 			return fail("invalid")
 		}

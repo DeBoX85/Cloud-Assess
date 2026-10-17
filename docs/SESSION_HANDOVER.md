@@ -3011,3 +3011,11 @@ Database VERIFIED OFFLINE in PR163/e2acce427, own quality39076605881/source39076
 ## MI first runner preparation
 
 After verified Database completion/handover, separate163case strict MI consumer prepared while constructor absent. Publish/read back and inspect BOTH native missing constructors before production. First Database runner/oracles/42controls unchanged. CURRENT_STATE and SQL_MANAGED_INSTANCE_IMPLEMENTATION_20261017.md own preparation status; same final task4, not a new batch.
+
+## MI bounded implementation WIP
+
+Both actual native missing constructors were inspected BEFORE production in39078083638 Linux117529286563/Windows117529286547 at first MI runner4665e9cd/PR164. Complete preparation logs/proof retained. MI constructor/traversal/pure catalog now implemented with authoritative family.sku, four coordinates, all ancestor statuses, explicit modes and no eligibility/scoring/public integration. All163unchanged MI plus153Database cases passed on first run; independent MI wire/work/leaf/status/metadata/mode/name/SKU/context/HTTP/ownership/projection count/label/text/output-inequality/raw-unselected-family tests pass locally. Fixed MI context schedules9/21/25 manually frozen before reversals.
+
+QA-SQL-06: new supplemental MI required-count generator initially retained three-part Database coordinates; named required-8192case correctly rejected invalid syntax. Corrected supplemental literal to four parts, SQL baseline passed. No frozen oracle or production rewrite. First DB runner/42control script+plan bytes and all manifests/primaries/captures/modules/pins verified unchanged.
+
+36MI compiling reversals and additive generated both-platform controls-2 step prepared; existing42DB controls remain on controls-1. Expected final533Linux/528Windows (497/492predecessor+36). WIP publication only, not certification. Pending sequential42DB regression and36MI named reversals/exact restoration, local preflight, coherent MI+runner rollback to verified Database tree6a9f557e/restoration, full own8workers/bothgates/source/23captures/archive/full readback/final handover. Same final task4, no new batch; no critical input and all no-Azure/refresh/subagents/protected merge/release boundaries unchanged.

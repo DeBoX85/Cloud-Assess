@@ -54,7 +54,7 @@ func sqlCapabilityBinding(scope map[string]string, q SQLCapabilityRequest) (stri
 	id := strings.ToLower(q.SubscriptionID)
 	kind := strings.ToLower(q.ResourceType)
 	region, ok := diskPhysical(q.Region)
-	return id, kind, subscriptionID.MatchString(id) && scope[id] != "" && ok && region == q.Region && kind == sqlDatabaseType
+	return id, kind, subscriptionID.MatchString(id) && scope[id] != "" && ok && region == q.Region && (kind == sqlDatabaseType || kind == sqlManagedInstanceType)
 }
 func sqlCapabilityFailure(code string) bool {
 	switch code {
@@ -332,7 +332,13 @@ func (c *SQLCapabilityCollector) Collect(ctx context.Context, selected map[strin
 	if len(body) > MaxQuotaPageBytes {
 		return fail("byte_limit")
 	}
-	groups, code := decodeSQLDatabase(ctx, body, q)
+	var groups map[string]SQLCapabilityGroup
+	var code string
+	if kind == sqlManagedInstanceType {
+		groups, code = decodeSQLManagedInstance(ctx, body, q)
+	} else {
+		groups, code = decodeSQLDatabase(ctx, body, q)
+	}
 	if code != "" {
 		return fail(code)
 	}

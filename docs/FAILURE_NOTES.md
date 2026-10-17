@@ -2377,3 +2377,7 @@ A local generated required-text test referenced its required slice before declar
 ## QA-SQL-05: shared catalog family test isolation
 
 The Database-only supplemental TestSQLDatabaseProjectionBinding used expected MI as an invalid family on a nil shared SQLCapabilityCollection. That would conflict with the FROZEN task4MI nil-catalog contract once support is added. Correct only that supplemental test to use genuinely unsupported microsoft.sql/servers/elasticpools. Database constructor's MI rejection remains unchanged because constructors are family-bound. First strict Database runner, frozen153Database/163MI oracles, production/schema/limit code and all42control plans remain unchanged. This is a test-isolation correction, not a new production behavior or frozen expectation rewrite. Preserve prior413550cf/PR162; its native/source/rollback evidence does not certify the corrected head. Require fresh complete own QA/source/rollback/archive.
+
+## QA-SQL-06: MI supplemental required-coordinate generator
+
+The newly authored exact8192-required-count test used three-component Database coordinates. The MI API correctly rejected them; corrected only that supplemental generator to four-component MI coordinates and reran the SQL baseline. Frozen cases/production unchanged. Prevention: independently assert family-specific coordinate arity before large count/text fixtures.
