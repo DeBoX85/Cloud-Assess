@@ -8,6 +8,15 @@ The Cognitive batch is verified offline in PR157. The active [SQL four-task work
 
 ---
 
+# SQL task2 frozen contract and task1 completion, 2026-10-17
+
+Task1 VERIFIED OFFLINE in draft PR158 at df426dbf8aadd26d5f91875a9af52fde23124a4a/treeb8fcc3cb. Quality39035368902 all8workers/bothgates and source39035368875 passed,455Linux/450Windows control identities conserved exactly,23captures/315chunks/909865bytes reconstructed; coverage86.1%/floor75. Evidencea5b66a69fc1a07ee3c22d084476f7d832e396318,34members/2074425memberbytes,246661bundlebytes SHA256f3424fbd4eab55640b337c18ec6b4a343f1fad5c0548dd70edf191af7fc43635; full remote files/metadata read back. Task1 final live PR index owns outcomes; earlier pending snapshots are historical.
+
+Task2 freezes the [SQL contract](SQL_CAPABILITY_CONTRACT_20261017.md), complete immutable primary schema/common/example,153Database/163MI independent literal cases and integrity checks before any target API. Own full QA pending at publication. No API/runtime/scoring/public integration. After own QA/archive, update development/handover BEFORE task3. Publish Database runner and inspect BOTH native missing API failures before code; task4 repeats for MI while preserving Database runner/oracle/controls. No current critical input. No Azure/fixture/RBAC/refresh/subagents/protected merge/bypass/release. Independent review/backup/broader operational/live/release and module-only advisory remain open.
+
+---
+
+
 # SQL task1 reconciliation and four-task authorization, 2026-10-17
 
 Verified live PR157/13097058/treecd7f3d74 and completed quality39009853499/source39009853488: all8workers/bothgates,455Linux/450Windows identities,23captures/315chunks/909865bytes; coverage86.1%/floor75, existing one module-only advisory open. Complete evidence1f60aaaeaabb376325e1bcdde1e60f28150e0f04 and atomic source rollback/restoration retained. Protecteda6fee427/all prior draft heads unchanged. Earlier pending Cognitive paragraphs are historical, not remaining work.

@@ -18,7 +18,7 @@ Current status authority: [CURRENT_STATE](CURRENT_STATE.md). Detailed evidence b
 | DC-012 | Open | Agent | PR152 retained local Linux SARIF reversal/restoration with compiling regression failures. Extend platform/installed/dependency breadth before broad rollback claims | Isolated rehearsal plus behavioral tests; current proof is Git/static only |
 | DC-013 | Open design obligation | Agent | Evaluate optional safe diagnostic correlation only through a separate contract if operational requirements justify it; no blanket logger/product schema change now | [Logging assessment](LOGGING_ASSESSMENT_20261017.md), then bounded design/tests if authorized |
 | DC-014 | Verified offline PR157 | Agent | Cognitive batch complete:143cases,46new controls/platform, full native/source/atomic source rollback verified; preserve draft head | [Three-task workstream](COGNITIVE_SKU_WORKSTREAM_20261017.md), active PR final index |
-| DC-015 | SQL task1 prepared; own QA pending | Agent | Four-task source/contract/Database/MI batch authorized; update docs/handover between each;455/450baseline controls and23captures preserved | [SQL workstream](SQL_CAPABILITY_WORKSTREAM_20261017.md), active live PR index |
+| DC-015 | Task1 verified offline; task2 frozen, own QA pending | Agent | PR158 complete; task2 316 independent future cases and primary integrity before runtime; full own QA then Database/MI with handover between each | [SQL workstream](SQL_CAPABILITY_WORKSTREAM_20261017.md), active live PR index |
 
 ## Per-change record
 

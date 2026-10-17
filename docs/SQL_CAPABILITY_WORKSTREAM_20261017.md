@@ -4,8 +4,8 @@ Current authority: [CURRENT_STATE](CURRENT_STATE.md) and the active live PR. The
 
 | Task | Scope | State at publication | Required transition |
 | --- | --- | --- | --- |
-| 1 | [SQL Database/MI source, primary schema, status and inventory identity reconciliation](SQL_CAPABILITY_RECONCILIATION_20261017.md) | Prepared; own QA pending | Full exact-head native/source evidence, readback/archive and handover before task2 |
-| 2 | Shared bounded capability contract, immutable primary evidence and separate independent Database/MI literal oracles | Not started | Freeze contract/expectations and verify own full QA before runtime code |
+| 1 | [SQL Database/MI source, primary schema, status and inventory identity reconciliation](SQL_CAPABILITY_RECONCILIATION_20261017.md) | Verified offline PR158 | Full exact-head native/source evidence, readback/archive and handover before task2 |
+| 2 | Shared bounded capability contract, immutable primary evidence and separate independent Database/MI literal oracles | Frozen; own QA pending | Freeze contract/expectations and verify own full QA before runtime code |
 | 3 | Bounded SQL Database capability collector/catalog | Not started | Publish runner, inspect both-host missing API, implement independent controls/rollback, full own QA and handover before task4 |
 | 4 | Bounded SQL Managed Instance capability support | Not started | Same preparation discipline, preserve Database behavior/controls, full final native/source/rollback evidence and completed handover |
 
