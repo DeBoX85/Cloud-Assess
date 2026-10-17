@@ -4,9 +4,18 @@ Read [CURRENT_STATE](CURRENT_STATE.md) for current status, authorization and the
 
 For new sessions use [CONTINUE](CONTINUE.md), the [copy-ready prompt](RESTART_PROMPT.md) and [continuity procedure](CONTINUITY.md). The [2026-10-17 handoff](HANDOFF_20261017.md) is a historical recovery snapshot; the active task PR owns its exact-revision outcomes.
 
-The active [Cognitive three-task workstream](COGNITIVE_SKU_WORKSTREAM_20261017.md) records current authorization and transitions; tasks1/2 are verified offline and task3 implements the [catalog contract](COGNITIVE_SKU_CONTRACT_20261017.md). CURRENT_STATE and the live task PR own actual status.
+The Cognitive batch is verified offline in PR157. The active [SQL four-task workstream](SQL_CAPABILITY_WORKSTREAM_20261017.md) records current authorization/transitions; CURRENT_STATE and the live task PR own actual status.
 
 ---
+
+# SQL task1 reconciliation and four-task authorization, 2026-10-17
+
+Verified live PR157/13097058/treecd7f3d74 and completed quality39009853499/source39009853488: all8workers/bothgates,455Linux/450Windows identities,23captures/315chunks/909865bytes; coverage86.1%/floor75, existing one module-only advisory open. Complete evidence1f60aaaeaabb376325e1bcdde1e60f28150e0f04 and atomic source rollback/restoration retained. Protecteda6fee427/all prior draft heads unchanged. Earlier pending Cognitive paragraphs are historical, not remaining work.
+
+The user authorized four further independent tasks, with handover BETWEEN each. [SQL workstream](SQL_CAPABILITY_WORKSTREAM_20261017.md) selects source/schema/status/identity reconciliation, contract/oracles, Database implementation, then MI support. Immutable SQL2021-11-01schema/common/example and original sql.go inspected;67retained SQL cases preserved. Primary example26Database objective coordinates but2SKU names,19MI vcore leaves under4explicit SKU names. Source ignores parent statuses and collapses sizing; distinct full-coordinate capability catalogs are proposed, with no scoring/public integration. Task1 prepared; publication/ownQA pending. No current critical input. Restored local pinned Go/Pwsh with original checksums and readonly modules; hosted QA remains mandatory. Preserve no-Azure/refresh/subagents/protected merge/release boundaries. [CURRENT_STATE](CURRENT_STATE.md) owns next action; live final PR owns exact revision outcomes.
+
+---
+
 
 # Cognitive task3 bounded internal candidate, 2026-10-17
 
