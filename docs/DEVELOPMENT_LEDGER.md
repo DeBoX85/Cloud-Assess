@@ -1,3 +1,11 @@
+# Development-controls contract, 2026-10-17
+
+PR150 and PR151 exact-head native/source QA are complete and indexed separately in their live PR bodies. Full decoded logs and job/step metadata reviewed; direct predecessor control conservation is 385 Linux/380 Windows with no missing/extra/duplicate identities. Each source job reconstructed all23captures/315chunks/909865bytes against exact Git blobs and emitted hashes. Both draft heads and protected baseline remain unchanged. One module-only advisory stays open.
+
+The user authorized the planned controls work. Contract and action register now define evidence archival/verifier independent rejection cases, rollback, change tracking and bounded logging assessment. Existing pinned Go1.26.9 and PowerShell7.6.6 were found/verified in the historical local tool store, without refresh. A disposable local PR151 reversal/restoration matched exact trees and restored static preflight; synthetic mainline/conflict-abort also passed. No product/native/installed rollback or independent reviewer claim. Publish this pre-edit contract before implementing the new verifier. No Azure/pins/captures/dependencies/public-schema/protected changes. Own successor QA is pending; live task PR owns actual outcomes.
+
+---
+
 # Proactive continuity protocol, 2026-10-17
 
 The user requested reassessment and formalization of interruption recovery with a copy-ready prompt. Added stable CONTINUE/RESTART_PROMPT and a detailed CONTINUITY procedure; connected AGENTS, README, workflow and principal handover/QA/execution entrypoints. Kept CURRENT_STATE as the single active-state authority; historical handoffs/prompts remain historical. Defined safe-boundary, best-effort 20-30 active-minute checkpoints, uncertain-operation recovery, remote readback, successor routing, evidence retention and environment recreation. No automatic chat transfer, outage prediction, precise token threshold or zero-loss guarantee is claimed.
