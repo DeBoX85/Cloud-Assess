@@ -2361,3 +2361,7 @@ re-audit/certification or source/pin/dependency change. Earlier heads superseded
 - Classification: confirmed unaccepted proposal contract defect, not service
   failure or live incident. Initial failed reproduction not PASS. Corrected
   focused/controls/final-head hosted proof still required.
+
+## QA-SQL-01: Windows license checkout byte preservation, 2026-10-17
+
+Task2 canonical6900abc was fully read back and published as draft PR159. Quality39073018480 Windows-native117514365936 failed TestSQLCapabilityPrimaryIntegrity on unchanged storage-primary-LICENSE.txt; full decoded log retained in task2 evidence. A fresh core.autocrlf=true checkout reproduced1097bytes/21CRLF and the named failing assertion. The canonical Git blob is1076bytes/SHA256b37363bf2295aa0acde60ce78a60034a71a0955075fc01aa09cc23eadff44436. Add only the exact license path with -text in .gitattributes. Recheckout restores1076bytes/zeroCRLF and unchanged integrity tests pass. Frozen oracles/primaries/license/test expectations and production are unchanged. Prevention: every byte-addressed input, including reused licenses, needs checkout-byte protection and native verification. No normalization or weaker hash assertion. Preserve6900abc and publish the correction on docs/sql-contract-byte-preservation-20261017; require full fresh own QA/source before task3.

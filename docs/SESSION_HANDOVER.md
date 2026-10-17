@@ -8,6 +8,18 @@ The Cognitive batch is verified offline in PR157. The active [SQL four-task work
 
 ---
 
+
+# SQL task2 native correction checkpoint
+
+Updated2026-10-17 22:00UTC. Same SQL batch: task1 COMPLETE PR158; task2 correction candidate on docs/sql-contract-byte-preservation-20261017 from canonical6900abc; tasks3Database/4MI NOT STARTED. Read the live successor linked from PR159 for actual head/preview/QA. PR159 full16file readback completed; its own native Windows QA exposed QA-SQL-01, not certified. Source39073018473 passed23captures/315chunks/909865bytes. The narrow .gitattributes fix preserves the exact license bytes and all frozen expectations. Fresh own8workers/bothgates/source/full-log review and durable task2 archive remain mandatory. Update handover BEFORE task3, then publish its consuming runner and inspect BOTH native missing APIs before production edits. No critical user input.
+
+Recovery workspace C:/workspace/sql-recovery-20261017/code is isolated at canonical6900abc before correction. Existing C:/workspace/ca3-20261016/repo is dirty unrelated work and must remain untouched. Node child-process Git/Python work; shell Git fetch failed. Retained41member bundle passed bounded verifier before explicit allowlisted restoration to adjacent qa-review. Pinned Windows Go1.26.9 archive75002909bytes SHA256d722201a9c0c086d1610e111c48203009af690892ed708072bd5ae20160e7a59 verified against official go.dev metadata; modules verified, APRL initialized unchanged. Original Linux scratch unavailable. Helpers are retained scripts, never blindly rerun freeze-sql-task2.py. Preserve prior heads, contract/oracles/primaries/source captures/pins and protecteda6fee427. No Azure/fixture/RBAC/refresh/subagents/protected merge/bypass/release. Independent review/backup/broader operational/live/release/advisory obligations remain open.
+
+## QA-SQL-01: Windows license checkout byte preservation, 2026-10-17
+
+Task2 canonical6900abc was fully read back and published as draft PR159. Quality39073018480 Windows-native117514365936 failed TestSQLCapabilityPrimaryIntegrity on unchanged storage-primary-LICENSE.txt; full decoded log retained in task2 evidence. A fresh core.autocrlf=true checkout reproduced1097bytes/21CRLF and the named failing assertion. The canonical Git blob is1076bytes/SHA256b37363bf2295aa0acde60ce78a60034a71a0955075fc01aa09cc23eadff44436. Add only the exact license path with -text in .gitattributes. Recheckout restores1076bytes/zeroCRLF and unchanged integrity tests pass. Frozen oracles/primaries/license/test expectations and production are unchanged. Prevention: every byte-addressed input, including reused licenses, needs checkout-byte protection and native verification. No normalization or weaker hash assertion. Preserve6900abc and publish the correction on docs/sql-contract-byte-preservation-20261017; require full fresh own QA/source before task3.
+
+
 # SQL task2 frozen contract and task1 completion, 2026-10-17
 
 Task1 VERIFIED OFFLINE in draft PR158 at df426dbf8aadd26d5f91875a9af52fde23124a4a/treeb8fcc3cb. Quality39035368902 all8workers/bothgates and source39035368875 passed,455Linux/450Windows control identities conserved exactly,23captures/315chunks/909865bytes reconstructed; coverage86.1%/floor75. Evidencea5b66a69fc1a07ee3c22d084476f7d832e396318,34members/2074425memberbytes,246661bundlebytes SHA256f3424fbd4eab55640b337c18ec6b4a343f1fad5c0548dd70edf191af7fc43635; full remote files/metadata read back. Task1 final live PR index owns outcomes; earlier pending snapshots are historical.

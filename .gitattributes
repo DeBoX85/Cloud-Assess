@@ -12,3 +12,6 @@ internal/plugins/region/testdata/*.json -text
 internal/plugins/region/data/latency.json -text
 # Preserve byte-addressed evidence bundle text across native checkouts.
 docs/evidence/**/*.base64 -text
+
+# Retain exact upstream MIT license bytes used by SQL primary integrity checks.
+internal/plugins/region/testdata/storage-primary-LICENSE.txt -text
