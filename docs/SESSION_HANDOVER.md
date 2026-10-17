@@ -8,6 +8,12 @@ The Cognitive batch is verified offline in PR157. The active [SQL four-task work
 
 ---
 
+# Immediate chat-transfer checkpoint, 2026-10-17
+
+User requested transfer before context exhaustion. [Complete checkpoint](CHAT_TRANSFER_20261017.md) and [restart prompt](RESTART_PROMPT.md) own exact recovery instructions. Task1 complete PR158; task2 published6900abc/local QA passed, full readback completion/PR/own hosted QA pending; tasks3/4 not started. No critical input needed. Snapshot/evidence are administrative, not verified code candidates. Uncertain PR creation must be inspected before retry. Preserve all heads/pins/captures and no-Azure/refresh/subagents/protected merge/release boundaries.
+
+---
+
 # SQL task2 frozen contract and task1 completion, 2026-10-17
 
 Task1 VERIFIED OFFLINE in draft PR158 at df426dbf8aadd26d5f91875a9af52fde23124a4a/treeb8fcc3cb. Quality39035368902 all8workers/bothgates and source39035368875 passed,455Linux/450Windows control identities conserved exactly,23captures/315chunks/909865bytes reconstructed; coverage86.1%/floor75. Evidencea5b66a69fc1a07ee3c22d084476f7d832e396318,34members/2074425memberbytes,246661bundlebytes SHA256f3424fbd4eab55640b337c18ec6b4a343f1fad5c0548dd70edf191af7fc43635; full remote files/metadata read back. Task1 final live PR index owns outcomes; earlier pending snapshots are historical.

@@ -12,3 +12,7 @@ Current authority: [CURRENT_STATE](CURRENT_STATE.md) and the active live PR. The
 Use isolated successor branches from verified code heads, never artifact-only branches. Explicit live PR forwarding only after verified full publication/readback; preserve frozen predecessor heads and stable CONTINUE/RESTART_PROMPT. Final exact-head outcomes belong in live PR indexes without evidence-only certification loops. Update compact CURRENT_STATE, ledger, action register and handover after each coherent slice and before each task transition. Publish safe WIP checkpoints proactively; aim20-30active minutes, best effort, no outage-proof/background/zero-loss claim.
 
 Capability coordinates must remain distinct from name-only inventory/scoring. Each result must state its limitations, own its memory, honor cancellation, validate supplied metadata and stay within frozen bounds. All455Linux/450Windows predecessor control identities and original23captures must be conserved; implementations add reviewed controls through the generated inventory. Independent review/backup/broader operational/live/release obligations remain open rather than being relabeled completed by this batch.
+
+## Chat transfer, 2026-10-17
+
+Read [the recovery checkpoint](CHAT_TRANSFER_20261017.md) before resuming. Task1 complete; task2 published6900abc, local QA passed, PR absent at last query, full readback completion and hosted QA pending. Tasks3/4 not started. Preserve this same batch and update handover between tasks.

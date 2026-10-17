@@ -1,15 +1,12 @@
 # Copy this prompt into a new chat
 
-Copy the entire text block. No changing commit hashes or manually assembling progress summaries is required. Bookmark this file on `docs/continuity-protocol-20261017`; successor routing is maintained through [CONTINUE.md](CONTINUE.md).
-
 ```text
-Continue Cloud Assess in DeBoX85/Cloud-Assess using the durable repository records, not an old chat summary.
+Continue DeBoX85/Cloud-Assess from this verified recovery snapshot:
+https://github.com/DeBoX85/Cloud-Assess/blob/docs/chat-transfer-20261017/docs/CHAT_TRANSFER_20261017.md
 
-Start at https://github.com/DeBoX85/Cloud-Assess/blob/docs/continuity-protocol-20261017/docs/CONTINUE.md and read AGENTS.md and docs/CURRENT_STATE.md on that branch. Follow an explicitly recorded successor only after verifying its live refs and lineage. Read the active task PR, applicable contract, docs/DEVELOPMENT_WORKFLOW.md and docs/CONTINUITY.md. Inspect actual worktree state and preserve unrelated work. If access fails, state the blocker; do not infer the latest state from memory.
+Read AGENTS.md, that checkpoint, docs/CURRENT_STATE.md and the frozen SQL contract, and verify live refs/PRs/worktrees before acting. Resume the SAME four-task SQL batch: task1 complete in PR158; task2 code6900abcff3190a98272e378ec32932db4c259479 published but full readback completion, draft PR and own hosted QA pending; tasks3 Database and4 Managed Instance not started. Inspect uncertain PR creation before retrying. Restore retained QA material from the checkpoint bundle if needed after bounded integrity verification. Finish task2 exact-head QA/evidence and update documentation/handover BEFORE each remaining task. Each implementation must publish its consuming runner and inspect BOTH actual native missing API failures before production edits. Preserve all prior heads, frozen oracles/pins/captures and unrelated work. No Azure/fixture/RBAC/refresh/subagents/protected merge/bypass/release. No current critical input is needed. Keep tokens practical without compromising development, precision or QA.
 
-Recover pending or uncertain operations before retrying them. Finish outstanding exact-head QA and update its evidence index before feature work. Continue already-authorized independent work to the recorded natural checkpoint without routine confirmation, and maintain remotely published recovery checkpoints proactively.
-
-Preserve existing draft heads, source/reference pins, captures and unrelated work. Published WIP, verified offline, protected acceptance and release approval are distinct. No Azure operations, fixture/RBAC writes, dependency/action/SDK/source/public-schema refresh, subagents, protected merge, bypass or release. VMSS scoring stays unsupported until separately justified and tested. Report actual evidence and any unrecoverable gap honestly.
+The recovery snapshot is administrative and is NOT the code candidate or QA certification. Resume code from the recorded canonical task2 head. Do not repeat task1 or start a new four-task batch.
 ```
 
-An even shorter message, when this link is supplied, is: “Continue Cloud Assess using this restart prompt and verify the live state first.” A new chat still needs initiation and repository access. This file cannot launch or transfer a chat by itself.
+The existing bookmarked prompt remains available. PR158 explicitly links this recovery checkpoint after publication/readback. Starting a new chat still requires user initiation and repository access.
