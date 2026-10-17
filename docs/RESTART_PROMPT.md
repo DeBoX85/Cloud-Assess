@@ -1,0 +1,5 @@
+# Copy this prompt into a new chat
+
+```text
+Continue the SAME SQL four-task batch. Read AGENTS.md, CURRENT_STATE, frozen SQL contract and live PR160 final index; verify refs/PRs/worktrees. Task1 complete PR158; task2 complete VERIFIED OFFLINE PR160 code46223812/treeead9da2e, quality39073359343/source39073359338 and durable evidencea1653e3b. Failed canonical6900abc remains preserved in PR159, not certified. Follow only verified explicit successor links. Task3Database next: publish153case strict runner and inspect BOTH native missing APIs before production. Task4MI163case runner/constructor follows task3 full QA and handover. Update documentation/handover BEFORE each task. Preserve frozen contract/oracles/primaries/pins/captures/all prior heads/unrelated work. Exact schema inventory26definitions plus commonSku; narrative28is a documented count error, not omitted validation. No Azure/fixture/RBAC/refresh/subagents/protected merge/bypass/release. No critical input needed. Never use artifact/recovery branches as code bases.
+```
