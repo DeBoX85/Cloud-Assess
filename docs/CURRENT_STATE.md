@@ -13,6 +13,16 @@ Published means durable code exists. Verified offline means the exact revision p
 
 ## Active handoff and next action
 
+## SQL Database bounded implementation WIP
+
+Both actual missing-API observations were inspected BEFORE production:39074581742 Linux117518982054/Windows117518982212, full logs/metadata and sql-database-missing-api-review.json retained. Published first runnerb6064ce7 remains unchanged. Bounded Database collector/catalog and all26pinned wire definitions plus commonSku are now implemented locally. All153unchanged frozen cases, strict/integrity checks and independent wire/work/leaf/shape/status/context/HTTP/ownership/projection public-count/label/text proofs pass locally. Fixed late schedules9/21/25 were manually derived and frozen before mutations. No MI constructor/traversal/scoring/public integration.
+
+QA-SQL-04: generated supplemental required-text test initially declared required after its first use, causing a local compile failure. Declaration order corrected, affected tests pass. No production, frozen oracle or expectation change; retain failed/fixed logs.
+
+This is recoverable WIP, NOT final QA certification. Pending: compiling named reversals/exact restored baselines, additive generated CI inventory/conservation, atomic implementation+runner rollback to verified task2treeead9da2e/restoration, complete region/race/vet/static/links and final own8workers/bothgates/source/archive/full readback. Update handover BEFORE task4MI. No critical input; all no-Azure/refresh/subagents/protected merge/release boundaries remain.
+
+
+
 Updated2026-10-17 after complete task2 review/archive.
 
 Task2 COMPLETE VERIFIED OFFLINE in draft PR160 at46223812aedbb63e37f619466fc4ba8a8b5f5bdd/treeead9da2e0d580ff695c92502b06bdb3752fdc8d0, sole parent original6900abc. Own quality39073359343 all8workers/bothgates and source39073359338 passed. Every full log/step reviewed;455Linux/450Windows exact identities conserved and23captures/315chunks/909865bytes reconstructed against candidateGit blobs. Coverage86.1%/unchanged75%floor; module-only advisory OPEN. All9complete corrected files/metadata/ref and ordered preview87ccae9a read back. Final PR160 body independently read back.

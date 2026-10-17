@@ -2369,3 +2369,7 @@ Task2 canonical6900abc was fully read back and published as draft PR159. Quality
 ## QA-SQL-02/03: pinned count and recovery archive portability
 
 QA-SQL-01: exact retained MIT license now has -text protection. Windows1097bytes/21CRLF failed; unchanged1076bytes/hash restored and tests pass. No frozen bytes/expectations changed. QA-SQL-02: pinned SQL schema actually has26definitions plus commonSku, not28in earlier frozen narrative; inventory/resolved refs retained in PR160 evidence. Validate ALL named26plusSku, preserve frozen contract/oracles verbatim. QA-SQL-03: original Linux archive helper emitted Windows backslash members; unchanged bounded verifier rejected before publication. Reviewed additive recovery helper uses as_posix(); original helper retained, rebuilt archive passed.
+
+## QA-SQL-04: supplemental test declaration order
+
+A local generated required-text test referenced its required slice before declaration. Compiler rejected it; moved the declaration before accounting checks. Affected cases pass after correction. Frozen bytes and production unchanged; compile failure is not test coverage.

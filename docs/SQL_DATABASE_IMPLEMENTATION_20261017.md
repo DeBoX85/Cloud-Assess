@@ -11,3 +11,11 @@ Independent supplemental plan/budget proof is retained in PR160's62member eviden
 Add reviewed controls through conserved generated CI inventory, preserving455Linux/450Windows predecessor identities/23captures/315chunks/909865bytes. Rehearse atomic Database implementation+runner rollback to verified task2treeead9da2e, test region suite, restore exact bytes/tree and retest. Require final own8workers/bothgates/source/full logs/complete readback/preview/identity/archive and handover BEFORE MI. Local source rollback is not installed/live rollback.
 
 No critical input. Preserve all prior draft heads/captures/pins/unrelated work. No Azure/fixture/RBAC/refresh/subagents/protected merge/bypass/release. Independent review/backup/broader operational/live/security/license/Gate004/release and module-only advisory remain open.
+
+## SQL Database bounded implementation WIP
+
+Both actual missing-API observations were inspected BEFORE production:39074581742 Linux117518982054/Windows117518982212, full logs/metadata and sql-database-missing-api-review.json retained. Published first runnerb6064ce7 remains unchanged. Bounded Database collector/catalog and all26pinned wire definitions plus commonSku are now implemented locally. All153unchanged frozen cases, strict/integrity checks and independent wire/work/leaf/shape/status/context/HTTP/ownership/projection public-count/label/text proofs pass locally. Fixed late schedules9/21/25 were manually derived and frozen before mutations. No MI constructor/traversal/scoring/public integration.
+
+QA-SQL-04: generated supplemental required-text test initially declared required after its first use, causing a local compile failure. Declaration order corrected, affected tests pass. No production, frozen oracle or expectation change; retain failed/fixed logs.
+
+This is recoverable WIP, NOT final QA certification. Pending: compiling named reversals/exact restored baselines, additive generated CI inventory/conservation, atomic implementation+runner rollback to verified task2treeead9da2e/restoration, complete region/race/vet/static/links and final own8workers/bothgates/source/archive/full readback. Update handover BEFORE task4MI. No critical input; all no-Azure/refresh/subagents/protected merge/release boundaries remain.
