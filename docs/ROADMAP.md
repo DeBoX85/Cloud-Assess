@@ -3002,3 +3002,7 @@ PR112 final native/source and protected merge proof: [PR112](https://github.com/
 ## Database final-candidate preparation
 
 42compiling named reversals/exact restored baselines and final SQL baseline passed, exit0. First interrupted12-control run is retained but not counted. Final independent pinned-type/coordinate/alias review tests added. Generated CI additions preserve all455Linux/450Windows predecessor identities and add42per platform, final497/492. Publication/own final8workers/bothgates/source/rollback/archive remain pending; CURRENT_STATE/live implementation PR own actual outcomes. Preserve first runner/oracles/primaries/pins. Update handover before MI; no critical input or boundary change.
+
+## SQL task3 completion before task4
+
+Database VERIFIED OFFLINE in PR163/e2acce427, own quality39076605881/source39076605862 all8workers/bothgates/23captures;497Linux/492Windows controls exact, coverage86.3%/floor75. Evidence026bbb61 retains110members, full readback/bounded verification and atomic source rollback/restoration. Task4MI NEXT; this update precedes its runner/production. CURRENT_STATE/live PR163 own exact outcomes and next action. Publish163case MI runner and inspect BOTH actual native missing constructors before MI edits. Same batch; no critical input/boundary change.

@@ -29,3 +29,5 @@ QA-SQL-01: task2 Windows license checkout correction; reproduced failure/fixed-b
 SQL task2 CLOSED offline at PR160/46223812, final own QA/archive/readback complete. QA-SQL-01/02/03 resolved/clarified with retained evidence. Same batch task3Database NEXT, task4MI pending; publish/inspect both-host missing APIs first. Independent/live/release rows remain OPEN.
 
 SQL Database task3: local42compiling reversals/exact restoration and full SQL baseline complete; final candidate preflight/own hosted QA/atomic rollback/archive pending. Task4MI gated on complete task3 and handover. Final identity expectations497Linux/492Windows.
+
+SQL task3 Database CLOSED offline at PR163/e2acce427/evidence026bbb61. Task4MI NEXT, gated by first163case runner and BOTH actual native missing constructors before production. Current state updated before transition; independent/live/release rows remain OPEN.

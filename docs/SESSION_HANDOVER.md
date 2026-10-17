@@ -3003,3 +3003,7 @@ This is recoverable WIP, NOT final QA certification. Pending: compiling named re
 ## QA-SQL-05: shared catalog family test isolation
 
 The Database-only supplemental TestSQLDatabaseProjectionBinding used expected MI as an invalid family on a nil shared SQLCapabilityCollection. That would conflict with the FROZEN task4MI nil-catalog contract once support is added. Correct only that supplemental test to use genuinely unsupported microsoft.sql/servers/elasticpools. Database constructor's MI rejection remains unchanged because constructors are family-bound. First strict Database runner, frozen153Database/163MI oracles, production/schema/limit code and all42control plans remain unchanged. This is a test-isolation correction, not a new production behavior or frozen expectation rewrite. Preserve prior413550cf/PR162; its native/source/rollback evidence does not certify the corrected head. Require fresh complete own QA/source/rollback/archive.
+
+## SQL task3 completion before task4
+
+Database VERIFIED OFFLINE in PR163/e2acce427, own quality39076605881/source39076605862 all8workers/bothgates/23captures;497Linux/492Windows controls exact, coverage86.3%/floor75. Evidence026bbb61 retains110members, full readback/bounded verification and atomic source rollback/restoration. Task4MI NEXT; this update precedes its runner/production. CURRENT_STATE/live PR163 own exact outcomes and next action. Publish163case MI runner and inspect BOTH actual native missing constructors before MI edits. Same batch; no critical input/boundary change.
