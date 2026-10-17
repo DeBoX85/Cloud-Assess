@@ -2,6 +2,24 @@
 
 Read [CURRENT_STATE](CURRENT_STATE.md) for current status, authorization and the next action, and [development workflow](DEVELOPMENT_WORKFLOW.md) for procedure. Dated progress and resume sections below are historical snapshots; behavioral requirements remain in force unless explicitly revised. The live task PR records exact-revision QA outcomes separately from protected acceptance.
 
+Current session transition: [complete handoff](HANDOFF_20261017.md).
+
+---
+
+## Current paste-ready prompt, 2026-10-17
+
+```text
+Continue Cloud Assess in DeBoX85/Cloud-Assess from the latest published documentation handoff, not from an old chat summary. Read AGENTS.md, docs/CURRENT_STATE.md, docs/HANDOFF_20261017.md and docs/DEVELOPMENT_WORKFLOW.md first. Find the live draft PR for docs/session-handoff-20261017, verify its actual head/tree/parent and full QA, and inspect the worktrees before editing. Complete any genuinely outstanding handoff QA and update its evidence index; do not rerun completed work blindly.
+
+Verified predecessor: PR149, fcc153659d8e1333cf0a3c4741f2ba984890c9df, tree 4abfcb15be889825ff8fe95cc38b1f3edc3ee09b, parent PR148 5a1e783bafb5246aae52c7acabb3e43605c5c0bd. Its eight workers, both required gates, pinned-source audit and hosted success/failure/skipped probes passed verification. All original 385 Linux/380 Windows control identities are retained. This is verified draft work, not protected acceptance. PR149's final body is the exact-revision evidence index.
+
+The next bounded development task is the VMSS catalog-only pre-edit contract and independent literal expectations described in docs/VMSS_CATALOG_RECONCILIATION_20261017.md. Research/decision preparation is complete; no new VMSS collector or scoring implementation exists. Preserve unsupported VMSS scoring until a separately frozen contract, explicit limitation reporting and complete QA justify a change. A listed VM SKU does not guarantee deployment eligibility. If safe limitation reporting requires an unauthorized public-schema change, retain unsupported scoring and prepare the next SKU-family contract.
+
+Preserve protected bootstrap/core-v1 a6fee427e19feeef28691737ea9bc5026086efa0; AZQR 8e4f0577f3615e6c9014c031bcad079f235369cc; APRL 60eaddda76541f6adbc1c5ffa686829807e55e29; all existing draft heads, captures and unrelated dirty work. No Azure operations, fixture/RBAC writes, dependency/action/SDK/source-pin/capture/public-schema refresh, subagents, protected merge, bypass or release. Use Denis Bogunic <134433647+DeBoX85@users.noreply.github.com>. Do not reset worktrees. Accepted target adapters remain 1/7; source characterization is 7/7; public region selection is unavailable. Independent review, the module-only advisory, live/scale/fresh-OS/Gate004/security/license/release obligations remain open.
+
+Continue authorized independent work to the next natural checkpoint without routine confirmation. Keep CURRENT_STATE, the development ledger, relevant procedures and final PR evidence current. Treat dated stop/pending paragraphs as history when superseded by current authorization and verified live evidence. Report evidence honestly and distinguish local, hosted native, pinned-source and live validation.
+```
+
 ---
 
 # Current status and resume authority
@@ -100,7 +118,7 @@ The Section 4 review and SR-F12 correction are prepared. Their exact-head QA is 
 
 # Section 4 authorized and in progress, 2026-10-16
 
-The user re-evaluated completed Section 3 and authorized continuation in proper order. Continue Section 4 under [the active report](SYSTEMATIC_REVIEW_SECTION4_20261016.md), then reconcile the final audit disposition before returning to Storage contract/tests in draft PR141. This supersedes the earlier wait-before-Section4 instructions below. Sections 1–3 remain complete at98b8915 with full exact-head evidence in PR142; Section4 is IN PROGRESS, not complete. Keep PR142 draft/unmerged, preserve all pins/captures/dependencies/schema and independent expectations. No Azure operations, dependency refresh, sub-agents, protected merge or release approval is implied. Verify live refs and actual workspace before replaying work.
+The user re-evaluated completed Section 3 and authorized continuation in proper order. Continue Section 4 under [the active report](SYSTEMATIC_REVIEW_SECTION4_20261016.md), then reconcile the final audit disposition before returning to Storage contract/tests in draft PR141. This supersedes the earlier wait-before-Section4 instructions below. Sections 1â€“3 remain complete at98b8915 with full exact-head evidence in PR142; Section4 is IN PROGRESS, not complete. Keep PR142 draft/unmerged, preserve all pins/captures/dependencies/schema and independent expectations. No Azure operations, dependency refresh, sub-agents, protected merge or release approval is implied. Verify live refs and actual workspace before replaying work.
 
 ---
 
@@ -116,18 +134,18 @@ Continue only the Section3 checkpoint in PR142 on audit/systematic-module-review
 
 ## Historical restart prompt
 
-# Cloud-Assess new-conversation prompt — 2026-10-16
+# Cloud-Assess new-conversation prompt â€” 2026-10-16
 
 Copy the complete text below into a new conversation. It authorizes continuation of the existing Section 3 task; the live branch and handover remain authoritative over this snapshot.
 
 ```text
 Continue Cloud-Assess from the verified handoff in https://github.com/DeBoX85/Cloud-Assess/pull/142 on audit/systematic-module-review-20261014. First fetch the actual branch/PR state and read docs/HANDOVER_CHECKPOINT_20261016.md, docs/SESSION_HANDOVER.md, docs/SYSTEMATIC_REVIEW_SECTION3_20261015.md, docs/SYSTEMATIC_MODULE_REVIEW_20261014.md, the change journal, failure notes, target specification and QA/execution plans. Current checkpoint instructions supersede dated resume instructions in historical records. Inspect the workspace and preserve unrelated work; caches and old paths may have disappeared.
 
-Continue the already-authorized Section 3 systemic review. Sections 1–2 are complete; Section 3 is not. Counts are2/4sections and22/41package directories, not overall project completion. Section 3 has94baseline Go files (43production/51tests),42initially read;52AI-governance/region Go files and contract/data/architecture reconciliation remain. Do not mistake an initial read or a passing test suite for final review coverage.
+Continue the already-authorized Section 3 systemic review. Sections 1â€“2 are complete; Section 3 is not. Counts are2/4sections and22/41package directories, not overall project completion. Section 3 has94baseline Go files (43production/51tests),42initially read;52AI-governance/region Go files and contract/data/architecture reconciliation remain. Do not mistake an initial read or a passing test suite for final review coverage.
 
 Known UNFIXED SR-F10: SARIF joins recommendation IDs without case but emits the finding's spelling rather than its published rule descriptor's spelling. Regression TestRuleReferencesUsePublishedDescriptorIdentity has a passing same-case control and two failing case variants. Code/test head b293e9533b06667d15b5e7efb6a20b39a9ea8427 has compiling BOTH-host reproduction in native38829684903 (Linux116745335663, Windows116745335627); source38829684879passes separately. Linux formatting is fixed. Read the report for exact hashes, pinned AZQR/OASIS contract and QA-S3-01 history. Implement the isolated correction using the published descriptor ID, preserving canonical input IDs, resource identities, dedup and normalized fingerprints. Add a meaningful compiling reverse/restoration control in both native jobs. Do not remove/loosen the failing expectations to get green.
 
 Complete the full15-package Section3review, all source/tests and immediate data/contracts, verify uncertain or version-sensitive claims with pinned code or official primary sources, reproduce and fix substantiated defects in isolated commits, and run full corrected exact-head Linux/Windows/source QA. Keep active file-level notes, finding/fix/parent/rollback evidence, failure classification and durable verified remote checkpoints. Stop at the completed Section3checkpoint for my re-evaluation BEFORE Section4. Do not re-request authorization for Section3, spawn sub-agents, merge protected history or start feature development.
 
-Protected accepted baseline is a6fee427e19feeef28691737ea9bc5026086efa0 on bootstrap/core-v1, not default main; verify live state. PR142 stays draft/unmerged. Preserve AZQR8e4f0577f3615e6c9014c031bcad079f235369cc/tree17d93b20c303f90f7843036be82f0dc32f3260f1, APRL60eaddda76541f6adbc1c5ffa686829807e55e29, Go1.26.9/x-net0.60.0 and retained source captures. No Azure calls/writes, RBAC/fixtures, production-scope substitutes, dependency/pin/schema refresh, live/release approval or laptop access is implied. Native red is currently expected reproduction, not acceptance. After the ENTIRE audit, resume Storage contract/tests (draft PR141) then remaining region adapters/integration; public region remains unavailable. Estimates are5–8active hours for Section3and2–4forSection4, plus fixes/repeat QA, not a promised finish date. Report only verified progress.
+Protected accepted baseline is a6fee427e19feeef28691737ea9bc5026086efa0 on bootstrap/core-v1, not default main; verify live state. PR142 stays draft/unmerged. Preserve AZQR8e4f0577f3615e6c9014c031bcad079f235369cc/tree17d93b20c303f90f7843036be82f0dc32f3260f1, APRL60eaddda76541f6adbc1c5ffa686829807e55e29, Go1.26.9/x-net0.60.0 and retained source captures. No Azure calls/writes, RBAC/fixtures, production-scope substitutes, dependency/pin/schema refresh, live/release approval or laptop access is implied. Native red is currently expected reproduction, not acceptance. After the ENTIRE audit, resume Storage contract/tests (draft PR141) then remaining region adapters/integration; public region remains unavailable. Estimates are5â€“8active hours for Section3and2â€“4forSection4, plus fixes/repeat QA, not a promised finish date. Report only verified progress.
 ```

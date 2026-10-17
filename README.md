@@ -1,6 +1,6 @@
 # Cloud Assess
 
-Current development status and resume point: [CURRENT_STATE](docs/CURRENT_STATE.md). QA safeguards and continuity assessment: [safeguards](docs/QA_SAFEGUARDS_RECONCILIATION_20261017.md). Verified draft work is distinct from protected acceptance. Developer preflight and isolated parallel QA: [development workflow](docs/DEVELOPMENT_WORKFLOW.md).
+Latest session transition: [handoff](docs/HANDOFF_20261017.md) and [new-chat prompt](docs/NEW_CHAT_PROMPT_20261016.md). Current development status and resume point: [CURRENT_STATE](docs/CURRENT_STATE.md). QA safeguards and continuity assessment: [safeguards](docs/QA_SAFEGUARDS_RECONCILIATION_20261017.md). Verified draft work is distinct from protected acceptance. Developer preflight and isolated parallel QA: [development workflow](docs/DEVELOPMENT_WORKFLOW.md).
 
 Azure cloud assessment toolkit.
 
