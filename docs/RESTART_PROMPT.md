@@ -1,0 +1,5 @@
+# Copy this prompt into a new chat
+
+```text
+Continue SAME SQL batch from live PR162 explicit reviewed-candidate successor and CURRENT_STATE, verify refs/PRs/worktrees. Task1 complete PR158; task2 VERIFIED OFFLINE PR160/46223812/evidencea1653e3b. Task3Database corrected QA-SQL-05 supplemental family-isolation test: shared nil Catalog now tested with unsupported Elastic Pools, preserving future MI semantics; constructor still rejects MI. Production, first runnerb6064ce7,153DB/163MI frozen cases and42control plans unchanged. Prior413550cf QA/source/rollback is historical, not corrected-head certification. Finish corrected-head own8workers/bothgates/source/full logs/497Linux+492Windows control conservation/atomic rollback/archive/readback. Update handover BEFORE task4, not started; publish MI runner and inspect BOTH native missing constructors before MI edits. Preserve all prior heads/frozen inputs/pins/captures/unrelated work. No Azure/fixture/RBAC/refresh/subagents/protected merge/bypass/release. No critical input needed. Actual Windows helpers/paths/dependencies are in CURRENT_STATE and PR evidence.
+```

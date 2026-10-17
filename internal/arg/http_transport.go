@@ -53,6 +53,9 @@ func (t *HTTPTransport) Do(ctx context.Context, request Request) (*Response, err
 		return nil, err
 	}
 	defer response.Body.Close()
+	if response.StatusCode != http.StatusOK {
+		return nil, fmt.Errorf("ARG response status %d is not a completed query", response.StatusCode)
+	}
 
 	queryResponse := &Response{}
 	if value := headerValue(response.Header, "x-ms-user-quota-remaining"); value != "" {
