@@ -1,0 +1,133 @@
+{
+  "format": "cloud-assess-evidence-v1",
+  "classification": "reviewed-synthetic-ci-local",
+  "bundle_sha256": "685a0b93cf0ce33745d1cde9a6e8774430c6f33dc2f66aab53100c69596b34c9",
+  "decoded_sha256": "87465a8cbf353d296dcaeb4575fcbcac0aa40088ac1dec4aa4b00fa351b87727",
+  "revisions": {
+    "candidate": "002fa14846ecf8115bd3a126080738e2f589a12c",
+    "preview": "5184a3855fe088dbd5d177cd50cab9a9e0cd6f48",
+    "protected": "a6fee427e19feeef28691737ea9bc5026086efa0"
+  },
+  "members": [
+    {
+      "path": "39006846900/117320946669.log",
+      "bytes": 1359943,
+      "sha256": "9ceb7690851ca0f93f683a118c1a5905bf99a01ea86dd8c34de2bd7f775fe460"
+    },
+    {
+      "path": "39006846900/jobs.json",
+      "bytes": 2138,
+      "sha256": "9bcb2c631a26a91d9b250a10c2d503c53cac1feaba4b70eb3ebfd81600ae46c6"
+    },
+    {
+      "path": "39006846900/review.json",
+      "bytes": 4469,
+      "sha256": "c9cac69e8eeb7f8d60a6f0f19634befadab64f1663adf87ef20f038006ac1a38"
+    },
+    {
+      "path": "39006846900/run.json",
+      "bytes": 12736,
+      "sha256": "5b7775ac7f993eafe2986cbb07456290c5444fb292c48ae9a9e04175dfb0908b"
+    },
+    {
+      "path": "39006846906/117321152164.log",
+      "bytes": 47251,
+      "sha256": "813ccbc67da66dca796fed94b7ceceddb95f525273f8fa74a517e076492bfb8d"
+    },
+    {
+      "path": "39006846906/117321152235.log",
+      "bytes": 45596,
+      "sha256": "c83e7c2afd86f8f7793572858a641d624b75bd094299fe05970f7fda829ee705"
+    },
+    {
+      "path": "39006846906/117321152241.log",
+      "bytes": 42939,
+      "sha256": "c3f737d999fdfc2e95f9d37200667962f607f4fcc65158698ca838152873523a"
+    },
+    {
+      "path": "39006846906/117321152260.log",
+      "bytes": 41552,
+      "sha256": "79855d61b4522e95097f9743ca9477178be600873ea9504e525a8e4ce885aad6"
+    },
+    {
+      "path": "39006846906/117321152273.log",
+      "bytes": 42144,
+      "sha256": "43880404522f318e5b4133d96d9b02236426745746755a05dedda148cc46f4b7"
+    },
+    {
+      "path": "39006846906/117321152278.log",
+      "bytes": 44613,
+      "sha256": "e90b4a85b20cdcdaf4074a5f32919111ae798fafe4cb67eb7e3023799f55f763"
+    },
+    {
+      "path": "39006846906/117321152285.log",
+      "bytes": 63675,
+      "sha256": "c63735ddd0678460e487ce42cfdec54922ba0dd7363ee965f094bfc08e29d06d"
+    },
+    {
+      "path": "39006846906/117321152295.log",
+      "bytes": 44537,
+      "sha256": "a806849bd24b4eaf3f3784a9d6ddbb035484e874a2ab7ea6ac158c351c7112db"
+    },
+    {
+      "path": "39006846906/117322523277.log",
+      "bytes": 16412,
+      "sha256": "06cdf8dcc3f1bcae5f5d3d60363924e5d273c53b5559f4e7eaae0b77add0a56f"
+    },
+    {
+      "path": "39006846906/117323310708.log",
+      "bytes": 16443,
+      "sha256": "1ec73781ad6cb703590f5006426c22a93724224dde0dd0938a4fc8fb588ab4b5"
+    },
+    {
+      "path": "39006846906/jobs.json",
+      "bytes": 41213,
+      "sha256": "9f4e0aa751a630de14dcdb35ea58ae840f16e9b62377fcef692d8540f5fb7652"
+    },
+    {
+      "path": "39006846906/review.json",
+      "bytes": 7643,
+      "sha256": "7565d77871f717e784ea6dbe82eea75ff3789955844c16836f6efcf544e81cc2"
+    },
+    {
+      "path": "39006846906/run.json",
+      "bytes": 12688,
+      "sha256": "ef09e2459d766b97ed20ae5f59b9c79a1931e5f2fe1ecb5eb59f2f1d1be6e962"
+    },
+    {
+      "path": "build-cognitive-evidence.py",
+      "bytes": 7667,
+      "sha256": "5d9f5cdfd9931acee9afad8aa1557af2c39187e1da8d04e0460c28551e1ceda0"
+    },
+    {
+      "path": "cognitive-research/GetSkus.json",
+      "bytes": 55486,
+      "sha256": "1c859ac36d080942f817958db9085603cc00b3ce42bbbab5d7a236cf53fc33d6"
+    },
+    {
+      "path": "cognitive-research/LICENSE.txt",
+      "bytes": 1076,
+      "sha256": "b37363bf2295aa0acde60ce78a60034a71a0955075fc01aa09cc23eadff44436"
+    },
+    {
+      "path": "cognitive-research/cognitiveservices.json",
+      "bytes": 239116,
+      "sha256": "e6efa93f54d62b025c4afe953b7491ea9c50f497646a6b2545f87e82d03c306a"
+    },
+    {
+      "path": "cognitive-research/primary-analysis.json",
+      "bytes": 342,
+      "sha256": "145c64c6b17ff1569cf8e5a7eae84e2ed00e23c743a720719600ec922e59ab35"
+    },
+    {
+      "path": "cognitive-research/task1-review-notes.json",
+      "bytes": 1018,
+      "sha256": "f9324e63d4aefc76eb6e9ec667eb09ce3df75517b069eae50c9d9e1def585636"
+    },
+    {
+      "path": "review-cognitive.py",
+      "bytes": 5218,
+      "sha256": "4decaf6b25e4b26612ab3a3f6fc3b50fcfc47cd556482b765cd11e630b9d931b"
+    }
+  ]
+}
