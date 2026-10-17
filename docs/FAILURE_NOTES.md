@@ -1,3 +1,9 @@
+# QA-COG-01: preserve embedded notice bytes, 2026-10-17
+
+Pre-PR review of the Cognitive primary-attribution WIP found that reading the entire generated NOTICES.md as normalized text changed21embedded CRLF license lines outside the intended root NOTICE section. Rebuilt from the exact prior Git blob and replaced only the generator's precise root-NOTICE byte section, then proved that reversing this section reproduces every original byte. The corrected publication reader also decodes raw UTF-8 bytes without newline normalization. No module inventory/graph, source pin, primary fixture or production behavior changed; no hosted pass is claimed for the first WIP. Preserve its commit and require full native/source QA on the corrected head. Prevention: use byte-preserving edits and full Git-tree/readback equality for generated files containing incorporated license texts.
+
+---
+
 # QA-VMSS-02: final-return cancellation control isolation, 2026-10-17
 
 The late-return reversal compiled but passed the initial cancellation sweep: that sweep calibrated its last observation from the currently tested implementation, so removing the final check shortened the sweep itself. Added a fixed nine-observation nil-result schedule for both cancellation/deadline, kept unchanged during reversal, and retargeted this control. Retained the broader sweep for other input/error paths. No production guard or frozen expectation changed. Preserve the second failed-control transcript and require the corrected reversal to fail its named assertion before claiming coverage. Prevention: a guard reversal must not also redefine its own test schedule; independently fix the sensitive terminal boundary.
