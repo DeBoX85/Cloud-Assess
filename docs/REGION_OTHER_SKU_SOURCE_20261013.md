@@ -1,3 +1,9 @@
+# Current status and authority
+
+Read [CURRENT_STATE](CURRENT_STATE.md) for current status, authorization and the next action, and [development workflow](DEVELOPMENT_WORKFLOW.md) for procedure. Dated progress and resume sections below are historical snapshots; behavioral requirements remain in force unless explicitly revised. The live task PR records exact-revision QA outcomes separately from protected acceptance.
+
+---
+
 # Remaining SKU source final candidate, 2026-10-13 evening
 
 Protected development remains VERIFIED OFFLINE PR13820695e7ce7d22d958cec54e122cf4f5947b1e8e7.
