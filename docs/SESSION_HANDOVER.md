@@ -1,3 +1,9 @@
+# Current status and resume authority
+
+Read [CURRENT_STATE](CURRENT_STATE.md) first, then [the development/QA workflow](DEVELOPMENT_WORKFLOW.md) and the active draft PR final evidence index. Earlier dated status and resume paragraphs below are retained historical snapshots. The user authorized the bounded CI/preflight/handoff improvement after completed PR147; finish its own QA, then stop at the tooling checkpoint. No protected merge or product integration is authorized by this task.
+
+---
+
 QA-VM-03 refinement: the later-page caller cancellation/deadline cases now return a nonterminal getter error with HTTP500, independently isolating caller-context priority. Getter-terminal cases retain wrapped cancellation/deadline. This corrects test isolation only; no production or frozen-oracle change. Superseded 8d66bde evidence is historical; require full fresh native/source gates for the corrected test revision.
 
 ## QA-VM-03: explicit terminal context after an admitted page

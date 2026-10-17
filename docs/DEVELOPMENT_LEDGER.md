@@ -1,3 +1,9 @@
+# Development process candidate, 2026-10-17
+
+Research completed before implementation; see [research record](DEVELOPMENT_WORKFLOW_RESEARCH_20261017.md). The user authorized process improvements preserving quality. Based on completed PR147/b5fd314, this candidate conserves all original native steps while isolating three control groups and one native worker per OS; strict always-running validators preserve the original protected check names. Added conservation/negative gate tests, uncached native test/coverage execution, developer preflight and compact [current state](CURRENT_STATE.md). Local workflow guards pass. Full own-head native/source results and measured elapsed/runner tradeoffs remain pending at publication; the task draft PR final body is authoritative. No product behavior, pin/module/schema, protected baseline or existing PR head changed. STOP after the tooling checkpoint.
+
+---
+
 QA-VM-03 refinement: the later-page caller cancellation/deadline cases now return a nonterminal getter error with HTTP500, independently isolating caller-context priority. Getter-terminal cases retain wrapped cancellation/deadline. This corrects test isolation only; no production or frozen-oracle change. Superseded 8d66bde evidence is historical; require full fresh native/source gates for the corrected test revision.
 
 ## QA-VM-03: explicit terminal context after an admitted page

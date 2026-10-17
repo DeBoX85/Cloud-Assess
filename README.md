@@ -1,5 +1,7 @@
 # Cloud Assess
 
+Current development status and resume point: [CURRENT_STATE](docs/CURRENT_STATE.md). Developer preflight and isolated parallel QA: [development workflow](docs/DEVELOPMENT_WORKFLOW.md).
+
 Azure cloud assessment toolkit.
 
 Cloud Assess is a new Azure assessment engine built from a clean repository while using the behavior of a pinned Azure assessment reference implementation as a compatibility baseline.

@@ -1,3 +1,9 @@
+# Current status and resume authority
+
+Read [CURRENT_STATE](CURRENT_STATE.md) first, then [the development/QA workflow](DEVELOPMENT_WORKFLOW.md) and the active draft PR final evidence index. Earlier dated status and resume paragraphs below are retained historical snapshots. The user authorized the bounded CI/preflight/handoff improvement after completed PR147; finish its own QA, then stop at the tooling checkpoint. No protected merge or product integration is authorized by this task.
+
+---
+
 # Current continuation authority: bounded VM collector candidate, 2026-10-16
 
 The user authorized implementation after completed PR146/37954dd. The internal VM catalog collector is locally implemented: all67unchanged frozen scenarios, primary integrity, supplemental limits/HTTP/context/ownership/projection/scoring tests and32compiling reversals/restored baselines passed. The complete region package and repository-wide vet passed. Read [the active collector record](REGION_VM_SKU_COLLECTOR_20261016.md), frozen contract and live draft [PR147](https://github.com/DeBoX85/Cloud-Assess/pull/147) for actual final head/tree/parent/preview and its own full QA. Full Linux/Windows/source gates are pending at publication; test-preparation failures and predecessor green do not certify this candidate.

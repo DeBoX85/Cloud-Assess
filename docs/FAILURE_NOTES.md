@@ -1,3 +1,9 @@
+# CI tooling local validation limits, 2026-10-17
+
+The first generated-workflow preflight rejected a trailing blank line; generation now emits one canonical final newline and the guard suite passes. A local Windows native-command test could not create its default sandbox temp script; retrying with a task-owned workspace temp directory reached the local PowerShell policy and was rejected with AuthorizationManager UnauthorizedAccess. Neither attempt is a test pass. Do not weaken execution policy or change the existing assertions; mandatory hosted native Windows/Linux runs must verify the actual package/branding blocks after their job locator update. Local focused Go preparation separately verifies every copied APRL file against its pinned Git blob. See [current state](CURRENT_STATE.md) and the tooling PR final evidence index for later disposition.
+
+---
+
 ## QA-VM-01/02: local fixture and existing-consumer expectation corrections
 
 QA-VM-01: the first unpublished implementation passed all67frozen scenarios but the supplemental decoded-token limit test failed. Its builder appended padding to the end of the URL, after api-version, rather than within $skiptoken. Correct only the two token/wire-length builders; retain original limits and assertions and preserve the failing preparation. The inaccurate explanatory binding-byte comment was corrected. No frozen67-case/primary/first-runner expectation or production guard was relaxed. First log10433bytes SHA25649330a1edcb378d8d64e1c43f5d3c3cf6e66d2d6405d0caf303aed1cb673eac5.
