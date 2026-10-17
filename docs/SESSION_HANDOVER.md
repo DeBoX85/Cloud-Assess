@@ -1,3 +1,20 @@
+# Current status and authority
+
+Read [CURRENT_STATE](CURRENT_STATE.md) for current status, authorization and the next action, and [development workflow](DEVELOPMENT_WORKFLOW.md) for procedure. Dated progress and resume sections below are historical snapshots; behavioral requirements remain in force unless explicitly revised. The live task PR records exact-revision QA outcomes separately from protected acceptance.
+
+For new sessions use [CONTINUE](CONTINUE.md), the [copy-ready prompt](RESTART_PROMPT.md) and [continuity procedure](CONTINUITY.md). The [2026-10-17 handoff](HANDOFF_20261017.md) is a historical recovery snapshot; the active task PR owns its exact-revision outcomes.
+
+The active [Cognitive three-task workstream](COGNITIVE_SKU_WORKSTREAM_20261017.md) records current authorization and transitions; tasks1/2 are verified offline and task3 implements the [catalog contract](COGNITIVE_SKU_CONTRACT_20261017.md). CURRENT_STATE and the live task PR own actual status.
+
+---
+
+# Cognitive task3 bounded internal candidate, 2026-10-17
+
+Published first runner8220345a/d36ca37b after task2 completion and handover update. Inspected actual Linux117327688350/Windows117327688477 in39009143283: absent Cognitive API compilation only, retained complete native logs/metadata. Then implemented kind-bound collector/catalog. All143unchanged cases and independent bounds/HTTP/context/ownership checks pass locally. Added46compiling controls to conserved CI inventory; full local controls/preflight/race/rollback/own hosted QA pending at this checkpoint. [Implementation record](COGNITIVE_SKU_IMPLEMENTATION_20261017.md) and CURRENT_STATE own requirements/resume; live PR157 owns actual final outcomes. Preserve first runner/oracle/primaries and all prior heads. QA-COG-02/03/04 retain documentation/test-harness corrections. No scoring/public/Azure/refresh/subagents/protected merge/release; broader review/backup/operational/live/release remain open.
+
+---
+
+
 # Cognitive task3 runner preparation, 2026-10-17
 
 Task2 verified offline at PR156/2d65a772/tree50b51df3 after all8native workers/bothgates in39008247168 and source39008247280. Full10logs reviewed;409Linux/404Windows identities and23captures/315chunks/909865bytes preserved. Coverage85.7%, unchanged75%floor; one module-only advisory remains open. Artifact209f15da339915be8ad7f0993b3985fad0770e3e retains22members/1878170memberbytes; all3files/identity/tree/parent read back and bounded verifier passed. Existing protecteda6fee427/previous draft heads preserved. This updates development/handover BETWEEN tasks as requested.
@@ -6,15 +23,6 @@ Task3 strict JSON-tagged runner consumes143frozen scenarios with unknown-field/t
 
 ---
 
-# Current status and authority
-
-Read [CURRENT_STATE](CURRENT_STATE.md) for current status, authorization and the next action, and [development workflow](DEVELOPMENT_WORKFLOW.md) for procedure. Dated progress and resume sections below are historical snapshots; behavioral requirements remain in force unless explicitly revised. The live task PR records exact-revision QA outcomes separately from protected acceptance.
-
-For new sessions use [CONTINUE](CONTINUE.md), the [copy-ready prompt](RESTART_PROMPT.md) and [continuity procedure](CONTINUITY.md). The [2026-10-17 handoff](HANDOFF_20261017.md) is a historical recovery snapshot; the active task PR owns its exact-revision outcomes.
-
-The active [Cognitive three-task workstream](COGNITIVE_SKU_WORKSTREAM_20261017.md) records current authorization and transitions; task1 is verified offline and task2 freezes the [catalog contract](COGNITIVE_SKU_CONTRACT_20261017.md). CURRENT_STATE and the live task PR own actual status.
-
----
 
 # Current status and resume authority
 

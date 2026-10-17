@@ -378,6 +378,9 @@ jobs:
       - name: Verify VMSS catalog compiling controls
         run: python3 scripts/tests/vmss-catalog-mutation.py
 
+      - name: Verify Cognitive SKU catalog compiling controls
+        run: python3 scripts/tests/cognitive-sku-mutation.py
+
   quality:
     if: ${{ always() }}
     needs: [linux-native, linux-controls-1, linux-controls-2, linux-controls-3]
@@ -650,6 +653,9 @@ jobs:
 
       - name: Verify VMSS catalog compiling controls
         run: python scripts/tests/vmss-catalog-mutation.py
+
+      - name: Verify Cognitive SKU catalog compiling controls
+        run: python scripts/tests/cognitive-sku-mutation.py
 
   windows-validation:
     if: ${{ always() }}

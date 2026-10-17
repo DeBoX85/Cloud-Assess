@@ -1,3 +1,9 @@
+# Cognitive task3 bounded internal candidate, 2026-10-17
+
+Published first runner8220345a/d36ca37b after task2 completion and handover update. Inspected actual Linux117327688350/Windows117327688477 in39009143283: absent Cognitive API compilation only, retained complete native logs/metadata. Then implemented kind-bound collector/catalog. All143unchanged cases and independent bounds/HTTP/context/ownership checks pass locally. Added46compiling controls to conserved CI inventory; full local controls/preflight/race/rollback/own hosted QA pending at this checkpoint. [Implementation record](COGNITIVE_SKU_IMPLEMENTATION_20261017.md) and CURRENT_STATE own requirements/resume; live PR157 owns actual final outcomes. Preserve first runner/oracle/primaries and all prior heads. QA-COG-02/03/04 retain documentation/test-harness corrections. No scoring/public/Azure/refresh/subagents/protected merge/release; broader review/backup/operational/live/release remain open.
+
+---
+
 # Cognitive task3 runner preparation, 2026-10-17
 
 Task2 verified offline at PR156/2d65a772/tree50b51df3 after all8native workers/bothgates in39008247168 and source39008247280. Full10logs reviewed;409Linux/404Windows identities and23captures/315chunks/909865bytes preserved. Coverage85.7%, unchanged75%floor; one module-only advisory remains open. Artifact209f15da339915be8ad7f0993b3985fad0770e3e retains22members/1878170memberbytes; all3files/identity/tree/parent read back and bounded verifier passed. Existing protecteda6fee427/previous draft heads preserved. This updates development/handover BETWEEN tasks as requested.
