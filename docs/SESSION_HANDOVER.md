@@ -2991,3 +2991,7 @@ Both actual missing-API observations were inspected BEFORE production:3907458174
 QA-SQL-04: generated supplemental required-text test initially declared required after its first use, causing a local compile failure. Declaration order corrected, affected tests pass. No production, frozen oracle or expectation change; retain failed/fixed logs.
 
 This is recoverable WIP, NOT final QA certification. Pending: compiling named reversals/exact restored baselines, additive generated CI inventory/conservation, atomic implementation+runner rollback to verified task2treeead9da2e/restoration, complete region/race/vet/static/links and final own8workers/bothgates/source/archive/full readback. Update handover BEFORE task4MI. No critical input; all no-Azure/refresh/subagents/protected merge/release boundaries remain.
+
+## Database compiling-control recovery checkpoint
+
+42plans and generated additive both-platform CI step prepared. Runtime reset interrupted first local run after12completed reversals; process absence and exact3source-file restoration verified before standard42suite restart. Partial log is not full evidence. CURRENT_STATE owns actual pending controls, rollback and final QA. No frozen/API/primary changes from this tooling checkpoint.

@@ -119,6 +119,11 @@
         "name": "Verify Cognitive SKU catalog compiling controls",
         "script": "scripts/tests/cognitive-sku-mutation.py",
         "worker": "controls-3"
+      },
+      {
+        "name": "Verify SQL Database capability compiling controls",
+        "script": "scripts/tests/sql-database-controls.py",
+        "worker": "controls-1"
       }
     ],
     "windows": [
@@ -146,6 +151,11 @@
         "name": "Verify Cognitive SKU catalog compiling controls",
         "script": "scripts/tests/cognitive-sku-mutation.py",
         "worker": "controls-3"
+      },
+      {
+        "name": "Verify SQL Database capability compiling controls",
+        "script": "scripts/tests/sql-database-controls.py",
+        "worker": "controls-1"
       }
     ]
   }

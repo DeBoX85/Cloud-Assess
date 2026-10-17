@@ -268,6 +268,9 @@ jobs:
       - name: Verify reservation collector tests reject selected mutations
         run: python3 scripts/tests/region-reservation-collector-mutation.py
 
+      - name: Verify SQL Database capability compiling controls
+        run: python3 scripts/tests/sql-database-controls.py
+
   linux-controls-2:
     runs-on: ubuntu-24.04
     timeout-minutes: 35
@@ -542,6 +545,9 @@ jobs:
       - name: Verify Windows region quota runtime tests reject selected mutations
         shell: pwsh
         run: python scripts/tests/region-quota-runtime-mutation.py
+
+      - name: Verify SQL Database capability compiling controls
+        run: python scripts/tests/sql-database-controls.py
 
   windows-controls-2:
     runs-on: windows-2022
