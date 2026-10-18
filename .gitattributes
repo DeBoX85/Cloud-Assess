@@ -15,3 +15,5 @@ docs/evidence/**/*.base64 -text
 
 # Retain exact upstream MIT license bytes used by SQL primary integrity checks.
 internal/plugins/region/testdata/storage-primary-LICENSE.txt -text
+internal/plugins/region/sql_report_oracle_test.go -text
+internal/plugins/region/sql_report_budget_plan_test.go -text

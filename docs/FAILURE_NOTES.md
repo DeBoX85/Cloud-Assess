@@ -2385,3 +2385,7 @@ The newly authored exact8192-required-count test used three-component Database c
 ## QA-SQL-07: delayed completion handover
 
 Final MI QA/evidence completed before completion state/prompt publication, leaving stale pending instructions across interruptions/status replies. Corrected by the administrative SQL completion checkpoint and explicit PR165 forwarding after full readback. No product or oracle rewrite. Prevention: close the documentation/readback checklist at the same task boundary and before starting another task or ending the session; report incomplete closure explicitly rather than equating QA success with maintained handover.
+
+## QA-INT-02: prepublication MI output-budget fixture
+
+Before any report API or published oracle freeze, the independent budget proof showed that193rather than192family characters are needed: the192character maximal MI fixture reaches8372664bytes,15944below the8388608cap. Corrected only the new reachability fixture to193, leaving440bytes of maximum slack beyond the cap; exact/+1 can then be constructed while unchanged Catalog still admits both. Updated its integrity hash before publication. No target implementation exists, no old frozen oracle/production change and no assertion weakened. Prevention: prove the actual maximum and inherited admission before declaring independent boundary reachability.
