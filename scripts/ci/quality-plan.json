@@ -134,6 +134,11 @@
         "name": "Verify assessment status scope redaction compiling controls",
         "script": "scripts/tests/scope-redaction-controls.py",
         "worker": "controls-3"
+      },
+      {
+        "name": "Verify SQL report adapter compiling controls",
+        "script": "scripts/tests/sql-report-controls.py",
+        "worker": "controls-2"
       }
     ],
     "windows": [
@@ -176,6 +181,11 @@
         "name": "Verify assessment status scope redaction compiling controls",
         "script": "scripts/tests/scope-redaction-controls.py",
         "worker": "controls-3"
+      },
+      {
+        "name": "Verify SQL report adapter compiling controls",
+        "script": "scripts/tests/sql-report-controls.py",
+        "worker": "controls-2"
       }
     ]
   }

@@ -326,6 +326,9 @@ jobs:
       - name: Verify SQL Managed Instance capability compiling controls
         run: python3 scripts/tests/sql-mi-controls.py
 
+      - name: Verify SQL report adapter compiling controls
+        run: python3 scripts/tests/sql-report-controls.py
+
   linux-controls-3:
     runs-on: ubuntu-24.04
     timeout-minutes: 35
@@ -612,6 +615,9 @@ jobs:
 
       - name: Verify SQL Managed Instance capability compiling controls
         run: python scripts/tests/sql-mi-controls.py
+
+      - name: Verify SQL report adapter compiling controls
+        run: python scripts/tests/sql-report-controls.py
 
   windows-controls-3:
     runs-on: windows-2022

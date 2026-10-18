@@ -2393,3 +2393,11 @@ Before any report API or published oracle freeze, the independent budget proof s
 ## QA-INT-04 scope-redaction correction, 2026-10-18
 
 Actual core Assessment Status ScopeID masking gap confirmed on BOTH native PR168 jobs before renderer production edits, including actual CSV/XLSX. Isolated narrow correction starts at verified054aba88; independent core/mixed/context/large-selection/all10record-source regressions and three compiling controls preserve masking, unrelated UUIDs and canonical data without introducing plugin4096ID limits into core-only reports. [Correction and fallback amendment](SCOPE_REDACTION_CORRECTION_20261018.md). Own exact-head QA/evidence pending. Report task3/final task4 unfinished. Prevention: exercise actual core status cells as well as extension rows under redaction; feature rollback must retain independently verified boundary corrections. No Azure/input required.
+
+## Scope correction completed before final report transition, 2026-10-18
+
+PR169/724504b7 COMPLETE VERIFIED OFFLINE, own39163414431 all8workers/bothgates and39163414427 source passed.536Linux/531Windows exact identities,23captures/315chunks/909865bytes; full78member evidence9ae98507 read back. Scope masking correction/three controls/atomic15file rollback+restore verified. [Completion and next action](SCOPE_REDACTION_COMPLETED_20261018.md). Report task3 remains unfinished, finalQA task4 pending; final report fallback retains this verified correction. Original SQL batch and all frozen heads unchanged. Module-only advisory/independent/live/release obligations open.
+
+## Final internal SQL report candidate, 2026-10-18
+
+Scope correction PR169/724504b7 own full QA/evidence9ae98507/completion handover24c9ff59 closed BEFORE this transition. Report production/first runner/frozen26oracles preserved exactly;15compiled reversals and corrected actual renderers/full SQL baseline/preflight pass locally. [Implementation/stronger rollback amendment](SQL_REPORT_IMPLEMENTATION_20261018.md). Own final551Linux/546Windows identity QA/source/atomic report rollback retaining scope fix/archive/readback/final handover pending. Original SQL batch remains complete, protected acceptance unchanged.
