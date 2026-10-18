@@ -121,6 +121,9 @@ func ByKey(key string) []Service {
 	services := registry[key]
 	out := make([]Service, len(services))
 	copy(out, services)
+	for i := range out {
+		out[i].ResourceTypes = append([]string(nil), services[i].ResourceTypes...)
+	}
 	return out
 }
 
