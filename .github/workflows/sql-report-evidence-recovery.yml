@@ -1,0 +1,52 @@
+name: SQL report evidence recovery
+
+on:
+  push:
+    branches:
+      - 'qa/sql-report-evidence-recovery-*'
+
+permissions:
+  contents: read
+
+jobs:
+  evidence-recovery:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    env:
+      GOTOOLCHAIN: local
+      GOFLAGS: '-mod=readonly -p=4'
+      GOMAXPROCS: '4'
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - name: Checkout recovery recipe
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # existing pinned v7.0.1
+        with:
+          path: control
+          persist-credentials: false
+      - name: Checkout exact product candidate
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: 8c47d8105c7c3a6dec02f4a9b22958ab58b4682a
+          path: candidate
+          fetch-depth: 0
+          submodules: recursive
+          persist-credentials: false
+      - name: Checkout retained verified checkpoint
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: 9ae98507cc55ec268b7a27b4bdf2a14f2f6e6567
+          path: checkpoint
+          persist-credentials: false
+      - name: Checkout immutable first consuming runner for capture comparison
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: fd5aa54f451c58e0a565030d8bb0800bf418bf92
+          path: first-runner
+          persist-credentials: false
+      - name: Set up unchanged pinned Go
+        uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # existing pinned v6.5.0
+        with:
+          go-version: '1.26.9'
+          cache-dependency-path: candidate/go.sum
+      - name: Verify checkpoint before allowlisted recovery, replay full QA and rollback, package bounded evidence
+        run: python control/recovery-evidence/recover.py

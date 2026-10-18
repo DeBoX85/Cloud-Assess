@@ -1,0 +1,302 @@
+﻿2026-10-18T19:54:25.3816266Z Current runner version: '2.337.0'
+2026-10-18T19:54:25.3841094Z ##[group]Runner Image Provisioner
+2026-10-18T19:54:25.3842126Z Hosted Compute Agent
+2026-10-18T19:54:25.3842648Z Version: 20261012.601
+2026-10-18T19:54:25.3843202Z Commit: f3dc54e1fb89da6852db922499a0233137369e1d
+2026-10-18T19:54:25.3843929Z Build Date: 2026-10-12T17:48:21Z
+2026-10-18T19:54:25.3844575Z Worker ID: {e21bdd25-4412-4f1a-b9a1-0e45c8f9ef11}
+2026-10-18T19:54:25.3845233Z Region: westcentralus
+2026-10-18T19:54:25.3845737Z Cloud: Azure
+2026-10-18T19:54:25.3846208Z ##[endgroup]
+2026-10-18T19:54:25.3847575Z ##[group]Operating System
+2026-10-18T19:54:25.3848181Z Microsoft Windows Server 2022
+2026-10-18T19:54:25.3848741Z 10.0.20348
+2026-10-18T19:54:25.3849215Z Datacenter
+2026-10-18T19:54:25.3849679Z ##[endgroup]
+2026-10-18T19:54:25.3850156Z ##[group]Runner Image
+2026-10-18T19:54:25.3850705Z Image: windows-2022
+2026-10-18T19:54:25.3851203Z Version: 20261012.333.1
+2026-10-18T19:54:25.3852557Z Included Software: https://github.com/actions/runner-images/blob/win22/20261012.333/images/windows/Windows2022-Readme.md
+2026-10-18T19:54:25.3854003Z Image Release: https://github.com/actions/runner-images/releases/tag/win22%2F20261012.333
+2026-10-18T19:54:25.3854892Z ##[endgroup]
+2026-10-18T19:54:25.3855900Z ##[group]GITHUB_TOKEN Permissions
+2026-10-18T19:54:25.3858298Z Contents: read
+2026-10-18T19:54:25.3858849Z Metadata: read
+2026-10-18T19:54:25.3859354Z ##[endgroup]
+2026-10-18T19:54:25.3861376Z Secret source: Actions
+2026-10-18T19:54:25.3862228Z Cache mode: write
+2026-10-18T19:54:25.3862956Z Prepare workflow directory
+2026-10-18T19:54:25.4253774Z Prepare all required actions
+2026-10-18T19:54:25.4301557Z Getting action download info
+2026-10-18T19:54:25.7293720Z Download action repository 'actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1' (SHA:3d3c42e5aac5ba805825da76410c181273ba90b1)
+2026-10-18T19:54:25.8406397Z Download action repository 'actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16' (SHA:924ae3a1cded613372ab5595356fb5720e22ba16)
+2026-10-18T19:54:26.5427786Z Complete job name: windows-controls-1
+2026-10-18T19:54:26.7079610Z ##[group]Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+2026-10-18T19:54:26.7080873Z with:
+2026-10-18T19:54:26.7081260Z   submodules: recursive
+2026-10-18T19:54:26.7081712Z   repository: DeBoX85/Cloud-Assess
+2026-10-18T19:54:26.7085581Z   token: ***
+2026-10-18T19:54:26.7085968Z   ssh-strict: true
+2026-10-18T19:54:26.7086364Z   ssh-user: git
+2026-10-18T19:54:26.7086773Z   persist-credentials: true
+2026-10-18T19:54:26.7087219Z   clean: true
+2026-10-18T19:54:26.7087621Z   sparse-checkout-cone-mode: true
+2026-10-18T19:54:26.7088088Z   fetch-depth: 1
+2026-10-18T19:54:26.7088462Z   fetch-tags: false
+2026-10-18T19:54:26.7089052Z   show-progress: true
+2026-10-18T19:54:26.7089523Z   lfs: false
+2026-10-18T19:54:26.7089968Z   set-safe-directory: true
+2026-10-18T19:54:26.7090510Z   allow-unsafe-pr-checkout: false
+2026-10-18T19:54:26.7091297Z ##[endgroup]
+2026-10-18T19:54:26.8599852Z Syncing repository: DeBoX85/Cloud-Assess
+2026-10-18T19:54:26.8601825Z ##[group]Getting Git version info
+2026-10-18T19:54:26.8602554Z Working directory is 'D:\a\Cloud-Assess\Cloud-Assess'
+2026-10-18T19:54:26.9390411Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-10-18T19:54:27.2595251Z git version 2.56.0.windows.2
+2026-10-18T19:54:27.2633639Z ##[endgroup]
+2026-10-18T19:54:27.2648543Z Temporarily overriding HOME='D:\a\_temp\728aa539-01ba-4da6-b52c-b16fa61ca77f' before making global git config changes
+2026-10-18T19:54:27.2650823Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-18T19:54:27.2658902Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\Cloud-Assess\Cloud-Assess
+2026-10-18T19:54:27.3229037Z Deleting the contents of 'D:\a\Cloud-Assess\Cloud-Assess'
+2026-10-18T19:54:27.3233114Z ##[group]Determining repository object format
+2026-10-18T19:54:27.3235023Z ##[endgroup]
+2026-10-18T19:54:27.3239071Z ##[group]Initializing the repository
+2026-10-18T19:54:27.3244520Z [command]"C:\Program Files\Git\bin\git.exe" init D:\a\Cloud-Assess\Cloud-Assess
+2026-10-18T19:54:27.4216442Z Initialized empty Git repository in D:/a/Cloud-Assess/Cloud-Assess/.git/
+2026-10-18T19:54:27.4257066Z [command]"C:\Program Files\Git\bin\git.exe" remote add origin https://github.com/DeBoX85/Cloud-Assess
+2026-10-18T19:54:27.4818759Z ##[endgroup]
+2026-10-18T19:54:27.4820588Z ##[group]Disabling automatic garbage collection
+2026-10-18T19:54:27.4827025Z [command]"C:\Program Files\Git\bin\git.exe" config --local gc.auto 0
+2026-10-18T19:54:27.5115335Z ##[endgroup]
+2026-10-18T19:54:27.5116996Z ##[group]Setting up auth
+2026-10-18T19:54:27.5118261Z Removing SSH command configuration
+2026-10-18T19:54:27.5125504Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-10-18T19:54:27.5415136Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-10-18T19:54:28.8233685Z Removing HTTP extra header
+2026-10-18T19:54:28.8242688Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-18T19:54:28.8541599Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-10-18T19:54:29.3317011Z Removing includeIf entries pointing to credentials config files
+2026-10-18T19:54:29.3327203Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-18T19:54:29.3630951Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-10-18T19:54:29.8358708Z [command]"C:\Program Files\Git\bin\git.exe" config --file D:\a\_temp\git-credentials-a1df7ad9-4b79-4598-9fd9-da0d5fce9907.config http.https://github.com/.extraheader "AUTHORIZATION: basic ***"
+2026-10-18T19:54:29.8665744Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:D:/a/Cloud-Assess/Cloud-Assess/.git.path D:\a\_temp\git-credentials-a1df7ad9-4b79-4598-9fd9-da0d5fce9907.config
+2026-10-18T19:54:29.8960938Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:D:/a/Cloud-Assess/Cloud-Assess/.git/worktrees/*.path D:\a\_temp\git-credentials-a1df7ad9-4b79-4598-9fd9-da0d5fce9907.config
+2026-10-18T19:54:29.9301025Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-a1df7ad9-4b79-4598-9fd9-da0d5fce9907.config
+2026-10-18T19:54:29.9601431Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-a1df7ad9-4b79-4598-9fd9-da0d5fce9907.config
+2026-10-18T19:54:29.9891426Z ##[endgroup]
+2026-10-18T19:54:29.9892113Z ##[group]Fetching the repository
+2026-10-18T19:54:29.9907315Z [command]"C:\Program Files\Git\bin\git.exe" -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +608224f2609d7bcb835089695cd93796587afcf7:refs/remotes/pull/167/merge
+2026-10-18T19:54:31.5979366Z From https://github.com/DeBoX85/Cloud-Assess
+2026-10-18T19:54:31.5980268Z  * [new ref]         608224f2609d7bcb835089695cd93796587afcf7 -> pull/167/merge
+2026-10-18T19:54:31.6013611Z ##[endgroup]
+2026-10-18T19:54:31.6015052Z ##[group]Determining the checkout info
+2026-10-18T19:54:31.6015944Z ##[endgroup]
+2026-10-18T19:54:31.6024359Z [command]"C:\Program Files\Git\bin\git.exe" sparse-checkout disable
+2026-10-18T19:54:31.6442214Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all extensions.worktreeConfig
+2026-10-18T19:54:31.6732055Z ##[group]Checking out the ref
+2026-10-18T19:54:31.6740704Z [command]"C:\Program Files\Git\bin\git.exe" checkout --progress --force refs/remotes/pull/167/merge
+2026-10-18T19:54:31.9093794Z Note: switching to 'refs/remotes/pull/167/merge'.
+2026-10-18T19:54:31.9094292Z 
+2026-10-18T19:54:31.9094583Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-10-18T19:54:31.9095265Z changes and commit them, and you can discard any commits you make in this
+2026-10-18T19:54:31.9096175Z state without impacting any branches by switching back to a branch.
+2026-10-18T19:54:31.9096494Z 
+2026-10-18T19:54:31.9096669Z If you want to create a new branch to retain commits you create, you may
+2026-10-18T19:54:31.9097126Z do so (now or later) by using -c with the switch command. Example:
+2026-10-18T19:54:31.9097539Z 
+2026-10-18T19:54:31.9097737Z   git switch -c <new-branch-name>
+2026-10-18T19:54:31.9098028Z 
+2026-10-18T19:54:31.9098184Z Or undo this operation with:
+2026-10-18T19:54:31.9098427Z 
+2026-10-18T19:54:31.9098649Z   git switch -
+2026-10-18T19:54:31.9098824Z 
+2026-10-18T19:54:31.9099216Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-10-18T19:54:31.9099733Z 
+2026-10-18T19:54:31.9100321Z HEAD is now at 608224f Merge fd5aa54f451c58e0a565030d8bb0800bf418bf92 into a6fee427e19feeef28691737ea9bc5026086efa0
+2026-10-18T19:54:31.9160131Z ##[endgroup]
+2026-10-18T19:54:31.9160667Z ##[group]Setting up auth for fetching submodules
+2026-10-18T19:54:31.9172293Z [command]"C:\Program Files\Git\bin\git.exe" config --file D:\a\_temp\git-credentials-a1df7ad9-4b79-4598-9fd9-da0d5fce9907.config http.https://github.com/.extraheader "AUTHORIZATION: basic ***"
+2026-10-18T19:54:31.9495654Z [command]"C:\Program Files\Git\bin\git.exe" config --global include.path D:\a\_temp\git-credentials-a1df7ad9-4b79-4598-9fd9-da0d5fce9907.config
+2026-10-18T19:54:31.9832999Z [command]"C:\Program Files\Git\bin\git.exe" config --global --unset-all url.https://github.com/.insteadOf
+2026-10-18T19:54:32.0129610Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add url.https://github.com/.insteadOf git@github.com:
+2026-10-18T19:54:32.0423200Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add url.https://github.com/.insteadOf org-134433647@github.com:
+2026-10-18T19:54:32.0705477Z ##[endgroup]
+2026-10-18T19:54:32.0705862Z ##[group]Fetching submodules
+2026-10-18T19:54:32.0715113Z [command]"C:\Program Files\Git\bin\git.exe" submodule sync --recursive
+2026-10-18T19:54:32.5416242Z [command]"C:\Program Files\Git\bin\git.exe" -c protocol.version=2 submodule update --init --force --depth=1 --recursive
+2026-10-18T19:54:33.0027861Z Submodule 'internal/rules/upstream/aprl' (https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2.git) registered for path 'internal/rules/upstream/aprl'
+2026-10-18T19:54:33.0313819Z Cloning into 'D:/a/Cloud-Assess/Cloud-Assess/internal/rules/upstream/aprl'...
+2026-10-18T19:54:35.2183392Z From https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2
+2026-10-18T19:54:35.2184295Z  * branch            60eaddda76541f6adbc1c5ffa686829807e55e29 -> FETCH_HEAD
+2026-10-18T19:54:35.5366735Z Submodule path 'internal/rules/upstream/aprl': checked out '60eaddda76541f6adbc1c5ffa686829807e55e29'
+2026-10-18T19:54:35.5579512Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local gc.auto 0"
+2026-10-18T19:54:35.9919595Z Entering 'internal/rules/upstream/aprl'
+2026-10-18T19:54:36.0487730Z ##[endgroup]
+2026-10-18T19:54:36.0488132Z ##[group]Persisting credentials for submodules
+2026-10-18T19:54:36.0498241Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'url\.https\:\/\/github\.com\/\.insteadOf' && git config --local --unset-all 'url.https://github.com/.insteadOf' || :\""
+2026-10-18T19:54:36.5086946Z Entering 'internal/rules/upstream/aprl'
+2026-10-18T19:54:36.5870039Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-10-18T19:54:37.0399517Z Entering 'internal/rules/upstream/aprl'
+2026-10-18T19:54:37.0681664Z file:D:/a/Cloud-Assess/Cloud-Assess/.git/modules/internal/rules/upstream/aprl/config	remote.origin.url
+2026-10-18T19:54:37.0887804Z [command]"C:\Program Files\Git\bin\git.exe" config --file D:/a/Cloud-Assess/Cloud-Assess/.git/modules/internal/rules/upstream/aprl/config includeIf.gitdir:D:/a/Cloud-Assess/Cloud-Assess/.git/modules/internal/rules/upstream/aprl.path D:\a\_temp\git-credentials-a1df7ad9-4b79-4598-9fd9-da0d5fce9907.config
+2026-10-18T19:54:37.1191681Z [command]"C:\Program Files\Git\bin\git.exe" config --file D:/a/Cloud-Assess/Cloud-Assess/.git/modules/internal/rules/upstream/aprl/config includeIf.gitdir:/github/workspace/.git/modules/internal/rules/upstream/aprl.path /github/runner_temp/git-credentials-a1df7ad9-4b79-4598-9fd9-da0d5fce9907.config
+2026-10-18T19:54:37.1485729Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --add 'url.https://github.com/.insteadOf' 'git@github.com:'"
+2026-10-18T19:54:37.5928697Z Entering 'internal/rules/upstream/aprl'
+2026-10-18T19:54:37.6413517Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --add 'url.https://github.com/.insteadOf' 'org-134433647@github.com:'"
+2026-10-18T19:54:38.0906774Z Entering 'internal/rules/upstream/aprl'
+2026-10-18T19:54:38.1384930Z ##[endgroup]
+2026-10-18T19:54:38.1768979Z [command]"C:\Program Files\Git\bin\git.exe" log -1 --format=%H
+2026-10-18T19:54:38.2038874Z 608224f2609d7bcb835089695cd93796587afcf7
+2026-10-18T19:54:38.2414276Z ##[group]Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16
+2026-10-18T19:54:38.2414722Z with:
+2026-10-18T19:54:38.2414926Z   go-version: 1.26.9
+2026-10-18T19:54:38.2415133Z   cache: true
+2026-10-18T19:54:38.2415335Z   check-latest: false
+2026-10-18T19:54:38.2417586Z   token: ***
+2026-10-18T19:54:38.2417780Z ##[endgroup]
+2026-10-18T19:54:38.3940650Z Setup go version spec 1.26.9
+2026-10-18T19:54:38.4052265Z Found in cache @ C:\hostedtoolcache\windows\go\1.26.9\x64
+2026-10-18T19:54:38.4056490Z Added go to the path
+2026-10-18T19:54:38.4060310Z Successfully set up Go version 1.26.9
+2026-10-18T19:54:39.6500865Z [command]C:\hostedtoolcache\windows\go\1.26.9\x64\bin\go.exe env GOMODCACHE
+2026-10-18T19:54:39.6542037Z [command]C:\hostedtoolcache\windows\go\1.26.9\x64\bin\go.exe env GOCACHE
+2026-10-18T19:54:39.6834229Z C:\Users\runneradmin\go\pkg\mod
+2026-10-18T19:54:39.6856518Z C:\Users\runneradmin\AppData\Local\go-build
+2026-10-18T19:54:39.9987983Z Cache hit for: setup-go-Windows-x64-go-1.26.9-8f32c4860aeddbe9e4678426a438e46b91e9c93dd9c75d82b05a00935c507b97
+2026-10-18T19:54:41.2791533Z Received 134217728 of 389947601 (34.4%), 117.0 MBs/sec
+2026-10-18T19:54:42.2905805Z Received 306184192 of 389947601 (78.5%), 138.8 MBs/sec
+2026-10-18T19:54:42.7443589Z Received 389947601 of 389947601 (100.0%), 145.2 MBs/sec
+2026-10-18T19:54:42.7447671Z Cache Size: ~372 MB (389947601 B)
+2026-10-18T19:54:42.7537295Z [command]"C:\Program Files\Git\usr\bin\tar.exe" -xf D:/a/_temp/12064193-4bef-4ca5-81bd-d475d21103d7/cache.tzst -P -C D:/a/Cloud-Assess/Cloud-Assess --force-local --use-compress-program "zstd -d"
+2026-10-18T19:55:03.0663908Z Cache restored successfully
+2026-10-18T19:55:03.0840579Z Cache restored from key: setup-go-Windows-x64-go-1.26.9-8f32c4860aeddbe9e4678426a438e46b91e9c93dd9c75d82b05a00935c507b97
+2026-10-18T19:55:03.0866528Z go version go1.26.9 windows/amd64
+2026-10-18T19:55:03.0866765Z 
+2026-10-18T19:55:03.0867085Z ##[group]go env
+2026-10-18T19:55:03.9043840Z set AR=ar
+2026-10-18T19:55:03.9044211Z set CC=gcc
+2026-10-18T19:55:03.9044528Z set CGO_CFLAGS=-O2 -g
+2026-10-18T19:55:03.9044894Z set CGO_CPPFLAGS=
+2026-10-18T19:55:03.9045213Z set CGO_CXXFLAGS=-O2 -g
+2026-10-18T19:55:03.9045522Z set CGO_ENABLED=1
+2026-10-18T19:55:03.9045804Z set CGO_FFLAGS=-O2 -g
+2026-10-18T19:55:03.9046098Z set CGO_LDFLAGS=-O2 -g
+2026-10-18T19:55:03.9046672Z set CXX=g++
+2026-10-18T19:55:03.9046942Z set GCCGO=gccgo
+2026-10-18T19:55:03.9047215Z set GO111MODULE=
+2026-10-18T19:55:03.9047495Z set GOAMD64=v1
+2026-10-18T19:55:03.9047762Z set GOARCH=amd64
+2026-10-18T19:55:03.9048047Z set GOAUTH=netrc
+2026-10-18T19:55:03.9048398Z set GOBIN=
+2026-10-18T19:55:03.9048772Z set GOCACHE=C:\Users\runneradmin\AppData\Local\go-build
+2026-10-18T19:55:03.9049265Z set GOCACHEPROG=
+2026-10-18T19:55:03.9049550Z set GODEBUG=
+2026-10-18T19:55:03.9049911Z set GOENV=C:\Users\runneradmin\AppData\Roaming\go\env
+2026-10-18T19:55:03.9050372Z set GOEXE=.exe
+2026-10-18T19:55:03.9050661Z set GOEXPERIMENT=
+2026-10-18T19:55:03.9050962Z set GOFIPS140=off
+2026-10-18T19:55:03.9051236Z set GOFLAGS=
+2026-10-18T19:55:03.9052392Z set GOGCCFLAGS=-m64 -mthreads -Wl,--no-gc-sections -fmessage-length=0 -ffile-prefix-map=C:\Users\RUNNER~1\AppData\Local\Temp\go-build2899873931=/tmp/go-build -gno-record-gcc-switches
+2026-10-18T19:55:03.9053586Z set GOHOSTARCH=amd64
+2026-10-18T19:55:03.9053899Z set GOHOSTOS=windows
+2026-10-18T19:55:03.9054184Z set GOINSECURE=
+2026-10-18T19:55:03.9054537Z set GOMOD=D:\a\Cloud-Assess\Cloud-Assess\go.mod
+2026-10-18T19:55:03.9055037Z set GOMODCACHE=C:\Users\runneradmin\go\pkg\mod
+2026-10-18T19:55:03.9055474Z set GONOPROXY=
+2026-10-18T19:55:03.9055744Z set GONOSUMDB=
+2026-10-18T19:55:03.9056008Z set GOOS=windows
+2026-10-18T19:55:03.9056332Z set GOPATH=C:\Users\runneradmin\go
+2026-10-18T19:55:03.9056739Z set GOPRIVATE=
+2026-10-18T19:55:03.9057184Z set GOPROXY=https://proxy.golang.org,direct
+2026-10-18T19:55:03.9057700Z set GOROOT=C:\hostedtoolcache\windows\go\1.26.9\x64
+2026-10-18T19:55:03.9060339Z set GOSUMDB=sum.golang.org
+2026-10-18T19:55:03.9060788Z set GOTELEMETRY=local
+2026-10-18T19:55:03.9061268Z set GOTELEMETRYDIR=C:\Users\runneradmin\AppData\Roaming\go\telemetry
+2026-10-18T19:55:03.9061815Z set GOTMPDIR=
+2026-10-18T19:55:03.9062092Z set GOTOOLCHAIN=local
+2026-10-18T19:55:03.9062637Z set GOTOOLDIR=C:\hostedtoolcache\windows\go\1.26.9\x64\pkg\tool\windows_amd64
+2026-10-18T19:55:03.9063194Z set GOVCS=
+2026-10-18T19:55:03.9063442Z set GOVERSION=go1.26.9
+2026-10-18T19:55:03.9063715Z set GOWORK=
+2026-10-18T19:55:03.9064001Z set PKG_CONFIG=pkg-config
+2026-10-18T19:55:03.9064210Z 
+2026-10-18T19:55:03.9064640Z ##[endgroup]
+2026-10-18T19:55:03.9310502Z ##[group]Run python scripts/tests/ci-workflow.py
+2026-10-18T19:55:03.9311038Z [36;1mpython scripts/tests/ci-workflow.py[0m
+2026-10-18T19:55:03.9389619Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-18T19:55:03.9389996Z env:
+2026-10-18T19:55:03.9390184Z   GOTOOLCHAIN: local
+2026-10-18T19:55:03.9390403Z ##[endgroup]
+2026-10-18T19:55:07.2961419Z ..........
+2026-10-18T19:55:07.2961994Z ----------------------------------------------------------------------
+2026-10-18T19:55:07.2962476Z Ran 10 tests in 0.427s
+2026-10-18T19:55:07.2962671Z 
+2026-10-18T19:55:07.2962762Z OK
+2026-10-18T19:55:07.9509930Z ##[group]Run python scripts/tests/section4-regressions.py
+2026-10-18T19:55:07.9510468Z [36;1mpython scripts/tests/section4-regressions.py[0m
+2026-10-18T19:55:07.9547220Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-18T19:55:07.9547588Z env:
+2026-10-18T19:55:07.9547786Z   GOTOOLCHAIN: local
+2026-10-18T19:55:07.9548003Z ##[endgroup]
+2026-10-18T19:55:22.7836046Z Section 4 compiling mutation rejected: equivalence-duplicate-conflict; restored baseline passed
+2026-10-18T19:55:22.8939796Z ##[group]Run python scripts/tests/compute-disk-sku-collector-mutation.py
+2026-10-18T19:55:22.8940439Z [36;1mpython scripts/tests/compute-disk-sku-collector-mutation.py[0m
+2026-10-18T19:55:22.8980183Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-18T19:55:22.8980560Z env:
+2026-10-18T19:55:22.8980755Z   GOTOOLCHAIN: local
+2026-10-18T19:55:22.8980988Z ##[endgroup]
+2026-10-18T19:55:23.7380381Z Disk SKU restored baseline failed
+2026-10-18T19:55:23.7381146Z FAIL	github.com/DeBoX85/Cloud-Assess/internal/plugins/region [build failed]
+2026-10-18T19:55:23.7383022Z FAIL
+2026-10-18T19:55:23.7383864Z # github.com/DeBoX85/Cloud-Assess/internal/plugins/region [github.com/DeBoX85/Cloud-Assess/internal/plugins/region.test]
+2026-10-18T19:55:23.7413515Z ##[error]internal\plugins\region\sql_report_contract_test.go:28:14: undefined: ProjectSQLCapabilityTable
+2026-10-18T19:55:23.7421323Z ##[error]internal\plugins\region\sql_report_contract_test.go:49:16: undefined: ProjectSQLCapabilityTable
+2026-10-18T19:55:23.7422828Z ##[error]internal\plugins\region\sql_report_contract_test.go:88:14: undefined: CollectSQLCapabilityTable
+2026-10-18T19:55:23.7423642Z 
+2026-10-18T19:55:23.8811858Z ##[error]Process completed with exit code 1.
+2026-10-18T19:55:23.9072855Z Post job cleanup.
+2026-10-18T19:55:24.0735174Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-10-18T19:55:24.1005753Z git version 2.56.0.windows.2
+2026-10-18T19:55:24.1059085Z Temporarily overriding HOME='D:\a\_temp\e2fe1f18-d5b4-44b3-8b6a-6c07a5de6781' before making global git config changes
+2026-10-18T19:55:24.1059865Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-18T19:55:24.1070342Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\Cloud-Assess\Cloud-Assess
+2026-10-18T19:55:24.1368069Z Removing SSH command configuration
+2026-10-18T19:55:24.1378938Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-10-18T19:55:24.1685754Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-10-18T19:55:24.6619661Z Entering 'internal/rules/upstream/aprl'
+2026-10-18T19:55:24.7416342Z Removing HTTP extra header
+2026-10-18T19:55:24.7426510Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-18T19:55:24.7732647Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-10-18T19:55:25.2443728Z Entering 'internal/rules/upstream/aprl'
+2026-10-18T19:55:25.3227862Z Removing includeIf entries pointing to credentials config files
+2026-10-18T19:55:25.3239221Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-18T19:55:25.3502435Z includeif.gitdir:D:/a/Cloud-Assess/Cloud-Assess/.git.path
+2026-10-18T19:55:25.3503373Z includeif.gitdir:D:/a/Cloud-Assess/Cloud-Assess/.git/worktrees/*.path
+2026-10-18T19:55:25.3503837Z includeif.gitdir:/github/workspace/.git.path
+2026-10-18T19:55:25.3504355Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-10-18T19:55:25.3538048Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:D:/a/Cloud-Assess/Cloud-Assess/.git.path
+2026-10-18T19:55:25.3802857Z D:\a\_temp\git-credentials-a1df7ad9-4b79-4598-9fd9-da0d5fce9907.config
+2026-10-18T19:55:25.3841134Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:D:/a/Cloud-Assess/Cloud-Assess/.git.path D\:\\a\\_temp\\git\-credentials\-a1df7ad9\-4b79\-4598\-9fd9\-da0d5fce9907\.config
+2026-10-18T19:55:25.4148155Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:D:/a/Cloud-Assess/Cloud-Assess/.git/worktrees/*.path
+2026-10-18T19:55:25.4408786Z D:\a\_temp\git-credentials-a1df7ad9-4b79-4598-9fd9-da0d5fce9907.config
+2026-10-18T19:55:25.4443788Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:D:/a/Cloud-Assess/Cloud-Assess/.git/worktrees/*.path D\:\\a\\_temp\\git\-credentials\-a1df7ad9\-4b79\-4598\-9fd9\-da0d5fce9907\.config
+2026-10-18T19:55:25.4744561Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-10-18T19:55:25.5011063Z /github/runner_temp/git-credentials-a1df7ad9-4b79-4598-9fd9-da0d5fce9907.config
+2026-10-18T19:55:25.5092277Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:/github/workspace/.git.path \/github\/runner_temp\/git\-credentials\-a1df7ad9\-4b79\-4598\-9fd9\-da0d5fce9907\.config
+2026-10-18T19:55:25.5402987Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-10-18T19:55:25.5667776Z /github/runner_temp/git-credentials-a1df7ad9-4b79-4598-9fd9-da0d5fce9907.config
+2026-10-18T19:55:25.5707552Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-a1df7ad9\-4b79\-4598\-9fd9\-da0d5fce9907\.config
+2026-10-18T19:55:25.6009085Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-10-18T19:55:26.0397071Z Entering 'internal/rules/upstream/aprl'
+2026-10-18T19:55:26.0687041Z file:D:/a/Cloud-Assess/Cloud-Assess/.git/modules/internal/rules/upstream/aprl/config	remote.origin.url
+2026-10-18T19:55:26.0908864Z [command]"C:\Program Files\Git\bin\git.exe" config --file D:/a/Cloud-Assess/Cloud-Assess/.git/modules/internal/rules/upstream/aprl/config --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-18T19:55:26.1163157Z includeif.gitdir:D:/a/Cloud-Assess/Cloud-Assess/.git/modules/internal/rules/upstream/aprl.path
+2026-10-18T19:55:26.1163876Z includeif.gitdir:/github/workspace/.git/modules/internal/rules/upstream/aprl.path
+2026-10-18T19:55:26.1196814Z [command]"C:\Program Files\Git\bin\git.exe" config --file D:/a/Cloud-Assess/Cloud-Assess/.git/modules/internal/rules/upstream/aprl/config --get-all includeif.gitdir:D:/a/Cloud-Assess/Cloud-Assess/.git/modules/internal/rules/upstream/aprl.path
+2026-10-18T19:55:26.1457780Z D:\a\_temp\git-credentials-a1df7ad9-4b79-4598-9fd9-da0d5fce9907.config
+2026-10-18T19:55:26.1494466Z [command]"C:\Program Files\Git\bin\git.exe" config --file D:/a/Cloud-Assess/Cloud-Assess/.git/modules/internal/rules/upstream/aprl/config --unset includeif.gitdir:D:/a/Cloud-Assess/Cloud-Assess/.git/modules/internal/rules/upstream/aprl.path D\:\\a\\_temp\\git\-credentials\-a1df7ad9\-4b79\-4598\-9fd9\-da0d5fce9907\.config
+2026-10-18T19:55:26.1792131Z [command]"C:\Program Files\Git\bin\git.exe" config --file D:/a/Cloud-Assess/Cloud-Assess/.git/modules/internal/rules/upstream/aprl/config --get-all includeif.gitdir:/github/workspace/.git/modules/internal/rules/upstream/aprl.path
+2026-10-18T19:55:26.2049171Z /github/runner_temp/git-credentials-a1df7ad9-4b79-4598-9fd9-da0d5fce9907.config
+2026-10-18T19:55:26.2082334Z [command]"C:\Program Files\Git\bin\git.exe" config --file D:/a/Cloud-Assess/Cloud-Assess/.git/modules/internal/rules/upstream/aprl/config --unset includeif.gitdir:/github/workspace/.git/modules/internal/rules/upstream/aprl.path \/github\/runner_temp\/git\-credentials\-a1df7ad9\-4b79\-4598\-9fd9\-da0d5fce9907\.config
+2026-10-18T19:55:26.2367725Z Removing credentials config 'D:\a\_temp\git-credentials-a1df7ad9-4b79-4598-9fd9-da0d5fce9907.config'
+2026-10-18T19:55:26.2547522Z Cleaning up orphan processes

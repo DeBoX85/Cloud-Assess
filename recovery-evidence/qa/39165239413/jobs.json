@@ -1,0 +1,1797 @@
+{
+  "total_count": 10,
+  "jobs": [
+    {
+      "id": 117786690048,
+      "run_id": 39165239413,
+      "workflow_name": "Go quality gate",
+      "head_branch": "feat/sql-report-adapter-final-20261018",
+      "run_url": "https://api.github.com/repos/DeBoX85/Cloud-Assess/actions/runs/39165239413",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOUdPf9c8AAAAbbKJCAA",
+      "head_sha": "8c47d8105c7c3a6dec02f4a9b22958ab58b4682a",
+      "url": "https://api.github.com/repos/DeBoX85/Cloud-Assess/actions/jobs/117786690048",
+      "html_url": "https://github.com/DeBoX85/Cloud-Assess/actions/runs/39165239413/job/117786690048",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-18T20:51:46Z",
+      "started_at": "2026-10-18T20:51:49Z",
+      "completed_at": "2026-10-18T21:09:51Z",
+      "name": "windows-controls-1",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-18T20:51:50Z",
+          "completed_at": "2026-10-18T20:51:51Z"
+        },
+        {
+          "name": "Checkout",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-18T20:51:51Z",
+          "completed_at": "2026-10-18T20:52:02Z"
+        },
+        {
+          "name": "Set up Go",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-18T20:52:02Z",
+          "completed_at": "2026-10-18T20:52:35Z"
+        },
+        {
+          "name": "Verify parallel workflow conservation and gate guards",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-18T20:52:35Z",
+          "completed_at": "2026-10-18T20:52:40Z"
+        },
+        {
+          "name": "Verify Section 4 compiling regressions",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-18T20:52:40Z",
+          "completed_at": "2026-10-18T20:52:58Z"
+        },
+        {
+          "name": "Verify Compute disk SKU collector compiling controls",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-18T20:52:58Z",
+          "completed_at": "2026-10-18T20:55:31Z"
+        },
+        {
+          "name": "Verify VM SKU collector compiling controls",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-18T20:55:31Z",
+          "completed_at": "2026-10-18T20:58:44Z"
+        },
+        {
+          "name": "VM quota SDK source oracle compiling controls",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-18T20:58:44Z",
+          "completed_at": "2026-10-18T20:59:15Z"
+        },
+        {
+          "name": "Reservation SDK source oracle compiling controls",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-10-18T20:59:15Z",
+          "completed_at": "2026-10-18T20:59:53Z"
+        },
+        {
+          "name": "Verify Windows AI request boundary tests reject selected mutations",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-10-18T20:59:53Z",
+          "completed_at": "2026-10-18T21:00:22Z"
+        },
+        {
+          "name": "Verify Windows region auxiliary tests reject selected mutations",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-10-18T21:00:22Z",
+          "completed_at": "2026-10-18T21:00:45Z"
+        },
+        {
+          "name": "Verify Windows region cost tests reject selected mutations",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-10-18T21:00:45Z",
+          "completed_at": "2026-10-18T21:01:44Z"
+        },
+        {
+          "name": "Verify Windows region inventory aggregation tests reject selected mutations",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-10-18T21:01:44Z",
+          "completed_at": "2026-10-18T21:02:50Z"
+        },
+        {
+          "name": "Verify Windows region cost enrichment tests reject selected mutations",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-10-18T21:02:50Z",
+          "completed_at": "2026-10-18T21:04:49Z"
+        },
+        {
+          "name": "Verify Windows region quota runtime tests reject selected mutations",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-10-18T21:04:49Z",
+          "completed_at": "2026-10-18T21:06:09Z"
+        },
+        {
+          "name": "Verify SQL Database capability compiling controls",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-18T21:06:09Z",
+          "completed_at": "2026-10-18T21:09:47Z"
+        },
+        {
+          "name": "Post Set up Go",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 31,
+          "started_at": "2026-10-18T21:09:47Z",
+          "completed_at": "2026-10-18T21:09:47Z"
+        },
+        {
+          "name": "Post Checkout",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 32,
+          "started_at": "2026-10-18T21:09:47Z",
+          "completed_at": "2026-10-18T21:09:50Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 33,
+          "started_at": "2026-10-18T21:09:50Z",
+          "completed_at": "2026-10-18T21:09:50Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/DeBoX85/Cloud-Assess/check-runs/117786690048",
+      "labels": [
+        "windows-2022"
+      ],
+      "runner_id": 1000003332,
+      "runner_name": "GitHub Actions 1000003332",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 117786690089,
+      "run_id": 39165239413,
+      "workflow_name": "Go quality gate",
+      "head_branch": "feat/sql-report-adapter-final-20261018",
+      "run_url": "https://api.github.com/repos/DeBoX85/Cloud-Assess/actions/runs/39165239413",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOUdPf9c8AAAAbbKJCKQ",
+      "head_sha": "8c47d8105c7c3a6dec02f4a9b22958ab58b4682a",
+      "url": "https://api.github.com/repos/DeBoX85/Cloud-Assess/actions/jobs/117786690089",
+      "html_url": "https://github.com/DeBoX85/Cloud-Assess/actions/runs/39165239413/job/117786690089",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-18T20:51:46Z",
+      "started_at": "2026-10-18T20:51:49Z",
+      "completed_at": "2026-10-18T20:59:28Z",
+      "name": "linux-native",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-18T20:51:50Z",
+          "completed_at": "2026-10-18T20:51:51Z"
+        },
+        {
+          "name": "Checkout",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-18T20:51:51Z",
+          "completed_at": "2026-10-18T20:51:55Z"
+        },
+        {
+          "name": "Set up Go",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-18T20:51:55Z",
+          "completed_at": "2026-10-18T20:51:58Z"
+        },
+        {
+          "name": "Verify parallel workflow conservation and gate guards",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-18T20:51:58Z",
+          "completed_at": "2026-10-18T20:51:58Z"
+        },
+        {
+          "name": "Verify pinned source-data provenance",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-18T20:51:58Z",
+          "completed_at": "2026-10-18T20:51:58Z"
+        },
+        {
+          "name": "Verify formatting",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-18T20:51:58Z",
+          "completed_at": "2026-10-18T20:51:59Z"
+        },
+        {
+          "name": "Verify module graph",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-18T20:51:59Z",
+          "completed_at": "2026-10-18T20:52:01Z"
+        },
+        {
+          "name": "Test dependency inventory safeguards",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-18T20:52:01Z",
+          "completed_at": "2026-10-18T20:52:02Z"
+        },
+        {
+          "name": "Verify offline workspace bootstrap boundaries",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-10-18T20:52:02Z",
+          "completed_at": "2026-10-18T20:52:02Z"
+        },
+        {
+          "name": "Verify Windows workflow native-command failure propagation",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-10-18T20:52:02Z",
+          "completed_at": "2026-10-18T20:52:04Z"
+        },
+        {
+          "name": "Verify dependency and license inventory freshness",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-10-18T20:52:04Z",
+          "completed_at": "2026-10-18T20:52:08Z"
+        },
+        {
+          "name": "Validate branding builder and actual native executables",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-10-18T20:52:08Z",
+          "completed_at": "2026-10-18T20:53:05Z"
+        },
+        {
+          "name": "Verify product branding boundaries",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-10-18T20:53:05Z",
+          "completed_at": "2026-10-18T20:53:05Z"
+        },
+        {
+          "name": "Parse PowerShell validation scripts",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-10-18T20:53:05Z",
+          "completed_at": "2026-10-18T20:53:06Z"
+        },
+        {
+          "name": "Test PowerShell validation helpers",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-10-18T20:53:06Z",
+          "completed_at": "2026-10-18T20:53:07Z"
+        },
+        {
+          "name": "Build CLI",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-18T20:53:07Z",
+          "completed_at": "2026-10-18T20:53:08Z"
+        },
+        {
+          "name": "Smoke-test CLI help",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-18T20:53:08Z",
+          "completed_at": "2026-10-18T20:53:08Z"
+        },
+        {
+          "name": "Verify QA temporary-directory cleanup policy",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 18,
+          "started_at": "2026-10-18T20:53:08Z",
+          "completed_at": "2026-10-18T20:53:08Z"
+        },
+        {
+          "name": "Verify built CLI preflight and compiled dependency evidence",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 19,
+          "started_at": "2026-10-18T20:53:08Z",
+          "completed_at": "2026-10-18T20:53:14Z"
+        },
+        {
+          "name": "Verify authored documentation and operator examples",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 20,
+          "started_at": "2026-10-18T20:53:14Z",
+          "completed_at": "2026-10-18T20:53:14Z"
+        },
+        {
+          "name": "Test candidate package integrity and isolated installation",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 21,
+          "started_at": "2026-10-18T20:53:14Z",
+          "completed_at": "2026-10-18T20:53:52Z"
+        },
+        {
+          "name": "Test with race detector",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 22,
+          "started_at": "2026-10-18T20:53:52Z",
+          "completed_at": "2026-10-18T20:56:42Z"
+        },
+        {
+          "name": "Verify coverage floor",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 23,
+          "started_at": "2026-10-18T20:56:42Z",
+          "completed_at": "2026-10-18T20:57:41Z"
+        },
+        {
+          "name": "Bounded comparator, scope and row-decoder fuzzing",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 24,
+          "started_at": "2026-10-18T20:57:41Z",
+          "completed_at": "2026-10-18T20:59:04Z"
+        },
+        {
+          "name": "Test maintenance proposal publication",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 25,
+          "started_at": "2026-10-18T20:59:04Z",
+          "completed_at": "2026-10-18T20:59:05Z"
+        },
+        {
+          "name": "Test maintenance generation recipes",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 26,
+          "started_at": "2026-10-18T20:59:05Z",
+          "completed_at": "2026-10-18T20:59:10Z"
+        },
+        {
+          "name": "Vet",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 27,
+          "started_at": "2026-10-18T20:59:10Z",
+          "completed_at": "2026-10-18T20:59:15Z"
+        },
+        {
+          "name": "Check reachable vulnerabilities",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 28,
+          "started_at": "2026-10-18T20:59:16Z",
+          "completed_at": "2026-10-18T20:59:23Z"
+        },
+        {
+          "name": "Verify hosted gate contract definitions",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 29,
+          "started_at": "2026-10-18T20:59:23Z",
+          "completed_at": "2026-10-18T20:59:24Z"
+        },
+        {
+          "name": "Verify handoff authority consistency",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 30,
+          "started_at": "2026-10-18T20:59:24Z",
+          "completed_at": "2026-10-18T20:59:24Z"
+        },
+        {
+          "name": "Verify durable evidence bundle integrity",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 31,
+          "started_at": "2026-10-18T20:59:24Z",
+          "completed_at": "2026-10-18T20:59:25Z"
+        },
+        {
+          "name": "Retain synthetic QA failure evidence",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 32,
+          "started_at": "2026-10-18T20:59:25Z",
+          "completed_at": "2026-10-18T20:59:25Z"
+        },
+        {
+          "name": "Post Set up Go",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 63,
+          "started_at": "2026-10-18T20:59:25Z",
+          "completed_at": "2026-10-18T20:59:25Z"
+        },
+        {
+          "name": "Post Checkout",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 64,
+          "started_at": "2026-10-18T20:59:25Z",
+          "completed_at": "2026-10-18T20:59:25Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 65,
+          "started_at": "2026-10-18T20:59:25Z",
+          "completed_at": "2026-10-18T20:59:25Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/DeBoX85/Cloud-Assess/check-runs/117786690089",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000003331,
+      "runner_name": "GitHub Actions 1000003331",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 117786690142,
+      "run_id": 39165239413,
+      "workflow_name": "Go quality gate",
+      "head_branch": "feat/sql-report-adapter-final-20261018",
+      "run_url": "https://api.github.com/repos/DeBoX85/Cloud-Assess/actions/runs/39165239413",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOUdPf9c8AAAAbbKJCXg",
+      "head_sha": "8c47d8105c7c3a6dec02f4a9b22958ab58b4682a",
+      "url": "https://api.github.com/repos/DeBoX85/Cloud-Assess/actions/jobs/117786690142",
+      "html_url": "https://github.com/DeBoX85/Cloud-Assess/actions/runs/39165239413/job/117786690142",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-18T20:51:46Z",
+      "started_at": "2026-10-18T20:51:49Z",
+      "completed_at": "2026-10-18T21:10:05Z",
+      "name": "windows-controls-3",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-18T20:51:50Z",
+          "completed_at": "2026-10-18T20:51:51Z"
+        },
+        {
+          "name": "Checkout",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-18T20:51:51Z",
+          "completed_at": "2026-10-18T20:52:04Z"
+        },
+        {
+          "name": "Set up Go",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-18T20:52:04Z",
+          "completed_at": "2026-10-18T20:52:35Z"
+        },
+        {
+          "name": "Verify parallel workflow conservation and gate guards",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-18T20:52:35Z",
+          "completed_at": "2026-10-18T20:52:39Z"
+        },
+        {
+          "name": "Verify Section 1 compiling regressions",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-18T20:52:39Z",
+          "completed_at": "2026-10-18T20:53:10Z"
+        },
+        {
+          "name": "Verify Section 2 compiling regressions",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-18T20:53:10Z",
+          "completed_at": "2026-10-18T20:55:02Z"
+        },
+        {
+          "name": "Verify ARG response framing compiling controls",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-18T20:55:02Z",
+          "completed_at": "2026-10-18T20:55:14Z"
+        },
+        {
+          "name": "Verify Windows availability source oracle mutations",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-18T20:55:14Z",
+          "completed_at": "2026-10-18T20:55:37Z"
+        },
+        {
+          "name": "Quota source oracle compiling controls",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-10-18T20:55:37Z",
+          "completed_at": "2026-10-18T20:55:59Z"
+        },
+        {
+          "name": "Remaining SKU source oracle compiling controls",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-10-18T20:55:59Z",
+          "completed_at": "2026-10-18T20:56:59Z"
+        },
+        {
+          "name": "Verify Windows region primary tests reject selected mutations",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-10-18T20:56:59Z",
+          "completed_at": "2026-10-18T20:57:30Z"
+        },
+        {
+          "name": "Verify Windows region service tests reject selected mutations",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-10-18T20:57:30Z",
+          "completed_at": "2026-10-18T20:58:31Z"
+        },
+        {
+          "name": "Verify Windows region inventory tests reject selected mutations",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-10-18T20:58:31Z",
+          "completed_at": "2026-10-18T20:59:18Z"
+        },
+        {
+          "name": "Verify Windows REST quota collector tests reject selected mutations",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-10-18T20:59:18Z",
+          "completed_at": "2026-10-18T21:01:38Z"
+        },
+        {
+          "name": "Verify Windows reservation collector tests reject selected mutations",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-10-18T21:01:38Z",
+          "completed_at": "2026-10-18T21:03:50Z"
+        },
+        {
+          "name": "Verify VMSS catalog compiling controls",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-18T21:03:50Z",
+          "completed_at": "2026-10-18T21:05:59Z"
+        },
+        {
+          "name": "Verify Cognitive SKU catalog compiling controls",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-18T21:05:59Z",
+          "completed_at": "2026-10-18T21:09:54Z"
+        },
+        {
+          "name": "Verify assessment status scope redaction compiling controls",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 18,
+          "started_at": "2026-10-18T21:09:54Z",
+          "completed_at": "2026-10-18T21:10:01Z"
+        },
+        {
+          "name": "Post Set up Go",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 35,
+          "started_at": "2026-10-18T21:10:01Z",
+          "completed_at": "2026-10-18T21:10:01Z"
+        },
+        {
+          "name": "Post Checkout",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 36,
+          "started_at": "2026-10-18T21:10:01Z",
+          "completed_at": "2026-10-18T21:10:03Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 37,
+          "started_at": "2026-10-18T21:10:03Z",
+          "completed_at": "2026-10-18T21:10:03Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/DeBoX85/Cloud-Assess/check-runs/117786690142",
+      "labels": [
+        "windows-2022"
+      ],
+      "runner_id": 1000003333,
+      "runner_name": "GitHub Actions 1000003333",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 117786690175,
+      "run_id": 39165239413,
+      "workflow_name": "Go quality gate",
+      "head_branch": "feat/sql-report-adapter-final-20261018",
+      "run_url": "https://api.github.com/repos/DeBoX85/Cloud-Assess/actions/runs/39165239413",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOUdPf9c8AAAAbbKJCfw",
+      "head_sha": "8c47d8105c7c3a6dec02f4a9b22958ab58b4682a",
+      "url": "https://api.github.com/repos/DeBoX85/Cloud-Assess/actions/jobs/117786690175",
+      "html_url": "https://github.com/DeBoX85/Cloud-Assess/actions/runs/39165239413/job/117786690175",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-18T20:51:46Z",
+      "started_at": "2026-10-18T20:51:50Z",
+      "completed_at": "2026-10-18T21:02:09Z",
+      "name": "linux-controls-1",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-18T20:51:51Z",
+          "completed_at": "2026-10-18T20:51:52Z"
+        },
+        {
+          "name": "Checkout",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-18T20:51:52Z",
+          "completed_at": "2026-10-18T20:51:55Z"
+        },
+        {
+          "name": "Set up Go",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-18T20:51:55Z",
+          "completed_at": "2026-10-18T20:51:58Z"
+        },
+        {
+          "name": "Verify parallel workflow conservation and gate guards",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-18T20:51:58Z",
+          "completed_at": "2026-10-18T20:51:58Z"
+        },
+        {
+          "name": "Verify Section 1 compiling regressions",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-18T20:51:58Z",
+          "completed_at": "2026-10-18T20:52:13Z"
+        },
+        {
+          "name": "Verify Section 2 compiling regressions",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-18T20:52:13Z",
+          "completed_at": "2026-10-18T20:53:53Z"
+        },
+        {
+          "name": "Verify Section 4 compiling regressions",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-18T20:53:53Z",
+          "completed_at": "2026-10-18T20:53:55Z"
+        },
+        {
+          "name": "Verify retained source capture byte guard",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-18T20:53:55Z",
+          "completed_at": "2026-10-18T20:53:55Z"
+        },
+        {
+          "name": "Quota source oracle compiling controls",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-10-18T20:53:55Z",
+          "completed_at": "2026-10-18T20:54:12Z"
+        },
+        {
+          "name": "VM quota SDK source oracle compiling controls",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-10-18T20:54:12Z",
+          "completed_at": "2026-10-18T20:54:23Z"
+        },
+        {
+          "name": "Compute SKU source oracle compiling controls",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-10-18T20:54:23Z",
+          "completed_at": "2026-10-18T20:54:49Z"
+        },
+        {
+          "name": "Verify region primary tests reject selected mutations",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-10-18T20:54:49Z",
+          "completed_at": "2026-10-18T20:55:12Z"
+        },
+        {
+          "name": "Verify region service tests reject selected mutations",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-10-18T20:55:12Z",
+          "completed_at": "2026-10-18T20:55:54Z"
+        },
+        {
+          "name": "Verify region availability tests reject selected mutations",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-10-18T20:55:54Z",
+          "completed_at": "2026-10-18T20:56:37Z"
+        },
+        {
+          "name": "Verify region cost enrichment tests reject selected mutations",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-10-18T20:56:37Z",
+          "completed_at": "2026-10-18T20:57:53Z"
+        },
+        {
+          "name": "Verify reservation collector tests reject selected mutations",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-18T20:57:53Z",
+          "completed_at": "2026-10-18T20:59:30Z"
+        },
+        {
+          "name": "Verify SQL Database capability compiling controls",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-18T20:59:30Z",
+          "completed_at": "2026-10-18T21:02:05Z"
+        },
+        {
+          "name": "Post Set up Go",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 33,
+          "started_at": "2026-10-18T21:02:05Z",
+          "completed_at": "2026-10-18T21:02:05Z"
+        },
+        {
+          "name": "Post Checkout",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 34,
+          "started_at": "2026-10-18T21:02:05Z",
+          "completed_at": "2026-10-18T21:02:06Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 35,
+          "started_at": "2026-10-18T21:02:06Z",
+          "completed_at": "2026-10-18T21:02:06Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/DeBoX85/Cloud-Assess/check-runs/117786690175",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000003337,
+      "runner_name": "GitHub Actions 1000003337",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 117786690185,
+      "run_id": 39165239413,
+      "workflow_name": "Go quality gate",
+      "head_branch": "feat/sql-report-adapter-final-20261018",
+      "run_url": "https://api.github.com/repos/DeBoX85/Cloud-Assess/actions/runs/39165239413",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOUdPf9c8AAAAbbKJCiQ",
+      "head_sha": "8c47d8105c7c3a6dec02f4a9b22958ab58b4682a",
+      "url": "https://api.github.com/repos/DeBoX85/Cloud-Assess/actions/jobs/117786690185",
+      "html_url": "https://github.com/DeBoX85/Cloud-Assess/actions/runs/39165239413/job/117786690185",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-18T20:51:46Z",
+      "started_at": "2026-10-18T20:51:49Z",
+      "completed_at": "2026-10-18T21:04:39Z",
+      "name": "linux-controls-3",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-18T20:51:50Z",
+          "completed_at": "2026-10-18T20:51:51Z"
+        },
+        {
+          "name": "Checkout",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-18T20:51:51Z",
+          "completed_at": "2026-10-18T20:51:55Z"
+        },
+        {
+          "name": "Set up Go",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-18T20:51:55Z",
+          "completed_at": "2026-10-18T20:51:59Z"
+        },
+        {
+          "name": "Verify parallel workflow conservation and gate guards",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-18T20:51:59Z",
+          "completed_at": "2026-10-18T20:51:59Z"
+        },
+        {
+          "name": "Verify Section 3 compiling regressions",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-18T20:51:59Z",
+          "completed_at": "2026-10-18T20:52:18Z"
+        },
+        {
+          "name": "Verify Compute disk SKU collector compiling controls",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-18T20:52:18Z",
+          "completed_at": "2026-10-18T20:53:54Z"
+        },
+        {
+          "name": "Verify latency source oracle mutations",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-18T20:53:54Z",
+          "completed_at": "2026-10-18T20:54:03Z"
+        },
+        {
+          "name": "Verify cost enrichment source oracle mutations",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-18T20:54:03Z",
+          "completed_at": "2026-10-18T20:54:16Z"
+        },
+        {
+          "name": "Reservation SDK source oracle compiling controls",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-10-18T20:54:16Z",
+          "completed_at": "2026-10-18T20:54:30Z"
+        },
+        {
+          "name": "Provider locations source oracle compiling controls",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-10-18T20:54:30Z",
+          "completed_at": "2026-10-18T20:54:49Z"
+        },
+        {
+          "name": "Remaining SKU source oracle compiling controls",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-10-18T20:54:49Z",
+          "completed_at": "2026-10-18T20:55:18Z"
+        },
+        {
+          "name": "Verify comparator tests reject selected mutations",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-10-18T20:55:18Z",
+          "completed_at": "2026-10-18T20:55:19Z"
+        },
+        {
+          "name": "Verify region inventory aggregation tests reject selected mutations",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-10-18T20:55:19Z",
+          "completed_at": "2026-10-18T20:56:00Z"
+        },
+        {
+          "name": "Verify region quota runtime tests reject selected mutations",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-10-18T20:56:00Z",
+          "completed_at": "2026-10-18T20:56:47Z"
+        },
+        {
+          "name": "Verify REST quota collector tests reject selected mutations",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-10-18T20:56:47Z",
+          "completed_at": "2026-10-18T20:58:28Z"
+        },
+        {
+          "name": "Verify provider collector compiling controls",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-18T20:58:28Z",
+          "completed_at": "2026-10-18T21:00:13Z"
+        },
+        {
+          "name": "Verify VMSS catalog compiling controls",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-18T21:00:13Z",
+          "completed_at": "2026-10-18T21:01:43Z"
+        },
+        {
+          "name": "Verify Cognitive SKU catalog compiling controls",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 18,
+          "started_at": "2026-10-18T21:01:43Z",
+          "completed_at": "2026-10-18T21:04:32Z"
+        },
+        {
+          "name": "Verify assessment status scope redaction compiling controls",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 19,
+          "started_at": "2026-10-18T21:04:32Z",
+          "completed_at": "2026-10-18T21:04:35Z"
+        },
+        {
+          "name": "Post Set up Go",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 37,
+          "started_at": "2026-10-18T21:04:35Z",
+          "completed_at": "2026-10-18T21:04:36Z"
+        },
+        {
+          "name": "Post Checkout",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 38,
+          "started_at": "2026-10-18T21:04:36Z",
+          "completed_at": "2026-10-18T21:04:36Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 39,
+          "started_at": "2026-10-18T21:04:36Z",
+          "completed_at": "2026-10-18T21:04:36Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/DeBoX85/Cloud-Assess/check-runs/117786690185",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000003336,
+      "runner_name": "GitHub Actions 1000003336",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 117786690197,
+      "run_id": 39165239413,
+      "workflow_name": "Go quality gate",
+      "head_branch": "feat/sql-report-adapter-final-20261018",
+      "run_url": "https://api.github.com/repos/DeBoX85/Cloud-Assess/actions/runs/39165239413",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOUdPf9c8AAAAbbKJClQ",
+      "head_sha": "8c47d8105c7c3a6dec02f4a9b22958ab58b4682a",
+      "url": "https://api.github.com/repos/DeBoX85/Cloud-Assess/actions/jobs/117786690197",
+      "html_url": "https://github.com/DeBoX85/Cloud-Assess/actions/runs/39165239413/job/117786690197",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-18T20:51:46Z",
+      "started_at": "2026-10-18T20:51:50Z",
+      "completed_at": "2026-10-18T20:56:00Z",
+      "name": "windows-native",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-18T20:51:51Z",
+          "completed_at": "2026-10-18T20:51:52Z"
+        },
+        {
+          "name": "Checkout",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-18T20:51:52Z",
+          "completed_at": "2026-10-18T20:52:03Z"
+        },
+        {
+          "name": "Set up Go",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-18T20:52:03Z",
+          "completed_at": "2026-10-18T20:52:36Z"
+        },
+        {
+          "name": "Verify parallel workflow conservation and gate guards",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-18T20:52:36Z",
+          "completed_at": "2026-10-18T20:52:40Z"
+        },
+        {
+          "name": "Parse scripts with Windows PowerShell 5.1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-18T20:52:40Z",
+          "completed_at": "2026-10-18T20:52:44Z"
+        },
+        {
+          "name": "Test Windows PowerShell validation helpers",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-18T20:52:44Z",
+          "completed_at": "2026-10-18T20:52:46Z"
+        },
+        {
+          "name": "Verify Windows workflow native-command failure propagation",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-18T20:52:46Z",
+          "completed_at": "2026-10-18T20:52:48Z"
+        },
+        {
+          "name": "Test Go packages on Windows",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-18T20:52:48Z",
+          "completed_at": "2026-10-18T20:53:47Z"
+        },
+        {
+          "name": "Build and smoke-test Windows CLI",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-10-18T20:53:47Z",
+          "completed_at": "2026-10-18T20:54:14Z"
+        },
+        {
+          "name": "Verify QA temporary-directory cleanup policy",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-10-18T20:54:14Z",
+          "completed_at": "2026-10-18T20:54:15Z"
+        },
+        {
+          "name": "Verify built Windows CLI preflight and compiled dependency evidence",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-10-18T20:54:15Z",
+          "completed_at": "2026-10-18T20:54:25Z"
+        },
+        {
+          "name": "Verify Windows documentation and operator examples",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-10-18T20:54:25Z",
+          "completed_at": "2026-10-18T20:54:26Z"
+        },
+        {
+          "name": "Validate branding builder and actual native executables",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-10-18T20:54:26Z",
+          "completed_at": "2026-10-18T20:54:38Z"
+        },
+        {
+          "name": "Test Windows candidate package integrity and isolated installation",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-10-18T20:54:38Z",
+          "completed_at": "2026-10-18T20:55:35Z"
+        },
+        {
+          "name": "Check Windows reachable vulnerabilities",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-10-18T20:55:35Z",
+          "completed_at": "2026-10-18T20:55:51Z"
+        },
+        {
+          "name": "Verify hosted gate contract definitions",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-18T20:55:51Z",
+          "completed_at": "2026-10-18T20:55:51Z"
+        },
+        {
+          "name": "Verify handoff authority consistency",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-18T20:55:51Z",
+          "completed_at": "2026-10-18T20:55:52Z"
+        },
+        {
+          "name": "Verify durable evidence bundle integrity",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 18,
+          "started_at": "2026-10-18T20:55:52Z",
+          "completed_at": "2026-10-18T20:55:54Z"
+        },
+        {
+          "name": "Post Set up Go",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 35,
+          "started_at": "2026-10-18T20:55:54Z",
+          "completed_at": "2026-10-18T20:55:55Z"
+        },
+        {
+          "name": "Post Checkout",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 36,
+          "started_at": "2026-10-18T20:55:55Z",
+          "completed_at": "2026-10-18T20:55:58Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 37,
+          "started_at": "2026-10-18T20:55:58Z",
+          "completed_at": "2026-10-18T20:55:58Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/DeBoX85/Cloud-Assess/check-runs/117786690197",
+      "labels": [
+        "windows-2022"
+      ],
+      "runner_id": 1000003334,
+      "runner_name": "GitHub Actions 1000003334",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 117786690219,
+      "run_id": 39165239413,
+      "workflow_name": "Go quality gate",
+      "head_branch": "feat/sql-report-adapter-final-20261018",
+      "run_url": "https://api.github.com/repos/DeBoX85/Cloud-Assess/actions/runs/39165239413",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOUdPf9c8AAAAbbKJCqw",
+      "head_sha": "8c47d8105c7c3a6dec02f4a9b22958ab58b4682a",
+      "url": "https://api.github.com/repos/DeBoX85/Cloud-Assess/actions/jobs/117786690219",
+      "html_url": "https://github.com/DeBoX85/Cloud-Assess/actions/runs/39165239413/job/117786690219",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-18T20:51:46Z",
+      "started_at": "2026-10-18T20:51:49Z",
+      "completed_at": "2026-10-18T21:02:47Z",
+      "name": "linux-controls-2",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-18T20:51:50Z",
+          "completed_at": "2026-10-18T20:51:51Z"
+        },
+        {
+          "name": "Checkout",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-18T20:51:51Z",
+          "completed_at": "2026-10-18T20:51:54Z"
+        },
+        {
+          "name": "Set up Go",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-18T20:51:54Z",
+          "completed_at": "2026-10-18T20:51:57Z"
+        },
+        {
+          "name": "Verify parallel workflow conservation and gate guards",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-18T20:51:57Z",
+          "completed_at": "2026-10-18T20:51:57Z"
+        },
+        {
+          "name": "Verify ARG response framing compiling controls",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-18T20:51:57Z",
+          "completed_at": "2026-10-18T20:52:10Z"
+        },
+        {
+          "name": "Verify Storage SKU collector compiling controls",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-18T20:52:10Z",
+          "completed_at": "2026-10-18T20:53:51Z"
+        },
+        {
+          "name": "Verify VM SKU collector compiling controls",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-18T20:53:51Z",
+          "completed_at": "2026-10-18T20:55:47Z"
+        },
+        {
+          "name": "Verify availability source oracle mutations",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-18T20:55:47Z",
+          "completed_at": "2026-10-18T20:55:55Z"
+        },
+        {
+          "name": "Verify AI request boundary tests reject selected mutations",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-10-18T20:55:55Z",
+          "completed_at": "2026-10-18T20:56:10Z"
+        },
+        {
+          "name": "Verify AI public execution tests reject selected mutations",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-10-18T20:56:10Z",
+          "completed_at": "2026-10-18T20:56:20Z"
+        },
+        {
+          "name": "Verify region auxiliary tests reject selected mutations",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-10-18T20:56:20Z",
+          "completed_at": "2026-10-18T20:56:33Z"
+        },
+        {
+          "name": "Verify region cost tests reject selected mutations",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-10-18T20:56:33Z",
+          "completed_at": "2026-10-18T20:57:09Z"
+        },
+        {
+          "name": "Verify region inventory tests reject selected mutations",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-10-18T20:57:09Z",
+          "completed_at": "2026-10-18T20:57:41Z"
+        },
+        {
+          "name": "Verify region latency tests reject selected mutations",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-10-18T20:57:41Z",
+          "completed_at": "2026-10-18T20:58:30Z"
+        },
+        {
+          "name": "Verify region reservation runtime tests reject selected mutations",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-10-18T20:58:30Z",
+          "completed_at": "2026-10-18T20:59:42Z"
+        },
+        {
+          "name": "Verify SQL Managed Instance capability compiling controls",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-18T20:59:42Z",
+          "completed_at": "2026-10-18T21:01:43Z"
+        },
+        {
+          "name": "Verify SQL report adapter compiling controls",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-18T21:01:43Z",
+          "completed_at": "2026-10-18T21:02:45Z"
+        },
+        {
+          "name": "Post Set up Go",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 33,
+          "started_at": "2026-10-18T21:02:45Z",
+          "completed_at": "2026-10-18T21:02:45Z"
+        },
+        {
+          "name": "Post Checkout",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 34,
+          "started_at": "2026-10-18T21:02:45Z",
+          "completed_at": "2026-10-18T21:02:45Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 35,
+          "started_at": "2026-10-18T21:02:45Z",
+          "completed_at": "2026-10-18T21:02:45Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/DeBoX85/Cloud-Assess/check-runs/117786690219",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000003338,
+      "runner_name": "GitHub Actions 1000003338",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 117786690224,
+      "run_id": 39165239413,
+      "workflow_name": "Go quality gate",
+      "head_branch": "feat/sql-report-adapter-final-20261018",
+      "run_url": "https://api.github.com/repos/DeBoX85/Cloud-Assess/actions/runs/39165239413",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOUdPf9c8AAAAbbKJCsA",
+      "head_sha": "8c47d8105c7c3a6dec02f4a9b22958ab58b4682a",
+      "url": "https://api.github.com/repos/DeBoX85/Cloud-Assess/actions/jobs/117786690224",
+      "html_url": "https://github.com/DeBoX85/Cloud-Assess/actions/runs/39165239413/job/117786690224",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-18T20:51:46Z",
+      "started_at": "2026-10-18T20:51:49Z",
+      "completed_at": "2026-10-18T21:10:09Z",
+      "name": "windows-controls-2",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-18T20:51:50Z",
+          "completed_at": "2026-10-18T20:51:50Z"
+        },
+        {
+          "name": "Checkout",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-18T20:51:50Z",
+          "completed_at": "2026-10-18T20:52:04Z"
+        },
+        {
+          "name": "Set up Go",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-18T20:52:04Z",
+          "completed_at": "2026-10-18T20:52:55Z"
+        },
+        {
+          "name": "Verify parallel workflow conservation and gate guards",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-18T20:52:55Z",
+          "completed_at": "2026-10-18T20:53:01Z"
+        },
+        {
+          "name": "Verify Section 3 compiling regressions",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-18T20:53:01Z",
+          "completed_at": "2026-10-18T20:53:40Z"
+        },
+        {
+          "name": "Verify Storage SKU collector compiling controls",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-18T20:53:40Z",
+          "completed_at": "2026-10-18T20:56:22Z"
+        },
+        {
+          "name": "Verify Windows retained source capture byte guard",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-18T20:56:22Z",
+          "completed_at": "2026-10-18T20:56:22Z"
+        },
+        {
+          "name": "Verify Windows latency source oracle mutations",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-18T20:56:22Z",
+          "completed_at": "2026-10-18T20:56:42Z"
+        },
+        {
+          "name": "Verify Windows cost enrichment source oracle mutations",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-10-18T20:56:42Z",
+          "completed_at": "2026-10-18T20:57:14Z"
+        },
+        {
+          "name": "Provider locations source oracle compiling controls",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-10-18T20:57:14Z",
+          "completed_at": "2026-10-18T20:57:54Z"
+        },
+        {
+          "name": "Compute SKU source oracle compiling controls",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-10-18T20:57:54Z",
+          "completed_at": "2026-10-18T20:58:44Z"
+        },
+        {
+          "name": "Verify Windows AI public execution tests reject selected mutations",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-10-18T20:58:44Z",
+          "completed_at": "2026-10-18T20:59:05Z"
+        },
+        {
+          "name": "Verify Windows region availability tests reject selected mutations",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-10-18T20:59:05Z",
+          "completed_at": "2026-10-18T21:00:22Z"
+        },
+        {
+          "name": "Verify Windows region latency tests reject selected mutations",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-10-18T21:00:22Z",
+          "completed_at": "2026-10-18T21:01:35Z"
+        },
+        {
+          "name": "Verify Windows region reservation runtime tests reject selected mutations",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-10-18T21:01:35Z",
+          "completed_at": "2026-10-18T21:03:28Z"
+        },
+        {
+          "name": "Verify Windows provider collector compiling controls",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-18T21:03:28Z",
+          "completed_at": "2026-10-18T21:06:04Z"
+        },
+        {
+          "name": "Verify SQL Managed Instance capability compiling controls",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-18T21:06:04Z",
+          "completed_at": "2026-10-18T21:08:48Z"
+        },
+        {
+          "name": "Verify SQL report adapter compiling controls",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 18,
+          "started_at": "2026-10-18T21:08:48Z",
+          "completed_at": "2026-10-18T21:10:05Z"
+        },
+        {
+          "name": "Post Set up Go",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 35,
+          "started_at": "2026-10-18T21:10:05Z",
+          "completed_at": "2026-10-18T21:10:06Z"
+        },
+        {
+          "name": "Post Checkout",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 36,
+          "started_at": "2026-10-18T21:10:06Z",
+          "completed_at": "2026-10-18T21:10:08Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 37,
+          "started_at": "2026-10-18T21:10:08Z",
+          "completed_at": "2026-10-18T21:10:08Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/DeBoX85/Cloud-Assess/check-runs/117786690224",
+      "labels": [
+        "windows-2022"
+      ],
+      "runner_id": 1000003335,
+      "runner_name": "GitHub Actions 1000003335",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 117789555916,
+      "run_id": 39165239413,
+      "workflow_name": "Go quality gate",
+      "head_branch": "feat/sql-report-adapter-final-20261018",
+      "run_url": "https://api.github.com/repos/DeBoX85/Cloud-Assess/actions/runs/39165239413",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOUdPf9c8AAAAbbM38zA",
+      "head_sha": "8c47d8105c7c3a6dec02f4a9b22958ab58b4682a",
+      "url": "https://api.github.com/repos/DeBoX85/Cloud-Assess/actions/jobs/117789555916",
+      "html_url": "https://github.com/DeBoX85/Cloud-Assess/actions/runs/39165239413/job/117789555916",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-18T21:04:39Z",
+      "started_at": "2026-10-18T21:04:42Z",
+      "completed_at": "2026-10-18T21:04:48Z",
+      "name": "quality",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-18T21:04:43Z",
+          "completed_at": "2026-10-18T21:04:44Z"
+        },
+        {
+          "name": "Checkout gate validator",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-18T21:04:44Z",
+          "completed_at": "2026-10-18T21:04:45Z"
+        },
+        {
+          "name": "Require every native worker to succeed",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-18T21:04:45Z",
+          "completed_at": "2026-10-18T21:04:45Z"
+        },
+        {
+          "name": "Post Checkout gate validator",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-18T21:04:45Z",
+          "completed_at": "2026-10-18T21:04:45Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-18T21:04:45Z",
+          "completed_at": "2026-10-18T21:04:45Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/DeBoX85/Cloud-Assess/check-runs/117789555916",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000003339,
+      "runner_name": "GitHub Actions 1000003339",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 117790794701,
+      "run_id": 39165239413,
+      "workflow_name": "Go quality gate",
+      "head_branch": "feat/sql-report-adapter-final-20261018",
+      "run_url": "https://api.github.com/repos/DeBoX85/Cloud-Assess/actions/runs/39165239413",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOUdPf9c8AAAAbbODjzQ",
+      "head_sha": "8c47d8105c7c3a6dec02f4a9b22958ab58b4682a",
+      "url": "https://api.github.com/repos/DeBoX85/Cloud-Assess/actions/jobs/117790794701",
+      "html_url": "https://github.com/DeBoX85/Cloud-Assess/actions/runs/39165239413/job/117790794701",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-18T21:10:09Z",
+      "started_at": "2026-10-18T21:10:12Z",
+      "completed_at": "2026-10-18T21:10:16Z",
+      "name": "windows-validation",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-18T21:10:12Z",
+          "completed_at": "2026-10-18T21:10:13Z"
+        },
+        {
+          "name": "Checkout gate validator",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-18T21:10:13Z",
+          "completed_at": "2026-10-18T21:10:14Z"
+        },
+        {
+          "name": "Require every native worker to succeed",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-18T21:10:14Z",
+          "completed_at": "2026-10-18T21:10:14Z"
+        },
+        {
+          "name": "Post Checkout gate validator",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-18T21:10:14Z",
+          "completed_at": "2026-10-18T21:10:14Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-18T21:10:14Z",
+          "completed_at": "2026-10-18T21:10:14Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/DeBoX85/Cloud-Assess/check-runs/117790794701",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000003340,
+      "runner_name": "GitHub Actions 1000003340",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    }
+  ]
+}
