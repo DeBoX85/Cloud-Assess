@@ -5,6 +5,8 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
+	"maps"
+	"slices"
 	"strconv"
 	"strings"
 
@@ -571,6 +573,19 @@ func put(projection *Projection, datasetName, key string, fields map[string]stri
 	dataset := projection.Datasets[datasetName]
 	if dataset.Records == nil {
 		dataset.Records = map[string]Record{}
+	}
+	if existing, exists := dataset.Records[key]; exists {
+		if !maps.Equal(existing.Fields, fields) {
+			projection.Comparable = false
+			// Keep identities and values out of the diagnostic. A later matching
+			// row must never turn contradictory evidence into a valid baseline.
+			note := "dataset " + datasetName + " contains conflicting records with the same normalized identity"
+			if !slices.Contains(projection.Notes, note) {
+				projection.Notes = append(projection.Notes, note)
+				slices.Sort(projection.Notes)
+			}
+		}
+		return
 	}
 	dataset.Records[key] = Record{Key: key, Fields: fields}
 	projection.Datasets[datasetName] = dataset
