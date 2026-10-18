@@ -11,11 +11,11 @@ Updated 2026-10-18. This page is the current status/resume authority. Dated stat
 
 Published means durable code exists. Verified offline means the exact revision passed its required native/source checks. Accepted means a protected merge and the distinct accepted-push QA completed. Release approval additionally requires its recorded human/security/license/live and release gates. These statuses must never be substituted for one another.
 
-## Active work: isolated Assessment Status scope correction
+## Active work: scope correction verified; final report integration next
 
-Updated2026-10-18UTC. Original SQL batch COMPLETE VERIFIED OFFLINE PR165/a3813439. New report integration task3 IN PROGRESS, final QA/handover task4 pending. Report WIP PR168/57af1f64 is intentionally red, preserved. Both actual native scope masking failures39162596987 Windows117778845796/Linux117778845844 were inspected and published/read back BEFORE renderer edits. See [correction record](SCOPE_REDACTION_CORRECTION_20261018.md).
+Updated2026-10-18UTC. Scope correction PR169/724504b7/treeaed4db22 is COMPLETE VERIFIED OFFLINE: quality39163414431 all8workers/bothgates,536Linux/531Windows exact identities; source39163414427 all23captures/315chunks/909865bytes compared to candidateGit; coverage87.1%/unchanged75%floor, module-only advisory OPEN. Full evidence9ae98507 and [completion handover](SCOPE_REDACTION_COMPLETED_20261018.md) published/read back BEFORE final report task transition. Original SQL batch remains complete PR165/a3813439; do not repeat.
 
-This separate correction starts at verified report contract PR166/054aba88. No report APIs/runner here. Independent scope regressions plus three additive compiling controls protect the narrow fix. Own full native/source QA/evidence/readback is PENDING at publication, so verified baseline remains054aba88. Next: finish exact-head correction QA and durable evidence/handover; only then final report candidate on corrected base, retaining this fix on atomic report-feature rollback. Preserve all frozen report/oldSQL inputs and prior heads. No critical user input/Azure required. No uncertain remote mutation at preparation; inspect live PR/ref before creation/retry.
+New report integration task3 IN PROGRESS, final task4 QA/evidence/handover pending. First runner PR167/fd5 and WIP PR168/57af frozen; actual BOTH native missing APIs before report production and BOTH native masking failures before correction inspected/published. Final report preparation on corrected CODE724504b7 passes local real renderers/frozen cases/15controls/preflight. Publish/read back feat/sql-report-adapter-final-20261018 and recovery docs, then full own final QA/atomic report+runner rollback retaining the verified correction/archive/handover. No critical input/Azure needed. No uncertain remote operation. Artifact/admin heads are not code candidates.
 
 ## Constraints and residual obligations
 

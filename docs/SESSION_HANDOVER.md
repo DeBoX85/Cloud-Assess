@@ -3053,3 +3053,7 @@ Own contract-head QA is pending at publication; read its live draft PR for exact
 ## Scope-redaction correction checkpoint, 2026-10-18
 
 Both actual native PR168 failures inspected/published before edits. Isolated correction from verified054aba88 protects core/plugin Assessment Status scope masking without importing plugin identity limits into core-only reports. Three additive controls and independent regressions; own exact-head QA/evidence pending. [Current record](SCOPE_REDACTION_CORRECTION_20261018.md). Report task3 remains unfinished; corrected rollback base must be verified before use.
+
+## Scope correction completed before final report transition, 2026-10-18
+
+PR169/724504b7 COMPLETE VERIFIED OFFLINE, own39163414431 all8workers/bothgates and39163414427 source passed.536Linux/531Windows exact identities,23captures/315chunks/909865bytes; full78member evidence9ae98507 read back. Scope masking correction/three controls/atomic15file rollback+restore verified. [Completion and next action](SCOPE_REDACTION_COMPLETED_20261018.md). Report task3 remains unfinished, finalQA task4 pending; final report fallback retains this verified correction. Original SQL batch and all frozen heads unchanged. Module-only advisory/independent/live/release obligations open.
