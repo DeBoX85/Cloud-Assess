@@ -31,3 +31,8 @@ Research is required when confidence is 90% or lower. This is an operating thres
 For each coherent implementation: independent expectations before production where applicable; retain frozen inputs and all prior control identities; meaningful named reversal/restoration checks; exact final-head Linux/Windows/source QA and full required evidence review; source rollback rehearsal; durable publication/readback; then handover before the next task. Local preflight never substitutes for full QA. Draft verification, protected acceptance and release stay distinct. No evidence-only certification loop or weakened gate is authorised.
 
 The initial sequence is superseded only by the concrete task table added after tasks2-3 reconciliation. Do not advance speculative rows without their dependencies. A checkpoint is not a new user approval gate when independent authorised work can continue.
+
+
+## Task2 acceptance mapping completed
+
+[MVP acceptance matrix](MVP_ACCEPTANCE_MATRIX_20261019.md) separates core-v1 and eventual parity requirements, records current code paths and remaining live/human boundaries. All seven source SKU families have some target draft implementation or diagnostic representation; this is not seven complete deployability adapters. Task3 now ranks cost collection and coordination dependencies. No product scope or requirement was removed. Administrative validation/publication is separate from product certification.
