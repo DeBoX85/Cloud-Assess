@@ -14,6 +14,7 @@ import (
 	"sort"
 	"strings"
 	"sync"
+	"unicode"
 	"unicode/utf8"
 )
 
@@ -292,10 +293,11 @@ func validateJSON(body []byte) error {
 					return err
 				}
 				name, ok := key.(string)
-				if !ok || keys[strings.ToLower(name)] {
+				folded := foldJSONKey(name)
+				if !ok || keys[folded] {
 					return fmt.Errorf("duplicate JSON key")
 				}
-				keys[strings.ToLower(name)] = true
+				keys[folded] = true
 			}
 			if err := value(depth + 1); err != nil {
 				return err
@@ -311,4 +313,18 @@ func validateJSON(body []byte) error {
 		return fmt.Errorf("trailing JSON")
 	}
 	return nil
+}
+
+// foldJSONKey matches encoding/json's Unicode simple-fold field equivalence.
+// Lowercasing alone misses aliases such as long s and final sigma.
+func foldJSONKey(name string) string {
+	return strings.Map(func(r rune) rune {
+		smallest := r
+		for next := unicode.SimpleFold(r); next != r; next = unicode.SimpleFold(next) {
+			if next < smallest {
+				smallest = next
+			}
+		}
+		return smallest
+	}, name)
 }

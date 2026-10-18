@@ -1,0 +1,341 @@
+{
+  "format": "sql-database-controls-v1",
+  "mutations": [
+    {
+      "name": "wire-byte-bound",
+      "file": "internal/plugins/region/sql_capability_collector.go",
+      "old": "len(body) > MaxQuotaPageBytes",
+      "replace": "len(body) > MaxQuotaPageBytes+1",
+      "test": "TestSQLDatabaseWireBound",
+      "count": 1
+    },
+    {
+      "name": "raw-work-before-allocation",
+      "file": "internal/plugins/region/sql_capability_collector.go",
+      "old": "if code := budget.walk(doc, 0, false); code != \"\" {",
+      "replace": "if code := budget.walk(doc, 0, false); code != \"\" && false {",
+      "test": "TestSQLDatabaseRawWorkBound",
+      "count": 1
+    },
+    {
+      "name": "selected-leaf-bound",
+      "file": "internal/plugins/region/sql_capability_collector.go",
+      "old": "leaves > MaxSQLCapabilityLeaves",
+      "replace": "leaves > MaxSQLCapabilityLeaves+1",
+      "test": "TestSQLDatabaseLeafBound",
+      "count": 1
+    },
+    {
+      "name": "whole-schema-validation",
+      "file": "internal/plugins/region/sql_capability_collector.go",
+      "old": "if !sqlCapabilityShape(ctx, body, \"LocationCapabilities\") {",
+      "replace": "if false && !sqlCapabilityShape(ctx, body, \"LocationCapabilities\") {",
+      "test": "TestSQLDatabaseStrictWireBoundaries",
+      "count": 1
+    },
+    {
+      "name": "undocumented-next-link",
+      "file": "internal/plugins/region/sql_capability_collector.go",
+      "old": "if _, present := root[\"nextLink\"]; present {",
+      "replace": "if _, present := root[\"nextLink\"]; present && false {",
+      "test": "TestSQLDatabaseFrozenManifest/undocumented-next-null",
+      "count": 1
+    },
+    {
+      "name": "no-value-envelope",
+      "file": "internal/plugins/region/sql_capability_collector.go",
+      "old": "if _, present := root[\"value\"]; present {",
+      "replace": "if _, present := root[\"value\"]; present && false {",
+      "test": "TestSQLDatabaseFrozenManifest/root-value-envelope",
+      "count": 1
+    },
+    {
+      "name": "root-physical-binding",
+      "file": "internal/plugins/region/sql_capability_collector.go",
+      "old": "if physical != \"\" && physical != q.Region {",
+      "replace": "if false && physical != \"\" && physical != q.Region {",
+      "test": "TestSQLDatabaseFrozenManifest/foreign-physical-root",
+      "count": 1
+    },
+    {
+      "name": "root-incomplete-knowledge",
+      "file": "internal/plugins/region/sql_capability_collector.go",
+      "old": "incomplete = physical == \"\"",
+      "replace": "incomplete = false",
+      "test": "TestSQLDatabaseFrozenManifest/unresolved-display-root",
+      "count": 1
+    },
+    {
+      "name": "missing-child-incomplete",
+      "file": "internal/plugins/region/sql_capability_collector.go",
+      "old": "incomplete = incomplete || !complete",
+      "replace": "incomplete = incomplete || (!complete && false)",
+      "test": "TestSQLDatabaseFrozenManifest/missing-supportedEditions",
+      "count": 3
+    },
+    {
+      "name": "duplicate-parent-identities",
+      "file": "internal/plugins/region/sql_capability_collector.go",
+      "old": "if seen[name] {",
+      "replace": "if seen[name] && false {",
+      "test": "TestSQLDatabaseStatusAndIdentity",
+      "count": 1
+    },
+    {
+      "name": "unknown-status-dominates",
+      "file": "internal/plugins/region/sql_capability_collector.go",
+      "old": "if !known {",
+      "replace": "if !known && !disabled {",
+      "test": "TestSQLDatabaseStatusAndIdentity",
+      "count": 1
+    },
+    {
+      "name": "ancestor-status-participates",
+      "file": "internal/plugins/region/sql_capability_collector.go",
+      "old": "for _, node := range nodes {",
+      "replace": "for index, node := range nodes { if index == 0 { continue }",
+      "test": "TestSQLDatabaseStatusAndIdentity",
+      "count": 1
+    },
+    {
+      "name": "missing-authoritative-metadata",
+      "file": "internal/plugins/region/sql_capability_collector.go",
+      "old": "g.Known = false",
+      "replace": "g.Known = true",
+      "test": "TestSQLDatabaseFrozenManifest/missing-sku-tier",
+      "count": 3
+    },
+    {
+      "name": "authoritative-sku-name",
+      "file": "internal/plugins/region/sql_capability_collector.go",
+      "old": "g.SKUName = strings.ToLower(name)",
+      "replace": "g.SKUName = g.Name",
+      "test": "TestSQLDatabaseFrozenManifest/same-sku-distinct-coordinate",
+      "count": 1
+    },
+    {
+      "name": "positive-sku-capacity",
+      "file": "internal/plugins/region/sql_capability_collector.go",
+      "old": "g.Capacity <= 0",
+      "replace": "g.Capacity < 0",
+      "test": "TestSQLDatabaseFrozenManifest/wrong-sku-capacity-0",
+      "count": 1
+    },
+    {
+      "name": "tier-matches-edition",
+      "file": "internal/plugins/region/sql_capability_collector.go",
+      "old": "!strings.EqualFold(tier, e)",
+      "replace": "false && !strings.EqualFold(tier, e)",
+      "test": "TestSQLDatabaseFrozenManifest/wrong-sku-tier-Other",
+      "count": 1
+    },
+    {
+      "name": "alias-copy-before-get",
+      "file": "internal/plugins/region/sql_capability_collector.go",
+      "old": "q.LocationAliases = aliases",
+      "replace": "if len(aliases) < 0 { q.LocationAliases = aliases }",
+      "test": "TestSQLDatabaseAliasCopy",
+      "count": 1
+    },
+    {
+      "name": "unselected-empty-label-request",
+      "file": "internal/plugins/region/sql_capability_collector.go",
+      "old": "if label == \"\" {",
+      "replace": "if label == \"\" && false {",
+      "test": "TestSQLDatabaseUnselectedEmptyLabel",
+      "count": 1
+    },
+    {
+      "name": "wrapped-getter-cancel",
+      "file": "internal/plugins/region/sql_capability_collector.go",
+      "old": "if errors.Is(err, context.Canceled) {",
+      "replace": "if errors.Is(err, context.Canceled) && false {",
+      "test": "TestSQLDatabaseFrozenManifest/wrapped-getter-cancelled",
+      "count": 1
+    },
+    {
+      "name": "wrapped-getter-deadline",
+      "file": "internal/plugins/region/sql_capability_collector.go",
+      "old": "if errors.Is(err, context.DeadlineExceeded) {",
+      "replace": "if errors.Is(err, context.DeadlineExceeded) && false {",
+      "test": "TestSQLDatabaseFrozenManifest/wrapped-getter-deadline",
+      "count": 1
+    },
+    {
+      "name": "collector-final-context",
+      "file": "internal/plugins/region/sql_capability_collector.go",
+      "old": "if e := ctx.Err(); e != nil {\n\t\treturn nil, e\n\t}\n\treturn result, nil",
+      "replace": "if e := ctx.Err(); e != nil && false {\n\t\treturn nil, e\n\t}\n\treturn result, nil",
+      "test": "TestSQLDatabaseFixedLateContext",
+      "count": 1
+    },
+    {
+      "name": "required-sku-name-shape",
+      "file": "internal/plugins/region/sql_capability_shapes.go",
+      "old": "if kind == \"Sku\" {",
+      "replace": "if kind == \"Sku\" && false {",
+      "test": "TestSQLDatabaseShapeRegistry",
+      "count": 1
+    },
+    {
+      "name": "nullable-bool-shape",
+      "file": "internal/plugins/region/sql_capability_shapes.go",
+      "old": "if !diskScalar(value, &b) {",
+      "replace": "if false && !diskScalar(value, &b) {",
+      "test": "TestSQLDatabaseShapeRegistry",
+      "count": 1
+    },
+    {
+      "name": "nullable-string-shape",
+      "file": "internal/plugins/region/sql_capability_shapes.go",
+      "old": "if !diskScalar(value, &s) {",
+      "replace": "if false && !diskScalar(value, &s) {",
+      "test": "TestSQLDatabaseShapeRegistry",
+      "count": 1
+    },
+    {
+      "name": "int32-range",
+      "file": "internal/plugins/region/sql_capability_shapes.go",
+      "old": "n > 2147483647",
+      "replace": "n > 2147483648",
+      "test": "TestSQLDatabaseStrictWireBoundaries",
+      "count": 1
+    },
+    {
+      "name": "projection-group-count",
+      "file": "internal/plugins/region/sql_capability_catalog.go",
+      "old": "len(c.Groups) > MaxSQLCapabilityLeaves",
+      "replace": "len(c.Groups) > MaxSQLCapabilityLeaves+1",
+      "test": "TestSQLDatabaseProjectionCounts/groups-8193",
+      "count": 1
+    },
+    {
+      "name": "projection-required-count",
+      "file": "internal/plugins/region/sql_capability_catalog.go",
+      "old": "len(required) > MaxSQLCapabilityLeaves",
+      "replace": "len(required) > MaxSQLCapabilityLeaves+1",
+      "test": "TestSQLDatabaseProjectionCounts/required-8193",
+      "count": 1
+    },
+    {
+      "name": "projection-selected-classification",
+      "file": "internal/plugins/region/sql_capability_catalog.go",
+      "old": "len(selected) > MaxSubscriptions",
+      "replace": "len(selected) > MaxSubscriptions+1",
+      "test": "TestSQLDatabaseProjectionCounts/selected-1001",
+      "count": 1
+    },
+    {
+      "name": "projection-alias-classification",
+      "file": "internal/plugins/region/sql_capability_catalog.go",
+      "old": "len(expected.LocationAliases) > MaxSQLCapabilityAliases",
+      "replace": "len(expected.LocationAliases) > MaxSQLCapabilityAliases+1",
+      "test": "TestSQLDatabaseProjectionCounts/aliases-257",
+      "count": 1
+    },
+    {
+      "name": "projection-selected-id-charge",
+      "file": "internal/plugins/region/sql_capability_catalog.go",
+      "old": "budget.label(id, MaxLabelBytes)",
+      "replace": "budget.label(id[:0], MaxLabelBytes)",
+      "test": "TestSQLDatabaseProjectionTextBound",
+      "count": 1
+    },
+    {
+      "name": "projection-selected-label-charge",
+      "file": "internal/plugins/region/sql_capability_catalog.go",
+      "old": "budget.label(label, MaxLabelBytes)",
+      "replace": "budget.label(label[:0], MaxLabelBytes)",
+      "test": "TestSQLDatabaseProjectionTextBound",
+      "count": 1
+    },
+    {
+      "name": "projection-group-key-charge",
+      "file": "internal/plugins/region/sql_capability_catalog.go",
+      "old": "budget.label(key, MaxSQLCoordinateBytes)",
+      "replace": "budget.label(key[:0], MaxSQLCoordinateBytes)",
+      "test": "TestSQLDatabaseProjectionTextBound",
+      "count": 1
+    },
+    {
+      "name": "projection-metadata-charge",
+      "file": "internal/plugins/region/sql_capability_catalog.go",
+      "old": "for _, s := range sqlGroupStrings(g) {",
+      "replace": "for _, s := range sqlGroupStrings(g)[:0] {",
+      "test": "TestSQLDatabaseProjectionTextBound",
+      "count": 2
+    },
+    {
+      "name": "projection-required-charge",
+      "file": "internal/plugins/region/sql_capability_catalog.go",
+      "old": "budget.label(s, MaxSQLCoordinateBytes)",
+      "replace": "budget.label(s[:0], MaxSQLCoordinateBytes)",
+      "test": "TestSQLDatabaseRequiredTextBound",
+      "count": 1
+    },
+    {
+      "name": "projection-alias-value-charge",
+      "file": "internal/plugins/region/sql_capability_catalog.go",
+      "old": "budget.label(value, MaxLabelBytes)",
+      "replace": "budget.label(value[:0], MaxLabelBytes)",
+      "test": "TestSQLDatabaseAliasTextBound",
+      "count": 1
+    },
+    {
+      "name": "projection-unselected-empty-label",
+      "file": "internal/plugins/region/sql_capability_catalog.go",
+      "old": "if label == \"\" {",
+      "replace": "if label == \"\" && false {",
+      "test": "TestSQLDatabaseUnselectedEmptyLabel",
+      "count": 1
+    },
+    {
+      "name": "projection-group-key-fields",
+      "file": "internal/plugins/region/sql_capability_catalog.go",
+      "old": "key != g.Version+\"/\"+g.Edition+\"/\"+g.Name",
+      "replace": "false && key != g.Version+\"/\"+g.Edition+\"/\"+g.Name",
+      "test": "TestSQLDatabaseProjectionWholeValidation",
+      "count": 1
+    },
+    {
+      "name": "projection-unknown-negative-capacity",
+      "file": "internal/plugins/region/sql_capability_catalog.go",
+      "old": "g.Capacity < 0",
+      "replace": "false && g.Capacity < 0",
+      "test": "TestSQLDatabaseProjectionWholeValidation",
+      "count": 1
+    },
+    {
+      "name": "projection-database-mode",
+      "file": "internal/plugins/region/sql_capability_catalog.go",
+      "old": "g.Standalone != \"not_applicable\"",
+      "replace": "false && g.Standalone != \"not_applicable\"",
+      "test": "TestSQLDatabaseProjectionWholeValidation",
+      "count": 1
+    },
+    {
+      "name": "projection-missing-required-unknown",
+      "file": "internal/plugins/region/sql_capability_catalog.go",
+      "old": "if !found || !g.Known {",
+      "replace": "if found && !g.Known {",
+      "test": "TestSQLDatabaseProjectionWholeValidation",
+      "count": 1
+    },
+    {
+      "name": "projection-required-unknown",
+      "file": "internal/plugins/region/sql_capability_catalog.go",
+      "old": "if !found || !g.Known {",
+      "replace": "if !found || (!g.Known && false) {",
+      "test": "TestSQLDatabaseProjectionWholeValidation",
+      "count": 1
+    },
+    {
+      "name": "projection-final-context",
+      "file": "internal/plugins/region/sql_capability_catalog.go",
+      "old": "if err := ctx.Err(); err != nil {\n\t\t\treturn SQLCatalogEvidence{}, err\n\t\t}\n\t\treturn out, nil",
+      "replace": "if err := ctx.Err(); err != nil && false {\n\t\t\treturn SQLCatalogEvidence{}, err\n\t\t}\n\t\treturn out, nil",
+      "test": "TestSQLDatabaseFixedLateContext",
+      "count": 1
+    }
+  ]
+}
