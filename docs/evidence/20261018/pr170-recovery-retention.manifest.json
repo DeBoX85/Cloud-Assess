@@ -1,0 +1,25 @@
+{
+  "format": "cloud-assess-supplemental-ci-v1",
+  "candidate": "8c47d8105c7c3a6dec02f4a9b22958ab58b4682a",
+  "recipe": "ace2071a811b8016f09c6359ff10838d4d65d005",
+  "run": 39167504674,
+  "job": 117793421672,
+  "classification": "reviewed-synthetic-ci-local",
+  "files": [
+    {
+      "path": "pr170-recovery-run.json",
+      "bytes": 13573,
+      "sha256": "ac583a9f0aa03fb5eed5a9ca69cd351fe85de190bba76f626c137cf4d0ad737f"
+    },
+    {
+      "path": "pr170-recovery-jobs.json",
+      "bytes": 4728,
+      "sha256": "f71afc2533380f1f9bb3818ac096f453f79af24ac5421c07b61d6dc208ac7f96"
+    },
+    {
+      "path": "pr170-recovery-117793421672.log",
+      "bytes": 1141240,
+      "sha256": "ecf9deb40f83775b96c8992cc75cc74daa8396f7cf0ccf6a6f9a3d9a092e4d88"
+    }
+  ]
+}
