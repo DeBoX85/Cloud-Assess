@@ -1,0 +1,17 @@
+# SQL batch completion checkpoint
+
+## SQL batch complete, 2026-10-18 UTC
+
+All four SQL tasks are COMPLETE VERIFIED OFFLINE: reconciliation PR158, frozen contract PR160, Database PR163 and Managed Instance PR165. Final product code is a3813439223ef6240e1aff8ae677e40a46011ce0, tree855d8a2994285f4b007616e06b3381dd93755503, sole parenta3738eec35bd0074b960a3ca072271e4e0818f80. PR165 remains draft/open/unmerged; protected bootstrap/core-v1 remains a6fee427e19feeef28691737ea9bc5026086efa0. Read [completion checkpoint](SQL_BATCH_COMPLETED_20261018.md) and [live final PR165](https://github.com/DeBoX85/Cloud-Assess/pull/165).
+
+Own quality39095502229 passed all8native workers/both required gates, all10complete logs/steps reviewed. Exact533Linux/528Windows control identities conserved with no missing/extra/duplicates;78cumulative SQL additions include42Database+36MI named compiling reversals/exact restorations. Coverage86.4% with unchanged75%floor. Own source39095502254 reconstructed23captures/315chunks/909865bytes against exact Git blobs. All316frozen literal cases execute unchanged. Both native absent-API preparation failures were inspected before each implementation. Full cumulative20file readback, identical-tree/ordered-parent previewa8e249ca and atomic MI+runner rollback to Database tree6a9f557e/restoration/region tests passed.
+
+Complete86member evidence archive is published and fully read back at0ec0d402392c056c0ab3970769d72d261d097324, tree7142fce4621e024ed6bff6a99221beedab01b610, parent exact final product code. Bundle2854937UTF8memberbytes/440377bytes, SHA256038c2617f4520dc12ffe1141591a35a01f3b5b4aa0aaed0410232bafb66b46dc. Bounded integrity verification precedes any explicit allowlisted restoration. Artifact and this administrative completion record are NOT product candidates or certification of new code trees.
+
+The user authorized a DISTINCT next offline batch on2026-10-18: reconcile remaining work, define a bounded collector-to-report integration contract/independent expectations, implement the justified slice and complete its own QA/evidence/handover. First next action is repository/roadmap reconciliation, not assumed SQL scoring or public region selection. Publish/update handover BETWEEN each task. No critical input or Azure access is needed for reconciliation; resolve later scope using evidence and preserve unsupported eligibility/scoring. No new SQL four-task batch.
+
+Current executor is Windows; recover from published refs, not old Linux scratch paths. Retained workspaces under C:/workspace/sql-recovery-20261017 and the original dirty checkout are preserved. This completion worktree is sql-final-closure. Previously unavailable Windows logs may now be present; final certification uses the retained exact-head archive, not memory. No uncertain remote mutation is claimed completed without readback. No Azure/fixture/RBAC/refresh/subagents/protected merge/bypass/release. Independent review/backup/broader operational/live/security/license/Gate004/release and one module-only advisory remain OPEN; accepted adapters1/7/source characterization7/7 unchanged.
+
+## Resume authority
+
+Use the restart prompt as instructions and this checkpoint as supporting context. Verify current repository state before proceeding. Product QA belongs to exact PR165 head; later administrative or evidence trees do not inherit that certification. Follow explicit live PR successor links and preserve prior heads.
