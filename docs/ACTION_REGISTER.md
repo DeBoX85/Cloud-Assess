@@ -66,3 +66,5 @@ Own contract-head QA is pending at publication; read its live draft PR for exact
 ## 2026-10-19 authorised programme
 
 OP-001: task1 repository/evidence reconciliation complete; publication/readback pending. OP-002: MVP acceptance matrix mapped; administrative QA pending. OP-003: concrete ranked sequence/first reevaluation recorded; OP-004 independent cost-history contract next. User-authorised implementation follows without reapproval if justified and independent. See [programme](MVP_PROGRAMME_20261019.md). Earlier pending/task-next snapshots are historical; PR170 original SQL/report work remains complete.
+
+OP-004: cost-history contract and67future cases prepared; no API/runtime coverage. Own native/source QA, strict consuming runner and both-host absent-API observation precede OP-005production. Source caller1-12validation resolved by direct inspection; bounded POST already exists.

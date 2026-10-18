@@ -3048,3 +3048,8 @@ PR169/724504b7 COMPLETE VERIFIED OFFLINE, own39163414431 all8workers/bothgates a
 ## Final internal SQL report candidate, 2026-10-18
 
 Scope correction PR169/724504b7 own full QA/evidence9ae98507/completion handover24c9ff59 closed BEFORE this transition. Report production/first runner/frozen26oracles preserved exactly;15compiled reversals and corrected actual renderers/full SQL baseline/preflight pass locally. [Implementation/stronger rollback amendment](SQL_REPORT_IMPLEMENTATION_20261018.md). Own final551Linux/546Windows identity QA/source/atomic report rollback retaining scope fix/archive/readback/final handover pending. Original SQL batch remains complete, protected acceptance unchanged.
+
+
+## 2026-10-19 offline programme reevaluation
+
+[Concrete15-task sequence](OFFLINE_SEQUENCE_20261019.md) and [MVP acceptance matrix](MVP_ACCEPTANCE_MATRIX_20261019.md) own the new authorised offline work. Duplicate collector rows superseded by actual existing draft inventory; no deferred parity requirement removed. Task4 [meter-history contract](REGION_METER_HISTORY_CONTRACT_20261019.md)/67future cases prepared, own exact-head QA pending. No production/public capability added; source captures/pins/controls unchanged. Research at confidence90%or lower; reevaluate after1-3/5/10/15/material findings; stop/document/wait on unresolved critical blocker.

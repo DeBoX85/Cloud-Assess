@@ -17,3 +17,6 @@ docs/evidence/**/*.base64 -text
 internal/plugins/region/testdata/storage-primary-LICENSE.txt -text
 internal/plugins/region/sql_report_oracle_test.go -text
 internal/plugins/region/sql_report_budget_plan_test.go -text
+
+# Byte-addressed independent region meter-history expectations.
+internal/plugins/region/testdata/meter-history-contract-v1.json -text

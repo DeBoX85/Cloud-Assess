@@ -5230,3 +5230,8 @@ Scope correction PR169/724504b7 own full QA/evidence9ae98507/completion handover
 ## 2026-10-19: offline programme task1 reconciliation
 
 User authorised15offline tasks with explicit reevaluation/research/escalation rules. [Programme](MVP_PROGRAMME_20261019.md) records live PR/ref/run checks, actual isolated source/product trees, environment recovery and corrected distinction between accepted and implemented adapters. No production/pin/capture/control edits. Tasks2-3 next; ordinary independent work continues without another approval. Local static preflight passed before this documentation change; final documentation validation/publication/readback pending.
+
+
+## 2026-10-19: tasks2-4 MVP mapping, reevaluation and history contract
+
+[MVP matrix](MVP_ACCEPTANCE_MATRIX_20261019.md) and [concrete sequence](OFFLINE_SEQUENCE_20261019.md) published/read back in PR172/3cf6eca8; no duplicate collector work. [Cost-history contract](REGION_METER_HISTORY_CONTRACT_20261019.md) prepares67independent future literals and integrity check before any target API. Pinned source SDK confirmed API2021-10-01; source caller validates1-12months; existing bounded POST reused by contract. Local full region baseline, focused integrity/static preflight and1503authored links pass; full contract own QA and runtime consumer are pending. No Azure/product/pin/capture/control/schema edits. First reevaluation found no unresolved critical blocker.
