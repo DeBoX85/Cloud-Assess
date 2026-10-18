@@ -107,3 +107,5 @@ The [project alignment review](docs/ALIGNMENT_REVIEW.md) records current feature
 Validated build-time presentation profiles and the native development builder are documented in [Branding profiles](docs/BRANDING_PROFILES.md). Paired report checks and [profile-aware candidate packaging](docs/BRANDED_PACKAGES.md) extend this workflow. Final native acceptance is required; development candidates are not approved releases.
 
 SQL capability work: [frozen bounded contract and literal oracles](docs/SQL_CAPABILITY_CONTRACT_20261017.md), [internal Database catalog](docs/SQL_DATABASE_IMPLEMENTATION_20261017.md) and [Managed Instance catalog](docs/SQL_MANAGED_INSTANCE_IMPLEMENTATION_20261017.md). These draft catalogs preserve full coordinates and do not establish deployment eligibility or public region selection.
+
+SQL batch status: [completion checkpoint](docs/SQL_BATCH_COMPLETED_20261018.md). Both internal catalogs are verified offline draft candidates; deployment eligibility, public region selection and protected acceptance remain separate.

@@ -2381,3 +2381,7 @@ The Database-only supplemental TestSQLDatabaseProjectionBinding used expected MI
 ## QA-SQL-06: MI supplemental required-coordinate generator
 
 The newly authored exact8192-required-count test used three-component Database coordinates. The MI API correctly rejected them; corrected only that supplemental generator to four-component MI coordinates and reran the SQL baseline. Frozen cases/production unchanged. Prevention: independently assert family-specific coordinate arity before large count/text fixtures.
+
+## QA-SQL-07: delayed completion handover
+
+Final MI QA/evidence completed before completion state/prompt publication, leaving stale pending instructions across interruptions/status replies. Corrected by the administrative SQL completion checkpoint and explicit PR165 forwarding after full readback. No product or oracle rewrite. Prevention: close the documentation/readback checklist at the same task boundary and before starting another task or ending the session; report incomplete closure explicitly rather than equating QA success with maintained handover.
