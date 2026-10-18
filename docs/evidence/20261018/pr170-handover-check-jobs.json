@@ -1,0 +1,97 @@
+{
+  "total_count": 1,
+  "jobs": [
+    {
+      "id": 117795866583,
+      "run_id": 39168317726,
+      "workflow_name": "SQL report handover verification",
+      "head_branch": "qa/sql-report-handover-check-20261018",
+      "run_url": "https://api.github.com/repos/DeBoX85/Cloud-Assess/actions/runs/39168317726",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOUdPf9c8AAAAbbS5H1w",
+      "head_sha": "6e1011bb83b33bc91e9945158579ae90ee8ffe54",
+      "url": "https://api.github.com/repos/DeBoX85/Cloud-Assess/actions/jobs/117795866583",
+      "html_url": "https://github.com/DeBoX85/Cloud-Assess/actions/runs/39168317726/job/117795866583",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-18T21:32:50Z",
+      "started_at": "2026-10-18T21:32:52Z",
+      "completed_at": "2026-10-18T21:33:02Z",
+      "name": "handover-check",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-18T21:32:53Z",
+          "completed_at": "2026-10-18T21:32:54Z"
+        },
+        {
+          "name": "Checkout exact administrative checkpoint",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-18T21:32:54Z",
+          "completed_at": "2026-10-18T21:32:58Z"
+        },
+        {
+          "name": "Verify exact head, parent, docs-only delta and committed whitespace",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-18T21:32:58Z",
+          "completed_at": "2026-10-18T21:32:58Z"
+        },
+        {
+          "name": "Run unchanged static workflow and handover guards",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-18T21:32:58Z",
+          "completed_at": "2026-10-18T21:32:59Z"
+        },
+        {
+          "name": "Check all authored local-file documentation links",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-18T21:32:59Z",
+          "completed_at": "2026-10-18T21:32:59Z"
+        },
+        {
+          "name": "Verify clean checkout after checks",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-18T21:32:59Z",
+          "completed_at": "2026-10-18T21:32:59Z"
+        },
+        {
+          "name": "Post Checkout exact administrative checkpoint",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-10-18T21:32:59Z",
+          "completed_at": "2026-10-18T21:32:59Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-10-18T21:32:59Z",
+          "completed_at": "2026-10-18T21:32:59Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/DeBoX85/Cloud-Assess/check-runs/117795866583",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000003344,
+      "runner_name": "GitHub Actions 1000003344",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    }
+  ]
+}

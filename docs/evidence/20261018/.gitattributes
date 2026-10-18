@@ -1,2 +1,3 @@
 # Preserve separately indexed complete recovery execution bytes.
 pr170-recovery-* -text
+pr170-handover-* -text

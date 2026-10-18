@@ -1,0 +1,28 @@
+{
+  "format": "cloud-assess-supplemental-ci-v1",
+  "classification": "reviewed-synthetic-ci-local",
+  "productCandidate": "8c47d8105c7c3a6dec02f4a9b22958ab58b4682a",
+  "administrativeCheckpoint": "847bf4f6131d7d7d5ba225fb40b3ec1042559bb3",
+  "recipe": "6e1011bb83b33bc91e9945158579ae90ee8ffe54",
+  "run": 39168317726,
+  "job": 117795866583,
+  "scope": "Exact administrative head committed-whitespace/docs-only/static gate+handoff guards/authored local-file links/clean checkout; not product certification",
+  "result": "Authored Markdown local-file links: 1494 checked; all steps success",
+  "files": [
+    {
+      "path": "pr170-handover-check-run.json",
+      "bytes": 13544,
+      "sha256": "424fd435803ca6559ded4d1d0dec9511a8ede63d4fc9e5719de45145a173ce92"
+    },
+    {
+      "path": "pr170-handover-check-jobs.json",
+      "bytes": 3360,
+      "sha256": "e3e74cbc6e2902b4384bd8253e9784bbdd4ba3be53fb27b8c780e5ed509d1a8b"
+    },
+    {
+      "path": "pr170-handover-check-117795866583.log",
+      "bytes": 23190,
+      "sha256": "a4c89a0c9d76e3d70c9b9de039dbb4907117dbb4f29ab3970f21a8f6a21c2142"
+    }
+  ]
+}
