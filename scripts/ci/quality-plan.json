@@ -129,6 +129,11 @@
         "name": "Verify SQL Managed Instance capability compiling controls",
         "script": "scripts/tests/sql-mi-controls.py",
         "worker": "controls-2"
+      },
+      {
+        "name": "Verify assessment status scope redaction compiling controls",
+        "script": "scripts/tests/scope-redaction-controls.py",
+        "worker": "controls-3"
       }
     ],
     "windows": [
@@ -166,6 +171,11 @@
         "name": "Verify SQL Managed Instance capability compiling controls",
         "script": "scripts/tests/sql-mi-controls.py",
         "worker": "controls-2"
+      },
+      {
+        "name": "Verify assessment status scope redaction compiling controls",
+        "script": "scripts/tests/scope-redaction-controls.py",
+        "worker": "controls-3"
       }
     ]
   }

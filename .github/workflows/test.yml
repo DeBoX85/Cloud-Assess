@@ -387,6 +387,9 @@ jobs:
       - name: Verify Cognitive SKU catalog compiling controls
         run: python3 scripts/tests/cognitive-sku-mutation.py
 
+      - name: Verify assessment status scope redaction compiling controls
+        run: python3 scripts/tests/scope-redaction-controls.py
+
   quality:
     if: ${{ always() }}
     needs: [linux-native, linux-controls-1, linux-controls-2, linux-controls-3]
@@ -668,6 +671,9 @@ jobs:
 
       - name: Verify Cognitive SKU catalog compiling controls
         run: python scripts/tests/cognitive-sku-mutation.py
+
+      - name: Verify assessment status scope redaction compiling controls
+        run: python scripts/tests/scope-redaction-controls.py
 
   windows-validation:
     if: ${{ always() }}
