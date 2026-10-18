@@ -41,3 +41,8 @@ The initial sequence is superseded only by the concrete task table added after t
 ## Task3 concrete sequence and first reevaluation
 
 [Concrete sequence](OFFLINE_SEQUENCE_20261019.md) supersedes generic collector rows with cost history/retail, required-kind identity, coordinator and public integration. The first drift/conflict review found no critical blocker. No requirement removed, no product/pin/schema change. Administrative exact-head QA remains pending; task4 independent cost-history contract preparation next. Future production depends on required contract and native/source validation.
+
+
+## Preparation overlap reevaluation
+
+Task4 contract/oracle42c414ef is frozen/published/read back; its own quality39177925107 is pending and source39177925097 passed full reconstruction. Separate task5 strict consumer and supplemental tests may be published while BOTH APIs are absent, overlapping independent test-only preparation with hosted QA. This does not relax the production dependency: complete contract QA/evidence and inspect BOTH native absent-API logs first. No production API exists and compile failure is preparation, not product regression or runtime coverage. Distinct-meter overflow is derived from raw-row bound; [test plan](REGION_METER_HISTORY_TEST_PLAN_20261019.md) records the independent arithmetic. No critical blocker, frozen expectation change or scope expansion.

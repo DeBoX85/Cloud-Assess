@@ -2401,3 +2401,8 @@ PR169/724504b7 COMPLETE VERIFIED OFFLINE, own39163414431 all8workers/bothgates a
 ## Final internal SQL report candidate, 2026-10-18
 
 Scope correction PR169/724504b7 own full QA/evidence9ae98507/completion handover24c9ff59 closed BEFORE this transition. Report production/first runner/frozen26oracles preserved exactly;15compiled reversals and corrected actual renderers/full SQL baseline/preflight pass locally. [Implementation/stronger rollback amendment](SQL_REPORT_IMPLEMENTATION_20261018.md). Own final551Linux/546Windows identity QA/source/atomic report rollback retaining scope fix/archive/readback/final handover pending. Original SQL batch remains complete, protected acceptance unchanged.
+
+
+## QA-MH-01: prepublication missing-API diagnostic ordering
+
+Initial local preparation emitted too many undefined-type/constructor diagnostics before the query API appeared. No syntax or production defect. Name the strict consumer meter_history_00_contract_test.go so BOTH APIs appear before the compiler diagnostic cap. Repeated local preparation confirms undefined MeterHistoryQuery and NewMeterHistoryCollector with no syntax error. No API exists and no frozen case changed. Hosted Linux/Windows observations still required before production. Keep first published runner bytes thereafter.
