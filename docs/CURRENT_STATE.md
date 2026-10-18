@@ -36,3 +36,7 @@ The module-only advisory remains open. Remaining region collectors, collector-to
 ## Recovery
 
 Read this page, the live task PR and the applicable technical contract; inspect refs, worktrees and logs before edits. Confirm the PR's head/tree/parent, merge preview and complete QA outcomes. Preserve canonical published commits, local markers and unrelated dirty work. Never reset them for convenience. Update this page and the ledger after a coherent slice or material finding; update procedure/specification documents when their requirements change. Preserve immutable historical evidence. Pending-at-publication text is a snapshot; the completed exact-revision PR body is the final QA outcome authority.
+
+## Offline integration reconciliation complete, 2026-10-18
+
+SQL closure160c0793 and PR165 remain complete. New batch task1 reconciled live PRs/protected ref and current inventory/catalog/registry/result/rendering boundaries. [Reconciliation and ranked work](OFFLINE_INTEGRATION_RECONCILIATION_20261018.md) selects bounded internal explicit-coordinate SQL collector-to-report diagnostics. Task2 NEXT: freeze independent report contract/expectations before adapter production. Task3 implementation and task4 exact-head QA/evidence/handover follow. No automatic inventory match, deployment eligibility, scoring or public execution; no critical input/Azure access. Product baselinea3813439 remains unchanged. Preserve all prior heads/frozen inputs/pins and exclusions.
