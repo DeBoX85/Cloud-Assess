@@ -61,3 +61,8 @@ New offline batch task1 reconciliation93500331 COMPLETE; task2 freezes [SQL repo
 QA-INT-01: direct sarif.go review confirms primary-findings-only output omits plugin rows/health. Preserve it and test no synthetic findings; JSON/tabular outputs carry diagnostic health. This supersedes the earlier proposed SARIF health wording. New APIs will prevalidate before transport, use existing Collect/Catalog, preserve full coordinates/modes, output only safe diagnostic tables and enforce atomic bounds/ownership/context; no public/scoring/eligibility integration.
 
 Own contract-head QA is pending at publication; read its live draft PR for exact outcomes. After verified contract evidence/handover, task3 first publishes consuming runner while BOTH report APIs are absent and inspects actual Linux+Windows missing APIs before production edits. Task4 completes final own native/source/renderer/control/rollback/evidence/handover. Fixed late schedules Project22/Collect57 manually frozen before reversals. No critical input/Azure access; all prior exclusions remain.
+
+
+## 2026-10-19 authorised programme
+
+OP-001: task1 repository/evidence reconciliation complete; publication/readback pending. OP-002: MVP acceptance matrix next. OP-003: concrete ranked sequence/reevaluation next. User-authorised implementation follows without reapproval if justified and independent. See [programme](MVP_PROGRAMME_20261019.md). Earlier pending/task-next snapshots are historical; PR170 original SQL/report work remains complete.
