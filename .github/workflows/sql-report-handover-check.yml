@@ -1,0 +1,42 @@
+name: SQL report handover verification
+
+on:
+  push:
+    branches:
+      - 'qa/sql-report-handover-check-*'
+
+permissions:
+  contents: read
+
+jobs:
+  handover-check:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - name: Checkout exact administrative checkpoint
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # unchanged existing pin
+        with:
+          ref: 847bf4f6131d7d7d5ba225fb40b3ec1042559bb3
+          fetch-depth: 2
+          submodules: recursive
+          persist-credentials: false
+      - name: Verify exact head, parent, docs-only delta and committed whitespace
+        run: |
+          python - <<'PY'
+          import json,subprocess
+          def git(*a):return subprocess.check_output(['git',*a]).decode().strip()
+          assert git('rev-parse','HEAD')=='847bf4f6131d7d7d5ba225fb40b3ec1042559bb3'
+          assert git('rev-parse','HEAD^')=='8c47d8105c7c3a6dec02f4a9b22958ab58b4682a'
+          expected=["docs/ACTION_REGISTER.md","docs/CURRENT_STATE.md","docs/DEVELOPMENT_LEDGER.md","docs/EVIDENCE_RETENTION.md","docs/FAILURE_NOTES.md","docs/RESTART_PROMPT.md","docs/ROADMAP.md","docs/ROLLBACK.md","docs/SESSION_HANDOVER.md","docs/SQL_REPORT_COMPLETED_20261018.md","docs/SQL_REPORT_IMPLEMENTATION_20261018.md"]
+          assert sorted(git('diff','--name-only','HEAD^','HEAD').splitlines())==expected
+          subprocess.run(['git','diff','--check','HEAD^','HEAD'],check=True)
+          print('ADMIN_HEAD '+json.dumps({'head':'847bf4f6131d7d7d5ba225fb40b3ec1042559bb3','parent':'8c47d8105c7c3a6dec02f4a9b22958ab58b4682a','docs':11,'productCodeChanged':False}))
+          PY
+      - name: Run unchanged static workflow and handover guards
+        run: python scripts/dev-preflight.py --static-only
+      - name: Check all authored local-file documentation links
+        run: python scripts/tests/documentation.py
+      - name: Verify clean checkout after checks
+        run: python -c "import subprocess; assert not subprocess.check_output(['git','status','--porcelain']).strip(); print('ADMIN_CHECK_COMPLETE')"
