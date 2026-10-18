@@ -36,3 +36,7 @@ The module-only advisory remains open. Remaining region collectors, collector-to
 ## Recovery
 
 Read this page, the live task PR and the applicable technical contract; inspect refs, worktrees and logs before edits. Confirm the PR's head/tree/parent, merge preview and complete QA outcomes. Preserve canonical published commits, local markers and unrelated dirty work. Never reset them for convenience. Update this page and the ledger after a coherent slice or material finding; update procedure/specification documents when their requirements change. Preserve immutable historical evidence. Pending-at-publication text is a snapshot; the completed exact-revision PR body is the final QA outcome authority.
+
+## First report consuming runner, 2026-10-18
+
+Task3 preparation ONLY. Contract PR166/054aba88 and completion handoverdfa1d59 were verified/published BEFORE this runner. All26unchanged independent literal cases are consumed with full metadata/health/rows/errors/input preservation/repeated-output ownership checks; BOTH-family real collector->Catalog->report one-GET smoke cases freeze URL/1MiB/call count and full output. BOTH ProjectSQLCapabilityTable and CollectSQLCapabilityTable are ABSENT. Publish/read back and inspect actual Linux AND Windows missing APIs BEFORE report production. Expected missing-API compile failure is preparation, not runtime coverage/product regression/pass. Preserve this first runner/oracle/budget bytes and all older inputs/pins/heads. Own final implementation controls/renderer/rollback/native/source/evidence/handover remain mandatory.
