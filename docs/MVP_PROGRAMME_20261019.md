@@ -36,3 +36,8 @@ The initial sequence is superseded only by the concrete task table added after t
 ## Task2 acceptance mapping completed
 
 [MVP acceptance matrix](MVP_ACCEPTANCE_MATRIX_20261019.md) separates core-v1 and eventual parity requirements, records current code paths and remaining live/human boundaries. All seven source SKU families have some target draft implementation or diagnostic representation; this is not seven complete deployability adapters. Task3 now ranks cost collection and coordination dependencies. No product scope or requirement was removed. Administrative validation/publication is separate from product certification.
+
+
+## Task3 concrete sequence and first reevaluation
+
+[Concrete sequence](OFFLINE_SEQUENCE_20261019.md) supersedes generic collector rows with cost history/retail, required-kind identity, coordinator and public integration. The first drift/conflict review found no critical blocker. No requirement removed, no product/pin/schema change. Administrative exact-head QA remains pending; task4 independent cost-history contract preparation next. Future production depends on required contract and native/source validation.
