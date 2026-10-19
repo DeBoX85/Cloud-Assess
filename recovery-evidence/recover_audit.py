@@ -107,6 +107,16 @@ for prefix,limit in [('audit-72h-part',6),('audit-72h-events-part',3)]:
    if re.fullmatch(r'pr\d+/(metadata|review)\.json',name) or re.fullmatch(r'pr\d+/\d+/\d+\.log',name):
     assert name not in historical;historical[name]=member['text'].encode('utf-8')
   verified_parts+=1
+failed_run=obj('/actions/runs/39320700743');failed_jobs=obj('/actions/runs/39320700743/jobs?per_page=100')
+assert failed_run['head_sha']=='152ec105f0e4ef3d16f5a00b0fc5716e5285f684' and failed_run['conclusion']=='failure' and failed_jobs['total_count']==len(failed_jobs['jobs'])==1
+fj=failed_jobs['jobs'][0];flog=fetch('/actions/jobs/'+str(fj['id'])+'/logs',True)
+assert "KeyError: 'id'" in flog.decode('utf-8-sig') and 'Cleaning up orphan processes' in flog.decode('utf-8-sig')
+members['failed-recovery/39320700743/run.json']=(json.dumps(failed_run,indent=2)+'\n').encode();members['failed-recovery/39320700743/jobs.json']=(json.dumps(failed_jobs,indent=2)+'\n').encode();members['failed-recovery/39320700743/'+str(fj['id'])+'.log']=flog
+def historical_job_path(number,j):
+ assert type(j.get('run')) is int and type(j.get('job')) is int and isinstance(j.get('name'),str)
+ return 'pr'+str(number)+'/'+str(j['run'])+'/'+str(j['job'])+'.log'
+rejected('historical-job-field-mismatch',lambda:historical_job_path(148,{'run':1,'id':2,'name':'linux-native'}))
+
 edges=[];prior=None;prior_pr=None;successful=0
 for number in range(148,176):
  item=json.loads(historical['pr'+str(number)+'/review.json'])
@@ -116,7 +126,8 @@ for number in range(148,176):
   values=[]
   for j in item['jobs']:
    if j['name'].startswith(platform+'-'):
-    path='pr'+str(number)+'/'+str(j['run'])+'/'+str(j['id'])+'.log';values += [x for x in clean(historical[path]) if 'mutation rejected:' in x or x.startswith('Bootstrap checksum control:')]
+    assert type(j['run']) is int and type(j['job']) is int
+    path=historical_job_path(number,j);values += [x for x in clean(historical[path]) if 'mutation rejected:' in x or x.startswith('Bootstrap checksum control:')]
   assert len(values)==len(set(values));ordered=sorted(values);record=item['controls'][platform]
   assert len(ordered)==record['count'] and digest(('\n'.join(ordered)+'\n').encode())==record['sha256_full_lines_lf']
   current[platform]=set(ordered)
@@ -140,7 +151,7 @@ members['review.json']=(json.dumps(report,indent=2)+'\n').encode()
 members['recovery/recover_audit.py']=Path(__file__).read_bytes()
 members['recovery/workflow.yml']=(ROOT/'control/.github/workflows/audit-handover-evidence-recovery.yml').read_bytes()
 for name in ['CURRENT_STATE.md','RESTART_PROMPT.md','CHAT_TRANSFER_20261019.md','AUDIT_72H_20261019.md','DISCREPANCIES_20261019.md','METER_HISTORY_COMPLETED_20261019.md']:members['candidate/docs/'+name]=git('show',SHA+':docs/'+name)
-status='# Executor outage and recovery status\n\nExact handover code remains PR176/'+SHA+'/tree'+TREE+'. Own8workers/bothgates/source passed;580Linux/575Windows identities,87.4%coverage/75%floor,23captures/315chunks/909865bytes verified against exact Git. Local execution disconnected after the code/historical archives were published; fresh hosted read-only reconstruction retained original current/predecessor logs, raw metadata, full controls/source proof and tested negative guards using the unchanged bounded verifier. No local-only unavailable proof is invented. All16candidate Markdown files remain frozen; this storage addendum is the material current executor update, not a coding base. Source/data pins and protected refs unchanged. No critical blocker without a known mitigation found. A new chat must verify its own execution environment or use the tested isolated hosted pattern. Next is task6retail contract; no retail implementation or Azure API request has occurred. Module-only advisory, independent review/backup, operational/live/release obligations remain OPEN.\n'
+status='# Executor outage and recovery status\n\nExact handover code remains PR176/'+SHA+'/tree'+TREE+'. Own8workers/bothgates/source passed;580Linux/575Windows identities,87.4%coverage/75%floor,23captures/315chunks/909865bytes verified against exact Git. Local execution disconnected after the code/historical archives were published; fresh hosted read-only reconstruction retained original current/predecessor logs, raw metadata, full controls/source proof and tested negative guards using the unchanged bounded verifier. No local-only unavailable proof is invented. Initial hosted recipe152ec105/run39320700743 failed on a tooling job-versus-id field mismatch; corrected against the existing archive schema with a rejecting guard, and the original failed log is retained. The product candidate and all product checks were unchanged. All16candidate Markdown files remain frozen; this storage addendum is the material current executor update, not a coding base. Source/data pins and protected refs unchanged. No critical blocker without a known mitigation found. A new chat must verify its own execution environment or use the tested isolated hosted pattern. Next is task6retail contract; no retail implementation or Azure API request has occurred. Module-only advisory, independent review/backup, operational/live/release obligations remain OPEN.\n'
 restart='# Restart after executor interruption\n\nContinue DeBoX85/Cloud-Assess from branchdocs/72h-audit-handover-20261019, exact1ededa501e663d888a905d6585dafff0d11e9087, livePR176 reached through175. Read AGENTS.md, CURRENT_STATE, RESTART_PROMPT, CHAT_TRANSFER_20261019, AUDIT_72H_20261019 and DISCREPANCIES_20261019 there, plus this RECOVERY_STATUS addendum and live176final outcomes. The previous local executor disconnected; do not assume its scratch/tool paths are available or that a local-only log exists. Original code/evidence and all16documents are published. Hosted recovery recipe reconstructs original current logs/control/source/metadata and bounded-verifies without changing the candidate. Never select this archive or recipe branch as coding base. Verify refs/head/tree/parents, full evidence/readback and actual executor before editing. Tasks1-5complete offline; all75windowed runs/444jobs/416available logs audited, with skipped/cancelled metadata explicitly not passes. Then task6retail contract/literals only, researching at90%confidence or lower. No retail implementation yet. Preserve all prior heads/fixtures/pins, privacy fallback169->170 and unrelated work. Continue authorised independent work; stop/document dedicated blocker/wait for Denis only for a critical issue with no clear mitigation. No Azure/fixtures/RBAC/refresh/subagents/protected merge/bypass/release. Use Denis Bogunic identity; keep advisory/human/independent/live/release obligations open.\n'
 members['recovery/RECOVERY_STATUS_20261019.md']=status.encode();members['recovery/RESTART_AFTER_EXECUTOR_OUTAGE_20261019.md']=restart.encode()
 payload=json.dumps({'format':'cloud-assess-evidence-v1','members':[{'path':p,'text':b.decode('utf-8')} for p,b in sorted(members.items())]},ensure_ascii=True,separators=(',',':')).encode();bundle=base64.b64encode(gzip.compress(payload,mtime=0))+b'\n'
