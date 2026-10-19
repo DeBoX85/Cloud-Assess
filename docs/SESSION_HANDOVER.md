@@ -6,7 +6,7 @@ For new sessions use [CONTINUE](CONTINUE.md), the [copy-ready prompt](RESTART_PR
 
 The Cognitive batch is verified offline in PR157. The active [SQL four-task workstream](SQL_CAPABILITY_WORKSTREAM_20261017.md) records current authorization/transitions; CURRENT_STATE and the live task PR own actual status.
 
-Active authorised15-task offline programme: tasks1-3recorded, task4contractPR173/42c414ef verified offline and archived9eebdd82. First task5consumerPR174/d1and BOTH actual native missing APIs are preserved. [Closure/implementation transition](METER_HISTORY_CONTRACT_COMPLETED_20261019.md) and CURRENT_STATE own the next action; old pending/task-next paragraphs below remain historical. No implementation API exists at the ready checkpoint.
+Active authorised15-task offline programme: tasks1-3recorded, task4contractPR173/42c414ef verified offline and archived9eebdd82. First task5consumerPR174/d1and BOTH actual native missing APIs are preserved. [Closure/implementation transition](METER_HISTORY_CONTRACT_COMPLETED_20261019.md) and CURRENT_STATE own the next action; old pending/task-next paragraphs below remain historical. No implementation API exists at the historical ready checkpoint. Current implementation recovery is WIP80bbcbd83fec85316c8d780036d54c33513286f5, reached through live PR174; all10files/tree/parent/identity verified. CURRENT_STATE records subsequent local verification and next action.
 
 ---
 

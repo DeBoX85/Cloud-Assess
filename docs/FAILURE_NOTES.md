@@ -2411,3 +2411,15 @@ Initial local preparation emitted too many undefined-type/constructor diagnostic
 ## QA-MH-02: inherited cost limiter versus synthetic fixture deadline
 
 First implementation passed all67frozen cases; actual HTTP smoke failed with zero second wire calls. Reproduced on preimplementation42c414ef by calling existing HTTPClient.PostBounded directly: first1s request succeeds; second is rejected by unchanged costLimiter0.2requests/second,burst1 because its5s wait exceeds the1s attempt deadline. An independent10s attempt/30s operation allows both calls; full logs/source retained. Before changing the fixture, record this amendment: extend ONLY its timeout1to10s and operation5to30s. Preserve every URL/body/audience/closure/redirect/preauth assertion, production limits and all67literals/first runner. Original boundary bytes remain at d1; this narrowly supersedes the ready checkpoint's boundary-file byte-preservation statement for that one configuration line, not behavioural expectations. No production workaround, disabled limiter or skipped check.
+
+### QA-MH-03: masked continuation-host mutation
+
+The first compiling-control run rejected12reversals then correctly stopped when removing only host equality survived the frozen foreign-origin case. That case also has a wrong path, so independent path rejection masked the missing host check. Original production bytes restored and SHA256matched the frozen plan. Add TestMeterHistoryContinuationHostIsolation with exact same subscription path/version and only a foreign host; unchanged production passes before reversing it. Preserve all67original cases and the failed first-run log. Update only that mutation's named test, retain identical reversal and require a complete rerun. This is test strengthening with a clear mitigation, not an unresolved critical blocker.
+
+### QA-MH-04: numeric floor mutation isolation
+
+Second compiling-control run rejected27reversals before a halved minimum survived: frozen1e-13 is below both1e-12and5e-13. Original production restored and hashes verified. Add independent5e-13case expecting unknown/history_decode_invalid; unchanged production passes before reversing the floor. Preserve original67cases, both failed full logs and the unchanged halving mutation. Bind that mutation to the new isolating named test, then rerun the complete controls. This improves boundary discrimination without changing expected semantics or production.
+
+### QA-MH-05: row ceiling masked by aggregate ceiling
+
+Third run rejected28compiling reversals, then doubling the row absolute-value ceiling survived: the frozen positive1e12+1row is independently rejected by unchanged per-meter aggregation. Preserve that fixture and guard. Add negative-1000000000001row expecting unknown/history_decode_invalid before nonpositive omission; unchanged production passes before reversing row validation. Identical doubling reversal now binds this isolating named test. Production hashes remain unchanged, earlier logs retained; complete rerun and baseline still required. No production defect or unresolved critical blocker.
