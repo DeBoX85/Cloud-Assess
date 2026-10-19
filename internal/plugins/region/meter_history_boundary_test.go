@@ -286,7 +286,7 @@ func TestMeterHistoryActualBoundedPOST(t *testing.T) {
 			}
 			return &http.Response{StatusCode: status, Header: http.Header{}, Request: req, Body: &diskCloseBody{Reader: strings.NewReader(historyEmpty), closes: &closes}}, nil
 		})
-		client := azure.NewHTTPClient(cred, &azure.HTTPClientOptions{Timeout: time.Second, MaxRetries: -1, OperationTimeout: 5 * time.Second, Scope: "https://audience.example.test/.default", Transport: wire})
+		client := azure.NewHTTPClient(cred, &azure.HTTPClientOptions{Timeout: 10 * time.Second, MaxRetries: -1, OperationTimeout: 30 * time.Second, Scope: "https://audience.example.test/.default", Transport: wire})
 		c, _ := NewMeterHistoryCollector("https://management.azure.com", client)
 		r, e := c.Collect(context.Background(), map[string]string{historyTestID: "Alpha"}, historyTestRequest())
 		if e != nil || r == nil || calls.Load() != 1 || closes.Load() != 1 || cred.calls.Load() != 1 || !reflect.DeepEqual(cred.scopes, []string{"https://audience.example.test/.default"}) {

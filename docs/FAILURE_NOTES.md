@@ -2406,3 +2406,8 @@ Scope correction PR169/724504b7 own full QA/evidence9ae98507/completion handover
 ## QA-MH-01: prepublication missing-API diagnostic ordering
 
 Initial local preparation emitted too many undefined-type/constructor diagnostics before the query API appeared. No syntax or production defect. Name the strict consumer meter_history_00_contract_test.go so BOTH APIs appear before the compiler diagnostic cap. Repeated local preparation confirms undefined MeterHistoryQuery and NewMeterHistoryCollector with no syntax error. No API exists and no frozen case changed. Hosted Linux/Windows observations still required before production. Keep first published runner bytes thereafter.
+
+
+## QA-MH-02: inherited cost limiter versus synthetic fixture deadline
+
+First implementation passed all67frozen cases; actual HTTP smoke failed with zero second wire calls. Reproduced on preimplementation42c414ef by calling existing HTTPClient.PostBounded directly: first1s request succeeds; second is rejected by unchanged costLimiter0.2requests/second,burst1 because its5s wait exceeds the1s attempt deadline. An independent10s attempt/30s operation allows both calls; full logs/source retained. Before changing the fixture, record this amendment: extend ONLY its timeout1to10s and operation5to30s. Preserve every URL/body/audience/closure/redirect/preauth assertion, production limits and all67literals/first runner. Original boundary bytes remain at d1; this narrowly supersedes the ready checkpoint's boundary-file byte-preservation statement for that one configuration line, not behavioural expectations. No production workaround, disabled limiter or skipped check.
