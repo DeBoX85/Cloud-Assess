@@ -1,0 +1,32 @@
+# Current project state
+
+Updated 2026-10-19UTC. This page is the current status/resume authority. Dated status, pending and stop paragraphs in earlier documents are historical snapshots. Technical behavioral contracts remain active unless explicitly revised. The current user's authorization supersedes earlier task-specific stopping instructions.
+
+## Evidence and acceptance
+
+- Protected bootstrap/core-v1: a6fee427e19feeef28691737ea9bc5026086efa0, verified at this task's start. No protected merge or bypass is authorized.
+- Pinned AZQR: 8e4f0577f3615e6c9014c031bcad079f235369cc; APRL: 60eaddda76541f6adbc1c5ffa686829807e55e29. Source captures, modules/SDKs, action pins and public schemas are unchanged.
+- [PR148](https://github.com/DeBoX85/Cloud-Assess/pull/148), 5a1e783bafb5246aae52c7acabb3e43605c5c0bd, tree 24a62859703ca4cac0013d4c4a3632d9979834ec: verified draft CI/process checkpoint. All eight workers, both required gates and pinned-source reconstruction passed. All 385 Linux/380 Windows original control identities were preserved; race/vet coverage was 85.6% against the unchanged 75% floor. Final evidence is in the PR body, quality run 38985230761 and source run 38985230695. PR141-148 remain draft/open/unmerged; none of this stack is protected acceptance.
+- Accepted target SKU adapters: 1/7; source characterization: 7/7. Storage and VM are verified draft candidates. VMSS eligibility remains unsupported; public region selection remains unavailable. Five of six built-in plugin migrations have accepted offline implementations; full parity is not established.
+
+Published means durable code exists. Verified offline means the exact revision passed its required native/source checks. Accepted means a protected merge and the distinct accepted-push QA completed. Release approval additionally requires its recorded human/security/license/live and release gates. These statuses must never be substituted for one another.
+
+## Current checkpoint: task5 meter-history implementation WIP
+
+User authorised the15-task offline programme on2026-10-19. [Programme](MVP_PROGRAMME_20261019.md), [MVP matrix](MVP_ACCEPTANCE_MATRIX_20261019.md) and [concrete sequence/first reevaluation](OFFLINE_SEQUENCE_20261019.md) preserve core-v1 versus full parity, replace duplicate collector work, and define research at confidence90%or lower and stop/document/wait for critical blockers without clear mitigation.
+
+Task4 COMPLETE VERIFIED OFFLINE contract PR173/42c414ef: own39177925107 all8workers/bothgates and39177925097 source passed.551Linux/546Windows exact identities retained, coverage87.2%/75%floor,23captures/315chunks/909865bytes matched to candidateGit. Full45member evidence9eebdd82/all4files read back. [Closure and next action](METER_HISTORY_CONTRACT_COMPLETED_20261019.md) records complete proof and bounds. At the contract checkpoint no APIs existed; the67cases are now exercised by the local WIP implementation below, not by the historical contract QA.
+
+Task5 first strict consumer PR174/d1a65434 is preserved. BOTH actual native missing APIs39178707109/Linux117826697771/Windows117826697883 were inspected and retained BEFORE production; both gates correctly failed. This separately published ready successor adds independent supplemental admission/integration tests and completion records, preserving original oracle/contract/first runner/boundary bytes. After its complete publication/readback, implement from the test-preparation successor, never artifact/recipe branches. Product baseline remains verified PR170/8c47d810; SQL report and all original SQL tasks remain complete. No public/scoring/eligibility change.
+
+[Task5 implementation WIP](METER_HISTORY_IMPLEMENTATION_20261019.md) now provides both private APIs locally. All67unchanged cases and current supplemental tests pass, including actual HTTP after independently reproduced fixture-timeout amendment QA-MH-02. Fixed late contexts2/6/2 and focused vet pass. Recoverable WIP80bbcbd83fec85316c8d780036d54c33513286f5/tree d0eeb36b23163228f1cb4d3cf2051877e5ed6fba/parent22ada22 and all10complete files/human author read back; live PR174 forwards there. Full local region race passed113.762s.29additive compiling controls and generated CI inventory prepared, static preflight passed; first control execution is in progress. Atomic rollback/full own QA/evidence/handover remain PENDING. No critical blocker or user/Azure input is needed; complete task5 verification then reevaluate before task6. Source39178707165 succeeded but full prep-source/other prep-job archival remains to close with implementation evidence. Local shell/filesystem works in the isolated Linux checkout; pinned Go1.26.9 verified. Shell Git reads work; authenticated connector publication/readback is used for writes. Preserve unrelated work and all prior heads. No uncertain remote mutation currently recorded.
+
+## Constraints and residual obligations
+
+Preserve unrelated work and every existing draft head. No Azure operations, fixture/RBAC changes, dependency/action/SDK/source-pin/capture/public-schema refresh, subagents, protected merge or release. Human identity: Denis Bogunic, 134433647+DeBoX85@users.noreply.github.com. Keep local, native hosted, pinned-source and live validation evidence distinct.
+
+The module-only advisory remains open. Remaining region collectors, broader collector orchestration/public execution, ancillary parity commands/MCP, representative live optional stages/clouds/permissions, nested non-production management-group traversal, deterministic scale/default bounds, fresh-OS installation, hosted maintenance and independent human/security/license/Gate004/release decisions remain open. See [overall assessment](SYSTEMATIC_REVIEW_FINAL_ASSESSMENT_20261016.md) and the safeguards readiness matrix. No automated check establishes full AZQR parity or independent review.
+
+## Recovery
+
+Read this page, the live task PR and the applicable technical contract; inspect refs, worktrees and logs before edits. Confirm the PR's head/tree/parent, merge preview and complete QA outcomes. Preserve canonical published commits, local markers and unrelated dirty work. Never reset them for convenience. Update this page and the ledger after a coherent slice or material finding; update procedure/specification documents when their requirements change. Preserve immutable historical evidence. Pending-at-publication text is a snapshot; the completed exact-revision PR body is the final QA outcome authority.
