@@ -1,0 +1,9 @@
+package azure
+import("bytes";"context";"io";"net/http";"os";"strings";"testing";"time")
+func TestHistoryThrottleFixtureProof(t *testing.T){
+ adequate:=os.Getenv("HISTORY_PROOF_ADEQUATE")=="1";timeout:=time.Second;if adequate{timeout=10*time.Second}
+ calls:=0
+ opts:=&HTTPClientOptions{Timeout:timeout,MaxRetries:-1,OperationTimeout:30*time.Second,Scope:"https://audience.example.test/.default",Transport:operationTransportFunc(func(r *http.Request)(*http.Response,error){calls++;return &http.Response{StatusCode:200,Header:http.Header{},Request:r,Body:io.NopCloser(strings.NewReader("{}"))},nil})}
+ c:=NewHTTPClient(&mockCredential{token:"canary"},opts)
+ for i:=0;i<2;i++ {_,_,e:=c.PostBounded(context.Background(),"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01",NopReadSeekCloser{Reader:bytes.NewReader([]byte("{}"))},8);t.Logf("attempt=%d timeout=%s calls=%d error=%v",i+1,timeout,calls,e);if i==0 || adequate {if e!=nil{t.Fatal(e)}}else if e==nil || !strings.Contains(e.Error(),"would exceed context deadline") || calls!=1 {t.Fatal("expected inherited limiter/deadline conflict",e,calls)}}
+}

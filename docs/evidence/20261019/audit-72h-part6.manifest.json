@@ -1,0 +1,132 @@
+{
+  "format": "cloud-assess-evidence-v1",
+  "classification": "reviewed-synthetic-ci-local",
+  "bundle_sha256": "1a04e470b71f7759f1adb6f07a152d3c28aad5c42f74c5ccf9581cb3d6c185b2",
+  "decoded_sha256": "713ecacbf520fdc6fd1dc0b76f47a598c08b23489c7ded9f8b05e12d8c7e5b21",
+  "members": [
+    {
+      "path": "audit/additional-window-prs.json",
+      "bytes": 107267,
+      "sha256": "1731f1a5ef854708b2f58465a6d5d782ce5c8e2b3beb7e818c0b79526fc2054c"
+    },
+    {
+      "path": "audit/all-failure-diagnostics.json",
+      "bytes": 69308,
+      "sha256": "ba7c8a2eb158600fa925e884dc0cde18e332b3e77b9580bec783b1a4f25ed6fa"
+    },
+    {
+      "path": "audit/all28-normalized-jobs.json",
+      "bytes": 594387,
+      "sha256": "eede63d2555f80beb70ffef185e55abbd15d018a01506dea8351269cc0e7f158"
+    },
+    {
+      "path": "audit/build_bundles.py",
+      "bytes": 5291,
+      "sha256": "a9837b65cc4a114ea2e4bb5bce17254758b657cc87cdd4869fead25043e7947f"
+    },
+    {
+      "path": "audit/check_preservation.py",
+      "bytes": 3063,
+      "sha256": "4d51820fec6a825d9507bdc717a602da9f3786e4734980f621f81358f4bcd5e4"
+    },
+    {
+      "path": "audit/failure-classification-proof.json",
+      "bytes": 403,
+      "sha256": "c3f91da9764dabb916f7423df5497d2356e1c3f5d30a6d5b049042214eb294e6"
+    },
+    {
+      "path": "audit/fetch-all.log",
+      "bytes": 19348,
+      "sha256": "4d47ca3d768e5b504a97a5e01eb08ce2aa47d1c167f172d3220c1c399a066eb7"
+    },
+    {
+      "path": "audit/fetch-merge-refs.log",
+      "bytes": 2173,
+      "sha256": "f3e78d8aad0849a33afe39584fc71dbfdeeff8102d836d3973d990591627b73b"
+    },
+    {
+      "path": "audit/incomplete-local-log-copies.json",
+      "bytes": 224,
+      "sha256": "66d9e555a8b2e4681d04aad186497afc3a2b1d48d844909f0f53dfdb95342b38"
+    },
+    {
+      "path": "audit/inventory.py",
+      "bytes": 2451,
+      "sha256": "5c07ea24d9cad15212806d130d8cd9132b609aacf082eae431bab75fc8ed7a11"
+    },
+    {
+      "path": "audit/latest20-head-runs.json",
+      "bytes": 18963,
+      "sha256": "92063e06ce297bdcd00364c04ba2063c33cb6fcd840630445784134397b6e04c"
+    },
+    {
+      "path": "audit/latest20-lineage.json",
+      "bytes": 11785,
+      "sha256": "c495af05d178f075610f3acfd7761215b132073134790ebf19dd5addd4fada24"
+    },
+    {
+      "path": "audit/latest20-normalized-jobs.json",
+      "bytes": 430313,
+      "sha256": "98b31ac49b76ff9482491cdf7de20776bea2911331685e5e4cfa8d38a346152d"
+    },
+    {
+      "path": "audit/latest20-prs.json",
+      "bytes": 145960,
+      "sha256": "b5dad31320c695403661d66a3de40108bd24bac512a41fd0ff8e5cb92742b930"
+    },
+    {
+      "path": "audit/local-worktree-inventory.json",
+      "bytes": 6398,
+      "sha256": "5c04be5b0c0421ab1397ceb998676697ce9241e3c694b90b421a2bde283a1dc7"
+    },
+    {
+      "path": "audit/log-transfer-proof.json",
+      "bytes": 566,
+      "sha256": "19cab5818a7f5f79079e142bbe0a7d47b30dd462bf3b464029c29cc571fa0a20"
+    },
+    {
+      "path": "audit/preservation-proof.json",
+      "bytes": 1915,
+      "sha256": "4d0074ba61259b6888fa18b0da291cc45dcf80804b7f5c76faa55ed6d5ba5267"
+    },
+    {
+      "path": "audit/reachable-72h-commits.txt",
+      "bytes": 14741,
+      "sha256": "90a437bb535e9193e160fe46128724ad011f0e52e75d93bf880daa038783dccc"
+    },
+    {
+      "path": "audit/rejected-local-copies/117823275941.partial.log",
+      "bytes": 48002,
+      "sha256": "66a6e8c42dfa8f32bdf159501ace012b8ad411d12f1fdc720a9a2e36493d34a2"
+    },
+    {
+      "path": "audit/remote-72h-commit-inventory.json",
+      "bytes": 75948,
+      "sha256": "b2a153dc918e2f8d6e5cc238698c39f6df58265bafa0e47a34bf78ab52f0769c"
+    },
+    {
+      "path": "audit/remote-heads-before.txt",
+      "bytes": 17897,
+      "sha256": "37cba3f1edae9e44b84f851e4372d2ea4541403c3d83f7719e57603860d32e63"
+    },
+    {
+      "path": "audit/review_logs.py",
+      "bytes": 6532,
+      "sha256": "8ecb7d6dd122c2b1f8a4b3d9b92c619b2a19a4a43ceef75e20103402193e1876"
+    },
+    {
+      "path": "audit/summary.json",
+      "bytes": 18908,
+      "sha256": "8b9896bfcf6c20d3ff67648d03529a303117a7263af84b87a30ef7f18139b922"
+    },
+    {
+      "path": "audit/window-prs.json",
+      "bytes": 237270,
+      "sha256": "343682672c84f9366dc3a7e1e3cfe5f493f2705941d39f13aa049558fe59df58"
+    }
+  ],
+  "revisions": {
+    "candidate": "eb554ee826187bef05126d3c59e81eb4bd68ecf8",
+    "protected": "a6fee427e19feeef28691737ea9bc5026086efa0"
+  }
+}
