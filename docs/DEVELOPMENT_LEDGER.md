@@ -5235,3 +5235,8 @@ User authorised15offline tasks with explicit reevaluation/research/escalation ru
 ## 2026-10-19: tasks2-4 MVP mapping, reevaluation and history contract
 
 [MVP matrix](MVP_ACCEPTANCE_MATRIX_20261019.md) and [concrete sequence](OFFLINE_SEQUENCE_20261019.md) published/read back in PR172/3cf6eca8; no duplicate collector work. [Cost-history contract](REGION_METER_HISTORY_CONTRACT_20261019.md) prepares67independent future literals and integrity check before any target API. Pinned source SDK confirmed API2021-10-01; source caller validates1-12months; existing bounded POST reused by contract. Local full region baseline, focused integrity/static preflight and1503authored links pass; full contract own QA and runtime consumer are pending. No Azure/product/pin/capture/control/schema edits. First reevaluation found no unresolved critical blocker.
+
+
+## 2026-10-19: task4 contract closure before task5 production
+
+PR173/42c414ef own full8workers/bothgates39177925107 and source39177925097 passed;551Linux/546Windows exact identities, coverage87.2%,23captures/315chunks/909865bytes. Full45member evidence9eebdd82 read back. First strict consumerPR174/d1published before APIs; both actual native missing APIs observed in39178707109with retained full logs/hashes before production. [Completion and transition](METER_HISTORY_CONTRACT_COMPLETED_20261019.md) updates handover BEFORE implementation, with independent metadata/numeric/context/cost-integration tests and explicit incomplete-prefix protection. Original67cases/contract/first runner/boundary tests unchanged. No production API or public capability exists yet. No critical blocker, Azure operation, pin/schema/capture/control relaxation or protected action.

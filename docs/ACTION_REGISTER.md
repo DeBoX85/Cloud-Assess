@@ -70,3 +70,5 @@ OP-001: task1 repository/evidence reconciliation complete; publication/readback 
 OP-004: cost-history contract and67future cases prepared; no API/runtime coverage. Own native/source QA, strict consuming runner and both-host absent-API observation precede OP-005production. Source caller1-12validation resolved by direct inspection; bounded POST already exists.
 
 OP-005 PREPARATION: strict67-case consumer plus independent supplemental tests/budget proof while BOTH APIs absent. Expected native compilation failure must be inspected on Linux AND Windows; contract own QA/evidence remains a production gate. No runtime/implementation completion claimed.
+
+OP-004 CLOSED VERIFIED OFFLINE: PR173/42c414ef, own39177925107+39177925097/full45member evidence9eebdd82 read back. OP-005 READY for bounded implementation after this ready checkpoint publication/readback; BOTH actual native missing APIs inspected before production; firstd1runner/oracle/boundary bytes preserved. [Transition](METER_HISTORY_CONTRACT_COMPLETED_20261019.md). No runtime/implementation pass claimed.
