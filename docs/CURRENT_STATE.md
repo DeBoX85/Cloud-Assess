@@ -1,0 +1,31 @@
+# Current project state
+
+Updated 2026-10-19T19:57:53.132308+00:00. This is the current status/resume authority. Earlier dated progress, executor, pending and STOP paragraphs are historical snapshots. Technical contracts remain active unless explicitly revised. The live task PR owns exact-revision QA outcomes.
+
+## Canonical state and acceptance
+
+Protected bootstrap/core-v1 remains a6fee427e19feeef28691737ea9bc5026086efa0. Pinned AZQR8e4f0577f3615e6c9014c031bcad079f235369cc/tree17d93b20c303f90f7843036be82f0dc32f3260f1 and APRL60eaddda76541f6adbc1c5ffa686829807e55e29 are unchanged. No protected merge, bypass or release is authorised.
+
+Latest verified product: [draft PR175](https://github.com/DeBoX85/Cloud-Assess/pull/175), eb554ee826187bef05126d3c59e81eb4bd68ecf8, tree30d91cfab3cac86021c49902f1b18a785ea2b1ca, sole parent80bbcbd83fec85316c8d780036d54c33513286f5. Own quality39182715043 all8workers/bothgates and source39182715015 passed.580Linux/575Windows exact identities,87.4%coverage/unchanged75%floor,23captures/315chunks/909865UTF8bytes compared to exact Git. All67frozen history cases execute. Full local repository preflight,29compiling reversals and source/runner rollback/restoration passed. [Task5 closure](METER_HISTORY_COMPLETED_20261019.md) records proof.
+
+Published, verified offline, protected acceptance and release are distinct. Accepted means protected merge plus accepted-push QA, not a green draft. Accepted SKU adapters remain1/7; all7families have draft collectors or diagnostic representations. Five of six built-in migrations have offline implementations; public region execution is absent. No overall MVP percentage is established.
+
+## All-event scope completion
+
+The complete all-events check covers75runs (64PR/11push),444job records and416retained available logs:58successful/12failed/5cancelled runs. The28final PR-head pairs account for56runs/308complete logs;19earlier-head/push runs add108available logs. Six jobs were skipped and22cancelled before runner allocation, with no steps/logs; none is called verification. All32successful source runs reconstruct736capture instances/10080chunks/29115680UTF8bytes against their own Git. Six completed success/failure/skipped hosted probes at149/152 were reverified using the unchanged strict validator. The two additional red heads are expected absent Cognitive/VMSS APIs; two QA recipes have no product-code delta.25preceding boundary runs were also checked: none updated within the request window.
+
+## Active checkpoint and next action
+
+Tasks1-5 of the authorised15-task [programme](MVP_PROGRAMME_20261019.md) are complete offline. [Sequence](OFFLINE_SEQUENCE_20261019.md) and [acceptance matrix](MVP_ACCEPTANCE_MATRIX_20261019.md) retain core-v1 versus broader parity. Completed SQL/Cognitive/VMSS/report/history work must not be replayed from old snapshots.
+
+The user's additional [72hour audit](AUDIT_72H_20261019.md) reviewed latest20PRs156-175 plus148-155:28PRs/56runs/308complete logs,28source reconstructions and64recent remote-reachable commits from214heads. [Discrepancies](DISCREPANCIES_20261019.md) distinguish stale status, dropped historical completion context, intentional fallback, contract clarification and rejected partial local log copies. No unexplained inspected current divergence or critical blocker was found. Unpublished/inaccessible forked chats and deleted/unreachable refs cannot be excluded.
+
+Current handover branch: docs/72h-audit-handover-20261019, based on exact175, documentation only. Reach its live draft PR through175's verified continuation and inspect its own exact-head QA/archive/readback before feature work;175's green does not certify a changed documentation tree. Then task6: freeze retail metadata/pricing contract and independent literals against pinned source/Microsoft documentation. No retail implementation has started. Task7 follows its own preparation. Reevaluation after5 is recorded; repeat after10/15/material findings. Continue authorised independent work without reapproval. Stop/document dedicated blocker/wait for Denis only for a critical issue without a clear evidence-supported mitigation.
+
+## Evidence and recovery
+
+[RESTART_PROMPT](RESTART_PROMPT.md), [transfer checkpoint](CHAT_TRANSFER_20261019.md), [CONTINUE](CONTINUE.md) and [continuity procedure](CONTINUITY.md) route recovery. Product evidence01e63c54cf9aa65bcc14d178b2752208c916d379/tree8181c643f48a6b9eaf0159ec507e1eae2b60b012/parent175 retains89members/4408532UTF8bytes;572809bundlebytes, SHA256cecd1dce92fc34bfc2690aee15a1925c979f76d2ba5b25475c0d726248786f1d; bounded verifier/all4files read back. [Audit evidence](https://github.com/DeBoX85/Cloud-Assess/blob/2fa53c346a19798e4ad90124d26275a32d42ae91/docs/evidence/20261019/AUDIT_72H_EVIDENCE.md): 2fa53c346a19798e4ad90124d26275a32d42ae91/tree505d4ad55cc12ffcac5d62ef0802127f8c8c3547/parent45c565d6, all22complete files/nine remote bounded bundles read back through fetched Git. Archives/QA recipes are storage or tooling, never development bases or independent backups.
+
+Executor: isolated Linux, pinned Go1.26.9, readonly modules; shell/filesystem/Git reads work, authenticated connector writes with complete readback. Preserve every old dirty worktree; implementation dirty bytes match published175. Reconstruct from remote if scratch disappears. Verify live refs and uncertain operations before retry. No uncertain remote mutation is recorded at this checkpoint.
+
+No Azure/fixtures/RBAC, dependency/action/SDK/source/capture/public-schema refresh, subagents, protected merge/bypass or release. Human identity Denis Bogunic <134433647+DeBoX85@users.noreply.github.com>.1module-only advisory stays OPEN despite0reachable/imported findings. Independent human review/backup, supported fresh-OS/operational rollback, representative scale/live clouds/permissions/optional stages, security/license/Gate004/acceptance/release remain open. VMSS scoring/unproven SQL eligibility stay unsupported. Source rollback is not installed/live recovery.
