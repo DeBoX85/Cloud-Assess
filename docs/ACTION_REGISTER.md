@@ -72,3 +72,18 @@ OP-004: cost-history contract and67future cases prepared; no API/runtime coverag
 OP-005 PREPARATION: strict67-case consumer plus independent supplemental tests/budget proof while BOTH APIs absent. Expected native compilation failure must be inspected on Linux AND Windows; contract own QA/evidence remains a production gate. No runtime/implementation completion claimed.
 
 OP-004 CLOSED VERIFIED OFFLINE: PR173/42c414ef, own39177925107+39177925097/full45member evidence9eebdd82 read back. OP-005 READY for bounded implementation after this ready checkpoint publication/readback; BOTH actual native missing APIs inspected before production; firstd1runner/oracle/boundary bytes preserved. [Transition](METER_HISTORY_CONTRACT_COMPLETED_20261019.md). No runtime/implementation pass claimed.
+
+## Audited closure and remaining actions,2026-10-19
+
+CURRENT_STATE and the72hour audit supersede old executor/next-task statements. Original SQL batch158/160/163/165 and report166/169/170 are complete offline. A12line contract-completion narrative from dfa1d59c/PR166 was dropped during the intentional fallback; evidenceefcafa64 and170remain retained. This current closure restores provenance without reactivating old task3.
+
+| Action | State/next |
+| --- | --- |
+| Programme1-5 | Complete offline;175/evidence01e63c54, not protected acceptance |
+| Requested retrospective |28PRs/56runs/308logs reviewed; evidence45c565d6 |
+| Handover candidate | Own exact-head QA/archive in live successor to175 |
+| Programme6 | Next: retail contract/literals; no implementation yet |
+| Programme7-15 | Follow OFFLINE_SEQUENCE; reevaluate10/15/material findings |
+| Advisory/human/live/release | Open, unchanged |
+
+All-event completion:75runs/444job records/416available logs,32source reconstructions and six completed strict hosted probes verified.22unassigned cancelled jobs and six skipped jobs have no logs and are not passes. Complete evidence2fa53c34 supplements initial45c565d6; audit/discrepancyD11 records scope closure. Next remains current handover QA, then task6.

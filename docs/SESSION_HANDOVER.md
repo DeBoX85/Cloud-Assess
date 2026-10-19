@@ -1,12 +1,8 @@
 # Current status and authority
 
-Read [CURRENT_STATE](CURRENT_STATE.md) for current status, authorization and the next action, and [development workflow](DEVELOPMENT_WORKFLOW.md) for procedure. Dated progress and resume sections below are historical snapshots; behavioral requirements remain in force unless explicitly revised. The live task PR records exact-revision QA outcomes separately from protected acceptance.
+Read [CURRENT_STATE](CURRENT_STATE.md) for current status/authorization/next action and [development workflow](DEVELOPMENT_WORKFLOW.md) for procedure. Earlier dated sections are historical snapshots; behavioral requirements remain in force unless explicitly revised. The live task PR owns exact-revision outcomes, separate from protected acceptance.
 
-For new sessions use [CONTINUE](CONTINUE.md), the [copy-ready prompt](RESTART_PROMPT.md) and [continuity procedure](CONTINUITY.md). The [2026-10-17 handoff](HANDOFF_20261017.md) is a historical recovery snapshot; the active task PR owns its exact-revision outcomes.
-
-The Cognitive batch is verified offline in PR157. The active [SQL four-task workstream](SQL_CAPABILITY_WORKSTREAM_20261017.md) records current authorization/transitions; CURRENT_STATE and the live task PR own actual status.
-
-Active authorised15-task offline programme: tasks1-3recorded, task4contractPR173/42c414ef verified offline and archived9eebdd82. First task5consumerPR174/d1and BOTH actual native missing APIs are preserved. [Closure/implementation transition](METER_HISTORY_CONTRACT_COMPLETED_20261019.md) and CURRENT_STATE own the next action; old pending/task-next paragraphs below remain historical. No implementation API exists at the historical ready checkpoint. Current implementation recovery is WIP80bbcbd83fec85316c8d780036d54c33513286f5, reached through live PR174; all10files/tree/parent/identity verified. CURRENT_STATE records subsequent local verification and next action.
+Use [CONTINUE](CONTINUE.md), [RESTART_PROMPT](RESTART_PROMPT.md), [transfer checkpoint](CHAT_TRANSFER_20261019.md) and [continuity procedure](CONTINUITY.md). Tasks1-5complete offline in PR175. [Audit](AUDIT_72H_20261019.md)/[discrepancies](DISCREPANCIES_20261019.md) reconcile28PRs/308logs and route the current handover candidate. Check its own QA before task6retail contract; no critical input/Azure access needed.
 
 ---
 

@@ -56,3 +56,11 @@ After publishing the candidate, create three fresh isolated probe refs at its pr
 scripts/tests/handoff.py checks stable authority headers on the principal resume/specification entrypoints; adversarial cases reject missing authority, obsolete per-task stops and loss of the historical/behavioral distinction. This is a routing guard, not a semantic proof of every paragraph. Review changed documents and their links manually as well. Current status belongs in CURRENT_STATE; immutable historical evidence remains historical.
 
 Self-review, automated checks and independent review are separate evidence. No independent analysis service is callable in the current connection and no human review is recorded; record that obligation as open before protected acceptance/release. Continue authorized independent development without inventing a review or a new approval requirement. Additional live/release work requires its actual scope and access, and cannot be replaced by offline fixtures.
+
+## Retrospective reconciliation and complete-log transfer
+
+Freeze request-time PR/time/ref scope for fork concerns. Inspect heads/trees/parents/successor records; distinguish product/preparation/artifact/recipe branches; compare carried-forward code/frozen expectations and record inaccessible/unreachable evidence limits. Preserve failures and their replacements separately. Never reset/merge branches merely to force one lineage.
+
+A successful fetch/write alone does not establish a complete log. Check chunk offsets/sizes, read saved bytes back, require complete runner footer/job/checkout identity, full control/capture inventories and hashes. Retain/reject partial copies and refetch before acceptance. Two48002byte prefixes were detected; cause unknown. Never weaken inventory assertions to accept a green job's incomplete local log.
+
+PR-filtered run helpers are insufficient for a time-window audit: enumerate all events/pagination, compare to per-head runs, include superseded/cancelled heads and push recipes/probes, and inspect preceding boundary records. Preserve unavailable logs only as explicit no-runner/no-step skipped/cancelled metadata; never call them passed. The2026-10-19 audit closed this gap in its all-event addendum.

@@ -2,6 +2,8 @@
 
 Bookmark this page or [the copy-ready prompt](RESTART_PROMPT.md). Read [CURRENT_STATE](CURRENT_STATE.md) for current status and exact next action. This page routes recovery; it does not grant additional authorization or certify QA.
 
+Current transfer: [2026-10-19 checkpoint](CHAT_TRANSFER_20261019.md), [audit](AUDIT_72H_20261019.md) and [discrepancies](DISCREPANCIES_20261019.md). Follow verified live-PR continuation; preserve old bookmark heads.
+
 ## Start here
 
 1. Read root [AGENTS.md](../AGENTS.md), CURRENT_STATE and the active task PR identified there. Verify live branch/head/tree/parents, protected baseline and actual worktree before editing. Do not select a branch merely because it is newest.

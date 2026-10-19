@@ -46,3 +46,9 @@ The initial sequence is superseded only by the concrete task table added after t
 ## Preparation overlap reevaluation
 
 Task4 contract/oracle42c414ef is frozen/published/read back; its own quality39177925107 is pending and source39177925097 passed full reconstruction. Separate task5 strict consumer and supplemental tests may be published while BOTH APIs are absent, overlapping independent test-only preparation with hosted QA. This does not relax the production dependency: complete contract QA/evidence and inspect BOTH native absent-API logs first. No production API exists and compile failure is preparation, not product regression or runtime coverage. Distinct-meter overflow is derived from raw-row bound; [test plan](REGION_METER_HISTORY_TEST_PLAN_20261019.md) records the independent arithmetic. No critical blocker, frozen expectation change or scope expansion.
+
+## Reevaluation after5 and requested retrospective
+
+Task5 complete offline175: complete-only history-to-cost integration, own full controls/source/rollback/evidence. Three masked mutations strengthened without changing frozen expectations/production. No duplicated collectors, public schema refresh, scope expansion or requirement deletion justified. User requested72hour audit/new-chat-ready handover before next feature. No critical blocker; finish current handover own QA/readback, then task6without reapproval.
+
+All-event completion:75runs/444job records/416available logs,32source reconstructions and six completed strict hosted probes verified.22unassigned cancelled jobs and six skipped jobs have no logs and are not passes. Complete evidence2fa53c34 supplements initial45c565d6; audit/discrepancyD11 records scope closure. Next remains current handover QA, then task6.

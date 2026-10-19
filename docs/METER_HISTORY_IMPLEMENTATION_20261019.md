@@ -1,3 +1,9 @@
+# Completed offline: task5
+
+[Task5 closure](METER_HISTORY_COMPLETED_20261019.md) and live175own final outcomes. Earlier WIP paragraphs below are historical, not remaining work. [CURRENT_STATE](CURRENT_STATE.md) owns continuation.
+
+---
+
 # Meter-history implementation work in progress
 
 Programme task5, based on published ready22ada22bc01da4fa1a62d4afa1cd6195fccda9b0, following verified contract PR173/42c414ef/evidence9eebdd82 and BOTH native absent APIs in PR174/d1. No Azure operations or public integration.

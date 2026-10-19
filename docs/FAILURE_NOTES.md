@@ -2423,3 +2423,11 @@ Second compiling-control run rejected27reversals before a halved minimum survive
 ### QA-MH-05: row ceiling masked by aggregate ceiling
 
 Third run rejected28compiling reversals, then doubling the row absolute-value ceiling survived: the frozen positive1e12+1row is independently rejected by unchanged per-meter aggregation. Preserve that fixture and guard. Add negative-1000000000001row expecting unknown/history_decode_invalid before nonpositive omission; unchanged production passes before reversing row validation. Identical doubling reversal now binds this isolating named test. Production hashes remain unchanged, earlier logs retained; complete rerun and baseline still required. No production defect or unresolved critical blocker.
+
+### QA-72H-01: stale state, dropped narrative and partial transfer
+
+Retrospective found WIP status after175closure,12historical ACTION_REGISTER lines dropped by intentional report fallback, and a second local48002byte prefix. No production/expectation loss:168region tree equals170, original regressions and169privacy fix retained. Full308log review reconstructed28source runs/conserved all successful controls. Corrected active status/provenance; old next-task instructions stay historical. Partial172log retained/refetched/verified; earlier175partial hash unavailable, not invented. Cause unknown; saved-byte completeness/control/capture/hash checks mandatory. No CI workaround or critical unresolved blocker.
+
+### QA-72H-02: PR-only workflow coverage gap
+
+Before declaring the72hour audit complete, the PR-filtered helper was found to omit push/earlier/cancelled events. A paginated time-bounded all-events query returned75runs rather than56current-head pairs. Reviewed all19extra runs/136jobs:108available logs, six skipped and22cancelled before allocation/no steps/logs.32source reconstructions/six controlled hosted probes pass; two extra absent-API preparations and five cancelled runs stay nonacceptance. Boundary25older runs have no overlap. No new product defect; full evidence2fa53c34 preserves the addendum and initial45c565d6 remains immutable.
