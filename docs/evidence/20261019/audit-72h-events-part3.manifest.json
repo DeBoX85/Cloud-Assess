@@ -1,0 +1,47 @@
+{
+  "format": "cloud-assess-evidence-v1",
+  "classification": "reviewed-synthetic-ci-local",
+  "bundle_sha256": "b1e551c95bc10f5d32ace982e6289f2308d24c40f92a2e079edc0bbd8737c847",
+  "decoded_sha256": "b3a0e2d92edd9a847f3bc2714f6ba7fa490f104cad3e549996db08bf8fd18e62",
+  "members": [
+    {
+      "path": "audit/additional-event-runs.json",
+      "bytes": 271995,
+      "sha256": "e6e8fbfc8660e2b16b5b00a75cb5fbfcb2a7cf4c6cd7c923bc6a8df9604a1fa4"
+    },
+    {
+      "path": "audit/additional-events-jobs.json",
+      "bytes": 533779,
+      "sha256": "230943cb14b4603a6c23b7252b3beb664564e362c56720f7482b68c3ba8f8f22"
+    },
+    {
+      "path": "audit/additional-unavailable-jobs.json",
+      "bytes": 5127,
+      "sha256": "db1c1f2c8a6288253c951d8474f55b0b3544d21d9f2715dc6414db4bfbec672f"
+    },
+    {
+      "path": "audit/all-event-summary.json",
+      "bytes": 14269,
+      "sha256": "0d9ea68689976656b3c7446c61592594ae559a6f87d364d3bc04e92ccbd599f5"
+    },
+    {
+      "path": "audit/build_event_bundles.py",
+      "bytes": 3792,
+      "sha256": "faba1838fe96b75d9da7bc51296d6a7f3ed72a895763166d3440e093c766920e"
+    },
+    {
+      "path": "audit/review_additional_events.py",
+      "bytes": 5659,
+      "sha256": "e39eb44be9e21a0cf77bf7df010cca957e4f6394adcc353d343485fd3455b14a"
+    },
+    {
+      "path": "audit/window-all-events-page1.json",
+      "bytes": 948554,
+      "sha256": "18a6926e2a162772ce994742e51d5be99ef70f4b1c1705d91bdd42575a14ab4e"
+    }
+  ],
+  "revisions": {
+    "candidate": "eb554ee826187bef05126d3c59e81eb4bd68ecf8",
+    "protected": "a6fee427e19feeef28691737ea9bc5026086efa0"
+  }
+}

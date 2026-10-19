@@ -14,3 +14,15 @@ Each part passed the unchanged bounded verifier before publication. Do not execu
 - [Part6](audit-72h-part6.json.gz.base64), [manifest](audit-72h-part6.manifest.json):24members,1839113UTF8bytes,SHA2561a04e470b71f7759f1adb6f07a152d3c28aad5c42f74c5ccf9581cb3d6c185b2.
 
 The separate [preimplementation throttling reproduction helper](history-throttle-fixture-proof.go.txt) is retained as inert source text, SHA2563724c6faf5d996f201d5b5ad92b84b07d24e4729951b13d104d4ac7017795c48. Read before execution. Its original isolated42c414ef checkout and the short/adequate-timeout logs are recorded in PR175 evidence; it is not compiled product code.
+
+## All-event coverage addendum
+
+The original six parts retain the28final PR-head pairs (56runs/308complete logs). A time-bounded all-events listing additionally identified19runs, including earlier PR heads, QA recipes and push gate probes. Full request-time inventory:75runs (64PR/11push),58success/12failure/5cancelled,444job records,416available retained logs. Six jobs were skipped and22cancelled before runner allocation; all have no steps/logs and are never acceptance evidence. Six completed controlled hosted probes were reverified with the unchanged validator: success/failure/skipped for149and152. All32source runs reconstruct736capture instances/10080chunks/29115680bytes against their own Git revisions. Two extra red preparation heads are expected absent Cognitive/VMSS APIs; successful replacements retained. Two QA recipes have no product-code delta. Five cancelled runs stay cancelled.
+
+This closes the PR-only API coverage gap; the old parts remain immutable and do not pretend to cover the additional events. Raw listing/metadata, all available extra logs, unavailable-job records, source/probe verifications and scripts follow.
+
+- [Event part1](audit-72h-events-part1.json.gz.base64), [manifest](audit-72h-events-part1.manifest.json):98members,6857077UTF8bytes,SHA256f4f43d1f2299ac298470eb6656842bd3bd01888e828b38e8d99252993d8717ca.
+- [Event part2](audit-72h-events-part2.json.gz.base64), [manifest](audit-72h-events-part2.manifest.json):77members,2220410UTF8bytes,SHA2565f5137e8218a803c2b5a04d3e1749a30aaead227e6b53bcfd9e246a523d2bbee.
+- [Event part3](audit-72h-events-part3.json.gz.base64), [manifest](audit-72h-events-part3.manifest.json):7members,1783175UTF8bytes,SHA256b1e551c95bc10f5d32ace982e6289f2308d24c40f92a2e079edc0bbd8737c847.
+
+A [boundary check](audit-workflow-boundary-proof.json) inspected25preceding workflow runs: none updated within the request window. The nearest earlier quality run completed2026-10-16T19:04:21Z, before the19:26:52Zcutoff.
