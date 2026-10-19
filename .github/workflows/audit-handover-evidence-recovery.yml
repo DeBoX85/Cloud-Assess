@@ -1,0 +1,41 @@
+name: Audit handover evidence recovery
+
+on:
+  push:
+    branches:
+      - 'qa/audit-handover-evidence-recovery-*'
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  evidence-recovery:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - name: Checkout isolated recovery recipe
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          path: control
+          persist-credentials: false
+      - name: Checkout exact unchanged handover candidate
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: 1ededa501e663d888a905d6585dafff0d11e9087
+          path: candidate
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Checkout exact bounded historical evidence
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: 2fa53c346a19798e4ad90124d26275a32d42ae91
+          path: checkpoint
+          persist-credentials: false
+      - name: Compile, reconstruct, test guards and verify bounded evidence
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: |
+          python -m py_compile control/recovery-evidence/recover_audit.py
+          python control/recovery-evidence/recover_audit.py
