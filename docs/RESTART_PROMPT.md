@@ -1,3 +1,4 @@
+<!-- 2026-10-20: Read CURRENT_STATE autonomous-batch entry and live task PR first. Retail task6 contract QA pending; no production started. -->
 # Continue Cloud Assess
 
 Continue DeBoX85/Cloud-Assess through live PR175's verified successor, branchdocs/72h-audit-handover-20261019. Read AGENTS.md, docs/CONTINUE.md, CURRENT_STATE.md, CHAT_TRANSFER_20261019.md, AUDIT_72H_20261019.md, DISCREPANCIES_20261019.md and OFFLINE_SEQUENCE_20261019.md. Verify live ref/head/tree/parents, own full QA/evidence and actual worktrees before editing; older STOP/pending/executor paragraphs are snapshots.
