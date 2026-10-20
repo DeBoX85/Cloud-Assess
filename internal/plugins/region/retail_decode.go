@@ -58,6 +58,10 @@ func retailJSON(ctx context.Context, body []byte, work *int) string {
 		if delim != '{' && delim != '[' {
 			return "retail_decode_invalid"
 		}
+		// Container levels, including an empty root, count toward depth.
+		if depth >= 32 {
+			return "retail_limit"
+		}
 		keys := map[string]bool{}
 		for d.More() {
 			if delim == '{' {

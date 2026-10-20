@@ -6,7 +6,7 @@
     "failure_after_GET": 2
   },
   "source_sha256": {
-    "internal/plugins/region/retail_decode.go": "2622d40413a2cf1b014f054eb1fdd4c2d14bb9fc77ee042ea5cd83fd473d9386",
+    "internal/plugins/region/retail_decode.go": "eb63c0c734f2dc53d896314947894e4fd888806ebb77a6475038a842b2d09b31",
     "internal/plugins/region/retail_http.go": "b230add077b06bd2ee66209c7aacb48d358b4302bc9a6220e689eb30bef08c2e",
     "internal/plugins/region/retail_pricing.go": "68f7a09fe4aec30e88c99ceaf51869ac7a65b26ef3384a2f506c0942a0922bec"
   },
@@ -262,10 +262,10 @@
     {
       "name": "json-depth-cap",
       "file": "internal/plugins/region/retail_decode.go",
-      "old": "depth > 32",
-      "replace": "depth > 33",
+      "old": "depth >= 32",
+      "replace": "depth > 32",
       "count": 1,
-      "test": "TestRetailJSONExactBudgets"
+      "test": "TestRetailEmptyContainerDepth"
     },
     {
       "name": "json-string-cap",
@@ -352,6 +352,7 @@
     "First complete-only reversal selected a cost eligibility test that could not detect a wrong status paired with an empty map. Preserve original surviving-control log; use unchanged frozen zero-price status/map assertion instead. No production or test expectation change.",
     "Removed redundant failure-entry context reversal after it correctly remained observable-equivalent because final context check still rejects cancellation. Underlying failure test retained.",
     "Required-bool reversal now uses an independent pricing-phase null/string/number test; metadata primary=true condition masks this issue on metadata pages. No frozen expectation changed.",
-    "Exact Go primary-source review found lenient RFC3339 fallback, missing-date sentinel and subnanosecond truncation. New literal tests fail uncorrected code and pass strict/exact corrected code; four compiling reversals added."
+    "Exact Go primary-source review found lenient RFC3339 fallback, missing-date sentinel and subnanosecond truncation. New literal tests fail uncorrected code and pass strict/exact corrected code; four compiling reversals added.",
+    "QA-RETAIL-05: current Go scanner confirms nesting counts containers including empty ones. Independent33empty-container page fails182code. Corrected direct container guard; preserve42controls with depth reversal targeting that actual guard. No frozen expectations changed."
   ]
 }

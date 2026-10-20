@@ -158,3 +158,20 @@ func TestRetailRunBindingBudget(t *testing.T) {
 		t.Fatal("limited prefix became cost evidence", s, len(prices))
 	}
 }
+
+func TestRetailEmptyContainerDepth(t *testing.T) {
+	// Depth counts containers: the top-level object is the first level.
+	for _, n := range []int{31, 32} {
+		body := strings.TrimSuffix(retailFixture(t), "}") + `,"extra":` + strings.Repeat("[", n) + strings.Repeat("]", n) + `}`
+		r, e, calls := retailRun(t, func(int, string) ([]byte, *http.Response, error) {
+			return []byte(body), &http.Response{StatusCode: 200}, nil
+		})
+		if n == 31 {
+			if e != nil || r.Status != "complete" || calls != 2 {
+				t.Fatal("32container boundary rejected", r, e, calls)
+			}
+		} else if e != nil || r.Status != "unknown" || r.FailureCode != "retail_limit" || calls != 1 {
+			t.Fatal("33empty containers admitted", r, e, calls)
+		}
+	}
+}

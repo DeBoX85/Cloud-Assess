@@ -2458,3 +2458,8 @@ Current authority: [CURRENT_STATE](CURRENT_STATE.md). Initial retail development
 ## QA-RETAIL-03/04, 2026-10-20
 
 Current authority: [CURRENT_STATE](CURRENT_STATE.md). [Retail implementation record](REGION_RETAIL_IMPLEMENTATION_20261020.md) preserves original surviving control attempts, redundant failure-context mutation removal and explicit pricing-bool test coverage. No frozen expectations changed. Pinned Go RFC3339 fallback/precision review exposed timestamp/missing-date semantics gaps; independent literals fail old WIP and exact corrected date comparisons pass, with4compiling reversals. All42final reversals/restorations and full serial preflight pass. Prevent recurrence by selecting assertions sensitive to the changed observable behavior, preserving masked-bound distinctions and checking standard-library parsing leniency instead of assuming a named format is strict.
+
+
+## QA-RETAIL-05, 2026-10-20
+
+Current authority: [CURRENT_STATE](CURRENT_STATE.md).182depth guard bounded child-value edges but allowed33empty compound containers against32container cap. New independent boundary test reproduces failure;3line compound-token guard corrects it without changing frozen cases. Pinned Go scanner counts container parse states including empties.42identities retained; depth control now targets actual guard/new test. Preserve182/full actual logs, require corrective own QA. Prevention: include empty arrays/objects at both exact nesting boundaries, not only deepest primitive leaves. Clear mitigation, no user decision/blocker. See [implementation record](REGION_RETAIL_IMPLEMENTATION_20261020.md).

@@ -43,3 +43,10 @@ Coherent rollback/restoration is next, then final candidate publication/readback
 
 
 Coherent rollback/restoration PASSED for all25task-owned code/test/workflow/documentation files to exact verified180. The old region package compiles/tests successfully without retail APIs/runners; exact final bytes restored and every retail test passes again. Generated Python bytecode caches were excluded from the final owned-file set. Full source hashes/file dispositions and complete logs are retained. Local source/runner rollback is not installed/live rollback. Final own-host gates/evidence remain PENDING at authoring; live final PR owns actual outcomes.
+
+
+## QA-RETAIL-05: empty-container depth correction
+
+Final boundary audit of182/aa304cf7 found an off-by-one case:32edges admitted33nested empty containers, despite the stated32container limit. Pinned Go encoding/json/scanner.go counts its parse-state containers, including empty ones; matching that established convention needs a direct compound-token guard, not only a child-value depth guard. Independent TestRetailEmptyContainerDepth fails182behaviorally before the3line correction. Corrected code admits32container levels and rejects33empty levels; all frozen/prepared/additional TestRetail tests pass. JSON token counts and all other limits remain unchanged.42control identities retained; depth control now reverses the actual container guard and selects the independently failing empty-container test. No prior expectation was weakened.
+
+Preserve182head and its own actual QA separately; even green182CI does not cover this newly exposed edge. Publish a corrective child of exact182with current handover, then run its own42compiling controls/full serial preflight/25file rollback and complete native/source/log/archive review. These changed-head checks are PENDING at corrective publication. A clear bounded mitigation exists, so no critical crossroads/user decision is needed. Task8 remains research only until corrected task7closure.
