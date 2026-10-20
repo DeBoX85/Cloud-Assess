@@ -1,0 +1,89 @@
+{
+  "total_count": 1,
+  "jobs": [
+    {
+      "id": 118711062523,
+      "run_id": 39446889918,
+      "workflow_name": "Pinned region source characterization",
+      "head_branch": "feat/region-retail-bounded-20261020",
+      "run_url": "https://api.github.com/repos/DeBoX85/Cloud-Assess/actions/runs/39446889918",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOUdPf9c8AAAAbo7sP-w",
+      "head_sha": "44114c6357caed81d5153b69be5a231e7eabcbec",
+      "url": "https://api.github.com/repos/DeBoX85/Cloud-Assess/actions/jobs/118711062523",
+      "html_url": "https://github.com/DeBoX85/Cloud-Assess/actions/runs/39446889918/job/118711062523",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-20T15:16:32Z",
+      "started_at": "2026-10-20T15:16:37Z",
+      "completed_at": "2026-10-20T15:17:35Z",
+      "name": "characterize",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-20T15:16:38Z",
+          "completed_at": "2026-10-20T15:16:38Z"
+        },
+        {
+          "name": "Checkout target",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-20T15:16:38Z",
+          "completed_at": "2026-10-20T15:16:40Z"
+        },
+        {
+          "name": "Set up pinned Go",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-20T15:16:40Z",
+          "completed_at": "2026-10-20T15:16:42Z"
+        },
+        {
+          "name": "Capture unchanged region helpers and synthetic quota/reservation collectors",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-20T15:16:42Z",
+          "completed_at": "2026-10-20T15:17:31Z"
+        },
+        {
+          "name": "Post Set up pinned Go",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-20T15:17:31Z",
+          "completed_at": "2026-10-20T15:17:33Z"
+        },
+        {
+          "name": "Post Checkout target",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-20T15:17:33Z",
+          "completed_at": "2026-10-20T15:17:33Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-10-20T15:17:33Z",
+          "completed_at": "2026-10-20T15:17:33Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/DeBoX85/Cloud-Assess/check-runs/118711062523",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000003506,
+      "runner_name": "GitHub Actions 1000003506",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    }
+  ]
+}

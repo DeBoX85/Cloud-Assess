@@ -1,0 +1,602 @@
+﻿2026-10-20T15:16:35.5240250Z Current runner version: '2.337.0'
+2026-10-20T15:16:35.5260141Z ##[group]Runner Image Provisioner
+2026-10-20T15:16:35.5260779Z Hosted Compute Agent
+2026-10-20T15:16:35.5261174Z Version: 20261015.610
+2026-10-20T15:16:35.5261631Z Commit: 267fdb4e8bbec4ab5ea31367f3a00d5c480c7656
+2026-10-20T15:16:35.5262098Z Build Date: 2026-10-14T17:06:54Z
+2026-10-20T15:16:35.5262549Z Worker ID: {696508b3-32a8-4883-b79c-59eb1aa836de}
+2026-10-20T15:16:35.5262999Z Region: centralus
+2026-10-20T15:16:35.5263383Z Cloud: Azure
+2026-10-20T15:16:35.5263757Z ##[endgroup]
+2026-10-20T15:16:35.5264583Z ##[group]Operating System
+2026-10-20T15:16:35.5264955Z Ubuntu
+2026-10-20T15:16:35.5265372Z 24.04.5
+2026-10-20T15:16:35.5265732Z LTS
+2026-10-20T15:16:35.5266093Z ##[endgroup]
+2026-10-20T15:16:35.5266475Z ##[group]Runner Image
+2026-10-20T15:16:35.5266993Z Image: ubuntu-24.04
+2026-10-20T15:16:35.5267406Z Version: 20261018.339.1
+2026-10-20T15:16:35.5268329Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261018.339/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-20T15:16:35.5269332Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261018.339
+2026-10-20T15:16:35.5269931Z ##[endgroup]
+2026-10-20T15:16:35.5270719Z ##[group]GITHUB_TOKEN Permissions
+2026-10-20T15:16:35.5271932Z Contents: read
+2026-10-20T15:16:35.5272385Z Metadata: read
+2026-10-20T15:16:35.5272747Z ##[endgroup]
+2026-10-20T15:16:35.5274213Z Secret source: Actions
+2026-10-20T15:16:35.5274850Z Cache mode: write
+2026-10-20T15:16:35.5275310Z Prepare workflow directory
+2026-10-20T15:16:35.5499440Z Prepare all required actions
+2026-10-20T15:16:35.5534164Z Getting action download info
+2026-10-20T15:16:35.8247791Z Download action repository 'actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1' (SHA:3d3c42e5aac5ba805825da76410c181273ba90b1)
+2026-10-20T15:16:35.9146323Z Download action repository 'actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16' (SHA:924ae3a1cded613372ab5595356fb5720e22ba16)
+2026-10-20T15:16:36.4410595Z Complete job name: linux-controls-3
+2026-10-20T15:16:36.4957496Z ##[group]Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+2026-10-20T15:16:36.4958060Z with:
+2026-10-20T15:16:36.4958301Z   submodules: recursive
+2026-10-20T15:16:36.4958563Z   fetch-depth: 1
+2026-10-20T15:16:36.4958822Z   repository: DeBoX85/Cloud-Assess
+2026-10-20T15:16:36.4961095Z   token: ***
+2026-10-20T15:16:36.4961330Z   ssh-strict: true
+2026-10-20T15:16:36.4961579Z   ssh-user: git
+2026-10-20T15:16:36.4961826Z   persist-credentials: true
+2026-10-20T15:16:36.4962139Z   clean: true
+2026-10-20T15:16:36.4962391Z   sparse-checkout-cone-mode: true
+2026-10-20T15:16:36.4962684Z   fetch-tags: false
+2026-10-20T15:16:36.4962929Z   show-progress: true
+2026-10-20T15:16:36.4963183Z   lfs: false
+2026-10-20T15:16:36.4963422Z   set-safe-directory: true
+2026-10-20T15:16:36.4963706Z   allow-unsafe-pr-checkout: false
+2026-10-20T15:16:36.4964068Z ##[endgroup]
+2026-10-20T15:16:36.6062386Z Syncing repository: DeBoX85/Cloud-Assess
+2026-10-20T15:16:36.6064267Z ##[group]Getting Git version info
+2026-10-20T15:16:36.6064886Z Working directory is '/home/runner/work/Cloud-Assess/Cloud-Assess'
+2026-10-20T15:16:36.6088812Z [command]/usr/bin/git version
+2026-10-20T15:16:36.6201765Z git version 2.55.0
+2026-10-20T15:16:36.6218333Z ##[endgroup]
+2026-10-20T15:16:36.6234764Z Temporarily overriding HOME='/home/runner/work/_temp/698a3031-9551-472f-9c33-2659a5221628' before making global git config changes
+2026-10-20T15:16:36.6235796Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-20T15:16:36.6236919Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Cloud-Assess/Cloud-Assess
+2026-10-20T15:16:36.6291933Z Deleting the contents of '/home/runner/work/Cloud-Assess/Cloud-Assess'
+2026-10-20T15:16:36.6296193Z ##[group]Determining repository object format
+2026-10-20T15:16:36.6297920Z ##[endgroup]
+2026-10-20T15:16:36.6298324Z ##[group]Initializing the repository
+2026-10-20T15:16:36.6302789Z [command]/usr/bin/git init /home/runner/work/Cloud-Assess/Cloud-Assess
+2026-10-20T15:16:36.6400290Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-20T15:16:36.6401562Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-20T15:16:36.6402515Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-20T15:16:36.6403144Z hint: call:
+2026-10-20T15:16:36.6403432Z hint:
+2026-10-20T15:16:36.6403761Z hint: 	git config --global init.defaultBranch <name>
+2026-10-20T15:16:36.6404111Z hint:
+2026-10-20T15:16:36.6404439Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-20T15:16:36.6404956Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-20T15:16:36.6405449Z hint:
+2026-10-20T15:16:36.6405711Z hint: 	git branch -m <name>
+2026-10-20T15:16:36.6405976Z hint:
+2026-10-20T15:16:36.6406328Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-20T15:16:36.6407326Z Initialized empty Git repository in /home/runner/work/Cloud-Assess/Cloud-Assess/.git/
+2026-10-20T15:16:36.6412093Z [command]/usr/bin/git remote add origin https://github.com/DeBoX85/Cloud-Assess
+2026-10-20T15:16:36.6478141Z ##[endgroup]
+2026-10-20T15:16:36.6478923Z ##[group]Disabling automatic garbage collection
+2026-10-20T15:16:36.6481643Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-20T15:16:36.6534027Z ##[endgroup]
+2026-10-20T15:16:36.6534957Z ##[group]Setting up auth
+2026-10-20T15:16:36.6535396Z Removing SSH command configuration
+2026-10-20T15:16:36.6541381Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-20T15:16:36.6590778Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-20T15:16:36.6911827Z Removing HTTP extra header
+2026-10-20T15:16:36.6918253Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-20T15:16:36.6963877Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-20T15:16:36.7175051Z Removing includeIf entries pointing to credentials config files
+2026-10-20T15:16:36.7179756Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-20T15:16:36.7228609Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-20T15:16:36.7448314Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-ca17dbec-246e-47b4-b820-cb5566cc5f0e.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-20T15:16:36.7494972Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/Cloud-Assess/Cloud-Assess/.git.path /home/runner/work/_temp/git-credentials-ca17dbec-246e-47b4-b820-cb5566cc5f0e.config
+2026-10-20T15:16:36.7538373Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/Cloud-Assess/Cloud-Assess/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-ca17dbec-246e-47b4-b820-cb5566cc5f0e.config
+2026-10-20T15:16:36.7585196Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-ca17dbec-246e-47b4-b820-cb5566cc5f0e.config
+2026-10-20T15:16:36.7629842Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-ca17dbec-246e-47b4-b820-cb5566cc5f0e.config
+2026-10-20T15:16:36.7668972Z ##[endgroup]
+2026-10-20T15:16:36.7669464Z ##[group]Fetching the repository
+2026-10-20T15:16:36.7674719Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +d19500d63e848301af6e8d9fcc581662ed0a1846:refs/remotes/pull/181/merge
+2026-10-20T15:16:37.5188210Z From https://github.com/DeBoX85/Cloud-Assess
+2026-10-20T15:16:37.5189469Z  * [new ref]         d19500d63e848301af6e8d9fcc581662ed0a1846 -> pull/181/merge
+2026-10-20T15:16:37.5276494Z ##[endgroup]
+2026-10-20T15:16:37.5277972Z ##[group]Determining the checkout info
+2026-10-20T15:16:37.5278915Z ##[endgroup]
+2026-10-20T15:16:37.5279610Z [command]/usr/bin/git sparse-checkout disable
+2026-10-20T15:16:37.5281602Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-20T15:16:37.5316425Z ##[group]Checking out the ref
+2026-10-20T15:16:37.5321118Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/181/merge
+2026-10-20T15:16:37.5989081Z Note: switching to 'refs/remotes/pull/181/merge'.
+2026-10-20T15:16:37.5989698Z 
+2026-10-20T15:16:37.5990059Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-10-20T15:16:37.5990803Z changes and commit them, and you can discard any commits you make in this
+2026-10-20T15:16:37.5991446Z state without impacting any branches by switching back to a branch.
+2026-10-20T15:16:37.5991821Z 
+2026-10-20T15:16:37.5992066Z If you want to create a new branch to retain commits you create, you may
+2026-10-20T15:16:37.5992597Z do so (now or later) by using -c with the switch command. Example:
+2026-10-20T15:16:37.5992889Z 
+2026-10-20T15:16:37.5993033Z   git switch -c <new-branch-name>
+2026-10-20T15:16:37.5993253Z 
+2026-10-20T15:16:37.5993468Z Or undo this operation with:
+2026-10-20T15:16:37.5993771Z 
+2026-10-20T15:16:37.5993955Z   git switch -
+2026-10-20T15:16:37.5994274Z 
+2026-10-20T15:16:37.5994608Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-10-20T15:16:37.5995004Z 
+2026-10-20T15:16:37.5995416Z HEAD is now at d19500d Merge 44114c6357caed81d5153b69be5a231e7eabcbec into a6fee427e19feeef28691737ea9bc5026086efa0
+2026-10-20T15:16:37.5997160Z ##[endgroup]
+2026-10-20T15:16:37.5997685Z ##[group]Setting up auth for fetching submodules
+2026-10-20T15:16:37.6001429Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-ca17dbec-246e-47b4-b820-cb5566cc5f0e.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-20T15:16:37.6054917Z [command]/usr/bin/git config --global include.path /home/runner/work/_temp/git-credentials-ca17dbec-246e-47b4-b820-cb5566cc5f0e.config
+2026-10-20T15:16:37.6101005Z [command]/usr/bin/git config --global --unset-all url.https://github.com/.insteadOf
+2026-10-20T15:16:37.6141602Z [command]/usr/bin/git config --global --add url.https://github.com/.insteadOf git@github.com:
+2026-10-20T15:16:37.6186052Z [command]/usr/bin/git config --global --add url.https://github.com/.insteadOf org-134433647@github.com:
+2026-10-20T15:16:37.6229897Z ##[endgroup]
+2026-10-20T15:16:37.6230784Z ##[group]Fetching submodules
+2026-10-20T15:16:37.6237479Z [command]/usr/bin/git submodule sync --recursive
+2026-10-20T15:16:37.6463288Z [command]/usr/bin/git -c protocol.version=2 submodule update --init --force --depth=1 --recursive
+2026-10-20T15:16:37.6689712Z Submodule 'internal/rules/upstream/aprl' (https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2.git) registered for path 'internal/rules/upstream/aprl'
+2026-10-20T15:16:37.6713081Z Cloning into '/home/runner/work/Cloud-Assess/Cloud-Assess/internal/rules/upstream/aprl'...
+2026-10-20T15:16:39.6193820Z From https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2
+2026-10-20T15:16:39.6195084Z  * branch            60eaddda76541f6adbc1c5ffa686829807e55e29 -> FETCH_HEAD
+2026-10-20T15:16:39.7100850Z Submodule path 'internal/rules/upstream/aprl': checked out '60eaddda76541f6adbc1c5ffa686829807e55e29'
+2026-10-20T15:16:39.7135210Z [command]/usr/bin/git submodule foreach --recursive git config --local gc.auto 0
+2026-10-20T15:16:39.7349987Z Entering 'internal/rules/upstream/aprl'
+2026-10-20T15:16:39.7520428Z ##[endgroup]
+2026-10-20T15:16:39.7521007Z ##[group]Persisting credentials for submodules
+2026-10-20T15:16:39.7525181Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'url\.https\:\/\/github\.com\/\.insteadOf' && git config --local --unset-all 'url.https://github.com/.insteadOf' || :"
+2026-10-20T15:16:39.7771498Z Entering 'internal/rules/upstream/aprl'
+2026-10-20T15:16:39.7848271Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-20T15:16:39.8054268Z Entering 'internal/rules/upstream/aprl'
+2026-10-20T15:16:39.8072219Z file:/home/runner/work/Cloud-Assess/Cloud-Assess/.git/modules/internal/rules/upstream/aprl/config	remote.origin.url
+2026-10-20T15:16:39.8104438Z [command]/usr/bin/git config --file /home/runner/work/Cloud-Assess/Cloud-Assess/.git/modules/internal/rules/upstream/aprl/config includeIf.gitdir:/home/runner/work/Cloud-Assess/Cloud-Assess/.git/modules/internal/rules/upstream/aprl.path /home/runner/work/_temp/git-credentials-ca17dbec-246e-47b4-b820-cb5566cc5f0e.config
+2026-10-20T15:16:39.8190862Z [command]/usr/bin/git config --file /home/runner/work/Cloud-Assess/Cloud-Assess/.git/modules/internal/rules/upstream/aprl/config includeIf.gitdir:/github/workspace/.git/modules/internal/rules/upstream/aprl.path /github/runner_temp/git-credentials-ca17dbec-246e-47b4-b820-cb5566cc5f0e.config
+2026-10-20T15:16:39.8309417Z [command]/usr/bin/git submodule foreach --recursive git config --local --add 'url.https://github.com/.insteadOf' 'git@github.com:'
+2026-10-20T15:16:39.8552002Z Entering 'internal/rules/upstream/aprl'
+2026-10-20T15:16:39.8732632Z [command]/usr/bin/git submodule foreach --recursive git config --local --add 'url.https://github.com/.insteadOf' 'org-134433647@github.com:'
+2026-10-20T15:16:39.8966367Z Entering 'internal/rules/upstream/aprl'
+2026-10-20T15:16:39.9018562Z ##[endgroup]
+2026-10-20T15:16:39.9071992Z [command]/usr/bin/git log -1 --format=%H
+2026-10-20T15:16:39.9116915Z d19500d63e848301af6e8d9fcc581662ed0a1846
+2026-10-20T15:16:39.9413987Z ##[group]Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16
+2026-10-20T15:16:39.9414242Z with:
+2026-10-20T15:16:39.9414385Z   go-version: 1.26.9
+2026-10-20T15:16:39.9414510Z   cache: true
+2026-10-20T15:16:39.9414644Z   check-latest: false
+2026-10-20T15:16:39.9416140Z   token: ***
+2026-10-20T15:16:39.9416261Z ##[endgroup]
+2026-10-20T15:16:40.0425335Z Setup go version spec 1.26.9
+2026-10-20T15:16:40.0560001Z Found in cache @ /opt/hostedtoolcache/go/1.26.9/x64
+2026-10-20T15:16:40.0563063Z Added go to the path
+2026-10-20T15:16:40.0566131Z Successfully set up Go version 1.26.9
+2026-10-20T15:16:40.7645222Z [command]/opt/hostedtoolcache/go/1.26.9/x64/bin/go env GOMODCACHE
+2026-10-20T15:16:40.7689516Z [command]/opt/hostedtoolcache/go/1.26.9/x64/bin/go env GOCACHE
+2026-10-20T15:16:40.7724367Z /home/runner/go/pkg/mod
+2026-10-20T15:16:40.7744351Z /home/runner/.cache/go-build
+2026-10-20T15:16:40.9601595Z Cache is not found
+2026-10-20T15:16:40.9623609Z go version go1.26.9 linux/amd64
+2026-10-20T15:16:40.9623767Z 
+2026-10-20T15:16:40.9624038Z ##[group]go env
+2026-10-20T15:16:41.1242208Z AR='ar'
+2026-10-20T15:16:41.1242452Z CC='gcc'
+2026-10-20T15:16:41.1242741Z CGO_CFLAGS='-O2 -g'
+2026-10-20T15:16:41.1242981Z CGO_CPPFLAGS=''
+2026-10-20T15:16:41.1243197Z CGO_CXXFLAGS='-O2 -g'
+2026-10-20T15:16:41.1243435Z CGO_ENABLED='1'
+2026-10-20T15:16:41.1243628Z CGO_FFLAGS='-O2 -g'
+2026-10-20T15:16:41.1243824Z CGO_LDFLAGS='-O2 -g'
+2026-10-20T15:16:41.1244023Z CXX='g++'
+2026-10-20T15:16:41.1244240Z GCCGO='gccgo'
+2026-10-20T15:16:41.1244423Z GO111MODULE=''
+2026-10-20T15:16:41.1244610Z GOAMD64='v1'
+2026-10-20T15:16:41.1244797Z GOARCH='amd64'
+2026-10-20T15:16:41.1244975Z GOAUTH='netrc'
+2026-10-20T15:16:41.1245148Z GOBIN=''
+2026-10-20T15:16:41.1245350Z GOCACHE='/home/runner/.cache/go-build'
+2026-10-20T15:16:41.1245623Z GOCACHEPROG=''
+2026-10-20T15:16:41.1245802Z GODEBUG=''
+2026-10-20T15:16:41.1245994Z GOENV='/home/runner/.config/go/env'
+2026-10-20T15:16:41.1246223Z GOEXE=''
+2026-10-20T15:16:41.1246407Z GOEXPERIMENT=''
+2026-10-20T15:16:41.1246593Z GOFIPS140='off'
+2026-10-20T15:16:41.1247005Z GOFLAGS=''
+2026-10-20T15:16:41.1247465Z GOGCCFLAGS='-fPIC -m64 -pthread -Wl,--no-gc-sections -fmessage-length=0 -ffile-prefix-map=/tmp/go-build3566350578=/tmp/go-build -gno-record-gcc-switches'
+2026-10-20T15:16:41.1248197Z GOHOSTARCH='amd64'
+2026-10-20T15:16:41.1248323Z GOHOSTOS='linux'
+2026-10-20T15:16:41.1248442Z GOINSECURE=''
+2026-10-20T15:16:41.1248606Z GOMOD='/home/runner/work/Cloud-Assess/Cloud-Assess/go.mod'
+2026-10-20T15:16:41.1248825Z GOMODCACHE='/home/runner/go/pkg/mod'
+2026-10-20T15:16:41.1248974Z GONOPROXY=''
+2026-10-20T15:16:41.1249083Z GONOSUMDB=''
+2026-10-20T15:16:41.1249189Z GOOS='linux'
+2026-10-20T15:16:41.1249306Z GOPATH='/home/runner/go'
+2026-10-20T15:16:41.1249435Z GOPRIVATE=''
+2026-10-20T15:16:41.1249621Z GOPROXY='https://proxy.golang.org,direct'
+2026-10-20T15:16:41.1249816Z GOROOT='/opt/hostedtoolcache/go/1.26.9/x64'
+2026-10-20T15:16:41.1249986Z GOSUMDB='sum.golang.org'
+2026-10-20T15:16:41.1250127Z GOTELEMETRY='local'
+2026-10-20T15:16:41.1250280Z GOTELEMETRYDIR='/home/runner/.config/go/telemetry'
+2026-10-20T15:16:41.1250450Z GOTMPDIR=''
+2026-10-20T15:16:41.1250568Z GOTOOLCHAIN='local'
+2026-10-20T15:16:41.1250749Z GOTOOLDIR='/opt/hostedtoolcache/go/1.26.9/x64/pkg/tool/linux_amd64'
+2026-10-20T15:16:41.1250962Z GOVCS=''
+2026-10-20T15:16:41.1251076Z GOVERSION='go1.26.9'
+2026-10-20T15:16:41.1251199Z GOWORK=''
+2026-10-20T15:16:41.1251325Z PKG_CONFIG='pkg-config'
+2026-10-20T15:16:41.1251413Z 
+2026-10-20T15:16:41.1251679Z ##[endgroup]
+2026-10-20T15:16:41.1411525Z ##[group]Run python3 scripts/tests/ci-workflow.py
+2026-10-20T15:16:41.1411849Z [36;1mpython3 scripts/tests/ci-workflow.py[0m
+2026-10-20T15:16:41.1550905Z shell: /usr/bin/bash -e {0}
+2026-10-20T15:16:41.1551100Z env:
+2026-10-20T15:16:41.1551243Z   GOTOOLCHAIN: local
+2026-10-20T15:16:41.1551380Z ##[endgroup]
+2026-10-20T15:16:41.4374193Z ..........
+2026-10-20T15:16:41.4374671Z ----------------------------------------------------------------------
+2026-10-20T15:16:41.4375034Z Ran 10 tests in 0.197s
+2026-10-20T15:16:41.4375223Z 
+2026-10-20T15:16:41.4375552Z OK
+2026-10-20T15:16:41.4893544Z ##[group]Run python3 scripts/tests/section3-regressions.py
+2026-10-20T15:16:41.4893874Z [36;1mpython3 scripts/tests/section3-regressions.py[0m
+2026-10-20T15:16:41.4939167Z shell: /usr/bin/bash -e {0}
+2026-10-20T15:16:41.4939326Z env:
+2026-10-20T15:16:41.4939449Z   GOTOOLCHAIN: local
+2026-10-20T15:16:41.4939581Z ##[endgroup]
+2026-10-20T15:17:02.5060300Z Section 3 compiling mutation rejected: sarif-published-descriptor; restored baseline passed
+2026-10-20T15:17:02.5060710Z Section 3 compiling mutation rejected: zone-unicode-fold; restored baseline passed
+2026-10-20T15:17:02.5157809Z ##[group]Run python3 scripts/tests/compute-disk-sku-collector-mutation.py
+2026-10-20T15:17:02.5158183Z [36;1mpython3 scripts/tests/compute-disk-sku-collector-mutation.py[0m
+2026-10-20T15:17:02.5205192Z shell: /usr/bin/bash -e {0}
+2026-10-20T15:17:02.5205341Z env:
+2026-10-20T15:17:02.5205463Z   GOTOOLCHAIN: local
+2026-10-20T15:17:02.5205593Z ##[endgroup]
+2026-10-20T15:17:13.9252369Z Compute disk SKU production compiling mutation rejected: null-terminator; restored named baseline passed
+2026-10-20T15:17:17.2509136Z Compute disk SKU production compiling mutation rejected: status-error-pair; restored named baseline passed
+2026-10-20T15:17:20.6204638Z Compute disk SKU production compiling mutation rejected: request-version; restored named baseline passed
+2026-10-20T15:17:24.0097557Z Compute disk SKU production compiling mutation rejected: continuation-origin; restored named baseline passed
+2026-10-20T15:17:27.4001854Z Compute disk SKU production compiling mutation rejected: continuation-path; restored named baseline passed
+2026-10-20T15:17:30.8286335Z Compute disk SKU production compiling mutation rejected: continuation-version; restored named baseline passed
+2026-10-20T15:17:34.2936350Z Compute disk SKU production compiling mutation rejected: json-admission; restored named baseline passed
+2026-10-20T15:17:37.6505017Z Compute disk SKU production compiling mutation rejected: type-filter; restored named baseline passed
+2026-10-20T15:17:41.0201858Z Compute disk SKU production compiling mutation rejected: restriction-values; restored named baseline passed
+2026-10-20T15:17:44.5220217Z Compute disk SKU production compiling mutation rejected: restriction-precedence; restored named baseline passed
+2026-10-20T15:17:47.9620593Z Compute disk SKU production compiling mutation rejected: zone-order; restored named baseline passed
+2026-10-20T15:17:51.4139140Z Compute disk SKU production compiling mutation rejected: prior-collision; restored named baseline passed
+2026-10-20T15:17:54.8980063Z Compute disk SKU production compiling mutation rejected: atomic-page; restored named baseline passed
+2026-10-20T15:17:58.3178953Z Compute disk SKU production compiling mutation rejected: partial-snapshot; restored named baseline passed
+2026-10-20T15:18:01.7844087Z Compute disk SKU production compiling mutation rejected: snapshot-slice; restored named baseline passed
+2026-10-20T15:18:05.3650742Z Compute disk SKU production compiling mutation rejected: page-bytes; restored named baseline passed
+2026-10-20T15:18:08.9895984Z Compute disk SKU production compiling mutation rejected: aggregate-bytes; restored named baseline passed
+2026-10-20T15:18:12.6252506Z Compute disk SKU production compiling mutation rejected: page-count; restored named baseline passed
+2026-10-20T15:18:16.3076616Z Compute disk SKU production compiling mutation rejected: raw-work; restored named baseline passed
+2026-10-20T15:18:19.7383608Z Compute disk SKU production compiling mutation rejected: pre-auth-scope; restored named baseline passed
+2026-10-20T15:18:23.1749285Z Compute disk SKU production compiling mutation rejected: optional-metadata; restored named baseline passed
+2026-10-20T15:18:26.6229004Z Compute disk SKU production compiling mutation rejected: cancellation-no-result; restored named baseline passed
+2026-10-20T15:18:30.0983520Z Compute disk SKU production compiling mutation rejected: getter-limit; restored named baseline passed
+2026-10-20T15:18:30.7770488Z ##[group]Run python3 scripts/tests/region-latency-capture-mutation.py
+2026-10-20T15:18:30.7770825Z [36;1mpython3 scripts/tests/region-latency-capture-mutation.py[0m
+2026-10-20T15:18:30.7816860Z shell: /usr/bin/bash -e {0}
+2026-10-20T15:18:30.7817018Z env:
+2026-10-20T15:18:30.7817142Z   GOTOOLCHAIN: local
+2026-10-20T15:18:30.7817277Z ##[endgroup]
+2026-10-20T15:18:39.3508140Z Latency source oracle mutation rejected: forward-preference
+2026-10-20T15:18:39.3508557Z Latency source oracle mutation rejected: directional-absence
+2026-10-20T15:18:39.3508811Z Latency source oracle mutation rejected: default-average
+2026-10-20T15:18:39.3509046Z Latency source oracle mutation rejected: dataset-topology
+2026-10-20T15:18:39.3607000Z ##[group]Run python3 scripts/tests/region-cost-enrichment-capture-mutation.py
+2026-10-20T15:18:39.3607374Z [36;1mpython3 scripts/tests/region-cost-enrichment-capture-mutation.py[0m
+2026-10-20T15:18:39.3652676Z shell: /usr/bin/bash -e {0}
+2026-10-20T15:18:39.3652838Z env:
+2026-10-20T15:18:39.3652958Z   GOTOOLCHAIN: local
+2026-10-20T15:18:39.3653090Z ##[endgroup]
+2026-10-20T15:18:50.6693954Z Cost enrichment source oracle mutation rejected: weighted
+2026-10-20T15:18:50.6694310Z Cost enrichment source oracle mutation rejected: free-denominator
+2026-10-20T15:18:50.6694585Z Cost enrichment source oracle mutation rejected: zero-weight
+2026-10-20T15:18:50.6694851Z Cost enrichment source oracle mutation rejected: duplicate-history
+2026-10-20T15:18:50.6695108Z Cost enrichment source oracle mutation rejected: stale-state
+2026-10-20T15:18:50.6695358Z Cost enrichment source oracle mutation rejected: unbound-identity
+2026-10-20T15:18:50.6794060Z ##[group]Run python3 scripts/tests/region-reservation-capture-mutation.py
+2026-10-20T15:18:50.6794413Z [36;1mpython3 scripts/tests/region-reservation-capture-mutation.py[0m
+2026-10-20T15:18:50.6839604Z shell: /usr/bin/bash -e {0}
+2026-10-20T15:18:50.6839772Z env:
+2026-10-20T15:18:50.6839901Z   GOTOOLCHAIN: local
+2026-10-20T15:18:50.6840030Z ##[endgroup]
+2026-10-20T15:19:02.9823111Z Reservation source oracle mutation rejected: status
+2026-10-20T15:19:02.9824986Z Reservation source oracle mutation rejected: source-panic
+2026-10-20T15:19:02.9825825Z Reservation source oracle mutation rejected: partial-success
+2026-10-20T15:19:02.9826300Z Reservation source oracle mutation rejected: inner-cancellation
+2026-10-20T15:19:02.9826681Z Reservation source oracle mutation rejected: identity
+2026-10-20T15:19:02.9827160Z Reservation source oracle mutation rejected: location
+2026-10-20T15:19:02.9827489Z Reservation source oracle mutation rejected: sdk-request
+2026-10-20T15:19:02.9925483Z ##[group]Run python3 scripts/tests/region-provider-locations-capture-mutation.py
+2026-10-20T15:19:02.9926096Z [36;1mpython3 scripts/tests/region-provider-locations-capture-mutation.py[0m
+2026-10-20T15:19:02.9986222Z shell: /usr/bin/bash -e {0}
+2026-10-20T15:19:02.9986477Z env:
+2026-10-20T15:19:02.9986666Z   GOTOOLCHAIN: local
+2026-10-20T15:19:02.9987042Z ##[endgroup]
+2026-10-20T15:19:20.0374748Z Provider source mutation rejected: sdk-version
+2026-10-20T15:19:20.0375201Z Provider source mutation rejected: tls-disabled
+2026-10-20T15:19:20.0375511Z Provider source mutation rejected: global-location
+2026-10-20T15:19:20.0375850Z Provider source mutation rejected: overwrite-collision
+2026-10-20T15:19:20.0376167Z Provider source mutation rejected: lost-prefix
+2026-10-20T15:19:20.0376465Z Provider source mutation rejected: null-panic
+2026-10-20T15:19:20.0376907Z Provider source mutation rejected: request-page
+2026-10-20T15:19:20.0377234Z Provider source mutation rejected: method
+2026-10-20T15:19:20.0377593Z Provider source mutation rejected: caller-fallback
+2026-10-20T15:19:20.0377900Z Provider source mutation rejected: caller-cancelled
+2026-10-20T15:19:20.0471869Z ##[group]Run python3 scripts/tests/region-other-sku-capture-mutation.py
+2026-10-20T15:19:20.0472239Z [36;1mpython3 scripts/tests/region-other-sku-capture-mutation.py[0m
+2026-10-20T15:19:20.0517255Z shell: /usr/bin/bash -e {0}
+2026-10-20T15:19:20.0517405Z env:
+2026-10-20T15:19:20.0517520Z   GOTOOLCHAIN: local
+2026-10-20T15:19:20.0517660Z ##[endgroup]
+2026-10-20T15:19:47.0177158Z Other SKU source mutation rejected: source-blob
+2026-10-20T15:19:47.0177561Z Other SKU source mutation rejected: api-version
+2026-10-20T15:19:47.0177891Z Other SKU source mutation rejected: restriction-values
+2026-10-20T15:19:47.0178212Z Other SKU source mutation rejected: zone-order
+2026-10-20T15:19:47.0178522Z Other SKU source mutation rejected: global-location
+2026-10-20T15:19:47.0178836Z Other SKU source mutation rejected: kind-collapse
+2026-10-20T15:19:47.0179175Z Other SKU source mutation rejected: sql-parent-status
+2026-10-20T15:19:47.0179514Z Other SKU source mutation rejected: sql-unicode-status
+2026-10-20T15:19:47.0179878Z Other SKU source mutation rejected: mi-tier
+2026-10-20T15:19:47.0180158Z Other SKU source mutation rejected: later-page-loss
+2026-10-20T15:19:47.0180457Z Other SKU source mutation rejected: page-omission
+2026-10-20T15:19:47.0180743Z Other SKU source mutation rejected: method
+2026-10-20T15:19:47.0181004Z Other SKU source mutation rejected: body
+2026-10-20T15:19:47.0181283Z Other SKU source mutation rejected: raw-path
+2026-10-20T15:19:47.0181576Z Other SKU source mutation rejected: sql-next-ignored
+2026-10-20T15:19:47.0181881Z Other SKU source mutation rejected: sql-type-cache
+2026-10-20T15:19:47.0182181Z Other SKU source mutation rejected: scope-cache
+2026-10-20T15:19:47.0275148Z ##[group]Run python3 scripts/tests/qa-mutation.py
+2026-10-20T15:19:47.0275393Z [36;1mpython3 scripts/tests/qa-mutation.py[0m
+2026-10-20T15:19:47.0321338Z shell: /usr/bin/bash -e {0}
+2026-10-20T15:19:47.0321496Z env:
+2026-10-20T15:19:47.0321618Z   GOTOOLCHAIN: local
+2026-10-20T15:19:47.0321749Z ##[endgroup]
+2026-10-20T15:19:48.0675281Z Comparator mutation rejected: forced-pass
+2026-10-20T15:19:48.0675605Z Comparator mutation rejected: ignored-field
+2026-10-20T15:19:48.0675805Z Comparator mutation rejected: ignored-coverage
+2026-10-20T15:19:48.0676015Z Comparator mutation rejected: ignored-precondition
+2026-10-20T15:19:48.0808472Z ##[group]Run python3 scripts/tests/region-inventory-aggregation-mutation.py
+2026-10-20T15:19:48.0809117Z [36;1mpython3 scripts/tests/region-inventory-aggregation-mutation.py[0m
+2026-10-20T15:19:48.0852893Z shell: /usr/bin/bash -e {0}
+2026-10-20T15:19:48.0853142Z env:
+2026-10-20T15:19:48.0853401Z   GOTOOLCHAIN: local
+2026-10-20T15:19:48.0853689Z ##[endgroup]
+2026-10-20T15:20:25.3584466Z Region aggregation mutation rejected: empty-selected-name
+2026-10-20T15:20:25.3584822Z Region aggregation mutation rejected: selected-resource-preflight
+2026-10-20T15:20:25.3585092Z Region aggregation mutation rejected: embedded-subscription
+2026-10-20T15:20:25.3585322Z Region aggregation mutation rejected: row-work-limit
+2026-10-20T15:20:25.3585540Z Region aggregation mutation rejected: global-entry-limit
+2026-10-20T15:20:25.3585764Z Region aggregation mutation rejected: decoded-text-limit
+2026-10-20T15:20:25.3585983Z Region aggregation mutation rejected: projected-key-text
+2026-10-20T15:20:25.3586288Z Region aggregation mutation rejected: ascii-space-normalization
+2026-10-20T15:20:25.3586530Z Region aggregation mutation rejected: raw-sku-keys
+2026-10-20T15:20:25.3586952Z Region aggregation mutation rejected: resource-not-capacity
+2026-10-20T15:20:25.3663109Z ##[group]Run python3 scripts/tests/region-quota-runtime-mutation.py
+2026-10-20T15:20:25.3663425Z [36;1mpython3 scripts/tests/region-quota-runtime-mutation.py[0m
+2026-10-20T15:20:25.3707672Z shell: /usr/bin/bash -e {0}
+2026-10-20T15:20:25.3707817Z env:
+2026-10-20T15:20:25.3707933Z   GOTOOLCHAIN: local
+2026-10-20T15:20:25.3708058Z ##[endgroup]
+2026-10-20T15:21:08.8955756Z Region quota runtime mutation rejected: exact-threshold
+2026-10-20T15:21:08.8956158Z Region quota runtime mutation rejected: provider-filter
+2026-10-20T15:21:08.8956382Z Region quota runtime mutation rejected: selected-scope
+2026-10-20T15:21:08.8956593Z Region quota runtime mutation rejected: duplicate-query
+2026-10-20T15:21:08.8957032Z Region quota runtime mutation rejected: duplicate-raw-identity
+2026-10-20T15:21:08.8957300Z Region quota runtime mutation rejected: negative-count
+2026-10-20T15:21:08.8957521Z Region quota runtime mutation rejected: filtered-work-budget
+2026-10-20T15:21:08.8957792Z Region quota runtime mutation rejected: filtered-label-budget
+2026-10-20T15:21:08.8958016Z Region quota runtime mutation rejected: missing-health
+2026-10-20T15:21:08.8958228Z Region quota runtime mutation rejected: health-ownership
+2026-10-20T15:21:08.8958453Z Region quota runtime mutation rejected: terminal-cancellation
+2026-10-20T15:21:08.8958678Z Region quota runtime mutation rejected: display-identity
+2026-10-20T15:21:08.9045798Z ##[group]Run python3 scripts/tests/region-quota-collector-mutation.py
+2026-10-20T15:21:08.9046151Z [36;1mpython3 scripts/tests/region-quota-collector-mutation.py[0m
+2026-10-20T15:21:08.9090737Z shell: /usr/bin/bash -e {0}
+2026-10-20T15:21:08.9090911Z env:
+2026-10-20T15:21:08.9091039Z   GOTOOLCHAIN: local
+2026-10-20T15:21:08.9091176Z ##[endgroup]
+2026-10-20T15:22:41.0305885Z REST quota collector mutation rejected: vm-version
+2026-10-20T15:22:41.0306370Z REST quota collector mutation rejected: vm-unknown-status
+2026-10-20T15:22:41.0306873Z REST quota collector mutation rejected: origin
+2026-10-20T15:22:41.0307233Z REST quota collector mutation rejected: scope
+2026-10-20T15:22:41.0307573Z REST quota collector mutation rejected: version
+2026-10-20T15:22:41.0307942Z REST quota collector mutation rejected: continuation-origin
+2026-10-20T15:22:41.0308344Z REST quota collector mutation rejected: continuation-path
+2026-10-20T15:22:41.0308801Z REST quota collector mutation rejected: continuation-version
+2026-10-20T15:22:41.0309199Z REST quota collector mutation rejected: canonical-authority
+2026-10-20T15:22:41.0309578Z REST quota collector mutation rejected: noncharacters
+2026-10-20T15:22:41.0309901Z REST quota collector mutation rejected: cycle
+2026-10-20T15:22:41.0310197Z REST quota collector mutation rejected: status
+2026-10-20T15:22:41.0310494Z REST quota collector mutation rejected: unsupported
+2026-10-20T15:22:41.0311233Z REST quota collector mutation rejected: partial
+2026-10-20T15:22:41.0311523Z REST quota collector mutation rejected: pages
+2026-10-20T15:22:41.0311818Z REST quota collector mutation rejected: page-bytes
+2026-10-20T15:22:41.0312134Z REST quota collector mutation rejected: aggregate-bytes
+2026-10-20T15:22:41.0312472Z REST quota collector mutation rejected: aggregate-rows
+2026-10-20T15:22:41.0312818Z REST quota collector mutation rejected: duplicate-keys
+2026-10-20T15:22:41.0313148Z REST quota collector mutation rejected: tokens
+2026-10-20T15:22:41.0313436Z REST quota collector mutation rejected: depth
+2026-10-20T15:22:41.0313729Z REST quota collector mutation rejected: count
+2026-10-20T15:22:41.0314020Z REST quota collector mutation rejected: presence
+2026-10-20T15:22:41.0314348Z REST quota collector mutation rejected: crosspage-identity
+2026-10-20T15:22:41.0314715Z REST quota collector mutation rejected: terminal-cancellation
+2026-10-20T15:22:41.0394180Z ##[group]Run python3 scripts/tests/region-provider-locations-collector-mutation.py
+2026-10-20T15:22:41.0394567Z [36;1mpython3 scripts/tests/region-provider-locations-collector-mutation.py[0m
+2026-10-20T15:22:41.0438550Z shell: /usr/bin/bash -e {0}
+2026-10-20T15:22:41.0438706Z env:
+2026-10-20T15:22:41.0438820Z   GOTOOLCHAIN: local
+2026-10-20T15:22:41.0438947Z ##[endgroup]
+2026-10-20T15:24:07.6163323Z Provider collector mutation rejected: version
+2026-10-20T15:24:07.6163624Z Provider collector mutation rejected: selected-scope
+2026-10-20T15:24:07.6163870Z Provider collector mutation rejected: returned-id-structure
+2026-10-20T15:24:07.6164116Z Provider collector mutation rejected: returned-id-binding
+2026-10-20T15:24:07.6164342Z Provider collector mutation rejected: namespace-ascii
+2026-10-20T15:24:07.6164554Z Provider collector mutation rejected: location-ascii
+2026-10-20T15:24:07.6164769Z Provider collector mutation rejected: logical-location
+2026-10-20T15:24:07.6165030Z Provider collector mutation rejected: mandatory-array
+2026-10-20T15:24:07.6165251Z Provider collector mutation rejected: json-whole-guard
+2026-10-20T15:24:07.6165471Z Provider collector mutation rejected: same-page-collision
+2026-10-20T15:24:07.6165708Z Provider collector mutation rejected: prior-page-collision
+2026-10-20T15:24:07.6165929Z Provider collector mutation rejected: partial-prefix
+2026-10-20T15:24:07.6166136Z Provider collector mutation rejected: request-status
+2026-10-20T15:24:07.6166372Z Provider collector mutation rejected: unsafe-continuation-health
+2026-10-20T15:24:07.6166609Z Provider collector mutation rejected: canonical-cycle
+2026-10-20T15:24:07.6166997Z Provider collector mutation rejected: page-limit
+2026-10-20T15:24:07.6167228Z Provider collector mutation rejected: page-bytes
+2026-10-20T15:24:07.6167429Z Provider collector mutation rejected: aggregate-bytes
+2026-10-20T15:24:07.6167629Z Provider collector mutation rejected: raw-work
+2026-10-20T15:24:07.6167828Z Provider collector mutation rejected: deadline-health
+2026-10-20T15:24:07.6168033Z Provider collector mutation rejected: cancel-sentinel
+2026-10-20T15:24:07.6168250Z Provider collector mutation rejected: deadline-sentinel
+2026-10-20T15:24:07.6168482Z Provider collector mutation rejected: raw-duplicate-locations
+2026-10-20T15:24:07.6169817Z Provider collector mutation rejected: canonical-properties
+2026-10-20T15:24:07.6170035Z Provider collector mutation rejected: decoded-text
+2026-10-20T15:24:07.6319189Z ##[group]Run python3 scripts/tests/vmss-catalog-mutation.py
+2026-10-20T15:24:07.6319466Z [36;1mpython3 scripts/tests/vmss-catalog-mutation.py[0m
+2026-10-20T15:24:07.6362973Z shell: /usr/bin/bash -e {0}
+2026-10-20T15:24:07.6363114Z env:
+2026-10-20T15:24:07.6363228Z   GOTOOLCHAIN: local
+2026-10-20T15:24:07.6363354Z ##[endgroup]
+2026-10-20T15:24:11.2193038Z VMSS catalog compiling mutation rejected: expected-target; restored named baseline passed
+2026-10-20T15:24:14.1798936Z VMSS catalog compiling mutation rejected: selected-binding; restored named baseline passed
+2026-10-20T15:24:17.1083057Z VMSS catalog compiling mutation rejected: empty-label; restored named baseline passed
+2026-10-20T15:24:20.1362989Z VMSS catalog compiling mutation rejected: collection-binding; restored named baseline passed
+2026-10-20T15:24:23.1533594Z VMSS catalog compiling mutation rejected: failure-enum; restored named baseline passed
+2026-10-20T15:24:26.2699062Z VMSS catalog compiling mutation rejected: unrequired-validation; restored named baseline passed
+2026-10-20T15:24:29.4031182Z VMSS catalog compiling mutation rejected: canonical-zones; restored named baseline passed
+2026-10-20T15:24:32.4776036Z VMSS catalog compiling mutation rejected: unknown-required; restored named baseline passed
+2026-10-20T15:24:35.6533323Z VMSS catalog compiling mutation rejected: partial-isolation; restored named baseline passed
+2026-10-20T15:24:38.6586843Z VMSS catalog compiling mutation rejected: restriction-state; restored named baseline passed
+2026-10-20T15:24:41.7212851Z VMSS catalog compiling mutation rejected: missing-unavailable; restored named baseline passed
+2026-10-20T15:24:44.8377091Z VMSS catalog compiling mutation rejected: owned-zones; restored named baseline passed
+2026-10-20T15:24:48.0384670Z VMSS catalog compiling mutation rejected: eligibility-limitation; restored named baseline passed
+2026-10-20T15:24:51.2462884Z VMSS catalog compiling mutation rejected: fixed-warning; restored named baseline passed
+2026-10-20T15:24:54.4994036Z VMSS catalog compiling mutation rejected: sanitized-error; restored named baseline passed
+2026-10-20T15:24:57.8001238Z VMSS catalog compiling mutation rejected: count-bound; restored named baseline passed
+2026-10-20T15:25:01.0189326Z VMSS catalog compiling mutation rejected: required-count; restored named baseline passed
+2026-10-20T15:25:04.1906295Z VMSS catalog compiling mutation rejected: group-count; restored named baseline passed
+2026-10-20T15:25:07.4202578Z VMSS catalog compiling mutation rejected: logical-work; restored named baseline passed
+2026-10-20T15:25:10.7517826Z VMSS catalog compiling mutation rejected: input-text; restored named baseline passed
+2026-10-20T15:25:13.8748344Z VMSS catalog compiling mutation rejected: label-bound; restored named baseline passed
+2026-10-20T15:25:17.4643961Z VMSS catalog compiling mutation rejected: output-text; restored named baseline passed
+2026-10-20T15:25:20.5518007Z VMSS catalog compiling mutation rejected: late-return-context; restored named baseline passed
+2026-10-20T15:25:23.5268478Z VMSS catalog compiling mutation rejected: unsupported-scoring; restored named baseline passed
+2026-10-20T15:25:24.0822355Z ##[group]Run python3 scripts/tests/cognitive-sku-mutation.py
+2026-10-20T15:25:24.0822638Z [36;1mpython3 scripts/tests/cognitive-sku-mutation.py[0m
+2026-10-20T15:25:24.0866261Z shell: /usr/bin/bash -e {0}
+2026-10-20T15:25:24.0866414Z env:
+2026-10-20T15:25:24.0866537Z   GOTOOLCHAIN: local
+2026-10-20T15:25:24.0866671Z ##[endgroup]
+2026-10-20T15:25:28.5799895Z Cognitive catalog compiling mutation rejected: http-body-closure; restored named baseline passed
+2026-10-20T15:25:31.7932748Z Cognitive catalog compiling mutation rejected: request-kind; restored named baseline passed
+2026-10-20T15:25:35.1392228Z Cognitive catalog compiling mutation rejected: request-scope; restored named baseline passed
+2026-10-20T15:25:38.3532767Z Cognitive catalog compiling mutation rejected: alias-provenance; restored named baseline passed
+2026-10-20T15:25:41.5172548Z Cognitive catalog compiling mutation rejected: kind-filter; restored named baseline passed
+2026-10-20T15:25:44.6724909Z Cognitive catalog compiling mutation rejected: resource-filter; restored named baseline passed
+2026-10-20T15:25:47.8068548Z Cognitive catalog compiling mutation rejected: known-before-filter; restored named baseline passed
+2026-10-20T15:25:50.9632307Z Cognitive catalog compiling mutation rejected: overlapping-scope; restored named baseline passed
+2026-10-20T15:25:54.1182153Z Cognitive catalog compiling mutation rejected: disjoint-reduction; restored named baseline passed
+2026-10-20T15:25:57.3488502Z Cognitive catalog compiling mutation rejected: known-uncertainty; restored named baseline passed
+2026-10-20T15:26:00.6051870Z Cognitive catalog compiling mutation rejected: regional-restriction; restored named baseline passed
+2026-10-20T15:26:03.7988340Z Cognitive catalog compiling mutation rejected: zone-restriction; restored named baseline passed
+2026-10-20T15:26:06.8883930Z Cognitive catalog compiling mutation rejected: atomic-scope-state; restored named baseline passed
+2026-10-20T15:26:10.0154545Z Cognitive catalog compiling mutation rejected: null-next; restored named baseline passed
+2026-10-20T15:26:13.1366258Z Cognitive catalog compiling mutation rejected: status-precedence; restored named baseline passed
+2026-10-20T15:26:16.1572605Z Cognitive catalog compiling mutation rejected: wrapped-cancel; restored named baseline passed
+2026-10-20T15:26:19.2332335Z Cognitive catalog compiling mutation rejected: wrapped-deadline; restored named baseline passed
+2026-10-20T15:26:22.4319443Z Cognitive catalog compiling mutation rejected: page-byte-bound; restored named baseline passed
+2026-10-20T15:26:25.8460407Z Cognitive catalog compiling mutation rejected: aggregate-byte-bound; restored named baseline passed
+2026-10-20T15:26:29.2009953Z Cognitive catalog compiling mutation rejected: page-count-bound; restored named baseline passed
+2026-10-20T15:26:32.6896661Z Cognitive catalog compiling mutation rejected: raw-row-bound; restored named baseline passed
+2026-10-20T15:26:35.9877559Z Cognitive catalog compiling mutation rejected: collector-final-context; restored named baseline passed
+2026-10-20T15:26:39.1545531Z Cognitive catalog compiling mutation rejected: selected-empty-label; restored named baseline passed
+2026-10-20T15:26:42.4081854Z Cognitive catalog compiling mutation rejected: collection-binding; restored named baseline passed
+2026-10-20T15:26:45.6642358Z Cognitive catalog compiling mutation rejected: failure-enum; restored named baseline passed
+2026-10-20T15:26:48.8572332Z Cognitive catalog compiling mutation rejected: unrequired-validation; restored named baseline passed
+2026-10-20T15:26:52.1647294Z Cognitive catalog compiling mutation rejected: canonical-zones; restored named baseline passed
+2026-10-20T15:26:55.4876523Z Cognitive catalog compiling mutation rejected: unknown-required; restored named baseline passed
+2026-10-20T15:26:58.7488072Z Cognitive catalog compiling mutation rejected: partial-isolation; restored named baseline passed
+2026-10-20T15:27:01.9720532Z Cognitive catalog compiling mutation rejected: missing-unavailable; restored named baseline passed
+2026-10-20T15:27:05.3180565Z Cognitive catalog compiling mutation rejected: owned-zones; restored named baseline passed
+2026-10-20T15:27:08.5647312Z Cognitive catalog compiling mutation rejected: eligibility-limitation; restored named baseline passed
+2026-10-20T15:27:11.8730898Z Cognitive catalog compiling mutation rejected: fixed-warning; restored named baseline passed
+2026-10-20T15:27:15.0932123Z Cognitive catalog compiling mutation rejected: sanitized-error; restored named baseline passed
+2026-10-20T15:27:18.3340685Z Cognitive catalog compiling mutation rejected: scope-count; restored named baseline passed
+2026-10-20T15:27:21.5143159Z Cognitive catalog compiling mutation rejected: alias-count; restored named baseline passed
+2026-10-20T15:27:24.5530269Z Cognitive catalog compiling mutation rejected: required-count; restored named baseline passed
+2026-10-20T15:27:27.8364420Z Cognitive catalog compiling mutation rejected: group-count; restored named baseline passed
+2026-10-20T15:27:29.2387572Z Cognitive catalog compiling mutation rejected: logical-work; restored named baseline passed
+2026-10-20T15:27:31.2330007Z Cognitive catalog compiling mutation rejected: raw-logical-work; restored named baseline passed
+2026-10-20T15:27:32.8187041Z Cognitive catalog compiling mutation rejected: input-text; restored named baseline passed
+2026-10-20T15:27:34.3063819Z Cognitive catalog compiling mutation rejected: label-bound; restored named baseline passed
+2026-10-20T15:27:37.6893848Z Cognitive catalog compiling mutation rejected: output-text; restored named baseline passed
+2026-10-20T15:27:40.8306299Z Cognitive catalog compiling mutation rejected: catalog-final-context; restored named baseline passed
+2026-10-20T15:27:44.0834111Z Cognitive catalog compiling mutation rejected: no-scoring-conversion; restored named baseline passed
+2026-10-20T15:27:47.2790679Z Cognitive catalog compiling mutation rejected: transport-raw-URL; restored named baseline passed
+2026-10-20T15:27:48.4363244Z ##[group]Run python3 scripts/tests/scope-redaction-controls.py
+2026-10-20T15:27:48.4363531Z [36;1mpython3 scripts/tests/scope-redaction-controls.py[0m
+2026-10-20T15:27:48.4406647Z shell: /usr/bin/bash -e {0}
+2026-10-20T15:27:48.4406930Z env:
+2026-10-20T15:27:48.4407047Z   GOTOOLCHAIN: local
+2026-10-20T15:27:48.4407173Z ##[endgroup]
+2026-10-20T15:27:49.2509117Z Scope redaction mutation rejected: status-scope-mask-call; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T15:27:49.9655806Z Scope redaction mutation rejected: status-context-without-discovery; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T15:27:50.6344921Z Scope redaction mutation rejected: status-known-scope-identity; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T15:27:50.9334233Z Scope redaction controls: all3 compiling reversals, exact original byte restoration and complete passing scope baseline
+2026-10-20T15:27:50.9458632Z Post job cleanup.
+2026-10-20T15:27:51.0332749Z [command]/opt/hostedtoolcache/go/1.26.9/x64/bin/go env GOMODCACHE
+2026-10-20T15:27:51.0375600Z [command]/opt/hostedtoolcache/go/1.26.9/x64/bin/go env GOCACHE
+2026-10-20T15:27:51.0408031Z /home/runner/go/pkg/mod
+2026-10-20T15:27:51.0467759Z /home/runner/.cache/go-build
+2026-10-20T15:27:51.0607938Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/Cloud-Assess/Cloud-Assess --files-from manifest.txt --use-compress-program zstdmt
+2026-10-20T15:27:54.2715968Z Failed to save: Unable to reserve cache with key setup-go-Linux-x64-ubuntu24-go-1.26.9-0657c5b069724b6ac639f614f1d617fcb8c9ac6f41dd2eb861ff288c8685627a, another job may be creating this cache.
+2026-10-20T15:27:54.3288737Z Post job cleanup.
+2026-10-20T15:27:54.3917518Z [command]/usr/bin/git version
+2026-10-20T15:27:54.3962901Z git version 2.55.0
+2026-10-20T15:27:54.3989539Z Temporarily overriding HOME='/home/runner/work/_temp/7fc62878-b8ec-43b8-82ff-3318e86de6ff' before making global git config changes
+2026-10-20T15:27:54.3991750Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-20T15:27:54.3993474Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Cloud-Assess/Cloud-Assess
+2026-10-20T15:27:54.4032430Z Removing SSH command configuration
+2026-10-20T15:27:54.4036322Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-20T15:27:54.4073291Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-20T15:27:54.4283524Z Entering 'internal/rules/upstream/aprl'
+2026-10-20T15:27:54.4337782Z Removing HTTP extra header
+2026-10-20T15:27:54.4342078Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-20T15:27:54.4384993Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-20T15:27:54.4610899Z Entering 'internal/rules/upstream/aprl'
+2026-10-20T15:27:54.4660050Z Removing includeIf entries pointing to credentials config files
+2026-10-20T15:27:54.4665711Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-20T15:27:54.4704997Z includeif.gitdir:/home/runner/work/Cloud-Assess/Cloud-Assess/.git.path
+2026-10-20T15:27:54.4705870Z includeif.gitdir:/home/runner/work/Cloud-Assess/Cloud-Assess/.git/worktrees/*.path
+2026-10-20T15:27:54.4706136Z includeif.gitdir:/github/workspace/.git.path
+2026-10-20T15:27:54.4706361Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-10-20T15:27:54.4712253Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/Cloud-Assess/Cloud-Assess/.git.path
+2026-10-20T15:27:54.4745636Z /home/runner/work/_temp/git-credentials-ca17dbec-246e-47b4-b820-cb5566cc5f0e.config
+2026-10-20T15:27:54.4754243Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/Cloud-Assess/Cloud-Assess/.git.path \/home\/runner\/work\/_temp\/git\-credentials\-ca17dbec\-246e\-47b4\-b820\-cb5566cc5f0e\.config
+2026-10-20T15:27:54.4800121Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/Cloud-Assess/Cloud-Assess/.git/worktrees/*.path
+2026-10-20T15:27:54.4832190Z /home/runner/work/_temp/git-credentials-ca17dbec-246e-47b4-b820-cb5566cc5f0e.config
+2026-10-20T15:27:54.4839363Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/Cloud-Assess/Cloud-Assess/.git/worktrees/*.path \/home\/runner\/work\/_temp\/git\-credentials\-ca17dbec\-246e\-47b4\-b820\-cb5566cc5f0e\.config
+2026-10-20T15:27:54.4886483Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-10-20T15:27:54.4918352Z /github/runner_temp/git-credentials-ca17dbec-246e-47b4-b820-cb5566cc5f0e.config
+2026-10-20T15:27:54.4924027Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path \/github\/runner_temp\/git\-credentials\-ca17dbec\-246e\-47b4\-b820\-cb5566cc5f0e\.config
+2026-10-20T15:27:54.4967268Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-10-20T15:27:54.4999152Z /github/runner_temp/git-credentials-ca17dbec-246e-47b4-b820-cb5566cc5f0e.config
+2026-10-20T15:27:54.5005008Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-ca17dbec\-246e\-47b4\-b820\-cb5566cc5f0e\.config
+2026-10-20T15:27:54.5048025Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-20T15:27:54.5244639Z Entering 'internal/rules/upstream/aprl'
+2026-10-20T15:27:54.5261435Z file:/home/runner/work/Cloud-Assess/Cloud-Assess/.git/modules/internal/rules/upstream/aprl/config	remote.origin.url
+2026-10-20T15:27:54.5297403Z [command]/usr/bin/git config --file /home/runner/work/Cloud-Assess/Cloud-Assess/.git/modules/internal/rules/upstream/aprl/config --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-20T15:27:54.5349789Z includeif.gitdir:/home/runner/work/Cloud-Assess/Cloud-Assess/.git/modules/internal/rules/upstream/aprl.path
+2026-10-20T15:27:54.5350319Z includeif.gitdir:/github/workspace/.git/modules/internal/rules/upstream/aprl.path
+2026-10-20T15:27:54.5358559Z [command]/usr/bin/git config --file /home/runner/work/Cloud-Assess/Cloud-Assess/.git/modules/internal/rules/upstream/aprl/config --get-all includeif.gitdir:/home/runner/work/Cloud-Assess/Cloud-Assess/.git/modules/internal/rules/upstream/aprl.path
+2026-10-20T15:27:54.5393220Z /home/runner/work/_temp/git-credentials-ca17dbec-246e-47b4-b820-cb5566cc5f0e.config
+2026-10-20T15:27:54.5401275Z [command]/usr/bin/git config --file /home/runner/work/Cloud-Assess/Cloud-Assess/.git/modules/internal/rules/upstream/aprl/config --unset includeif.gitdir:/home/runner/work/Cloud-Assess/Cloud-Assess/.git/modules/internal/rules/upstream/aprl.path \/home\/runner\/work\/_temp\/git\-credentials\-ca17dbec\-246e\-47b4\-b820\-cb5566cc5f0e\.config
+2026-10-20T15:27:54.5450579Z [command]/usr/bin/git config --file /home/runner/work/Cloud-Assess/Cloud-Assess/.git/modules/internal/rules/upstream/aprl/config --get-all includeif.gitdir:/github/workspace/.git/modules/internal/rules/upstream/aprl.path
+2026-10-20T15:27:54.5487758Z /github/runner_temp/git-credentials-ca17dbec-246e-47b4-b820-cb5566cc5f0e.config
+2026-10-20T15:27:54.5496238Z [command]/usr/bin/git config --file /home/runner/work/Cloud-Assess/Cloud-Assess/.git/modules/internal/rules/upstream/aprl/config --unset includeif.gitdir:/github/workspace/.git/modules/internal/rules/upstream/aprl.path \/github\/runner_temp\/git\-credentials\-ca17dbec\-246e\-47b4\-b820\-cb5566cc5f0e\.config
+2026-10-20T15:27:54.5546395Z Removing credentials config '/home/runner/work/_temp/git-credentials-ca17dbec-246e-47b4-b820-cb5566cc5f0e.config'
+2026-10-20T15:27:54.5674241Z Cleaning up orphan processes

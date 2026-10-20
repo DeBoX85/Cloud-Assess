@@ -1,0 +1,198 @@
+﻿2026-10-20T15:31:02.7501179Z Current runner version: '2.337.0'
+2026-10-20T15:31:02.7529320Z ##[group]Runner Image Provisioner
+2026-10-20T15:31:02.7530461Z Hosted Compute Agent
+2026-10-20T15:31:02.7531082Z Version: 20261015.610
+2026-10-20T15:31:02.7531778Z Commit: 267fdb4e8bbec4ab5ea31367f3a00d5c480c7656
+2026-10-20T15:31:02.7532576Z Build Date: 2026-10-14T17:06:54Z
+2026-10-20T15:31:02.7533290Z Worker ID: {06e0186d-ccce-4503-827e-96619d9e47cf}
+2026-10-20T15:31:02.7534152Z Region: westus
+2026-10-20T15:31:02.7534784Z Cloud: Azure
+2026-10-20T15:31:02.7535384Z ##[endgroup]
+2026-10-20T15:31:02.7537022Z ##[group]Operating System
+2026-10-20T15:31:02.7537763Z Ubuntu
+2026-10-20T15:31:02.7538648Z 24.04.5
+2026-10-20T15:31:02.7539214Z LTS
+2026-10-20T15:31:02.7539758Z ##[endgroup]
+2026-10-20T15:31:02.7540425Z ##[group]Runner Image
+2026-10-20T15:31:02.7541072Z Image: ubuntu-24.04
+2026-10-20T15:31:02.7541854Z Version: 20261018.339.1
+2026-10-20T15:31:02.7543316Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261018.339/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-20T15:31:02.7545138Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261018.339
+2026-10-20T15:31:02.7546188Z ##[endgroup]
+2026-10-20T15:31:02.7547437Z ##[group]GITHUB_TOKEN Permissions
+2026-10-20T15:31:02.7549902Z Contents: read
+2026-10-20T15:31:02.7550632Z Metadata: read
+2026-10-20T15:31:02.7551209Z ##[endgroup]
+2026-10-20T15:31:02.7553523Z Secret source: Actions
+2026-10-20T15:31:02.7554586Z Cache mode: write
+2026-10-20T15:31:02.7555329Z Prepare workflow directory
+2026-10-20T15:31:02.7929772Z Prepare all required actions
+2026-10-20T15:31:02.7982651Z Getting action download info
+2026-10-20T15:31:03.1566152Z Download action repository 'actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1' (SHA:3d3c42e5aac5ba805825da76410c181273ba90b1)
+2026-10-20T15:31:03.3878709Z Complete job name: quality
+2026-10-20T15:31:03.4736345Z ##[group]Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+2026-10-20T15:31:03.4737488Z with:
+2026-10-20T15:31:03.4738229Z   persist-credentials: false
+2026-10-20T15:31:03.4738789Z   repository: DeBoX85/Cloud-Assess
+2026-10-20T15:31:03.4743227Z   token: ***
+2026-10-20T15:31:03.4743666Z   ssh-strict: true
+2026-10-20T15:31:03.4744106Z   ssh-user: git
+2026-10-20T15:31:03.4744548Z   clean: true
+2026-10-20T15:31:03.4745019Z   sparse-checkout-cone-mode: true
+2026-10-20T15:31:03.4745553Z   fetch-depth: 1
+2026-10-20T15:31:03.4746012Z   fetch-tags: false
+2026-10-20T15:31:03.4746463Z   show-progress: true
+2026-10-20T15:31:03.4746920Z   lfs: false
+2026-10-20T15:31:03.4747344Z   submodules: false
+2026-10-20T15:31:03.4747797Z   set-safe-directory: true
+2026-10-20T15:31:03.4748666Z   allow-unsafe-pr-checkout: false
+2026-10-20T15:31:03.4749533Z ##[endgroup]
+2026-10-20T15:31:03.5894061Z Syncing repository: DeBoX85/Cloud-Assess
+2026-10-20T15:31:03.5897046Z ##[group]Getting Git version info
+2026-10-20T15:31:03.5898573Z Working directory is '/home/runner/work/Cloud-Assess/Cloud-Assess'
+2026-10-20T15:31:03.5900321Z [command]/usr/bin/git version
+2026-10-20T15:31:03.6001075Z git version 2.55.0
+2026-10-20T15:31:03.6026065Z ##[endgroup]
+2026-10-20T15:31:03.6038409Z Temporarily overriding HOME='/home/runner/work/_temp/d656711b-734a-41bb-ab2e-ad757bd30e66' before making global git config changes
+2026-10-20T15:31:03.6041089Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-20T15:31:03.6046582Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Cloud-Assess/Cloud-Assess
+2026-10-20T15:31:03.6115282Z Deleting the contents of '/home/runner/work/Cloud-Assess/Cloud-Assess'
+2026-10-20T15:31:03.6119386Z ##[group]Determining repository object format
+2026-10-20T15:31:03.6121110Z ##[endgroup]
+2026-10-20T15:31:03.6122526Z ##[group]Initializing the repository
+2026-10-20T15:31:03.6126298Z [command]/usr/bin/git init /home/runner/work/Cloud-Assess/Cloud-Assess
+2026-10-20T15:31:03.6260724Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-20T15:31:03.6264555Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-20T15:31:03.6267369Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-20T15:31:03.6270265Z hint: call:
+2026-10-20T15:31:03.6271569Z hint:
+2026-10-20T15:31:03.6272878Z hint: 	git config --global init.defaultBranch <name>
+2026-10-20T15:31:03.6274105Z hint:
+2026-10-20T15:31:03.6275221Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-20T15:31:03.6276925Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-20T15:31:03.6278632Z hint:
+2026-10-20T15:31:03.6279424Z hint: 	git branch -m <name>
+2026-10-20T15:31:03.6280310Z hint:
+2026-10-20T15:31:03.6281485Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-20T15:31:03.6282749Z Initialized empty Git repository in /home/runner/work/Cloud-Assess/Cloud-Assess/.git/
+2026-10-20T15:31:03.6285820Z [command]/usr/bin/git remote add origin https://github.com/DeBoX85/Cloud-Assess
+2026-10-20T15:31:03.6351006Z ##[endgroup]
+2026-10-20T15:31:03.6352804Z ##[group]Disabling automatic garbage collection
+2026-10-20T15:31:03.6354254Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-20T15:31:03.6394953Z ##[endgroup]
+2026-10-20T15:31:03.6396807Z ##[group]Setting up auth
+2026-10-20T15:31:03.6398476Z Removing SSH command configuration
+2026-10-20T15:31:03.6403564Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-20T15:31:03.6458135Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-20T15:31:03.6899815Z Removing HTTP extra header
+2026-10-20T15:31:03.6906463Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-20T15:31:03.6966765Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-20T15:31:03.7282981Z Removing includeIf entries pointing to credentials config files
+2026-10-20T15:31:03.7290163Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-20T15:31:03.7357691Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-20T15:31:03.7641554Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-594f3d34-8c25-4d1a-86f1-bd51382526a2.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-20T15:31:03.7704437Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/Cloud-Assess/Cloud-Assess/.git.path /home/runner/work/_temp/git-credentials-594f3d34-8c25-4d1a-86f1-bd51382526a2.config
+2026-10-20T15:31:03.7759253Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/Cloud-Assess/Cloud-Assess/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-594f3d34-8c25-4d1a-86f1-bd51382526a2.config
+2026-10-20T15:31:03.7816824Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-594f3d34-8c25-4d1a-86f1-bd51382526a2.config
+2026-10-20T15:31:03.7877708Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-594f3d34-8c25-4d1a-86f1-bd51382526a2.config
+2026-10-20T15:31:03.7935962Z ##[endgroup]
+2026-10-20T15:31:03.7937385Z ##[group]Fetching the repository
+2026-10-20T15:31:03.7946516Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +d19500d63e848301af6e8d9fcc581662ed0a1846:refs/remotes/pull/181/merge
+2026-10-20T15:31:04.6536094Z From https://github.com/DeBoX85/Cloud-Assess
+2026-10-20T15:31:04.6538337Z  * [new ref]         d19500d63e848301af6e8d9fcc581662ed0a1846 -> pull/181/merge
+2026-10-20T15:31:04.6544494Z ##[endgroup]
+2026-10-20T15:31:04.6546715Z ##[group]Determining the checkout info
+2026-10-20T15:31:04.6549421Z ##[endgroup]
+2026-10-20T15:31:04.6553039Z [command]/usr/bin/git sparse-checkout disable
+2026-10-20T15:31:04.6646716Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-20T15:31:04.6715126Z ##[group]Checking out the ref
+2026-10-20T15:31:04.6721591Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/181/merge
+2026-10-20T15:31:04.7659521Z Note: switching to 'refs/remotes/pull/181/merge'.
+2026-10-20T15:31:04.7660844Z 
+2026-10-20T15:31:04.7661744Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-10-20T15:31:04.7663751Z changes and commit them, and you can discard any commits you make in this
+2026-10-20T15:31:04.7666003Z state without impacting any branches by switching back to a branch.
+2026-10-20T15:31:04.7667671Z 
+2026-10-20T15:31:04.7669336Z If you want to create a new branch to retain commits you create, you may
+2026-10-20T15:31:04.7672007Z do so (now or later) by using -c with the switch command. Example:
+2026-10-20T15:31:04.7673504Z 
+2026-10-20T15:31:04.7674388Z   git switch -c <new-branch-name>
+2026-10-20T15:31:04.7675735Z 
+2026-10-20T15:31:04.7676379Z Or undo this operation with:
+2026-10-20T15:31:04.7677339Z 
+2026-10-20T15:31:04.7678179Z   git switch -
+2026-10-20T15:31:04.7678954Z 
+2026-10-20T15:31:04.7680109Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-10-20T15:31:04.7681752Z 
+2026-10-20T15:31:04.7683950Z HEAD is now at d19500d Merge 44114c6357caed81d5153b69be5a231e7eabcbec into a6fee427e19feeef28691737ea9bc5026086efa0
+2026-10-20T15:31:04.7689744Z ##[endgroup]
+2026-10-20T15:31:04.7748069Z [command]/usr/bin/git log -1 --format=%H
+2026-10-20T15:31:04.7796442Z d19500d63e848301af6e8d9fcc581662ed0a1846
+2026-10-20T15:31:04.7813996Z ##[group]Removing auth
+2026-10-20T15:31:04.7815878Z Removing SSH command configuration
+2026-10-20T15:31:04.7818932Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-20T15:31:04.7876279Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-20T15:31:04.8162747Z Removing HTTP extra header
+2026-10-20T15:31:04.8165977Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-20T15:31:04.8225766Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-20T15:31:04.8515964Z Removing includeIf entries pointing to credentials config files
+2026-10-20T15:31:04.8520737Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-20T15:31:04.8567431Z includeif.gitdir:/home/runner/work/Cloud-Assess/Cloud-Assess/.git.path
+2026-10-20T15:31:04.8571613Z includeif.gitdir:/home/runner/work/Cloud-Assess/Cloud-Assess/.git/worktrees/*.path
+2026-10-20T15:31:04.8575954Z includeif.gitdir:/github/workspace/.git.path
+2026-10-20T15:31:04.8578986Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-10-20T15:31:04.8583895Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/Cloud-Assess/Cloud-Assess/.git.path
+2026-10-20T15:31:04.8624342Z /home/runner/work/_temp/git-credentials-594f3d34-8c25-4d1a-86f1-bd51382526a2.config
+2026-10-20T15:31:04.8638377Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/Cloud-Assess/Cloud-Assess/.git.path \/home\/runner\/work\/_temp\/git\-credentials\-594f3d34\-8c25\-4d1a\-86f1\-bd51382526a2\.config
+2026-10-20T15:31:04.8693285Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/Cloud-Assess/Cloud-Assess/.git/worktrees/*.path
+2026-10-20T15:31:04.8736255Z /home/runner/work/_temp/git-credentials-594f3d34-8c25-4d1a-86f1-bd51382526a2.config
+2026-10-20T15:31:04.8754746Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/Cloud-Assess/Cloud-Assess/.git/worktrees/*.path \/home\/runner\/work\/_temp\/git\-credentials\-594f3d34\-8c25\-4d1a\-86f1\-bd51382526a2\.config
+2026-10-20T15:31:04.8813058Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-10-20T15:31:04.8862660Z /github/runner_temp/git-credentials-594f3d34-8c25-4d1a-86f1-bd51382526a2.config
+2026-10-20T15:31:04.8875785Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path \/github\/runner_temp\/git\-credentials\-594f3d34\-8c25\-4d1a\-86f1\-bd51382526a2\.config
+2026-10-20T15:31:04.8938744Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-10-20T15:31:04.8989371Z /github/runner_temp/git-credentials-594f3d34-8c25-4d1a-86f1-bd51382526a2.config
+2026-10-20T15:31:04.9004536Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-594f3d34\-8c25\-4d1a\-86f1\-bd51382526a2\.config
+2026-10-20T15:31:04.9061824Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-20T15:31:04.9341028Z Removing credentials config '/home/runner/work/_temp/git-credentials-594f3d34-8c25-4d1a-86f1-bd51382526a2.config'
+2026-10-20T15:31:04.9351162Z ##[endgroup]
+2026-10-20T15:31:04.9676116Z ##[group]Run python3 scripts/ci/required_gate.py --platform linux
+2026-10-20T15:31:04.9678470Z [36;1mpython3 scripts/ci/required_gate.py --platform linux[0m
+2026-10-20T15:31:04.9892769Z shell: /usr/bin/bash -e {0}
+2026-10-20T15:31:04.9894211Z env:
+2026-10-20T15:31:04.9898416Z   NEEDS_JSON: {
+  "linux-native": {
+    "result": "success",
+    "outputs": {}
+  },
+  "linux-controls-1": {
+    "result": "success",
+    "outputs": {}
+  },
+  "linux-controls-2": {
+    "result": "success",
+    "outputs": {}
+  },
+  "linux-controls-3": {
+    "result": "success",
+    "outputs": {}
+  }
+}
+2026-10-20T15:31:04.9903320Z ##[endgroup]
+2026-10-20T15:31:05.0338947Z Required native gate verified: linux-native, linux-controls-1, linux-controls-2, linux-controls-3
+2026-10-20T15:31:05.0763889Z Post job cleanup.
+2026-10-20T15:31:05.1728660Z [command]/usr/bin/git version
+2026-10-20T15:31:05.1789745Z git version 2.55.0
+2026-10-20T15:31:05.1839359Z Temporarily overriding HOME='/home/runner/work/_temp/69db7822-a9d9-40d6-85eb-511045a7e468' before making global git config changes
+2026-10-20T15:31:05.1842174Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-20T15:31:05.1844479Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Cloud-Assess/Cloud-Assess
+2026-10-20T15:31:05.1899770Z Removing SSH command configuration
+2026-10-20T15:31:05.1903089Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-20T15:31:05.1953465Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-20T15:31:05.2254065Z Removing HTTP extra header
+2026-10-20T15:31:05.2258870Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-20T15:31:05.2313691Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-20T15:31:05.2610584Z Removing includeIf entries pointing to credentials config files
+2026-10-20T15:31:05.2616526Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-20T15:31:05.2683169Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-20T15:31:05.3181580Z Cleaning up orphan processes
