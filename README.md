@@ -1,5 +1,7 @@
 # Cloud Assess
 
+Current development checkpoint: [security crossroads](docs/CHAT_TRANSFER_20261020.md); [status and resume authority](docs/CURRENT_STATE.md). Narrow security remediation is approved and undergoing its own QA; no retail implementation has started.
+
 
 Current audited continuation: [status](docs/CURRENT_STATE.md), [restart prompt](docs/RESTART_PROMPT.md), [transfer](docs/CHAT_TRANSFER_20261019.md), [72hour QA](docs/AUDIT_72H_20261019.md) and [discrepancies](docs/DISCREPANCIES_20261019.md). Exact outcomes stay in the live draft PR; verified offline is distinct from acceptance.
 

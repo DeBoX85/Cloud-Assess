@@ -3059,3 +3059,13 @@ PR169/724504b7 COMPLETE VERIFIED OFFLINE, own39163414431 all8workers/bothgates a
 ## Final internal SQL report candidate, 2026-10-18
 
 Scope correction PR169/724504b7 own full QA/evidence9ae98507/completion handover24c9ff59 closed BEFORE this transition. Report production/first runner/frozen26oracles preserved exactly;15compiled reversals and corrected actual renderers/full SQL baseline/preflight pass locally. [Implementation/stronger rollback amendment](SQL_REPORT_IMPLEMENTATION_20261018.md). Own final551Linux/546Windows identity QA/source/atomic report rollback retaining scope fix/archive/readback/final handover pending. Original SQL batch remains complete, protected acceptance unchanged.
+
+
+## 2026-10-20 security crossroads
+
+Current authority: [CURRENT_STATE](CURRENT_STATE.md). Autonomous batch paused at task6 own security QA; [blocker/options/decision](RETAIL_SECURITY_BLOCKER_20261020.md) controls the next action.177contract is frozen but unverified;178first consumer intentionally lacks production APIs; tasks7implementation/8contract not started. No dependency/pin refresh or gate bypass. Earlier next-task/no-blocker statuses are historical, not permission to proceed through this pause.
+
+
+## Approved narrow security maintenance, 2026-10-20
+
+Denis authorised the bounded Excelize update; the earlier decision pause is historical within this exception. See [CURRENT_STATE](CURRENT_STATE.md), [remediation contract](EXCELIZE_SECURITY_REMEDIATION_20261020.md) and [advisory review](SECURITY_ADVISORY_REVIEW_20261020.md). Exact fixed commit plus necessary transitive updates only; own full native/source QA pending. No retail production/protected merge/release. Preserve original failed177and first consumer178.

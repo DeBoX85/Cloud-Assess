@@ -4,6 +4,7 @@ Current status authority: [CURRENT_STATE](CURRENT_STATE.md). Detailed evidence b
 
 | ID | State | Responsible party | Dependency / next action | Closure evidence |
 | --- | --- | --- | --- | --- |
+| DC-RETAIL-SEC-20261020 | Approved narrow remediation; full QA pending | Agent; independent review remains open | Exact fixed Excelize commit/necessary transitive updates, full gates/evidence/rollback before retail | [Dedicated blocker](RETAIL_SECURITY_BLOCKER_20261020.md); PR177 own security failed, no retail production |
 | DC-001 | Verified offline | Agent | PR150 own-head QA completed; remain draft/unmerged | [PR150 final index](https://github.com/DeBoX85/Cloud-Assess/pull/150), head 4c1ddc0 |
 | DC-002 | Verified offline | Agent | PR151 own-head QA completed; remain draft/unmerged | [PR151 final index](https://github.com/DeBoX85/Cloud-Assess/pull/151), head ba9eeb9 |
 | DC-003 | Verified offline (PR152) | Agent | Retained bundles/verifier verified under [controls contract](DEVELOPMENT_CONTROLS_20261017.md); preserve final proof | [PR152 final index](https://github.com/DeBoX85/Cloud-Assess/pull/152) |

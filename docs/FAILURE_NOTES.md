@@ -2431,3 +2431,15 @@ Retrospective found WIP status after175closure,12historical ACTION_REGISTER line
 ### QA-72H-02: PR-only workflow coverage gap
 
 Before declaring the72hour audit complete, the PR-filtered helper was found to omit push/earlier/cancelled events. A paginated time-bounded all-events query returned75runs rather than56current-head pairs. Reviewed all19extra runs/136jobs:108available logs, six skipped and22cancelled before allocation/no steps/logs.32source reconstructions/six controlled hosted probes pass; two extra absent-API preparations and five cancelled runs stay nonacceptance. Boundary25older runs have no overlap. No new product defect; full evidence2fa53c34 preserves the addendum and initial45c565d6 remains immutable.
+
+
+## 2026-10-20 security crossroads
+
+Current authority: [CURRENT_STATE](CURRENT_STATE.md). Autonomous batch paused at task6 own security QA; [blocker/options/decision](RETAIL_SECURITY_BLOCKER_20261020.md) controls the next action.177contract is frozen but unverified;178first consumer intentionally lacks production APIs; tasks7implementation/8contract not started. No dependency/pin refresh or gate bypass. Earlier next-task/no-blocker statuses are historical, not permission to proceed through this pause.
+
+QA-RETAIL-01: local drift mutation and first broad preflight overlapped in one checkout. Excluded first result, restored exact files, reran serial full preflight successfully. Prevention: tests sharing a mutation checkout are dependent and must run sequentially. Hosted native security failures are separate and retained; do not retry unchanged failing scanner or suppress advisories.
+
+
+## Approved narrow security maintenance, 2026-10-20
+
+Denis authorised the bounded Excelize update; the earlier decision pause is historical within this exception. See [CURRENT_STATE](CURRENT_STATE.md), [remediation contract](EXCELIZE_SECURITY_REMEDIATION_20261020.md) and [advisory review](SECURITY_ADVISORY_REVIEW_20261020.md). Exact fixed commit plus necessary transitive updates only; own full native/source QA pending. No retail production/protected merge/release. Preserve original failed177and first consumer178.

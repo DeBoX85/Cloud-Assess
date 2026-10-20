@@ -2,6 +2,20 @@
 
 Updated 2026-10-19T19:57:53.132308+00:00. This is the current status/resume authority. Earlier dated progress, executor, pending and STOP paragraphs are historical snapshots. Technical contracts remain active unless explicitly revised. The live task PR owns exact-revision QA outcomes.
 
+## Approved narrow remediation, 2026-10-20T14:28:06.367019+00:00
+
+Denis explicitly authorised the narrow Excelize security update on2026-10-20 at16:14Oslo. The earlier wait-for-decision pause below is now historical within this exact scope. Active maintenance base is frozen177/b85655ac (not178or evidence trees); isolated excelize-security-20261020. [Remediation contract](EXCELIZE_SECURITY_REMEDIATION_20261020.md) and [current advisory review](SECURITY_ADVISORY_REVIEW_20261020.md) define limits. Exact target22f76f9a resolvesv2.11.1-0.20260915055537-22f76f9acb94. Only required selected transitive changes: mscfb1.0.7->1.0.8 and x/image0.38.0->0.44.0; all other selected versions/Go1.26.9/AZQR/APRL/captures unchanged. Regenerated49module inventory/notices; original license hashes and platform membership unchanged.
+
+Local current scan reports0symbol-reachable,3imported-not-called and1module-only findings; targetGO-2026-6684/6688cleared, residuals remain OPEN. Both bounded independent regressions fail behaviorally on the original pair and pass unchanged on the updated pair; source/dependency rollback/restoration passed. Added report string/precision/Unicode/formula/style compatibility cases pass. Own final-head native/source/security/retained-control QA remains PENDING; no acceptance, full task6 closure or retail production yet. Exact published candidate/QA/evidence belongs in live successor PR linked from177; verify before advancing. No further user decision is required for the approved narrow maintenance unless scope unexpectedly broadens or unresolved critical issues emerge.
+
+Tasks1-5 remain historically verified offline. Task6 frozen52cases await security-maintained successor certification. Preserve178first consumer/missing APIs; task7production not started, task8research only. After maintenance own full QA/evidence, reevaluate and publish between-task handover before resuming that batch. No Azure/fixtures/RBAC, unrelated refresh, subagents, protected merge/bypass/release. Previous security/pending/STOP paragraphs below are historical snapshots; active behavioral contracts and independent/live/release obligations persist.
+
+## Current security crossroads, 2026-10-20T01:06:00Z
+
+Implementation PAUSED pending Denis's decision in [dedicated blocker](RETAIL_SECURITY_BLOCKER_20261020.md). Task6 PR177/b85655ac freezes52retail cases but is NOT verified/complete: both native scans39350527288 report GO-2026-6688 and GO-2026-6684 in unchanged Excelize2.11.0. Source39350527219 passes; no production/dependency change. Task7 PR178/9e15db3d is deliberately failing test-only preparation; both native missing APIs inspected. No retail implementation exists. Task8 read-only research only. Tasks1-5 retain historical offline completion;176/1ededa50 is last fully verified development checkpoint, not current vulnerability clearance.
+
+Recommended next action requires explicit narrow dependency-policy exception: evaluate fixed upstream22f76f9a pseudo-version and necessary transitive changes, preserve all existing QA/source pins, full fresh security/native/source/rollback before resuming. Latest listed stable remains affected2.11.0. Do not bypass/suppress scanner, silently patch/vendor, remove Excel or advance dependent tasks. Local full serial preflight passed; an earlier overlapping local result was excluded and documented. See [new transfer](CHAT_TRANSFER_20261020.md) and [restart prompt](RESTART_PROMPT.md). All earlier next-task/no-blocker statements below are historical; this current pause is intentional.
+
 ## Canonical state and acceptance
 
 Protected bootstrap/core-v1 remains a6fee427e19feeef28691737ea9bc5026086efa0. Pinned AZQR8e4f0577f3615e6c9014c031bcad079f235369cc/tree17d93b20c303f90f7843036be82f0dc32f3260f1 and APRL60eaddda76541f6adbc1c5ffa686829807e55e29 are unchanged. No protected merge, bypass or release is authorised.

@@ -4,6 +4,10 @@ Bookmark this page or [the copy-ready prompt](RESTART_PROMPT.md). Read [CURRENT_
 
 Current transfer: [2026-10-19 checkpoint](CHAT_TRANSFER_20261019.md), [audit](AUDIT_72H_20261019.md) and [discrepancies](DISCREPANCIES_20261019.md). Follow verified live-PR continuation; preserve old bookmark heads.
 
+Current transfer: [2026-10-20 security crossroads](CHAT_TRANSFER_20261020.md). Read CURRENT_STATE and the [dependency-policy blocker](RETAIL_SECURITY_BLOCKER_20261020.md) before resuming; wait for Denis's decision. Earlier automatic task6 continuation is superseded.
+
+Current decision: Denis approved narrow security maintenance. Follow CURRENT_STATE and live177successor for its exact candidate/QA, then [remediation contract](EXCELIZE_SECURITY_REMEDIATION_20261020.md). Earlier wait-for-decision text is historical within this exception; no broad refresh/retail production clearance.
+
 ## Start here
 
 1. Read root [AGENTS.md](../AGENTS.md), CURRENT_STATE and the active task PR identified there. Verify live branch/head/tree/parents, protected baseline and actual worktree before editing. Do not select a branch merely because it is newest.

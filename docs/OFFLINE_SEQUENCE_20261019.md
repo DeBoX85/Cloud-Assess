@@ -39,3 +39,13 @@ Task4 must resolve actual SDK version/API, history upper-bound behaviour (source
 ## Drift/conflict check
 
 Purpose remains read-oriented assessment equivalence and useful reports with adjustable branding. No scope expanded. Provisional collector/ancillary order is superseded as above. No critical blocker found in initial reconciliation. Mandatory full exact-head QA remains pending for the administrative programme, and product work cannot inherit PR170 or predecessor certification. Before production, finish required administrative/contract validation and publish handover. Independent human review/backup/live/release/advisory obligations remain open.
+
+
+## 2026-10-20 security crossroads
+
+Current authority: [CURRENT_STATE](CURRENT_STATE.md). Autonomous batch paused at task6 own security QA; [blocker/options/decision](RETAIL_SECURITY_BLOCKER_20261020.md) controls the next action.177contract is frozen but unverified;178first consumer intentionally lacks production APIs; tasks7implementation/8contract not started. No dependency/pin refresh or gate bypass. Earlier next-task/no-blocker statuses are historical, not permission to proceed through this pause.
+
+
+## Approved narrow security maintenance, 2026-10-20
+
+Denis authorised the bounded Excelize update; the earlier decision pause is historical within this exception. See [CURRENT_STATE](CURRENT_STATE.md), [remediation contract](EXCELIZE_SECURITY_REMEDIATION_20261020.md) and [advisory review](SECURITY_ADVISORY_REVIEW_20261020.md). Exact fixed commit plus necessary transitive updates only; own full native/source QA pending. No retail production/protected merge/release. Preserve original failed177and first consumer178.
