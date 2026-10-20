@@ -1,0 +1,775 @@
+﻿2026-10-20T15:32:45.6587537Z Current runner version: '2.337.0'
+2026-10-20T15:32:45.6606104Z ##[group]Runner Image Provisioner
+2026-10-20T15:32:45.6606869Z Hosted Compute Agent
+2026-10-20T15:32:45.6607371Z Version: 20261015.610
+2026-10-20T15:32:45.6607900Z Commit: 267fdb4e8bbec4ab5ea31367f3a00d5c480c7656
+2026-10-20T15:32:45.6608631Z Build Date: 2026-10-14T17:06:54Z
+2026-10-20T15:32:45.6609226Z Worker ID: {4ef542da-c597-4d99-a2ca-00453db7f401}
+2026-10-20T15:32:45.6609817Z Region: westus3
+2026-10-20T15:32:45.6610275Z Cloud: Azure
+2026-10-20T15:32:45.6610724Z ##[endgroup]
+2026-10-20T15:32:45.6611810Z ##[group]Operating System
+2026-10-20T15:32:45.6612337Z Ubuntu
+2026-10-20T15:32:45.6612758Z 24.04.5
+2026-10-20T15:32:45.6613214Z LTS
+2026-10-20T15:32:45.6613644Z ##[endgroup]
+2026-10-20T15:32:45.6614146Z ##[group]Runner Image
+2026-10-20T15:32:45.6614662Z Image: ubuntu-24.04
+2026-10-20T15:32:45.6615290Z Version: 20261018.339.1
+2026-10-20T15:32:45.6616442Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261018.339/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-20T15:32:45.6617732Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261018.339
+2026-10-20T15:32:45.6618514Z ##[endgroup]
+2026-10-20T15:32:45.6619396Z ##[group]GITHUB_TOKEN Permissions
+2026-10-20T15:32:45.6621062Z Contents: read
+2026-10-20T15:32:45.6621519Z Metadata: read
+2026-10-20T15:32:45.6622033Z ##[endgroup]
+2026-10-20T15:32:45.6623576Z Secret source: Actions
+2026-10-20T15:32:45.6624356Z Cache mode: write
+2026-10-20T15:32:45.6624967Z Prepare workflow directory
+2026-10-20T15:32:45.6880806Z Prepare all required actions
+2026-10-20T15:32:45.6920393Z Getting action download info
+2026-10-20T15:32:46.0016523Z Download action repository 'actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1' (SHA:3d3c42e5aac5ba805825da76410c181273ba90b1)
+2026-10-20T15:32:46.0962975Z Download action repository 'actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16' (SHA:924ae3a1cded613372ab5595356fb5720e22ba16)
+2026-10-20T15:32:46.8434924Z Download action repository 'actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-10-20T15:32:47.0752721Z Complete job name: linux-native
+2026-10-20T15:32:47.1447097Z ##[group]Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+2026-10-20T15:32:47.1447976Z with:
+2026-10-20T15:32:47.1448389Z   submodules: recursive
+2026-10-20T15:32:47.1448891Z   fetch-depth: 1
+2026-10-20T15:32:47.1449373Z   repository: DeBoX85/Cloud-Assess
+2026-10-20T15:32:47.1453157Z   token: ***
+2026-10-20T15:32:47.1453617Z   ssh-strict: true
+2026-10-20T15:32:47.1454025Z   ssh-user: git
+2026-10-20T15:32:47.1454481Z   persist-credentials: true
+2026-10-20T15:32:47.1454950Z   clean: true
+2026-10-20T15:32:47.1455699Z   sparse-checkout-cone-mode: true
+2026-10-20T15:32:47.1456226Z   fetch-tags: false
+2026-10-20T15:32:47.1456660Z   show-progress: true
+2026-10-20T15:32:47.1457137Z   lfs: false
+2026-10-20T15:32:47.1457556Z   set-safe-directory: true
+2026-10-20T15:32:47.1458039Z   allow-unsafe-pr-checkout: false
+2026-10-20T15:32:47.1458819Z ##[endgroup]
+2026-10-20T15:32:47.2350312Z Syncing repository: DeBoX85/Cloud-Assess
+2026-10-20T15:32:47.2352808Z ##[group]Getting Git version info
+2026-10-20T15:32:47.2353875Z Working directory is '/home/runner/work/Cloud-Assess/Cloud-Assess'
+2026-10-20T15:32:47.2355550Z [command]/usr/bin/git version
+2026-10-20T15:32:47.2455780Z git version 2.55.0
+2026-10-20T15:32:47.2472595Z ##[endgroup]
+2026-10-20T15:32:47.2480111Z Temporarily overriding HOME='/home/runner/work/_temp/651d428d-f4f0-47bc-a248-1c5362c02532' before making global git config changes
+2026-10-20T15:32:47.2482121Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-20T15:32:47.2484460Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Cloud-Assess/Cloud-Assess
+2026-10-20T15:32:47.2523639Z Deleting the contents of '/home/runner/work/Cloud-Assess/Cloud-Assess'
+2026-10-20T15:32:47.2526697Z ##[group]Determining repository object format
+2026-10-20T15:32:47.2528395Z ##[endgroup]
+2026-10-20T15:32:47.2529683Z ##[group]Initializing the repository
+2026-10-20T15:32:47.2530964Z [command]/usr/bin/git init /home/runner/work/Cloud-Assess/Cloud-Assess
+2026-10-20T15:32:47.2629819Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-20T15:32:47.2631226Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-20T15:32:47.2632603Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-20T15:32:47.2633634Z hint: call:
+2026-10-20T15:32:47.2634335Z hint:
+2026-10-20T15:32:47.2635256Z hint: 	git config --global init.defaultBranch <name>
+2026-10-20T15:32:47.2636143Z hint:
+2026-10-20T15:32:47.2636988Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-20T15:32:47.2638200Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-20T15:32:47.2639242Z hint:
+2026-10-20T15:32:47.2639903Z hint: 	git branch -m <name>
+2026-10-20T15:32:47.2640590Z hint:
+2026-10-20T15:32:47.2641438Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-20T15:32:47.2643673Z Initialized empty Git repository in /home/runner/work/Cloud-Assess/Cloud-Assess/.git/
+2026-10-20T15:32:47.2646873Z [command]/usr/bin/git remote add origin https://github.com/DeBoX85/Cloud-Assess
+2026-10-20T15:32:47.2689291Z ##[endgroup]
+2026-10-20T15:32:47.2690370Z ##[group]Disabling automatic garbage collection
+2026-10-20T15:32:47.2692044Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-20T15:32:47.2716924Z ##[endgroup]
+2026-10-20T15:32:47.2718147Z ##[group]Setting up auth
+2026-10-20T15:32:47.2719406Z Removing SSH command configuration
+2026-10-20T15:32:47.2721127Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-20T15:32:47.2746485Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-20T15:32:47.3069817Z Removing HTTP extra header
+2026-10-20T15:32:47.3074705Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-20T15:32:47.3100958Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-20T15:32:47.3266003Z Removing includeIf entries pointing to credentials config files
+2026-10-20T15:32:47.3269179Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-20T15:32:47.3293311Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-20T15:32:47.3452618Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-3d55a95f-1567-4922-8d80-f5ea3369809a.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-20T15:32:47.3482382Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/Cloud-Assess/Cloud-Assess/.git.path /home/runner/work/_temp/git-credentials-3d55a95f-1567-4922-8d80-f5ea3369809a.config
+2026-10-20T15:32:47.3507488Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/Cloud-Assess/Cloud-Assess/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-3d55a95f-1567-4922-8d80-f5ea3369809a.config
+2026-10-20T15:32:47.3536806Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-3d55a95f-1567-4922-8d80-f5ea3369809a.config
+2026-10-20T15:32:47.3562106Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-3d55a95f-1567-4922-8d80-f5ea3369809a.config
+2026-10-20T15:32:47.3584659Z ##[endgroup]
+2026-10-20T15:32:47.3585990Z ##[group]Fetching the repository
+2026-10-20T15:32:47.3590175Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +558f34e3bb2918a36dde1c220941d99adc74dfa6:refs/remotes/pull/182/merge
+2026-10-20T15:32:48.4710008Z From https://github.com/DeBoX85/Cloud-Assess
+2026-10-20T15:32:48.4712444Z  * [new ref]         558f34e3bb2918a36dde1c220941d99adc74dfa6 -> pull/182/merge
+2026-10-20T15:32:48.4717328Z ##[endgroup]
+2026-10-20T15:32:48.4719206Z ##[group]Determining the checkout info
+2026-10-20T15:32:48.4721155Z ##[endgroup]
+2026-10-20T15:32:48.4722070Z [command]/usr/bin/git sparse-checkout disable
+2026-10-20T15:32:48.4769194Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-20T15:32:48.4828621Z ##[group]Checking out the ref
+2026-10-20T15:32:48.4831226Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/182/merge
+2026-10-20T15:32:48.5451260Z Note: switching to 'refs/remotes/pull/182/merge'.
+2026-10-20T15:32:48.5452418Z 
+2026-10-20T15:32:48.5453522Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-10-20T15:32:48.5456368Z changes and commit them, and you can discard any commits you make in this
+2026-10-20T15:32:48.5458578Z state without impacting any branches by switching back to a branch.
+2026-10-20T15:32:48.5459685Z 
+2026-10-20T15:32:48.5460678Z If you want to create a new branch to retain commits you create, you may
+2026-10-20T15:32:48.5462609Z do so (now or later) by using -c with the switch command. Example:
+2026-10-20T15:32:48.5463719Z 
+2026-10-20T15:32:48.5464210Z   git switch -c <new-branch-name>
+2026-10-20T15:32:48.5465355Z 
+2026-10-20T15:32:48.5466082Z Or undo this operation with:
+2026-10-20T15:32:48.5467158Z 
+2026-10-20T15:32:48.5467811Z   git switch -
+2026-10-20T15:32:48.5468493Z 
+2026-10-20T15:32:48.5469430Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-10-20T15:32:48.5470713Z 
+2026-10-20T15:32:48.5472227Z HEAD is now at 558f34e Merge aa304cf71282d28d1586a72f0ce232ce2c1b2d3e into a6fee427e19feeef28691737ea9bc5026086efa0
+2026-10-20T15:32:48.5477303Z ##[endgroup]
+2026-10-20T15:32:48.5479190Z ##[group]Setting up auth for fetching submodules
+2026-10-20T15:32:48.5483658Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-3d55a95f-1567-4922-8d80-f5ea3369809a.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-20T15:32:48.5504173Z [command]/usr/bin/git config --global include.path /home/runner/work/_temp/git-credentials-3d55a95f-1567-4922-8d80-f5ea3369809a.config
+2026-10-20T15:32:48.5533482Z [command]/usr/bin/git config --global --unset-all url.https://github.com/.insteadOf
+2026-10-20T15:32:48.5559166Z [command]/usr/bin/git config --global --add url.https://github.com/.insteadOf git@github.com:
+2026-10-20T15:32:48.5585950Z [command]/usr/bin/git config --global --add url.https://github.com/.insteadOf org-134433647@github.com:
+2026-10-20T15:32:48.5613594Z ##[endgroup]
+2026-10-20T15:32:48.5616142Z ##[group]Fetching submodules
+2026-10-20T15:32:48.5617778Z [command]/usr/bin/git submodule sync --recursive
+2026-10-20T15:32:48.5786023Z [command]/usr/bin/git -c protocol.version=2 submodule update --init --force --depth=1 --recursive
+2026-10-20T15:32:48.6042565Z Submodule 'internal/rules/upstream/aprl' (https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2.git) registered for path 'internal/rules/upstream/aprl'
+2026-10-20T15:32:48.6061828Z Cloning into '/home/runner/work/Cloud-Assess/Cloud-Assess/internal/rules/upstream/aprl'...
+2026-10-20T15:32:51.0683033Z From https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2
+2026-10-20T15:32:51.0684707Z  * branch            60eaddda76541f6adbc1c5ffa686829807e55e29 -> FETCH_HEAD
+2026-10-20T15:32:51.1574103Z Submodule path 'internal/rules/upstream/aprl': checked out '60eaddda76541f6adbc1c5ffa686829807e55e29'
+2026-10-20T15:32:51.1600291Z [command]/usr/bin/git submodule foreach --recursive git config --local gc.auto 0
+2026-10-20T15:32:51.1763298Z Entering 'internal/rules/upstream/aprl'
+2026-10-20T15:32:51.1807124Z ##[endgroup]
+2026-10-20T15:32:51.1807953Z ##[group]Persisting credentials for submodules
+2026-10-20T15:32:51.1812284Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'url\.https\:\/\/github\.com\/\.insteadOf' && git config --local --unset-all 'url.https://github.com/.insteadOf' || :"
+2026-10-20T15:32:51.1968870Z Entering 'internal/rules/upstream/aprl'
+2026-10-20T15:32:51.2011172Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-20T15:32:51.2178694Z Entering 'internal/rules/upstream/aprl'
+2026-10-20T15:32:51.2197050Z file:/home/runner/work/Cloud-Assess/Cloud-Assess/.git/modules/internal/rules/upstream/aprl/config	remote.origin.url
+2026-10-20T15:32:51.2221998Z [command]/usr/bin/git config --file /home/runner/work/Cloud-Assess/Cloud-Assess/.git/modules/internal/rules/upstream/aprl/config includeIf.gitdir:/home/runner/work/Cloud-Assess/Cloud-Assess/.git/modules/internal/rules/upstream/aprl.path /home/runner/work/_temp/git-credentials-3d55a95f-1567-4922-8d80-f5ea3369809a.config
+2026-10-20T15:32:51.2252133Z [command]/usr/bin/git config --file /home/runner/work/Cloud-Assess/Cloud-Assess/.git/modules/internal/rules/upstream/aprl/config includeIf.gitdir:/github/workspace/.git/modules/internal/rules/upstream/aprl.path /github/runner_temp/git-credentials-3d55a95f-1567-4922-8d80-f5ea3369809a.config
+2026-10-20T15:32:51.2282937Z [command]/usr/bin/git submodule foreach --recursive git config --local --add 'url.https://github.com/.insteadOf' 'git@github.com:'
+2026-10-20T15:32:51.2439099Z Entering 'internal/rules/upstream/aprl'
+2026-10-20T15:32:51.2483331Z [command]/usr/bin/git submodule foreach --recursive git config --local --add 'url.https://github.com/.insteadOf' 'org-134433647@github.com:'
+2026-10-20T15:32:51.2639376Z Entering 'internal/rules/upstream/aprl'
+2026-10-20T15:32:51.2677866Z ##[endgroup]
+2026-10-20T15:32:51.2710550Z [command]/usr/bin/git log -1 --format=%H
+2026-10-20T15:32:51.2731254Z 558f34e3bb2918a36dde1c220941d99adc74dfa6
+2026-10-20T15:32:51.2982931Z ##[group]Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16
+2026-10-20T15:32:51.2983406Z with:
+2026-10-20T15:32:51.2983716Z   go-version: 1.26.9
+2026-10-20T15:32:51.2984030Z   cache: true
+2026-10-20T15:32:51.2984352Z   check-latest: false
+2026-10-20T15:32:51.2987055Z   token: ***
+2026-10-20T15:32:51.2987425Z ##[endgroup]
+2026-10-20T15:32:51.4099013Z Setup go version spec 1.26.9
+2026-10-20T15:32:51.4128750Z Found in cache @ /opt/hostedtoolcache/go/1.26.9/x64
+2026-10-20T15:32:51.4129322Z Added go to the path
+2026-10-20T15:32:51.4131807Z Successfully set up Go version 1.26.9
+2026-10-20T15:32:51.4816413Z [command]/opt/hostedtoolcache/go/1.26.9/x64/bin/go env GOMODCACHE
+2026-10-20T15:32:51.4856433Z [command]/opt/hostedtoolcache/go/1.26.9/x64/bin/go env GOCACHE
+2026-10-20T15:32:51.4926418Z /home/runner/go/pkg/mod
+2026-10-20T15:32:51.4927609Z /home/runner/.cache/go-build
+2026-10-20T15:32:51.7269489Z Cache is not found
+2026-10-20T15:32:51.7296762Z go version go1.26.9 linux/amd64
+2026-10-20T15:32:51.7297077Z 
+2026-10-20T15:32:51.7297482Z ##[group]go env
+2026-10-20T15:32:51.8471178Z AR='ar'
+2026-10-20T15:32:51.8471655Z CC='gcc'
+2026-10-20T15:32:51.8471967Z CGO_CFLAGS='-O2 -g'
+2026-10-20T15:32:51.8472343Z CGO_CPPFLAGS=''
+2026-10-20T15:32:51.8472676Z CGO_CXXFLAGS='-O2 -g'
+2026-10-20T15:32:51.8473092Z CGO_ENABLED='1'
+2026-10-20T15:32:51.8473475Z CGO_FFLAGS='-O2 -g'
+2026-10-20T15:32:51.8473836Z CGO_LDFLAGS='-O2 -g'
+2026-10-20T15:32:51.8474193Z CXX='g++'
+2026-10-20T15:32:51.8474555Z GCCGO='gccgo'
+2026-10-20T15:32:51.8474905Z GO111MODULE=''
+2026-10-20T15:32:51.8475388Z GOAMD64='v1'
+2026-10-20T15:32:51.8475767Z GOARCH='amd64'
+2026-10-20T15:32:51.8476099Z GOAUTH='netrc'
+2026-10-20T15:32:51.8476416Z GOBIN=''
+2026-10-20T15:32:51.8476759Z GOCACHE='/home/runner/.cache/go-build'
+2026-10-20T15:32:51.8477173Z GOCACHEPROG=''
+2026-10-20T15:32:51.8477468Z GODEBUG=''
+2026-10-20T15:32:51.8477767Z GOENV='/home/runner/.config/go/env'
+2026-10-20T15:32:51.8478183Z GOEXE=''
+2026-10-20T15:32:51.8478790Z GOEXPERIMENT=''
+2026-10-20T15:32:51.8479203Z GOFIPS140='off'
+2026-10-20T15:32:51.8479662Z GOFLAGS=''
+2026-10-20T15:32:51.8480636Z GOGCCFLAGS='-fPIC -m64 -pthread -Wl,--no-gc-sections -fmessage-length=0 -ffile-prefix-map=/tmp/go-build4067523260=/tmp/go-build -gno-record-gcc-switches'
+2026-10-20T15:32:51.8481631Z GOHOSTARCH='amd64'
+2026-10-20T15:32:51.8481980Z GOHOSTOS='linux'
+2026-10-20T15:32:51.8482297Z GOINSECURE=''
+2026-10-20T15:32:51.8482827Z GOMOD='/home/runner/work/Cloud-Assess/Cloud-Assess/go.mod'
+2026-10-20T15:32:51.8483378Z GOMODCACHE='/home/runner/go/pkg/mod'
+2026-10-20T15:32:51.8483795Z GONOPROXY=''
+2026-10-20T15:32:51.8484164Z GONOSUMDB=''
+2026-10-20T15:32:51.8484492Z GOOS='linux'
+2026-10-20T15:32:51.8484903Z GOPATH='/home/runner/go'
+2026-10-20T15:32:51.8485486Z GOPRIVATE=''
+2026-10-20T15:32:51.8486002Z GOPROXY='https://proxy.golang.org,direct'
+2026-10-20T15:32:51.8486543Z GOROOT='/opt/hostedtoolcache/go/1.26.9/x64'
+2026-10-20T15:32:51.8486994Z GOSUMDB='sum.golang.org'
+2026-10-20T15:32:51.8487494Z GOTELEMETRY='local'
+2026-10-20T15:32:51.8487942Z GOTELEMETRYDIR='/home/runner/.config/go/telemetry'
+2026-10-20T15:32:51.8488467Z GOTMPDIR=''
+2026-10-20T15:32:51.8488786Z GOTOOLCHAIN='local'
+2026-10-20T15:32:51.8489258Z GOTOOLDIR='/opt/hostedtoolcache/go/1.26.9/x64/pkg/tool/linux_amd64'
+2026-10-20T15:32:51.8490178Z GOVCS=''
+2026-10-20T15:32:51.8490518Z GOVERSION='go1.26.9'
+2026-10-20T15:32:51.8490997Z GOWORK=''
+2026-10-20T15:32:51.8491487Z PKG_CONFIG='pkg-config'
+2026-10-20T15:32:51.8491758Z 
+2026-10-20T15:32:51.8492304Z ##[endgroup]
+2026-10-20T15:32:51.8592139Z ##[group]Run python3 scripts/tests/ci-workflow.py
+2026-10-20T15:32:51.8592588Z [36;1mpython3 scripts/tests/ci-workflow.py[0m
+2026-10-20T15:32:51.8710442Z shell: /usr/bin/bash -e {0}
+2026-10-20T15:32:51.8710858Z env:
+2026-10-20T15:32:51.8711129Z   GOTOOLCHAIN: local
+2026-10-20T15:32:51.8711430Z ##[endgroup]
+2026-10-20T15:32:52.1706988Z ..........
+2026-10-20T15:32:52.1707658Z ----------------------------------------------------------------------
+2026-10-20T15:32:52.1708201Z Ran 10 tests in 0.210s
+2026-10-20T15:32:52.1708402Z 
+2026-10-20T15:32:52.1708556Z OK
+2026-10-20T15:32:52.1889770Z ##[group]Run set -euo pipefail
+2026-10-20T15:32:52.1890138Z [36;1mset -euo pipefail[0m
+2026-10-20T15:32:52.1890507Z [36;1mexpected_aprl='60eaddda76541f6adbc1c5ffa686829807e55e29'[0m
+2026-10-20T15:32:52.1890956Z [36;1mexpected_aor='a3ff1cafbc0a74ea4e4d2cc5aa2812f7c1dab9f5'[0m
+2026-10-20T15:32:52.1891372Z [36;1mexpected_custom='674b9b3dcb443ce6dc445b48e1db47e4a0ca7082'[0m
+2026-10-20T15:32:52.1891797Z [36;1mexpected_skus='a2d97a60ec445ce4023a1a5a9b6c4dca76e31f5a'[0m
+2026-10-20T15:32:52.1892145Z [36;1m[0m
+2026-10-20T15:32:52.1892458Z [36;1mactual_aprl="$(git rev-parse HEAD:internal/rules/upstream/aprl)"[0m
+2026-10-20T15:32:52.1892940Z [36;1mactual_aor="$(git rev-parse HEAD:internal/rules/upstream/orphan-resources)"[0m
+2026-10-20T15:32:52.1893401Z [36;1mactual_custom="$(git rev-parse HEAD:internal/rules/custom)"[0m
+2026-10-20T15:32:52.1893813Z [36;1mactual_skus="$(git hash-object internal/skus/known_skus.yaml)"[0m
+2026-10-20T15:32:52.1894174Z [36;1m[0m
+2026-10-20T15:32:52.1894527Z [36;1mtest "$actual_aprl" = "$expected_aprl"[0m
+2026-10-20T15:32:52.1894877Z [36;1mtest "$actual_aor" = "$expected_aor"[0m
+2026-10-20T15:32:52.1895302Z [36;1mtest "$actual_custom" = "$expected_custom"[0m
+2026-10-20T15:32:52.1895626Z [36;1mtest "$actual_skus" = "$expected_skus"[0m
+2026-10-20T15:32:52.1895915Z [36;1m[0m
+2026-10-20T15:32:52.1896277Z [36;1mtest "$(git -C internal/rules/upstream/aprl rev-parse HEAD)" = "$expected_aprl"[0m
+2026-10-20T15:32:52.1928958Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-20T15:32:52.1929359Z env:
+2026-10-20T15:32:52.1929646Z   GOTOOLCHAIN: local
+2026-10-20T15:32:52.1929905Z ##[endgroup]
+2026-10-20T15:32:52.2080690Z ##[group]Run set -euo pipefail
+2026-10-20T15:32:52.2081015Z [36;1mset -euo pipefail[0m
+2026-10-20T15:32:52.2081318Z [36;1mfiles="$(git ls-files '*.go')"[0m
+2026-10-20T15:32:52.2081662Z [36;1munformatted="$(gofmt -l $files)"[0m
+2026-10-20T15:32:52.2082095Z [36;1mif [ -n "$unformatted" ]; then[0m
+2026-10-20T15:32:52.2082455Z [36;1m  echo 'The following Go files are not gofmt-formatted:'[0m
+2026-10-20T15:32:52.2082845Z [36;1m  echo "$unformatted"[0m
+2026-10-20T15:32:52.2083170Z [36;1m  gofmt -d $files[0m
+2026-10-20T15:32:52.2083438Z [36;1m  exit 1[0m
+2026-10-20T15:32:52.2083695Z [36;1mfi[0m
+2026-10-20T15:32:52.2110723Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-20T15:32:52.2111128Z env:
+2026-10-20T15:32:52.2111388Z   GOTOOLCHAIN: local
+2026-10-20T15:32:52.2111676Z ##[endgroup]
+2026-10-20T15:32:52.3544939Z ##[group]Run set -euo pipefail
+2026-10-20T15:32:52.3545401Z [36;1mset -euo pipefail[0m
+2026-10-20T15:32:52.3545598Z [36;1mgo mod tidy[0m
+2026-10-20T15:32:52.3545806Z [36;1mgit diff --exit-code -- go.mod go.sum[0m
+2026-10-20T15:32:52.3574543Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-20T15:32:52.3574828Z env:
+2026-10-20T15:32:52.3575018Z   GOTOOLCHAIN: local
+2026-10-20T15:32:52.3575372Z ##[endgroup]
+2026-10-20T15:32:52.3921625Z go: downloading github.com/Azure/azure-sdk-for-go/sdk/azcore v1.23.1
+2026-10-20T15:32:52.5025890Z go: downloading github.com/spf13/cobra v1.10.2
+2026-10-20T15:32:52.6108910Z go: downloading github.com/xuri/excelize/v2 v2.11.1-0.20260915055537-22f76f9acb94
+2026-10-20T15:32:52.6344618Z go: downloading gopkg.in/yaml.v3 v3.0.1
+2026-10-20T15:32:52.6442596Z go: downloading github.com/Azure/azure-sdk-for-go/sdk/azidentity v1.14.1
+2026-10-20T15:32:52.6877895Z go: downloading github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/managementgroups/armmanagementgroups v1.2.0
+2026-10-20T15:32:52.7095975Z go: downloading github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/subscription/armsubscription v1.2.0
+2026-10-20T15:32:52.7265266Z go: downloading golang.org/x/sys v0.48.0
+2026-10-20T15:32:52.7376750Z go: downloading golang.org/x/time v0.16.0
+2026-10-20T15:32:52.9316586Z go: downloading github.com/inconshreveable/mousetrap v1.1.0
+2026-10-20T15:32:52.9317933Z go: downloading github.com/spf13/pflag v1.0.10
+2026-10-20T15:32:52.9425742Z go: downloading github.com/Azure/azure-sdk-for-go/sdk/internal v1.12.0
+2026-10-20T15:32:52.9712117Z go: downloading golang.org/x/net v0.60.0
+2026-10-20T15:32:52.9845238Z go: downloading github.com/AzureAD/microsoft-authentication-library-for-go v1.8.0
+2026-10-20T15:32:53.0411665Z go: downloading github.com/stretchr/testify v1.12.1
+2026-10-20T15:32:53.0428706Z go: downloading gopkg.in/check.v1 v1.0.0-20201130134442-10cb98267c6c
+2026-10-20T15:32:53.0494858Z go: downloading golang.org/x/crypto v0.57.0
+2026-10-20T15:32:53.0744454Z go: downloading github.com/Azure/azure-sdk-for-go/sdk/azidentity/cache v0.4.0
+2026-10-20T15:32:53.0895751Z go: downloading github.com/golang-jwt/jwt/v5 v5.3.1
+2026-10-20T15:32:53.1029171Z go: downloading github.com/google/uuid v1.6.0
+2026-10-20T15:32:53.1299345Z go: downloading github.com/richardlehane/mscfb v1.0.8
+2026-10-20T15:32:53.1300074Z go: downloading github.com/tiendc/go-deepcopy v1.7.2
+2026-10-20T15:32:53.1480301Z go: downloading github.com/xuri/efp v0.0.1
+2026-10-20T15:32:53.1668602Z go: downloading github.com/xuri/nfp v0.0.2-0.20250530014748-2ddeb826f9a9
+2026-10-20T15:32:53.1964597Z go: downloading golang.org/x/text v0.42.0
+2026-10-20T15:32:53.5387282Z go: downloading golang.org/x/image v0.44.0
+2026-10-20T15:32:53.5434504Z go: downloading github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/internal/v2 v2.0.0
+2026-10-20T15:32:53.7059879Z go: downloading github.com/kylelemons/godebug v1.1.0
+2026-10-20T15:32:53.7060805Z go: downloading github.com/pkg/browser v0.0.0-20240102092130-5ac0b6a4141c
+2026-10-20T15:32:53.7187853Z go: downloading github.com/kr/pretty v0.3.1
+2026-10-20T15:32:53.7190164Z go: downloading github.com/AzureAD/microsoft-authentication-extensions-for-go/cache v0.1.1
+2026-10-20T15:32:53.7515786Z go: downloading github.com/richardlehane/msoleps v1.0.6
+2026-10-20T15:32:53.7569012Z go: downloading github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/resources/armresources v1.1.1
+2026-10-20T15:32:53.7971206Z go: downloading golang.org/x/sync v0.23.0
+2026-10-20T15:32:53.7983917Z go: downloading github.com/kr/text v0.2.0
+2026-10-20T15:32:53.7984687Z go: downloading github.com/rogpeppe/go-internal v1.12.0
+2026-10-20T15:32:53.8108669Z go: downloading go.yaml.in/yaml/v3 v3.0.5
+2026-10-20T15:32:53.8154995Z go: downloading github.com/keybase/go-keychain v0.0.1
+2026-10-20T15:32:53.9404376Z ##[group]Run python3 scripts/tests/dependency-inventory.py
+2026-10-20T15:32:53.9404779Z [36;1mpython3 scripts/tests/dependency-inventory.py[0m
+2026-10-20T15:32:53.9436087Z shell: /usr/bin/bash -e {0}
+2026-10-20T15:32:53.9436322Z env:
+2026-10-20T15:32:53.9436507Z   GOTOOLCHAIN: local
+2026-10-20T15:32:53.9436703Z ##[endgroup]
+2026-10-20T15:32:54.0205488Z .........
+2026-10-20T15:32:54.0205965Z ----------------------------------------------------------------------
+2026-10-20T15:32:54.0206465Z Ran 9 tests in 0.011s
+2026-10-20T15:32:54.0206670Z 
+2026-10-20T15:32:54.0206792Z OK
+2026-10-20T15:32:54.0337843Z ##[group]Run bash -n scripts/bootstrap-workspace.sh
+2026-10-20T15:32:54.0338283Z [36;1mbash -n scripts/bootstrap-workspace.sh[0m
+2026-10-20T15:32:54.0338673Z [36;1mpython3 scripts/tests/bootstrap-workspace.py[0m
+2026-10-20T15:32:54.0364405Z shell: /usr/bin/bash -e {0}
+2026-10-20T15:32:54.0364731Z env:
+2026-10-20T15:32:54.0365017Z   GOTOOLCHAIN: local
+2026-10-20T15:32:54.0365454Z ##[endgroup]
+2026-10-20T15:32:54.1178300Z ...
+2026-10-20T15:32:54.1178816Z ----------------------------------------------------------------------
+2026-10-20T15:32:54.1179419Z Ran 3 tests in 0.039s
+2026-10-20T15:32:54.1179668Z 
+2026-10-20T15:32:54.1179784Z OK
+2026-10-20T15:32:54.1790897Z Bootstrap checksum control: valid shell mutation rejected before unsafe extraction; restored guard passed
+2026-10-20T15:32:54.1887067Z ##[group]Run python3 scripts/tests/workflow-command-failures.py
+2026-10-20T15:32:54.1887462Z [36;1mpython3 scripts/tests/workflow-command-failures.py[0m
+2026-10-20T15:32:54.1915273Z shell: /usr/bin/bash -e {0}
+2026-10-20T15:32:54.1915539Z env:
+2026-10-20T15:32:54.1915720Z   GOTOOLCHAIN: local
+2026-10-20T15:32:54.1915913Z ##[endgroup]
+2026-10-20T15:32:55.4487003Z Workflow command failures: both actual Windows blocks reject first/second failures and accept success (6 cases)
+2026-10-20T15:32:55.4567681Z ##[group]Run python3 scripts/dependency-inventory.py --check
+2026-10-20T15:32:55.4568056Z [36;1mpython3 scripts/dependency-inventory.py --check[0m
+2026-10-20T15:32:55.4596929Z shell: /usr/bin/bash -e {0}
+2026-10-20T15:32:55.4597156Z env:
+2026-10-20T15:32:55.4597332Z   GOTOOLCHAIN: local
+2026-10-20T15:32:55.4597521Z ##[endgroup]
+2026-10-20T15:32:59.6339873Z Dependency inventory verified.
+2026-10-20T15:32:59.6424375Z ##[group]Run python3 scripts/tests/branding.py
+2026-10-20T15:32:59.6425283Z [36;1mpython3 scripts/tests/branding.py[0m
+2026-10-20T15:32:59.6425571Z [36;1mpython3 scripts/tests/branding-reports.py[0m
+2026-10-20T15:32:59.6454814Z shell: /usr/bin/bash -e {0}
+2026-10-20T15:32:59.6455180Z env:
+2026-10-20T15:32:59.6455391Z   GOTOOLCHAIN: local
+2026-10-20T15:32:59.6455593Z ##[endgroup]
+2026-10-20T15:33:23.7317243Z Branding builder/CLI: default and custom native binaries, canonical identity, preservation and malformed-state tripwire checks passed
+2026-10-20T15:33:53.8259339Z Branding reports: 12 XLSX sheets/12 CSV tables, JSON/stdout, SARIF records/provenance, raw/redacted paths and concurrent isolation passed
+2026-10-20T15:33:53.8383039Z ##[group]Run set -euo pipefail
+2026-10-20T15:33:53.8383438Z [36;1mset -euo pipefail[0m
+2026-10-20T15:33:53.8384196Z [36;1mif grep -RInE --include='*.go' 'azqr_action_plan|Use:[[:space:]]*"azqr"|github\.com/Azure/azqr|Azure Quick Review 🚀' cmd internal; then[0m
+2026-10-20T15:33:53.8385026Z [36;1m  echo 'Legacy product identity found in executable Go source.'[0m
+2026-10-20T15:33:53.8385681Z [36;1m  exit 1[0m
+2026-10-20T15:33:53.8385942Z [36;1mfi[0m
+2026-10-20T15:33:53.8423058Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-20T15:33:53.8423553Z env:
+2026-10-20T15:33:53.8423743Z   GOTOOLCHAIN: local
+2026-10-20T15:33:53.8423943Z ##[endgroup]
+2026-10-20T15:33:53.8588457Z ##[group]Run $parseFailed = $false
+2026-10-20T15:33:53.8588767Z [36;1m$parseFailed = $false[0m
+2026-10-20T15:33:53.8589201Z [36;1mGet-ChildItem -Path ./scripts -Include *.ps1,*.psm1 -File -Recurse | ForEach-Object {[0m
+2026-10-20T15:33:53.8589627Z [36;1m  $tokens = $null[0m
+2026-10-20T15:33:53.8589862Z [36;1m  $errors = $null[0m
+2026-10-20T15:33:53.8590328Z [36;1m  [System.Management.Automation.Language.Parser]::ParseFile($_.FullName, [ref]$tokens, [ref]$errors) | Out-Null[0m
+2026-10-20T15:33:53.8590838Z [36;1m  if ($errors.Count -gt 0) {[0m
+2026-10-20T15:33:53.8591160Z [36;1m    $parseFailed = $true[0m
+2026-10-20T15:33:53.8591482Z [36;1m    Write-Host "PowerShell parse errors in $($_.FullName):"[0m
+2026-10-20T15:33:53.8591885Z [36;1m    $errors | ForEach-Object { Write-Error $_.Message }[0m
+2026-10-20T15:33:53.8592194Z [36;1m  }[0m
+2026-10-20T15:33:53.8592401Z [36;1m}[0m
+2026-10-20T15:33:53.8592616Z [36;1mif ($parseFailed) {[0m
+2026-10-20T15:33:53.8592877Z [36;1m  exit 1[0m
+2026-10-20T15:33:53.8593070Z [36;1m}[0m
+2026-10-20T15:33:53.8614660Z shell: /usr/bin/pwsh -command ". '{0}'"
+2026-10-20T15:33:53.8614941Z env:
+2026-10-20T15:33:53.8615308Z   GOTOOLCHAIN: local
+2026-10-20T15:33:53.8615536Z ##[endgroup]
+2026-10-20T15:33:54.6624456Z ##[group]Run ./scripts/tests/live-equivalence.tests.ps1
+2026-10-20T15:33:54.6624858Z [36;1m./scripts/tests/live-equivalence.tests.ps1[0m
+2026-10-20T15:33:54.6650875Z shell: /usr/bin/pwsh -command ". '{0}'"
+2026-10-20T15:33:54.6651133Z env:
+2026-10-20T15:33:54.6651316Z   GOTOOLCHAIN: local
+2026-10-20T15:33:54.6651510Z ##[endgroup]
+2026-10-20T15:33:55.4750364Z live-equivalence helper tests: PASS
+2026-10-20T15:33:55.5053076Z ##[group]Run set -euo pipefail
+2026-10-20T15:33:55.5053351Z [36;1mset -euo pipefail[0m
+2026-10-20T15:33:55.5053573Z [36;1mmkdir -p .build[0m
+2026-10-20T15:33:55.5053921Z [36;1mgo build -trimpath -buildvcs=true -o .build/cloud-assess ./cmd/cloud-assess[0m
+2026-10-20T15:33:55.5081092Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-20T15:33:55.5081387Z env:
+2026-10-20T15:33:55.5081580Z   GOTOOLCHAIN: local
+2026-10-20T15:33:55.5081773Z   CGO_ENABLED: 0
+2026-10-20T15:33:55.5081951Z ##[endgroup]
+2026-10-20T15:33:56.1236864Z ##[group]Run set -euo pipefail
+2026-10-20T15:33:56.1237273Z [36;1mset -euo pipefail[0m
+2026-10-20T15:33:56.1237646Z [36;1m./.build/cloud-assess --help >/dev/null[0m
+2026-10-20T15:33:56.1238113Z [36;1m./.build/cloud-assess scan --help >/dev/null[0m
+2026-10-20T15:33:56.1238583Z [36;1m./.build/cloud-assess --version >/dev/null[0m
+2026-10-20T15:33:56.1280829Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-20T15:33:56.1281285Z env:
+2026-10-20T15:33:56.1281537Z   GOTOOLCHAIN: local
+2026-10-20T15:33:56.1281813Z ##[endgroup]
+2026-10-20T15:33:56.2183708Z ##[group]Run python3 scripts/tests/qa-temp-cleanup.py
+2026-10-20T15:33:56.2184063Z [36;1mpython3 scripts/tests/qa-temp-cleanup.py[0m
+2026-10-20T15:33:56.2210226Z shell: /usr/bin/bash -e {0}
+2026-10-20T15:33:56.2210462Z env:
+2026-10-20T15:33:56.2210647Z   GOTOOLCHAIN: local
+2026-10-20T15:33:56.2210842Z ##[endgroup]
+2026-10-20T15:33:56.2877448Z .s...
+2026-10-20T15:33:56.2878019Z ----------------------------------------------------------------------
+2026-10-20T15:33:56.2878544Z Ran 5 tests in 0.002s
+2026-10-20T15:33:56.2878810Z 
+2026-10-20T15:33:56.2878972Z OK (skipped=1)
+2026-10-20T15:33:56.3003990Z ##[group]Run python3 scripts/tests/built-cli.py --binary .build/cloud-assess
+2026-10-20T15:33:56.3004477Z [36;1mpython3 scripts/tests/built-cli.py --binary .build/cloud-assess[0m
+2026-10-20T15:33:56.3029248Z shell: /usr/bin/bash -e {0}
+2026-10-20T15:33:56.3029499Z env:
+2026-10-20T15:33:56.3029699Z   GOTOOLCHAIN: local
+2026-10-20T15:33:56.3029915Z ##[endgroup]
+2026-10-20T15:34:01.8734972Z ............
+2026-10-20T15:34:01.8735708Z ----------------------------------------------------------------------
+2026-10-20T15:34:01.8737016Z Ran 12 tests in 5.507s
+2026-10-20T15:34:01.8737377Z 
+2026-10-20T15:34:01.8737573Z OK
+2026-10-20T15:34:01.8738754Z Verified built artifact: linux/amd64 modules: 24 sha256: 333107086feace61c58711a8b7c4e140ae1b72a7bd2122d170d7f88415abddda
+2026-10-20T15:34:01.8887887Z ##[group]Run python3 scripts/tests/documentation.py --binary .build/cloud-assess --powershell pwsh
+2026-10-20T15:34:01.8888918Z [36;1mpython3 scripts/tests/documentation.py --binary .build/cloud-assess --powershell pwsh[0m
+2026-10-20T15:34:01.8920505Z shell: /usr/bin/bash -e {0}
+2026-10-20T15:34:01.8920764Z env:
+2026-10-20T15:34:01.8920959Z   GOTOOLCHAIN: local
+2026-10-20T15:34:01.8921175Z ##[endgroup]
+2026-10-20T15:34:02.1769126Z Authored Markdown local-file links: 1619 checked
+2026-10-20T15:34:02.1770107Z Operator examples: 9 flags and 1 PowerShell snippet(s) checked; no scan executed
+2026-10-20T15:34:02.1847549Z ##[group]Run python3 scripts/tests/package-candidate.py --binary .build/cloud-assess
+2026-10-20T15:34:02.1848059Z [36;1mpython3 scripts/tests/package-candidate.py --binary .build/cloud-assess[0m
+2026-10-20T15:34:02.1848444Z [36;1mpython3 scripts/tests/branded-package.py[0m
+2026-10-20T15:34:02.1876217Z shell: /usr/bin/bash -e {0}
+2026-10-20T15:34:02.1876457Z env:
+2026-10-20T15:34:02.1876653Z   GOTOOLCHAIN: local
+2026-10-20T15:34:02.1876863Z ##[endgroup]
+2026-10-20T15:34:19.9026353Z ...................
+2026-10-20T15:34:19.9026898Z ----------------------------------------------------------------------
+2026-10-20T15:34:19.9027317Z Ran 19 tests in 17.646s
+2026-10-20T15:34:19.9027485Z 
+2026-10-20T15:34:19.9027607Z OK
+2026-10-20T15:34:19.9028236Z Candidate ZIP verified: cloud-assess-dev-linux-amd64.zip sha256: e55670f3ecad7845eb8c391e3ee6da9edf15fda004469be5293ceaa41e7752a1
+2026-10-20T15:34:38.2759144Z ...................
+2026-10-20T15:34:38.2759631Z ----------------------------------------------------------------------
+2026-10-20T15:34:38.2759959Z Ran 19 tests in 17.625s
+2026-10-20T15:34:38.2760086Z 
+2026-10-20T15:34:38.2760178Z OK
+2026-10-20T15:34:38.2785885Z Candidate ZIP verified: example-cloud-dev-linux-amd64.zip sha256: 2ff5ee165699b4969e632a652a39311e739fea5bdd8e8f53d55694471130f1f4
+2026-10-20T15:34:38.2786931Z 
+2026-10-20T15:34:38.2787400Z Custom native package: all package cases and installed offline CLI checks passed
+2026-10-20T15:34:38.2874973Z ##[group]Run go test -race -count=1 ./...
+2026-10-20T15:34:38.2875661Z [36;1mgo test -race -count=1 ./...[0m
+2026-10-20T15:34:38.2920317Z shell: /usr/bin/bash -e {0}
+2026-10-20T15:34:38.2920710Z env:
+2026-10-20T15:34:38.2921008Z   GOTOOLCHAIN: local
+2026-10-20T15:34:38.2921333Z ##[endgroup]
+2026-10-20T15:35:19.3707819Z ok  	github.com/DeBoX85/Cloud-Assess/cmd/cloud-assess	37.024s
+2026-10-20T15:35:19.3708633Z ok  	github.com/DeBoX85/Cloud-Assess/internal/advisor	1.022s
+2026-10-20T15:35:19.3709593Z ok  	github.com/DeBoX85/Cloud-Assess/internal/app	6.880s
+2026-10-20T15:35:19.3716975Z ok  	github.com/DeBoX85/Cloud-Assess/internal/arcsql	1.020s
+2026-10-20T15:35:19.3718145Z ok  	github.com/DeBoX85/Cloud-Assess/internal/arg	7.118s
+2026-10-20T15:35:19.3719079Z ?   	github.com/DeBoX85/Cloud-Assess/internal/assessment	[no test files]
+2026-10-20T15:35:19.3719809Z ok  	github.com/DeBoX85/Cloud-Assess/internal/azure	4.704s
+2026-10-20T15:35:19.3720588Z ok  	github.com/DeBoX85/Cloud-Assess/internal/branding	1.016s
+2026-10-20T15:35:19.3721278Z ok  	github.com/DeBoX85/Cloud-Assess/internal/config	1.016s
+2026-10-20T15:35:25.7266568Z ok  	github.com/DeBoX85/Cloud-Assess/internal/cost	36.022s
+2026-10-20T15:35:25.7270705Z ok  	github.com/DeBoX85/Cloud-Assess/internal/defender	1.015s
+2026-10-20T15:35:25.7271602Z ok  	github.com/DeBoX85/Cloud-Assess/internal/diagnostics	1.025s
+2026-10-20T15:35:25.7274474Z ok  	github.com/DeBoX85/Cloud-Assess/internal/discovery	1.398s
+2026-10-20T15:35:25.7276218Z ok  	github.com/DeBoX85/Cloud-Assess/internal/equivalence	1.272s
+2026-10-20T15:35:25.7305877Z ok  	github.com/DeBoX85/Cloud-Assess/internal/findings	1.012s
+2026-10-20T15:35:25.7313299Z ok  	github.com/DeBoX85/Cloud-Assess/internal/gate	1.011s
+2026-10-20T15:35:25.7341941Z ok  	github.com/DeBoX85/Cloud-Assess/internal/orchestration	1.086s
+2026-10-20T15:35:25.7367672Z ok  	github.com/DeBoX85/Cloud-Assess/internal/plugins	1.035s
+2026-10-20T15:35:45.1592910Z ok  	github.com/DeBoX85/Cloud-Assess/internal/plugins/aigov	48.446s
+2026-10-20T15:35:45.1593412Z ok  	github.com/DeBoX85/Cloud-Assess/internal/plugins/carbon	7.514s
+2026-10-20T15:37:35.0693959Z ok  	github.com/DeBoX85/Cloud-Assess/internal/plugins/region	144.021s
+2026-10-20T15:37:35.0696374Z ok  	github.com/DeBoX85/Cloud-Assess/internal/plugins/servicehealth	2.526s
+2026-10-20T15:37:35.0697137Z ok  	github.com/DeBoX85/Cloud-Assess/internal/plugins/sqleol	1.177s
+2026-10-20T15:37:35.0697765Z ok  	github.com/DeBoX85/Cloud-Assess/internal/plugins/zone	6.268s
+2026-10-20T15:37:35.0698344Z ok  	github.com/DeBoX85/Cloud-Assess/internal/policy	1.024s
+2026-10-20T15:37:35.0698911Z ok  	github.com/DeBoX85/Cloud-Assess/internal/redact	1.030s
+2026-10-20T15:37:35.0699474Z ok  	github.com/DeBoX85/Cloud-Assess/internal/renderers/csv	1.456s
+2026-10-20T15:37:35.0700153Z ok  	github.com/DeBoX85/Cloud-Assess/internal/renderers/excel	5.036s
+2026-10-20T15:37:35.0700855Z ok  	github.com/DeBoX85/Cloud-Assess/internal/renderers/json	1.069s
+2026-10-20T15:37:35.0701282Z ok  	github.com/DeBoX85/Cloud-Assess/internal/renderers/sarif	1.031s
+2026-10-20T15:37:35.0701692Z ok  	github.com/DeBoX85/Cloud-Assess/internal/renderers/tables	1.284s
+2026-10-20T15:37:35.0702091Z ok  	github.com/DeBoX85/Cloud-Assess/internal/reportfile	1.014s
+2026-10-20T15:37:35.0702611Z ok  	github.com/DeBoX85/Cloud-Assess/internal/result	1.221s
+2026-10-20T15:37:35.0703007Z ok  	github.com/DeBoX85/Cloud-Assess/internal/rules	2.087s
+2026-10-20T15:37:35.0703382Z ok  	github.com/DeBoX85/Cloud-Assess/internal/scanners	1.014s
+2026-10-20T15:37:35.0703740Z ok  	github.com/DeBoX85/Cloud-Assess/internal/skus	1.375s
+2026-10-20T15:37:35.0704245Z ok  	github.com/DeBoX85/Cloud-Assess/internal/stages	2.020s
+2026-10-20T15:37:35.0704606Z ok  	github.com/DeBoX85/Cloud-Assess/internal/throttling	1.012s
+2026-10-20T15:37:35.0705004Z ?   	github.com/DeBoX85/Cloud-Assess/tools/brand-build	[no test files]
+2026-10-20T15:37:35.0705853Z ok  	github.com/DeBoX85/Cloud-Assess/tools/diagnostics-probe	1.015s
+2026-10-20T15:37:35.0706565Z ok  	github.com/DeBoX85/Cloud-Assess/tools/equivalence	1.261s
+2026-10-20T15:37:35.1331500Z ##[group]Run set -euo pipefail
+2026-10-20T15:37:35.1331844Z [36;1mset -euo pipefail[0m
+2026-10-20T15:37:35.1332208Z [36;1mgo test -count=1 -covermode=atomic -coverprofile=.build/coverage.out ./...[0m
+2026-10-20T15:37:35.1332709Z [36;1mtotal="$(go tool cover -func=.build/coverage.out | awk '/^total:/ {gsub("%", "", $3); print $3}')"[0m
+2026-10-20T15:37:35.1333123Z [36;1mecho "Total statement coverage: ${total}%"[0m
+2026-10-20T15:37:35.1333441Z [36;1mawk -v total="$total" 'BEGIN { if ((total + 0) < 75.0) exit 1 }'[0m
+2026-10-20T15:37:35.1364123Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-20T15:37:35.1364446Z env:
+2026-10-20T15:37:35.1364665Z   GOTOOLCHAIN: local
+2026-10-20T15:37:35.1364884Z ##[endgroup]
+2026-10-20T15:38:27.1297019Z ok  	github.com/DeBoX85/Cloud-Assess/cmd/cloud-assess	32.840s	coverage: 88.7% of statements
+2026-10-20T15:38:27.1297593Z ok  	github.com/DeBoX85/Cloud-Assess/internal/advisor	0.010s	coverage: 79.3% of statements
+2026-10-20T15:38:27.1298154Z ok  	github.com/DeBoX85/Cloud-Assess/internal/app	4.834s	coverage: 84.5% of statements
+2026-10-20T15:38:27.1298654Z ok  	github.com/DeBoX85/Cloud-Assess/internal/arcsql	0.006s	coverage: 87.5% of statements
+2026-10-20T15:38:27.1299136Z ok  	github.com/DeBoX85/Cloud-Assess/internal/arg	6.035s	coverage: 87.1% of statements
+2026-10-20T15:38:27.1299621Z 	github.com/DeBoX85/Cloud-Assess/internal/assessment		coverage: 0.0% of statements
+2026-10-20T15:38:27.1300096Z ok  	github.com/DeBoX85/Cloud-Assess/internal/azure	4.952s	coverage: 82.7% of statements
+2026-10-20T15:38:27.1300587Z ok  	github.com/DeBoX85/Cloud-Assess/internal/branding	0.003s	coverage: 89.4% of statements
+2026-10-20T15:38:27.1301260Z ok  	github.com/DeBoX85/Cloud-Assess/internal/config	0.005s	coverage: 74.3% of statements
+2026-10-20T15:38:35.4690953Z ok  	github.com/DeBoX85/Cloud-Assess/internal/cost	35.005s	coverage: 81.1% of statements
+2026-10-20T15:38:35.4691978Z ok  	github.com/DeBoX85/Cloud-Assess/internal/defender	0.004s	coverage: 88.9% of statements
+2026-10-20T15:38:35.4692891Z ok  	github.com/DeBoX85/Cloud-Assess/internal/diagnostics	0.010s	coverage: 89.8% of statements
+2026-10-20T15:38:35.4693742Z ok  	github.com/DeBoX85/Cloud-Assess/internal/discovery	0.047s	coverage: 90.9% of statements
+2026-10-20T15:38:35.4694640Z ok  	github.com/DeBoX85/Cloud-Assess/internal/equivalence	0.032s	coverage: 76.0% of statements
+2026-10-20T15:38:35.4695622Z ok  	github.com/DeBoX85/Cloud-Assess/internal/findings	0.003s	coverage: 94.0% of statements
+2026-10-20T15:38:35.4696462Z ok  	github.com/DeBoX85/Cloud-Assess/internal/gate	0.004s	coverage: 92.3% of statements
+2026-10-20T15:38:35.4697351Z ok  	github.com/DeBoX85/Cloud-Assess/internal/orchestration	0.032s	coverage: 76.0% of statements
+2026-10-20T15:38:35.4698252Z ok  	github.com/DeBoX85/Cloud-Assess/internal/plugins	0.009s	coverage: 85.4% of statements
+2026-10-20T15:38:35.4699147Z ok  	github.com/DeBoX85/Cloud-Assess/internal/plugins/aigov	11.189s	coverage: 87.2% of statements
+2026-10-20T15:38:35.4700069Z ok  	github.com/DeBoX85/Cloud-Assess/internal/plugins/carbon	4.289s	coverage: 95.3% of statements
+2026-10-20T15:38:53.1409489Z ok  	github.com/DeBoX85/Cloud-Assess/internal/plugins/region	42.578s	coverage: 93.4% of statements
+2026-10-20T15:38:53.1410445Z ok  	github.com/DeBoX85/Cloud-Assess/internal/plugins/servicehealth	0.111s	coverage: 92.4% of statements
+2026-10-20T15:38:53.1411212Z ok  	github.com/DeBoX85/Cloud-Assess/internal/plugins/sqleol	0.023s	coverage: 90.1% of statements
+2026-10-20T15:38:53.1411831Z ok  	github.com/DeBoX85/Cloud-Assess/internal/plugins/zone	0.553s	coverage: 96.5% of statements
+2026-10-20T15:38:53.1412590Z ok  	github.com/DeBoX85/Cloud-Assess/internal/policy	0.003s	coverage: 93.8% of statements
+2026-10-20T15:38:53.1413360Z ok  	github.com/DeBoX85/Cloud-Assess/internal/redact	0.002s	coverage: 100.0% of statements
+2026-10-20T15:38:53.1413912Z ok  	github.com/DeBoX85/Cloud-Assess/internal/renderers/csv	0.035s	coverage: 93.8% of statements
+2026-10-20T15:38:53.1414807Z ok  	github.com/DeBoX85/Cloud-Assess/internal/renderers/excel	0.219s	coverage: 73.6% of statements
+2026-10-20T15:38:53.1415734Z ok  	github.com/DeBoX85/Cloud-Assess/internal/renderers/json	0.004s	coverage: 80.6% of statements
+2026-10-20T15:38:53.1416337Z ok  	github.com/DeBoX85/Cloud-Assess/internal/renderers/sarif	0.004s	coverage: 87.3% of statements
+2026-10-20T15:38:53.1416918Z ok  	github.com/DeBoX85/Cloud-Assess/internal/renderers/tables	0.032s	coverage: 89.0% of statements
+2026-10-20T15:38:53.1417487Z ok  	github.com/DeBoX85/Cloud-Assess/internal/reportfile	0.003s	coverage: 85.7% of statements
+2026-10-20T15:38:53.1418037Z ok  	github.com/DeBoX85/Cloud-Assess/internal/result	0.396s	coverage: 73.3% of statements
+2026-10-20T15:38:53.1418549Z ok  	github.com/DeBoX85/Cloud-Assess/internal/rules	0.095s	coverage: 91.1% of statements
+2026-10-20T15:38:53.1419065Z ok  	github.com/DeBoX85/Cloud-Assess/internal/scanners	0.002s	coverage: 97.2% of statements
+2026-10-20T15:38:53.1419582Z ok  	github.com/DeBoX85/Cloud-Assess/internal/skus	0.021s	coverage: 94.1% of statements
+2026-10-20T15:38:53.1420079Z ok  	github.com/DeBoX85/Cloud-Assess/internal/stages	1.004s	coverage: 71.3% of statements
+2026-10-20T15:38:53.1420602Z ok  	github.com/DeBoX85/Cloud-Assess/internal/throttling	0.003s	coverage: 33.3% of statements
+2026-10-20T15:38:53.1421132Z 	github.com/DeBoX85/Cloud-Assess/tools/brand-build		coverage: 0.0% of statements
+2026-10-20T15:38:53.1421665Z ok  	github.com/DeBoX85/Cloud-Assess/tools/diagnostics-probe	0.005s	coverage: 51.8% of statements
+2026-10-20T15:38:53.1422215Z ok  	github.com/DeBoX85/Cloud-Assess/tools/equivalence	0.031s	coverage: 72.9% of statements
+2026-10-20T15:38:53.5913977Z Total statement coverage: 87.6%
+2026-10-20T15:38:53.5958870Z ##[group]Run set -euo pipefail
+2026-10-20T15:38:53.5959170Z [36;1mset -euo pipefail[0m
+2026-10-20T15:38:53.5959667Z [36;1mgo test -run '^$' -fuzz '^FuzzCompareFieldSymmetry$' -fuzztime 100000x -timeout 60s -parallel 2 ./internal/equivalence[0m
+2026-10-20T15:38:53.5960483Z [36;1mgo test -run '^$' -fuzz '^FuzzExactResourceExclusionPreservesOtherResource$' -fuzztime 500000x -timeout 60s -parallel 2 ./internal/config[0m
+2026-10-20T15:38:53.5961289Z [36;1mgo test -run '^$' -fuzz '^FuzzDecodeRowsIsolationAndAccounting$' -fuzztime 100000x -timeout 60s -parallel 2 ./internal/arg[0m
+2026-10-20T15:38:53.5962000Z [36;1mgo test -run '^$' -fuzz '^FuzzBoundedAIWire$' -fuzztime 5000x -timeout 60s -parallel 2 ./internal/plugins/aigov[0m
+2026-10-20T15:38:53.5962671Z [36;1mgo test -run '^$' -fuzz '^FuzzDiscoveryEnvelope$' -fuzztime 5000x -timeout 60s -parallel 2 ./internal/plugins/aigov[0m
+2026-10-20T15:38:53.5994635Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-20T15:38:53.5995007Z env:
+2026-10-20T15:38:53.5995396Z   GOTOOLCHAIN: local
+2026-10-20T15:38:53.5995621Z ##[endgroup]
+2026-10-20T15:39:17.7367777Z fuzz: elapsed: 0s, gathering baseline coverage: 0/3 completed
+2026-10-20T15:39:17.8099378Z fuzz: elapsed: 0s, gathering baseline coverage: 3/3 completed, now fuzzing with 2 workers
+2026-10-20T15:39:20.7380565Z fuzz: elapsed: 3s, execs: 15207 (5067/sec), new interesting: 35 (total: 38)
+2026-10-20T15:39:23.2999126Z fuzz: elapsed: 6s, execs: 100001 (33098/sec), new interesting: 36 (total: 39)
+2026-10-20T15:39:23.2999883Z PASS
+2026-10-20T15:39:23.3054183Z ok  	github.com/DeBoX85/Cloud-Assess/internal/equivalence	5.629s
+2026-10-20T15:39:23.9490863Z fuzz: elapsed: 0s, gathering baseline coverage: 0/2 completed
+2026-10-20T15:39:23.9643658Z fuzz: elapsed: 0s, gathering baseline coverage: 2/2 completed, now fuzzing with 2 workers
+2026-10-20T15:39:26.9501179Z fuzz: elapsed: 3s, execs: 44396 (14794/sec), new interesting: 55 (total: 57)
+2026-10-20T15:39:29.9497421Z fuzz: elapsed: 6s, execs: 102179 (19263/sec), new interesting: 75 (total: 77)
+2026-10-20T15:39:32.9495827Z fuzz: elapsed: 9s, execs: 155221 (17682/sec), new interesting: 89 (total: 91)
+2026-10-20T15:39:35.9498919Z fuzz: elapsed: 12s, execs: 206258 (17010/sec), new interesting: 93 (total: 95)
+2026-10-20T15:39:38.9496339Z fuzz: elapsed: 15s, execs: 261425 (18390/sec), new interesting: 99 (total: 101)
+2026-10-20T15:39:41.9498967Z fuzz: elapsed: 18s, execs: 315322 (17964/sec), new interesting: 104 (total: 106)
+2026-10-20T15:39:44.9495908Z fuzz: elapsed: 21s, execs: 369717 (18134/sec), new interesting: 104 (total: 106)
+2026-10-20T15:39:47.9497233Z fuzz: elapsed: 24s, execs: 423111 (17798/sec), new interesting: 107 (total: 109)
+2026-10-20T15:39:50.9491296Z fuzz: elapsed: 27s, execs: 476231 (17709/sec), new interesting: 108 (total: 110)
+2026-10-20T15:39:53.0720497Z fuzz: elapsed: 29s, execs: 500000 (11196/sec), new interesting: 109 (total: 111)
+2026-10-20T15:39:53.0721362Z PASS
+2026-10-20T15:39:53.0829022Z ok  	github.com/DeBoX85/Cloud-Assess/internal/config	29.137s
+2026-10-20T15:39:53.9586847Z fuzz: elapsed: 0s, gathering baseline coverage: 0/9 completed
+2026-10-20T15:39:54.0300860Z fuzz: elapsed: 0s, gathering baseline coverage: 9/9 completed, now fuzzing with 2 workers
+2026-10-20T15:39:56.9590866Z fuzz: elapsed: 3s, execs: 26690 (8895/sec), new interesting: 54 (total: 63)
+2026-10-20T15:39:59.9587206Z fuzz: elapsed: 6s, execs: 65364 (12893/sec), new interesting: 89 (total: 98)
+2026-10-20T15:40:02.9593370Z fuzz: elapsed: 9s, execs: 93243 (9291/sec), new interesting: 96 (total: 105)
+2026-10-20T15:40:03.5913467Z fuzz: elapsed: 10s, execs: 100000 (10692/sec), new interesting: 100 (total: 109)
+2026-10-20T15:40:03.5914379Z PASS
+2026-10-20T15:40:03.6017512Z ok  	github.com/DeBoX85/Cloud-Assess/internal/arg	9.648s
+2026-10-20T15:40:04.8289398Z fuzz: elapsed: 0s, gathering baseline coverage: 0/4 completed
+2026-10-20T15:40:04.8508344Z fuzz: elapsed: 0s, gathering baseline coverage: 4/4 completed, now fuzzing with 2 workers
+2026-10-20T15:40:05.1697801Z fuzz: elapsed: 0s, execs: 5000 (14668/sec), new interesting: 6 (total: 10)
+2026-10-20T15:40:05.1698432Z PASS
+2026-10-20T15:40:05.1707875Z ok  	github.com/DeBoX85/Cloud-Assess/internal/plugins/aigov	0.346s
+2026-10-20T15:40:05.5399199Z fuzz: elapsed: 0s, gathering baseline coverage: 0/3 completed
+2026-10-20T15:40:05.5667349Z fuzz: elapsed: 0s, gathering baseline coverage: 3/3 completed, now fuzzing with 2 workers
+2026-10-20T15:40:05.9412598Z fuzz: elapsed: 0s, execs: 5000 (12457/sec), new interesting: 13 (total: 16)
+2026-10-20T15:40:05.9413098Z PASS
+2026-10-20T15:40:05.9429780Z ok  	github.com/DeBoX85/Cloud-Assess/internal/plugins/aigov	0.407s
+2026-10-20T15:40:05.9556336Z ##[group]Run python3 scripts/tests/maintenance-publication.py
+2026-10-20T15:40:05.9556914Z [36;1mpython3 scripts/tests/maintenance-publication.py[0m
+2026-10-20T15:40:05.9589771Z shell: /usr/bin/bash -e {0}
+2026-10-20T15:40:05.9590127Z env:
+2026-10-20T15:40:05.9590417Z   GOTOOLCHAIN: local
+2026-10-20T15:40:05.9590791Z ##[endgroup]
+2026-10-20T15:40:06.1115227Z test_changed_output_is_scoped_bot_proposal (__main__.PublicationTests.test_changed_output_is_scoped_bot_proposal) ... ok
+2026-10-20T15:40:06.1820800Z test_existing_remote_proposal_is_not_force_replaced (__main__.PublicationTests.test_existing_remote_proposal_is_not_force_replaced) ... ok
+2026-10-20T15:40:06.2359497Z test_no_change_creates_no_branch_or_commit (__main__.PublicationTests.test_no_change_creates_no_branch_or_commit) ... ok
+2026-10-20T15:40:06.2897324Z test_rejected_push_is_failure_without_success_summary (__main__.PublicationTests.test_rejected_push_is_failure_without_success_summary) ... ok
+2026-10-20T15:40:06.3899485Z test_rule_proposal_retains_submodule_gitlink (__main__.PublicationTests.test_rule_proposal_retains_submodule_gitlink) ... ok
+2026-10-20T15:40:06.4289082Z test_unrelated_staged_change_is_rejected (__main__.PublicationTests.test_unrelated_staged_change_is_rejected) ... ok
+2026-10-20T15:40:06.4657660Z test_wrong_branch_and_invalid_metadata_are_rejected (__main__.PublicationTests.test_wrong_branch_and_invalid_metadata_are_rejected) ... ok
+2026-10-20T15:40:06.4658890Z 
+2026-10-20T15:40:06.4659308Z ----------------------------------------------------------------------
+2026-10-20T15:40:06.4660248Z Ran 7 tests in 0.458s
+2026-10-20T15:40:06.4660560Z 
+2026-10-20T15:40:06.4660788Z OK
+2026-10-20T15:40:06.4768230Z ##[group]Run python3 scripts/tests/maintenance-generation.py
+2026-10-20T15:40:06.4768753Z [36;1mpython3 scripts/tests/maintenance-generation.py[0m
+2026-10-20T15:40:06.4799465Z shell: /usr/bin/bash -e {0}
+2026-10-20T15:40:06.4799876Z env:
+2026-10-20T15:40:06.4800164Z   GOTOOLCHAIN: local
+2026-10-20T15:40:06.4800476Z ##[endgroup]
+2026-10-20T15:40:06.5346062Z   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+2026-10-20T15:40:06.5347286Z                                  Dload  Upload   Total   Spent    Left  Speed
+2026-10-20T15:40:06.5347637Z 
+2026-10-20T15:40:06.9832799Z   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+2026-10-20T15:40:07.0333148Z 100  306k    0  306k    0     0   683k      0 --:--:-- --:--:-- --:--:--  682k
+2026-10-20T15:40:07.0334308Z 100  554k    0  554k    0     0  1112k      0 --:--:-- --:--:-- --:--:-- 1112k
+2026-10-20T15:40:07.4100223Z test_actual_tidy_removes_unused_requirement_and_then_stabilizes (__main__.GenerationTests.test_actual_tidy_removes_unused_requirement_and_then_stabilizes) ... ok
+2026-10-20T15:40:07.7511891Z test_bad_archive_fails_before_library_mutation (__main__.GenerationTests.test_bad_archive_fails_before_library_mutation) ... ok
+2026-10-20T15:40:08.7244043Z test_corrupted_rule_regenerates_scoped_proposal (__main__.GenerationTests.test_corrupted_rule_regenerates_scoped_proposal) ... ok
+2026-10-20T15:40:09.0712794Z test_missing_source_layout_fails_before_library_mutation (__main__.GenerationTests.test_missing_source_layout_fails_before_library_mutation) ... ok
+2026-10-20T15:40:10.1386171Z test_pinned_rule_regeneration_is_no_change (__main__.GenerationTests.test_pinned_rule_regeneration_is_no_change) ... ok
+2026-10-20T15:40:11.0645907Z test_wrong_generated_snapshot_is_rejected_before_publication (__main__.GenerationTests.test_wrong_generated_snapshot_is_rejected_before_publication) ... ok
+2026-10-20T15:40:11.0646823Z 
+2026-10-20T15:40:11.0647202Z ----------------------------------------------------------------------
+2026-10-20T15:40:11.0647608Z Ran 6 tests in 4.537s
+2026-10-20T15:40:11.0647780Z 
+2026-10-20T15:40:11.0647909Z OK
+2026-10-20T15:40:11.0769742Z ##[group]Run go vet ./...
+2026-10-20T15:40:11.0770080Z [36;1mgo vet ./...[0m
+2026-10-20T15:40:11.0801614Z shell: /usr/bin/bash -e {0}
+2026-10-20T15:40:11.0802041Z env:
+2026-10-20T15:40:11.0802343Z   GOTOOLCHAIN: local
+2026-10-20T15:40:11.0802644Z ##[endgroup]
+2026-10-20T15:40:16.2219144Z ##[group]Run go run golang.org/x/vuln/cmd/govulncheck@v1.8.0 ./...
+2026-10-20T15:40:16.2219634Z [36;1mgo run golang.org/x/vuln/cmd/govulncheck@v1.8.0 ./...[0m
+2026-10-20T15:40:16.2253089Z shell: /usr/bin/bash -e {0}
+2026-10-20T15:40:16.2253512Z env:
+2026-10-20T15:40:16.2253839Z   GOTOOLCHAIN: local
+2026-10-20T15:40:16.2254243Z ##[endgroup]
+2026-10-20T15:40:16.2695874Z go: downloading golang.org/x/vuln v1.8.0
+2026-10-20T15:40:16.4674908Z go: downloading golang.org/x/telemetry v0.0.0-20260908163034-4bcc4b2ee518
+2026-10-20T15:40:16.4722350Z go: downloading golang.org/x/tools v0.50.0
+2026-10-20T15:40:26.3173599Z === Symbol Results ===
+2026-10-20T15:40:26.3174440Z 
+2026-10-20T15:40:26.3175197Z No vulnerabilities found.
+2026-10-20T15:40:26.3175625Z 
+2026-10-20T15:40:26.3175801Z Your code is affected by 0 vulnerabilities.
+2026-10-20T15:40:26.3176420Z This scan also found 3 vulnerabilities in packages you import and 1
+2026-10-20T15:40:26.3177212Z vulnerability in modules you require, but your code doesn't appear to call these
+2026-10-20T15:40:26.3177737Z vulnerabilities.
+2026-10-20T15:40:26.3178071Z Use '-show verbose' for more details.
+2026-10-20T15:40:26.3934410Z ##[group]Run python3 scripts/tests/gate-probe.py
+2026-10-20T15:40:26.3934900Z [36;1mpython3 scripts/tests/gate-probe.py[0m
+2026-10-20T15:40:26.3967797Z shell: /usr/bin/bash -e {0}
+2026-10-20T15:40:26.3968224Z env:
+2026-10-20T15:40:26.3968531Z   GOTOOLCHAIN: local
+2026-10-20T15:40:26.3968847Z ##[endgroup]
+2026-10-20T15:40:26.4490353Z ...
+2026-10-20T15:40:26.4491029Z ----------------------------------------------------------------------
+2026-10-20T15:40:26.4491828Z Ran 3 tests in 0.005s
+2026-10-20T15:40:26.4492108Z 
+2026-10-20T15:40:26.4492278Z OK
+2026-10-20T15:40:26.4581000Z ##[group]Run python3 scripts/tests/handoff.py
+2026-10-20T15:40:26.4581341Z [36;1mpython3 scripts/tests/handoff.py[0m
+2026-10-20T15:40:26.4607623Z shell: /usr/bin/bash -e {0}
+2026-10-20T15:40:26.4607969Z env:
+2026-10-20T15:40:26.4608211Z   GOTOOLCHAIN: local
+2026-10-20T15:40:26.4608459Z ##[endgroup]
+2026-10-20T15:40:26.5037896Z ...
+2026-10-20T15:40:26.5038645Z ----------------------------------------------------------------------
+2026-10-20T15:40:26.5039534Z Ran 3 tests in 0.003s
+2026-10-20T15:40:26.5039859Z 
+2026-10-20T15:40:26.5040004Z OK
+2026-10-20T15:40:26.5126571Z ##[group]Run python3 scripts/tests/evidence-bundle.py
+2026-10-20T15:40:26.5126980Z [36;1mpython3 scripts/tests/evidence-bundle.py[0m
+2026-10-20T15:40:26.5151624Z shell: /usr/bin/bash -e {0}
+2026-10-20T15:40:26.5151949Z env:
+2026-10-20T15:40:26.5152230Z   GOTOOLCHAIN: local
+2026-10-20T15:40:26.5152536Z ##[endgroup]
+2026-10-20T15:40:27.6360617Z ........
+2026-10-20T15:40:27.6361239Z ----------------------------------------------------------------------
+2026-10-20T15:40:27.6361715Z Ran 8 tests in 1.070s
+2026-10-20T15:40:27.6361904Z 
+2026-10-20T15:40:27.6362005Z OK
+2026-10-20T15:40:27.6538135Z Post job cleanup.
+2026-10-20T15:40:27.7614218Z [command]/opt/hostedtoolcache/go/1.26.9/x64/bin/go env GOMODCACHE
+2026-10-20T15:40:27.7657421Z [command]/opt/hostedtoolcache/go/1.26.9/x64/bin/go env GOCACHE
+2026-10-20T15:40:27.7680829Z /home/runner/go/pkg/mod
+2026-10-20T15:40:27.7697827Z /home/runner/.cache/go-build
+2026-10-20T15:40:27.7874632Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/Cloud-Assess/Cloud-Assess --files-from manifest.txt --use-compress-program zstdmt
+2026-10-20T15:40:30.3251079Z Failed to save: Unable to reserve cache with key setup-go-Linux-x64-ubuntu24-go-1.26.9-0657c5b069724b6ac639f614f1d617fcb8c9ac6f41dd2eb861ff288c8685627a, another job may be creating this cache.
+2026-10-20T15:40:30.3536388Z Post job cleanup.
+2026-10-20T15:40:30.4281571Z [command]/usr/bin/git version
+2026-10-20T15:40:30.4326395Z git version 2.55.0
+2026-10-20T15:40:30.4354707Z Temporarily overriding HOME='/home/runner/work/_temp/12f68f47-06e4-4f4c-ab8c-4ef2cd59fddd' before making global git config changes
+2026-10-20T15:40:30.4356122Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-20T15:40:30.4359186Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Cloud-Assess/Cloud-Assess
+2026-10-20T15:40:30.4386040Z Removing SSH command configuration
+2026-10-20T15:40:30.4391799Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-20T15:40:30.4421804Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-20T15:40:30.4613556Z Entering 'internal/rules/upstream/aprl'
+2026-10-20T15:40:30.4659522Z Removing HTTP extra header
+2026-10-20T15:40:30.4664274Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-20T15:40:30.4694960Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-20T15:40:30.4872432Z Entering 'internal/rules/upstream/aprl'
+2026-10-20T15:40:30.4919110Z Removing includeIf entries pointing to credentials config files
+2026-10-20T15:40:30.4924788Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-20T15:40:30.4947183Z includeif.gitdir:/home/runner/work/Cloud-Assess/Cloud-Assess/.git.path
+2026-10-20T15:40:30.4948104Z includeif.gitdir:/home/runner/work/Cloud-Assess/Cloud-Assess/.git/worktrees/*.path
+2026-10-20T15:40:30.4948892Z includeif.gitdir:/github/workspace/.git.path
+2026-10-20T15:40:30.4949603Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-10-20T15:40:30.4955207Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/Cloud-Assess/Cloud-Assess/.git.path
+2026-10-20T15:40:30.4976299Z /home/runner/work/_temp/git-credentials-3d55a95f-1567-4922-8d80-f5ea3369809a.config
+2026-10-20T15:40:30.4986875Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/Cloud-Assess/Cloud-Assess/.git.path \/home\/runner\/work\/_temp\/git\-credentials\-3d55a95f\-1567\-4922\-8d80\-f5ea3369809a\.config
+2026-10-20T15:40:30.5020301Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/Cloud-Assess/Cloud-Assess/.git/worktrees/*.path
+2026-10-20T15:40:30.5042902Z /home/runner/work/_temp/git-credentials-3d55a95f-1567-4922-8d80-f5ea3369809a.config
+2026-10-20T15:40:30.5059707Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/Cloud-Assess/Cloud-Assess/.git/worktrees/*.path \/home\/runner\/work\/_temp\/git\-credentials\-3d55a95f\-1567\-4922\-8d80\-f5ea3369809a\.config
+2026-10-20T15:40:30.5098095Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-10-20T15:40:30.5118077Z /github/runner_temp/git-credentials-3d55a95f-1567-4922-8d80-f5ea3369809a.config
+2026-10-20T15:40:30.5123742Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path \/github\/runner_temp\/git\-credentials\-3d55a95f\-1567\-4922\-8d80\-f5ea3369809a\.config
+2026-10-20T15:40:30.5153210Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-10-20T15:40:30.5171978Z /github/runner_temp/git-credentials-3d55a95f-1567-4922-8d80-f5ea3369809a.config
+2026-10-20T15:40:30.5178125Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-3d55a95f\-1567\-4922\-8d80\-f5ea3369809a\.config
+2026-10-20T15:40:30.5207830Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-20T15:40:30.5367085Z Entering 'internal/rules/upstream/aprl'
+2026-10-20T15:40:30.5382451Z file:/home/runner/work/Cloud-Assess/Cloud-Assess/.git/modules/internal/rules/upstream/aprl/config	remote.origin.url
+2026-10-20T15:40:30.5406318Z [command]/usr/bin/git config --file /home/runner/work/Cloud-Assess/Cloud-Assess/.git/modules/internal/rules/upstream/aprl/config --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-20T15:40:30.5427227Z includeif.gitdir:/home/runner/work/Cloud-Assess/Cloud-Assess/.git/modules/internal/rules/upstream/aprl.path
+2026-10-20T15:40:30.5428388Z includeif.gitdir:/github/workspace/.git/modules/internal/rules/upstream/aprl.path
+2026-10-20T15:40:30.5433399Z [command]/usr/bin/git config --file /home/runner/work/Cloud-Assess/Cloud-Assess/.git/modules/internal/rules/upstream/aprl/config --get-all includeif.gitdir:/home/runner/work/Cloud-Assess/Cloud-Assess/.git/modules/internal/rules/upstream/aprl.path
+2026-10-20T15:40:30.5451149Z /home/runner/work/_temp/git-credentials-3d55a95f-1567-4922-8d80-f5ea3369809a.config
+2026-10-20T15:40:30.5457433Z [command]/usr/bin/git config --file /home/runner/work/Cloud-Assess/Cloud-Assess/.git/modules/internal/rules/upstream/aprl/config --unset includeif.gitdir:/home/runner/work/Cloud-Assess/Cloud-Assess/.git/modules/internal/rules/upstream/aprl.path \/home\/runner\/work\/_temp\/git\-credentials\-3d55a95f\-1567\-4922\-8d80\-f5ea3369809a\.config
+2026-10-20T15:40:30.5485542Z [command]/usr/bin/git config --file /home/runner/work/Cloud-Assess/Cloud-Assess/.git/modules/internal/rules/upstream/aprl/config --get-all includeif.gitdir:/github/workspace/.git/modules/internal/rules/upstream/aprl.path
+2026-10-20T15:40:30.5503741Z /github/runner_temp/git-credentials-3d55a95f-1567-4922-8d80-f5ea3369809a.config
+2026-10-20T15:40:30.5511356Z [command]/usr/bin/git config --file /home/runner/work/Cloud-Assess/Cloud-Assess/.git/modules/internal/rules/upstream/aprl/config --unset includeif.gitdir:/github/workspace/.git/modules/internal/rules/upstream/aprl.path \/github\/runner_temp\/git\-credentials\-3d55a95f\-1567\-4922\-8d80\-f5ea3369809a\.config
+2026-10-20T15:40:30.5538585Z Removing credentials config '/home/runner/work/_temp/git-credentials-3d55a95f-1567-4922-8d80-f5ea3369809a.config'
+2026-10-20T15:40:30.5668656Z Cleaning up orphan processes
