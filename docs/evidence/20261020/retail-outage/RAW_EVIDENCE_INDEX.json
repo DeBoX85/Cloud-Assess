@@ -1,0 +1,929 @@
+{
+  "format": "cloud-assess-raw-git-evidence-v1",
+  "classification": "public-synthetic-ci-and-recovery-records",
+  "candidate": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+  "tree": "c07469bae30de3b111e1fcef89cb557bdadebe33",
+  "preview": "dd0b28416a493fba17fd7de9809cebb23d1c4725",
+  "files": [
+    {
+      "path": "docs/evidence/20261020/retail-outage/39450901879/run.json",
+      "git_blob_sha": "6e729c0613357aa713a5aaafa9dde2d5c3cd4ac3",
+      "bytes": 14227
+    },
+    {
+      "path": "docs/evidence/20261020/retail-outage/39450901879/jobs.json",
+      "git_blob_sha": "ebcd9880c909c41cc05dc015be153f5884777045",
+      "bytes": 63324
+    },
+    {
+      "path": "docs/evidence/20261020/retail-outage/39450901879/118725103280.log",
+      "git_blob_sha": "55114b28f3579ffc751f1765210e26bba315c478",
+      "bytes": 53884
+    },
+    {
+      "path": "docs/evidence/20261020/retail-outage/39450901879/118725103625.log",
+      "git_blob_sha": "8745e07987d0e82ea3a521f9a853f1c6407f89fd",
+      "bytes": 56276
+    },
+    {
+      "path": "docs/evidence/20261020/retail-outage/39450901879/118725103736.log",
+      "git_blob_sha": "0b0446571345a50de70f327abb03d0b8442c2cd5",
+      "bytes": 57542
+    },
+    {
+      "path": "docs/evidence/20261020/retail-outage/39450901879/118725103783.log",
+      "git_blob_sha": "94571199e3e550c4cf3bade95a34a68c6449c23a",
+      "bytes": 51147
+    },
+    {
+      "path": "docs/evidence/20261020/retail-outage/39450901879/118725103825.log",
+      "git_blob_sha": "27ee8f2047c60263276e3c136baef50efc1fabfb",
+      "bytes": 57204
+    },
+    {
+      "path": "docs/evidence/20261020/retail-outage/39450901879/118725103850.log",
+      "git_blob_sha": "636310cacb46985e33019a581babe5f9f99b952d",
+      "bytes": 62334
+    },
+    {
+      "path": "docs/evidence/20261020/retail-outage/39450901879/118725103854.log",
+      "git_blob_sha": "bb4ed0aa8f4551cc9d6ad250d98dfbaccac726a2",
+      "bytes": 44462
+    },
+    {
+      "path": "docs/evidence/20261020/retail-outage/39450901879/118725103952.log",
+      "git_blob_sha": "1be02fcd94081379a1c66d4752adcc7be5af4f55",
+      "bytes": 64167
+    },
+    {
+      "path": "docs/evidence/20261020/retail-outage/39450901879/118731249983.log",
+      "git_blob_sha": "bf7e48b12ce940b9a9cc75da90f4e774e03cb21f",
+      "bytes": 16409
+    },
+    {
+      "path": "docs/evidence/20261020/retail-outage/39450901879/118737211913.log",
+      "git_blob_sha": "08374ad9b2cf7dd1a8b00113b4d257d69037a42a",
+      "bytes": 16441
+    },
+    {
+      "path": "docs/evidence/20261020/retail-outage/39450901886/run.json",
+      "git_blob_sha": "0f7c6ce7fdd4ef0d8b8c7d284b86a1da468b94e3",
+      "bytes": 14275
+    },
+    {
+      "path": "docs/evidence/20261020/retail-outage/39450901886/jobs.json",
+      "git_blob_sha": "35b1210446f577f3216c7eff7418520b88ca5ea3",
+      "bytes": 2988
+    },
+    {
+      "path": "docs/evidence/20261020/retail-outage/39450901886/118725103318.log.part000",
+      "git_blob_sha": "63ac4eb2bc4e997a5eca45ecbef82906395f4a36",
+      "bytes": 500076
+    },
+    {
+      "path": "docs/evidence/20261020/retail-outage/39450901886/118725103318.log.part001",
+      "git_blob_sha": "f723a35a0dec927c688082413aed89d0f8ceb05c",
+      "bytes": 500000
+    },
+    {
+      "path": "docs/evidence/20261020/retail-outage/39450901886/118725103318.log.part002",
+      "git_blob_sha": "02d135a7d24eac58ece9441615dfac512b3be126",
+      "bytes": 362014
+    },
+    {
+      "path": "docs/evidence/20261020/retail-outage/.gitattributes",
+      "git_blob_sha": "fa1385d99a319b43c06f5309d1aae9fdd3adea46",
+      "bytes": 8
+    },
+    {
+      "path": "docs/evidence/20261020/retail-outage/RETAIL_EXECUTION_BLOCKER_20261020.md",
+      "git_blob_sha": "b43a38c420efe964c935de0c5e8910625833953d",
+      "bytes": 4872
+    },
+    {
+      "path": "docs/evidence/20261020/retail-outage/RESTART_AFTER_EXECUTION_OUTAGE_20261020.md",
+      "git_blob_sha": "e73625532dc7c1c1952c08600fa317d1dee1e5bb",
+      "bytes": 2056
+    },
+    {
+      "path": "docs/evidence/20261020/retail-outage/corrected183-review.json",
+      "git_blob_sha": "620bc547b23c906e68c51c7c2ac23f1107c7b2fd",
+      "bytes": 2081
+    },
+    {
+      "path": "docs/evidence/20261020/retail-outage/39449387918/run.json",
+      "git_blob_sha": "d1dc44d0afea57036aa4fb521d62819350e24a82",
+      "bytes": 14265
+    },
+    {
+      "path": "docs/evidence/20261020/retail-outage/39449387918/jobs.json",
+      "git_blob_sha": "dff103a2784c32d828b1dbd71b2b604d9c008e73",
+      "bytes": 63374
+    },
+    {
+      "path": "docs/evidence/20261020/retail-outage/39449387918/118719818176.log",
+      "git_blob_sha": "57e6332e1f1290e1bcaebf81135fb158d7877b7a",
+      "bytes": 62328
+    },
+    {
+      "path": "docs/evidence/20261020/retail-outage/39449387918/118719818582.log",
+      "git_blob_sha": "3cf19c38fd17c5528163f953d89a90d540b6cbc1",
+      "bytes": 51145
+    },
+    {
+      "path": "docs/evidence/20261020/retail-outage/39449387918/118719818599.log",
+      "git_blob_sha": "3222b683469c71528bcef0196a7bf5991337184a",
+      "bytes": 56279
+    },
+    {
+      "path": "docs/evidence/20261020/retail-outage/39449387918/118719818657.log",
+      "git_blob_sha": "7ecedbe08af480a2eee38088fa11ebd33ef0d399",
+      "bytes": 53891
+    },
+    {
+      "path": "docs/evidence/20261020/retail-outage/39449387918/118719818814.log",
+      "git_blob_sha": "477e9f4189409b9272e5b3d1762eb238587dc020",
+      "bytes": 64288
+    },
+    {
+      "path": "docs/evidence/20261020/retail-outage/39449387918/118719818884.log",
+      "git_blob_sha": "20069d2f5d717e0e9d6d2a9b7c378f917ad704d2",
+      "bytes": 44392
+    },
+    {
+      "path": "docs/evidence/20261020/retail-outage/39449387918/118719819120.log",
+      "git_blob_sha": "a00a4b91cb569d95bcd39beeb38175bec2ef0158",
+      "bytes": 57538
+    },
+    {
+      "path": "docs/evidence/20261020/retail-outage/39449387918/118719820095.log",
+      "git_blob_sha": "860532ec1bc3858f5083baecf4522a0416fd410e",
+      "bytes": 57197
+    },
+    {
+      "path": "docs/evidence/20261020/retail-outage/39449387918/118728822247.log",
+      "git_blob_sha": "d30cd0d6457b035afd9efdd04cd8cee678dc3a13",
+      "bytes": 16410
+    },
+    {
+      "path": "docs/evidence/20261020/retail-outage/39449387918/118732790821.log",
+      "git_blob_sha": "bfd7cd7a7ee5481753c2d2706a269024a77cc9cf",
+      "bytes": 16447
+    },
+    {
+      "path": "docs/evidence/20261020/retail-outage/39449387761/run.json",
+      "git_blob_sha": "ad7f97acef9599aa3cc2cd11fba8ea4a71999d2a",
+      "bytes": 14313
+    },
+    {
+      "path": "docs/evidence/20261020/retail-outage/39449387761/jobs.json",
+      "git_blob_sha": "055a5da614369d6756ce89eec47f70ada969100e",
+      "bytes": 2993
+    },
+    {
+      "path": "docs/evidence/20261020/retail-outage/39449387761/118719816358.log.part000",
+      "git_blob_sha": "ec8153096c5274e6a43fd2d22d72d7e01f2c41c0",
+      "bytes": 500076
+    },
+    {
+      "path": "docs/evidence/20261020/retail-outage/39449387761/118719816358.log.part001",
+      "git_blob_sha": "fcf13114cfa3505d9f051522f297505791baf02c",
+      "bytes": 500000
+    },
+    {
+      "path": "docs/evidence/20261020/retail-outage/39449387761/118719816358.log.part002",
+      "git_blob_sha": "175da9573c7ba957debbc46e88e678b2774ad3c0",
+      "bytes": 361937
+    },
+    {
+      "path": "docs/evidence/20261020/retail-outage/39446889947/run.json",
+      "git_blob_sha": "7d538b9d0b606d6bcd54da7274d26044e0232fa1",
+      "bytes": 14250
+    },
+    {
+      "path": "docs/evidence/20261020/retail-outage/39446889947/jobs.json",
+      "git_blob_sha": "6bcf157995158fdf6939f3b0ece2c34b99ac46e7",
+      "bytes": 62810
+    },
+    {
+      "path": "docs/evidence/20261020/retail-outage/39446889947/118711056845.log",
+      "git_blob_sha": "9dacddd65d94611e5bf7d456766204acaf18838a",
+      "bytes": 63637
+    },
+    {
+      "path": "docs/evidence/20261020/retail-outage/39446889947/118711057175.log",
+      "git_blob_sha": "c12f342f67176b01c05f1e6ccced37269c880f41",
+      "bytes": 51143
+    },
+    {
+      "path": "docs/evidence/20261020/retail-outage/39446889947/118711057179.log",
+      "git_blob_sha": "0b71bb014837f3d4886567fbd6d1ccf1485a6f7c",
+      "bytes": 53886
+    },
+    {
+      "path": "docs/evidence/20261020/retail-outage/39446889947/118711057207.log",
+      "git_blob_sha": "d709d07108121cdda245559e20949bfef3a247f7",
+      "bytes": 54814
+    },
+    {
+      "path": "docs/evidence/20261020/retail-outage/39446889947/118711057434.log",
+      "git_blob_sha": "cb720195fb15c1c63f12546019a51208ca66b8dd",
+      "bytes": 48846
+    },
+    {
+      "path": "docs/evidence/20261020/retail-outage/39446889947/118711057455.log",
+      "git_blob_sha": "9356424b7f6237e3eda75e7990eb49e14cd9151d",
+      "bytes": 57542
+    },
+    {
+      "path": "docs/evidence/20261020/retail-outage/39446889947/118711057571.log",
+      "git_blob_sha": "ed2f1834820a42ac5cceb22ede4aaf70f9505be0",
+      "bytes": 44461
+    },
+    {
+      "path": "docs/evidence/20261020/retail-outage/39446889947/118711057582.log",
+      "git_blob_sha": "68f354dc35cceff62f6e35f57978e6d34fd03be0",
+      "bytes": 57205
+    },
+    {
+      "path": "docs/evidence/20261020/retail-outage/39446889947/118718868653.log",
+      "git_blob_sha": "6ee613608a67ad3a1b2cd18e9c3fb0950063dfd9",
+      "bytes": 16409
+    },
+    {
+      "path": "docs/evidence/20261020/retail-outage/39446889947/118723519186.log",
+      "git_blob_sha": "8c2a6358177badfbf3f711c83bef35d8e115d4ae",
+      "bytes": 16443
+    },
+    {
+      "path": "docs/evidence/20261020/retail-outage/39446889918/run.json",
+      "git_blob_sha": "472deec5036d59246b50583ba1d6f8ba917c740a",
+      "bytes": 14298
+    },
+    {
+      "path": "docs/evidence/20261020/retail-outage/39446889918/jobs.json",
+      "git_blob_sha": "b6951cef49b73677c9591edfc97333f7c50cfb6b",
+      "bytes": 2991
+    },
+    {
+      "path": "docs/evidence/20261020/retail-outage/39446889918/118711062523.log.part000",
+      "git_blob_sha": "2c57d90329cbbe83775711eb872454e066dad1db",
+      "bytes": 500076
+    },
+    {
+      "path": "docs/evidence/20261020/retail-outage/39446889918/118711062523.log.part001",
+      "git_blob_sha": "cfc30346b476333f7f1c2a6641aaa3f25e6a1adc",
+      "bytes": 500000
+    },
+    {
+      "path": "docs/evidence/20261020/retail-outage/39446889918/118711062523.log.part002",
+      "git_blob_sha": "44e82f6d237f154227fd39fab78b4c71b8c7f2ba",
+      "bytes": 361937
+    }
+  ],
+  "logs": [
+    {
+      "run": 39450901879,
+      "job": 118725103280,
+      "name": "linux-controls-3",
+      "conclusion": "success",
+      "full_length_utf16": 53882,
+      "full_bytes": 53884,
+      "parts": [
+        {
+          "path": "docs/evidence/20261020/retail-outage/39450901879/118725103280.log",
+          "offset_utf16": 0,
+          "length_utf16": 53882,
+          "bytes": 53884
+        }
+      ]
+    },
+    {
+      "run": 39450901879,
+      "job": 118725103625,
+      "name": "linux-controls-1",
+      "conclusion": "success",
+      "full_length_utf16": 56274,
+      "full_bytes": 56276,
+      "parts": [
+        {
+          "path": "docs/evidence/20261020/retail-outage/39450901879/118725103625.log",
+          "offset_utf16": 0,
+          "length_utf16": 56274,
+          "bytes": 56276
+        }
+      ]
+    },
+    {
+      "run": 39450901879,
+      "job": 118725103736,
+      "name": "linux-controls-2",
+      "conclusion": "success",
+      "full_length_utf16": 57540,
+      "full_bytes": 57542,
+      "parts": [
+        {
+          "path": "docs/evidence/20261020/retail-outage/39450901879/118725103736.log",
+          "offset_utf16": 0,
+          "length_utf16": 57540,
+          "bytes": 57542
+        }
+      ]
+    },
+    {
+      "run": 39450901879,
+      "job": 118725103783,
+      "name": "windows-controls-3",
+      "conclusion": "success",
+      "full_length_utf16": 51145,
+      "full_bytes": 51147,
+      "parts": [
+        {
+          "path": "docs/evidence/20261020/retail-outage/39450901879/118725103783.log",
+          "offset_utf16": 0,
+          "length_utf16": 51145,
+          "bytes": 51147
+        }
+      ]
+    },
+    {
+      "run": 39450901879,
+      "job": 118725103825,
+      "name": "windows-controls-1",
+      "conclusion": "success",
+      "full_length_utf16": 57202,
+      "full_bytes": 57204,
+      "parts": [
+        {
+          "path": "docs/evidence/20261020/retail-outage/39450901879/118725103825.log",
+          "offset_utf16": 0,
+          "length_utf16": 57202,
+          "bytes": 57204
+        }
+      ]
+    },
+    {
+      "run": 39450901879,
+      "job": 118725103850,
+      "name": "windows-controls-2",
+      "conclusion": "success",
+      "full_length_utf16": 62332,
+      "full_bytes": 62334,
+      "parts": [
+        {
+          "path": "docs/evidence/20261020/retail-outage/39450901879/118725103850.log",
+          "offset_utf16": 0,
+          "length_utf16": 62332,
+          "bytes": 62334
+        }
+      ]
+    },
+    {
+      "run": 39450901879,
+      "job": 118725103854,
+      "name": "windows-native",
+      "conclusion": "success",
+      "full_length_utf16": 44460,
+      "full_bytes": 44462,
+      "parts": [
+        {
+          "path": "docs/evidence/20261020/retail-outage/39450901879/118725103854.log",
+          "offset_utf16": 0,
+          "length_utf16": 44460,
+          "bytes": 44462
+        }
+      ]
+    },
+    {
+      "run": 39450901879,
+      "job": 118725103952,
+      "name": "linux-native",
+      "conclusion": "success",
+      "full_length_utf16": 64163,
+      "full_bytes": 64167,
+      "parts": [
+        {
+          "path": "docs/evidence/20261020/retail-outage/39450901879/118725103952.log",
+          "offset_utf16": 0,
+          "length_utf16": 64163,
+          "bytes": 64167
+        }
+      ]
+    },
+    {
+      "run": 39450901879,
+      "job": 118731249983,
+      "name": "quality",
+      "conclusion": "success",
+      "full_length_utf16": 16407,
+      "full_bytes": 16409,
+      "parts": [
+        {
+          "path": "docs/evidence/20261020/retail-outage/39450901879/118731249983.log",
+          "offset_utf16": 0,
+          "length_utf16": 16407,
+          "bytes": 16409
+        }
+      ]
+    },
+    {
+      "run": 39450901879,
+      "job": 118737211913,
+      "name": "windows-validation",
+      "conclusion": "success",
+      "full_length_utf16": 16439,
+      "full_bytes": 16441,
+      "parts": [
+        {
+          "path": "docs/evidence/20261020/retail-outage/39450901879/118737211913.log",
+          "offset_utf16": 0,
+          "length_utf16": 16439,
+          "bytes": 16441
+        }
+      ]
+    },
+    {
+      "run": 39450901886,
+      "job": 118725103318,
+      "name": "characterize",
+      "conclusion": "success",
+      "full_length_utf16": 1362014,
+      "full_bytes": 1362090,
+      "parts": [
+        {
+          "path": "docs/evidence/20261020/retail-outage/39450901886/118725103318.log.part000",
+          "offset_utf16": 0,
+          "length_utf16": 500000,
+          "bytes": 500076
+        },
+        {
+          "path": "docs/evidence/20261020/retail-outage/39450901886/118725103318.log.part001",
+          "offset_utf16": 500000,
+          "length_utf16": 500000,
+          "bytes": 500000
+        },
+        {
+          "path": "docs/evidence/20261020/retail-outage/39450901886/118725103318.log.part002",
+          "offset_utf16": 1000000,
+          "length_utf16": 362014,
+          "bytes": 362014
+        }
+      ],
+      "full_sha256": "2ab62c2a75072cea18e9d9417c61a0368598d660e7b0ca8b1ac0b724c53b2094",
+      "digest_basis": "Pre-outage unchanged local Python exact-Git capture reconstruction"
+    },
+    {
+      "run": 39449387918,
+      "job": 118719818176,
+      "name": "windows-controls-2",
+      "conclusion": "success",
+      "full_length_utf16": 62326,
+      "full_bytes": 62328,
+      "parts": [
+        {
+          "path": "docs/evidence/20261020/retail-outage/39449387918/118719818176.log",
+          "offset_utf16": 0,
+          "length_utf16": 62326,
+          "bytes": 62328
+        }
+      ]
+    },
+    {
+      "run": 39449387918,
+      "job": 118719818582,
+      "name": "windows-controls-3",
+      "conclusion": "success",
+      "full_length_utf16": 51143,
+      "full_bytes": 51145,
+      "parts": [
+        {
+          "path": "docs/evidence/20261020/retail-outage/39449387918/118719818582.log",
+          "offset_utf16": 0,
+          "length_utf16": 51143,
+          "bytes": 51145
+        }
+      ]
+    },
+    {
+      "run": 39449387918,
+      "job": 118719818599,
+      "name": "linux-controls-1",
+      "conclusion": "success",
+      "full_length_utf16": 56277,
+      "full_bytes": 56279,
+      "parts": [
+        {
+          "path": "docs/evidence/20261020/retail-outage/39449387918/118719818599.log",
+          "offset_utf16": 0,
+          "length_utf16": 56277,
+          "bytes": 56279
+        }
+      ]
+    },
+    {
+      "run": 39449387918,
+      "job": 118719818657,
+      "name": "linux-controls-3",
+      "conclusion": "success",
+      "full_length_utf16": 53889,
+      "full_bytes": 53891,
+      "parts": [
+        {
+          "path": "docs/evidence/20261020/retail-outage/39449387918/118719818657.log",
+          "offset_utf16": 0,
+          "length_utf16": 53889,
+          "bytes": 53891
+        }
+      ]
+    },
+    {
+      "run": 39449387918,
+      "job": 118719818814,
+      "name": "linux-native",
+      "conclusion": "success",
+      "full_length_utf16": 64284,
+      "full_bytes": 64288,
+      "parts": [
+        {
+          "path": "docs/evidence/20261020/retail-outage/39449387918/118719818814.log",
+          "offset_utf16": 0,
+          "length_utf16": 64284,
+          "bytes": 64288
+        }
+      ]
+    },
+    {
+      "run": 39449387918,
+      "job": 118719818884,
+      "name": "windows-native",
+      "conclusion": "success",
+      "full_length_utf16": 44390,
+      "full_bytes": 44392,
+      "parts": [
+        {
+          "path": "docs/evidence/20261020/retail-outage/39449387918/118719818884.log",
+          "offset_utf16": 0,
+          "length_utf16": 44390,
+          "bytes": 44392
+        }
+      ]
+    },
+    {
+      "run": 39449387918,
+      "job": 118719819120,
+      "name": "linux-controls-2",
+      "conclusion": "success",
+      "full_length_utf16": 57536,
+      "full_bytes": 57538,
+      "parts": [
+        {
+          "path": "docs/evidence/20261020/retail-outage/39449387918/118719819120.log",
+          "offset_utf16": 0,
+          "length_utf16": 57536,
+          "bytes": 57538
+        }
+      ]
+    },
+    {
+      "run": 39449387918,
+      "job": 118719820095,
+      "name": "windows-controls-1",
+      "conclusion": "success",
+      "full_length_utf16": 57195,
+      "full_bytes": 57197,
+      "parts": [
+        {
+          "path": "docs/evidence/20261020/retail-outage/39449387918/118719820095.log",
+          "offset_utf16": 0,
+          "length_utf16": 57195,
+          "bytes": 57197
+        }
+      ]
+    },
+    {
+      "run": 39449387918,
+      "job": 118728822247,
+      "name": "quality",
+      "conclusion": "success",
+      "full_length_utf16": 16408,
+      "full_bytes": 16410,
+      "parts": [
+        {
+          "path": "docs/evidence/20261020/retail-outage/39449387918/118728822247.log",
+          "offset_utf16": 0,
+          "length_utf16": 16408,
+          "bytes": 16410
+        }
+      ]
+    },
+    {
+      "run": 39449387918,
+      "job": 118732790821,
+      "name": "windows-validation",
+      "conclusion": "success",
+      "full_length_utf16": 16445,
+      "full_bytes": 16447,
+      "parts": [
+        {
+          "path": "docs/evidence/20261020/retail-outage/39449387918/118732790821.log",
+          "offset_utf16": 0,
+          "length_utf16": 16445,
+          "bytes": 16447
+        }
+      ]
+    },
+    {
+      "run": 39449387761,
+      "job": 118719816358,
+      "name": "characterize",
+      "conclusion": "success",
+      "full_length_utf16": 1361937,
+      "full_bytes": 1362013,
+      "parts": [
+        {
+          "path": "docs/evidence/20261020/retail-outage/39449387761/118719816358.log.part000",
+          "offset_utf16": 0,
+          "length_utf16": 500000,
+          "bytes": 500076
+        },
+        {
+          "path": "docs/evidence/20261020/retail-outage/39449387761/118719816358.log.part001",
+          "offset_utf16": 500000,
+          "length_utf16": 500000,
+          "bytes": 500000
+        },
+        {
+          "path": "docs/evidence/20261020/retail-outage/39449387761/118719816358.log.part002",
+          "offset_utf16": 1000000,
+          "length_utf16": 361937,
+          "bytes": 361937
+        }
+      ],
+      "full_sha256": "b9105761df215512a585205dc5620db4fb822eba5f1bb6100a5940b57d525aa1",
+      "digest_basis": "Pre-outage unchanged local Python exact-Git capture reconstruction"
+    },
+    {
+      "run": 39446889947,
+      "job": 118711056845,
+      "name": "linux-native",
+      "conclusion": "success",
+      "full_length_utf16": 63633,
+      "full_bytes": 63637,
+      "parts": [
+        {
+          "path": "docs/evidence/20261020/retail-outage/39446889947/118711056845.log",
+          "offset_utf16": 0,
+          "length_utf16": 63633,
+          "bytes": 63637
+        }
+      ]
+    },
+    {
+      "run": 39446889947,
+      "job": 118711057175,
+      "name": "windows-controls-3",
+      "conclusion": "success",
+      "full_length_utf16": 51141,
+      "full_bytes": 51143,
+      "parts": [
+        {
+          "path": "docs/evidence/20261020/retail-outage/39446889947/118711057175.log",
+          "offset_utf16": 0,
+          "length_utf16": 51141,
+          "bytes": 51143
+        }
+      ]
+    },
+    {
+      "run": 39446889947,
+      "job": 118711057179,
+      "name": "linux-controls-3",
+      "conclusion": "success",
+      "full_length_utf16": 53884,
+      "full_bytes": 53886,
+      "parts": [
+        {
+          "path": "docs/evidence/20261020/retail-outage/39446889947/118711057179.log",
+          "offset_utf16": 0,
+          "length_utf16": 53884,
+          "bytes": 53886
+        }
+      ]
+    },
+    {
+      "run": 39446889947,
+      "job": 118711057207,
+      "name": "windows-controls-2",
+      "conclusion": "success",
+      "full_length_utf16": 54812,
+      "full_bytes": 54814,
+      "parts": [
+        {
+          "path": "docs/evidence/20261020/retail-outage/39446889947/118711057207.log",
+          "offset_utf16": 0,
+          "length_utf16": 54812,
+          "bytes": 54814
+        }
+      ]
+    },
+    {
+      "run": 39446889947,
+      "job": 118711057434,
+      "name": "linux-controls-1",
+      "conclusion": "success",
+      "full_length_utf16": 48844,
+      "full_bytes": 48846,
+      "parts": [
+        {
+          "path": "docs/evidence/20261020/retail-outage/39446889947/118711057434.log",
+          "offset_utf16": 0,
+          "length_utf16": 48844,
+          "bytes": 48846
+        }
+      ]
+    },
+    {
+      "run": 39446889947,
+      "job": 118711057455,
+      "name": "linux-controls-2",
+      "conclusion": "success",
+      "full_length_utf16": 57540,
+      "full_bytes": 57542,
+      "parts": [
+        {
+          "path": "docs/evidence/20261020/retail-outage/39446889947/118711057455.log",
+          "offset_utf16": 0,
+          "length_utf16": 57540,
+          "bytes": 57542
+        }
+      ]
+    },
+    {
+      "run": 39446889947,
+      "job": 118711057571,
+      "name": "windows-native",
+      "conclusion": "success",
+      "full_length_utf16": 44459,
+      "full_bytes": 44461,
+      "parts": [
+        {
+          "path": "docs/evidence/20261020/retail-outage/39446889947/118711057571.log",
+          "offset_utf16": 0,
+          "length_utf16": 44459,
+          "bytes": 44461
+        }
+      ]
+    },
+    {
+      "run": 39446889947,
+      "job": 118711057582,
+      "name": "windows-controls-1",
+      "conclusion": "success",
+      "full_length_utf16": 57203,
+      "full_bytes": 57205,
+      "parts": [
+        {
+          "path": "docs/evidence/20261020/retail-outage/39446889947/118711057582.log",
+          "offset_utf16": 0,
+          "length_utf16": 57203,
+          "bytes": 57205
+        }
+      ]
+    },
+    {
+      "run": 39446889947,
+      "job": 118718868653,
+      "name": "quality",
+      "conclusion": "success",
+      "full_length_utf16": 16407,
+      "full_bytes": 16409,
+      "parts": [
+        {
+          "path": "docs/evidence/20261020/retail-outage/39446889947/118718868653.log",
+          "offset_utf16": 0,
+          "length_utf16": 16407,
+          "bytes": 16409
+        }
+      ]
+    },
+    {
+      "run": 39446889947,
+      "job": 118723519186,
+      "name": "windows-validation",
+      "conclusion": "success",
+      "full_length_utf16": 16441,
+      "full_bytes": 16443,
+      "parts": [
+        {
+          "path": "docs/evidence/20261020/retail-outage/39446889947/118723519186.log",
+          "offset_utf16": 0,
+          "length_utf16": 16441,
+          "bytes": 16443
+        }
+      ]
+    },
+    {
+      "run": 39446889918,
+      "job": 118711062523,
+      "name": "characterize",
+      "conclusion": "success",
+      "full_length_utf16": 1361937,
+      "full_bytes": 1362013,
+      "parts": [
+        {
+          "path": "docs/evidence/20261020/retail-outage/39446889918/118711062523.log.part000",
+          "offset_utf16": 0,
+          "length_utf16": 500000,
+          "bytes": 500076
+        },
+        {
+          "path": "docs/evidence/20261020/retail-outage/39446889918/118711062523.log.part001",
+          "offset_utf16": 500000,
+          "length_utf16": 500000,
+          "bytes": 500000
+        },
+        {
+          "path": "docs/evidence/20261020/retail-outage/39446889918/118711062523.log.part002",
+          "offset_utf16": 1000000,
+          "length_utf16": 361937,
+          "bytes": 361937
+        }
+      ],
+      "full_sha256": "977410ec76bd6aa7102135bc17f4319d656aa33bedb1f4927ba2edd9b441f5a4",
+      "digest_basis": "Pre-outage unchanged local Python exact-Git capture reconstruction"
+    }
+  ],
+  "review": {
+    "candidate": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "tree": "c07469bae30de3b111e1fcef89cb557bdadebe33",
+    "preview": "dd0b28416a493fba17fd7de9809cebb23d1c4725",
+    "quality_run": 39450901879,
+    "source_run": 39450901886,
+    "all_jobs_steps_logs_reviewed": true,
+    "controls": {
+      "linux": {
+        "count": 622,
+        "prior": 580,
+        "added": 42,
+        "missing": 0,
+        "unexpected_extra": 0,
+        "duplicates": 0,
+        "sha256_full_lines_lf": "502445901501da199dfd0c92dfa28bbdc50bd7c6a1499f7d1ad223ef608042f2",
+        "digest_basis": "Exact full-line equality with locally SHA256-verified182 inventory"
+      },
+      "windows": {
+        "count": 617,
+        "prior": 575,
+        "added": 42,
+        "missing": 0,
+        "unexpected_extra": 0,
+        "duplicates": 0,
+        "sha256_full_lines_lf": "52320baa793d2d730801e26b992e3912e3400af7e54527012ed5b1a200a937ab",
+        "digest_basis": "Exact full-line equality with locally SHA256-verified182 inventory"
+      }
+    },
+    "coverage_percent": 87.6,
+    "unchanged_floor": 75,
+    "native_security": {
+      "reachable": 0,
+      "imported_not_called": 3,
+      "module_only": 1,
+      "residuals": "OPEN"
+    },
+    "source": {
+      "captures": 23,
+      "chunks": 315,
+      "bytes": 909865,
+      "source_log_bytes": 1362090,
+      "source_log_sha256": "2ab62c2a75072cea18e9d9417c61a0368598d660e7b0ca8b1ac0b724c53b2094",
+      "basis": "Full unchanged local Python reconstruction against exact Git completed before environment loss"
+    },
+    "timing": {
+      "created_at": "2026-10-20T15:42:29Z",
+      "run_started_at": "2026-10-20T15:42:29Z",
+      "run_completed_at": "2026-10-20T16:05:57Z",
+      "first_job_started_at": "2026-10-20T15:42:32Z",
+      "last_job_completed_at": "2026-10-20T16:05:56Z"
+    },
+    "local_proof": {
+      "controls": 42,
+      "full_preflight": "pass",
+      "coherent_rollback_files": 25,
+      "exact_restoration": "pass",
+      "raw_local_retention": "PENDING: environment_offline prevents retrieval"
+    },
+    "scope": "Hosted exact-head QA passed; task7 closure/evidence and task8 remain incomplete; not accepted/independent/live/release"
+  },
+  "retention": {
+    "complete_logs": 33,
+    "quality_runs": 3,
+    "source_runs": 3,
+    "complete_payload_files": 55,
+    "full_content_readback": true,
+    "original_utf8_bom_crlf_preserved": true,
+    "chunking": "Only source logs over500000UTF16code units are split at complete Unicode scalar boundaries; concatenate listed raw UTF8parts in order, no separators. Offsets cover every original character.",
+    "local_raw_proofs": "PENDING environment recovery; do not label fully archived",
+    "provisional_task8": "NOT FROZEN; local draft/50cases not durably recovered"
+  },
+  "authentication": "Git storage/readback is not independent publisher authentication, human review, legal/security waiver, accepted merge or release"
+}
