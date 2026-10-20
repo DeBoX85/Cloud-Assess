@@ -53,6 +53,7 @@ func Build(data *result.AssessmentResult, opts Options) ([]Table, error) {
 		{Key: "costs", SheetName: "Costs", Stage: stages.Cost, Rows: costs(data, opts)},
 	}
 	projected[0].Rows = append(projected[0].Rows, pluginStatusRows(data, mask)...)
+	redactAssessmentStatusScope(data, projected[0].Rows, opts.RedactSubscriptionIDs, mask)
 	return append(projected, pluginTables(data, mask)...), nil
 }
 
