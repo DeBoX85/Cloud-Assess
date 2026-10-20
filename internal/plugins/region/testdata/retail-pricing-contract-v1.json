@@ -1,0 +1,1355 @@
+{
+  "format": "retail-pricing-contract-v1",
+  "frozen_before_production": true,
+  "cases": [
+    {
+      "name": "complete-two-regions",
+      "request": {
+        "meter_ids": [
+          "m1"
+        ],
+        "regions": [
+          "eastus",
+          "westeurope"
+        ],
+        "now": "2026-10-20T00:00:00Z"
+      },
+      "pages": [
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"\"}"
+        },
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"},{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":3,\"unitPrice\":3,\"armRegionName\":\"westeurope\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"target1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"\"}"
+        }
+      ],
+      "want_status": "complete",
+      "want_code": "",
+      "want_calls": 2,
+      "want_prices": {
+        "m1": {
+          "eastus": 2,
+          "westeurope": 3
+        }
+      }
+    },
+    {
+      "name": "newer-effective-price",
+      "request": {
+        "meter_ids": [
+          "m1"
+        ],
+        "regions": [
+          "eastus",
+          "westeurope"
+        ],
+        "now": "2026-10-20T00:00:00Z"
+      },
+      "pages": [
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"\"}"
+        },
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"},{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":3,\"unitPrice\":3,\"armRegionName\":\"westeurope\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"target1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"},{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":4,\"unitPrice\":4,\"armRegionName\":\"westeurope\",\"effectiveStartDate\":\"2026-09-01T00:00:00Z\",\"meterId\":\"target2\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"\"}"
+        }
+      ],
+      "want_status": "complete",
+      "want_code": "",
+      "want_calls": 2,
+      "want_prices": {
+        "m1": {
+          "eastus": 2,
+          "westeurope": 4
+        }
+      }
+    },
+    {
+      "name": "future-price-ignored",
+      "request": {
+        "meter_ids": [
+          "m1"
+        ],
+        "regions": [
+          "eastus",
+          "westeurope"
+        ],
+        "now": "2026-10-20T00:00:00Z"
+      },
+      "pages": [
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"\"}"
+        },
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"},{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":3,\"unitPrice\":3,\"armRegionName\":\"westeurope\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"target1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"},{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":99,\"unitPrice\":99,\"armRegionName\":\"westeurope\",\"effectiveStartDate\":\"2027-01-01T00:00:00Z\",\"meterId\":\"future\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"\"}"
+        }
+      ],
+      "want_status": "complete",
+      "want_code": "",
+      "want_calls": 2,
+      "want_prices": {
+        "m1": {
+          "eastus": 2,
+          "westeurope": 3
+        }
+      }
+    },
+    {
+      "name": "instant-compared-in-utc",
+      "request": {
+        "meter_ids": [
+          "m1"
+        ],
+        "regions": [
+          "eastus",
+          "westeurope"
+        ],
+        "now": "2026-10-20T00:00:00Z"
+      },
+      "pages": [
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"\"}"
+        },
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"},{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":3,\"unitPrice\":3,\"armRegionName\":\"westeurope\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"target1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"},{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":4,\"unitPrice\":4,\"armRegionName\":\"westeurope\",\"effectiveStartDate\":\"2026-10-20T01:00:00+02:00\",\"meterId\":\"offset\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"\"}"
+        }
+      ],
+      "want_status": "complete",
+      "want_code": "",
+      "want_calls": 2,
+      "want_prices": {
+        "m1": {
+          "eastus": 2,
+          "westeurope": 4
+        }
+      }
+    },
+    {
+      "name": "identical-price-duplicate",
+      "request": {
+        "meter_ids": [
+          "m1"
+        ],
+        "regions": [
+          "eastus",
+          "westeurope"
+        ],
+        "now": "2026-10-20T00:00:00Z"
+      },
+      "pages": [
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"\"}"
+        },
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"},{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":3,\"unitPrice\":3,\"armRegionName\":\"westeurope\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"target1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"},{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":3,\"unitPrice\":3,\"armRegionName\":\"westeurope\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"target1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"\"}"
+        }
+      ],
+      "want_status": "complete",
+      "want_code": "",
+      "want_calls": 2,
+      "want_prices": {
+        "m1": {
+          "eastus": 2,
+          "westeurope": 3
+        }
+      }
+    },
+    {
+      "name": "equal-date-price-conflict",
+      "request": {
+        "meter_ids": [
+          "m1"
+        ],
+        "regions": [
+          "eastus",
+          "westeurope"
+        ],
+        "now": "2026-10-20T00:00:00Z"
+      },
+      "pages": [
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"\"}"
+        },
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"},{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":3,\"unitPrice\":3,\"armRegionName\":\"westeurope\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"target1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"},{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":4,\"unitPrice\":4,\"armRegionName\":\"westeurope\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"target2\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"\"}"
+        }
+      ],
+      "want_status": "partial",
+      "want_code": "retail_incomplete",
+      "want_calls": 2,
+      "want_prices": {}
+    },
+    {
+      "name": "equal-date-price-conflict-reversed",
+      "request": {
+        "meter_ids": [
+          "m1"
+        ],
+        "regions": [
+          "eastus",
+          "westeurope"
+        ],
+        "now": "2026-10-20T00:00:00Z"
+      },
+      "pages": [
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"\"}"
+        },
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":4,\"unitPrice\":4,\"armRegionName\":\"westeurope\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"target2\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"},{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":3,\"unitPrice\":3,\"armRegionName\":\"westeurope\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"target1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"},{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"\"}"
+        }
+      ],
+      "want_status": "partial",
+      "want_code": "retail_incomplete",
+      "want_calls": 2,
+      "want_prices": {}
+    },
+    {
+      "name": "lower-tier-metadata",
+      "request": {
+        "meter_ids": [
+          "m1"
+        ],
+        "regions": [
+          "eastus",
+          "westeurope"
+        ],
+        "now": "2026-10-20T00:00:00Z"
+      },
+      "pages": [
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":100,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Higher\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"},{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"\"}"
+        },
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"},{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":3,\"unitPrice\":3,\"armRegionName\":\"westeurope\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"target1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"\"}"
+        }
+      ],
+      "want_status": "complete",
+      "want_code": "",
+      "want_calls": 2,
+      "want_prices": {
+        "m1": {
+          "eastus": 2,
+          "westeurope": 3
+        }
+      }
+    },
+    {
+      "name": "equal-tier-metadata-conflict",
+      "request": {
+        "meter_ids": [
+          "m1"
+        ],
+        "regions": [
+          "eastus",
+          "westeurope"
+        ],
+        "now": "2026-10-20T00:00:00Z"
+      },
+      "pages": [
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"},{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Different\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"\"}"
+        },
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"},{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":3,\"unitPrice\":3,\"armRegionName\":\"westeurope\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"target1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"\"}"
+        }
+      ],
+      "want_status": "partial",
+      "want_code": "retail_incomplete",
+      "want_calls": 1,
+      "want_prices": {}
+    },
+    {
+      "name": "metadata-conflict-reversed",
+      "request": {
+        "meter_ids": [
+          "m1"
+        ],
+        "regions": [
+          "eastus",
+          "westeurope"
+        ],
+        "now": "2026-10-20T00:00:00Z"
+      },
+      "pages": [
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Different\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"},{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"\"}"
+        },
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"},{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":3,\"unitPrice\":3,\"armRegionName\":\"westeurope\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"target1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"\"}"
+        }
+      ],
+      "want_status": "partial",
+      "want_code": "retail_incomplete",
+      "want_calls": 1,
+      "want_prices": {}
+    },
+    {
+      "name": "metadata-exact-duplicate",
+      "request": {
+        "meter_ids": [
+          "m1"
+        ],
+        "regions": [
+          "eastus",
+          "westeurope"
+        ],
+        "now": "2026-10-20T00:00:00Z"
+      },
+      "pages": [
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"},{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"\"}"
+        },
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"},{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":3,\"unitPrice\":3,\"armRegionName\":\"westeurope\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"target1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"\"}"
+        }
+      ],
+      "want_status": "complete",
+      "want_code": "",
+      "want_calls": 2,
+      "want_prices": {
+        "m1": {
+          "eastus": 2,
+          "westeurope": 3
+        }
+      }
+    },
+    {
+      "name": "higher-tier-prices-ignored",
+      "request": {
+        "meter_ids": [
+          "m1"
+        ],
+        "regions": [
+          "eastus",
+          "westeurope"
+        ],
+        "now": "2026-10-20T00:00:00Z"
+      },
+      "pages": [
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"\"}"
+        },
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"},{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":3,\"unitPrice\":3,\"armRegionName\":\"westeurope\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"target1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"},{\"currencyCode\":\"USD\",\"tierMinimumUnits\":100,\"retailPrice\":99,\"unitPrice\":99,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"\"}"
+        }
+      ],
+      "want_status": "complete",
+      "want_code": "",
+      "want_calls": 2,
+      "want_prices": {
+        "m1": {
+          "eastus": 2,
+          "westeurope": 3
+        }
+      }
+    },
+    {
+      "name": "uom-mismatch",
+      "request": {
+        "meter_ids": [
+          "m1"
+        ],
+        "regions": [
+          "eastus",
+          "westeurope"
+        ],
+        "now": "2026-10-20T00:00:00Z"
+      },
+      "pages": [
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"\"}"
+        },
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"},{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"westeurope\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"target1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 GB\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"\"}"
+        }
+      ],
+      "want_status": "partial",
+      "want_code": "retail_incomplete",
+      "want_calls": 2,
+      "want_prices": {}
+    },
+    {
+      "name": "different-product-not-matched",
+      "request": {
+        "meter_ids": [
+          "m1"
+        ],
+        "regions": [
+          "eastus",
+          "westeurope"
+        ],
+        "now": "2026-10-20T00:00:00Z"
+      },
+      "pages": [
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"\"}"
+        },
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"},{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"westeurope\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"target1\",\"meterName\":\"Meter\",\"productId\":\"Other\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"\"}"
+        }
+      ],
+      "want_status": "partial",
+      "want_code": "retail_incomplete",
+      "want_calls": 2,
+      "want_prices": {}
+    },
+    {
+      "name": "different-sku-not-matched",
+      "request": {
+        "meter_ids": [
+          "m1"
+        ],
+        "regions": [
+          "eastus",
+          "westeurope"
+        ],
+        "now": "2026-10-20T00:00:00Z"
+      },
+      "pages": [
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"\"}"
+        },
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"},{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"westeurope\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"target1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"Other\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"\"}"
+        }
+      ],
+      "want_status": "partial",
+      "want_code": "retail_incomplete",
+      "want_calls": 2,
+      "want_prices": {}
+    },
+    {
+      "name": "different-meter-name-not-matched",
+      "request": {
+        "meter_ids": [
+          "m1"
+        ],
+        "regions": [
+          "eastus",
+          "westeurope"
+        ],
+        "now": "2026-10-20T00:00:00Z"
+      },
+      "pages": [
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"\"}"
+        },
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"},{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"westeurope\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"target1\",\"meterName\":\"Other\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"\"}"
+        }
+      ],
+      "want_status": "partial",
+      "want_code": "retail_incomplete",
+      "want_calls": 2,
+      "want_prices": {}
+    },
+    {
+      "name": "nonrelevant-region-ignored",
+      "request": {
+        "meter_ids": [
+          "m1"
+        ],
+        "regions": [
+          "eastus",
+          "westeurope"
+        ],
+        "now": "2026-10-20T00:00:00Z"
+      },
+      "pages": [
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"\"}"
+        },
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"},{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":3,\"unitPrice\":3,\"armRegionName\":\"westeurope\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"target1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"},{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":8,\"unitPrice\":8,\"armRegionName\":\"northcentralus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"other\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"\"}"
+        }
+      ],
+      "want_status": "complete",
+      "want_code": "",
+      "want_calls": 2,
+      "want_prices": {
+        "m1": {
+          "eastus": 2,
+          "westeurope": 3
+        }
+      }
+    },
+    {
+      "name": "zero-price-not-eligible",
+      "request": {
+        "meter_ids": [
+          "m1"
+        ],
+        "regions": [
+          "eastus",
+          "westeurope"
+        ],
+        "now": "2026-10-20T00:00:00Z"
+      },
+      "pages": [
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"\"}"
+        },
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"},{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":0,\"unitPrice\":0,\"armRegionName\":\"westeurope\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"target1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"\"}"
+        }
+      ],
+      "want_status": "partial",
+      "want_code": "retail_incomplete",
+      "want_calls": 2,
+      "want_prices": {}
+    },
+    {
+      "name": "missing-date-is-oldest",
+      "request": {
+        "meter_ids": [
+          "m1"
+        ],
+        "regions": [
+          "eastus",
+          "westeurope"
+        ],
+        "now": "2026-10-20T00:00:00Z"
+      },
+      "pages": [
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"\"}"
+        },
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"},{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":3,\"unitPrice\":3,\"armRegionName\":\"westeurope\",\"effectiveStartDate\":\"\",\"meterId\":\"target1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"\"}"
+        }
+      ],
+      "want_status": "complete",
+      "want_code": "",
+      "want_calls": 2,
+      "want_prices": {
+        "m1": {
+          "eastus": 2,
+          "westeurope": 3
+        }
+      }
+    },
+    {
+      "name": "missing-date-loses-to-dated",
+      "request": {
+        "meter_ids": [
+          "m1"
+        ],
+        "regions": [
+          "eastus",
+          "westeurope"
+        ],
+        "now": "2026-10-20T00:00:00Z"
+      },
+      "pages": [
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"\"}"
+        },
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":99,\"unitPrice\":99,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"},{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"},{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":3,\"unitPrice\":3,\"armRegionName\":\"westeurope\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"target1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"\"}"
+        }
+      ],
+      "want_status": "complete",
+      "want_code": "",
+      "want_calls": 2,
+      "want_prices": {
+        "m1": {
+          "eastus": 2,
+          "westeurope": 3
+        }
+      }
+    },
+    {
+      "name": "metadata-no-match",
+      "request": {
+        "meter_ids": [
+          "m1"
+        ],
+        "regions": [
+          "eastus",
+          "westeurope"
+        ],
+        "now": "2026-10-20T00:00:00Z"
+      },
+      "pages": [
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[],\"NextPageLink\":\"\"}"
+        },
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"},{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":3,\"unitPrice\":3,\"armRegionName\":\"westeurope\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"target1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"\"}"
+        }
+      ],
+      "want_status": "partial",
+      "want_code": "retail_incomplete",
+      "want_calls": 1,
+      "want_prices": {}
+    },
+    {
+      "name": "pricing-no-match",
+      "request": {
+        "meter_ids": [
+          "m1"
+        ],
+        "regions": [
+          "eastus",
+          "westeurope"
+        ],
+        "now": "2026-10-20T00:00:00Z"
+      },
+      "pages": [
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"\"}"
+        },
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[],\"NextPageLink\":\"\"}"
+        }
+      ],
+      "want_status": "partial",
+      "want_code": "retail_incomplete",
+      "want_calls": 2,
+      "want_prices": {}
+    },
+    {
+      "name": "wrong-currency",
+      "request": {
+        "meter_ids": [
+          "m1"
+        ],
+        "regions": [
+          "eastus",
+          "westeurope"
+        ],
+        "now": "2026-10-20T00:00:00Z"
+      },
+      "pages": [
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"\"}"
+        },
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"},{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":3,\"unitPrice\":3,\"armRegionName\":\"westeurope\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"target1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"},{\"currencyCode\":\"EUR\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"\"}"
+        }
+      ],
+      "want_status": "partial",
+      "want_code": "retail_decode_invalid",
+      "want_calls": 2,
+      "want_prices": {}
+    },
+    {
+      "name": "reservation",
+      "request": {
+        "meter_ids": [
+          "m1"
+        ],
+        "regions": [
+          "eastus",
+          "westeurope"
+        ],
+        "now": "2026-10-20T00:00:00Z"
+      },
+      "pages": [
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"\"}"
+        },
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"},{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":3,\"unitPrice\":3,\"armRegionName\":\"westeurope\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"target1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"},{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Reservation\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"\"}"
+        }
+      ],
+      "want_status": "partial",
+      "want_code": "retail_decode_invalid",
+      "want_calls": 2,
+      "want_prices": {}
+    },
+    {
+      "name": "negative-tier",
+      "request": {
+        "meter_ids": [
+          "m1"
+        ],
+        "regions": [
+          "eastus",
+          "westeurope"
+        ],
+        "now": "2026-10-20T00:00:00Z"
+      },
+      "pages": [
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"\"}"
+        },
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"},{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":3,\"unitPrice\":3,\"armRegionName\":\"westeurope\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"target1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"},{\"currencyCode\":\"USD\",\"tierMinimumUnits\":-1,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"\"}"
+        }
+      ],
+      "want_status": "partial",
+      "want_code": "retail_decode_invalid",
+      "want_calls": 2,
+      "want_prices": {}
+    },
+    {
+      "name": "negative-price",
+      "request": {
+        "meter_ids": [
+          "m1"
+        ],
+        "regions": [
+          "eastus",
+          "westeurope"
+        ],
+        "now": "2026-10-20T00:00:00Z"
+      },
+      "pages": [
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"\"}"
+        },
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"},{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":3,\"unitPrice\":3,\"armRegionName\":\"westeurope\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"target1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"},{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":-1,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"\"}"
+        }
+      ],
+      "want_status": "partial",
+      "want_code": "retail_decode_invalid",
+      "want_calls": 2,
+      "want_prices": {}
+    },
+    {
+      "name": "inconsistent-unit-price",
+      "request": {
+        "meter_ids": [
+          "m1"
+        ],
+        "regions": [
+          "eastus",
+          "westeurope"
+        ],
+        "now": "2026-10-20T00:00:00Z"
+      },
+      "pages": [
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"\"}"
+        },
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"},{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":3,\"unitPrice\":3,\"armRegionName\":\"westeurope\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"target1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"},{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":8,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"\"}"
+        }
+      ],
+      "want_status": "partial",
+      "want_code": "retail_decode_invalid",
+      "want_calls": 2,
+      "want_prices": {}
+    },
+    {
+      "name": "invalid-date",
+      "request": {
+        "meter_ids": [
+          "m1"
+        ],
+        "regions": [
+          "eastus",
+          "westeurope"
+        ],
+        "now": "2026-10-20T00:00:00Z"
+      },
+      "pages": [
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"\"}"
+        },
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"},{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":3,\"unitPrice\":3,\"armRegionName\":\"westeurope\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"target1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"},{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"tomorrow\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"\"}"
+        }
+      ],
+      "want_status": "partial",
+      "want_code": "retail_decode_invalid",
+      "want_calls": 2,
+      "want_prices": {}
+    },
+    {
+      "name": "missing-meter-id",
+      "request": {
+        "meter_ids": [
+          "m1"
+        ],
+        "regions": [
+          "eastus",
+          "westeurope"
+        ],
+        "now": "2026-10-20T00:00:00Z"
+      },
+      "pages": [
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"\"}"
+        },
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"},{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":3,\"unitPrice\":3,\"armRegionName\":\"westeurope\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"target1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"},{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"\"}"
+        }
+      ],
+      "want_status": "partial",
+      "want_code": "retail_decode_invalid",
+      "want_calls": 2,
+      "want_prices": {}
+    },
+    {
+      "name": "invalid-text",
+      "request": {
+        "meter_ids": [
+          "m1"
+        ],
+        "regions": [
+          "eastus",
+          "westeurope"
+        ],
+        "now": "2026-10-20T00:00:00Z"
+      },
+      "pages": [
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"\"}"
+        },
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"},{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":3,\"unitPrice\":3,\"armRegionName\":\"westeurope\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"target1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"},{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"secret\\nline\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"\"}"
+        }
+      ],
+      "want_status": "partial",
+      "want_code": "retail_decode_invalid",
+      "want_calls": 2,
+      "want_prices": {}
+    },
+    {
+      "name": "invalid-json",
+      "request": {
+        "meter_ids": [
+          "m1"
+        ],
+        "regions": [
+          "eastus",
+          "westeurope"
+        ],
+        "now": "2026-10-20T00:00:00Z"
+      },
+      "pages": [
+        {
+          "status": 200,
+          "body": "{"
+        }
+      ],
+      "want_status": "unknown",
+      "want_code": "retail_decode_invalid",
+      "want_calls": 1,
+      "want_prices": {}
+    },
+    {
+      "name": "null-items",
+      "request": {
+        "meter_ids": [
+          "m1"
+        ],
+        "regions": [
+          "eastus",
+          "westeurope"
+        ],
+        "now": "2026-10-20T00:00:00Z"
+      },
+      "pages": [
+        {
+          "status": 200,
+          "body": "{\"Items\":null}"
+        }
+      ],
+      "want_status": "unknown",
+      "want_code": "retail_decode_invalid",
+      "want_calls": 1,
+      "want_prices": {}
+    },
+    {
+      "name": "missing-items",
+      "request": {
+        "meter_ids": [
+          "m1"
+        ],
+        "regions": [
+          "eastus",
+          "westeurope"
+        ],
+        "now": "2026-10-20T00:00:00Z"
+      },
+      "pages": [
+        {
+          "status": 200,
+          "body": "{}"
+        }
+      ],
+      "want_status": "unknown",
+      "want_code": "retail_decode_invalid",
+      "want_calls": 1,
+      "want_prices": {}
+    },
+    {
+      "name": "duplicate-items",
+      "request": {
+        "meter_ids": [
+          "m1"
+        ],
+        "regions": [
+          "eastus",
+          "westeurope"
+        ],
+        "now": "2026-10-20T00:00:00Z"
+      },
+      "pages": [
+        {
+          "status": 200,
+          "body": "{\"Items\":[],\"items\":[]}"
+        }
+      ],
+      "want_status": "unknown",
+      "want_code": "retail_decode_invalid",
+      "want_calls": 1,
+      "want_prices": {}
+    },
+    {
+      "name": "trailing-json",
+      "request": {
+        "meter_ids": [
+          "m1"
+        ],
+        "regions": [
+          "eastus",
+          "westeurope"
+        ],
+        "now": "2026-10-20T00:00:00Z"
+      },
+      "pages": [
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[],\"NextPageLink\":\"\"}{}"
+        }
+      ],
+      "want_status": "unknown",
+      "want_code": "retail_decode_invalid",
+      "want_calls": 1,
+      "want_prices": {}
+    },
+    {
+      "name": "nonobject-item",
+      "request": {
+        "meter_ids": [
+          "m1"
+        ],
+        "regions": [
+          "eastus",
+          "westeurope"
+        ],
+        "now": "2026-10-20T00:00:00Z"
+      },
+      "pages": [
+        {
+          "status": 200,
+          "body": "{\"Items\":[null]}"
+        }
+      ],
+      "want_status": "unknown",
+      "want_code": "retail_decode_invalid",
+      "want_calls": 1,
+      "want_prices": {}
+    },
+    {
+      "name": "foreign-next",
+      "request": {
+        "meter_ids": [
+          "m1"
+        ],
+        "regions": [
+          "eastus",
+          "westeurope"
+        ],
+        "now": "2026-10-20T00:00:00Z"
+      },
+      "pages": [
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"https://evil.example/api/retail/prices?$skip=1000\"}"
+        }
+      ],
+      "want_status": "partial",
+      "want_code": "retail_continuation_invalid",
+      "want_calls": 1,
+      "want_prices": {}
+    },
+    {
+      "name": "http-next",
+      "request": {
+        "meter_ids": [
+          "m1"
+        ],
+        "regions": [
+          "eastus",
+          "westeurope"
+        ],
+        "now": "2026-10-20T00:00:00Z"
+      },
+      "pages": [
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"http://prices.azure.com/api/retail/prices?$skip=1000\"}"
+        }
+      ],
+      "want_status": "partial",
+      "want_code": "retail_continuation_invalid",
+      "want_calls": 1,
+      "want_prices": {}
+    },
+    {
+      "name": "wrong-path-next",
+      "request": {
+        "meter_ids": [
+          "m1"
+        ],
+        "regions": [
+          "eastus",
+          "westeurope"
+        ],
+        "now": "2026-10-20T00:00:00Z"
+      },
+      "pages": [
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"https://prices.azure.com/other?$skip=1000\"}"
+        }
+      ],
+      "want_status": "partial",
+      "want_code": "retail_continuation_invalid",
+      "want_calls": 1,
+      "want_prices": {}
+    },
+    {
+      "name": "filter-mutated-next",
+      "request": {
+        "meter_ids": [
+          "m1"
+        ],
+        "regions": [
+          "eastus",
+          "westeurope"
+        ],
+        "now": "2026-10-20T00:00:00Z"
+      },
+      "pages": [
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"https://prices.azure.com/api/retail/prices?$filter=all&$skip=1000\"}"
+        }
+      ],
+      "want_status": "partial",
+      "want_code": "retail_continuation_invalid",
+      "want_calls": 1,
+      "want_prices": {}
+    },
+    {
+      "name": "preview-next",
+      "request": {
+        "meter_ids": [
+          "m1"
+        ],
+        "regions": [
+          "eastus",
+          "westeurope"
+        ],
+        "now": "2026-10-20T00:00:00Z"
+      },
+      "pages": [
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"https://prices.azure.com/api/retail/prices?api-version=2023-01-01-preview&$skip=1000\"}"
+        }
+      ],
+      "want_status": "partial",
+      "want_code": "retail_continuation_invalid",
+      "want_calls": 1,
+      "want_prices": {}
+    },
+    {
+      "name": "userinfo-next",
+      "request": {
+        "meter_ids": [
+          "m1"
+        ],
+        "regions": [
+          "eastus",
+          "westeurope"
+        ],
+        "now": "2026-10-20T00:00:00Z"
+      },
+      "pages": [
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"https://name@prices.azure.com/api/retail/prices?$skip=1000\"}"
+        }
+      ],
+      "want_status": "partial",
+      "want_code": "retail_continuation_invalid",
+      "want_calls": 1,
+      "want_prices": {}
+    },
+    {
+      "name": "http-failure-no-data",
+      "request": {
+        "meter_ids": [
+          "m1"
+        ],
+        "regions": [
+          "eastus",
+          "westeurope"
+        ],
+        "now": "2026-10-20T00:00:00Z"
+      },
+      "pages": [
+        {
+          "status": 403,
+          "body": "provider secret"
+        }
+      ],
+      "want_status": "unknown",
+      "want_code": "retail_request_failed",
+      "want_calls": 1,
+      "want_prices": {}
+    },
+    {
+      "name": "later-http-failure",
+      "request": {
+        "meter_ids": [
+          "m1"
+        ],
+        "regions": [
+          "eastus",
+          "westeurope"
+        ],
+        "now": "2026-10-20T00:00:00Z"
+      },
+      "pages": [
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"\"}"
+        },
+        {
+          "status": 429,
+          "body": "provider secret"
+        }
+      ],
+      "want_status": "partial",
+      "want_code": "retail_request_failed",
+      "want_calls": 2,
+      "want_prices": {}
+    },
+    {
+      "name": "no-meters-no-http",
+      "request": {
+        "meter_ids": [],
+        "regions": [
+          "eastus",
+          "westeurope"
+        ],
+        "now": "2026-10-20T00:00:00Z"
+      },
+      "pages": [],
+      "want_status": "complete",
+      "want_code": "",
+      "want_calls": 0,
+      "want_prices": {}
+    },
+    {
+      "name": "duplicate-meter",
+      "request": {
+        "meter_ids": [
+          "m1",
+          "m1"
+        ],
+        "regions": [
+          "eastus",
+          "westeurope"
+        ],
+        "now": "2026-10-20T00:00:00Z"
+      },
+      "pages": [],
+      "want_status": "",
+      "want_code": "request_error",
+      "want_calls": 0,
+      "want_prices": {}
+    },
+    {
+      "name": "empty-meter",
+      "request": {
+        "meter_ids": [
+          ""
+        ],
+        "regions": [
+          "eastus",
+          "westeurope"
+        ],
+        "now": "2026-10-20T00:00:00Z"
+      },
+      "pages": [],
+      "want_status": "",
+      "want_code": "request_error",
+      "want_calls": 0,
+      "want_prices": {}
+    },
+    {
+      "name": "duplicate-region",
+      "request": {
+        "meter_ids": [
+          "m1"
+        ],
+        "regions": [
+          "eastus",
+          "eastus"
+        ],
+        "now": "2026-10-20T00:00:00Z"
+      },
+      "pages": [],
+      "want_status": "",
+      "want_code": "request_error",
+      "want_calls": 0,
+      "want_prices": {}
+    },
+    {
+      "name": "no-regions",
+      "request": {
+        "meter_ids": [
+          "m1"
+        ],
+        "regions": [],
+        "now": "2026-10-20T00:00:00Z"
+      },
+      "pages": [],
+      "want_status": "",
+      "want_code": "request_error",
+      "want_calls": 0,
+      "want_prices": {}
+    },
+    {
+      "name": "noncanonical-region",
+      "request": {
+        "meter_ids": [
+          "m1"
+        ],
+        "regions": [
+          "West Europe"
+        ],
+        "now": "2026-10-20T00:00:00Z"
+      },
+      "pages": [],
+      "want_status": "",
+      "want_code": "request_error",
+      "want_calls": 0,
+      "want_prices": {}
+    },
+    {
+      "name": "zero-clock",
+      "request": {
+        "meter_ids": [
+          "m1"
+        ],
+        "regions": [
+          "eastus",
+          "westeurope"
+        ],
+        "now": "0001-01-01T00:00:00Z"
+      },
+      "pages": [],
+      "want_status": "",
+      "want_code": "request_error",
+      "want_calls": 0,
+      "want_prices": {}
+    },
+    {
+      "name": "shared-tuple-original-identities",
+      "request": {
+        "meter_ids": [
+          "m1",
+          "m2"
+        ],
+        "regions": [
+          "eastus",
+          "westeurope"
+        ],
+        "now": "2026-10-20T00:00:00Z"
+      },
+      "pages": [
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"},{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m2\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"\"}"
+        },
+        {
+          "status": 200,
+          "body": "{\"BillingCurrency\":\"USD\",\"Items\":[{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":2,\"unitPrice\":2,\"armRegionName\":\"eastus\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"m1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"},{\"currencyCode\":\"USD\",\"tierMinimumUnits\":0,\"retailPrice\":3,\"unitPrice\":3,\"armRegionName\":\"westeurope\",\"effectiveStartDate\":\"2026-01-01T00:00:00Z\",\"meterId\":\"target1\",\"meterName\":\"Meter\",\"productId\":\"Product\",\"skuId\":\"Product/SKU\",\"productName\":\"Product label\",\"skuName\":\"SKU\",\"serviceName\":\"Service\",\"serviceId\":\"ServiceID\",\"serviceFamily\":\"Compute\",\"unitOfMeasure\":\"1 Hour\",\"type\":\"Consumption\",\"isPrimaryMeterRegion\":true,\"armSkuName\":\"Standard_Synthetic\"}],\"NextPageLink\":\"\"}"
+        }
+      ],
+      "want_status": "complete",
+      "want_code": "",
+      "want_calls": 2,
+      "want_prices": {
+        "m1": {
+          "eastus": 2,
+          "westeurope": 3
+        },
+        "m2": {
+          "eastus": 2,
+          "westeurope": 3
+        }
+      }
+    }
+  ]
+}
