@@ -2,6 +2,12 @@
 
 Updated 2026-10-19T19:57:53.132308+00:00. This is the current status/resume authority. Earlier dated progress, executor, pending and STOP paragraphs are historical snapshots. Technical contracts remain active unless explicitly revised. The live task PR owns exact-revision QA outcomes.
 
+## Current security crossroads, 2026-10-20T01:06:00Z
+
+Implementation PAUSED pending Denis's decision in [dedicated blocker](RETAIL_SECURITY_BLOCKER_20261020.md). Task6 PR177/b85655ac freezes52retail cases but is NOT verified/complete: both native scans39350527288 report GO-2026-6688 and GO-2026-6684 in unchanged Excelize2.11.0. Source39350527219 passes; no production/dependency change. Task7 PR178/9e15db3d is deliberately failing test-only preparation; both native missing APIs inspected. No retail implementation exists. Task8 read-only research only. Tasks1-5 retain historical offline completion;176/1ededa50 is last fully verified development checkpoint, not current vulnerability clearance.
+
+Recommended next action requires explicit narrow dependency-policy exception: evaluate fixed upstream22f76f9a pseudo-version and necessary transitive changes, preserve all existing QA/source pins, full fresh security/native/source/rollback before resuming. Latest listed stable remains affected2.11.0. Do not bypass/suppress scanner, silently patch/vendor, remove Excel or advance dependent tasks. Local full serial preflight passed; an earlier overlapping local result was excluded and documented. See [new transfer](CHAT_TRANSFER_20261020.md) and [restart prompt](RESTART_PROMPT.md). All earlier next-task/no-blocker statements below are historical; this current pause is intentional.
+
 ## Canonical state and acceptance
 
 Protected bootstrap/core-v1 remains a6fee427e19feeef28691737ea9bc5026086efa0. Pinned AZQR8e4f0577f3615e6c9014c031bcad079f235369cc/tree17d93b20c303f90f7843036be82f0dc32f3260f1 and APRL60eaddda76541f6adbc1c5ffa686829807e55e29 are unchanged. No protected merge, bypass or release is authorised.

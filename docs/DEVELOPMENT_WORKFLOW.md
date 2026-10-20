@@ -64,3 +64,8 @@ Freeze request-time PR/time/ref scope for fork concerns. Inspect heads/trees/par
 A successful fetch/write alone does not establish a complete log. Check chunk offsets/sizes, read saved bytes back, require complete runner footer/job/checkout identity, full control/capture inventories and hashes. Retain/reject partial copies and refetch before acceptance. Two48002byte prefixes were detected; cause unknown. Never weaken inventory assertions to accept a green job's incomplete local log.
 
 PR-filtered run helpers are insufficient for a time-window audit: enumerate all events/pagination, compare to per-head runs, include superseded/cancelled heads and push recipes/probes, and inspect preceding boundary records. Preserve unavailable logs only as explicit no-runner/no-step skipped/cancelled metadata; never call them passed. The2026-10-19 audit closed this gap in its all-event addendum.
+
+
+## 2026-10-20 security crossroads
+
+Current authority: [CURRENT_STATE](CURRENT_STATE.md). Autonomous batch paused at task6 own security QA; [blocker/options/decision](RETAIL_SECURITY_BLOCKER_20261020.md) controls the next action.177contract is frozen but unverified;178first consumer intentionally lacks production APIs; tasks7implementation/8contract not started. No dependency/pin refresh or gate bypass. Earlier next-task/no-blocker statuses are historical, not permission to proceed through this pause.
