@@ -14,7 +14,7 @@
   },
   "inputs": {
     "go.mod": "ae2060c07bebfad96c4ec88ece968dbe6ae0bcf31dc4cbdbde37434900f47f0d",
-    "go.sum": "e90b9eca26ae58b3ee3b11d8e180f8621eabd9a3c9810ae96058a2860cdcac1e",
+    "go.sum": "3eec87f5de0e81838cda0c3b96ffaba1ae3b459ca91780c3ec93f9be47cccd02",
     "internal/rules/embedded.go": "1715ec6e108b5d62490b4a0c91b904e1fc018ea39df82947fdc628a8ffa71f19",
     "internal/skus/skus.go": "9036aee8cd274afbf9034bed8f3b7ab1e19d52de5da481c370008a2493f259a3"
   },

@@ -4,7 +4,7 @@ Current authority: [CURRENT_STATE](CURRENT_STATE.md); [bounded approved contract
 
 ## Actual minimum delta
 
-Root go.mod changes only Excelize2.11.0 ->2.11.1-0.20260915055537-22f76f9acb94 and required indirectmscfb1.0.7 ->1.0.8. Go.sum adds five exact checksum lines, retaining original sums for reversible recovery. Complete selected graph additionally raises x/image0.38.0 ->0.44.0 as an upstream requirement. All other versions, Go1.26.9, workflow/action/tool pins, AzureSDK/source/APRL/capture/public-schema bytes are unchanged. There is no replace/exclude/vendor/suppression. Root and selected graph must not be conflated.
+Root go.mod changes only Excelize2.11.0 ->2.11.1-0.20260915055537-22f76f9acb94 and required indirectmscfb1.0.7 ->1.0.8. Final tidy go.sum adds six required checksum lines and removes six obsolete-version lines relative to177. Original dependency pairs remain recoverable from immutable177and retained rollback evidence; obsolete sums must not remain in the active file. Complete selected graph additionally raises x/image0.38.0 ->0.44.0 as an upstream requirement. All other versions, Go1.26.9, workflow/action/tool pins, AzureSDK/source/APRL/capture/public-schema bytes are unchanged. There is no replace/exclude/vendor/suppression. Root and selected graph must not be conflated.
 
 Unchanged generator recreated49module inventory and full notices. Only three module entries/version headings/input hashes change; license/notice hashes, two-platform CLI membership and bundled source evidence are unchanged. x/image is selected but not imported by either CLI. mscfb0.8 changes only mscfb.go: reject an oversized untrusted mini-FAT sector count before allocation. No legal approval or independent audit is inferred.
 
@@ -34,3 +34,8 @@ Additional actual-renderer cases preserve exact long/leading-zero numeric-lookin
 Local full uncached preflight/tests/vet/format/static/gate/handoff passed before the final additive compatibility case; focused renderer suite passed afterwards. Final preflight and hosted full gates still required. Read-only import graph listing needed buildvcs=false after incidental local VCS metadata lookup failure, as already used by the unchanged inventory generator; no build/CI flags or validation rules changed. Tests and actual builds retain their original checks.
 
 No Azure/tenant/permission request, original oracle/capture rewrite, protected merge, bypass or release. Complete candidate readback, own all-worker/both-gate/source results, control conservation, package/install proof and durable archive are pending at this authored checkpoint.
+
+
+## QA-EXCELIZE-02 checksum freshness correction
+
+Initial179/9e163066was published before running the exact workflow tidy check. Its complete Linux-native118686117581log in39439734077shows go.sum drift and exit1; preserve this failure. Go get alone left obsolete original-version sums and omitted one selected x/image go.mod sum. Local exact tidy check reproduced the same diff. Corrected successor retains every runtime version/test and changes only go.sum plus inventory input hash and accurate documentation. Original notices bytes unchanged. Require own full fresh QA at successor, never relabel179green or suppress tidy. Before future dependency publication run go mod tidy, verify go mod tidy -diff is empty and regenerate/check inventory. No broader refresh is required.

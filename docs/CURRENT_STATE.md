@@ -10,6 +10,10 @@ Local current scan reports0symbol-reachable,3imported-not-called and1module-only
 
 Tasks1-5 remain historically verified offline. Task6 frozen52cases await security-maintained successor certification. Preserve178first consumer/missing APIs; task7production not started, task8research only. After maintenance own full QA/evidence, reevaluate and publish between-task handover before resuming that batch. No Azure/fixtures/RBAC, unrelated refresh, subagents, protected merge/bypass/release. Previous security/pending/STOP paragraphs below are historical snapshots; active behavioral contracts and independent/live/release obligations persist.
 
+## Checksum correction and current own-QA requirement
+
+Initial maintenance179/9e163066failed its Linux module-graph freshness step because go get left stale checksums. Full failed log retained; no runtime-version or security-test regression. Corrected successor has tidy-clean go.sum, regenerated inventory input hash and the same selected graph/tests/notices. Preserve179head and follow its explicit live successor; exact own full native/source QA remains required. Final isolated checkout excelize-security-tidy-20261020; do not resume retail production until maintenance closure. QA-EXCELIZE-02records the omitted prepublication tidy check and prevention in current advisory review/failure notes. Original dependency pair remains retained for rollback without keeping obsolete active sums.
+
 ## Current security crossroads, 2026-10-20T01:06:00Z
 
 Implementation PAUSED pending Denis's decision in [dedicated blocker](RETAIL_SECURITY_BLOCKER_20261020.md). Task6 PR177/b85655ac freezes52retail cases but is NOT verified/complete: both native scans39350527288 report GO-2026-6688 and GO-2026-6684 in unchanged Excelize2.11.0. Source39350527219 passes; no production/dependency change. Task7 PR178/9e15db3d is deliberately failing test-only preparation; both native missing APIs inspected. No retail implementation exists. Task8 read-only research only. Tasks1-5 retain historical offline completion;176/1ededa50 is last fully verified development checkpoint, not current vulnerability clearance.

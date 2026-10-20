@@ -2443,3 +2443,8 @@ QA-RETAIL-01: local drift mutation and first broad preflight overlapped in one c
 ## Approved narrow security maintenance, 2026-10-20
 
 Denis authorised the bounded Excelize update; the earlier decision pause is historical within this exception. See [CURRENT_STATE](CURRENT_STATE.md), [remediation contract](EXCELIZE_SECURITY_REMEDIATION_20261020.md) and [advisory review](SECURITY_ADVISORY_REVIEW_20261020.md). Exact fixed commit plus necessary transitive updates only; own full native/source QA pending. No retail production/protected merge/release. Preserve original failed177and first consumer178.
+
+
+## QA-EXCELIZE-02, 2026-10-20
+
+Initial narrow maintenance179failed unchanged go mod tidy/git-diff gate: go get left stale go.sum lines. Original179head/full failed Linux log preserved. Corrected successor removes only obsolete sums/adds required x/image module checksum and regenerates inventory input hash; versions, tests, source pins and notice bytes unchanged. Verify exact atomic pair rollback/restoration and full own native/source QA. Prevention: dependency publication additionally requires go mod tidy followed by an empty go mod tidy -diff and regenerated/check inventory; ordinary dev-preflight does not cover this dependency-specific gate. No suppression/bypass/retry without cause.
