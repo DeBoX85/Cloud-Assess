@@ -1,3 +1,9 @@
+# Current advisory authority, 2026-10-20
+
+Read [CURRENT_STATE](CURRENT_STATE.md), [current advisory review](SECURITY_ADVISORY_REVIEW_20261020.md) and the live maintenance successor linked from PR177. The narrow Excelize update is approved; own final QA remains pending. Older advisory/acceptance states below are historical snapshots, not current clearance. Behavioral requirements remain active.
+
+---
+
 # Current advisory evidence route, 2026-10-11
 
 For the current Go1.26.9/x-net0.60.0/x-crypto0.57.0 graph, read

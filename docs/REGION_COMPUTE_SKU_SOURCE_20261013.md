@@ -1,3 +1,41 @@
+# Current status and authority
+
+Read [CURRENT_STATE](CURRENT_STATE.md) for current status, authorization and the next action, and [development workflow](DEVELOPMENT_WORKFLOW.md) for procedure. Dated progress and resume sections below are historical snapshots; behavioral requirements remain in force unless explicitly revised. The live task PR records exact-revision QA outcomes separately from protected acceptance.
+
+---
+
+# Current continuation authority: bounded VM collector candidate, 2026-10-16
+
+The user authorized implementation after completed PR146/37954dd. The internal VM catalog collector is locally implemented: all67unchanged frozen scenarios, primary integrity, supplemental limits/HTTP/context/ownership/projection/scoring tests and32compiling reversals/restored baselines passed. The complete region package and repository-wide vet passed. Read [the active collector record](REGION_VM_SKU_COLLECTOR_20261016.md), frozen contract and live draft [PR147](https://github.com/DeBoX85/Cloud-Assess/pull/147) for actual final head/tree/parent/preview and its own full QA. Full Linux/Windows/source gates are pending at publication; test-preparation failures and predecessor green do not certify this candidate.
+
+Continue this candidate's full exact-head QA, verify all353priorLinux+32VM=385 and348priorWindows+32VM=380control identities, full logs/packages/scans and complete pinned-source capture proof; finalize the PR evidence index, then STOP at the completed bounded VM collector checkpoint. No VMSS eligibility, required-kind coordinator or public execution in this slice. The next distinct contract after checkpoint evaluation is VMSS eligibility reconciliation from primary evidence; keep scoring unsupported while that contract is unresolved.
+
+PR141-147 remain draft/open/unmerged. Protected bootstrap/core-v1 stays a6fee427; accepted target adapters remain1/7, source characterization7/7. Frozen67-case manifest, first runner, four primary files and pre-edit contract remain unchanged; only the supplemental token-limit request builder was corrected as QA-VM-01. Preserve prior audit fixes/controls/source23captures/modules/pins/public schemas and all open roadmap/live/security/license/release obligations. No Azure operations, resource fixtures/RBAC, refresh, sub-agents, protected merge or release. Earlier missing-API/pending/branch/stop paragraphs below are history.
+
+---
+
+# Current continuation authority: bounded VM collector implementation, 2026-10-16
+
+The user authorized continuation after completed draft PR146/37954dd. Its own full Linux/Windows/source gates passed and the final evidence index remains in [PR146](https://github.com/DeBoX85/Cloud-Assess/pull/146). Continue the bounded VM catalog collector under the frozen [contract](REGION_VM_VMSS_SKU_CONTRACT_20261016.md); VMSS scoring remains unsupported. Read [the active collector record](REGION_VM_SKU_COLLECTOR_20261016.md) and the live draft implementation PR for actual current head and QA.
+
+This publication is test preparation: a runner consumes all67unchanged frozen scenarios and the four immutable primary files; the collector API is absent. Inspect the expected missing-API compilation on both mandatory native hosts before production edits. That failure is preparation, not product regression reproduction or acceptance. Then complete the already-authorized collector, independent boundaries/HTTP/context/ownership/projection tests and compiling reversals with restored baselines; require fresh complete corrected-head native/source evidence before STOP at the collector checkpoint.
+
+Keep prior PR141-146 draft/open/unmerged and protected bootstrap/core-v1 a6fee427 unchanged. Accepted target adapters remain1/7; source characterization7/7. Preserve the frozen67-case manifest/primary bytes, source23captures/pins/modules/public schemas, all353Linux/348Windows prior controls and audit corrections. No Azure operations, fixtures/RBAC, refresh, sub-agents, protected merge or release. Coordinator/public integration and VMSS eligibility remain outside this slice. Earlier pre-edit stop/branch/pending wording below is historical.
+
+---
+
+# Current continuation authority: VM/VMSS pre-edit contract, 2026-10-16
+
+The user requested all relevant handover/status updates and continuation to the next natural stopping point. [Storage collector completion](STORAGE_COLLECTOR_COMPLETION_20261016.md) and the [full PR145 evidence snapshot](STORAGE_COLLECTOR_PR145_EVIDENCE_20261016.md) now record its completed exact-head Linux/Windows/source proof. Do not rerun the completed Storage slice or treat the historical pending wording below as current.
+
+Active branch: docs/vm-vmss-contract-20261016, based on verified PR145 a14128bc94bf531dd1c28553db14d2be011b2214. Read [the VM/VMSS pre-edit contract](REGION_VM_VMSS_SKU_CONTRACT_20261016.md). This slice freezes primary Compute schema/examples and literal future expectations; it adds no VM collector, production change, new executable control or public integration. VM size catalog and VMSS deployment eligibility are explicitly separate; VMSS evidence remains unsupported in the first proposed collector. Future manifest scenarios have NOT executed against the absent API.
+
+This successor requires its OWN complete Linux/Windows/source gates. At publication these are pending; its live draft PR is the final exact-head commit/tree/parent/preview/log evidence index. Finish those gates, update that index, then STOP at the contract/expectation checkpoint before writing VM production code. A later implementation must first publish compiling tests consuming the frozen oracle and inspect the expected missing-API preparation; compilation failure is never a product pass.
+
+PR141-145 remain draft/open/unmerged at their recorded heads; protected bootstrap/core-v1 remains a6fee427e19feeef28691737ea9bc5026086efa0. Accepted target adapters remain 1/7; Storage is an unaccepted candidate, and this contract adds no accepted adapter. Source characterization remains 7/7. Preserve all audit corrections, 353 Linux / 348 Windows controls, original 23 source captures, pins/dependencies/public schemas and open roadmap/live/security/license/release obligations. No Azure operations, fixtures/RBAC, refresh, sub-agents, protected merge or release authorization. Earlier dated next actions and stop instructions below are historical unless their behavioral contracts remain applicable.
+
+---
+
 # Compute SKU source final candidate, 2026-10-13
 
 Accepted protected development remains PR137 af18468fe1dfc697838115c0a7585ba675fdec97.
