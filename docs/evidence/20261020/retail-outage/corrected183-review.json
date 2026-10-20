@@ -1,0 +1,61 @@
+{
+  "candidate": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+  "tree": "c07469bae30de3b111e1fcef89cb557bdadebe33",
+  "preview": "dd0b28416a493fba17fd7de9809cebb23d1c4725",
+  "quality_run": 39450901879,
+  "source_run": 39450901886,
+  "all_jobs_steps_logs_reviewed": true,
+  "controls": {
+    "linux": {
+      "count": 622,
+      "prior": 580,
+      "added": 42,
+      "missing": 0,
+      "unexpected_extra": 0,
+      "duplicates": 0,
+      "sha256_full_lines_lf": "502445901501da199dfd0c92dfa28bbdc50bd7c6a1499f7d1ad223ef608042f2",
+      "digest_basis": "Exact full-line equality with locally SHA256-verified182 inventory"
+    },
+    "windows": {
+      "count": 617,
+      "prior": 575,
+      "added": 42,
+      "missing": 0,
+      "unexpected_extra": 0,
+      "duplicates": 0,
+      "sha256_full_lines_lf": "52320baa793d2d730801e26b992e3912e3400af7e54527012ed5b1a200a937ab",
+      "digest_basis": "Exact full-line equality with locally SHA256-verified182 inventory"
+    }
+  },
+  "coverage_percent": 87.6,
+  "unchanged_floor": 75,
+  "native_security": {
+    "reachable": 0,
+    "imported_not_called": 3,
+    "module_only": 1,
+    "residuals": "OPEN"
+  },
+  "source": {
+    "captures": 23,
+    "chunks": 315,
+    "bytes": 909865,
+    "source_log_bytes": 1362090,
+    "source_log_sha256": "2ab62c2a75072cea18e9d9417c61a0368598d660e7b0ca8b1ac0b724c53b2094",
+    "basis": "Full unchanged local Python reconstruction against exact Git completed before environment loss"
+  },
+  "timing": {
+    "created_at": "2026-10-20T15:42:29Z",
+    "run_started_at": "2026-10-20T15:42:29Z",
+    "run_completed_at": "2026-10-20T16:05:57Z",
+    "first_job_started_at": "2026-10-20T15:42:32Z",
+    "last_job_completed_at": "2026-10-20T16:05:56Z"
+  },
+  "local_proof": {
+    "controls": 42,
+    "full_preflight": "pass",
+    "coherent_rollback_files": 25,
+    "exact_restoration": "pass",
+    "raw_local_retention": "PENDING: environment_offline prevents retrieval"
+  },
+  "scope": "Hosted exact-head QA passed; task7 closure/evidence and task8 remain incomplete; not accepted/independent/live/release"
+}

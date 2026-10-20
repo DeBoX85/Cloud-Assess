@@ -1,0 +1,615 @@
+﻿2026-10-20T15:42:33.9533563Z Current runner version: '2.337.0'
+2026-10-20T15:42:33.9569029Z ##[group]Runner Image Provisioner
+2026-10-20T15:42:33.9571197Z Hosted Compute Agent
+2026-10-20T15:42:33.9572149Z Version: 20261012.601
+2026-10-20T15:42:33.9573149Z Commit: f3dc54e1fb89da6852db922499a0233137369e1d
+2026-10-20T15:42:33.9574371Z Build Date: 2026-10-12T17:48:21Z
+2026-10-20T15:42:33.9575424Z Worker ID: {5ed001a8-05c5-4722-a087-6b103c55be3c}
+2026-10-20T15:42:33.9576615Z Region: southcentralus
+2026-10-20T15:42:33.9577559Z Cloud: Azure
+2026-10-20T15:42:33.9578381Z ##[endgroup]
+2026-10-20T15:42:33.9580552Z ##[group]Operating System
+2026-10-20T15:42:33.9581582Z Microsoft Windows Server 2022
+2026-10-20T15:42:33.9582560Z 10.0.20348
+2026-10-20T15:42:33.9583409Z Datacenter
+2026-10-20T15:42:33.9584223Z ##[endgroup]
+2026-10-20T15:42:33.9585144Z ##[group]Runner Image
+2026-10-20T15:42:33.9586100Z Image: windows-2022
+2026-10-20T15:42:33.9586964Z Version: 20261012.333.1
+2026-10-20T15:42:33.9589568Z Included Software: https://github.com/actions/runner-images/blob/win22/20261012.333/images/windows/Windows2022-Readme.md
+2026-10-20T15:42:33.9592350Z Image Release: https://github.com/actions/runner-images/releases/tag/win22%2F20261012.333
+2026-10-20T15:42:33.9594071Z ##[endgroup]
+2026-10-20T15:42:33.9595972Z ##[group]GITHUB_TOKEN Permissions
+2026-10-20T15:42:33.9599374Z Contents: read
+2026-10-20T15:42:33.9600323Z Metadata: read
+2026-10-20T15:42:33.9601219Z ##[endgroup]
+2026-10-20T15:42:33.9604203Z Secret source: Actions
+2026-10-20T15:42:33.9605613Z Cache mode: write
+2026-10-20T15:42:33.9606685Z Prepare workflow directory
+2026-10-20T15:42:33.9975255Z Prepare all required actions
+2026-10-20T15:42:34.0021480Z Getting action download info
+2026-10-20T15:42:34.2823999Z Download action repository 'actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1' (SHA:3d3c42e5aac5ba805825da76410c181273ba90b1)
+2026-10-20T15:42:34.4002694Z Download action repository 'actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16' (SHA:924ae3a1cded613372ab5595356fb5720e22ba16)
+2026-10-20T15:42:35.0108493Z Complete job name: windows-controls-2
+2026-10-20T15:42:35.1703675Z ##[group]Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+2026-10-20T15:42:35.1704992Z with:
+2026-10-20T15:42:35.1705457Z   submodules: recursive
+2026-10-20T15:42:35.1706446Z   repository: DeBoX85/Cloud-Assess
+2026-10-20T15:42:35.1710543Z   token: ***
+2026-10-20T15:42:35.1711022Z   ssh-strict: true
+2026-10-20T15:42:35.1711482Z   ssh-user: git
+2026-10-20T15:42:35.1711948Z   persist-credentials: true
+2026-10-20T15:42:35.1712497Z   clean: true
+2026-10-20T15:42:35.1712977Z   sparse-checkout-cone-mode: true
+2026-10-20T15:42:35.1713525Z   fetch-depth: 1
+2026-10-20T15:42:35.1714056Z   fetch-tags: false
+2026-10-20T15:42:35.1714545Z   show-progress: true
+2026-10-20T15:42:35.1715030Z   lfs: false
+2026-10-20T15:42:35.1715494Z   set-safe-directory: true
+2026-10-20T15:42:35.1716011Z   allow-unsafe-pr-checkout: false
+2026-10-20T15:42:35.1716956Z ##[endgroup]
+2026-10-20T15:42:35.3151814Z Syncing repository: DeBoX85/Cloud-Assess
+2026-10-20T15:42:35.3153788Z ##[group]Getting Git version info
+2026-10-20T15:42:35.3154601Z Working directory is 'D:\a\Cloud-Assess\Cloud-Assess'
+2026-10-20T15:42:35.4277254Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-10-20T15:42:35.7253676Z git version 2.56.0.windows.2
+2026-10-20T15:42:35.7290238Z ##[endgroup]
+2026-10-20T15:42:35.7304556Z Temporarily overriding HOME='D:\a\_temp\a908dad3-5a65-45eb-b2dc-72e15399238d' before making global git config changes
+2026-10-20T15:42:35.7306634Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-20T15:42:35.7314983Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\Cloud-Assess\Cloud-Assess
+2026-10-20T15:42:35.7871972Z Deleting the contents of 'D:\a\Cloud-Assess\Cloud-Assess'
+2026-10-20T15:42:35.7875569Z ##[group]Determining repository object format
+2026-10-20T15:42:35.7878734Z ##[endgroup]
+2026-10-20T15:42:35.7883482Z ##[group]Initializing the repository
+2026-10-20T15:42:35.7889294Z [command]"C:\Program Files\Git\bin\git.exe" init D:\a\Cloud-Assess\Cloud-Assess
+2026-10-20T15:42:35.8742840Z Initialized empty Git repository in D:/a/Cloud-Assess/Cloud-Assess/.git/
+2026-10-20T15:42:35.8779745Z [command]"C:\Program Files\Git\bin\git.exe" remote add origin https://github.com/DeBoX85/Cloud-Assess
+2026-10-20T15:42:35.9322764Z ##[endgroup]
+2026-10-20T15:42:35.9324803Z ##[group]Disabling automatic garbage collection
+2026-10-20T15:42:35.9330889Z [command]"C:\Program Files\Git\bin\git.exe" config --local gc.auto 0
+2026-10-20T15:42:35.9613928Z ##[endgroup]
+2026-10-20T15:42:35.9615928Z ##[group]Setting up auth
+2026-10-20T15:42:35.9617409Z Removing SSH command configuration
+2026-10-20T15:42:35.9623440Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-10-20T15:42:35.9972465Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-10-20T15:42:37.2483479Z Removing HTTP extra header
+2026-10-20T15:42:37.2492544Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-20T15:42:37.2773354Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-10-20T15:42:37.7150743Z Removing includeIf entries pointing to credentials config files
+2026-10-20T15:42:37.7165453Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-20T15:42:37.7454369Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-10-20T15:42:38.1833491Z [command]"C:\Program Files\Git\bin\git.exe" config --file D:\a\_temp\git-credentials-6382feff-c680-475a-9aa1-a61780acc1f7.config http.https://github.com/.extraheader "AUTHORIZATION: basic ***"
+2026-10-20T15:42:38.2136918Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:D:/a/Cloud-Assess/Cloud-Assess/.git.path D:\a\_temp\git-credentials-6382feff-c680-475a-9aa1-a61780acc1f7.config
+2026-10-20T15:42:38.2427295Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:D:/a/Cloud-Assess/Cloud-Assess/.git/worktrees/*.path D:\a\_temp\git-credentials-6382feff-c680-475a-9aa1-a61780acc1f7.config
+2026-10-20T15:42:38.2753259Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-6382feff-c680-475a-9aa1-a61780acc1f7.config
+2026-10-20T15:42:38.3036674Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-6382feff-c680-475a-9aa1-a61780acc1f7.config
+2026-10-20T15:42:38.3314985Z ##[endgroup]
+2026-10-20T15:42:38.3315590Z ##[group]Fetching the repository
+2026-10-20T15:42:38.3389796Z [command]"C:\Program Files\Git\bin\git.exe" -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +dd0b28416a493fba17fd7de9809cebb23d1c4725:refs/remotes/pull/183/merge
+2026-10-20T15:42:40.8918963Z From https://github.com/DeBoX85/Cloud-Assess
+2026-10-20T15:42:40.8919574Z  * [new ref]         dd0b28416a493fba17fd7de9809cebb23d1c4725 -> pull/183/merge
+2026-10-20T15:42:40.8949224Z ##[endgroup]
+2026-10-20T15:42:40.8949919Z ##[group]Determining the checkout info
+2026-10-20T15:42:40.8951400Z ##[endgroup]
+2026-10-20T15:42:40.8960113Z [command]"C:\Program Files\Git\bin\git.exe" sparse-checkout disable
+2026-10-20T15:42:40.9367585Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all extensions.worktreeConfig
+2026-10-20T15:42:40.9640179Z ##[group]Checking out the ref
+2026-10-20T15:42:40.9647497Z [command]"C:\Program Files\Git\bin\git.exe" checkout --progress --force refs/remotes/pull/183/merge
+2026-10-20T15:42:41.2435519Z Note: switching to 'refs/remotes/pull/183/merge'.
+2026-10-20T15:42:41.2436292Z 
+2026-10-20T15:42:41.2436667Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-10-20T15:42:41.2437501Z changes and commit them, and you can discard any commits you make in this
+2026-10-20T15:42:41.2438670Z state without impacting any branches by switching back to a branch.
+2026-10-20T15:42:41.2439565Z 
+2026-10-20T15:42:41.2439917Z If you want to create a new branch to retain commits you create, you may
+2026-10-20T15:42:41.2440768Z do so (now or later) by using -c with the switch command. Example:
+2026-10-20T15:42:41.2441314Z 
+2026-10-20T15:42:41.2441551Z   git switch -c <new-branch-name>
+2026-10-20T15:42:41.2441869Z 
+2026-10-20T15:42:41.2442040Z Or undo this operation with:
+2026-10-20T15:42:41.2442322Z 
+2026-10-20T15:42:41.2442558Z   git switch -
+2026-10-20T15:42:41.2442746Z 
+2026-10-20T15:42:41.2443628Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-10-20T15:42:41.2444298Z 
+2026-10-20T15:42:41.2445002Z HEAD is now at dd0b284 Merge 458d5c5296c321c8e5e961f18eb5422d43c2eb18 into a6fee427e19feeef28691737ea9bc5026086efa0
+2026-10-20T15:42:41.2513393Z ##[endgroup]
+2026-10-20T15:42:41.2514053Z ##[group]Setting up auth for fetching submodules
+2026-10-20T15:42:41.2523797Z [command]"C:\Program Files\Git\bin\git.exe" config --file D:\a\_temp\git-credentials-6382feff-c680-475a-9aa1-a61780acc1f7.config http.https://github.com/.extraheader "AUTHORIZATION: basic ***"
+2026-10-20T15:42:41.2876817Z [command]"C:\Program Files\Git\bin\git.exe" config --global include.path D:\a\_temp\git-credentials-6382feff-c680-475a-9aa1-a61780acc1f7.config
+2026-10-20T15:42:41.3175950Z [command]"C:\Program Files\Git\bin\git.exe" config --global --unset-all url.https://github.com/.insteadOf
+2026-10-20T15:42:41.3464693Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add url.https://github.com/.insteadOf git@github.com:
+2026-10-20T15:42:41.3740342Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add url.https://github.com/.insteadOf org-134433647@github.com:
+2026-10-20T15:42:41.4015953Z ##[endgroup]
+2026-10-20T15:42:41.4016558Z ##[group]Fetching submodules
+2026-10-20T15:42:41.4025594Z [command]"C:\Program Files\Git\bin\git.exe" submodule sync --recursive
+2026-10-20T15:42:41.8645139Z [command]"C:\Program Files\Git\bin\git.exe" -c protocol.version=2 submodule update --init --force --depth=1 --recursive
+2026-10-20T15:42:42.3258776Z Submodule 'internal/rules/upstream/aprl' (https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2.git) registered for path 'internal/rules/upstream/aprl'
+2026-10-20T15:42:42.3511052Z Cloning into 'D:/a/Cloud-Assess/Cloud-Assess/internal/rules/upstream/aprl'...
+2026-10-20T15:42:44.5559264Z From https://github.com/Azure/Azure-Proactive-Resiliency-Library-v2
+2026-10-20T15:42:44.5560278Z  * branch            60eaddda76541f6adbc1c5ffa686829807e55e29 -> FETCH_HEAD
+2026-10-20T15:42:44.9081728Z Submodule path 'internal/rules/upstream/aprl': checked out '60eaddda76541f6adbc1c5ffa686829807e55e29'
+2026-10-20T15:42:44.9285716Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local gc.auto 0"
+2026-10-20T15:42:45.3885797Z Entering 'internal/rules/upstream/aprl'
+2026-10-20T15:42:45.4449949Z ##[endgroup]
+2026-10-20T15:42:45.4450369Z ##[group]Persisting credentials for submodules
+2026-10-20T15:42:45.4459785Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'url\.https\:\/\/github\.com\/\.insteadOf' && git config --local --unset-all 'url.https://github.com/.insteadOf' || :\""
+2026-10-20T15:42:45.9044180Z Entering 'internal/rules/upstream/aprl'
+2026-10-20T15:42:46.0139701Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-10-20T15:42:46.4981014Z Entering 'internal/rules/upstream/aprl'
+2026-10-20T15:42:46.5254445Z file:D:/a/Cloud-Assess/Cloud-Assess/.git/modules/internal/rules/upstream/aprl/config	remote.origin.url
+2026-10-20T15:42:46.5459705Z [command]"C:\Program Files\Git\bin\git.exe" config --file D:/a/Cloud-Assess/Cloud-Assess/.git/modules/internal/rules/upstream/aprl/config includeIf.gitdir:D:/a/Cloud-Assess/Cloud-Assess/.git/modules/internal/rules/upstream/aprl.path D:\a\_temp\git-credentials-6382feff-c680-475a-9aa1-a61780acc1f7.config
+2026-10-20T15:42:46.5756251Z [command]"C:\Program Files\Git\bin\git.exe" config --file D:/a/Cloud-Assess/Cloud-Assess/.git/modules/internal/rules/upstream/aprl/config includeIf.gitdir:/github/workspace/.git/modules/internal/rules/upstream/aprl.path /github/runner_temp/git-credentials-6382feff-c680-475a-9aa1-a61780acc1f7.config
+2026-10-20T15:42:46.6056447Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --add 'url.https://github.com/.insteadOf' 'git@github.com:'"
+2026-10-20T15:42:47.0620261Z Entering 'internal/rules/upstream/aprl'
+2026-10-20T15:42:47.1121262Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --add 'url.https://github.com/.insteadOf' 'org-134433647@github.com:'"
+2026-10-20T15:42:47.5939845Z Entering 'internal/rules/upstream/aprl'
+2026-10-20T15:42:47.6425443Z ##[endgroup]
+2026-10-20T15:42:47.6809802Z [command]"C:\Program Files\Git\bin\git.exe" log -1 --format=%H
+2026-10-20T15:42:47.7075002Z dd0b28416a493fba17fd7de9809cebb23d1c4725
+2026-10-20T15:42:47.7461531Z ##[group]Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16
+2026-10-20T15:42:47.7462057Z with:
+2026-10-20T15:42:47.7462280Z   go-version: 1.26.9
+2026-10-20T15:42:47.7462520Z   cache: true
+2026-10-20T15:42:47.7462747Z   check-latest: false
+2026-10-20T15:42:47.7465792Z   token: ***
+2026-10-20T15:42:47.7466012Z ##[endgroup]
+2026-10-20T15:42:47.8972758Z Setup go version spec 1.26.9
+2026-10-20T15:42:47.9075351Z Found in cache @ C:\hostedtoolcache\windows\go\1.26.9\x64
+2026-10-20T15:42:47.9080328Z Added go to the path
+2026-10-20T15:42:47.9085219Z Successfully set up Go version 1.26.9
+2026-10-20T15:42:49.2029469Z [command]C:\hostedtoolcache\windows\go\1.26.9\x64\bin\go.exe env GOMODCACHE
+2026-10-20T15:42:49.2070018Z [command]C:\hostedtoolcache\windows\go\1.26.9\x64\bin\go.exe env GOCACHE
+2026-10-20T15:42:49.2351741Z C:\Users\runneradmin\go\pkg\mod
+2026-10-20T15:42:49.2378197Z C:\Users\runneradmin\AppData\Local\go-build
+2026-10-20T15:42:49.5433503Z Cache is not found
+2026-10-20T15:42:49.5460678Z go version go1.26.9 windows/amd64
+2026-10-20T15:42:49.5460991Z 
+2026-10-20T15:42:49.5461369Z ##[group]go env
+2026-10-20T15:42:51.9050245Z set AR=ar
+2026-10-20T15:42:51.9050603Z set CC=gcc
+2026-10-20T15:42:51.9050940Z set CGO_CFLAGS=-O2 -g
+2026-10-20T15:42:51.9051296Z set CGO_CPPFLAGS=
+2026-10-20T15:42:51.9051609Z set CGO_CXXFLAGS=-O2 -g
+2026-10-20T15:42:51.9051942Z set CGO_ENABLED=1
+2026-10-20T15:42:51.9052229Z set CGO_FFLAGS=-O2 -g
+2026-10-20T15:42:51.9052547Z set CGO_LDFLAGS=-O2 -g
+2026-10-20T15:42:51.9052846Z set CXX=g++
+2026-10-20T15:42:51.9053103Z set GCCGO=gccgo
+2026-10-20T15:42:51.9053384Z set GO111MODULE=
+2026-10-20T15:42:51.9053648Z set GOAMD64=v1
+2026-10-20T15:42:51.9053958Z set GOARCH=amd64
+2026-10-20T15:42:51.9054146Z set GOAUTH=netrc
+2026-10-20T15:42:51.9054322Z set GOBIN=
+2026-10-20T15:42:51.9054558Z set GOCACHE=C:\Users\runneradmin\AppData\Local\go-build
+2026-10-20T15:42:51.9054861Z set GOCACHEPROG=
+2026-10-20T15:42:51.9055061Z set GODEBUG=
+2026-10-20T15:42:51.9055295Z set GOENV=C:\Users\runneradmin\AppData\Roaming\go\env
+2026-10-20T15:42:51.9055579Z set GOEXE=.exe
+2026-10-20T15:42:51.9055760Z set GOEXPERIMENT=
+2026-10-20T15:42:51.9055947Z set GOFIPS140=off
+2026-10-20T15:42:51.9056113Z set GOFLAGS=
+2026-10-20T15:42:51.9056864Z set GOGCCFLAGS=-m64 -mthreads -Wl,--no-gc-sections -fmessage-length=0 -ffile-prefix-map=C:\Users\RUNNER~1\AppData\Local\Temp\go-build555527034=/tmp/go-build -gno-record-gcc-switches
+2026-10-20T15:42:51.9057853Z set GOHOSTARCH=amd64
+2026-10-20T15:42:51.9058056Z set GOHOSTOS=windows
+2026-10-20T15:42:51.9058235Z set GOINSECURE=
+2026-10-20T15:42:51.9058454Z set GOMOD=D:\a\Cloud-Assess\Cloud-Assess\go.mod
+2026-10-20T15:42:51.9058758Z set GOMODCACHE=C:\Users\runneradmin\go\pkg\mod
+2026-10-20T15:42:51.9059015Z set GONOPROXY=
+2026-10-20T15:42:51.9059181Z set GONOSUMDB=
+2026-10-20T15:42:51.9059356Z set GOOS=windows
+2026-10-20T15:42:51.9059550Z set GOPATH=C:\Users\runneradmin\go
+2026-10-20T15:42:51.9059801Z set GOPRIVATE=
+2026-10-20T15:42:51.9060089Z set GOPROXY=https://proxy.golang.org,direct
+2026-10-20T15:42:51.9060436Z set GOROOT=C:\hostedtoolcache\windows\go\1.26.9\x64
+2026-10-20T15:42:51.9060735Z set GOSUMDB=sum.golang.org
+2026-10-20T15:42:51.9060952Z set GOTELEMETRY=local
+2026-10-20T15:42:51.9061262Z set GOTELEMETRYDIR=C:\Users\runneradmin\AppData\Roaming\go\telemetry
+2026-10-20T15:42:51.9061615Z set GOTMPDIR=
+2026-10-20T15:42:51.9061788Z set GOTOOLCHAIN=local
+2026-10-20T15:42:51.9062116Z set GOTOOLDIR=C:\hostedtoolcache\windows\go\1.26.9\x64\pkg\tool\windows_amd64
+2026-10-20T15:42:51.9062479Z set GOVCS=
+2026-10-20T15:42:51.9062645Z set GOVERSION=go1.26.9
+2026-10-20T15:42:51.9062829Z set GOWORK=
+2026-10-20T15:42:51.9063008Z set PKG_CONFIG=pkg-config
+2026-10-20T15:42:51.9063148Z 
+2026-10-20T15:42:51.9063454Z ##[endgroup]
+2026-10-20T15:42:51.9311013Z ##[group]Run python scripts/tests/ci-workflow.py
+2026-10-20T15:42:51.9311494Z [36;1mpython scripts/tests/ci-workflow.py[0m
+2026-10-20T15:42:51.9423951Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-20T15:42:51.9424306Z env:
+2026-10-20T15:42:51.9424477Z   GOTOOLCHAIN: local
+2026-10-20T15:42:51.9424672Z ##[endgroup]
+2026-10-20T15:42:55.9177618Z ..........
+2026-10-20T15:42:55.9178364Z ----------------------------------------------------------------------
+2026-10-20T15:42:55.9179034Z Ran 10 tests in 0.662s
+2026-10-20T15:42:55.9179327Z 
+2026-10-20T15:42:55.9179808Z OK
+2026-10-20T15:42:56.1189633Z ##[group]Run python scripts/tests/section3-regressions.py
+2026-10-20T15:42:56.1190506Z [36;1mpython scripts/tests/section3-regressions.py[0m
+2026-10-20T15:42:56.1233493Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-20T15:42:56.1233860Z env:
+2026-10-20T15:42:56.1234043Z   GOTOOLCHAIN: local
+2026-10-20T15:42:56.1234242Z ##[endgroup]
+2026-10-20T15:43:41.1356954Z Section 3 compiling mutation rejected: sarif-published-descriptor; restored baseline passed
+2026-10-20T15:43:41.1358486Z Section 3 compiling mutation rejected: zone-unicode-fold; restored baseline passed
+2026-10-20T15:43:41.2360262Z ##[group]Run python scripts/tests/storage-sku-collector-mutation.py
+2026-10-20T15:43:41.2360881Z [36;1mpython scripts/tests/storage-sku-collector-mutation.py[0m
+2026-10-20T15:43:41.2400653Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-20T15:43:41.2422236Z env:
+2026-10-20T15:43:41.2422431Z   GOTOOLCHAIN: local
+2026-10-20T15:43:41.2422644Z ##[endgroup]
+2026-10-20T15:43:59.9456498Z Storage SKU compiling mutation rejected: request-version; restored named baseline passed
+2026-10-20T15:44:06.1587738Z Storage SKU compiling mutation rejected: getter-bound; restored named baseline passed
+2026-10-20T15:44:12.3133004Z Storage SKU compiling mutation rejected: pre-auth-scope; restored named baseline passed
+2026-10-20T15:44:18.4683265Z Storage SKU compiling mutation rejected: no-paging; restored named baseline passed
+2026-10-20T15:44:24.6727887Z Storage SKU compiling mutation rejected: json-admission; restored named baseline passed
+2026-10-20T15:44:30.8661124Z Storage SKU compiling mutation rejected: display-alias; restored named baseline passed
+2026-10-20T15:44:37.2048351Z Storage SKU compiling mutation rejected: stage-physical; restored named baseline passed
+2026-10-20T15:44:43.4270670Z Storage SKU compiling mutation rejected: regional-union; restored named baseline passed
+2026-10-20T15:44:49.7742293Z Storage SKU compiling mutation rejected: kind-grouping; restored named baseline passed
+2026-10-20T15:44:56.0559112Z Storage SKU compiling mutation rejected: missing-locations; restored named baseline passed
+2026-10-20T15:45:02.3926082Z Storage SKU compiling mutation rejected: restriction-scope; restored named baseline passed
+2026-10-20T15:45:08.6258514Z Storage SKU compiling mutation rejected: restriction-union; restored named baseline passed
+2026-10-20T15:45:14.9393823Z Storage SKU compiling mutation rejected: unknown-group-gating; restored named baseline passed
+2026-10-20T15:45:21.2821695Z Storage SKU compiling mutation rejected: unqualified-gating; restored named baseline passed
+2026-10-20T15:45:27.3834833Z Storage SKU compiling mutation rejected: required-kind; restored named baseline passed
+2026-10-20T15:45:33.6736446Z Storage SKU compiling mutation rejected: atomic-admission; restored named baseline passed
+2026-10-20T15:45:39.8600627Z Storage SKU compiling mutation rejected: status-error-pair; restored named baseline passed
+2026-10-20T15:45:45.9540853Z Storage SKU compiling mutation rejected: context-priority; restored named baseline passed
+2026-10-20T15:45:52.2979426Z Storage SKU compiling mutation rejected: body-bytes; restored named baseline passed
+2026-10-20T15:45:58.7369758Z Storage SKU compiling mutation rejected: row-limit; restored named baseline passed
+2026-10-20T15:46:05.1644147Z Storage SKU compiling mutation rejected: raw-work; restored named baseline passed
+2026-10-20T15:46:09.6420269Z Storage SKU compiling mutation rejected: projection-work; restored named baseline passed
+2026-10-20T15:46:17.5306380Z Storage SKU compiling mutation rejected: projection-text; restored named baseline passed
+2026-10-20T15:46:23.7825423Z Storage SKU compiling mutation rejected: capability-conflict; restored named baseline passed
+2026-10-20T15:46:29.9570933Z Storage SKU compiling mutation rejected: late-unknown-context; restored named baseline passed
+2026-10-20T15:46:32.4195792Z ##[group]Run python scripts/tests/region-source-capture.py
+2026-10-20T15:46:32.4196367Z [36;1mpython scripts/tests/region-source-capture.py[0m
+2026-10-20T15:46:32.4238140Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-20T15:46:32.4238557Z env:
+2026-10-20T15:46:32.4238796Z   GOTOOLCHAIN: local
+2026-10-20T15:46:32.4239048Z ##[endgroup]
+2026-10-20T15:46:32.7378760Z test_all_files_unconditionally_guarded (__main__.CaptureBytesTests.test_all_files_unconditionally_guarded) ... ok
+2026-10-20T15:46:32.7389904Z test_changed_bytes (__main__.CaptureBytesTests.test_changed_bytes) ... ok
+2026-10-20T15:46:32.7401602Z test_equal_json_different_bytes (__main__.CaptureBytesTests.test_equal_json_different_bytes) ... ok
+2026-10-20T15:46:32.7411879Z test_exact_bytes (__main__.CaptureBytesTests.test_exact_bytes) ... ok
+2026-10-20T15:46:32.7421736Z test_missing_capture (__main__.CaptureBytesTests.test_missing_capture) ... ok
+2026-10-20T15:46:32.7431528Z test_required_manifest (__main__.CaptureBytesTests.test_required_manifest) ... ok
+2026-10-20T15:46:32.7432214Z 
+2026-10-20T15:46:32.7432470Z ----------------------------------------------------------------------
+2026-10-20T15:46:32.7432956Z Ran 6 tests in 0.010s
+2026-10-20T15:46:32.7433164Z 
+2026-10-20T15:46:32.7433311Z OK
+2026-10-20T15:46:32.7876871Z Region source capture compiling mutation rejected: retained-byte-guard; restored six assertions passed
+2026-10-20T15:46:32.7878011Z Region source capture compiling mutation rejected: provider-manifest-omission; restored six assertions passed
+2026-10-20T15:46:32.7879113Z Region source capture compiling mutation rejected: provider-guard-subset; restored six assertions passed
+2026-10-20T15:46:32.7880264Z Region source capture compiling mutation rejected: compute-sku-manifest-omission; restored six assertions passed
+2026-10-20T15:46:32.7881374Z Region source capture compiling mutation rejected: compute-sku-guard-subset; restored six assertions passed
+2026-10-20T15:46:32.7882738Z Region source capture compiling mutation rejected: other-sku-manifest-omission; restored six assertions passed
+2026-10-20T15:46:32.7883841Z Region source capture compiling mutation rejected: other-sku-guard-subset; restored six assertions passed
+2026-10-20T15:46:32.9210718Z ##[group]Run python scripts/tests/region-latency-capture-mutation.py
+2026-10-20T15:46:32.9211392Z [36;1mpython scripts/tests/region-latency-capture-mutation.py[0m
+2026-10-20T15:46:32.9251700Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-20T15:46:32.9252133Z env:
+2026-10-20T15:46:32.9252370Z   GOTOOLCHAIN: local
+2026-10-20T15:46:32.9252616Z ##[endgroup]
+2026-10-20T15:46:53.2161124Z Latency source oracle mutation rejected: forward-preference
+2026-10-20T15:46:53.2161881Z Latency source oracle mutation rejected: directional-absence
+2026-10-20T15:46:53.2162390Z Latency source oracle mutation rejected: default-average
+2026-10-20T15:46:53.2162899Z Latency source oracle mutation rejected: dataset-topology
+2026-10-20T15:46:53.3174264Z ##[group]Run python scripts/tests/region-cost-enrichment-capture-mutation.py
+2026-10-20T15:46:53.3174946Z [36;1mpython scripts/tests/region-cost-enrichment-capture-mutation.py[0m
+2026-10-20T15:46:53.3219529Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-20T15:46:53.3219885Z env:
+2026-10-20T15:46:53.3220058Z   GOTOOLCHAIN: local
+2026-10-20T15:46:53.3220259Z ##[endgroup]
+2026-10-20T15:47:20.4968839Z Cost enrichment source oracle mutation rejected: weighted
+2026-10-20T15:47:20.4969606Z Cost enrichment source oracle mutation rejected: free-denominator
+2026-10-20T15:47:20.4970353Z Cost enrichment source oracle mutation rejected: zero-weight
+2026-10-20T15:47:20.4971071Z Cost enrichment source oracle mutation rejected: duplicate-history
+2026-10-20T15:47:20.4971781Z Cost enrichment source oracle mutation rejected: stale-state
+2026-10-20T15:47:20.4972364Z Cost enrichment source oracle mutation rejected: unbound-identity
+2026-10-20T15:47:20.6104064Z ##[group]Run python scripts/tests/region-provider-locations-capture-mutation.py
+2026-10-20T15:47:20.6105240Z [36;1mpython scripts/tests/region-provider-locations-capture-mutation.py[0m
+2026-10-20T15:47:20.6161626Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-20T15:47:20.6162040Z env:
+2026-10-20T15:47:20.6162265Z   GOTOOLCHAIN: local
+2026-10-20T15:47:20.6162849Z ##[endgroup]
+2026-10-20T15:48:01.7085172Z Provider source mutation rejected: sdk-version
+2026-10-20T15:48:01.7085822Z Provider source mutation rejected: tls-disabled
+2026-10-20T15:48:01.7086318Z Provider source mutation rejected: global-location
+2026-10-20T15:48:01.7086866Z Provider source mutation rejected: overwrite-collision
+2026-10-20T15:48:01.7087367Z Provider source mutation rejected: lost-prefix
+2026-10-20T15:48:01.7087835Z Provider source mutation rejected: null-panic
+2026-10-20T15:48:01.7088321Z Provider source mutation rejected: request-page
+2026-10-20T15:48:01.7089819Z Provider source mutation rejected: method
+2026-10-20T15:48:01.7090720Z Provider source mutation rejected: caller-fallback
+2026-10-20T15:48:01.7107730Z Provider source mutation rejected: caller-cancelled
+2026-10-20T15:48:01.8186213Z ##[group]Run python scripts/tests/region-compute-sku-capture-mutation.py
+2026-10-20T15:48:01.8186822Z [36;1mpython scripts/tests/region-compute-sku-capture-mutation.py[0m
+2026-10-20T15:48:01.8227468Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-20T15:48:01.8227816Z env:
+2026-10-20T15:48:01.8227996Z   GOTOOLCHAIN: local
+2026-10-20T15:48:01.8228195Z ##[endgroup]
+2026-10-20T15:48:56.9473261Z Compute source mutation rejected: source-blob
+2026-10-20T15:48:56.9473956Z Compute source mutation rejected: api-version
+2026-10-20T15:48:56.9474563Z Compute source mutation rejected: location-precedence
+2026-10-20T15:48:56.9475156Z Compute source mutation rejected: zone-order
+2026-10-20T15:48:56.9475724Z Compute source mutation rejected: lost-page-error
+2026-10-20T15:48:56.9476947Z Compute source mutation rejected: unicode-alias
+2026-10-20T15:48:56.9477476Z Compute source mutation rejected: page-omission
+2026-10-20T15:48:56.9478153Z Compute source mutation rejected: unsafe-continuation
+2026-10-20T15:48:56.9478652Z Compute source mutation rejected: method
+2026-10-20T15:48:56.9479073Z Compute source mutation rejected: body
+2026-10-20T15:48:56.9479530Z Compute source mutation rejected: subscription-cache
+2026-10-20T15:48:56.9480031Z Compute source mutation rejected: zone-sharing
+2026-10-20T15:48:56.9480524Z Compute source mutation rejected: retry
+2026-10-20T15:48:56.9480991Z Compute source mutation rejected: concurrent-key
+2026-10-20T15:48:57.0589909Z ##[group]Run python scripts/tests/ai-execution-mutation.py
+2026-10-20T15:48:57.0590504Z [36;1mpython scripts/tests/ai-execution-mutation.py[0m
+2026-10-20T15:48:57.0630357Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-20T15:48:57.0630789Z env:
+2026-10-20T15:48:57.0630999Z   GOTOOLCHAIN: local
+2026-10-20T15:48:57.0631230Z ##[endgroup]
+2026-10-20T15:49:20.3624551Z AI execution mutation rejected: public-pre-auth
+2026-10-20T15:49:20.3625014Z AI execution mutation rejected: discovery-health
+2026-10-20T15:49:20.3625411Z AI execution mutation rejected: recorded-tag-snapshot
+2026-10-20T15:49:20.3625851Z AI execution mutation rejected: projected-scope-identity
+2026-10-20T15:49:20.4736322Z ##[group]Run python scripts/tests/region-availability-mutation.py
+2026-10-20T15:49:20.4736912Z [36;1mpython scripts/tests/region-availability-mutation.py[0m
+2026-10-20T15:49:20.4776245Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-20T15:49:20.4776604Z env:
+2026-10-20T15:49:20.4776781Z   GOTOOLCHAIN: local
+2026-10-20T15:49:20.4776990Z ##[endgroup]
+2026-10-20T15:50:29.6007498Z Region availability mutation rejected: selected-scope
+2026-10-20T15:50:29.6010291Z Region availability mutation rejected: bound-evidence
+2026-10-20T15:50:29.6010907Z Region availability mutation rejected: input-work
+2026-10-20T15:50:29.6011479Z Region availability mutation rejected: decoded-text
+2026-10-20T15:50:29.6012048Z Region availability mutation rejected: output-list
+2026-10-20T15:50:29.6012588Z Region availability mutation rejected: output-label
+2026-10-20T15:50:29.6013088Z Region availability mutation rejected: raw-sku
+2026-10-20T15:50:29.6013716Z Region availability mutation rejected: confirmed-denominator
+2026-10-20T15:50:29.6014328Z Region availability mutation rejected: unknown-health
+2026-10-20T15:50:29.6014869Z Region availability mutation rejected: cancellation
+2026-10-20T15:50:29.7145843Z ##[group]Run python scripts/tests/region-latency-mutation.py
+2026-10-20T15:50:29.7146478Z [36;1mpython scripts/tests/region-latency-mutation.py[0m
+2026-10-20T15:50:29.7186250Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-20T15:50:29.7186662Z env:
+2026-10-20T15:50:29.7187389Z   GOTOOLCHAIN: local
+2026-10-20T15:50:29.7187757Z ##[endgroup]
+2026-10-20T15:51:56.5269961Z Region latency mutation rejected: selected-scope
+2026-10-20T15:51:56.5270499Z Region latency mutation rejected: pinned-bytes
+2026-10-20T15:51:56.5270920Z Region latency mutation rejected: input-work
+2026-10-20T15:51:56.5271326Z Region latency mutation rejected: data-label
+2026-10-20T15:51:56.5271737Z Region latency mutation rejected: negative-data
+2026-10-20T15:51:56.5272187Z Region latency mutation rejected: forward-preference
+2026-10-20T15:51:56.5272668Z Region latency mutation rejected: reverse-measurement
+2026-10-20T15:51:56.5273207Z Region latency mutation rejected: cluster-direction
+2026-10-20T15:51:56.5273663Z Region latency mutation rejected: cluster-average
+2026-10-20T15:51:56.5274077Z Region latency mutation rejected: unknown-health
+2026-10-20T15:51:56.5274492Z Region latency mutation rejected: estimated-health
+2026-10-20T15:51:56.5274911Z Region latency mutation rejected: zone-ownership
+2026-10-20T15:51:56.5275345Z Region latency mutation rejected: terminal-cancellation
+2026-10-20T15:51:56.6391143Z ##[group]Run python scripts/tests/region-reservation-runtime-mutation.py
+2026-10-20T15:51:56.6391894Z [36;1mpython scripts/tests/region-reservation-runtime-mutation.py[0m
+2026-10-20T15:51:56.6434490Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-20T15:51:56.6434895Z env:
+2026-10-20T15:51:56.6435120Z   GOTOOLCHAIN: local
+2026-10-20T15:51:56.6435390Z ##[endgroup]
+2026-10-20T15:54:00.0684203Z Region reservation runtime mutation rejected: status-precedence
+2026-10-20T15:54:00.0685369Z Region reservation runtime mutation rejected: structural-provider
+2026-10-20T15:54:00.0686258Z Region reservation runtime mutation rejected: selected-scope
+2026-10-20T15:54:00.0687501Z Region reservation runtime mutation rejected: record-subscription
+2026-10-20T15:54:00.0688327Z Region reservation runtime mutation rejected: record-region
+2026-10-20T15:54:00.0689021Z Region reservation runtime mutation rejected: response-name
+2026-10-20T15:54:00.0689838Z Region reservation runtime mutation rejected: response-region
+2026-10-20T15:54:00.0690587Z Region reservation runtime mutation rejected: duplicate-identity
+2026-10-20T15:54:00.0691329Z Region reservation runtime mutation rejected: negative-count
+2026-10-20T15:54:00.0692080Z Region reservation runtime mutation rejected: presence-contradiction
+2026-10-20T15:54:00.0692837Z Region reservation runtime mutation rejected: unknown-idle
+2026-10-20T15:54:00.0693504Z Region reservation runtime mutation rejected: skipped-work
+2026-10-20T15:54:00.0694202Z Region reservation runtime mutation rejected: raw-id-accounting
+2026-10-20T15:54:00.0694984Z Region reservation runtime mutation rejected: skipped-label
+2026-10-20T15:54:00.0695711Z Region reservation runtime mutation rejected: output-accounting
+2026-10-20T15:54:00.0696445Z Region reservation runtime mutation rejected: missing-health
+2026-10-20T15:54:00.0697179Z Region reservation runtime mutation rejected: warning-ownership
+2026-10-20T15:54:00.0697910Z Region reservation runtime mutation rejected: terminal-cancellation
+2026-10-20T15:54:00.1791863Z ##[group]Run python scripts/tests/region-provider-locations-collector-mutation.py
+2026-10-20T15:54:00.1792651Z [36;1mpython scripts/tests/region-provider-locations-collector-mutation.py[0m
+2026-10-20T15:54:00.1833472Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-20T15:54:00.1833895Z env:
+2026-10-20T15:54:00.1834135Z   GOTOOLCHAIN: local
+2026-10-20T15:54:00.1834423Z ##[endgroup]
+2026-10-20T15:56:54.2425450Z Provider collector mutation rejected: version
+2026-10-20T15:56:54.2425962Z Provider collector mutation rejected: selected-scope
+2026-10-20T15:56:54.2426447Z Provider collector mutation rejected: returned-id-structure
+2026-10-20T15:56:54.2426968Z Provider collector mutation rejected: returned-id-binding
+2026-10-20T15:56:54.2427425Z Provider collector mutation rejected: namespace-ascii
+2026-10-20T15:56:54.2427866Z Provider collector mutation rejected: location-ascii
+2026-10-20T15:56:54.2429371Z Provider collector mutation rejected: logical-location
+2026-10-20T15:56:54.2430225Z Provider collector mutation rejected: mandatory-array
+2026-10-20T15:56:54.2430874Z Provider collector mutation rejected: json-whole-guard
+2026-10-20T15:56:54.2431549Z Provider collector mutation rejected: same-page-collision
+2026-10-20T15:56:54.2432240Z Provider collector mutation rejected: prior-page-collision
+2026-10-20T15:56:54.2432921Z Provider collector mutation rejected: partial-prefix
+2026-10-20T15:56:54.2433573Z Provider collector mutation rejected: request-status
+2026-10-20T15:56:54.2434330Z Provider collector mutation rejected: unsafe-continuation-health
+2026-10-20T15:56:54.2435111Z Provider collector mutation rejected: canonical-cycle
+2026-10-20T15:56:54.2435754Z Provider collector mutation rejected: page-limit
+2026-10-20T15:56:54.2436409Z Provider collector mutation rejected: page-bytes
+2026-10-20T15:56:54.2436861Z Provider collector mutation rejected: aggregate-bytes
+2026-10-20T15:56:54.2437276Z Provider collector mutation rejected: raw-work
+2026-10-20T15:56:54.2439116Z Provider collector mutation rejected: deadline-health
+2026-10-20T15:56:54.2439532Z Provider collector mutation rejected: cancel-sentinel
+2026-10-20T15:56:54.2439950Z Provider collector mutation rejected: deadline-sentinel
+2026-10-20T15:56:54.2440409Z Provider collector mutation rejected: raw-duplicate-locations
+2026-10-20T15:56:54.2440910Z Provider collector mutation rejected: canonical-properties
+2026-10-20T15:56:54.2441338Z Provider collector mutation rejected: decoded-text
+2026-10-20T15:56:54.3583917Z ##[group]Run python scripts/tests/sql-mi-controls.py
+2026-10-20T15:56:54.3584463Z [36;1mpython scripts/tests/sql-mi-controls.py[0m
+2026-10-20T15:56:54.3624800Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-20T15:56:54.3625211Z env:
+2026-10-20T15:56:54.3625441Z   GOTOOLCHAIN: local
+2026-10-20T15:56:54.3625688Z ##[endgroup]
+2026-10-20T15:56:59.9521864Z SQL MI mutation rejected: mi-selected-leaf-bound; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T15:57:04.9464546Z SQL MI mutation rejected: mi-raw-work-before-allocation; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T15:57:09.9870070Z SQL MI mutation rejected: mi-strict-json-precondition; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T15:57:15.0808359Z SQL MI mutation rejected: mi-whole-known-shape-validation; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T15:57:20.0569998Z SQL MI mutation rejected: mi-undocumented-next-link; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T15:57:25.0396177Z SQL MI mutation rejected: mi-no-value-envelope; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T15:57:30.0411672Z SQL MI mutation rejected: mi-root-physical-binding; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T15:57:34.9838514Z SQL MI mutation rejected: mi-unresolved-root-incomplete; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T15:57:40.0683523Z SQL MI mutation rejected: mi-missing-child-incomplete; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T15:57:44.9878144Z SQL MI mutation rejected: mi-explicit-family-sku; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T15:57:50.0086143Z SQL MI mutation rejected: mi-leaf-name-not-numeric-inference; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T15:57:55.1068762Z SQL MI mutation rejected: mi-missing-authoritative-fields; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T15:58:00.1791935Z SQL MI mutation rejected: mi-positive-vcore-value; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T15:58:05.1838006Z SQL MI mutation rejected: mi-missing-mode-stays-unknown; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T15:58:10.1804682Z SQL MI mutation rejected: mi-false-mode-stays-unsupported; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T15:58:15.2855850Z SQL MI mutation rejected: mi-no-implicit-mode-eligibility; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T15:58:20.2631584Z SQL MI mutation rejected: mi-family-governing-status; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T15:58:25.2023141Z SQL MI mutation rejected: mi-constructor-family-binding; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T15:58:30.2523823Z SQL MI mutation rejected: mi-selected-decoder-dispatch; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T15:58:35.2195100Z SQL MI mutation rejected: mi-reject-three-coordinate-lookup; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T15:58:40.2716151Z SQL MI mutation rejected: mi-reject-name-only-lookup; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T15:58:45.2132109Z SQL MI mutation rejected: mi-group-full-coordinate-binding; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T15:58:50.2170330Z SQL MI mutation rejected: mi-projection-state-domain; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T15:58:55.1472168Z SQL MI mutation rejected: mi-unknown-state-invariant; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T15:59:00.1137514Z SQL MI mutation rejected: mi-unknown-negative-capacity; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T15:59:05.0724859Z SQL MI mutation rejected: mi-mode-metadata-domain; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T15:59:10.1159830Z SQL MI mutation rejected: mi-known-authoritative-metadata; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T15:59:15.0925752Z SQL MI mutation rejected: mi-tier-edition-binding; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T15:59:19.9743412Z SQL MI mutation rejected: mi-projection-group-count; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T15:59:24.9800972Z SQL MI mutation rejected: mi-projection-required-count; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T15:59:31.1952606Z SQL MI mutation rejected: mi-projection-metadata-charge; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T15:59:37.3892288Z SQL MI mutation rejected: mi-projection-key-charge; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T15:59:43.4892796Z SQL MI mutation rejected: mi-required-coordinate-text-charge; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T15:59:49.6677382Z SQL MI mutation rejected: mi-alias-value-text-charge; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T15:59:54.5750218Z SQL MI mutation rejected: mi-collector-final-context; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T15:59:59.5944494Z SQL MI mutation rejected: mi-catalog-final-context; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T16:00:07.6077666Z SQL MI controls: all36 compiling reversals, exact original byte restoration and complete passing SQL baseline
+2026-10-20T16:00:07.7250103Z ##[group]Run python scripts/tests/sql-report-controls.py
+2026-10-20T16:00:07.7250665Z [36;1mpython scripts/tests/sql-report-controls.py[0m
+2026-10-20T16:00:07.7291188Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-20T16:00:07.7291583Z env:
+2026-10-20T16:00:07.7291809Z   GOTOOLCHAIN: local
+2026-10-20T16:00:07.7292050Z ##[endgroup]
+2026-10-20T16:00:16.3831610Z SQL report mutation rejected: output-text-cap-plus-one; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T16:00:24.7536863Z SQL report mutation rejected: warning-text-byte-charge; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T16:00:33.0838522Z SQL report mutation rejected: coordinate-text-byte-charge; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T16:00:38.1145650Z SQL report mutation rejected: catalog-availability-state; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T16:00:43.1884730Z SQL report mutation rejected: deployment-eligibility-not-assessed; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T16:00:48.2066456Z SQL report mutation rejected: full-coordinate-column; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T16:00:53.2704424Z SQL report mutation rejected: exact-record-count; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T16:00:58.3742127Z SQL report mutation rejected: unknown-evidence-warning; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T16:01:03.5124137Z SQL report mutation rejected: full-coordinate-order; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T16:01:08.5829655Z SQL report mutation rejected: final-success-context; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T16:01:13.6502907Z SQL report mutation rejected: wrapped-cancellation-canonical; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T16:01:18.7080860Z SQL report mutation rejected: selected-snapshot; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T16:01:23.7631442Z SQL report mutation rejected: alias-snapshot; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T16:01:28.7903556Z SQL report mutation rejected: required-snapshot; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T16:01:33.8124804Z SQL report mutation rejected: preauth-required-validation; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T16:01:41.8681342Z SQL report controls: all15 compiling reversals, exact original byte restoration and complete passing SQL baseline
+2026-10-20T16:01:41.9798908Z ##[group]Run python scripts/tests/retail-controls.py
+2026-10-20T16:01:41.9799397Z [36;1mpython scripts/tests/retail-controls.py[0m
+2026-10-20T16:01:41.9840482Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-20T16:01:41.9840827Z env:
+2026-10-20T16:01:41.9841011Z   GOTOOLCHAIN: local
+2026-10-20T16:01:41.9841209Z ##[endgroup]
+2026-10-20T16:01:47.3404536Z Retail mutation rejected: complete-only-admission; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T16:01:52.3942633Z Retail mutation rejected: owned-evidence-copy; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T16:01:57.3833933Z Retail mutation rejected: private-admission-authority; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T16:02:02.4303415Z Retail mutation rejected: opaque-id-cell-product; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T16:02:07.4242666Z Retail mutation rejected: physical-request-region; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T16:02:12.5119578Z Retail mutation rejected: odata-quote-doubling; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T16:02:17.5338252Z Retail mutation rejected: source-minimum-tier; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T16:02:22.6021707Z Retail mutation rejected: metadata-identity-conflict; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T16:02:27.7095933Z Retail mutation rejected: metadata-future-exclusion; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T16:02:32.7173448Z Retail mutation rejected: latest-parsed-instant; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T16:02:37.7969365Z Retail mutation rejected: price-unit-binding; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T16:02:42.8265244Z Retail mutation rejected: positive-only-price; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T16:02:48.1265899Z Retail mutation rejected: exact-product-tuple; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T16:02:53.2028002Z Retail mutation rejected: every-original-binding; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T16:02:58.3696265Z Retail mutation rejected: equal-date-target-identity; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T16:03:03.4822728Z Retail mutation rejected: continuation-preserves-filter; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T16:03:08.6095203Z Retail mutation rejected: continuation-increasing-skip; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T16:03:13.6744509Z Retail mutation rejected: sixty-four-page-cap; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T16:03:19.0770634Z Retail mutation rejected: whole-run-request-cap; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T16:03:24.4201782Z Retail mutation rejected: whole-run-byte-cap; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T16:03:29.4962711Z Retail mutation rejected: remaining-wire-budget; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T16:03:34.6193547Z Retail mutation rejected: whole-run-binding-cap; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T16:03:39.7156863Z Retail mutation rejected: whole-run-matching-cap; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T16:03:44.7691227Z Retail mutation rejected: source-metadata-batch-fifteen; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T16:03:49.7773326Z Retail mutation rejected: source-pricing-batch-five; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T16:03:54.7738863Z Retail mutation rejected: final-context-precedence; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T16:03:59.7907927Z Retail mutation rejected: unicode-fold-duplicate-keys; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T16:04:04.8604717Z Retail mutation rejected: nonzero-underflow-rejection; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T16:04:09.8861996Z Retail mutation rejected: required-bool-typed-admission; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T16:04:14.9319461Z Retail mutation rejected: unit-retail-consistency; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T16:04:20.0602303Z Retail mutation rejected: json-global-token-cap; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T16:04:25.0798584Z Retail mutation rejected: json-depth-cap; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T16:04:30.0943113Z Retail mutation rejected: json-string-cap; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T16:04:35.1556663Z Retail mutation rejected: json-key-cap; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T16:04:40.1734679Z Retail mutation rejected: body-overflow-detection; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T16:04:45.2196597Z Retail mutation rejected: one-attempt-no-reuse; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T16:04:50.3269157Z Retail mutation rejected: redirect-denial; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T16:04:55.3878153Z Retail mutation rejected: independent-body-closure; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T16:05:00.4847084Z Retail mutation rejected: strict-rfc3339-grammar; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T16:05:05.5427848Z Retail mutation rejected: missing-date-is-oldest; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T16:05:10.6170429Z Retail mutation rejected: subnanosecond-date-order; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T16:05:15.6926322Z Retail mutation rejected: subnanosecond-future-exclusion; compilation succeeded; named assertion failed; exact source restored; baseline passed
+2026-10-20T16:05:18.8599354Z Retail controls: all42 compiling reversals, exact original byte restoration and complete passing retail baseline
+2026-10-20T16:05:18.9879315Z Post job cleanup.
+2026-10-20T16:05:19.2347664Z [command]C:\hostedtoolcache\windows\go\1.26.9\x64\bin\go.exe env GOMODCACHE
+2026-10-20T16:05:19.2423899Z [command]C:\hostedtoolcache\windows\go\1.26.9\x64\bin\go.exe env GOCACHE
+2026-10-20T16:05:19.2708281Z C:\Users\runneradmin\AppData\Local\go-build
+2026-10-20T16:05:19.2783157Z C:\Users\runneradmin\go\pkg\mod
+2026-10-20T16:05:19.3984013Z [command]"C:\Program Files\Git\usr\bin\tar.exe" --posix -cf cache.tzst --exclude cache.tzst -P -C D:/a/Cloud-Assess/Cloud-Assess --files-from manifest.txt --force-local --use-compress-program "zstd -T0"
+2026-10-20T16:05:28.3001607Z Failed to save: Unable to reserve cache with key setup-go-Windows-x64-go-1.26.9-dca70bafcd9a5465b18b013e3da95295e886c2c36684dfb1926d667fa216f5eb, another job may be creating this cache.
+2026-10-20T16:05:28.3538854Z Post job cleanup.
+2026-10-20T16:05:28.5496297Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-10-20T16:05:28.5961528Z git version 2.56.0.windows.2
+2026-10-20T16:05:28.6034019Z Temporarily overriding HOME='D:\a\_temp\1a02864e-a9c4-4280-bc18-889beeb9877a' before making global git config changes
+2026-10-20T16:05:28.6035519Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-20T16:05:28.6048839Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\Cloud-Assess\Cloud-Assess
+2026-10-20T16:05:28.6344816Z Removing SSH command configuration
+2026-10-20T16:05:28.6355919Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-10-20T16:05:28.6657113Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-10-20T16:05:29.1260934Z Entering 'internal/rules/upstream/aprl'
+2026-10-20T16:05:29.2045291Z Removing HTTP extra header
+2026-10-20T16:05:29.2054830Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-20T16:05:29.2355191Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-10-20T16:05:29.6850402Z Entering 'internal/rules/upstream/aprl'
+2026-10-20T16:05:29.7566627Z Removing includeIf entries pointing to credentials config files
+2026-10-20T16:05:29.7577189Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-20T16:05:29.7834189Z includeif.gitdir:D:/a/Cloud-Assess/Cloud-Assess/.git.path
+2026-10-20T16:05:29.7835053Z includeif.gitdir:D:/a/Cloud-Assess/Cloud-Assess/.git/worktrees/*.path
+2026-10-20T16:05:29.7835681Z includeif.gitdir:/github/workspace/.git.path
+2026-10-20T16:05:29.7836216Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-10-20T16:05:29.7866611Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:D:/a/Cloud-Assess/Cloud-Assess/.git.path
+2026-10-20T16:05:29.8124819Z D:\a\_temp\git-credentials-6382feff-c680-475a-9aa1-a61780acc1f7.config
+2026-10-20T16:05:29.8190797Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:D:/a/Cloud-Assess/Cloud-Assess/.git.path D\:\\a\\_temp\\git\-credentials\-6382feff\-c680\-475a\-9aa1\-a61780acc1f7\.config
+2026-10-20T16:05:29.8514368Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:D:/a/Cloud-Assess/Cloud-Assess/.git/worktrees/*.path
+2026-10-20T16:05:29.8787343Z D:\a\_temp\git-credentials-6382feff-c680-475a-9aa1-a61780acc1f7.config
+2026-10-20T16:05:29.8823004Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:D:/a/Cloud-Assess/Cloud-Assess/.git/worktrees/*.path D\:\\a\\_temp\\git\-credentials\-6382feff\-c680\-475a\-9aa1\-a61780acc1f7\.config
+2026-10-20T16:05:29.9121785Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-10-20T16:05:29.9381923Z /github/runner_temp/git-credentials-6382feff-c680-475a-9aa1-a61780acc1f7.config
+2026-10-20T16:05:29.9413255Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:/github/workspace/.git.path \/github\/runner_temp\/git\-credentials\-6382feff\-c680\-475a\-9aa1\-a61780acc1f7\.config
+2026-10-20T16:05:29.9708830Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-10-20T16:05:29.9962673Z /github/runner_temp/git-credentials-6382feff-c680-475a-9aa1-a61780acc1f7.config
+2026-10-20T16:05:30.0006886Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-6382feff\-c680\-475a\-9aa1\-a61780acc1f7\.config
+2026-10-20T16:05:30.0283788Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-10-20T16:05:30.4685606Z Entering 'internal/rules/upstream/aprl'
+2026-10-20T16:05:30.4968006Z file:D:/a/Cloud-Assess/Cloud-Assess/.git/modules/internal/rules/upstream/aprl/config	remote.origin.url
+2026-10-20T16:05:30.5196756Z [command]"C:\Program Files\Git\bin\git.exe" config --file D:/a/Cloud-Assess/Cloud-Assess/.git/modules/internal/rules/upstream/aprl/config --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-20T16:05:30.5446399Z includeif.gitdir:D:/a/Cloud-Assess/Cloud-Assess/.git/modules/internal/rules/upstream/aprl.path
+2026-10-20T16:05:30.5447677Z includeif.gitdir:/github/workspace/.git/modules/internal/rules/upstream/aprl.path
+2026-10-20T16:05:30.5477935Z [command]"C:\Program Files\Git\bin\git.exe" config --file D:/a/Cloud-Assess/Cloud-Assess/.git/modules/internal/rules/upstream/aprl/config --get-all includeif.gitdir:D:/a/Cloud-Assess/Cloud-Assess/.git/modules/internal/rules/upstream/aprl.path
+2026-10-20T16:05:30.5726311Z D:\a\_temp\git-credentials-6382feff-c680-475a-9aa1-a61780acc1f7.config
+2026-10-20T16:05:30.5758355Z [command]"C:\Program Files\Git\bin\git.exe" config --file D:/a/Cloud-Assess/Cloud-Assess/.git/modules/internal/rules/upstream/aprl/config --unset includeif.gitdir:D:/a/Cloud-Assess/Cloud-Assess/.git/modules/internal/rules/upstream/aprl.path D\:\\a\\_temp\\git\-credentials\-6382feff\-c680\-475a\-9aa1\-a61780acc1f7\.config
+2026-10-20T16:05:30.6045135Z [command]"C:\Program Files\Git\bin\git.exe" config --file D:/a/Cloud-Assess/Cloud-Assess/.git/modules/internal/rules/upstream/aprl/config --get-all includeif.gitdir:/github/workspace/.git/modules/internal/rules/upstream/aprl.path
+2026-10-20T16:05:30.6292861Z /github/runner_temp/git-credentials-6382feff-c680-475a-9aa1-a61780acc1f7.config
+2026-10-20T16:05:30.6323421Z [command]"C:\Program Files\Git\bin\git.exe" config --file D:/a/Cloud-Assess/Cloud-Assess/.git/modules/internal/rules/upstream/aprl/config --unset includeif.gitdir:/github/workspace/.git/modules/internal/rules/upstream/aprl.path \/github\/runner_temp\/git\-credentials\-6382feff\-c680\-475a\-9aa1\-a61780acc1f7\.config
+2026-10-20T16:05:30.6603838Z Removing credentials config 'D:\a\_temp\git-credentials-6382feff-c680-475a-9aa1-a61780acc1f7.config'
+2026-10-20T16:05:30.6784000Z Cleaning up orphan processes
