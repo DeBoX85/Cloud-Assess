@@ -1,0 +1,29 @@
+{
+  "format": "scope-redaction-controls-v1",
+  "mutations": [
+    {
+      "name": "status-scope-mask-call",
+      "file": "internal/renderers/tables/tables.go",
+      "old": "redactAssessmentStatusScope(data, projected[0].Rows, opts.RedactSubscriptionIDs, mask)",
+      "replace": "redactAssessmentStatusScope(data, projected[0].Rows, false, func(s string) string { return s })",
+      "test": "TestAssessmentStatusScopeRedaction",
+      "count": 1
+    },
+    {
+      "name": "status-context-without-discovery",
+      "file": "internal/renderers/tables/scope_redaction.go",
+      "old": "mark(match[1])",
+      "replace": "if false { mark(match[1]) }",
+      "test": "TestAssessmentStatusScopeContextWithoutRecords",
+      "count": 1
+    },
+    {
+      "name": "status-known-scope-identity",
+      "file": "internal/renderers/tables/scope_redaction.go",
+      "old": "if data.Scope != nil {",
+      "replace": "if data.Scope != nil && false {",
+      "test": "TestAssessmentStatusScopeRedaction",
+      "count": 1
+    }
+  ]
+}

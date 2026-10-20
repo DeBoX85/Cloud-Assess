@@ -1,0 +1,110 @@
+name: Hosted gate contract probes
+
+on:
+  push:
+    branches:
+      - 'qa/gate-contract-*-success'
+      - 'qa/gate-contract-*-failure'
+      - 'qa/gate-contract-*-skipped'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: hosted-gate-probe-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  linux-native:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Controlled worker outcome
+        run: python3 -c "print('Controlled worker success')"
+
+  linux-controls-1:
+    if: ${{ ! endsWith(github.ref_name, '-skipped') }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Controlled worker outcome
+        env:
+          PROBE_BRANCH: ${{ github.ref_name }}
+        run: python3 -c "import os,sys; sys.exit(1 if os.environ['PROBE_BRANCH'].endswith('-failure') else 0)"
+
+  linux-controls-2:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Controlled worker outcome
+        run: python3 -c "print('Controlled worker success')"
+
+  linux-controls-3:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Controlled worker outcome
+        run: python3 -c "print('Controlled worker success')"
+
+  linux-probe-gate:
+    if: ${{ always() }}
+    needs: [linux-native, linux-controls-1, linux-controls-2, linux-controls-3]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Checkout gate validator
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Require every native worker to succeed
+        env:
+          NEEDS_JSON: ${{ toJSON(needs) }}
+        run: python3 scripts/ci/required_gate.py --platform linux
+
+  windows-native:
+    runs-on: windows-2022
+    timeout-minutes: 5
+    steps:
+      - name: Controlled worker outcome
+        run: python -c "print('Controlled worker success')"
+
+  windows-controls-1:
+    if: ${{ ! endsWith(github.ref_name, '-skipped') }}
+    runs-on: windows-2022
+    timeout-minutes: 5
+    steps:
+      - name: Controlled worker outcome
+        env:
+          PROBE_BRANCH: ${{ github.ref_name }}
+        run: python -c "import os,sys; sys.exit(1 if os.environ['PROBE_BRANCH'].endswith('-failure') else 0)"
+
+  windows-controls-2:
+    runs-on: windows-2022
+    timeout-minutes: 5
+    steps:
+      - name: Controlled worker outcome
+        run: python -c "print('Controlled worker success')"
+
+  windows-controls-3:
+    runs-on: windows-2022
+    timeout-minutes: 5
+    steps:
+      - name: Controlled worker outcome
+        run: python -c "print('Controlled worker success')"
+
+  windows-probe-gate:
+    if: ${{ always() }}
+    needs: [windows-native, windows-controls-1, windows-controls-2, windows-controls-3]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Checkout gate validator
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Require every native worker to succeed
+        env:
+          NEEDS_JSON: ${{ toJSON(needs) }}
+        run: python3 scripts/ci/required_gate.py --platform windows

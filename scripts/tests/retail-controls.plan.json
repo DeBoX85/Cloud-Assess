@@ -1,0 +1,357 @@
+{
+  "format": "retail-controls-v1",
+  "frozen_before_execution": true,
+  "manually_derived_context_schedules": {
+    "final_after_GET": 7,
+    "failure_after_GET": 2
+  },
+  "source_sha256": {
+    "internal/plugins/region/retail_decode.go": "2622d40413a2cf1b014f054eb1fdd4c2d14bb9fc77ee042ea5cd83fd473d9386",
+    "internal/plugins/region/retail_http.go": "b230add077b06bd2ee66209c7aacb48d358b4302bc9a6220e689eb30bef08c2e",
+    "internal/plugins/region/retail_pricing.go": "68f7a09fe4aec30e88c99ceaf51869ac7a65b26ef3384a2f506c0942a0922bec"
+  },
+  "mutations": [
+    {
+      "name": "complete-only-admission",
+      "file": "internal/plugins/region/retail_pricing.go",
+      "old": "if r.admission != \"complete\" {",
+      "replace": "if false {",
+      "count": 1,
+      "test": "TestRetailPricingFrozenCases/zero-price-not-eligible"
+    },
+    {
+      "name": "owned-evidence-copy",
+      "file": "internal/plugins/region/retail_pricing.go",
+      "old": "out[id][region] = price",
+      "replace": "out[id][region] = price+1",
+      "count": 1,
+      "test": "TestRetailPricingFrozenCases/complete-two-regions"
+    },
+    {
+      "name": "private-admission-authority",
+      "file": "internal/plugins/region/retail_pricing.go",
+      "old": "if r.admission != \"complete\" {",
+      "replace": "if r.Status != \"complete\" {",
+      "count": 1,
+      "test": "TestRetailEvidenceCannotBeForged"
+    },
+    {
+      "name": "opaque-id-cell-product",
+      "file": "internal/plugins/region/retail_pricing.go",
+      "old": "len(q.MeterIDs)*len(q.Regions) > 65536",
+      "replace": "len(q.MeterIDs)*len(q.Regions) > 65568",
+      "count": 1,
+      "test": "TestRetailRequestCellBound"
+    },
+    {
+      "name": "physical-request-region",
+      "file": "internal/plugins/region/retail_pricing.go",
+      "old": "!costPhysical(r) || seen[r]",
+      "replace": "false || seen[r]",
+      "count": 1,
+      "test": "TestRetailRequestMisuseBeforeTransport"
+    },
+    {
+      "name": "odata-quote-doubling",
+      "file": "internal/plugins/region/retail_pricing.go",
+      "old": "strings.ReplaceAll(s, \"'\", \"''\")",
+      "replace": "s",
+      "count": 1,
+      "test": "TestRetailQueryEscapingAndPacking"
+    },
+    {
+      "name": "source-minimum-tier",
+      "file": "internal/plugins/region/retail_pricing.go",
+      "old": "item.TierMinimumUnits < old.Item.TierMinimumUnits",
+      "replace": "item.TierMinimumUnits > old.Item.TierMinimumUnits",
+      "count": 1,
+      "test": "TestRetailPricingFrozenCases/lower-tier-metadata"
+    },
+    {
+      "name": "metadata-identity-conflict",
+      "file": "internal/plugins/region/retail_pricing.go",
+      "old": "if retailIdentity(item) != retailIdentity(old.Item) {",
+      "replace": "if false {",
+      "count": 1,
+      "test": "TestRetailMetadataConflictAndFuture"
+    },
+    {
+      "name": "metadata-future-exclusion",
+      "file": "internal/plugins/region/retail_pricing.go",
+      "old": "!s.wanted[item.MeterID] || retailFuture(item, s.q.Now)",
+      "replace": "!s.wanted[item.MeterID]",
+      "count": 1,
+      "test": "TestRetailMetadataConflictAndFuture"
+    },
+    {
+      "name": "latest-parsed-instant",
+      "file": "internal/plugins/region/retail_pricing.go",
+      "old": "!present || dateComparison > 0",
+      "replace": "!present || dateComparison < 0",
+      "count": 1,
+      "test": "TestRetailPricingFrozenCases/newer-effective-price"
+    },
+    {
+      "name": "price-unit-binding",
+      "file": "internal/plugins/region/retail_pricing.go",
+      "old": "if item.UnitOfMeasure != meter.UnitOfMeasure {",
+      "replace": "if false {",
+      "count": 1,
+      "test": "TestRetailPricingFrozenCases/uom-mismatch"
+    },
+    {
+      "name": "positive-only-price",
+      "file": "internal/plugins/region/retail_pricing.go",
+      "old": "item.RetailPrice <= 0",
+      "replace": "item.RetailPrice < 0",
+      "count": 1,
+      "test": "TestRetailPricingFrozenCases/zero-price-not-eligible"
+    },
+    {
+      "name": "exact-product-tuple",
+      "file": "internal/plugins/region/retail_pricing.go",
+      "old": "return retailTuple{i.MeterName, i.ProductID, i.SkuName}",
+      "replace": "return retailTuple{i.MeterName, \"\", i.SkuName}",
+      "count": 1,
+      "test": "TestRetailPricingFrozenCases/different-product-not-matched"
+    },
+    {
+      "name": "every-original-binding",
+      "file": "internal/plugins/region/retail_pricing.go",
+      "old": "append(index[retailKey(m.Item)], id)",
+      "replace": "[]string{id}",
+      "count": 1,
+      "test": "TestRetailPricingFrozenCases/shared-tuple-original-identities"
+    },
+    {
+      "name": "equal-date-target-identity",
+      "file": "internal/plugins/region/retail_pricing.go",
+      "old": "item.RetailPrice != old.Item.RetailPrice || retailIdentity(item) != retailIdentity(old.Item)",
+      "replace": "item.RetailPrice != old.Item.RetailPrice",
+      "count": 1,
+      "test": "TestRetailEqualDateIdentityConflict"
+    },
+    {
+      "name": "continuation-preserves-filter",
+      "file": "internal/plugins/region/retail_pricing.go",
+      "old": "q.Get(\"$filter\") != filter",
+      "replace": "false",
+      "count": 1,
+      "test": "TestRetailContinuationMatrix"
+    },
+    {
+      "name": "continuation-increasing-skip",
+      "file": "internal/plugins/region/retail_pricing.go",
+      "old": "n <= previous",
+      "replace": "false",
+      "count": 1,
+      "test": "TestRetailContinuationMatrix"
+    },
+    {
+      "name": "sixty-four-page-cap",
+      "file": "internal/plugins/region/retail_pricing.go",
+      "old": "page < 64",
+      "replace": "page < 65",
+      "count": 1,
+      "test": "TestRetailPageBound"
+    },
+    {
+      "name": "whole-run-request-cap",
+      "file": "internal/plugins/region/retail_pricing.go",
+      "old": "s.r.Counts.Requests >= 4096",
+      "replace": "s.r.Counts.Requests > 4096",
+      "count": 1,
+      "test": "TestRetailRunRequestBudget"
+    },
+    {
+      "name": "whole-run-byte-cap",
+      "file": "internal/plugins/region/retail_pricing.go",
+      "old": "s.r.Counts.ReceivedBytes >= 32<<20",
+      "replace": "s.r.Counts.ReceivedBytes > 32<<20",
+      "count": 1,
+      "test": "TestRetailRunByteBudget"
+    },
+    {
+      "name": "remaining-wire-budget",
+      "file": "internal/plugins/region/retail_pricing.go",
+      "old": "min(int64(1<<20), (32<<20)-s.r.Counts.ReceivedBytes)",
+      "replace": "int64(1<<20)",
+      "count": 1,
+      "test": "TestRetailRemainingWireBudget"
+    },
+    {
+      "name": "whole-run-binding-cap",
+      "file": "internal/plugins/region/retail_pricing.go",
+      "old": "s.r.Counts.Bindings >= 65536",
+      "replace": "s.r.Counts.Bindings > 65536",
+      "count": 1,
+      "test": "TestRetailExactRawAndBindingBudgets"
+    },
+    {
+      "name": "whole-run-matching-cap",
+      "file": "internal/plugins/region/retail_pricing.go",
+      "old": "s.r.Counts.MatchingWork >= 1048576",
+      "replace": "s.r.Counts.MatchingWork > 1048576",
+      "count": 1,
+      "test": "TestRetailExactRawAndBindingBudgets"
+    },
+    {
+      "name": "source-metadata-batch-fifteen",
+      "file": "internal/plugins/region/retail_pricing.go",
+      "old": "s.batches(clauses, 15, true, nil)",
+      "replace": "s.batches(clauses, 16, true, nil)",
+      "count": 1,
+      "test": "TestRetailQueryEscapingAndPacking"
+    },
+    {
+      "name": "source-pricing-batch-five",
+      "file": "internal/plugins/region/retail_pricing.go",
+      "old": "s.batches(clauses, 5, false, index)",
+      "replace": "s.batches(clauses, 6, false, index)",
+      "count": 1,
+      "test": "TestRetailURLShrinkAndPricingPacking"
+    },
+    {
+      "name": "final-context-precedence",
+      "file": "internal/plugins/region/retail_pricing.go",
+      "old": "if cause := retailCause(s.ctx, nil); cause != nil {\n\t\treturn nil, cause\n\t}\n\treturn r, nil",
+      "replace": "if cause := error(nil); cause != nil {\n\t\treturn nil, cause\n\t}\n\treturn r, nil",
+      "count": 1,
+      "test": "TestRetailFinalContext"
+    },
+    {
+      "name": "unicode-fold-duplicate-keys",
+      "file": "internal/plugins/region/retail_decode.go",
+      "old": "fold := regionFoldKey(s)",
+      "replace": "fold := s",
+      "count": 1,
+      "test": "TestRetailWholeJSONAdmission"
+    },
+    {
+      "name": "nonzero-underflow-rejection",
+      "file": "internal/plugins/region/retail_decode.go",
+      "old": " || n == 0 && retailNonzero(string(v))",
+      "replace": "",
+      "count": 1,
+      "test": "TestRetailWholeJSONAdmission"
+    },
+    {
+      "name": "required-bool-typed-admission",
+      "file": "internal/plugins/region/retail_decode.go",
+      "old": "if !ok || metadata && !item.IsPrimaryMeterRegion",
+      "replace": "if metadata && !item.IsPrimaryMeterRegion",
+      "count": 1,
+      "test": "TestRetailPricingBoolRequired"
+    },
+    {
+      "name": "unit-retail-consistency",
+      "file": "internal/plugins/region/retail_decode.go",
+      "old": " || item.RetailPrice != item.UnitPrice",
+      "replace": "",
+      "count": 1,
+      "test": "TestRetailPricingFrozenCases/inconsistent-unit-price"
+    },
+    {
+      "name": "json-global-token-cap",
+      "file": "internal/plugins/region/retail_decode.go",
+      "old": "*work >= 1048576",
+      "replace": "*work > 1048576",
+      "count": 3,
+      "test": "TestRetailJSONExactBudgets"
+    },
+    {
+      "name": "json-depth-cap",
+      "file": "internal/plugins/region/retail_decode.go",
+      "old": "depth > 32",
+      "replace": "depth > 33",
+      "count": 1,
+      "test": "TestRetailJSONExactBudgets"
+    },
+    {
+      "name": "json-string-cap",
+      "file": "internal/plugins/region/retail_decode.go",
+      "old": "len(s) > 8192",
+      "replace": "len(s) > 8193",
+      "count": 1,
+      "test": "TestRetailJSONExactBudgets"
+    },
+    {
+      "name": "json-key-cap",
+      "file": "internal/plugins/region/retail_decode.go",
+      "old": "len(keys) >= 128",
+      "replace": "len(keys) > 128",
+      "count": 1,
+      "test": "TestRetailJSONExactBudgets"
+    },
+    {
+      "name": "body-overflow-detection",
+      "file": "internal/plugins/region/retail_http.go",
+      "old": "int64(len(body)) > limit",
+      "replace": "int64(len(body)) > limit+2",
+      "count": 1,
+      "test": "TestRetailDefaultTransportBounds"
+    },
+    {
+      "name": "one-attempt-no-reuse",
+      "file": "internal/plugins/region/retail_http.go",
+      "old": "DisableKeepAlives: true",
+      "replace": "DisableKeepAlives: false",
+      "count": 1,
+      "test": "TestRetailDefaultTransportPolicy"
+    },
+    {
+      "name": "redirect-denial",
+      "file": "internal/plugins/region/retail_http.go",
+      "old": "return http.ErrUseLastResponse",
+      "replace": "return nil",
+      "count": 1,
+      "test": "TestRetailDefaultTransportPolicy"
+    },
+    {
+      "name": "independent-body-closure",
+      "file": "internal/plugins/region/retail_http.go",
+      "old": "defer resp.Body.Close()",
+      "replace": "if false { defer resp.Body.Close() }",
+      "count": 1,
+      "test": "TestRetailDefaultTransportIsolation"
+    },
+    {
+      "name": "strict-rfc3339-grammar",
+      "file": "internal/plugins/region/retail_pricing.go",
+      "old": "if !retailDatePattern.MatchString(raw) {",
+      "replace": "if false {",
+      "count": 1,
+      "test": "TestRetailStrictRFC3339"
+    },
+    {
+      "name": "missing-date-is-oldest",
+      "file": "internal/plugins/region/retail_pricing.go",
+      "old": "return -1",
+      "replace": "return 1",
+      "count": 1,
+      "test": "TestRetailExactDateOrdering"
+    },
+    {
+      "name": "subnanosecond-date-order",
+      "file": "internal/plugins/region/retail_pricing.go",
+      "old": "return strings.Compare(retailSubnanoseconds(a.EffectiveStartDate), retailSubnanoseconds(b.EffectiveStartDate))",
+      "replace": "return 0",
+      "count": 1,
+      "test": "TestRetailExactDateOrdering"
+    },
+    {
+      "name": "subnanosecond-future-exclusion",
+      "file": "internal/plugins/region/retail_pricing.go",
+      "old": " || d.Equal(now) && retailSubnanoseconds(item.EffectiveStartDate) != \"\"",
+      "replace": "",
+      "count": 1,
+      "test": "TestRetailExactDateOrdering"
+    }
+  ],
+  "prepublication_corrections": [
+    "First complete-only reversal selected a cost eligibility test that could not detect a wrong status paired with an empty map. Preserve original surviving-control log; use unchanged frozen zero-price status/map assertion instead. No production or test expectation change.",
+    "Removed redundant failure-entry context reversal after it correctly remained observable-equivalent because final context check still rejects cancellation. Underlying failure test retained.",
+    "Required-bool reversal now uses an independent pricing-phase null/string/number test; metadata primary=true condition masks this issue on metadata pages. No frozen expectation changed.",
+    "Exact Go primary-source review found lenient RFC3339 fallback, missing-date sentinel and subnanosecond truncation. New literal tests fail uncorrected code and pass strict/exact corrected code; four compiling reversals added."
+  ]
+}
