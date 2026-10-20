@@ -7,7 +7,6 @@ import (
 	"io"
 	"math"
 	"strings"
-	"time"
 	"unicode"
 	"unicode/utf8"
 )
@@ -214,7 +213,7 @@ func decodeRetailPage(ctx context.Context, body []byte, work, rawCount *int, met
 			return bad()
 		}
 		if item.EffectiveStartDate != "" {
-			if _, e := time.Parse(time.RFC3339, item.EffectiveStartDate); e != nil {
+			if _, valid := retailTimestamp(item.EffectiveStartDate); !valid {
 				return bad()
 			}
 		}

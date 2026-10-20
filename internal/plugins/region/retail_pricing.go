@@ -6,6 +6,7 @@ import (
 	"errors"
 	"net/url"
 	"reflect"
+	"regexp"
 	"sort"
 	"strconv"
 	"strings"
@@ -140,12 +141,55 @@ func retailLess(a, b RetailPriceItem) bool {
 	return !a.IsPrimaryMeterRegion && b.IsPrimaryMeterRegion
 }
 
-func retailDate(i RetailPriceItem) time.Time {
-	if i.EffectiveStartDate == "" {
-		return time.Time{}
+// time.Parse's RFC3339 fallback accepts single-digit hours, comma fractions
+// and out-of-range zone fields; constrain the RFC grammar before using it.
+var retailDatePattern = regexp.MustCompile(`^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\.[0-9]+)?(Z|[+-]([01][0-9]|2[0-3]):[0-5][0-9])$`)
+
+func retailTimestamp(raw string) (time.Time, bool) {
+	if !retailDatePattern.MatchString(raw) {
+		return time.Time{}, false
 	}
-	t, _ := time.Parse(time.RFC3339, i.EffectiveStartDate)
-	return t.UTC()
+	t, e := time.Parse(time.RFC3339, raw)
+	return t.UTC(), e == nil
+}
+func retailDate(i RetailPriceItem) time.Time { t, _ := retailTimestamp(i.EffectiveStartDate); return t }
+func retailSubnanoseconds(raw string) string {
+	if len(raw) <= 20 || raw[19] != '.' {
+		return ""
+	}
+	end := 20
+	for end < len(raw) && raw[end] >= '0' && raw[end] <= '9' {
+		end++
+	}
+	if end <= 29 {
+		return ""
+	}
+	return strings.TrimRight(raw[29:end], "0")
+}
+func retailFuture(item RetailPriceItem, now time.Time) bool {
+	if item.EffectiveStartDate == "" {
+		return false
+	}
+	d := retailDate(item)
+	return d.After(now) || d.Equal(now) && retailSubnanoseconds(item.EffectiveStartDate) != ""
+}
+func retailDateCompare(a, b RetailPriceItem) int {
+	// Absence is older than every dated row, including RFC3339's year0000.
+	if a.EffectiveStartDate == "" {
+		if b.EffectiveStartDate == "" {
+			return 0
+		}
+		return -1
+	}
+	if b.EffectiveStartDate == "" {
+		return 1
+	}
+	if n := retailDate(a).Compare(retailDate(b)); n != 0 {
+		return n
+	}
+	// Go truncates fractions to nanoseconds. Compare the remaining exact digits
+	// after UTC instant comparison; trailing zeroes carry no extra precision.
+	return strings.Compare(retailSubnanoseconds(a.EffectiveStartDate), retailSubnanoseconds(b.EffectiveStartDate))
 }
 
 func retailRequest(q RetailPricingRequest) ([]string, []string, bool) {
@@ -247,7 +291,7 @@ func (s *retailCollectionRun) metadata(items []RetailPriceItem) string {
 		if code := s.work(); code != "" {
 			return code
 		}
-		if !s.wanted[item.MeterID] || retailDate(item).After(s.q.Now) {
+		if !s.wanted[item.MeterID] || retailFuture(item, s.q.Now) {
 			continue
 		}
 		if code := s.bind(item.MeterID, item, "metadata"); code != "" {
@@ -288,7 +332,7 @@ func (s *retailCollectionRun) pricing(items []RetailPriceItem, index map[retailT
 		if code := s.work(); code != "" {
 			return code
 		}
-		if retailDate(item).After(s.q.Now) {
+		if retailFuture(item, s.q.Now) {
 			continue
 		}
 		for _, id := range index[retailKey(item)] {
@@ -313,12 +357,12 @@ func (s *retailCollectionRun) pricing(items []RetailPriceItem, index map[retailT
 				s.prices[id] = map[string]RetailPrice{}
 			}
 			old, present := s.prices[id][item.ArmRegionName]
-			date, previous := retailDate(item), retailDate(old.Item)
-			if !present || date.After(previous) {
+			dateComparison := retailDateCompare(item, old.Item)
+			if !present || dateComparison > 0 {
 				s.prices[id][item.ArmRegionName] = RetailPrice{id, item, false}
 				continue
 			}
-			if !date.Equal(previous) {
+			if dateComparison != 0 {
 				continue
 			}
 			if item.RetailPrice != old.Item.RetailPrice || retailIdentity(item) != retailIdentity(old.Item) {
@@ -349,7 +393,8 @@ func (s *retailCollectionRun) chain(initial string, metadata bool, index map[ret
 			return "retail_limit", nil
 		}
 		s.r.Counts.Requests++
-		body, resp, e := s.c.getter.GetBounded(s.ctx, current, 1<<20)
+		limit := min(int64(1<<20), (32<<20)-s.r.Counts.ReceivedBytes)
+		body, resp, e := s.c.getter.GetBounded(s.ctx, current, limit)
 		if cause := retailCause(s.ctx, e); cause != nil {
 			return "", cause
 		}
@@ -357,10 +402,10 @@ func (s *retailCollectionRun) chain(initial string, metadata bool, index map[ret
 		// retained by our transport's limit detector.
 		received := int64(len(body))
 		if errors.Is(e, errRetailLimit) && received == 0 {
-			received = (1 << 20) + 1
+			received = limit + 1
 		}
 		s.r.Counts.ReceivedBytes += received
-		if len(body) > 1<<20 || s.r.Counts.ReceivedBytes > 32<<20 || errors.Is(e, errRetailLimit) {
+		if int64(len(body)) > limit || s.r.Counts.ReceivedBytes > 32<<20 || errors.Is(e, errRetailLimit) {
 			return "retail_limit", nil
 		}
 

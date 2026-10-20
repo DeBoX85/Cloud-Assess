@@ -5280,3 +5280,8 @@ Initial narrow maintenance179failed unchanged go mod tidy/git-diff gate: go get 
 ## Task7 retail checkpoint, 2026-10-20
 
 Current authority: [CURRENT_STATE](CURRENT_STATE.md). Narrow security maintenance/task6 prerequisites are COMPLETE VERIFIED OFFLINE in180/9fe12612; final quality39440501477/source39440501617 and cf93d214evidence supersede dated pending/wait snapshots. Task7 private retail implementation is IN PROGRESS, preliminary52frozen+15prepared+additional boundary cases pass locally. Final controls/rollback/full own QA/evidence remain PENDING; task8 research only. Follow180explicit live successor and [implementation record](REGION_RETAIL_IMPLEMENTATION_20261020.md). Continue existing authorised independent batch, preserving all old heads/pins/gates and live/review/acceptance boundaries.
+
+
+## Task7 final preparation, 2026-10-20
+
+Current authority: [CURRENT_STATE](CURRENT_STATE.md). WIP181/44114c63 is fully published/read back and preserved. Corrected final retail slice includes strict/exact RFC3339 ordering, remaining-wire budgeting and expanded cost/limit/ownership/cancellation tests.42compiling reversals/restored baselines and full serial repository preflight passed locally. Original control selection/redundancy and date defects retained as QA-RETAIL-03/04;52frozen literals/source/consumer unchanged. Final rollback/native/source/archive remain pending; task8 not started. [Implementation record](REGION_RETAIL_IMPLEMENTATION_20261020.md) owns detail.

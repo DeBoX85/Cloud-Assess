@@ -271,6 +271,9 @@ jobs:
       - name: Verify SQL Database capability compiling controls
         run: python3 scripts/tests/sql-database-controls.py
 
+      - name: Verify retail pricing compiling controls
+        run: python3 scripts/tests/retail-controls.py
+
   linux-controls-2:
     runs-on: ubuntu-24.04
     timeout-minutes: 35
@@ -624,6 +627,9 @@ jobs:
 
       - name: Verify SQL report adapter compiling controls
         run: python scripts/tests/sql-report-controls.py
+
+      - name: Verify retail pricing compiling controls
+        run: python scripts/tests/retail-controls.py
 
   windows-controls-3:
     runs-on: windows-2022
