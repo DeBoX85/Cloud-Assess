@@ -13,8 +13,8 @@
     "CustomRulesSnapshotTree": "674b9b3dcb443ce6dc445b48e1db47e4a0ca7082"
   },
   "inputs": {
-    "go.mod": "40bada11ab162aeb9a870db251c9d428e56ec674073de2a156381845d134a089",
-    "go.sum": "baa37fd9f399fe98c351961e64ca605e059b89a9cd76ea3ac066191415509790",
+    "go.mod": "ae2060c07bebfad96c4ec88ece968dbe6ae0bcf31dc4cbdbde37434900f47f0d",
+    "go.sum": "e90b9eca26ae58b3ee3b11d8e180f8621eabd9a3c9810ae96058a2860cdcac1e",
     "internal/rules/embedded.go": "1715ec6e108b5d62490b4a0c91b904e1fc018ea39df82947fdc628a8ffa71f19",
     "internal/skus/skus.go": "9036aee8cd274afbf9034bed8f3b7ab1e19d52de5da481c370008a2493f259a3"
   },
@@ -389,13 +389,13 @@
     },
     {
       "path": "github.com/richardlehane/mscfb",
-      "version": "v1.0.7",
+      "version": "v1.0.8",
       "direct": false,
       "cliTargets": [
         "linux/amd64",
         "windows/amd64"
       ],
-      "sum": "h1:oeoiM0WE79vHwE8RpIYYvIAc8ajTH2mb6UZm55/+EB0=",
+      "sum": "h1:UXdg61fxF69/X9yMYuRHAWSrGXIul/UAPivAsUXMme8=",
       "goModSum": "h1:pe0+IUIc0AHh0+teNzBlJCtSyZdFOGgV4ZK9bsoV+Jo=",
       "notices": [
         {
@@ -533,14 +533,14 @@
     },
     {
       "path": "github.com/xuri/excelize/v2",
-      "version": "v2.11.0",
+      "version": "v2.11.1-0.20260915055537-22f76f9acb94",
       "direct": true,
       "cliTargets": [
         "linux/amd64",
         "windows/amd64"
       ],
-      "sum": "h1:HxaEFl6sRN2+8J5a8HaKq+0M4FsjBGMnWWtjOCPSG88=",
-      "goModSum": "h1:jxFLbzaIwGQ5ufFNvYfUOHqXhfPaNmP14KWfmNz2Uak=",
+      "sum": "h1:yPdJeJLC1uTN8zQBHE2nqHjZ15PfxU9xsX75vNcyy/c=",
+      "goModSum": "h1:WnwweQUkWv/3Y6OBVy0bgqN0zHAbn2N+i2zPUAXF1SI=",
       "notices": [
         {
           "file": "LICENSE",
@@ -602,11 +602,11 @@
     },
     {
       "path": "golang.org/x/image",
-      "version": "v0.38.0",
+      "version": "v0.44.0",
       "direct": false,
       "cliTargets": [],
-      "sum": "h1:5l+q+Y9JDC7mBOMjo4/aPhMDcxEptsX+Tt3GgRQRPuE=",
-      "goModSum": "h1:/3f6vaXC+6CEanU4KJxbcUZyEePbyKbaLoDOe4ehFYY=",
+      "sum": "h1:+tDekMZED9+LrtB3G5xzRggpVh9CARjZqROla3R3R+I=",
+      "goModSum": "h1:V8K3KE9KKKE+pLpQDOeN18w9oacNSvy1tDOirTu4xtY=",
       "notices": [
         {
           "file": "LICENSE",

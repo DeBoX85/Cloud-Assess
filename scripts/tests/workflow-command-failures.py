@@ -12,7 +12,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--powershell', default='pwsh')
     args = parser.parse_args()
-    workflow = (ROOT / '.github/workflows/test.yml').read_text(encoding='utf-8').split('  windows-validation:', 1)[1]
+    workflow = (ROOT / '.github/workflows/test.yml').read_text(encoding='utf-8').split('  windows-native:', 1)[1].split('\n  windows-controls-', 1)[0]
     names = ['Validate branding builder and actual native executables',
              'Test Windows candidate package integrity and isolated installation']
     with tempfile.TemporaryDirectory(prefix='cloud-assess-workflow-exit-') as directory:
