@@ -2448,3 +2448,8 @@ Denis authorised the bounded Excelize update; the earlier decision pause is hist
 ## QA-EXCELIZE-02, 2026-10-20
 
 Initial narrow maintenance179failed unchanged go mod tidy/git-diff gate: go get left stale go.sum lines. Original179head/full failed Linux log preserved. Corrected successor removes only obsolete sums/adds required x/image module checksum and regenerates inventory input hash; versions, tests, source pins and notice bytes unchanged. Verify exact atomic pair rollback/restoration and full own native/source QA. Prevention: dependency publication additionally requires go mod tidy followed by an empty go mod tidy -diff and regenerated/check inventory; ordinary dev-preflight does not cover this dependency-specific gate. No suppression/bypass/retry without cause.
+
+
+## QA-RETAIL-02, 2026-10-20
+
+Current authority: [CURRENT_STATE](CURRENT_STATE.md). Initial retail development compile collided with prepared retailRun test helper; renamed production type only. No frozen expectation change or product defect proof. Subsequent full TestRetail run passes. Preserve independent test namespaces during implementation. A transient exec-server disconnect was resolved by checking actual state before resuming.

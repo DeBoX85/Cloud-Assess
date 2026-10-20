@@ -1,6 +1,14 @@
 # Current project state
 
-Updated 2026-10-19T19:57:53.132308+00:00. This is the current status/resume authority. Earlier dated progress, executor, pending and STOP paragraphs are historical snapshots. Technical contracts remain active unless explicitly revised. The live task PR owns exact-revision QA outcomes.
+Updated 2026-10-20T15:15:14.103998+00:00. This is the current status/resume authority. Earlier dated progress, executor, pending and STOP paragraphs are historical snapshots. Technical contracts remain active unless explicitly revised. The live task PR owns exact-revision QA outcomes.
+
+## Active retail implementation, 2026-10-20
+
+Narrow security maintenance and task6 prerequisites COMPLETE VERIFIED OFFLINE at draft180/9fe1261260f55d9796917686a4f0bc10d1cd9490. Own quality39440501477 and source39440501617 passed; full evidence and restart record at cf93d2149e194e4c29622336d3344e41ccd72301. This actual closure supersedes all earlier pending/wait-for-decision/no-retail-production snapshots below. Residual3imported-not-called/1module-only advisories remain OPEN. Protected a6fee427 and source pins unchanged.
+
+Task7 IN PROGRESS in isolated retail-implementation-20261020 from exact180. [Implementation/QA record](REGION_RETAIL_IMPLEMENTATION_20261020.md) owns current detail. Preserved178consumer and independently prepared supplemental cases carried without expectation changes;52frozen cases plus15prepared tests and additional adversarial/budget tests pass locally. Private collector implemented; own final full QA/compiling controls/rollback/evidence remain PENDING. Follow180explicit live successor to published WIP, verify its exact head before editing. Never use evidence archives as code bases or call WIP certified.
+
+Next: finish review and compiling CI controls, full serial preflight/rollback, final exact-head Linux/Windows/source/log review and archive, then reevaluate/update handover before task8 inventory contract. Task8 research only. Continue authorised independent batch without reapproval; stop/document/wait only for an unresolved critical issue or actual new authorisation boundary. No Azure/fixtures/RBAC/subagents/protected merge/bypass/release/unrelated refresh. Older dated sections are historical snapshots; frozen behavioral contracts remain active.
 
 ## Approved narrow remediation, 2026-10-20T14:28:06.367019+00:00
 

@@ -79,3 +79,8 @@ Denis authorised the bounded Excelize update; the earlier decision pause is hist
 ## QA-EXCELIZE-02, 2026-10-20
 
 Initial narrow maintenance179failed unchanged go mod tidy/git-diff gate: go get left stale go.sum lines. Original179head/full failed Linux log preserved. Corrected successor removes only obsolete sums/adds required x/image module checksum and regenerates inventory input hash; versions, tests, source pins and notice bytes unchanged. Verify exact atomic pair rollback/restoration and full own native/source QA. Prevention: dependency publication additionally requires go mod tidy followed by an empty go mod tidy -diff and regenerated/check inventory; ordinary dev-preflight does not cover this dependency-specific gate. No suppression/bypass/retry without cause.
+
+
+## Task7 retail checkpoint, 2026-10-20
+
+Current authority: [CURRENT_STATE](CURRENT_STATE.md). Narrow security maintenance/task6 prerequisites are COMPLETE VERIFIED OFFLINE in180/9fe12612; final quality39440501477/source39440501617 and cf93d214evidence supersede dated pending/wait snapshots. Task7 private retail implementation is IN PROGRESS, preliminary52frozen+15prepared+additional boundary cases pass locally. Final controls/rollback/full own QA/evidence remain PENDING; task8 research only. Follow180explicit live successor and [implementation record](REGION_RETAIL_IMPLEMENTATION_20261020.md). Continue existing authorised independent batch, preserving all old heads/pins/gates and live/review/acceptance boundaries.
