@@ -16,6 +16,8 @@ The complete all-events check covers75runs (64PR/11push),444job records and416re
 
 ## Active checkpoint and next action
 
+Task7 test-only preparation: strict52case consumer published while retail APIs are absent. This is expected compilation failure, not runtime coverage or a product regression. Inspect both actual native missing APIs and close task6 own QA before production. Preserve this runner/frozen inputs; next production branch must have this preparation as its parent.
+
 2026-10-20 autonomous batch: verified PR176 exact1ededa50 and complete ce8cdcd1 evidence/recovery readback; restored local executor and created isolated retail-contract-20261020 checkout. Older dirty worktrees preserved. Task6 [retail contract](REGION_RETAIL_CONTRACT_20261020.md) and52future literal cases frozen before production; its own native/source QA and evidence remain PENDING. No retail API exists. Next publish/verify contract QA, then strict task7 consumer/BOTH native missing APIs before production. Task8 follows task7 reevaluation. Historical pending/outage statements below are superseded only by this observed recovery; no new live evidence.
 
 Tasks1-5 of the authorised15-task [programme](MVP_PROGRAMME_20261019.md) are complete offline. [Sequence](OFFLINE_SEQUENCE_20261019.md) and [acceptance matrix](MVP_ACCEPTANCE_MATRIX_20261019.md) retain core-v1 versus broader parity. Completed SQL/Cognitive/VMSS/report/history work must not be replayed from old snapshots.
