@@ -1,0 +1,363 @@
+[
+  {
+    "path": "go.mod",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "0e84a8fd7d6099c08b89702f07b4e476511882b0",
+    "sha256": "ae2060c07bebfad96c4ec88ece968dbe6ae0bcf31dc4cbdbde37434900f47f0d",
+    "bytes": 1476,
+    "read": "complete returned source reviewed",
+    "note": "Changed security-toolchain versions separately reviewed; untouched source baseline read"
+  },
+  {
+    "path": "internal/app/scan.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "7a8400c35c19ca7c3e1ce75fcf843b73de4a155b",
+    "sha256": "84f53833a03aa72c3f65c66c96780fafb939a0ee44d380f4615660b5375a86a3",
+    "bytes": 5877,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/assessment/advisor.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "600c865cf1e575c7eb1ea3b276425b4d4c40118c",
+    "sha256": "e2cd9b64f14d6ceda541c88b9c662eee2e64cd7e58518e2ea7c8b18432419c88",
+    "bytes": 658,
+    "read": "complete returned source reviewed",
+    "note": "Changed security-toolchain versions separately reviewed; untouched source baseline read"
+  },
+  {
+    "path": "internal/assessment/arcsql.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "7805b19d055e20fea2efa08245e19d7b96af746d",
+    "sha256": "ae3636351d09577e061ebc0f7c19a379a4aa373b8cbb51ecdbd1826fd2bd1ae5",
+    "bytes": 803,
+    "read": "complete returned source reviewed",
+    "note": "Changed security-toolchain versions separately reviewed; untouched source baseline read"
+  },
+  {
+    "path": "internal/assessment/cost.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "1ea0f29b29b434462725a9b5830500dbc8d802d2",
+    "sha256": "5e5adc5234ea4842c3337c38f18bfefb3009a4eee179648b7ab3347bb0827869",
+    "bytes": 480,
+    "read": "complete returned source reviewed",
+    "note": "Changed security-toolchain versions separately reviewed; untouched source baseline read"
+  },
+  {
+    "path": "internal/assessment/defender.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "81342db7f4ccd410667b2eb67cdec527faa5db7f",
+    "sha256": "c34c726b2c4e8f671c5bdbdbc07168012f3671c47e4e43135cc92702a6b3af7b",
+    "bytes": 1182,
+    "read": "complete returned source reviewed",
+    "note": "Changed security-toolchain versions separately reviewed; untouched source baseline read"
+  },
+  {
+    "path": "internal/assessment/plugin_tables.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "8582cd8d953ccb39726e67e8bd0b55ef7e94c179",
+    "sha256": "8bca7c051e5bb42502fb2a5f6207106ae54caf54114d60ed0e9e66f4cae82be8",
+    "bytes": 5964,
+    "read": "complete returned source reviewed",
+    "note": "Changed security-toolchain versions separately reviewed; untouched source baseline read"
+  },
+  {
+    "path": "internal/assessment/policy.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "cf2c01227b6809b8286439c4557d48aa4ba12c5b",
+    "sha256": "82ea52447e6d54db96b1586b5ffff462dade67ad348daf684fbc5ae7a9e64e76",
+    "bytes": 924,
+    "read": "complete returned source reviewed",
+    "note": "Changed security-toolchain versions separately reviewed; untouched source baseline read"
+  },
+  {
+    "path": "internal/assessment/severity.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "eca6a403f225234868146b83a49535a54efd6037",
+    "sha256": "007543d23b357cdacf8f392b6a13e470b5055f44d68b2ac5270d150de05a2a63",
+    "bytes": 524,
+    "read": "complete returned source reviewed",
+    "note": "Changed security-toolchain versions separately reviewed; untouched source baseline read"
+  },
+  {
+    "path": "internal/assessment/types.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "5219513683b189cba4498eaff379f31fb67965ea",
+    "sha256": "488b02d881e31249d078874c5a62f66c841aec6b535a36a8cdbb41c1bb1cb580",
+    "bytes": 5404,
+    "read": "complete returned source reviewed",
+    "note": "Changed security-toolchain versions separately reviewed; untouched source baseline read"
+  },
+  {
+    "path": "internal/azure/arm_boundary.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "e3606208cf4a1f1a80d99494b95eb9f1bd6a75cc",
+    "sha256": "67da256b7b503f4b01bcdb1cb505128b1675e626d64bea2590359a7c2f92f108",
+    "bytes": 2009,
+    "read": "complete returned source reviewed",
+    "note": "Changed security-toolchain versions separately reviewed; untouched source baseline read"
+  },
+  {
+    "path": "internal/azure/arm_boundary_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "9a1958596435f8e38eb5f2d46f5387b2879839d4",
+    "sha256": "e41490ba29cd38db04afeec2768b50a944cf4e3441a04851bca5adcb49afaaa7",
+    "bytes": 2233,
+    "read": "complete returned source reviewed",
+    "note": "Changed security-toolchain versions separately reviewed; untouched source baseline read"
+  },
+  {
+    "path": "internal/azure/bounded_get.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "71413fe6db9a4bedd4715fecc59458b175923a9d",
+    "sha256": "3ff2d9ba03b9835414bb757a88be10cb48650c031b28d92715d1bfc5a21bcbfb",
+    "bytes": 4078,
+    "read": "complete returned source reviewed",
+    "note": "Changed security-toolchain versions separately reviewed; untouched source baseline read"
+  },
+  {
+    "path": "internal/azure/bounded_get_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "7679ce7fbbd0efb10be7b5561a393be8b2db5452",
+    "sha256": "e2941a18d5147aec7d79c44f534cdf8af9ea78d2e1d7f35554b6e305e68e2c4e",
+    "bytes": 4547,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/azure/bounded_post_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "f111eab3f9982cf7939a58fec094cf1311d46123",
+    "sha256": "6c4ea5f3b0ee4da70e6d135723c3585736090c6fe14ff7f70ef637fc89e6c3e8",
+    "bytes": 3553,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/azure/client_options.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "af6ea4b0f6d3eba0bf0f5d47f4d0e8c1973d28d8",
+    "sha256": "57baba7412e5cc26fcb6e84a0afb826ecae1a6e900d0b39a4e5ac6f4d2079e42",
+    "bytes": 768,
+    "read": "complete returned source reviewed",
+    "note": "Changed security-toolchain versions separately reviewed; untouched source baseline read"
+  },
+  {
+    "path": "internal/azure/client_options_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "a40acbc5b66ef314348321132af8b5eaacc7f7ba",
+    "sha256": "e9c46354e79bf93fa765d43ac06b8dd5ea4887d13a20893f4eb94c7a9755db9b",
+    "bytes": 1541,
+    "read": "complete returned source reviewed",
+    "note": "Changed security-toolchain versions separately reviewed; untouched source baseline read"
+  },
+  {
+    "path": "internal/azure/cloud.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "c5d9a2a080bc689180bfa15041c5636df13f2a44",
+    "sha256": "fa4f20ffa72114f45c9f1ec2d8c5ca92ab92355ea46ca73e759c96094929fb3c",
+    "bytes": 2232,
+    "read": "complete returned source reviewed",
+    "note": "Changed security-toolchain versions separately reviewed; untouched source baseline read"
+  },
+  {
+    "path": "internal/azure/cloud_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "d56a6172defc3af21166f0468a7fe6d44345a51d",
+    "sha256": "d49580fc581632fd63082447622421e1f6e160a380ffd1bc7f353440ac83d3bf",
+    "bytes": 3975,
+    "read": "complete returned source reviewed",
+    "note": "Changed security-toolchain versions separately reviewed; untouched source baseline read"
+  },
+  {
+    "path": "internal/azure/credential.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "5afa22163e2bae2f03aa427ff5744eddc6b9023a",
+    "sha256": "a4cb40607620ecefc3b8954fd52499df2ee1752c9ef6cbe7d8adcf2a8bc466a4",
+    "bytes": 746,
+    "read": "complete returned source reviewed",
+    "note": "Changed security-toolchain versions separately reviewed; untouched source baseline read"
+  },
+  {
+    "path": "internal/azure/errors.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "d28cde817367348b86877961c0b76ab74afcd21d",
+    "sha256": "e8d356070d7fefa6ffdd7c28fd49d44a51c19e1b534f851a671873765ba22036",
+    "bytes": 707,
+    "read": "complete returned source reviewed",
+    "note": "Changed security-toolchain versions separately reviewed; untouched source baseline read"
+  },
+  {
+    "path": "internal/azure/http_client.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "a096e389ea6124faa4253f98186562d069b2b5b9",
+    "sha256": "78be20f420a8de4336a8f8a5e1c0031638d692603bb7008162b94cf11bde9686",
+    "bytes": 5888,
+    "read": "complete returned source reviewed",
+    "note": "Changed security-toolchain versions separately reviewed; untouched source baseline read"
+  },
+  {
+    "path": "internal/azure/http_client_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "6367f9ae4eefdec7125212c09d51942c02571c4a",
+    "sha256": "14372510ef7509bd11f26bf31a4100b813833868dc70e299cf8914fae5b0aed1",
+    "bytes": 13878,
+    "read": "complete returned source reviewed",
+    "note": "Changed security-toolchain versions separately reviewed; untouched source baseline read"
+  },
+  {
+    "path": "internal/azure/resourceid.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "1033f240db30820066a4e09af50097c8c29149e8",
+    "sha256": "f34ccbb2e630268e58501b1c1c9770b94a68d92b84fefbcea71effd6c0c7e24a",
+    "bytes": 1304,
+    "read": "complete returned source reviewed",
+    "note": "Changed security-toolchain versions separately reviewed; untouched source baseline read"
+  },
+  {
+    "path": "internal/azure/resourceid_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "66a16170e9be8277dd83d94f9eb3c1a896246946",
+    "sha256": "cf1330dafe2d0b54b384579f1c09a072dbf5f8015a3c761f36fc3f550f880330",
+    "bytes": 1385,
+    "read": "complete returned source reviewed",
+    "note": "Changed security-toolchain versions separately reviewed; untouched source baseline read"
+  },
+  {
+    "path": "internal/orchestration/coordinator.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "ffd707e55b58f486525aa5a884cebe29ee807c00",
+    "sha256": "2bb036aead5d75873a04105ee44e6929ed1d5a5bfcbf62504bd7eb3e4fe8d99d",
+    "bytes": 23561,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/orchestration/operations.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "db99c5d23dbc08715280421b5c1ae237e237077b",
+    "sha256": "352e057738062f7ba8953e7b8c8d8065dc043fae142fe20d858743c497567fdc",
+    "bytes": 8464,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/orchestration/scope.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "76c5849a372ff6ed1818428f734f3252c4e3827e",
+    "sha256": "1b247ffbfa2b723528727eb861caba1e85a8972697cb0c6e6568801cf341b9c1",
+    "bytes": 2252,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/registry.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "0e7e6810d481c5c7e806ee6469daf3c03f3f33c4",
+    "sha256": "0abf03fd700d340a63962b0292c780b2f62ddf6e0e4bca361712fcba26c9c9a2",
+    "bytes": 8975,
+    "read": "complete returned source reviewed",
+    "note": "Changed security-toolchain versions separately reviewed; untouched source baseline read"
+  },
+  {
+    "path": "scripts/bootstrap-workspace.sh",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "53be7d565640c8d873760f8e063163e231233f86",
+    "sha256": "b5b20f3fc6579121da33ba43fd1569238f6ad5e3282353c172fca3b6ca891480",
+    "bytes": 6242,
+    "read": "complete returned source reviewed",
+    "note": "Changed security-toolchain versions separately reviewed; untouched source baseline read"
+  },
+  {
+    "path": "scripts/ci/generate_gate_probe.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "fccfa26b5fe13ab652c9bdafc6c506444c0ab84f",
+    "sha256": "1beee0b7ef20d7a2802f87cb15b6dfc1f0568f9e3116fcb389a6eb6c9650eb6a",
+    "bytes": 2789,
+    "read": "complete returned source reviewed",
+    "note": "Changed security-toolchain versions separately reviewed; untouched source baseline read"
+  },
+  {
+    "path": "scripts/ci/generate_quality_workflow.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "0e55d758cf2d29b1f46f023f2ce3004f79b4f3f6",
+    "sha256": "4677827b97498b6e33766bedc1873dd7e0ca3c07e06edd7aeacf6b501435d664",
+    "bytes": 7010,
+    "read": "complete returned source reviewed",
+    "note": "Changed security-toolchain versions separately reviewed; untouched source baseline read"
+  },
+  {
+    "path": "scripts/ci/required_gate.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "eb4d0b36f5a90c35b6951e902661c8dd7eb400b8",
+    "sha256": "6a37b9dfc4782a0ec566c0190a87f5adcff29f34ec1b1ce942cd9355e8c3bc9a",
+    "bytes": 1529,
+    "read": "complete returned source reviewed",
+    "note": "Changed security-toolchain versions separately reviewed; untouched source baseline read"
+  },
+  {
+    "path": "scripts/dependency-inventory.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "f76d92a0d36d5ee506a5f5a7972a0a5211ae7812",
+    "sha256": "6ca0832d86393d498de1f887fc89ce76d262dd1c0e96da5bfab9d9d57b783d1c",
+    "bytes": 8405,
+    "read": "complete returned source reviewed",
+    "note": "Changed security-toolchain versions separately reviewed; untouched source baseline read"
+  },
+  {
+    "path": "scripts/dev-preflight.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "745c28dc97728c39e6fe97336fa215be92a0d55c",
+    "sha256": "2cbbb6fbf44e6672b120d3579a6f153f05d2f6e321d6f8441d4db2db30dbf6ae",
+    "bytes": 2329,
+    "read": "complete returned source reviewed",
+    "note": "Changed security-toolchain versions separately reviewed; untouched source baseline read"
+  },
+  {
+    "path": "scripts/tests/bootstrap-workspace.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "3a3650f9d5e45a61c4a104f495a9d2f4a2c88729",
+    "sha256": "da683093b6f0ae19cc6d6226d7ac41e5a5d3877b8ae227d12d284567d5f1920b",
+    "bytes": 4745,
+    "read": "complete returned source reviewed",
+    "note": "Changed security-toolchain versions separately reviewed; untouched source baseline read"
+  },
+  {
+    "path": "scripts/tests/ci-workflow.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "35f01e1c3f56fa7e11e852fb8c23569e13d09098",
+    "sha256": "05c590ba1208c3eff75c15ad73a65a7a20ace45fe14e763963d6892373d0ab29",
+    "bytes": 8580,
+    "read": "complete returned source reviewed",
+    "note": "Changed security-toolchain versions separately reviewed; untouched source baseline read"
+  },
+  {
+    "path": "scripts/tests/dependency-inventory.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "b5e4e6b8bd178772c7a98e0facd6e3707ae00ffd",
+    "sha256": "3b532d09b0bfce25fbb6a649fb26b7a96f89d35c2bfb9de386f2bc2e6b67b791",
+    "bytes": 5932,
+    "read": "complete returned source reviewed",
+    "note": "Changed security-toolchain versions separately reviewed; untouched source baseline read"
+  },
+  {
+    "path": "scripts/tests/qa-mutation.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "d6e8ee02f9e47773be9e059b430b232eab8a586b",
+    "sha256": "84ec55f0569f08c65f4249bea97e99dd02755d3dcd8055e5856c1a995add4b0a",
+    "bytes": 1909,
+    "read": "complete returned source reviewed",
+    "note": "Changed security-toolchain versions separately reviewed; untouched source baseline read"
+  },
+  {
+    "path": "scripts/tests/region-source-capture.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "e6a4873624db9f5fbfb63bc360c93be0e4d14af4",
+    "sha256": "0b4bb4c6daf56deab9ec1ba7b1ef658f732e3253429b6d187a2ffcef82791d7c",
+    "bytes": 10324,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "scripts/verify-evidence-bundle.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "f98509fad2407063c0a131e9d09a64339cafb3d7",
+    "sha256": "46a69f88c06dd933b03c70f4942b97d811088f3640a60d4504f4d7a94df8e59c",
+    "bytes": 5298,
+    "read": "complete returned source reviewed"
+  }
+]
