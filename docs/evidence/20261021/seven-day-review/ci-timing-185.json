@@ -1,0 +1,196 @@
+{
+  "run": 39594186699,
+  "head": "566cc4d8b78d168e5216245a5a386f742a3a2f85",
+  "workers": [
+    {
+      "name": "windows-native",
+      "wall_seconds": 220.0,
+      "creation_to_start_seconds": 4.0,
+      "steps": [
+        {
+          "name": "Test Go packages on Windows",
+          "seconds": 75.0
+        },
+        {
+          "name": "Test Windows candidate package integrity and isolated installation",
+          "seconds": 45.0
+        },
+        {
+          "name": "Build and smoke-test Windows CLI",
+          "seconds": 18.0
+        }
+      ]
+    },
+    {
+      "name": "linux-controls-2",
+      "wall_seconds": 948.0,
+      "creation_to_start_seconds": 4.0,
+      "steps": [
+        {
+          "name": "Verify SQL Managed Instance capability compiling controls",
+          "seconds": 148.0
+        },
+        {
+          "name": "Verify VM SKU collector compiling controls",
+          "seconds": 144.0
+        },
+        {
+          "name": "Verify Storage SKU collector compiling controls",
+          "seconds": 126.0
+        }
+      ]
+    },
+    {
+      "name": "linux-native",
+      "wall_seconds": 533.0,
+      "creation_to_start_seconds": 4.0,
+      "steps": [
+        {
+          "name": "Test with race detector",
+          "seconds": 198.0
+        },
+        {
+          "name": "Bounded comparator, scope and row-decoder fuzzing",
+          "seconds": 83.0
+        },
+        {
+          "name": "Verify coverage floor",
+          "seconds": 74.0
+        }
+      ]
+    },
+    {
+      "name": "windows-controls-3",
+      "wall_seconds": 1350.0,
+      "creation_to_start_seconds": 4.0,
+      "steps": [
+        {
+          "name": "Verify Cognitive SKU catalog compiling controls",
+          "seconds": 301.0
+        },
+        {
+          "name": "Verify Windows REST quota collector tests reject selected mutations",
+          "seconds": 185.0
+        },
+        {
+          "name": "Verify Windows reservation collector tests reject selected mutations",
+          "seconds": 170.0
+        }
+      ]
+    },
+    {
+      "name": "linux-controls-3",
+      "wall_seconds": 845.0,
+      "creation_to_start_seconds": 4.0,
+      "steps": [
+        {
+          "name": "Verify Cognitive SKU catalog compiling controls",
+          "seconds": 185.0
+        },
+        {
+          "name": "Verify provider collector compiling controls",
+          "seconds": 113.0
+        },
+        {
+          "name": "Verify REST quota collector tests reject selected mutations",
+          "seconds": 110.0
+        }
+      ]
+    },
+    {
+      "name": "windows-controls-1",
+      "wall_seconds": 1363.0,
+      "creation_to_start_seconds": 4.0,
+      "steps": [
+        {
+          "name": "Verify SQL Database capability compiling controls",
+          "seconds": 242.0
+        },
+        {
+          "name": "Verify VM SKU collector compiling controls",
+          "seconds": 218.0
+        },
+        {
+          "name": "Verify meter history compiling controls",
+          "seconds": 170.0
+        }
+      ]
+    },
+    {
+      "name": "linux-controls-1",
+      "wall_seconds": 666.0,
+      "creation_to_start_seconds": 4.0,
+      "steps": [
+        {
+          "name": "Verify SQL Database capability compiling controls",
+          "seconds": 128.0
+        },
+        {
+          "name": "Verify retail pricing compiling controls",
+          "seconds": 117.0
+        },
+        {
+          "name": "Verify Section 2 compiling regressions",
+          "seconds": 99.0
+        }
+      ]
+    },
+    {
+      "name": "windows-controls-2",
+      "wall_seconds": 1214.0,
+      "creation_to_start_seconds": 4.0,
+      "steps": [
+        {
+          "name": "Verify retail pricing compiling controls",
+          "seconds": 187.0
+        },
+        {
+          "name": "Verify SQL Managed Instance capability compiling controls",
+          "seconds": 166.0
+        },
+        {
+          "name": "Verify Windows provider collector compiling controls",
+          "seconds": 148.0
+        }
+      ]
+    },
+    {
+      "name": "quality",
+      "wall_seconds": 6.0,
+      "creation_to_start_seconds": 956.0,
+      "steps": [
+        {
+          "name": "Checkout gate validator",
+          "seconds": 2.0
+        },
+        {
+          "name": "Set up job",
+          "seconds": 1.0
+        },
+        {
+          "name": "Require every native worker to succeed",
+          "seconds": 0.0
+        }
+      ]
+    },
+    {
+      "name": "windows-validation",
+      "wall_seconds": 5.0,
+      "creation_to_start_seconds": 1370.0,
+      "steps": [
+        {
+          "name": "Checkout gate validator",
+          "seconds": 2.0
+        },
+        {
+          "name": "Set up job",
+          "seconds": 0.0
+        },
+        {
+          "name": "Require every native worker to succeed",
+          "seconds": 0.0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+"""Check exact reviewed mutation admission guards using real offline Go output."""
+import ast
+import hashlib
+import json
+import os
+from pathlib import Path
+import subprocess
+import tempfile
+from types import SimpleNamespace
+
+root = Path(__file__).resolve().parent
+scripts = ('sql-database-controls.py', 'sql-mi-controls.py', 'sql-report-controls.py',
+           'scope-redaction-controls.py', 'meter-history-controls.py', 'retail-controls.py')
+go = root / 'tooling/go/bin/go'
+with tempfile.TemporaryDirectory(prefix='cloud-assess-audit-admission-') as directory:
+    directory = Path(directory)
+    path = directory / 'admission_test.go'
+    path.write_text('''package admission
+import "testing"
+func TestAuditAssertionFailure(t *testing.T) { t.Fatal("independent expected assertion failure") }
+func TestAuditPanickedControl(t *testing.T) { panic("independent panic must not count as assertion proof") }
+''')
+    observations = []
+    for name in ('TestAuditAssertionFailure', 'TestAuditPanickedControl'):
+        env = dict(os.environ, GOTOOLCHAIN='local', GOMAXPROCS='4')
+        result = subprocess.run([str(go), 'test', str(path), '-run', '^' + name + '$', '-count=1'],
+                                env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+                                text=True, encoding='utf-8', timeout=60)
+        assert result.returncode == 1 and '--- FAIL: ' + name in result.stdout
+        (root / (name + '.log')).write_bytes(result.stdout.encode('utf-8'))
+        admissions = []
+        for script in scripts:
+            source_path = root / 'audit-code/scripts/tests' / script
+            source = source_path.read_bytes()
+            tree = ast.parse(source)
+            checks = [node for node in ast.walk(tree) if isinstance(node, ast.Assert)
+                      and ('result.returncode' in ast.unparse(node.test) or 'result.stdout' in ast.unparse(node.test))]
+            assert len(checks) == 3
+            namespace = {'result': result, 'm': {'name': 'audit-only', 'test': name}}
+            try:
+                exec(compile(ast.fix_missing_locations(ast.Module(body=checks, type_ignores=[])), str(source_path), 'exec'), namespace)
+                admitted = True
+            except AssertionError:
+                admitted = False
+            admissions.append({'script': script, 'source_sha256': hashlib.sha256(source).hexdigest(),
+                               'admitted_as_compiling_named_failure': admitted,
+                               'exact_guard_source': [ast.get_source_segment(source.decode(), node) for node in checks]})
+        observations.append({'test': name, 'go_exit': result.returncode,
+                             'log_sha256': hashlib.sha256(result.stdout.encode()).hexdigest(),
+                             'admissions': admissions})
+    assert all(x['admitted_as_compiling_named_failure'] for x in observations[0]['admissions'])
+    assert [x['admitted_as_compiling_named_failure'] for x in observations[1]['admissions']] == [True] * 4 + [False] * 2
+    output = {'purpose': 'independent audit of admission guards, no production mutation or historical rerun',
+              'toolchain': subprocess.check_output([str(go), 'version'], text=True).strip(),
+              'observations': observations}
+    (root / 'mutation-failure-admission-probe.json').write_text(json.dumps(output, indent=2) + '\n')
+    print(json.dumps({'assertion_control': 'all six admit expected failure',
+                      'panic_control': 'four SQL/scope drivers admit panic; meter-history/retail reject it',
+                      'production_modified': False}))

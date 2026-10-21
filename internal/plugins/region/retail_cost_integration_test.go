@@ -1,0 +1,74 @@
+package region
+
+import (
+	"context"
+	"encoding/json"
+	"net/http"
+	"reflect"
+	"testing"
+)
+
+func TestRetailCostArithmeticAndUnrelatedFields(t *testing.T) {
+	for _, partial := range []bool{false, true} {
+		c, _ := NewRetailCollector(retailTestGetter(func(_ context.Context, raw string, _ int64) ([]byte, *http.Response, error) {
+			var page map[string]any
+			json.Unmarshal([]byte(retailFixture(t)), &page)
+			original := page["Items"].([]any)[0].(map[string]any)
+			target := map[string]any{}
+			for k, v := range original {
+				target[k] = v
+			}
+			target["armRegionName"] = "westeurope"
+			target["meterId"] = "target-meter"
+			target["retailPrice"] = 4
+			target["unitPrice"] = 4
+			items := []any{original, target}
+			if partial {
+				other := map[string]any{}
+				for k, v := range target {
+					other[k] = v
+				}
+				other["retailPrice"] = 6
+				other["unitPrice"] = 6
+				items = append(items, other)
+			}
+			page["Items"] = items
+			body, _ := json.Marshal(page)
+			return body, &http.Response{StatusCode: 200}, nil
+		}))
+		q := retailQ()
+		q.Regions = []string{"eastus", "westeurope"}
+		r, e := c.Collect(context.Background(), q)
+		if e != nil {
+			t.Fatal(e)
+		}
+		status, prices := r.Evidence()
+		input, _ := costRuntimeInput()
+		before, _ := json.Marshal(input)
+		history := map[string]CostHistoryEvidence{input[0].SubscriptionID: {Complete: true, Meters: []HistoricalCostMeter{{MeterID: "m1", HistoricalCost: 1}}}}
+		got, e := EnrichCost(context.Background(), map[string]string{input[0].SubscriptionID: input[0].SubscriptionName}, input, &CostEnrichmentEvidence{History: history, PricingStatus: status, RegionPricing: prices})
+		if e != nil {
+			t.Fatal(e)
+		}
+		want := 100.
+		if partial {
+			want = 0
+		}
+		if got.Comparisons[0].HasCostData == partial || got.Comparisons[0].AvgCostDifference != want {
+			t.Fatal("retail eligibility/weighted arithmetic", partial, got)
+		}
+		unchanged := input[0]
+		actual := got.Comparisons[0]
+		unchanged.HasCostData = false
+		unchanged.AvgCostDifference = 0
+		actual.HasCostData = false
+		actual.AvgCostDifference = 0
+		if !reflect.DeepEqual(actual, unchanged) {
+			t.Fatal("non-cost comparison fields changed", actual, unchanged)
+		}
+		after, _ := json.Marshal(input)
+		if string(before) != string(after) {
+			t.Fatal("input comparison mutated")
+		}
+	}
+}
