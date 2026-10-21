@@ -1,5 +1,10 @@
 # Concrete offline sequence and first reevaluation
 
+## Current checkpoint, 2026-10-21
+
+Read [CURRENT_STATE](CURRENT_STATE.md) and [transfer](CHAT_TRANSFER_20261021.md). Security/task6prerequisites complete180; task7retail own hosted QA passes183(622Linux/617Windows,87.6%coverage), with formal archive reconciliation/closure OPEN. Execution reads recovered; raw local controls/preflight/rollback/failure proof and task8provisional files retained under evidence/20261021/recovered-local. Task8not frozen/not implemented. Earlier pending/STOP/no-production and old task counters below are historical snapshots; behavioral contracts stay active. This new handover tree needs its own QA; live PR owns actual outcomes.
+
+
 Current authority: [CURRENT_STATE](CURRENT_STATE.md). Requirements: [acceptance matrix](MVP_ACCEPTANCE_MATRIX_20261019.md). Programme safeguards: [programme](MVP_PROGRAMME_20261019.md). User authorisation is the 2026-10-19 conversation. All rows are offline; no row grants Azure, protected acceptance, release, dependency/source refresh or new public schema authority.
 
 ## First reevaluation, after tasks1-3

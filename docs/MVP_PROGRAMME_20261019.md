@@ -1,5 +1,10 @@
 # Offline completion programme, 2026-10-19
 
+## Current checkpoint, 2026-10-21
+
+Read [CURRENT_STATE](CURRENT_STATE.md) and [transfer](CHAT_TRANSFER_20261021.md). Security/task6prerequisites complete180; task7retail own hosted QA passes183(622Linux/617Windows,87.6%coverage), with formal archive reconciliation/closure OPEN. Execution reads recovered; raw local controls/preflight/rollback/failure proof and task8provisional files retained under evidence/20261021/recovered-local. Task8not frozen/not implemented. Earlier pending/STOP/no-production and old task counters below are historical snapshots; behavioral contracts stay active. This new handover tree needs its own QA; live PR owns actual outcomes.
+
+
 Current authority: [CURRENT_STATE](CURRENT_STATE.md). This programme records the user's 2026-10-19 authorisation for 15 purposeful offline tasks, research whenever confidence is 90% or lower, self-reevaluation and mandatory escalation of unresolved critical issues. It does not authorise Azure operations, protected acceptance or release.
 
 ## Task 1: recovered repository and evidence reconciliation

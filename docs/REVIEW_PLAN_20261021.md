@@ -1,0 +1,19 @@
+# Security remediation and seven-day review plan
+
+Denis approved the narrow Go1.26.9to1.26.10security update, full QA and rollback verification on2026-10-21. He also requested expanded QA over the last seven days because of outages, handover drift and scope confusion, a complete codebase read, primary-source best-practice research and comparison with similar GitHub projects. The final report must explain purpose, actual progress, remaining tasks, risks, blockers and roadmap; recommend quality/process/speed improvements without reducing reliability/security; collect all unresolved questions at the end.
+
+## Work order and evidence
+
+1. Preserve current refs and unrelated worktrees; pin audit window and request-time metadata, inventory every tracked first-party file with blob hashes. Record exactly which bytes were read and reviewed; a hash or prior review alone is not a new code read.
+2. In isolated fix/go-1.26.10-security-20261021 based on exact product183/458d5c5296c321c8e5e961f18eb5422d43c2eb18, carry current handover explicitly from93b086fb1c18634b0f92533231946fc02f4a49e5. Review official release/advisory/checksums, then update active toolchain consumers and generated metadata without rewriting frozen historical inputs. Publish candidate before long QA.
+3. Run existing full native/source QA, conserve622Linux/617Windows control identities, inspect full logs/capture reconstruction and current advisory distinctions; verify relevant source/toolchain rollback and restoration. Historical184failure is not acceptance; no unchanged blind rerun.
+4. Enumerate all events and pagination for seven-day PRs/commits/branches/runs, including failed/cancelled/preparation/push recipes and boundary runs. Reconcile existing archived evidence rather than inventing new execution. Review continuity/scope decisions against actual changed bytes. Retain evidence gaps honestly.
+5. Read complete owned production code, tests, scripts, workflows, schemas/config/rules and relevant generated/reference contracts in indexed batches. Keep per-file read coverage and findings with exact revisions and independent verification. No whole-codebase-complete claim until the inventory is fully reconciled. Reference submodules and data/captures must be classified explicitly; preserve their pins.
+6. Research primary development/security/supply-chain/Go/Azure guidance and comparable assessment tools on GitHub. Recommendations need a concrete observed problem, proposed change, benefit/cost and verification approach. Suggestions do not silently authorise unrelated production/process changes.
+7. Produce an evidence-backed A-F assessment, ordered roadmap and risk/blocker register, prioritised quality and speed recommendations and final questions. Keep offline verification, protected acceptance, representative live validation, independent review and release separate.
+
+## Current status and boundaries
+
+This is an active plan, not a completed audit. Initial inventory at product183contains326Go files/2342970Go bytes and1004tracked paths before carried/new evidence. PR search identifies45PRs updated since2026-10-14; final window membership needs timestamp reconciliation. PR184source passed; both native security scans failed GO-2026-6809. Recovered35payload manifest passes; task7formal closure remains open pending remediation/full archive reconciliation; task8stays provisional.
+
+No Azure/live retail/fixtures/RBAC/subagents/protected merge/bypass/release/unrelated dependency/action/SDK/source/schema/capture refresh. Preserve human author AND committer Denis Bogunic <134433647+DeBoX85@users.noreply.github.com>, all draft heads, frozen expectations/control identities and protected/source pins. Publish recovery checkpoints and update handover between coherent slices. Stop/document/wait only on a new unresolved critical issue or authorisation boundary. No overall MVP percentage or notification claim.
