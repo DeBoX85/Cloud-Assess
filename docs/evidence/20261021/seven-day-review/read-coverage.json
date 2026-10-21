@@ -1,10 +1,34 @@
 [
   {
+    "path": "cmd/cloud-assess/aigov_preflight_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "bd7768201aa4d0e4b6f50ad1c9919a6893f45a00",
+    "sha256": "7ebcfadf12336b8ee7cc6f6d46932cd787b706d3c23aff9c5125dedbc1a342d8",
+    "bytes": 2175,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "cmd/cloud-assess/command.go",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "ad05f555f83a08dcd8bfd1c640b4227deac23e66",
     "sha256": "02d21d469a05e289c2af9d85026eece849c880ff116d9279c7bc0a745acfc191",
     "bytes": 11296,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "cmd/cloud-assess/command_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "e2bd19e9dbaa38f50337101862e856263151da12",
+    "sha256": "356c50d73f61ad7b50c7605e095c99b538f2b5e49feb6d5349e47b040697ffe7",
+    "bytes": 3541,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "cmd/cloud-assess/filter_schema_audit_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "981fa1e465b67d1a11c38c4efdde24035e5c709e",
+    "sha256": "5a1ce8bc60e8502eedb9159c22714f843d17357bbf6089aef289fc8ee2c7804a",
+    "bytes": 2955,
     "read": "complete returned source reviewed"
   },
   {
@@ -24,11 +48,35 @@
     "read": "complete returned source reviewed"
   },
   {
+    "path": "cmd/cloud-assess/plugins_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "3c4ed15d27290135894bf27947d3d489985cf543",
+    "sha256": "9077589f03bf5eccff4aa989431fffd4d77ff2e6582afda9435450da4cf6dcbb",
+    "bytes": 5274,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "cmd/cloud-assess/process_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "ece5916832edf0563507b9e21e3c4f95be50b1e0",
+    "sha256": "c18bde40956cc59b6da9943ff2245488abe80bc209fcac89f6bcd41669c32a7e",
+    "bytes": 4172,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "cmd/cloud-assess/rules.go",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "32896773fa8f52799347cc9f2067da0bc6f2d8fa",
     "sha256": "def9ecef72d8d2e3d16ee532f3df61dd596fcc210eb2a7c0f63dece84073f3b5",
     "bytes": 2287,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "cmd/cloud-assess/rules_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "f6abda3b4a2fb35a0ff1752e109ea8cd489df0ce",
+    "sha256": "c2655e0c669871ac8b03cf2134a0f1acbd7f04782a51299b2c30bdbdf48efd1d",
+    "bytes": 2982,
     "read": "complete returned source reviewed"
   },
   {
@@ -734,6 +782,46 @@
     "read": "complete returned source reviewed"
   },
   {
+    "path": "internal/equivalence/compare.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "1d0b77de42d21c555c96bad6f473964d765fb544",
+    "sha256": "f1b87285c66d58212c6cea129c689baf2305c6c22ec31f82c04aa3aea5982d9d",
+    "bytes": 3149,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/equivalence/compare_guard_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "e59fe464f75e415870fef0bcb6cc096c38ae55c0",
+    "sha256": "93f222c731933302a1585b79c71d22bee3d024f8a290a9a2fa46af46689267ed",
+    "bytes": 2872,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/equivalence/projection.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "9fc0f68ebc8236dc38d681215d11beb6143e5fc1",
+    "sha256": "2027827bd6b14c08b83367aec5d23644623816817a512654658defd58c0c50e7",
+    "bytes": 26747,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/equivalence/projection_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "3915be9d5907fced529204bb5ecf18b78df7a012",
+    "sha256": "9543923183e5c3457efaa0d12f00d4945761a804cff9f62cce8d79895c7ec984",
+    "bytes": 11610,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/equivalence/types.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "f7be9b21a3aeabc654730ca4086e0b4e7a3f5ecb",
+    "sha256": "b3055a74c2266dd858d4893ac5aef2c612ea547a053fdb9c69a783af4032976b",
+    "bytes": 3461,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "internal/findings/applicability.go",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "366dde9e246f1a8e92fd58f975dec70652ea98b2",
@@ -878,6 +966,150 @@
     "read": "complete returned source reviewed"
   },
   {
+    "path": "internal/plugins/aigov/decoder.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "c31875f5576165af668ce95eaa2408767321a203",
+    "sha256": "c0d6169a90407da18d1c0bc259670fa7dccc13d4926a6c66e7d76e572b394d28",
+    "bytes": 11826,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/aigov/decoder_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "76e9df63a13a056b7799877dbeaf4b0282c71b3c",
+    "sha256": "7150970b3a1626b99f6e832157e6c9d3b8d567a5fd99442016060b8acfe9ba39",
+    "bytes": 7079,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/aigov/discovery.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "63e8d826cd8e4cb4fd51a6ea86a5c4cc40a86660",
+    "sha256": "0b83177009e9ea7745f8a7f81e961bf6cf8269abcf53782e0c69905c5ccdb404",
+    "bytes": 11793,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/aigov/discovery_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "9f32084ed4059b885f158ef28044403b1c206503",
+    "sha256": "516979a73283f689c391f44dc9feb877e56af5bf04729dea39f36d033d9098ed",
+    "bytes": 28315,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/aigov/execution.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "558d79cdb2526dcff5256741061737c3a2bc8f7b",
+    "sha256": "47bdf3842499301524169bd327d0b7ead12493f3cc34e48afb164b38ce2d21bb",
+    "bytes": 2659,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/aigov/execution_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "e63932442c8fce7f51b4f9a88657d8ffd49c0bd6",
+    "sha256": "be1ea9656819dd8cea4b13c57c2462db750e7b13f0b5b98052350422e4d4c143",
+    "bytes": 4588,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/aigov/projection.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "90ceacb770826aff716c4d1ebc2e106ba0b6211c",
+    "sha256": "fdba4a13bf1e6ad858a208502bee2610f8cdbe24a8c9a58a961367c07f1e3f51",
+    "bytes": 11617,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/aigov/projection_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "20454b562bb0645b53157958e97f249e5de66acb",
+    "sha256": "677e4be1fd3ef9e1ee5ca83844b11437e81ec3a5a0234b506eb9ff78dcb4b11d",
+    "bytes": 13728,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/aigov/scanner.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "c00e0ee00be57cf8bc7256322fbc62722f64a768",
+    "sha256": "f019116909f975e5a664e418075e473f264c0b61bc1126f41cc0becc4edbae97",
+    "bytes": 16579,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/aigov/scanner_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "3da3767d71fefb91d76576f712044c742bc929be",
+    "sha256": "83935295a399321e3a938b209e5a6c03894732dc3eaedd9119f85ee642f581bc",
+    "bytes": 30814,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/aigov_projection.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "408b7cda42858faeab5b18b9fcba43cf8aa80c01",
+    "sha256": "e6412a008b9d1e3e288a245ab4d7dd7824aa2687a974158b9dfa238c53d8762c",
+    "bytes": 5466,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/aigov_projection_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "c016c61fe54c6d006a3b186374245a4018fd4289",
+    "sha256": "650569336eb1588f8f1f874bfd4a5d54bf136843d3b431836ef3815da0f1842b",
+    "bytes": 3237,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/carbon/projection.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "868599a28286a303671cc8a76ecd06d90f13d1e0",
+    "sha256": "597dcdd1eeac43d68e1b42b6d1ccd4a8f4365ffe9dae267200cb59f0293b358b",
+    "bytes": 6109,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/carbon/projection_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "105315a948c25c97be421b699e13eec17c3234e1",
+    "sha256": "dfdb950fddb3557dc47e7e4e229e1526e3303eb83ea3e872558e0dce4e76680b",
+    "bytes": 8403,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/carbon/scanner.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "d0aff9de47afad2c1a1b8c3fcd3ff9819ac5b1fd",
+    "sha256": "fd81c12c912a3cd4e7541bd273fb9dceab34479105592ea6cdc38a9194b505a6",
+    "bytes": 15469,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/carbon/scanner_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "f8e1e5dca08bcc1706a5a48ff804bf45044d326e",
+    "sha256": "26aa68d3d27fdb247e23db8373cab3db7a7d7ca919958b1f7fdc5122968faec7",
+    "bytes": 26457,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/carbon_projection.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "626c3b24d2e2adb7dec5a53c0fef7f8d216efd89",
+    "sha256": "40ea441323e91a0b0110ba49cfbdcad1da6c76058cb52f5e481ade422d76b3f0",
+    "bytes": 4566,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/carbon_projection_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "a2b0221abaa4b345d67afd7f7877829beb2562d5",
+    "sha256": "e1da89d521e7d82d371af418806ddf4009a77553dbb3f0e99cf990a8420a79cf",
+    "bytes": 4687,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "internal/plugins/region/auxiliary.go",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "15ab8323b5b4dd7974105eb15994d777f160ad35",
@@ -907,6 +1139,22 @@
     "blob": "096fc7632c3b05e1e50092906d7319dacabe2051",
     "sha256": "53cf9d6fcaf6d6c284505e3491378998de0282db539d791528b7ce685956d351",
     "bytes": 12875,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/compute_disk_sku_collector.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "d7a5b8b2e1facd7a36b157acc9eadd4d91a57465",
+    "sha256": "f4c8fd2e430daaf432e8bc910abc403462ec9be72199282a6f5176b8ec39de14",
+    "bytes": 18107,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/compute_vm_sku_collector.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "0fa5008b5fc24fcf4a9d0a96b72e1aeececdf0ac",
+    "sha256": "35735429562706045199e62fa6dad168e8fb9fb51a0e9fd2414b72b3c132eff1",
+    "bytes": 16803,
     "read": "complete returned source reviewed"
   },
   {
@@ -990,6 +1238,46 @@
     "read": "complete returned source reviewed"
   },
   {
+    "path": "internal/plugins/region/provider_locations_collector.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "8c85347d96488f2d4b1440da3f98a64ab3657413",
+    "sha256": "bcc92c75ae1bbf16b7e92c270956144503a73f0527266dbd001d98292374881a",
+    "bytes": 10096,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/quota_collector.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "e2a44936371ec66600f33e2378b80ec689ee8b3f",
+    "sha256": "e6f9c24c2b5dceff851f4a73cd22aa520ed968ecdc85f71214f47547340c5fdd",
+    "bytes": 10792,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/quota_runtime.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "a2be4a680e2c3d705ed1198d1cbb509a04e44713",
+    "sha256": "2976da469f1a95f52c263c1460e0c0e5489879e61774bb0ae9d6824725906680",
+    "bytes": 8155,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/reservation_collector.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "c5b9c83e5d41be27798d7ab208f2568cca437c49",
+    "sha256": "05b9e0f47d0645edda77772d822e1a5f3a7cd732d5313a8207e076a8591ccdf6",
+    "bytes": 10807,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/reservation_runtime.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "bc6e23eca781e5b5ad81be2f416e2f9c36ec58c8",
+    "sha256": "885ad7af574bb1a837d85c8c45a8b53a931b2160dd0cfbbc6d0f252aa8f6bfcb",
+    "bytes": 9789,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "internal/plugins/region/retail_decode.go",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "c154511bcc5979c1b5dd970c5cc915c8d084363d",
@@ -1062,6 +1350,14 @@
     "read": "complete returned source reviewed"
   },
   {
+    "path": "internal/plugins/region/storage_sku_collector.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "2ff0685a3944a138d057aae59ad76455454fb4eb",
+    "sha256": "7531b4dda300299ddbda9d2feee93e5a0b7380affe5ba0ea2946ce427999d464",
+    "bytes": 17613,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "internal/plugins/region/vmss_catalog.go",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "31bf10e820435f2e3e425c477017fac13769b573",
@@ -1079,6 +1375,14 @@
     "note": "Changed security-toolchain versions separately reviewed; untouched source baseline read"
   },
   {
+    "path": "internal/plugins/registry_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "202b7a54f20738d90cf1f7650280ecd235c2a96b",
+    "sha256": "1f14d6d12530bdaf2735146a82283d145c9bc05c098665d4f615710d4d6c9f2f",
+    "bytes": 3074,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "internal/plugins/servicehealth/query.go",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "7624c0a3d23788f8c3e1565b2f35f55102b7e48f",
@@ -1092,6 +1396,14 @@
     "blob": "ffdc63d0b4669ad6ab23908deea1e69a4785ccd0",
     "sha256": "10d2f16c8e86ca49699e928dd921d3a937f5ee161c8cc27e95646f8d972e9cc9",
     "bytes": 12376,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/servicehealth_projection_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "ff9b4db92f36855a592f79a7c23ecbf08fba5170",
+    "sha256": "7324984b473b1cae2d96aa51153c6c0b69820563f643d2f8ce72ab7588a31e80",
+    "bytes": 3925,
     "read": "complete returned source reviewed"
   },
   {
@@ -1116,6 +1428,14 @@
     "blob": "a925e0545eaa0e9b4be51a58705d46c0004f56fe",
     "sha256": "0815ed16878566495899741186a5ebee634cbc7f4ba0cf53ea56cf9b44dc1864",
     "bytes": 3162,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/sqleol_projection_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "cb8616b373409d017318f1d9f5bf20131a4492e0",
+    "sha256": "2e45e632f4502afa5863acf063ea7824c9f07c0c152aa792888590a68f797a6b",
+    "bytes": 3451,
     "read": "complete returned source reviewed"
   },
   {
@@ -1255,11 +1575,35 @@
     "read": "complete returned source reviewed"
   },
   {
+    "path": "internal/renderers/tables/scope_redaction_records_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "b3e4b244c738a1c69832c83575dd563bf5394f23",
+    "sha256": "5226505c6e776ed9ae5ddaf9d4d3f69a3c0f3caa8217d081129859e607b7f426",
+    "bytes": 2337,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/renderers/tables/scope_redaction_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "cdb7f112f1846377ccb4b2e4cbfc50ee19f54775",
+    "sha256": "990b3f1b8742df835288795d1831974c464f70f990ad49bb0fda4ab964beb6c2",
+    "bytes": 5200,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "internal/renderers/tables/tables.go",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "ea96c2c21afcdaa182daca05b2c0d76624425604",
     "sha256": "231b45b04ad6262443a01f87ba7589af8cfb07863a95563c4c1f830a65148852",
     "bytes": 13584,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/renderers/tables/tables_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "f7dd4bded84371943f6457ea831f20e53179444b",
+    "sha256": "03fab68cf2cd148d70618030c79a09d9a985248cfd0aaae482da25f6daafbb54",
+    "bytes": 6118,
     "read": "complete returned source reviewed"
   },
   {
@@ -1359,6 +1703,14 @@
     "read": "complete returned source reviewed"
   },
   {
+    "path": "internal/rules/catalog_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "e67a3d090bead57e968e2464c2de205b16494f12",
+    "sha256": "3c32122fdbda6598033cc1163291163e9cad891de49fc9cbedbd1e0e46878c64",
+    "bytes": 4327,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "internal/rules/embedded.go",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "5c3e0ce214e8d1571b9d1977b8f4a7f1d0dd326f",
@@ -1367,11 +1719,27 @@
     "read": "complete returned source reviewed"
   },
   {
+    "path": "internal/rules/embedded_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "82611bcda9beb4d44c9a817f79379ad94d4591d4",
+    "sha256": "58d119bcd8b73459b4fb6c79cb5d6f4b762318582c1babfb27eba72af2ef97e9",
+    "bytes": 1952,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "internal/rules/inspection.go",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "97a998b23916134245f23fd15f0de1d4134897e7",
     "sha256": "16fee980da29e2364c0e9bf2a3e6064adc9408bdf6bf23a9585044af1ce084a0",
     "bytes": 2555,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/inspection_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "8ff8d0177243a95bab178cabb8b4d4bebebe125f",
+    "sha256": "30fbb5a52a8be0c59213a86f3229e1a69130ae0d6a364c1608ea4e1c3baabbb6",
+    "bytes": 2469,
     "read": "complete returned source reviewed"
   },
   {
@@ -1399,11 +1767,35 @@
     "read": "complete returned source reviewed"
   },
   {
+    "path": "internal/scanners/registry_ownership_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "e4d83ccb3db4f4caf4635c29302a71ea98085738",
+    "sha256": "689aa9259006666f02968cbbf00092cef885ae9e79f8f9e0869c8a5447f677e2",
+    "bytes": 790,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/scanners/registry_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "16f8f679331a50d1346c10292bdb72e73674fb71",
+    "sha256": "ce6fa60c507251c6629abb4e71043931921fa4b395729aad8a01c44d1d23b86a",
+    "bytes": 3264,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "internal/skus/skus.go",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "396cc4b7172f536b08d91355f8f64e9e4f0b97a1",
     "sha256": "9036aee8cd274afbf9034bed8f3b7ab1e19d52de5da481c370008a2493f259a3",
     "bytes": 1205,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/skus/skus_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "6d1b6e6d89e4ac3a47c49fa54fbf34ec31db79dc",
+    "sha256": "efa3b320c61ec44786f03e63485b5cee9f5413ce4714cfa82f4606ad7afba0f9",
+    "bytes": 1517,
     "read": "complete returned source reviewed"
   },
   {
@@ -1590,6 +1982,62 @@
     "blob": "f98509fad2407063c0a131e9d09a64339cafb3d7",
     "sha256": "46a69f88c06dd933b03c70f4942b97d811088f3640a60d4504f4d7a94df8e59c",
     "bytes": 5298,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "tools/brand-build/main.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "875d824c50c48319faab2106c0d7ddacaaadb98c",
+    "sha256": "c709bb9018586c32bf0c19264fdcca86b5cd9212586538cd89a1047c977565b5",
+    "bytes": 3102,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "tools/diagnostics-probe/main.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "ea2b806be70686e6524242f021f8df5751c04f5b",
+    "sha256": "9e44d4112833780f3294a74e7bef1868f4842776256c0233bae476a61e687607",
+    "bytes": 8940,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "tools/diagnostics-probe/main_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "abeef1ac10f7083f85ee27f34b4354ebce3dcbf9",
+    "sha256": "8e38cbcefcb263969f419e1823cfe556c14fd26ed3b54e1f2418287f19acf347",
+    "bytes": 5913,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "tools/equivalence/duplicate_evidence_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "126f45bc1980a750245474d70ee7fe490f087917",
+    "sha256": "b060730c645ddb0a004532bc7f983705ac0f45e3abf90f5803ccc78827d4a93a",
+    "bytes": 4179,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "tools/equivalence/input_evidence_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "3d0a89b227cb523f2ffeb9b169f4d196bb894e95",
+    "sha256": "4474d3f9312ad1f64e06e3ab8aeca1187a2e69018b84d5f4d4d30fe9d0716435",
+    "bytes": 3934,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "tools/equivalence/main.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "66b8f529c8893ec87ac4f19ffa766885be9f80b8",
+    "sha256": "e9fc9b03a57d88541f38d8777a6bce80d74707a83f7e2bcb83347dec9e6438b5",
+    "bytes": 2089,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "tools/equivalence/main_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "89be2708f8ca84a8113df978e9cc0d9246479cca",
+    "sha256": "66ce47889b21e4b36a6764ac14464658f6e0f83f6053bada4f16551f20667771",
+    "bytes": 2461,
     "read": "complete returned source reviewed"
   }
 ]
