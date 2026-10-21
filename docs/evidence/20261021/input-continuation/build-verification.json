@@ -1,0 +1,13 @@
+{
+  "verification": {
+    "members": 7,
+    "bytes": 1693580,
+    "revisions": {
+      "review": "e7a63bcc89c097c31f931489dbf69b19509fb210",
+      "product": "566cc4d8b78d168e5216245a5a386f742a3a2f85",
+      "retail": "458d5c5296c321c8e5e961f18eb5422d43c2eb18"
+    }
+  },
+  "bundle_bytes": 200485,
+  "all_members_equal_original_raw_bytes": true
+}
