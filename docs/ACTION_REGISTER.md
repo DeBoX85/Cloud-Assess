@@ -1,10 +1,17 @@
 # Active action register
 
+## Current checkpoint, 2026-10-21
+
+Read [CURRENT_STATE](CURRENT_STATE.md) and [transfer](CHAT_TRANSFER_20261021.md). Security/task6prerequisites complete180; task7retail own hosted QA passes183(622Linux/617Windows,87.6%coverage), with formal archive reconciliation/closure OPEN. Execution reads recovered; raw local controls/preflight/rollback/failure proof and task8provisional files retained under evidence/20261021/recovered-local. Task8not frozen/not implemented. Earlier pending/STOP/no-production and old task counters below are historical snapshots; behavioral contracts stay active. This new handover tree needs its own QA; live PR owns actual outcomes.
+
+
 Current status authority: [CURRENT_STATE](CURRENT_STATE.md). Detailed evidence belongs in the linked PR/contract; this register is a compact index, not a replacement ledger. Update after material progress and at checkpoints. Responsible party is the agent unless an independent reviewer, authorized operator or release owner is explicitly required. Status labels do not imply protected acceptance. Keep closed rows for traceability; archive older closed rows by link when needed.
 
 | ID | State | Responsible party | Dependency / next action | Closure evidence |
 | --- | --- | --- | --- | --- |
-| DC-RETAIL-SEC-20261020 | Approved narrow remediation; full QA pending | Agent; independent review remains open | Exact fixed Excelize commit/necessary transitive updates, full gates/evidence/rollback before retail | [Dedicated blocker](RETAIL_SECURITY_BLOCKER_20261020.md); PR177 own security failed, no retail production |
+| DC-RETAIL-SEC-20261020 | Verified offline180; residuals OPEN | Agent; independent review remains open | Narrow update/full QA/evidence completed; no broad refresh | PR180final index; cf93d214evidence; original failed177preserved |
+| DC-RETAIL-EVIDENCE-20261021 | Open formal reconciliation | Agent | Verify recovered local manifest plus hosted archive, finalize PR183index before task8 | [Recovery transfer](CHAT_TRANSFER_20261021.md) |
+| DC-INVENTORY-20261021 | Provisional only | Agent | Review/freeze contract and50independent scenarios after task7closure | recovered-local/task8-provisional; no target API yet |
 | DC-001 | Verified offline | Agent | PR150 own-head QA completed; remain draft/unmerged | [PR150 final index](https://github.com/DeBoX85/Cloud-Assess/pull/150), head 4c1ddc0 |
 | DC-002 | Verified offline | Agent | PR151 own-head QA completed; remain draft/unmerged | [PR151 final index](https://github.com/DeBoX85/Cloud-Assess/pull/151), head ba9eeb9 |
 | DC-003 | Verified offline (PR152) | Agent | Retained bundles/verifier verified under [controls contract](DEVELOPMENT_CONTROLS_20261017.md); preserve final proof | [PR152 final index](https://github.com/DeBoX85/Cloud-Assess/pull/152) |

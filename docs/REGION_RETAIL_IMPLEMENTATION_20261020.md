@@ -1,5 +1,10 @@
 # Retail implementation checkpoint, 2026-10-20
 
+## Current checkpoint, 2026-10-21
+
+Read [CURRENT_STATE](CURRENT_STATE.md) and [transfer](CHAT_TRANSFER_20261021.md). Security/task6prerequisites complete180; task7retail own hosted QA passes183(622Linux/617Windows,87.6%coverage), with formal archive reconciliation/closure OPEN. Execution reads recovered; raw local controls/preflight/rollback/failure proof and task8provisional files retained under evidence/20261021/recovered-local. Task8not frozen/not implemented. Earlier pending/STOP/no-production and old task counters below are historical snapshots; behavioral contracts stay active. This new handover tree needs its own QA; live PR owns actual outcomes.
+
+
 Current authority: [CURRENT_STATE](CURRENT_STATE.md). Task7 is in progress under the frozen [retail contract](REGION_RETAIL_CONTRACT_20261020.md). Task8 remains research only and follows task7 reevaluation. No live retail or Azure request was made.
 
 ## Verified starting point

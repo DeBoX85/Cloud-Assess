@@ -1,8 +1,8 @@
 # Current status and authority
 
-Read [CURRENT_STATE](CURRENT_STATE.md) for current status/authorization/next action and [development workflow](DEVELOPMENT_WORKFLOW.md) for procedure. Earlier dated sections are historical snapshots; behavioral requirements remain in force unless explicitly revised. The live task PR owns exact-revision outcomes, separate from protected acceptance.
+Read [CURRENT_STATE](CURRENT_STATE.md), [transfer](CHAT_TRANSFER_20261021.md), [discrepancies](DISCREPANCIES_20261021.md) and [restart prompt](RESTART_PROMPT.md). Live PR bodies own exact-revision QA outcomes; protected acceptance and release remain separate.
 
-Use [CONTINUE](CONTINUE.md), [RESTART_PROMPT](RESTART_PROMPT.md), [transfer checkpoint](CHAT_TRANSFER_20261019.md) and [continuity procedure](CONTINUITY.md). Tasks1-5complete offline in PR175. [Audit](AUDIT_72H_20261019.md)/[discrepancies](DISCREPANCIES_20261019.md) reconcile28PRs/308logs and route the current handover candidate. Check its own QA before task6retail contract; no critical input/Azure access needed.
+Authority order: explicit current user scope; live refs and revision-specific PR outcomes; CURRENT_STATE/current transfer; applicable frozen contracts/workflow; dated narratives below. Earlier dated sections are historical snapshots; behavioral requirements remain in force unless explicitly revised.
 
 ---
 
