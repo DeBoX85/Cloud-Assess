@@ -1,0 +1,127 @@
+{
+  "format": "cloud-assess-evidence-v1",
+  "classification": "reviewed-synthetic-ci-local",
+  "bundle_sha256": "5efa79054bea0d6cc56667ed8ec56982a11d0607b62d4f5f16ed44a9d179ba00",
+  "decoded_sha256": "323e3f313eb34a8f8c5cb50012a4b41f7f879831a3f8234061747753b7b63daf",
+  "members": [
+    {
+      "path": "audit-log-recovery/116770100933.log",
+      "bytes": 1359939,
+      "sha256": "073baad731d40ce0d768ba04f98fd484853b7433c339f593911a993599efdc35"
+    },
+    {
+      "path": "audit-log-recovery/116770101098.log",
+      "bytes": 102679,
+      "sha256": "309ed6c59f0c4b23fc5c1d8d6fee1d16de3936b70f2cabe61b25e928e9d88d76"
+    },
+    {
+      "path": "audit-log-recovery/116777874590.log",
+      "bytes": 1359938,
+      "sha256": "340df1843542086ef9ea3c7f4012ba3df043d5d20b06b06475df4600f81db216"
+    },
+    {
+      "path": "audit-log-recovery/116777874877.log",
+      "bytes": 51974,
+      "sha256": "71c04eaf7cb641aa870d3ec8d88107f5e95f8fdb6733247243aa7d9bf12d3bbe"
+    },
+    {
+      "path": "audit-log-recovery/116777875249.log",
+      "bytes": 65944,
+      "sha256": "9697dd36d8dd8d0672011f09264dbe6eb18d04e2666080d00f234ff3043d6e7d"
+    },
+    {
+      "path": "audit-log-recovery/116782243354.log",
+      "bytes": 103085,
+      "sha256": "d9bc31c1cfb9e090bea0c6f5721a909528668ebbe08e0f86c8e9586d017374e7"
+    },
+    {
+      "path": "audit-log-recovery/116782243580.log",
+      "bytes": 82072,
+      "sha256": "a6b1f0a6f5a8e8bec58acb8fc731cd7093b9258c79b052f77e03a05a83b4d859"
+    },
+    {
+      "path": "audit-log-recovery/116782243719.log",
+      "bytes": 1359948,
+      "sha256": "804968ed7987ed418d2d6009179e5581e087ae506f965429511349309c07c737"
+    },
+    {
+      "path": "audit-log-recovery/116824728104.log",
+      "bytes": 1359948,
+      "sha256": "3c22bd7e90b0e1957d3c07d14036e4706732480c2338cc8c11fc537c37490f77"
+    },
+    {
+      "path": "audit-log-recovery/116824728314.log",
+      "bytes": 96929,
+      "sha256": "e74ab6e751f3d871db0a6992c0f9298f55222fc4c8762ebb384632117d9a544a"
+    },
+    {
+      "path": "audit-log-recovery/116824728569.log",
+      "bytes": 61180,
+      "sha256": "09849da13e6ffef9ca90e079f6755cc5d94b1e8a19d54db544a75ce1aba2dd50"
+    },
+    {
+      "path": "audit-log-recovery/116828961657.log",
+      "bytes": 1359869,
+      "sha256": "134b48c7df3b0e7c835fb87194569962f6eaa2934201105900bafa1673462918"
+    },
+    {
+      "path": "audit-log-recovery/116829220610.log",
+      "bytes": 55521,
+      "sha256": "082bd06afba3ddfc915191156923b0f0ef1fe0258ffe346648c5d22b3317140b"
+    },
+    {
+      "path": "audit-log-recovery/116829220849.log",
+      "bytes": 69365,
+      "sha256": "ae6c321d702dbb72b47c1a7708fb75a28730e82af1bc10ef3bf5038d500c3e27"
+    },
+    {
+      "path": "audit-log-recovery/116833685452.log",
+      "bytes": 1359869,
+      "sha256": "397ec69915a199cd3f1375a0bb4cf54abfa2a79f5a4f29ca2fde1c68e7710f1b"
+    },
+    {
+      "path": "audit-log-recovery/116833685829.log",
+      "bytes": 82302,
+      "sha256": "5e8d0872720d812ae0b55f995684e5c1e19d5a6e2c5bb4f056e59c6ecd4f973b"
+    },
+    {
+      "path": "audit-log-recovery/116833686096.log",
+      "bytes": 103587,
+      "sha256": "f50571f4724e6cb1bb3305541067b5bcbe5b02d3b2730be0f8f5b853e8335eaa"
+    },
+    {
+      "path": "audit-log-recovery/116872534607.log",
+      "bytes": 1359866,
+      "sha256": "efd8f8e6b87f6fdea39cbd9a413b60a8b8a9f7320b7b3b10e037aa24528f535f"
+    },
+    {
+      "path": "audit-log-recovery/116872534784.log",
+      "bytes": 82465,
+      "sha256": "73e1ea0835582a75e22c6e199f1e57f8487a79652c89eb85e733641da0a5be16"
+    },
+    {
+      "path": "audit-log-recovery/116872535105.log",
+      "bytes": 104003,
+      "sha256": "9fef3598105e61d46995b2957fc34732822105760c13968a87a8847046210a1f"
+    },
+    {
+      "path": "audit-log-recovery/116889619866.log",
+      "bytes": 1359868,
+      "sha256": "355a596165268dce908909790a94dddb3346ff7732c1a9d979155d964de0ac75"
+    },
+    {
+      "path": "audit-log-recovery/116889620673.log",
+      "bytes": 44556,
+      "sha256": "62d0e1a573887d113f5a4913b782af7cbbb90adcac1e3de4bc1f694b1c04fe19"
+    },
+    {
+      "path": "audit-log-recovery/116889620954.log",
+      "bytes": 53129,
+      "sha256": "06ebc37225dfd10c7f79d2b26840021d6f2edb7186c62c3aab01b42bec94b4a1"
+    }
+  ],
+  "revisions": {
+    "product": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "security": "566cc4d8b78d168e5216245a5a386f742a3a2f85"
+  }
+}

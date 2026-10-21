@@ -1,0 +1,32 @@
+{
+  "format": "cloud-assess-evidence-v1",
+  "classification": "reviewed-synthetic-ci-local",
+  "bundle_sha256": "157b210209123f4e8e0e8066b2d6b733ceea8f49cdcdb4044077445107eb7abc",
+  "decoded_sha256": "a89b979f2c4c7177fe4b77bfa6656d20fba8b41aa127dcef0a00a9b9e4b7b30d",
+  "members": [
+    {
+      "path": "audit-log-analysis.json",
+      "bytes": 4616908,
+      "sha256": "e4b681cf4501e185aa68af30c42ad84d957948f3c97147764e6986858f090fd7"
+    },
+    {
+      "path": "audit-source-review.json",
+      "bytes": 461401,
+      "sha256": "dc0e2772393a61ece54755006c835020b2e00bd41d06d93ef6646dece655e413"
+    },
+    {
+      "path": "recovery-index.json",
+      "bytes": 60208,
+      "sha256": "d31cbb34798cfd1c3e290aff8a74cbd3ad4087b47d9a4f2fd8b8d15231cade78"
+    },
+    {
+      "path": "review_all_source_logs.py",
+      "bytes": 4026,
+      "sha256": "13a515d09afe357075743a46598fd7d59174865134a93918c46e32ffab43142d"
+    }
+  ],
+  "revisions": {
+    "product": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "security": "566cc4d8b78d168e5216245a5a386f742a3a2f85"
+  }
+}

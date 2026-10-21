@@ -1,0 +1,128 @@
+[
+  {
+    "bundle": "logs-01.base64",
+    "manifest": "logs-01-manifest.json",
+    "integrity": {
+      "members": 52,
+      "bytes": 11130522,
+      "revisions": {
+        "product": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+        "security": "566cc4d8b78d168e5216245a5a386f742a3a2f85"
+      }
+    },
+    "bundle_bytes": 1242281,
+    "decoded_bytes": 12496081
+  },
+  {
+    "bundle": "logs-02.base64",
+    "manifest": "logs-02-manifest.json",
+    "integrity": {
+      "members": 26,
+      "bytes": 11198116,
+      "revisions": {
+        "product": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+        "security": "566cc4d8b78d168e5216245a5a386f742a3a2f85"
+      }
+    },
+    "bundle_bytes": 1079365,
+    "decoded_bytes": 12522152
+  },
+  {
+    "bundle": "logs-03.base64",
+    "manifest": "logs-03-manifest.json",
+    "integrity": {
+      "members": 23,
+      "bytes": 11839699,
+      "revisions": {
+        "product": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+        "security": "566cc4d8b78d168e5216245a5a386f742a3a2f85"
+      }
+    },
+    "bundle_bytes": 1045237,
+    "decoded_bytes": 13344693
+  },
+  {
+    "bundle": "logs-04.base64",
+    "manifest": "logs-04-manifest.json",
+    "integrity": {
+      "members": 24,
+      "bytes": 12194131,
+      "revisions": {
+        "product": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+        "security": "566cc4d8b78d168e5216245a5a386f742a3a2f85"
+      }
+    },
+    "bundle_bytes": 1041961,
+    "decoded_bytes": 13696898
+  },
+  {
+    "bundle": "logs-05.base64",
+    "manifest": "logs-05-manifest.json",
+    "integrity": {
+      "members": 23,
+      "bytes": 11948288,
+      "revisions": {
+        "product": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+        "security": "566cc4d8b78d168e5216245a5a386f742a3a2f85"
+      }
+    },
+    "bundle_bytes": 1065041,
+    "decoded_bytes": 13456667
+  },
+  {
+    "bundle": "logs-06.base64",
+    "manifest": "logs-06-manifest.json",
+    "integrity": {
+      "members": 23,
+      "bytes": 12038036,
+      "revisions": {
+        "product": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+        "security": "566cc4d8b78d168e5216245a5a386f742a3a2f85"
+      }
+    },
+    "bundle_bytes": 1089225,
+    "decoded_bytes": 13548838
+  },
+  {
+    "bundle": "logs-07.base64",
+    "manifest": "logs-07-manifest.json",
+    "integrity": {
+      "members": 24,
+      "bytes": 11832378,
+      "revisions": {
+        "product": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+        "security": "566cc4d8b78d168e5216245a5a386f742a3a2f85"
+      }
+    },
+    "bundle_bytes": 1034077,
+    "decoded_bytes": 13337052
+  },
+  {
+    "bundle": "logs-08.base64",
+    "manifest": "logs-08-manifest.json",
+    "integrity": {
+      "members": 37,
+      "bytes": 8840793,
+      "revisions": {
+        "product": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+        "security": "566cc4d8b78d168e5216245a5a386f742a3a2f85"
+      }
+    },
+    "bundle_bytes": 1295325,
+    "decoded_bytes": 9806369
+  },
+  {
+    "bundle": "logs-09.base64",
+    "manifest": "logs-09-manifest.json",
+    "integrity": {
+      "members": 4,
+      "bytes": 5142543,
+      "revisions": {
+        "product": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+        "security": "566cc4d8b78d168e5216245a5a386f742a3a2f85"
+      }
+    },
+    "bundle_bytes": 443921,
+    "decoded_bytes": 5393314
+  }
+]
