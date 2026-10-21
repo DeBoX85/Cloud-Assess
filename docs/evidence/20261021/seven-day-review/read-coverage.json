@@ -1590,6 +1590,14 @@
     "read": "complete returned source reviewed"
   },
   {
+    "path": "internal/plugins/region/provider_locations_collector_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "9d1180be0e50e0f7fca5d30bbda00cb25eeb3ca6",
+    "sha256": "fac3fe615d9edee6b3a9281a308d47f8a14ac32849b34ad484ae30861e3e6b94",
+    "bytes": 26930,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "internal/plugins/region/quota_capture_test.go",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "78a92620225e5e317e7af84dba73d6971828c326",
@@ -1603,6 +1611,14 @@
     "blob": "e2a44936371ec66600f33e2378b80ec689ee8b3f",
     "sha256": "e6f9c24c2b5dceff851f4a73cd22aa520ed968ecdc85f71214f47547340c5fdd",
     "bytes": 10792,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/quota_collector_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "70a85e863018ef976e4f54a92318f3503d26b3f1",
+    "sha256": "07b49b0a75cae33d2d479fae028774ee5aa5e3c188818f18e1639e13c81d3458",
+    "bytes": 26606,
     "read": "complete returned source reviewed"
   },
   {
@@ -1635,6 +1651,14 @@
     "blob": "c5b9c83e5d41be27798d7ab208f2568cca437c49",
     "sha256": "05b9e0f47d0645edda77772d822e1a5f3a7cd732d5313a8207e076a8591ccdf6",
     "bytes": 10807,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/reservation_collector_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "d617b44f6701b59234fbfb3866c08035a26fdf02",
+    "sha256": "06b3f4a46dd07501ba3f6e856dd43d0c2cadf6074cfd51122c89b0888105e5d9",
+    "bytes": 26073,
     "read": "complete returned source reviewed"
   },
   {

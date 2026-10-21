@@ -14,6 +14,8 @@ Google's [SRE postmortem guidance](https://sre.google/sre-book/postmortem-cultur
 
 ## Comparable GitHub projects
 
+Reference clarification, 2026-10-21: Denis's [DeBoX85/azqr fork](https://github.com/DeBoX85/azqr) is the preferred AZQR comparison and authoritative compatibility source at the unchanged 8e4f0577 pin. The already retained Azure/azqr files below are secondary process research only. Preserve their actual origin and revision; do not relabel them as fork bytes. Further AZQR feature/capability gap research starts with Denis's fork, recording any newer revision separately. [Reference policy](REFERENCE_POLICY.md) requires parity while permitting separately evidenced improvements and additional comparison sources.
+
 These are selected workflow/contribution-file comparisons, not complete audits of the other repositories. Full retrieved source bytes, Git blob identities and revisions are retained in [comparison-sources.json](evidence/20261021/seven-day-review/comparison-sources.json). Comparison pins do not refresh Cloud Assess's authoritative AZQR/APRL pins.
 
 | Project and observed revision | Useful pattern | Applicability and limits |

@@ -4,6 +4,8 @@ Denis approved the narrow Go1.26.9to1.26.10security update, full QA and rollback
 
 ## Work order and evidence
 
+Apply Denis's clarified [reference and improvement policy](REFERENCE_POLICY.md). Prefer his fork for AZQR comparisons, retain its frozen compatibility pin, and distinguish feature/function/capability gaps from deliberate corrections and future enhancements. Research other projects and primary platform evidence as additional inputs. Recommendations should explain their compatibility impact and separate implementation process; the comparison baseline does not cap product improvements.
+
 1. Preserve current refs and unrelated worktrees; pin audit window and request-time metadata, inventory every tracked first-party file with blob hashes. Record exactly which bytes were read and reviewed; a hash or prior review alone is not a new code read.
 2. In isolated fix/go-1.26.10-security-20261021 based on exact product183/458d5c5296c321c8e5e961f18eb5422d43c2eb18, carry current handover explicitly from93b086fb1c18634b0f92533231946fc02f4a49e5. Review official release/advisory/checksums, then update active toolchain consumers and generated metadata without rewriting frozen historical inputs. Publish candidate before long QA.
 3. Run existing full native/source QA, conserve622Linux/617Windows control identities, inspect full logs/capture reconstruction and current advisory distinctions; verify relevant source/toolchain rollback and restoration. Historical184failure is not acceptance; no unchanged blind rerun.

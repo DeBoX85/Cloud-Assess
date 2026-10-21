@@ -50,6 +50,8 @@ Pinned reference commit:
 
 Pinning the reference commit ensures that upstream changes do not silently change the behavior Cloud Assess is compared against during the initial reproduction effort.
 
+Denis's fork is the authoritative initial compatibility baseline. Cloud Assess must match its features, functions and capabilities while progressively improving them where justified. Primary Azure evidence, independent tests and other projects also inform development. Deliberate corrections and enhancements follow a separate reviewed contract and QA process; see [reference and improvement policy](docs/REFERENCE_POLICY.md). The baseline is a starting point, not a product ceiling or an automatically moving target.
+
 ## Design goals
 
 - read-oriented Azure assessment
