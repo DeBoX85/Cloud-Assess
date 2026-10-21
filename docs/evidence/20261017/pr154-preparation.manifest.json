@@ -1,0 +1,52 @@
+{
+  "format": "cloud-assess-evidence-v1",
+  "classification": "reviewed-synthetic-ci-local",
+  "bundle_sha256": "8b8525ff10a89502cffab90b3b8a5065e1351e298896e321362b6df39669a4df",
+  "decoded_sha256": "7189d6d8a2b169add1429d325ab294599fe839ff1f1436ed8c9ae8f65933039b",
+  "members": [
+    {
+      "path": "39004558282/117314255907.log",
+      "bytes": 28313,
+      "sha256": "6a11b4a14fb730f7b677fd8125fe02e753a44bf1befea9434b6397a890c3be50"
+    },
+    {
+      "path": "39004558282/117314255931.log",
+      "bytes": 28676,
+      "sha256": "1ccdf6b3b1d9c702280560406e064617a7895036082dd6f28cfd9d56a87978b7"
+    },
+    {
+      "path": "39004558282/117314255942.log",
+      "bytes": 48101,
+      "sha256": "99a40fb7dae08bfc60602e1de9b338461b7a038eb1be3745ebdeeb03d4036257"
+    },
+    {
+      "path": "39004558282/117314256030.log",
+      "bytes": 33646,
+      "sha256": "03f2963f997981c977f6c1d3e29ea703dfa56ba1cb7a9109120658c6793cdccc"
+    },
+    {
+      "path": "39004558282/jobs.json",
+      "bytes": 40813,
+      "sha256": "fc68b609174f767e11943b68f9d56fe8eda711401bf7306650150d112d4d5fd7"
+    },
+    {
+      "path": "39004558282/run.json",
+      "bytes": 12689,
+      "sha256": "1644b036a6d1f648e07702627f6de7a36558c40df49ed52ca290c352a22816b5"
+    },
+    {
+      "path": "vmss-catalog-local-controls.log",
+      "bytes": 9063,
+      "sha256": "4876fb0764485d882b0ccba36a805d995b0df298a1e7067f941657ef4f0aaed9"
+    },
+    {
+      "path": "vmss-catalog-local-controls-v2.log",
+      "bytes": 2182,
+      "sha256": "99c8fe3e194c67fcd1e9d4e543658a5c06bbdd8c419b20598134c036d70b43ae"
+    }
+  ],
+  "revisions": {
+    "preparation": "b64e185478fd5230d5c9e93b56b1420311cdc752",
+    "contract": "ccfee397c4c12da80b12d0b8c5d0043836d3f543"
+  }
+}

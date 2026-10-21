@@ -1,0 +1,10 @@
+{
+  "healthy_raw_roundtrips": [
+    "bom-crlf.txt",
+    "unicode-crlf.txt",
+    "mixed.txt",
+    "no-newline.txt"
+  ],
+  "normalization_rejected": "member length or hash mismatch",
+  "source_builder_sha256": "c2ab374a1e7c598ae8b12fa596026ebf925735675541dd9ac8722728b6e4dd72"
+}

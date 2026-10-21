@@ -1,0 +1,147 @@
+{
+  "candidate": "566cc4d8b78d168e5216245a5a386f742a3a2f85",
+  "source_run": 39594186753,
+  "captures": [
+    {
+      "name": "source-aux-inputs.json",
+      "chunks": 3,
+      "bytes": 8331,
+      "sha256": "f9695cfa0bd662b2dbc52addb68a9208b57be1e60dabe31c99cb5651d2962c28"
+    },
+    {
+      "name": "source-aux-outputs.json",
+      "chunks": 4,
+      "bytes": 9461,
+      "sha256": "efe06093eddece6b54617c806bdb74727aed5228a5a96f7300068b22bd77bc06"
+    },
+    {
+      "name": "source-availability-inputs.json",
+      "chunks": 5,
+      "bytes": 14644,
+      "sha256": "32345bea44a162a1518f9022c93dba3cf5640980c94fb1d3734e172b780cc245"
+    },
+    {
+      "name": "source-availability-outputs.json",
+      "chunks": 4,
+      "bytes": 10728,
+      "sha256": "d3e8186fb80ffc9a47191228e5cad222636ffdfea1de3c837747bf896acbaef9"
+    },
+    {
+      "name": "source-compute-sku-inputs.json",
+      "chunks": 19,
+      "bytes": 56827,
+      "sha256": "75a69648317d4f53615107172255b30853b77b6f2185f421bcc6eb01e1c7ba12"
+    },
+    {
+      "name": "source-compute-sku-outputs.json",
+      "chunks": 28,
+      "bytes": 81019,
+      "sha256": "c443a81278f9bd82d52096232ae81adab48443d08b0a52029130642398631f00"
+    },
+    {
+      "name": "source-cost-enrichment-inputs.json",
+      "chunks": 16,
+      "bytes": 46496,
+      "sha256": "112a462e1bb2090afb39322684264189a8d1977b7c7cab938c8b217535ed670d"
+    },
+    {
+      "name": "source-cost-enrichment-outputs.json",
+      "chunks": 9,
+      "bytes": 24534,
+      "sha256": "0ae38cf25c54462e3b7314c4f74c31a5bbe0cfac6d22af72554198ffeb447526"
+    },
+    {
+      "name": "source-inventory-inputs.json",
+      "chunks": 2,
+      "bytes": 5663,
+      "sha256": "cdaa6b25e3250e6d701999279f96d5ea225c927e1249ee43c32cfe0b5072b17c"
+    },
+    {
+      "name": "source-inventory-outputs.json",
+      "chunks": 4,
+      "bytes": 9984,
+      "sha256": "756647e2981f8cd0ac4f0d5091ba6b4a74345ad6266de1bc15f8c833afeb2006"
+    },
+    {
+      "name": "source-latency-data.json",
+      "chunks": 21,
+      "bytes": 61304,
+      "sha256": "45e575040812ee74e006be34623cb253df24e6558f07727cefcef7e55e13326b"
+    },
+    {
+      "name": "source-latency-inputs.json",
+      "chunks": 31,
+      "bytes": 91626,
+      "sha256": "1651ac72d681e39dbf43429ba8c44a9bd4d18f5e0cb801db0af580fa4677a6b7"
+    },
+    {
+      "name": "source-latency-outputs.json",
+      "chunks": 10,
+      "bytes": 27998,
+      "sha256": "791c85899fcfa2598ac8de3860194126b232ecd7134f30558219e7bb827f1a5e"
+    },
+    {
+      "name": "source-other-sku-inputs.json",
+      "chunks": 38,
+      "bytes": 111334,
+      "sha256": "81ffb15038ec13e007051e79c43076a474b8a671ab4e6808cddb8d24adba3a74"
+    },
+    {
+      "name": "source-other-sku-outputs.json",
+      "chunks": 45,
+      "bytes": 132253,
+      "sha256": "c7721666656cf97775f849da9212c3f2f7f92c988184aa41e22a59538a63c5a3"
+    },
+    {
+      "name": "source-provider-locations-inputs.json",
+      "chunks": 7,
+      "bytes": 18091,
+      "sha256": "aba5e5eb67a149bdd5f297518688fc8cf8b0c8daa89d48238f1c0bbd5175c910"
+    },
+    {
+      "name": "source-provider-locations-outputs.json",
+      "chunks": 28,
+      "bytes": 83058,
+      "sha256": "39a534faaa08070ca42d2a30d5f071f13796d48b372364a872077357beb92500"
+    },
+    {
+      "name": "source-quota-inputs.json",
+      "chunks": 3,
+      "bytes": 8922,
+      "sha256": "804a2e6f24536be69b290be9f9d7bfc0015646ee0fc99132bcc646893150918c"
+    },
+    {
+      "name": "source-quota-outputs.json",
+      "chunks": 4,
+      "bytes": 11100,
+      "sha256": "0796a14301763d7a67c9d47fef0d8827b10aca8844932ee047eddd71dff1d0ed"
+    },
+    {
+      "name": "source-reservation-inputs.json",
+      "chunks": 16,
+      "bytes": 47327,
+      "sha256": "3e8e9870bb4a4d4a91490ac400dccfc28e7070ca4b8a2d22434176d1c61b3c09"
+    },
+    {
+      "name": "source-reservation-outputs.json",
+      "chunks": 11,
+      "bytes": 31727,
+      "sha256": "4393a4ae45d0b5bacd116aa48bc44ed5698a4cde5b991b2e6e6ab6429974c2d5"
+    },
+    {
+      "name": "source-vm-quota-inputs.json",
+      "chunks": 3,
+      "bytes": 7730,
+      "sha256": "5b5319746110e4e86cc6753ec5b20a3306d6290d03b0e829682d2511324d3a1c"
+    },
+    {
+      "name": "source-vm-quota-outputs.json",
+      "chunks": 4,
+      "bytes": 9708,
+      "sha256": "b6311db11c7a62c74818ef694c2991cd1ab46d3a8c0bf1337ed5fcd7cb480c32"
+    }
+  ],
+  "exact_manifest_names": true,
+  "log_bytes": 1362822,
+  "log_sha256": "4c0151384bd7783da2060dc5658eae00c6dbd79804aa60f5c2b8383bc2f2ebce"
+}
