@@ -2635,7 +2635,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 
 
-## Go standard library/toolchain go1.26.9 / LICENSE
+## Go standard library/toolchain go1.26.10 / LICENSE
 
 SHA-256: 911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad
 
@@ -2668,7 +2668,7 @@ THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
-## Go standard library/toolchain go1.26.9 / PATENTS
+## Go standard library/toolchain go1.26.10 / PATENTS
 
 SHA-256: 96f408bfae65bf137fc2525d3ecb030271c50c1e90799f87abf8846d8dd505cc
 

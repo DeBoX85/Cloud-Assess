@@ -1,6 +1,6 @@
 # Current project state
 
-Current authorised work: Denis approved the narrow Go1.26.10security remediation with full QA/rollback and an expanded seven-day/codebase/process review. Follow [the active review plan](REVIEW_PLAN_20261021.md). PR184 native security failure remains historical failed evidence; remediation is not yet implemented/verified. Task7closure and task8freeze remain gated. No new approval is needed inside the approved scope.
+Current authorised work: Denis approved the narrow Go1.26.10security remediation with full QA/rollback and an expanded seven-day/codebase/process review. Follow [the active review plan](REVIEW_PLAN_20261021.md). PR184 native security failure remains historical failed evidence; remediation is implemented locally; serial full preflight/tests/vet/formatting and12file source/toolchain rollback/restoration pass. Fresh old-toolchain scan reproduces GO-2026-6809; restored1.26.10scan has0reachable/3imported-not-called/1module-only, residuals OPEN. Full OWN hosted QA is pending. Task7closure and task8freeze remain gated. No new approval is needed inside the approved scope.
 
 Updated 2026-10-21 (Europe/Oslo). This is the current resume authority. The [transfer checkpoint](CHAT_TRANSFER_20261021.md) records recovery, discrepancies, evidence and exact next actions. Earlier dated handovers are historical snapshots, not active task instructions. Behavioral contracts remain binding unless explicitly revised. Live PR bodies own revision-specific QA outcomes.
 

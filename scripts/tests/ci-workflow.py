@@ -80,6 +80,7 @@ class ConservationTests(unittest.TestCase):
                         self.assertIn(addition['name'], steps)
                         del steps[addition['name']]
                 for block in steps.values():
+                    block = block.replace("go-version: '1.26.10'", "go-version: '1.26.9'")
                     block = block.replace('go test -count=1 -covermode=atomic', 'go test -covermode=atomic')
                     block = block.replace('run: go test -count=1 ./...', 'run: go test ./...')
                     actual[block] += 1
@@ -107,7 +108,7 @@ class ConservationTests(unittest.TestCase):
             ('linux-native, linux-controls-1, linux-controls-2, linux-controls-3', 'linux-native'),
             ('runs-on: windows-2022', 'runs-on: ubuntu-24.04'),
             ('contents: read', 'contents: write'),
-            ("go-version: '1.26.9'", "go-version: '1.26.8'"),
+            ("go-version: '1.26.10'", "go-version: '1.26.9'"),
             ('run: go test -count=1 ./...', 'run: go test ./...'),
         ]
         for old, new in changes:

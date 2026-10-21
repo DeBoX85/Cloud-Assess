@@ -11,6 +11,7 @@ BASELINE = ROOT / 'scripts/ci/testdata/quality-before-20261017.yml.txt'
 PLAN = ROOT / 'scripts/ci/quality-plan.json'
 WORKFLOW = ROOT / '.github/workflows/test.yml'
 BASELINE_SHA256 = '1c9e08848af4aabc9b29402a0d0f264efbd679c019466c628d14048e8032e5ee'
+ACTIVE_GO_VERSION = '1.26.10'
 
 
 def split_jobs(text):
@@ -92,6 +93,13 @@ def generate():
                     out += extra_blocks
                     inserted = True
                 block = steps[name]
+                # Keep the historical baseline immutable; apply the approved
+                # security toolchain override to setup blocks only.
+                if name == 'Set up Go':
+                    if block.count("go-version: '1.26.9'") != 1:
+                        raise ValueError('baseline Go setup changed')
+                    block = block.replace("go-version: '1.26.9'",
+                                          "go-version: '" + ACTIVE_GO_VERSION + "'")
                 # Keep build caching, but require this final native run to execute tests.
                 if name == 'Test Go packages on Windows':
                     block = block.replace('run: go test ./...', 'run: go test -count=1 ./...')
