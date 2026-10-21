@@ -1,10 +1,26 @@
 [
   {
+    "path": "cmd/cloud-assess/aigov_execution_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "26737a531244a72859ba49f38d88bd6a97ae3191",
+    "sha256": "9bd496eb64ddf61fd1baf370edeb2d85cc7d320b457bea3dc3a4cbab8fb41382",
+    "bytes": 25891,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "cmd/cloud-assess/aigov_preflight_test.go",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "bd7768201aa4d0e4b6f50ad1c9919a6893f45a00",
     "sha256": "7ebcfadf12336b8ee7cc6f6d46932cd787b706d3c23aff9c5125dedbc1a342d8",
     "bytes": 2175,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "cmd/cloud-assess/carbon_execution_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "334bfc568d3009b92f37bb76c1eea1db811d3226",
+    "sha256": "dd7f2e55b26da27f465aff13460ad2da6cec3a9d28ba8641e6920eaa0d396992",
+    "bytes": 15827,
     "read": "complete returned source reviewed"
   },
   {
@@ -80,6 +96,38 @@
     "read": "complete returned source reviewed"
   },
   {
+    "path": "cmd/cloud-assess/scanners_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "7ac24f32caef0b84a824e80025ddf6a1037d7758",
+    "sha256": "a6473fbabc5f8c4dd0d1602a14b002dd5a8a1f502b78f9d925cd952318dceacb",
+    "bytes": 8402,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "cmd/cloud-assess/servicehealth_execution_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "057bda19fe3511d456d53124a85d43d15b31bb06",
+    "sha256": "b8c87f97d65c8cd725d558222433d2f8b2ffb407e1616a0c16efaf0a0234c0c4",
+    "bytes": 10218,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "cmd/cloud-assess/sqleol_execution_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "18d6997d2a772d23f55499e81aadfc7f579c761e",
+    "sha256": "470bcade9dd7a366d3ec8b5dd1e0554caff766ed57c178a471931a1ffcc84e64",
+    "bytes": 13130,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "cmd/cloud-assess/zone_execution_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "bfd21f46475553f00bd9c47d45a1f60c2affa53f",
+    "sha256": "77afe53b81291d1a478a94c69bbb6a3dbf939f64234c8cacf6d66a82ba5d68b0",
+    "bytes": 8806,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "go.mod",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "0e84a8fd7d6099c08b89702f07b4e476511882b0",
@@ -129,11 +177,83 @@
     "read": "complete returned source reviewed"
   },
   {
+    "path": "internal/app/arg_completeness_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "d18d1c9971b2e947d1360431de5de66accafd8d3",
+    "sha256": "190c37cb24a73836fc98fd7d280430cfb040fdc88401cd0e01090e17af1b3dc7",
+    "bytes": 4333,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/app/branding_report_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "a85b5d4806e27de8cde0f6750093b6e914eb94b8",
+    "sha256": "c636da24c6046c2d2d5e3ef4b3808574cd2c13ef81e5edc4fb41074e46cf27ab",
+    "bytes": 7504,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/app/e2e_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "c6f2dbb636fed2697cab6b716cf2eec762e32f93",
+    "sha256": "b55a5ecc94aaae65559ce5d3f20320fe3e489271df311b327c7ce829b864ab7f",
+    "bytes": 18503,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/app/optional_stage_http_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "1758ffd07d33ee7f17ab8c9ac21c7905bbc44bd2",
+    "sha256": "15b12ec0efdd2717292e6ce933e40a637f07102154f32db56b080fa0cfb48b34",
+    "bytes": 10358,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/app/plugin_tables_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "e6f021a83e2d6b62df5af65122baac1708bd7dff",
+    "sha256": "eddd89fc5a3e81a95da3d82a7ca3868a80ccc382bbf9858e75f4ae2ceec21318",
+    "bytes": 12987,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "internal/app/scan.go",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "7a8400c35c19ca7c3e1ce75fcf843b73de4a155b",
     "sha256": "84f53833a03aa72c3f65c66c96780fafb939a0ee44d380f4615660b5375a86a3",
     "bytes": 5877,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/app/scan_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "5bfc08b37a18d7b1a4fe320e86735aca51f0866a",
+    "sha256": "602e5dbd0d55719d401fb028f8ec912d302ec705b6c35df3e75c192a3e83be82",
+    "bytes": 8067,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/app/scope_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "e82fc2304cd70abecb91ba29ce28e092035a958d",
+    "sha256": "e141b6bf6757e638de2e59baf5cb73a848e78ce43ab903e90c055858748c98b9",
+    "bytes": 2818,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/app/timeout_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "20a50b7df1fa03506a66c6a2e1340b1363c46213",
+    "sha256": "167541316fc7e084b0a7bae34c447afa157641503e8e20a9e66248d854826ef3",
+    "bytes": 4006,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/app/yaml_plugins_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "3b46b7aedae9a9b944d893416012c603d6fcec36",
+    "sha256": "8710b4306d1b7170548c87f6e1b2e76c49a44135436306ebd2df9ae2d8af31c9",
+    "bytes": 6614,
     "read": "complete returned source reviewed"
   },
   {
@@ -1118,11 +1238,51 @@
     "read": "complete returned source reviewed"
   },
   {
+    "path": "internal/plugins/region/auxiliary_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "1526c4508c2a25a009305b9accf7eb5daa4c05b9",
+    "sha256": "ea6159df2429be7b5b5def893510b54de0498c90313bffad47e939155c6164f9",
+    "bytes": 14163,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "internal/plugins/region/availability.go",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "94360cfbe6a59a3debdf1a8f002cf7b062f8e264",
     "sha256": "26fd07eb9d2deb2f911e249e0434e6a46c83265d005e4a6c573060f5f7b2df33",
     "bytes": 10304,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/availability_capture_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "a212b8f605c28d8eac7137c893de3dc4f89ddaa5",
+    "sha256": "8f2b86c4216930e96acab99b42eef0b252f5b3e1e5b7ba66db97e137e33191a4",
+    "bytes": 7443,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/availability_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "695105d71c28c64980de19334f1a4370c3057869",
+    "sha256": "187cdb1adb4cb95af59b0d6dd03ed24871f013ac8f972bc724a7edeb9e4e5c6b",
+    "bytes": 17129,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/cognitive_contract_integrity_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "867990711921256d26b46055d457c42edcf3179a",
+    "sha256": "affaf4366a2fda784f261f3c32eb0b1faebc155872c5d887df12240b07ccdea7",
+    "bytes": 2039,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/cognitive_sku_boundary_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "932e3ef6690f93e247c293c94cb711246ce45aad",
+    "sha256": "7bb6d847455ff08e9f674017d6c8c090f6de0ac9d29589721f184618921128f8",
+    "bytes": 10948,
     "read": "complete returned source reviewed"
   },
   {
@@ -1142,6 +1302,22 @@
     "read": "complete returned source reviewed"
   },
   {
+    "path": "internal/plugins/region/cognitive_sku_collector_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "2e58577b9221446755ad8b6ebdf66044c96fc4e0",
+    "sha256": "e14ff6ac806cbe631e7b761b720affa8c2467718f81f53e13f176ef903365c7f",
+    "bytes": 18375,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/cognitive_sku_contract_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "119ddd245b97a1aea9580ddf7be2ce31b6ba9202",
+    "sha256": "7a1a0f7012e45a1cb7396fd57a4a04bf2d679e26fa7b780f9afcefda6c47c257",
+    "bytes": 10251,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "internal/plugins/region/compute_disk_sku_collector.go",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "d7a5b8b2e1facd7a36b157acc9eadd4d91a57465",
@@ -1150,11 +1326,59 @@
     "read": "complete returned source reviewed"
   },
   {
+    "path": "internal/plugins/region/compute_disk_sku_review_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "8789739cb653347be8b596e9fccb7e4836410212",
+    "sha256": "00f7ebd0580d4a071a59d41351267c49613c4e56eb3beffed18c3791cabab9c6",
+    "bytes": 6080,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/compute_sku_capture_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "2ef251506b2c6752a02685016aacee513bdf1978",
+    "sha256": "b2178b708eb1ab8bfa2aa18c35af087004df534d2f871ddcfa62cae2d42b6ca6",
+    "bytes": 9872,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/compute_vm_sku_boundary_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "69eafd00c0a90de4ef2504879a1cf4e1cb1cd9a5",
+    "sha256": "da53d03defc779da2062a504e725e123293ff0a56c4f5b628f8e270db147af32",
+    "bytes": 17603,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "internal/plugins/region/compute_vm_sku_collector.go",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "0fa5008b5fc24fcf4a9d0a96b72e1aeececdf0ac",
     "sha256": "35735429562706045199e62fa6dad168e8fb9fb51a0e9fd2414b72b3c132eff1",
     "bytes": 16803,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/compute_vm_sku_collector_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "85063a4ab9dadb57ed6d8cc682ef291c9fd6f2bd",
+    "sha256": "4bc8c789d212ac28e6deafb968050ebf3aaea334a8c18d23b745a463dee9eafa",
+    "bytes": 6234,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/compute_vm_sku_integrity_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "ca6bd3a50d2b345b1480ba8ce492ba27c92acb74",
+    "sha256": "298d247cb2247375523864500dfd4e89d26807532ea0eb7c6b067eb08b3e2ae4",
+    "bytes": 364,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/compute_vm_sku_review_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "7ab6c06fd8106adc53f7d5d173aef1e65ebb5001",
+    "sha256": "28b0e6565ced5bdf9f8082a2ae1c87f4b0449401957e2b31e478305866c55d80",
+    "bytes": 8343,
     "read": "complete returned source reviewed"
   },
   {
@@ -1174,6 +1398,30 @@
     "read": "complete returned source reviewed"
   },
   {
+    "path": "internal/plugins/region/cost_enrichment_capture_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "92cdcf06990aa8a5139c1966ee9b2ff9a62eec84",
+    "sha256": "0a1a12620a3d3ee354f740d7b73b1cdf7dd5d50af99f57b9130c6487770d249b",
+    "bytes": 4332,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/cost_enrichment_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "c64816dd1daa8be6695b2d10076c267854955a7b",
+    "sha256": "bf1a2711ca04bc39afd509401e62a2b4c7b19e09ca56a2e2e1b0f2f3ebd11f5a",
+    "bytes": 21864,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/cost_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "48712680a4eb91785d889a3c2796bfb3b6e623a3",
+    "sha256": "e319499836bb5689042a362ebe9547f5c9f23702bb305cd189c06a016a147f4e",
+    "bytes": 12289,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "internal/plugins/region/inventory.go",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "6157171769aaca1a4e78a026a4dc7f02a610bb87",
@@ -1190,11 +1438,67 @@
     "read": "complete returned source reviewed"
   },
   {
+    "path": "internal/plugins/region/inventory_aggregation_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "b23fbf28124fdb72a78d5b86c85fff897e4cd30c",
+    "sha256": "7382b1357b0f0adb46a8a6b511140687cb311b63644972a491beb354598c809b",
+    "bytes": 15507,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/inventory_capture_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "c7f85db283725e33b2d89a4df85dfdf6e8f8638e",
+    "sha256": "bb6a4b986ac066718d046f4e18ca1c24301ec05d0b009e3d0e13ab0ef281d64c",
+    "bytes": 4936,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/inventory_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "ac97771893275ad42fc5272a435e8a9dae57d718",
+    "sha256": "f6f7a68f1d91096ede9ee774b4c0c9ebb25a208e6cc55fe19ba42e169ceb0575",
+    "bytes": 14061,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "internal/plugins/region/latency.go",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "1a4a037e8d6c1c80aed1d7d51c66a5d5d1ae1090",
     "sha256": "1df6adb1c430fd8310f2c25b83821b724b4a4f7a0d6caa43ac23f2cb033d53df",
     "bytes": 7058,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/latency_capture_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "877e215f1212f85096033acf9636618620479d13",
+    "sha256": "3685d41359382316bf73f956db09b7cb0cbff55cdb66d3499c01672076a08fa5",
+    "bytes": 6235,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/latency_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "60ea39a005cf1f1aff3f13c3889700706fc46dc2",
+    "sha256": "6e1a2197602bf111d85377af32adeb34c788676c5bbf6626153b9332a96e0b51",
+    "bytes": 11780,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/meter_history_00_contract_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "d22ba49ccd86bcccec6be66d709f26078f7d5d4e",
+    "sha256": "c8d71c5c3dcd32081d5ccae5827f949417912a317b432f23bfecf19e61bc6e1c",
+    "bytes": 6960,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/meter_history_admission_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "2a3961930f0bc4a38e6686c2649c1ab5c24bb5e9",
+    "sha256": "b67d63333d424e8bf78268d3c90edaf9e7837c2472e3fef129342b4207ea91fd",
+    "bytes": 5434,
     "read": "complete returned source reviewed"
   },
   {
@@ -1214,11 +1518,35 @@
     "read": "complete returned source reviewed"
   },
   {
+    "path": "internal/plugins/region/meter_history_context_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "b62a3a01385a1cb7a8a52cba5e222972cc549ed3",
+    "sha256": "9241d07d112422b3d2d4c97026caa31828abb340739c9d969a6c05ee14aadd42",
+    "bytes": 3373,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/meter_history_continuation_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "8204accd9f7d6db9ae0c476460f6cee955411cf4",
+    "sha256": "62ce75751e401cfe92b7f6e78ecaad5b8007f01ef1a035046c8806afe3cfaf48",
+    "bytes": 2022,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "internal/plugins/region/meter_history_decode.go",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "1a1e72b7fbb2b0f50e19357ebe4cfb2355bfab6c",
     "sha256": "7ad029c29aa4002deb96e334ab46bc20f1a9dfada157cba5ed3295867b6258d9",
     "bytes": 6299,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/meter_history_integrity_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "3104d7ce9d24124d984c500d44ea9374284eb98d",
+    "sha256": "dff0c11d7ae11b1af6380a9b40d33c2441f566224aeefa96ddccddea9069964f",
+    "bytes": 581,
     "read": "complete returned source reviewed"
   },
   {
@@ -1238,11 +1566,35 @@
     "read": "complete returned source reviewed"
   },
   {
+    "path": "internal/plugins/region/primary_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "6219219eca501b00af02a8af6fb23bb4a51c5d78",
+    "sha256": "4563b3ff745fc1186b2980f74b6b5a57230f85b41b3d2ca98c682748e4ba2866",
+    "bytes": 13546,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/provider_locations_capture_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "87112d5d3876fba242dbd2e0bb6ec9e24b35085f",
+    "sha256": "f70b6cec92e5e913478a4b93eed778a3d9ee90264d237941a8109cbb831a0a05",
+    "bytes": 8659,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "internal/plugins/region/provider_locations_collector.go",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "8c85347d96488f2d4b1440da3f98a64ab3657413",
     "sha256": "bcc92c75ae1bbf16b7e92c270956144503a73f0527266dbd001d98292374881a",
     "bytes": 10096,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/quota_capture_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "78a92620225e5e317e7af84dba73d6971828c326",
+    "sha256": "5814537cc1e411b9dfed0dcb867d2220aa8674ece491247c0a26c5f54a2383ff",
+    "bytes": 4239,
     "read": "complete returned source reviewed"
   },
   {
@@ -1262,6 +1614,22 @@
     "read": "complete returned source reviewed"
   },
   {
+    "path": "internal/plugins/region/quota_runtime_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "5ac53f03b1614a386b37fd92ed8071885b3efab2",
+    "sha256": "e337a030c141a31e2e211598d3acb0db819a269fc81c04a9788afead7228d164",
+    "bytes": 17124,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/reservation_capture_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "31377c86e8b54423d799279c6d29ca3870cc1e72",
+    "sha256": "0475bdee1a3c6d280cc0cbcff500e69191283af7bf6e7085b3da6237f846c498",
+    "bytes": 7329,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "internal/plugins/region/reservation_collector.go",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "c5b9c83e5d41be27798d7ab208f2568cca437c49",
@@ -1275,6 +1643,62 @@
     "blob": "bc6e23eca781e5b5ad81be2f416e2f9c36ec58c8",
     "sha256": "885ad7af574bb1a837d85c8c45a8b53a931b2160dd0cfbbc6d0f252aa8f6bfcb",
     "bytes": 9789,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/reservation_runtime_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "1ec9bffe0cddf1e624c2b92be434ed8ee7952370",
+    "sha256": "b62ad172df73a4f8c659509ad9c66ce8e92128d16649094a5e7020a86b6fc092",
+    "bytes": 22333,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/retail_00_contract_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "a488435a8bfdab7ff44405bcccd9e4e645a09c4b",
+    "sha256": "2b9137f8bcdb51c2ecefebb1de0c5972dbad137fcd1cb0c4a8d133b61f9d5c40",
+    "bytes": 4731,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/retail_boundary_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "87da1c640ad4a6a861fa2c8d36ad4f9a2bc7f3cf",
+    "sha256": "b2421d59a2a2ce6ce1c9bce51cf879b8dadd4d0cf2c40312bc4d2a7dee18fcc6",
+    "bytes": 13583,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/retail_budget_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "95ea62d7b71a39cb2ecad362e9cf4a1b1971bf04",
+    "sha256": "58e18c2d0ba45ae93f67e67d8315a37ce2b791fc17b52ceb8366e1faa35ae7bf",
+    "bytes": 7244,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/retail_context_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "843ae5e61e986fa12cb98b6169dc02b5f3c3f240",
+    "sha256": "730d2e233a89f5e93659913cb5c0bc7f99e85fe0dc3ec311b6dd2fd1ac40cb7d",
+    "bytes": 1735,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/retail_cost_integration_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "fabe75e39fafba0fa4877b40c70116da0c2716db",
+    "sha256": "be76ce11af9d8465e899f6eba0c02353c772e1e9fdbff923461cacabc8608d16",
+    "bytes": 2307,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/retail_dates_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "58d8d37749cf1a6bf94c278e56d916fd1eb0727a",
+    "sha256": "98007d8e1adaf153871cba98ff6e14f24c59d58b12377c56e0b1067443e33473",
+    "bytes": 2273,
     "read": "complete returned source reviewed"
   },
   {
@@ -1294,6 +1718,22 @@
     "read": "complete returned source reviewed"
   },
   {
+    "path": "internal/plugins/region/retail_integrity_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "c710a2ea07d00c3b4fa2ee02be3ad05b1826cb46",
+    "sha256": "cfb663b3c49720ad76770e80dfb707922c675d1806a9078a45b0e9d13a5f8ae1",
+    "bytes": 932,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/retail_limits_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "09cd02caf9f2983806ed27f7bf9ed906d9486ad1",
+    "sha256": "608642051645d6c10297953c796ed4c487015e7329fd24060ea0a8931997256d",
+    "bytes": 14589,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "internal/plugins/region/retail_pricing.go",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "07c75e62d8b844529e9524dc9c2c26b2dd11eee2",
@@ -1307,6 +1747,14 @@
     "blob": "e2e53165c2a4cb597c2bc36c239557189ad68ccd",
     "sha256": "9be54d3d2197960a86eb20dafd896ee6af17f0e60954918225b7a550be23547e",
     "bytes": 12264,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/service_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "f683d274a5b208d4d54a7d1081de3f43aaba1581",
+    "sha256": "9de626056c2da617bce2e72db0d080091d3bf8f46f73b38e0d1be88bf080369a",
+    "bytes": 19465,
     "read": "complete returned source reviewed"
   },
   {
@@ -1334,11 +1782,75 @@
     "read": "complete returned source reviewed"
   },
   {
+    "path": "internal/plugins/region/sql_contract_integrity_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "5f6246b04b7627bd0406f3609fc6bca7255d743d",
+    "sha256": "d95362a87588bbf58d23361e1a6b6d56ff67acec1687ff80c4b122259b0575e2",
+    "bytes": 2757,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/sql_database_boundary_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "1b3585693e534ba994ac9dc2f2e1729aa4ff7241",
+    "sha256": "d4138c56f149dd2b6af97ecabc9a708a8683a1c743656b5e5828e4c5b5d0630b",
+    "bytes": 15618,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/sql_database_contract_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "e7bb67241689e604cae67586f916cb4e323107b2",
+    "sha256": "9a3f642565c95a5244b2af3f18bd7832ed9fd55c7b3d133246138ca7faec2b4c",
+    "bytes": 11009,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/sql_database_projection_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "99f7068c0592987f2adff63654e337064599e30a",
+    "sha256": "f5e7173ef69e1a10b5f522ee439677529fa300952d34f7c1ccc5ff7fdc2422d6",
+    "bytes": 12255,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/sql_database_review_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "1270c03b846547903128416207e71f5721f78328",
+    "sha256": "a280afd8d9dd14cd485086f3605d3f486e628de217f99f39ebd57c47ed276b50",
+    "bytes": 3003,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/sql_managed_instance_boundary_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "539a907554eb87aabbbbf660cb6e356f640b3e6a",
+    "sha256": "3fbb8cb3cc4c7659fabde23d4c1d4d76f6d2feb8597eeea7eea2cecababfae46",
+    "bytes": 15247,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "internal/plugins/region/sql_managed_instance_collector.go",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "d5700a159275b50147923f8a269f6f62d845cd95",
     "sha256": "f6f0706cb8b6ab9c1344eb2fd22e27f548dc04d922d738e2eb9cc44cb5686e43",
     "bytes": 6440,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/sql_managed_instance_contract_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "d9c6132080517079eeb5d3650a30aa0cf73f2aef",
+    "sha256": "46556bb06dbadb48f0bcace37a27c3910edd516db97879f7ae352c9dec5dadf4",
+    "bytes": 465,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/sql_managed_instance_projection_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "973ae7f02d7357230f5111efe71cc643cdbe1375",
+    "sha256": "1ddb28d2337a39d882a9f5a7575db3b064b751559024ecf8b0ced5cdfe2bb682",
+    "bytes": 10759,
     "read": "complete returned source reviewed"
   },
   {
@@ -1350,6 +1862,70 @@
     "read": "complete returned source reviewed"
   },
   {
+    "path": "internal/plugins/region/sql_report_boundary_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "7692d2bc8be72737652de4904b2995ac51c813a0",
+    "sha256": "d2d91ad203753bde5305a2aed6322d7185b385c3a12e9360468547b4c769cbc7",
+    "bytes": 14186,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/sql_report_budget_plan_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "e7d9962c68bd2acbf75fa285157901f945a26215",
+    "sha256": "b9c738407e48412dd15097108c67918ed48007909379f39555a027facd6af95e",
+    "bytes": 3686,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/sql_report_contract_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "18bc47cdd0ff5a4b87fa07042ce3a1976544a13f",
+    "sha256": "c7123671a87c6502dc1e1b3ef81504a83a812c231e2e26d9749d9ffce7ae4438",
+    "bytes": 4327,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/sql_report_oracle_integrity_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "3c6b9a9c0475aef3fb42dcb975f625c77b0a3309",
+    "sha256": "27e5f2e4612b66d131fcf49b31963c8e020ff2996dea314665f94522a52be5e0",
+    "bytes": 1012,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/sql_report_oracle_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "58fb51b6f3b26fff4e3e2e7a2e632b5403feef90",
+    "sha256": "ab90d0ea7142f825961117e171a8d56c86cbe6a5d89249c810ef981a9a849cdb",
+    "bytes": 9750,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/sql_report_renderers_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "8361ce1fc029518e8114c090a4564389ce286490",
+    "sha256": "5b0a08357ebfc405344c52bd0e2be4f67bdcd8927d03d76ca35377342334b31a",
+    "bytes": 12473,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/storage_projection_contract_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "67a48c9517db26df1ea25fd01b505454a05023cf",
+    "sha256": "d52b68ce7445e38d8e4563b053e06f7351ea1ecd918a389aa8269cd1cd7de049",
+    "bytes": 4465,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/storage_sku_boundary_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "2b1ec58eeda247ba7677ea21518fe0cb3c15e859",
+    "sha256": "c6e1ebc3281ae9fddd0288d656eb4ad2fb4894a766d4bbb60709f0285f62e559",
+    "bytes": 17730,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "internal/plugins/region/storage_sku_collector.go",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "2ff0685a3944a138d057aae59ad76455454fb4eb",
@@ -1358,11 +1934,67 @@
     "read": "complete returned source reviewed"
   },
   {
+    "path": "internal/plugins/region/storage_sku_collector_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "7d3bbcfd4c027ceaa2840db5643b68df44def9f7",
+    "sha256": "8e80e40b1d91dd61903fb1994a053404efe89ecee134a428a0e8796b32e48aca",
+    "bytes": 7746,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/storage_sku_review_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "017471dbe796637cec331955dab9303e5f266f83",
+    "sha256": "9afc8b6b175fa0a188a31e30c1f60a041d7d06a48d4ed434aca0c1eb77ed4746",
+    "bytes": 2350,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/vm_quota_capture_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "18476fb14c4385d67e7d7fd16ccabbcc7ba8b52c",
+    "sha256": "1c0e0a78fdf6f49c305c5d22692a6435538e58fdd691bc635ebd46e9a9b12229",
+    "bytes": 4025,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/vm_quota_collector_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "47546d5e6b3d79e9d0baa230f6739a3b75fbfa72",
+    "sha256": "26e932edd8ba11d509864313a6cd9b7333977027ac542ffc89f464c77042de1f",
+    "bytes": 10422,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "internal/plugins/region/vmss_catalog.go",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "31bf10e820435f2e3e425c477017fac13769b573",
     "sha256": "588c06fd510c0aa769c4258669830bb091da4c3af44b7761727bb50a4c94e95d",
     "bytes": 6693,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/vmss_catalog_boundary_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "71100c880677f410d929ebf8ea6e99b7a56df58e",
+    "sha256": "ceff8daa4c9828b9d88f2dcd12c9f9b95bc477a99ad48d3ea8a5aa370af23148",
+    "bytes": 11336,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/vmss_catalog_contract_integrity_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "f665fe9872c5848d9172933e072294e2ff991bad",
+    "sha256": "3778d17bd50996f0cf7158291fc5e2c16a9a16166648943ca93fa03f6ef3a783",
+    "bytes": 513,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/vmss_catalog_contract_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "018de10e7e4cb05d76da971b3b1d32d1c53f4e9e",
+    "sha256": "1bac95d0cc94d1c763b8342e7e26c00204935729dc059e7bd6b849b88eaee86c",
+    "bytes": 12796,
     "read": "complete returned source reviewed"
   },
   {
@@ -1399,6 +2031,14 @@
     "read": "complete returned source reviewed"
   },
   {
+    "path": "internal/plugins/servicehealth/scanner_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "1ef072fe74f1fd0024a1aaf56f38a162cead182c",
+    "sha256": "752454dfa0a57076dfe83571a7607fc0079c1319dbdea29a03bf8a2f0e2bf981",
+    "bytes": 14795,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "internal/plugins/servicehealth_projection_test.go",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "ff9b4db92f36855a592f79a7c23ecbf08fba5170",
@@ -1423,6 +2063,14 @@
     "read": "complete returned source reviewed"
   },
   {
+    "path": "internal/plugins/sqleol/scanner_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "5ad2c6c14c6ecf23820ea989a8cfb8b62dc34ae1",
+    "sha256": "9e08458083dec9d1cefcc4838cb512797f7ca15f41f82a5dfaaae8afb4e04a40",
+    "bytes": 16952,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "internal/plugins/sqleol_projection.go",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "a925e0545eaa0e9b4be51a58705d46c0004f56fe",
@@ -1444,6 +2092,22 @@
     "blob": "ce3da2d985586c90740f1e89e1a7d903d4f8f97d",
     "sha256": "ba0e08052cf5f513f7756e0889a0f5f228de6da5d79f4d7d78a25b938eb66e48",
     "bytes": 9519,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/zone/scanner_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "842fa2d7be23836ec7277bc5dcd2541f9e72a836",
+    "sha256": "3727c888cc8f0cf5beb3524c1c779cab01808ad08c6bf38b99bf43ac538181ca",
+    "bytes": 14467,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/zone/unicode_key_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "651e4782e1af6a8cebc443b4c8755e59e7f96c02",
+    "sha256": "62b4a03abf49e7e2b0487513848be227c9cfbc28fe4398b62d941ffc5e42df31",
+    "bytes": 2078,
     "read": "complete returned source reviewed"
   },
   {
@@ -1756,6 +2420,14 @@
     "blob": "5a43f569f3ceceab829b9a26dd1d46c6732b5076",
     "sha256": "6c45e937a25b96c6e08b3789bcfc36fe25d79a73626628c1abca3d257fc4f957",
     "bytes": 12189,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/yaml_plugins_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "d02f2967b009aa549c422017ce8292b3a851b9e8",
+    "sha256": "39319263c5f6137535d06f620901861ad89d606594a909cd149ebbf98324c2e5",
+    "bytes": 14945,
     "read": "complete returned source reviewed"
   },
   {
