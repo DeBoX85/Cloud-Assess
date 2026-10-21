@@ -1,5 +1,7 @@
 # QA-COG-04 independent guard isolation, 2026-10-17
 
+Current security hold: PR184 own native jobs fail GO-2026-6809 in pinned Go1.26.9. Read [the blocker and narrow1.26.10proposal](GO_SECURITY_BLOCKER_20261021.md). Await Denis's toolchain decision before task7closure/task8freeze. Source39589963002passed; quality39589962815is not certified. Historical183success remains revision-specific.
+
 H21-QA-01: first local static handoff check rejected two edited authority headers: missing required historical-contract distinction and a forbidden stale stop word. Corrected the documentation to the existing authority contract, without changing tests or gates; rerun required.
 
 ## 2026-10-21 recovery and handover reconciliation

@@ -1,5 +1,7 @@
 # SQL task2 frozen contract and task1 completion, 2026-10-17
 
+Current security hold: PR184 own native jobs fail GO-2026-6809 in pinned Go1.26.9. Read [the blocker and narrow1.26.10proposal](GO_SECURITY_BLOCKER_20261021.md). Await Denis's toolchain decision before task7closure/task8freeze. Source39589963002passed; quality39589962815is not certified. Historical183success remains revision-specific.
+
 ## 2026-10-21 recovery and handover reconciliation
 
 User requested a new-chat-ready handover. Live183head/draft/unmerged, both exact-head hosted successes and unchanged protected/archive refs rechecked. Shell/filesystem/Git reads recovered;25task-owned files match exact183Git and recorded hashes. Complete surviving top-level local proof/helpers, original preparation where present and3task8provisional files retained byte-for-byte with manifest. No new native execution or product change. Active handover/restart authorities rewritten; [discrepancies](DISCREPANCIES_20261021.md) identifies obsolete statuses without deleting historical proof. Task7formal archive reconciliation/closure remains OPEN; task8not frozen. Exact changed-tree QA/readback belongs in live handover PR. Existing42controls/preflight/25file rollback passed before outage; earlier date/depth/control-selection failures remain distinct. The old service-offline pause is superseded by observed read recovery, not a claim of full environment recertification.

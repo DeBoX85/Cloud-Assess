@@ -1,5 +1,7 @@
 # Active action register
 
+Current security hold: PR184 own native jobs fail GO-2026-6809 in pinned Go1.26.9. Read [the blocker and narrow1.26.10proposal](GO_SECURITY_BLOCKER_20261021.md). Await Denis's toolchain decision before task7closure/task8freeze. Source39589963002passed; quality39589962815is not certified. Historical183success remains revision-specific.
+
 ## Current checkpoint, 2026-10-21
 
 Read [CURRENT_STATE](CURRENT_STATE.md) and [transfer](CHAT_TRANSFER_20261021.md). Security/task6prerequisites complete180; task7retail own hosted QA passes183(622Linux/617Windows,87.6%coverage), with formal archive reconciliation/closure OPEN. Execution reads recovered; raw local controls/preflight/rollback/failure proof and task8provisional files retained under evidence/20261021/recovered-local. Task8not frozen/not implemented. Earlier pending/STOP/no-production and old task counters below are historical snapshots; behavioral contracts stay active. This new handover tree needs its own QA; live PR owns actual outcomes.

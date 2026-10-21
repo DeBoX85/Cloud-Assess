@@ -1,5 +1,7 @@
 # Resume Cloud-Assess
 
+Current resume branch: docs/go-security-blocker-20261021, a documentation/evidence checkpoint descending from preserved184. Read docs/GO_SECURITY_BLOCKER_20261021.md and inspect live PR184 first. Both own native jobs fail GO-2026-6809 in pinned Go1.26.9; upstream identifies1.26.10as the patch. Await Denis's narrow toolchain decision before task7closure/task8freeze. Do not rerun unchanged QA or refresh pins without that decision. The following earlier recovery sequence resumes only after this new gate is resolved.
+
 Continue DeBoX85/Cloud-Assess from branch docs/handover-recovery-20261021. Read AGENTS.md, docs/CONTINUE.md, docs/CURRENT_STATE.md, docs/CHAT_TRANSFER_20261021.md, docs/DISCREPANCIES_20261021.md and the authority header in docs/SESSION_HANDOVER.md. Verify the handover branch/live PR, exact commit/tree/parents/human identity/full changed contents and its OWN QA before advancing. Inspect uncertain operations before retrying.
 
 Product coding base is preserved draft PR183 on fix/region-retail-depth-20261020 at458d5c5296c321c8e5e961f18eb5422d43c2eb18, treec07469bae30de3b111e1fcef89cb557bdadebe33, parentaa304cf71282d28d1586a72f0ce232ce2c1b2d3e. Its own quality39450901879/source39450901886 pass,622Linux/617Windows controls,87.6%coverage. Security/task6prerequisites complete in180withcf93d214evidence. Tasks1-5remain complete offline. Do not replay older SQL/Cognitive/VMSS/history work or treat dated pending/STOP snapshots as current.

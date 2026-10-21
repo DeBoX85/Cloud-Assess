@@ -11,3 +11,5 @@
 | H21-07 | Green draft could be interpreted as accepted MVP or advisory-free | Protected unchanged; public region integration/live validation outstanding;0reachable/3imported-not-called/1module-only remains OPEN; no percentage |
 
 This bounded recovery review is not a repeat of the earlier20PR/72hour audit. See AUDIT_72H_20261019.md for its exact historical coverage and limitations. No new unexplained product divergence was found in25owned-file comparisons. Unreachable/deleted branches or unseen forked chats are not excluded by that check.
+
+H21-08: PR184 own native scans fail reachable GO-2026-6809 in Go1.26.9. Prior183scan success is historical, not current advisory clearance. See [new blocker](GO_SECURITY_BLOCKER_20261021.md); await narrow toolchain decision, keeping task7open/task8provisional.

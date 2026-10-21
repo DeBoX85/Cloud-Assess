@@ -1,5 +1,7 @@
 # Chat transfer, 2026-10-21
 
+Current security hold: PR184 own native jobs fail GO-2026-6809 in pinned Go1.26.9. Read [the blocker and narrow1.26.10proposal](GO_SECURITY_BLOCKER_20261021.md). Await Denis's toolchain decision before task7closure/task8freeze. Source39589963002passed; quality39589962815is not certified. Historical183success remains revision-specific.
+
 ## Purpose and current request
 
 Denis requested that all stale active handover/restart instructions and relevant logs be reconciled for a new chat. This is a documentation and recovered-evidence checkpoint, not a new feature, acceptance decision or retrospective repeat of the entire72hour audit. Current source of truth: [CURRENT_STATE](CURRENT_STATE.md); executable copy prompt: [RESTART_PROMPT](RESTART_PROMPT.md).
