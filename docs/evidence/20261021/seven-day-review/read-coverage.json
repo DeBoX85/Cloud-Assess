@@ -1,5 +1,13 @@
 [
   {
+    "path": ".gitattributes",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "1a2952e28fa08b3f307a5de933a08b2a2dec5afe",
+    "sha256": "ff79b05792127b037905df102d1b0b90f31baadb6d72e5f39ed33f0a7ee8e702",
+    "bytes": 1508,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": ".github/go-mod-tidy-trigger",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "21323c5a37b1bf0ef39a3dfa152600b3cc7b84fa",
@@ -61,6 +69,22 @@
     "blob": "5d90829578fea27b72f273aace54b23e3aad7ae9",
     "sha256": "0ae9d55f7a30240e85f801903e7339f94e66632f60b9827044cb7db15c1a8e8d",
     "bytes": 829,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": ".gitignore",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "2244a330457ec2970946ee1e5884f9dac1209eea",
+    "sha256": "0c6c9a704d10eaf23bf502cc2449a73bf1c9e254ea5420e96b4c3a05ae5cee20",
+    "bytes": 19,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": ".gitmodules",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "eba5947b59a32a2e2af085c1705ef5847b75e82d",
+    "sha256": "63d5e5e3338aad156b3dda9bf45976a77d781f8bec99b8a367f3f687e09f6f3e",
+    "bytes": 154,
     "read": "complete returned source reviewed"
   },
   {
@@ -189,6 +213,126 @@
     "blob": "bfd21f46475553f00bd9c47d45a1f60c2affa53f",
     "sha256": "77afe53b81291d1a478a94c69bbb6a3dbf939f64234c8cacf6d66a82ba5d68b0",
     "bytes": 8806,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "examples/branding/example.json",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "9043c50ea35e7089fd1697eae62b322322b49d16",
+    "sha256": "10849ad5847aa57c4ee759bdc004e42f08351f49832948135eeed5739aa5f6a9",
+    "bytes": 227,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "examples/filters/azqr-dev-rg.yml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "eb229caec0e5a6102790428df2d3f69d54bd571f",
+    "sha256": "3f6c0121b5a4483b09cc7854b0301cbbdcf83d3f82fc1ac8738f780d513fa710",
+    "bytes": 284,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "examples/filters/azqr-environment-dev.yml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "9d65a480529bdae7cdedb0822b98b66a0e72b41e",
+    "sha256": "496b38f8c9a8376ca370a08726001fe5a2387abf09a9692629e3f8fae4b6adb2",
+    "bytes": 205,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "examples/filters/azqr-exclude-dev-rg.yml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "365fa1f67b92c3bdb5c7431b5b9e98b2d4cc496b",
+    "sha256": "c9f27060b4e0edbfda106cdaf7089bc208dddc789a49d5504c98a4db0d7103f4",
+    "bytes": 284,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "examples/filters/azqr-exclude-environment-dev.yml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "7a0a743879e95cc90633e1302e7773be6281ca27",
+    "sha256": "2c608771addc8391425d28d9e5cfe9e270b4b592ed20a7c3817ab914cffbd15d",
+    "bytes": 120,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "examples/filters/azqr-exclude-vm-backup-recommendation.yml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "5dc977dd46ace0494f38cf97ed113ec289207ae1",
+    "sha256": "c20f1be43c000b75f2827c74c9cc2a5c28d217a091997034769106b00c0ffd3c",
+    "bytes": 162,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "examples/filters/azqr-include-exclude-dev-rg.yml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "d3ed4c6fb88015c57ba18c81674f9b44baae482e",
+    "sha256": "433c3049711dbc62579c705e2a7b7876637e77e991084e18ab3e01781c75b0ef",
+    "bytes": 400,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "examples/filters/azqr-storage-vm.yml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "c57c5b11fd7e2b071e197a2c96340abb9711adb8",
+    "sha256": "7e3cecb672ac074c47072f49e7fe4aea2b367238768153c0fd309a5c3aa8a079",
+    "bytes": 203,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "examples/filters/cloud-assess-dev-rg.yml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "ccdc8198ef7fa29682d3ebed73f440ca35b9228b",
+    "sha256": "90c81a5406d482f40743e831d165e2065596ccd3b2ae0b5ac0236ea5f6ab720d",
+    "bytes": 189,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "examples/filters/cloud-assess-environment-dev.yml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "e6c33f61e563de5249319cc99e40390fc6141b59",
+    "sha256": "0716d9f4d0d2c642b329fa7f2e5b4608e518f821d80c2a480b578cabd1f692ba",
+    "bytes": 111,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "examples/filters/cloud-assess-exclude-dev-rg.yml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "4f94fa02f623af24c46f42fb8e3b92948d59e44c",
+    "sha256": "68f78beb721489191401cc73f2aab48f824e888fcf2f8af60e3eaa96d9458398",
+    "bytes": 197,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "examples/filters/cloud-assess-exclude-environment-dev.yml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "1b98b22324df3f833f95afda497da3926350e5bd",
+    "sha256": "b0a5371cf30baa72047dbd36d2082da70ce88a1fed752479f6d7db6a04a67ce3",
+    "bytes": 119,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "examples/filters/cloud-assess-exclude-vm-backup-recommendation.yml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "eac3d0c1fcb8e1ad43be3319408709e25bed65ad",
+    "sha256": "67df102cc59ad5c9902297e94f889705262607d3eaf587c5ffe7a793a74b67fe",
+    "bytes": 161,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "examples/filters/cloud-assess-include-exclude-dev-rg.yml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "8bdaec233576a6a40904180464aaa48a3d9e6644",
+    "sha256": "a01d38194f7f710de71596a7e16b96364a7f88f9cfd62be87d1f1bb296090822",
+    "bytes": 336,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "examples/filters/cloud-assess-storage-vm.yml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "907a7c2f7f8746af07b49afc1739a581121fc8f2",
+    "sha256": "358b5c1ce5bef559c812504fd7a8db8676e20176426a688e8e3b6299bdf5a96b",
+    "bytes": 186,
     "read": "complete returned source reviewed"
   },
   {
@@ -2707,6 +2851,14 @@
     "note": "Changed security-toolchain versions separately reviewed; untouched source baseline read"
   },
   {
+    "path": "scripts/ci/testdata/quality-before-20261017.yml.txt",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "671edfcaace80bf314591f396c2dce8623bcf86a",
+    "sha256": "1c9e08848af4aabc9b29402a0d0f264efbd679c019466c628d14048e8032e5ee",
+    "bytes": 20235,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "scripts/ci/verify_gate_probe.py",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "e4ac0d8cb6cad7a436f842931e812f6c7687bb57",
@@ -2773,6 +2925,30 @@
     "read": "complete returned source reviewed"
   },
   {
+    "path": "scripts/tests/ai-execution-mutation.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "feb4a7e50eb5541c7fd11e20cba3a76ef51a39b4",
+    "sha256": "beac208638bd6aa7fd7dc2bc784496f5299179795146a237bcdebf241ec29a08",
+    "bytes": 2918,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "scripts/tests/ai-request-mutation.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "ddd1895658aab8f1c4d5541824bfe74a812e4244",
+    "sha256": "2e262307869199b9b6b47e75b2768f4d1443536cf517eddabb3199eed3f249f6",
+    "bytes": 3399,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "scripts/tests/arg-response-framing-mutation.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "06315565951f7fa07f760111e1335e45ffba5c08",
+    "sha256": "3adfaa4805cd85752342247aa20b7bce14bc78496b93056b0f2cf1a19249de00",
+    "bytes": 2384,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "scripts/tests/bootstrap-workspace.py",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "3a3650f9d5e45a61c4a104f495a9d2f4a2c88729",
@@ -2823,6 +2999,30 @@
     "note": "Changed security-toolchain versions separately reviewed; untouched source baseline read"
   },
   {
+    "path": "scripts/tests/cognitive-sku-mutation.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "04886b78e2ae655c7c5a6693bc7a2eb382aca510",
+    "sha256": "7c8148c5e1b6b2c25f21ea2885f90ab4d97a194407aa420a9091882e3520dbeb",
+    "bytes": 9020,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "scripts/tests/compute-disk-sku-collector-mutation.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "4ad481d7d24dfd288533a7794c6de418a911f5ed",
+    "sha256": "259fa1f4b1e1e585b0ae4dda59b9cc74f122d0b31044a6503f21d51454ef13b4",
+    "bytes": 4940,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "scripts/tests/compute-vm-sku-collector-mutation.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "ab613222d8ec6f83e8ca96f5c35776920ebcaaf2",
+    "sha256": "f9bf062dd79543af30d51625ca55c590601d9bd9d7fcc07e98d15b5294d39d3c",
+    "bytes": 6134,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "scripts/tests/dependency-inventory.py",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "b5e4e6b8bd178772c7a98e0facd6e3707ae00ffd",
@@ -2840,6 +3040,14 @@
     "read": "complete returned source reviewed"
   },
   {
+    "path": "scripts/tests/evidence-bundle.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "3ceca36971bd4ebcd0def271d4ec0939b2c44141",
+    "sha256": "c717cdb7d2d0b6d0d51a56632c4cfef5d3bf1af2e8a6f30149ebfa9d4a73b895",
+    "bytes": 6944,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "scripts/tests/gate-probe.py",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "b68326e24248258e26ddbb5af90f97d34639ef0c",
@@ -2853,6 +3061,38 @@
     "blob": "27a440ba4f47bb86c149756e6fb62401d4687ad9",
     "sha256": "d8c810c69628c2d48f2a00415278a90ae911405b417a7646e26af4eb4216f8d0",
     "bytes": 2667,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "scripts/tests/live-equivalence.tests.ps1",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "ac0e45d3f0285245c25de8a3ee2007098a42c2a8",
+    "sha256": "8a514cbf60d1b66f6249c92f4e972edbc94e8bbeb7eb25bb413c5f5e0b365b6e",
+    "bytes": 5645,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "scripts/tests/maintenance-generation.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "f32611354703065e13bdb13bd49944a634c26749",
+    "sha256": "651d6e3e56d6e82ce484bb6fdeff5fd64f6ab1789e98b42e9011883a943eb9da",
+    "bytes": 11461,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "scripts/tests/maintenance-publication.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "2a82eddda9c35cda8c038ace21b53ae7f9b67691",
+    "sha256": "29786a0597b385c86108ba70d4216f94a2b4c13e92e2d91a92097ce49240f4ab",
+    "bytes": 7676,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "scripts/tests/meter-history-controls.plan.json",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "abb113622ee63fa813629c4a44c1aac5582d1ad7",
+    "sha256": "81ada714ba47981ab95072152beca8152f27f2c9729ed0d007d018e4f8eb6750",
+    "bytes": 8785,
     "read": "complete returned source reviewed"
   },
   {
@@ -2897,11 +3137,203 @@
     "read": "complete returned source reviewed"
   },
   {
+    "path": "scripts/tests/region-auxiliary-mutation.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "3b46159ba695da177f5cdccf5670570f37e808ca",
+    "sha256": "405e82335db9a86632d7e52afce324cda0fa2b53f33592ba3f979f801f1efc1c",
+    "bytes": 2656,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "scripts/tests/region-availability-capture-mutation.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "1f08bbd4653c541f8ffa644e02839c25ff9ff145",
+    "sha256": "70573670f63b5e4ffbf1aee6168eb8f02a7edb3d4f754246ba2aaff151298a4d",
+    "bytes": 2587,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "scripts/tests/region-availability-mutation.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "a6301ee4ed107c84948e673c958a705deae597fe",
+    "sha256": "9cc2b3b85a19e1c84138f933884d040dfce3f16acee00717982187e3bb3888c1",
+    "bytes": 3545,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "scripts/tests/region-compute-sku-capture-mutation.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "f748aa76ac01c1f4d9f31b4acfb83344063b1531",
+    "sha256": "7139a3112e24111407255a179495c627c531bfc78042d331dcef2eeb37c004c2",
+    "bytes": 4963,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "scripts/tests/region-cost-enrichment-capture-mutation.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "32c97a20f0fb9a7da32c7c12b5e20ea40e2c7d54",
+    "sha256": "f173430c95c4f03b202e87c02f7113baac6951104010c5b5122d2ea17a34e954",
+    "bytes": 2756,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "scripts/tests/region-cost-enrichment-mutation.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "e7c98a0134cf6a3c87bac3136f035f1d6dc6f2cc",
+    "sha256": "310818ae2718fc8afc9a61b5afccfdce02131420dd0749f18d4e11ddb95604ea",
+    "bytes": 5017,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "scripts/tests/region-cost-mutation.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "7cd73153c307aee9b044af60633e03f5207b9df7",
+    "sha256": "83fe2c7a91e0eeed49eccd79c8aa7303c707d758598a13c3c941c9a431c1380e",
+    "bytes": 3214,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "scripts/tests/region-inventory-aggregation-mutation.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "e68828ae080cac91003973138ecc8533c8c7e2af",
+    "sha256": "353ab77bb9371907193e4548c4a278ed74bd8f9d60e77c7938e56335136cf789",
+    "bytes": 3738,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "scripts/tests/region-inventory-mutation.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "8bb7956a8ad5ad4c17eb3be67e399b608b93d69d",
+    "sha256": "166f17681d381ef41ffd5ba1a11665ee4ac0a9014535cd92699f2156a18a4994",
+    "bytes": 3323,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "scripts/tests/region-latency-capture-mutation.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "ea325dc97d26fdaa47c2d8eee28b232409bfcf03",
+    "sha256": "3121eca40080ab1b2a42f8b1692fa1a079c23544eaffbc2778da0afeec305cb3",
+    "bytes": 2557,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "scripts/tests/region-latency-mutation.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "7eccf70f359803e6360d0cf6e21299773176342a",
+    "sha256": "a00eeb105f949ed46c7d6da766482f85962e14f22697a069d927fb0ed9a2a169",
+    "bytes": 4069,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "scripts/tests/region-other-sku-capture-mutation.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "f01d6dda19fd2e6ea9b4d5e2c21f3d25a29d4d49",
+    "sha256": "adb32c9c70dcd94056cc4749174f04db7ca0494ada1d7f7206ecdf87838a362c",
+    "bytes": 5733,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "scripts/tests/region-primary-mutation.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "e4ed5303df304bcac0e91f25bcd7eb67d75e13b1",
+    "sha256": "d8aefbc76f2760bc248ae19a3d795506879e0aa866623cb1f29c3e46722cc1fa",
+    "bytes": 3318,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "scripts/tests/region-provider-locations-capture-mutation.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "145bea96f8fe587dc38e296bc67b33eb81cd234b",
+    "sha256": "ae17ca70d454e757cbdfbe764a4737050d1249e085a39db03a9da0ac4c7c1626",
+    "bytes": 3969,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "scripts/tests/region-provider-locations-collector-mutation.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "8d2111616f8bcbb330c48cd707d1d9591d188452",
+    "sha256": "719210a700b32da51d3544416cedf37da12c080aed763e9f74f9c92a30307118",
+    "bytes": 5967,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "scripts/tests/region-quota-capture-mutation.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "a0a014e37edd8945a1dcf27761587d363b1bdd44",
+    "sha256": "c24a608854ecff937eb6ce500effe5dab39ec8c1283f658da09b38bd348f62e7",
+    "bytes": 2521,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "scripts/tests/region-quota-collector-mutation.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "7b9fb20c8e922806facdeffc87b4ff6014f637f3",
+    "sha256": "985dfcfb33918c9f5606b5be5395ba66421e50a9984c9a1df7569cf58ee9c7ed",
+    "bytes": 6662,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "scripts/tests/region-quota-runtime-mutation.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "a48202c1d82eafc5bc82d7b4332a62333bee019f",
+    "sha256": "25b7f0ba233f1dc83c3cf881357b3cadb00703fd9fadc3235df1049c9fe5693c",
+    "bytes": 4318,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "scripts/tests/region-reservation-capture-mutation.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "4f942f1af28038e9d670c7eb074a33d4b6ff1a31",
+    "sha256": "f5c6c28596443361339fda7d5f9a4a928facd9e5b354e28993eedeb15b3f6fce",
+    "bytes": 2845,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "scripts/tests/region-reservation-collector-mutation.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "7323d0edbc61ffd8137d63ffc545c7907107e768",
+    "sha256": "1ccad1915995afe1d84d21561f25fbdca56febc4935425ee3eeddbc2a2aa5c9c",
+    "bytes": 6972,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "scripts/tests/region-reservation-runtime-mutation.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "fbdcb37335b4627f9db4c62e664082c9d98dfb21",
+    "sha256": "43df1ba553dd20a9f62256ab8de24bc38bd7bc3542bb3e9691ec6fdc5c4c2efa",
+    "bytes": 5052,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "scripts/tests/region-service-mutation.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "488cd60ebb9198f942605e86b604fbe620dcee25",
+    "sha256": "123f7c24d4dd1f8722e85d758b737380a17fd57e86afbddb7c11f99808ffd8b4",
+    "bytes": 3484,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "scripts/tests/region-source-capture.py",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "e6a4873624db9f5fbfb63bc360c93be0e4d14af4",
     "sha256": "0b4bb4c6daf56deab9ec1ba7b1ef658f732e3253429b6d187a2ffcef82791d7c",
     "bytes": 10324,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "scripts/tests/region-vm-quota-capture-mutation.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "13fa511c57da0d64c82ab26a12291e1346e1772d",
+    "sha256": "e75f0c5335909cd32343fef54eda6cbf087485c7ec78087e9fa870214c623cab",
+    "bytes": 2554,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "scripts/tests/retail-controls.plan.json",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "0b7aa05ad66f72a47aa9b4bda14df4e57cb34eff",
+    "sha256": "71a6edbb216191b1936b726aeb6e47da45cbb7f36492e0ff6032e8a5173e867b",
+    "bytes": 13413,
     "read": "complete returned source reviewed"
   },
   {
@@ -2913,11 +3345,59 @@
     "read": "complete returned source reviewed"
   },
   {
+    "path": "scripts/tests/scope-redaction-controls.plan.json",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "f31d9d58b7c8854ab8dc34af14ad71d00091ab6b",
+    "sha256": "c2addd425296fa78198124cb8404e9ae9dc5789d723aa0cacecdb60d67fddb38",
+    "bytes": 1026,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "scripts/tests/scope-redaction-controls.py",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "52f8dc69ffe0349e88c8c71f5ed818c307610072",
     "sha256": "d9df9b6c0c1eb769a7e905aa78257e85ebb55529f49610b179226d6cdfd77137",
     "bytes": 2251,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "scripts/tests/section1-regressions.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "203f4552e0453774163f91187055edae86b6fe06",
+    "sha256": "d59128b3ed833ec87961cfc852c94545cb26c8adbad1ca3c65ec3f7adac3f3b9",
+    "bytes": 3790,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "scripts/tests/section2-regressions.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "1892ba62673ce998c39ec0bd2bea4668c141b97b",
+    "sha256": "76871ea91d5c8866907d70ca2576c4a99632408863b9fa6e2c174b72e66cf360",
+    "bytes": 5458,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "scripts/tests/section3-regressions.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "b23f5f3dd335310eb02c6f0c622521b33bba369d",
+    "sha256": "00b4070901e65c44d3425ae654b6b28f5c85824b453232175a9a2076a83c72ff",
+    "bytes": 2847,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "scripts/tests/section4-regressions.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "721af35b9a4da5e27a72e117089dcfb0e9238f4e",
+    "sha256": "c5b8ed57b26c62fca7c3b19763bdd61957f42984f2eef3f115221638c8bdffb9",
+    "bytes": 2300,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "scripts/tests/sql-database-controls.plan.json",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "24fc3544b4413ffb8d523d322418567804077898",
+    "sha256": "c83c18a745aaf98567e48b116bb10b048a143628866c57825065f8a129c289a4",
+    "bytes": 13106,
     "read": "complete returned source reviewed"
   },
   {
@@ -2929,6 +3409,14 @@
     "read": "complete returned source reviewed"
   },
   {
+    "path": "scripts/tests/sql-mi-controls.plan.json",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "550685867303950fd1a27446e4c3818f417b9ec7",
+    "sha256": "e0585f48dd353e47365ac7871c213432a81dd2880c261fb414312fed7b97567d",
+    "bytes": 11717,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "scripts/tests/sql-mi-controls.py",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "afc106d2c30d46003600ce5208304eb7305ee942",
@@ -2937,11 +3425,35 @@
     "read": "complete returned source reviewed"
   },
   {
+    "path": "scripts/tests/sql-report-controls.plan.json",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "20010a9994466281af08ae3d5e1017f153fa2634",
+    "sha256": "fb5be2d44ba2aad6db98beebea79a043c415e394a1946f7753972f11f6176219",
+    "bytes": 4306,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "scripts/tests/sql-report-controls.py",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "c5e2bd1a28f6754d2e8b5637e3b5b0e1e2d39616",
     "sha256": "d217822ee4952810fe67cf855c006ba51e2b4682eecb07b22d5e710d965ddd4a",
     "bytes": 2205,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "scripts/tests/storage-sku-collector-mutation.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "db28f717db97353cf068dd634945fc688d2e12ad",
+    "sha256": "224ba9f4acaa6fe9f86245576a9c767112b77c34c992d0917665a0831c869261",
+    "bytes": 5525,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "scripts/tests/vmss-catalog-mutation.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "b95f63ee0c50e15f6df4665e66e39db917f58f14",
+    "sha256": "b8374b41cbaae91779d61cdcccb3337dcc84f2918e5621e42655a1db72a5c96d",
+    "bytes": 5492,
     "read": "complete returned source reviewed"
   },
   {
