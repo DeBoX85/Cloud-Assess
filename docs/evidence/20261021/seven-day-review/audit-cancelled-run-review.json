@@ -1,0 +1,1474 @@
+{
+  "status": "metadata, raw-log identity and failed-step disposition reviewed; cancellation cause unproven",
+  "rows": [
+    {
+      "run": 39006584670,
+      "head": "03d91d312f04533523633482a2f313485fb5c559",
+      "branch": "docs/cognitive-sku-reconciliation-20261017",
+      "workflow": "Go quality gate",
+      "created": "2026-10-17T05:31:40Z",
+      "jobs": [
+        {
+          "id": 117320187557,
+          "name": "linux-controls-2",
+          "conclusion": "success",
+          "failed_steps": [],
+          "retained_log": {
+            "bytes": 42939,
+            "sha256": "22f3caea269562dccef9625de85e33ac73c3b757f52bab79de16acd5648b39e3",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": []
+        },
+        {
+          "id": 117320187699,
+          "name": "windows-native",
+          "conclusion": "success",
+          "failed_steps": [],
+          "retained_log": {
+            "bytes": 42143,
+            "sha256": "7c7b40ba0583eaef13d38724bdb37de2286decbbbce08d41a35ad9900707fb81",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": []
+        },
+        {
+          "id": 117320187706,
+          "name": "windows-controls-1",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": {
+            "bytes": 35240,
+            "sha256": "67815c7e31f608e77782d8f2abc6e67c351ec1873884469e7fe981a0bfe98eda",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": [
+            "2026-10-17T05:36:45.1897050Z ##[error]The operation was canceled."
+          ]
+        },
+        {
+          "id": 117320187721,
+          "name": "windows-controls-2",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": {
+            "bytes": 39256,
+            "sha256": "4fbb159cb10d27b84d799888569bd807a54d33835659d62adec12f821bfff67b",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": [
+            "2026-10-17T05:36:45.9815578Z ##[error]The operation was canceled."
+          ]
+        },
+        {
+          "id": 117320187729,
+          "name": "linux-controls-3",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": {
+            "bytes": 46703,
+            "sha256": "8a10a56c81b7dee7ec9549f5c2e7cba54b41ea96676879da5e4c774bbbfdc777",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": [
+            "2026-10-17T05:36:54.7532209Z ##[error]The operation was canceled."
+          ]
+        },
+        {
+          "id": 117320187739,
+          "name": "linux-controls-1",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": {
+            "bytes": 39312,
+            "sha256": "2a2b9d81dd6d38e5e9d79561d8dbea236929abafd2cdf0dac3a8115752740d4e",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": [
+            "2026-10-17T05:36:57.7629588Z ##[error]The operation was canceled."
+          ]
+        },
+        {
+          "id": 117320187816,
+          "name": "windows-controls-3",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": {
+            "bytes": 33541,
+            "sha256": "0d3ca286c1a4079932a7be4a18305d2ae04644e5dd3fca3e20527402b8610e1c",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": [
+            "2026-10-17T05:35:58.5842351Z ##[error]The operation was canceled."
+          ]
+        },
+        {
+          "id": 117320187862,
+          "name": "linux-native",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": {
+            "bytes": 60845,
+            "sha256": "bfb71d330c5575f3d51a3232fea101f2a3dba2d905a4a3a07c8ebad3712d33eb",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": [
+            "2026-10-17T05:36:50.2938056Z ##[error]The operation was canceled."
+          ]
+        },
+        {
+          "id": 117321099250,
+          "name": "windows-validation",
+          "conclusion": "failure",
+          "failed_steps": [
+            "Require every native worker to succeed"
+          ],
+          "retained_log": {
+            "bytes": 16487,
+            "sha256": "ce454e180185d246aaa3e3808197f43037fdabcee2680bc7f131ec3c42fe22ff",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": [
+            "2026-10-17T05:36:55.3705590Z ##[error]Process completed with exit code 1."
+          ]
+        },
+        {
+          "id": 117321128634,
+          "name": "quality",
+          "conclusion": "failure",
+          "failed_steps": [
+            "Require every native worker to succeed"
+          ],
+          "retained_log": {
+            "bytes": 16459,
+            "sha256": "9480037548aa434246d57ed7245b1b6222122a6350d7b0dde898c4d491676ae4",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": [
+            "2026-10-17T05:37:05.6051426Z ##[error]Process completed with exit code 1."
+          ]
+        }
+      ],
+      "disposition": "cancelled; incomplete evidence",
+      "interpretation": "No non-gate failed step in captured metadata. Cancellation cause/actor is unproven; a cancelled result is not a product pass or an outage diagnosis."
+    },
+    {
+      "run": 38993221359,
+      "head": "4032e7416d747262118c41a38682b7b9ce13327a",
+      "branch": "qa/gate-contract-dc152-20261017-skipped",
+      "workflow": "Hosted gate contract probes",
+      "created": "2026-10-17T02:00:46Z",
+      "jobs": [
+        {
+          "id": 117279921583,
+          "name": "linux-controls-2",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": null
+        },
+        {
+          "id": 117279921772,
+          "name": "linux-controls-3",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": null
+        },
+        {
+          "id": 117279921773,
+          "name": "windows-native",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": null
+        },
+        {
+          "id": 117279921827,
+          "name": "windows-controls-2",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": null
+        },
+        {
+          "id": 117279921841,
+          "name": "windows-controls-3",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": null
+        },
+        {
+          "id": 117279921845,
+          "name": "linux-native",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": null
+        },
+        {
+          "id": 117279922435,
+          "name": "linux-controls-1",
+          "conclusion": "skipped",
+          "failed_steps": [],
+          "retained_log": null
+        },
+        {
+          "id": 117279922697,
+          "name": "windows-controls-1",
+          "conclusion": "skipped",
+          "failed_steps": [],
+          "retained_log": null
+        },
+        {
+          "id": 117279927329,
+          "name": "windows-probe-gate",
+          "conclusion": "failure",
+          "failed_steps": [
+            "Require every native worker to succeed"
+          ],
+          "retained_log": {
+            "bytes": 16050,
+            "sha256": "38cccbe0927137c6344fc24bee09adae87868f83ec907d4384c8bcf506c659f7",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": [
+            "2026-10-17T02:00:54.3285767Z ##[error]Process completed with exit code 1."
+          ]
+        },
+        {
+          "id": 117279927456,
+          "name": "linux-probe-gate",
+          "conclusion": "failure",
+          "failed_steps": [
+            "Require every native worker to succeed"
+          ],
+          "retained_log": {
+            "bytes": 16030,
+            "sha256": "b1f3fe56af3ce50ba228397b95c6e2fb494ff2c7300012226b330150fced593d",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": [
+            "2026-10-17T02:00:54.5675388Z ##[error]Process completed with exit code 1."
+          ]
+        }
+      ],
+      "disposition": "cancelled; incomplete evidence",
+      "interpretation": "Cancelled probe; non-success worker outcomes propagate to rejecting gates. Not accepted as the requested hosted probe case; six terminal corrected probes are reviewed separately."
+    },
+    {
+      "run": 38993219521,
+      "head": "4032e7416d747262118c41a38682b7b9ce13327a",
+      "branch": "qa/gate-contract-dc152-20261017-failure",
+      "workflow": "Hosted gate contract probes",
+      "created": "2026-10-17T02:00:44Z",
+      "jobs": [
+        {
+          "id": 117279916294,
+          "name": "windows-controls-2",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": null
+        },
+        {
+          "id": 117279916372,
+          "name": "linux-controls-1",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": null
+        },
+        {
+          "id": 117279916429,
+          "name": "linux-native",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": null
+        },
+        {
+          "id": 117279916437,
+          "name": "windows-controls-1",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": null
+        },
+        {
+          "id": 117279916486,
+          "name": "linux-controls-2",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": null
+        },
+        {
+          "id": 117279916518,
+          "name": "linux-controls-3",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": null
+        },
+        {
+          "id": 117279916519,
+          "name": "windows-native",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": null
+        },
+        {
+          "id": 117279916545,
+          "name": "windows-controls-3",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": null
+        },
+        {
+          "id": 117279919788,
+          "name": "linux-probe-gate",
+          "conclusion": "failure",
+          "failed_steps": [
+            "Require every native worker to succeed"
+          ],
+          "retained_log": {
+            "bytes": 16031,
+            "sha256": "1d35394e4e67da605b74ab33eac386a07e48de24dcdfc991cacd07b785b2a359",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": [
+            "2026-10-17T02:00:52.4389759Z ##[error]Process completed with exit code 1."
+          ]
+        },
+        {
+          "id": 117279919850,
+          "name": "windows-probe-gate",
+          "conclusion": "failure",
+          "failed_steps": [
+            "Require every native worker to succeed"
+          ],
+          "retained_log": {
+            "bytes": 16053,
+            "sha256": "f4857c19b0886de258c61f8e8e73fbd7cbbb2125df2cce51b17dd0a2ba497542",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": [
+            "2026-10-17T02:00:52.0985531Z ##[error]Process completed with exit code 1."
+          ]
+        }
+      ],
+      "disposition": "cancelled; incomplete evidence",
+      "interpretation": "Cancelled probe; non-success worker outcomes propagate to rejecting gates. Not accepted as the requested hosted probe case; six terminal corrected probes are reviewed separately."
+    },
+    {
+      "run": 38993216913,
+      "head": "4032e7416d747262118c41a38682b7b9ce13327a",
+      "branch": "qa/gate-contract-dc152-20261017-success",
+      "workflow": "Hosted gate contract probes",
+      "created": "2026-10-17T02:00:42Z",
+      "jobs": [
+        {
+          "id": 117279908457,
+          "name": "windows-native",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": null
+        },
+        {
+          "id": 117279908587,
+          "name": "linux-native",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": null
+        },
+        {
+          "id": 117279908657,
+          "name": "windows-controls-3",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": null
+        },
+        {
+          "id": 117279908666,
+          "name": "windows-controls-2",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": null
+        },
+        {
+          "id": 117279908673,
+          "name": "linux-controls-2",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": null
+        },
+        {
+          "id": 117279908723,
+          "name": "linux-controls-3",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": null
+        },
+        {
+          "id": 117279908728,
+          "name": "linux-controls-1",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": null
+        },
+        {
+          "id": 117279908742,
+          "name": "windows-controls-1",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": null
+        },
+        {
+          "id": 117279914278,
+          "name": "windows-probe-gate",
+          "conclusion": "failure",
+          "failed_steps": [
+            "Require every native worker to succeed"
+          ],
+          "retained_log": {
+            "bytes": 16045,
+            "sha256": "b0882468ed013fb3daade5dec2bc9832a12f14ff1b72fde658ab90c53364af77",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": [
+            "2026-10-17T02:00:49.6808766Z ##[error]Process completed with exit code 1."
+          ]
+        },
+        {
+          "id": 117279914295,
+          "name": "linux-probe-gate",
+          "conclusion": "failure",
+          "failed_steps": [
+            "Require every native worker to succeed"
+          ],
+          "retained_log": {
+            "bytes": 16032,
+            "sha256": "5756a8c785351544dfad41572eb1566c206b6f061f36ad1dfb68acba07584e3e",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": [
+            "2026-10-17T02:00:50.4626860Z ##[error]Process completed with exit code 1."
+          ]
+        }
+      ],
+      "disposition": "cancelled; incomplete evidence",
+      "interpretation": "Cancelled probe; non-success worker outcomes propagate to rejecting gates. Not accepted as the requested hosted probe case; six terminal corrected probes are reviewed separately."
+    },
+    {
+      "run": 38992532407,
+      "head": "4032e7416d747262118c41a38682b7b9ce13327a",
+      "branch": "docs/development-controls-20261017",
+      "workflow": "Go quality gate",
+      "created": "2026-10-17T01:50:26Z",
+      "jobs": [
+        {
+          "id": 117277831444,
+          "name": "linux-native",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": {
+            "bytes": 55365,
+            "sha256": "afbe448655b5290759d406d424594dcbc26a222b6a6f72e80bf13fc752e4873c",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": [
+            "2026-10-17T01:55:39.2959869Z ##[error]The operation was canceled."
+          ]
+        },
+        {
+          "id": 117277831624,
+          "name": "windows-native",
+          "conclusion": "success",
+          "failed_steps": [],
+          "retained_log": {
+            "bytes": 41664,
+            "sha256": "c8a946f2a27c4d01f18c988b9391eb2486750585ad5f0a3f764a01389f97dddf",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": []
+        },
+        {
+          "id": 117277831667,
+          "name": "windows-controls-1",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": {
+            "bytes": 35091,
+            "sha256": "fca5655b17474fb8d70c597f5ad5abedac44a2cbd32bc97adc0bff6ff8178dab",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": [
+            "2026-10-17T01:55:31.7913896Z ##[error]The operation was canceled."
+          ]
+        },
+        {
+          "id": 117277831686,
+          "name": "linux-controls-3",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": {
+            "bytes": 41779,
+            "sha256": "5c8d6b0c8b2c0f0a5dfd1d3b578b2b7ec937c72837e5d308e29e93ed8e1d99b4",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": [
+            "2026-10-17T01:55:44.7804920Z ##[error]The operation was canceled."
+          ]
+        },
+        {
+          "id": 117277831729,
+          "name": "linux-controls-1",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": {
+            "bytes": 39310,
+            "sha256": "9684624c45f84372e43347509b11a635defbad00d07e3620e76bbc282d554f11",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": [
+            "2026-10-17T01:55:44.6714670Z ##[error]The operation was canceled."
+          ]
+        },
+        {
+          "id": 117277831736,
+          "name": "windows-controls-3",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": {
+            "bytes": 34312,
+            "sha256": "a1b834fce530537732624727472a08b3f04e86e75fba13f3a0bab1dce4a0430c",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": [
+            "2026-10-17T01:55:31.7004086Z ##[error]The operation was canceled."
+          ]
+        },
+        {
+          "id": 117277831738,
+          "name": "windows-controls-2",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": {
+            "bytes": 38941,
+            "sha256": "fe169e5cfde6eed9718eb9862a7290cbc3202988352953adb4149cde48429864",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": [
+            "2026-10-17T01:55:32.6456901Z ##[error]The operation was canceled."
+          ]
+        },
+        {
+          "id": 117277831747,
+          "name": "linux-controls-2",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": {
+            "bytes": 40499,
+            "sha256": "2391429a208c991bd1b144e1f5b1db84e4bdf6e963e81517cb3a3374c03179fc",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": [
+            "2026-10-17T01:55:41.5981554Z ##[error]The operation was canceled."
+          ]
+        },
+        {
+          "id": 117278882303,
+          "name": "windows-validation",
+          "conclusion": "failure",
+          "failed_steps": [
+            "Require every native worker to succeed"
+          ],
+          "retained_log": {
+            "bytes": 16479,
+            "sha256": "4e67bb8cd3f05ba3f9a93a10aaa9e2cda171f9e04bc4be52e43668dfcd09c5d7",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": [
+            "2026-10-17T01:55:41.8884198Z ##[error]Process completed with exit code 1."
+          ]
+        },
+        {
+          "id": 117278917866,
+          "name": "quality",
+          "conclusion": "failure",
+          "failed_steps": [
+            "Require every native worker to succeed"
+          ],
+          "retained_log": {
+            "bytes": 16458,
+            "sha256": "8b8ca4155cff7f6b5c6f324ae9ee7560aaf69e8b519b1a876a3898e421772ac5",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": [
+            "2026-10-17T01:55:52.9018513Z ##[error]Process completed with exit code 1."
+          ]
+        }
+      ],
+      "disposition": "cancelled; incomplete evidence",
+      "interpretation": "No non-gate failed step in captured metadata. Cancellation cause/actor is unproven; a cancelled result is not a product pass or an outage diagnosis."
+    },
+    {
+      "run": 38947056436,
+      "head": "8d66bde80d9635f1ae9c43504ac5b6440fcb725a",
+      "branch": "feat/vm-sku-collector-20261016",
+      "workflow": "Go quality gate",
+      "created": "2026-10-16T18:24:09Z",
+      "jobs": [
+        {
+          "id": 117128884401,
+          "name": "quality",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": {
+            "bytes": 37752,
+            "sha256": "3ed1beb66b8c112b774887513b36e37b39f19ab82c7e381fa12cd4ffe8c90c3b",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": [
+            "2026-10-16T18:28:33.6285036Z ##[error]The operation was canceled."
+          ]
+        },
+        {
+          "id": 117128884744,
+          "name": "windows-validation",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": {
+            "bytes": 33846,
+            "sha256": "17f20b1121e75fc3b009454cfc79e2818de91676a6db5510d2a77851e8be3566",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": [
+            "2026-10-16T18:28:20.8901102Z ##[error]The operation was canceled."
+          ]
+        }
+      ],
+      "disposition": "cancelled; incomplete evidence",
+      "interpretation": "No non-gate failed step in captured metadata. Cancellation cause/actor is unproven; a cancelled result is not a product pass or an outage diagnosis."
+    },
+    {
+      "run": 38946081219,
+      "head": "721dd3cfb1fc4e21b00c1ee2b16c2d49a0595a28",
+      "branch": "feat/vm-sku-collector-20261016",
+      "workflow": "Go quality gate",
+      "created": "2026-10-16T18:16:40Z",
+      "jobs": [
+        {
+          "id": 117125420398,
+          "name": "quality",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": {
+            "bytes": 65676,
+            "sha256": "aa01f543746b1cdda37b017023158cb260dd326fd101e04e06ca9489abf9dc92",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": [
+            "2026-10-16T18:24:28.4024591Z ##[error]The operation was canceled."
+          ]
+        },
+        {
+          "id": 117125420795,
+          "name": "windows-validation",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": {
+            "bytes": 40381,
+            "sha256": "4001b3f22458869e6ca7879d96ef3ebab4d3145d5d2db4ed56a24d80f1f0a2b2",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": [
+            "2026-10-16T18:24:16.5079398Z ##[error]The operation was canceled."
+          ]
+        }
+      ],
+      "disposition": "cancelled; incomplete evidence",
+      "interpretation": "No non-gate failed step in captured metadata. Cancellation cause/actor is unproven; a cancelled result is not a product pass or an outage diagnosis."
+    },
+    {
+      "run": 38497615312,
+      "head": "cd9d08075bbf09241a781a1c88184c258057349d",
+      "branch": "docs/region-sku-target-analysis-20261013",
+      "workflow": "Go quality gate",
+      "created": "2026-10-14T01:47:40Z",
+      "jobs": [
+        {
+          "id": 115636894028,
+          "name": "quality",
+          "conclusion": "failure",
+          "failed_steps": [
+            "Verify Compute disk SKU collector compiling controls"
+          ],
+          "retained_log": {
+            "bytes": 33186,
+            "sha256": "257ea76b1d46bc5f401fc866a3757ecfd4eb0cf7bfb542e1b898485b551f7475",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": [
+            "2026-10-14T01:48:23.6654766Z ##[error]Process completed with exit code 1."
+          ]
+        },
+        {
+          "id": 115636894367,
+          "name": "windows-validation",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": {
+            "bytes": 55491,
+            "sha256": "887c0bf02b0a05291dbf872cfa378d4a27499fdbf43c99e96189fb7788c8ba56",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": [
+            "2026-10-14T01:57:47.1775711Z ##[error]The operation was canceled."
+          ]
+        }
+      ],
+      "disposition": "preparation helper failure",
+      "interpretation": "Compute control UnicodeDecodeError before completion; PR140 retains the helper correction and final QA."
+    },
+    {
+      "run": 38493076257,
+      "head": "f66baf377f0f11829b953afba539d9ac25a7db4f",
+      "branch": "docs/region-sku-target-analysis-20261013",
+      "workflow": "Go quality gate",
+      "created": "2026-10-14T00:57:39Z",
+      "jobs": [
+        {
+          "id": 115622579737,
+          "name": "windows-validation",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": {
+            "bytes": 42955,
+            "sha256": "b070e79ba2aeeca3a6715ff11e2eb988f15741b82ebcd829fa774c18a21d163b",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": [
+            "2026-10-14T01:02:45.3537887Z ##[error]The operation was canceled."
+          ]
+        },
+        {
+          "id": 115622580031,
+          "name": "quality",
+          "conclusion": "cancelled",
+          "failed_steps": [
+            "Test with race detector"
+          ],
+          "retained_log": {
+            "bytes": 65032,
+            "sha256": "e7c9bf1b48e77b9b25fa584463f1e55fecd81f06397e3ed97e3eab1de2771018",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": [
+            "2026-10-14T01:02:43.4498931Z ##[error]Process completed with exit code 1."
+          ]
+        }
+      ],
+      "disposition": "behavioral assertion failure before cancellation",
+      "interpretation": "ARG trailing-data assertions failed in the race step; PR140 retains the correction and final QA."
+    },
+    {
+      "run": 38906095075,
+      "head": "c2d5c5df48fa0e4939b5b3a3b7b67f9bd391ca8c",
+      "branch": "feat/storage-sku-collector-20261016",
+      "workflow": "Go quality gate",
+      "created": "2026-10-16T13:12:36Z",
+      "jobs": [
+        {
+          "id": 116989921866,
+          "name": "windows-validation",
+          "conclusion": "failure",
+          "failed_steps": [
+            "Verify Storage SKU collector compiling controls"
+          ],
+          "retained_log": {
+            "bytes": 36706,
+            "sha256": "8bf7ffc77d1bcfdc47a788cf544e8189481f4141ad3feaf388df80aaa0380337",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": [
+            "2026-10-16T13:18:48.7312153Z ##[error]Process completed with exit code 1."
+          ]
+        },
+        {
+          "id": 116989922179,
+          "name": "quality",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": {
+            "bytes": 74862,
+            "sha256": "5d53c9275c67b6b4427cb2546178b3f508afe69f72cce30b139ebde986f58cee",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": [
+            "2026-10-16T13:24:09.1460855Z ##[error]The operation was canceled."
+          ]
+        }
+      ],
+      "disposition": "preparation helper failure",
+      "interpretation": "Storage stage-physical anchor mismatch; PR145 records QA-ST-03 CRLF correction and final QA."
+    },
+    {
+      "run": 38875550761,
+      "head": "15422be7e60326832040ad233fd6d53d17315fbb",
+      "branch": "docs/storage-sku-contract-20261016",
+      "workflow": "Go quality gate",
+      "created": "2026-10-16T08:43:07Z",
+      "jobs": [
+        {
+          "id": 116889620673,
+          "name": "windows-validation",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": {
+            "bytes": 45046,
+            "sha256": "f0869f3669e7584cf15c6ce96125776ee7b1bf52ba5d3a67cacf3e5d371bc841",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": [
+            "2026-10-16T08:50:42.1151182Z ##[error]The operation was canceled."
+          ]
+        },
+        {
+          "id": 116889620954,
+          "name": "quality",
+          "conclusion": "failure",
+          "failed_steps": [
+            "Verify dependency and license inventory freshness"
+          ],
+          "retained_log": {
+            "bytes": 53129,
+            "sha256": "06ebc37225dfd10c7f79d2b26840021d6f2edb7186c62c3aab01b42bec94b4a1",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": [
+            "2026-10-16T08:47:13.6763169Z ##[error]Process completed with exit code 1."
+          ]
+        }
+      ],
+      "disposition": "inventory integrity failure",
+      "interpretation": "Generated NOTICES freshness rejected; PR144 records QA-SC-01 correction and final QA."
+    },
+    {
+      "run": 38855113862,
+      "head": "c8a15c7984d61cb9a20f777767aa5a3c5a430b34",
+      "branch": "audit/systematic-module-review-20261014",
+      "workflow": "Go quality gate",
+      "created": "2026-10-16T05:18:47Z",
+      "jobs": [
+        {
+          "id": 116824728314,
+          "name": "quality",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": {
+            "bytes": 96929,
+            "sha256": "e74ab6e751f3d871db0a6992c0f9298f55222fc4c8762ebb384632117d9a544a",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": [
+            "2026-10-16T05:35:20.2317340Z ##[error]The operation was canceled."
+          ]
+        },
+        {
+          "id": 116824728569,
+          "name": "windows-validation",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": {
+            "bytes": 61881,
+            "sha256": "6f89f3c2b881bbb81a9e343e889750bbb2501dc1fe2e78ed23a6d51de5552df9",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": [
+            "2026-10-16T05:35:09.9838265Z ##[error]The operation was canceled."
+          ]
+        }
+      ],
+      "disposition": "cancelled; incomplete evidence",
+      "interpretation": "No non-gate failed step in captured metadata. Cancellation cause/actor is unproven; a cancelled result is not a product pass or an outage diagnosis."
+    },
+    {
+      "run": 38721453921,
+      "head": "dc1d03214e5c15abaa41338181eee7a575c00552",
+      "branch": "audit/systematic-module-review-20261014",
+      "workflow": "Go quality gate",
+      "created": "2026-10-15T10:36:21Z",
+      "jobs": [
+        {
+          "id": 116376743522,
+          "name": "quality",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": {
+            "bytes": 54068,
+            "sha256": "45c6950af2afc18f27425ceabea5afd69b099e5a488ef10159227e06dda1a2e0",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": [
+            "2026-10-15T10:42:41.9830859Z ##[error]The operation was canceled."
+          ]
+        },
+        {
+          "id": 116376744134,
+          "name": "windows-validation",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": {
+            "bytes": 41853,
+            "sha256": "75328ecc6c90874e4809d063b7c3330c8401a16a06119a7da4576f84ce5dfc9a",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": [
+            "2026-10-15T10:42:42.4318259Z ##[error]The operation was canceled."
+          ]
+        }
+      ],
+      "disposition": "cancelled; incomplete evidence",
+      "interpretation": "No non-gate failed step in captured metadata. Cancellation cause/actor is unproven; a cancelled result is not a product pass or an outage diagnosis."
+    },
+    {
+      "run": 38646061400,
+      "head": "4284ffeccc4bfd7c2bf7e257311b310937a29226",
+      "branch": "audit/systematic-module-review-20261014",
+      "workflow": "Go quality gate",
+      "created": "2026-10-14T22:12:57Z",
+      "jobs": [
+        {
+          "id": 116133085006,
+          "name": "windows-validation",
+          "conclusion": "success",
+          "failed_steps": [],
+          "retained_log": {
+            "bytes": 83779,
+            "sha256": "12dd4081a0f592ef20d511ed01c9947e041fde9d64ea6b13da85ffbb2f62e5e4",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": []
+        },
+        {
+          "id": 116133085260,
+          "name": "quality",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": {
+            "bytes": 102988,
+            "sha256": "b436bbeef0e848451675682bddca340063e37f3039bed6e713dc701cd9f86079",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": [
+            "2026-10-14T22:33:11.7736527Z ##[error]The operation was canceled."
+          ]
+        }
+      ],
+      "disposition": "cancelled; incomplete evidence",
+      "interpretation": "No non-gate failed step in captured metadata. Cancellation cause/actor is unproven; a cancelled result is not a product pass or an outage diagnosis."
+    },
+    {
+      "run": 38640454615,
+      "head": "23e948455d073fdb0f442b45b03ef821e8e0a298",
+      "branch": "audit/systematic-module-review-20261014",
+      "workflow": "Go quality gate",
+      "created": "2026-10-14T21:27:51Z",
+      "jobs": [
+        {
+          "id": 116114638557,
+          "name": "windows-validation",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": {
+            "bytes": 32920,
+            "sha256": "16537ac0a7a3afca9608165a49a83fbbf20707a419aab618dee7b32273a03f11",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": [
+            "2026-10-14T21:31:08.3928550Z ##[error]The operation was canceled."
+          ]
+        },
+        {
+          "id": 116114638972,
+          "name": "quality",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": {
+            "bytes": 44382,
+            "sha256": "90104a1cba009bcb09d2d5808d87ee05084efe61a9a94144ff41878690bf4eb4",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": [
+            "2026-10-14T21:31:13.0016156Z ##[error]The operation was canceled."
+          ]
+        }
+      ],
+      "disposition": "cancelled; incomplete evidence",
+      "interpretation": "No non-gate failed step in captured metadata. Cancellation cause/actor is unproven; a cancelled result is not a product pass or an outage diagnosis."
+    },
+    {
+      "run": 38640383227,
+      "head": "11d7dcfe4fce6f563a91425ca18adc8746ddc8fb",
+      "branch": "audit/systematic-module-review-20261014",
+      "workflow": "Go quality gate",
+      "created": "2026-10-14T21:27:18Z",
+      "jobs": [],
+      "disposition": "cancelled; incomplete evidence",
+      "interpretation": "No non-gate failed step in captured metadata. Cancellation cause/actor is unproven; a cancelled result is not a product pass or an outage diagnosis."
+    },
+    {
+      "run": 38640383632,
+      "head": "11d7dcfe4fce6f563a91425ca18adc8746ddc8fb",
+      "branch": "audit/systematic-module-review-20261014",
+      "workflow": "Pinned region source characterization",
+      "created": "2026-10-14T21:27:18Z",
+      "jobs": [
+        {
+          "id": 116114079242,
+          "name": "characterize",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": {
+            "bytes": 1359938,
+            "sha256": "d387ef42fe48a6273bcf671d58a6e3b355ef560ea356c05f6efd4610fd56cb66",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": []
+        }
+      ],
+      "disposition": "cancelled; incomplete evidence",
+      "interpretation": "No non-gate failed step in captured metadata. Cancellation cause/actor is unproven; a cancelled result is not a product pass or an outage diagnosis."
+    },
+    {
+      "run": 38640099937,
+      "head": "6b34a7a3a23c82fbf99d4074949fb2e7cfabe6d1",
+      "branch": "audit/systematic-module-review-20261014",
+      "workflow": "Go quality gate",
+      "created": "2026-10-14T21:25:06Z",
+      "jobs": [
+        {
+          "id": 116113423787,
+          "name": "quality",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": {
+            "bytes": 41296,
+            "sha256": "cae6790e270b8a107a2fff847204cdd3c6ab8a16ba4ef175f8825031128609cb",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": [
+            "2026-10-14T21:28:31.5391118Z ##[error]The operation was canceled."
+          ]
+        },
+        {
+          "id": 116113424193,
+          "name": "windows-validation",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": {
+            "bytes": 34792,
+            "sha256": "f690580da04a8d23ebbb073ef4a3282eae316b3ec9840fee126d62a2f52ce3d8",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": [
+            "2026-10-14T21:28:21.9250473Z ##[error]The operation was canceled."
+          ]
+        }
+      ],
+      "disposition": "cancelled; incomplete evidence",
+      "interpretation": "No non-gate failed step in captured metadata. Cancellation cause/actor is unproven; a cancelled result is not a product pass or an outage diagnosis."
+    },
+    {
+      "run": 38639990438,
+      "head": "3b0788f1729e84fd7c96787eed7c657eacb289d2",
+      "branch": "audit/systematic-module-review-20261014",
+      "workflow": "Go quality gate",
+      "created": "2026-10-14T21:24:14Z",
+      "jobs": [
+        {
+          "id": 116112747186,
+          "name": "quality",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": {
+            "bytes": 32302,
+            "sha256": "3a54a073c5128c58d2c839992ed0113664490d0a517d162f94769eca34a8099b",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": [
+            "2026-10-14T21:25:45.9985507Z ##[error]The operation was canceled."
+          ]
+        },
+        {
+          "id": 116112747326,
+          "name": "windows-validation",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": {
+            "bytes": 31986,
+            "sha256": "8a885142f24194a47732575cc780b3af32150820d25b8fd68cd1bf7a2cb4c329",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": [
+            "2026-10-14T21:25:35.1539882Z ##[error]The operation was canceled."
+          ]
+        }
+      ],
+      "disposition": "cancelled; incomplete evidence",
+      "interpretation": "No non-gate failed step in captured metadata. Cancellation cause/actor is unproven; a cancelled result is not a product pass or an outage diagnosis."
+    },
+    {
+      "run": 38570285831,
+      "head": "c66b155fe2749704eb0ec41b40f4624df437dd12",
+      "branch": "audit/systematic-module-review-20261014",
+      "workflow": "Go quality gate",
+      "created": "2026-10-14T13:15:30Z",
+      "jobs": [
+        {
+          "id": 115873378992,
+          "name": "quality",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": {
+            "bytes": 41286,
+            "sha256": "2ea59c6befe7eceea0b61fca79454701e1f73b64aad69f5798b9837efe9365a2",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": [
+            "2026-10-14T13:18:12.4154892Z ##[error]The operation was canceled."
+          ]
+        },
+        {
+          "id": 115873379198,
+          "name": "windows-validation",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": {
+            "bytes": 32631,
+            "sha256": "22251fa8cad9f0ca42c0d9dbcf68f6e17dc96575a9eb73c3badfe132e1b6ccfb",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": [
+            "2026-10-14T13:18:04.9437650Z ##[error]The operation was canceled."
+          ]
+        }
+      ],
+      "disposition": "cancelled; incomplete evidence",
+      "interpretation": "No non-gate failed step in captured metadata. Cancellation cause/actor is unproven; a cancelled result is not a product pass or an outage diagnosis."
+    },
+    {
+      "run": 38564627993,
+      "head": "1243461f8ee884d9b0071e13bb219ab8f403ac45",
+      "branch": "audit/systematic-module-review-20261014",
+      "workflow": "Go quality gate",
+      "created": "2026-10-14T12:32:48Z",
+      "jobs": [
+        {
+          "id": 115854039298,
+          "name": "windows-validation",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": {
+            "bytes": 57658,
+            "sha256": "1f5341093f6ecb0eba5490ad4f32841067cb9eaf2c8517fb98d5f125344d1944",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": [
+            "2026-10-14T12:44:09.1494682Z ##[error]The operation was canceled."
+          ]
+        },
+        {
+          "id": 115854039834,
+          "name": "quality",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": {
+            "bytes": 84283,
+            "sha256": "8cad51d7fd1baa9f75c68dea80446a619b362b1e07af20c440623ffebf2e5591",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": [
+            "2026-10-14T12:44:17.7548737Z ##[error]The operation was canceled."
+          ]
+        }
+      ],
+      "disposition": "cancelled; incomplete evidence",
+      "interpretation": "No non-gate failed step in captured metadata. Cancellation cause/actor is unproven; a cancelled result is not a product pass or an outage diagnosis."
+    },
+    {
+      "run": 38500382175,
+      "head": "285e38eccc7cab7943c16329c6a37ea0acde3461",
+      "branch": "docs/region-sku-target-analysis-20261013",
+      "workflow": "Pinned region source characterization",
+      "created": "2026-10-14T02:18:58Z",
+      "jobs": [
+        {
+          "id": 115645674229,
+          "name": "characterize",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": {
+            "bytes": 1360652,
+            "sha256": "2951ec72dbb0bdc4bbc2844b7607a3963d9011dfda4338be13f48caac8e86644",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": []
+        }
+      ],
+      "disposition": "cancelled; incomplete evidence",
+      "interpretation": "No non-gate failed step in captured metadata. Cancellation cause/actor is unproven; a cancelled result is not a product pass or an outage diagnosis."
+    },
+    {
+      "run": 38500382052,
+      "head": "285e38eccc7cab7943c16329c6a37ea0acde3461",
+      "branch": "docs/region-sku-target-analysis-20261013",
+      "workflow": "Go quality gate",
+      "created": "2026-10-14T02:18:58Z",
+      "jobs": [],
+      "disposition": "cancelled; incomplete evidence",
+      "interpretation": "No non-gate failed step in captured metadata. Cancellation cause/actor is unproven; a cancelled result is not a product pass or an outage diagnosis."
+    },
+    {
+      "run": 38499969773,
+      "head": "3c45e68244c09f21137198bf8e2de969112a9ef3",
+      "branch": "docs/region-sku-target-analysis-20261013",
+      "workflow": "Go quality gate",
+      "created": "2026-10-14T02:14:11Z",
+      "jobs": [
+        {
+          "id": 115644453963,
+          "name": "windows-validation",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": {
+            "bytes": 43076,
+            "sha256": "3dcd97d41761ac33d2a2d551bb7b18cf740155dbe441a43ac63b1723b4a5ae95",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": [
+            "2026-10-14T02:19:40.7124524Z ##[error]The operation was canceled."
+          ]
+        },
+        {
+          "id": 115644454149,
+          "name": "quality",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": {
+            "bytes": 57591,
+            "sha256": "8d0a382dc5a70d1854e515eff66ea6969c48cab39efaff507f8a630baed952fb",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": [
+            "2026-10-14T02:19:53.1674853Z ##[error]The operation was canceled."
+          ]
+        }
+      ],
+      "disposition": "cancelled; incomplete evidence",
+      "interpretation": "No non-gate failed step in captured metadata. Cancellation cause/actor is unproven; a cancelled result is not a product pass or an outage diagnosis."
+    },
+    {
+      "run": 38499748871,
+      "head": "948e7d9f994a287d2967e16e00350e19b3b279fe",
+      "branch": "docs/region-sku-target-analysis-20261013",
+      "workflow": "Go quality gate",
+      "created": "2026-10-14T02:11:38Z",
+      "jobs": [
+        {
+          "id": 115643847584,
+          "name": "windows-validation",
+          "conclusion": "cancelled",
+          "failed_steps": [
+            "Verify Compute disk SKU collector compiling controls"
+          ],
+          "retained_log": {
+            "bytes": 51538,
+            "sha256": "3f512f1988e899963a14025390df42f5b5ddf9188231a9049ef474373934d82b",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": [
+            "2026-10-14T02:14:31.9045657Z ##[error]Process completed with exit code 1."
+          ]
+        },
+        {
+          "id": 115643847783,
+          "name": "quality",
+          "conclusion": "failure",
+          "failed_steps": [
+            "Verify Compute disk SKU collector compiling controls"
+          ],
+          "retained_log": {
+            "bytes": 51337,
+            "sha256": "efbb8742f537c7fae18fcdd716f2bf8e8a5b6540bd210965c81edf8a9df58def",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": [
+            "2026-10-14T02:12:59.3840581Z ##[error]Process completed with exit code 1."
+          ]
+        }
+      ],
+      "disposition": "behavioral assertion failure before cancellation",
+      "interpretation": "Disk null-nextLink and HTTP-status assertions failed on both hosts; PR140 retains correction and final QA."
+    },
+    {
+      "run": 38498859369,
+      "head": "81ecaedf95eb5cf1d0fa9a3964be60b24928750e",
+      "branch": "docs/region-sku-target-analysis-20261013",
+      "workflow": "Go quality gate",
+      "created": "2026-10-14T02:01:35Z",
+      "jobs": [
+        {
+          "id": 115640942756,
+          "name": "quality",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": {
+            "bytes": 82295,
+            "sha256": "a53cad4ee18e24d81e16b38460b68e2d24c5b71cd755539c322ef959975e22c9",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": [
+            "2026-10-14T02:12:22.8007744Z ##[error]The operation was canceled."
+          ]
+        },
+        {
+          "id": 115640942934,
+          "name": "windows-validation",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": {
+            "bytes": 54872,
+            "sha256": "025566eb549f4466962919bc87ea12d1de7a1e2d60ef4b999c3eacd7675ff5ae",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": [
+            "2026-10-14T02:12:17.4588743Z ##[error]The operation was canceled."
+          ]
+        }
+      ],
+      "disposition": "cancelled; incomplete evidence",
+      "interpretation": "No non-gate failed step in captured metadata. Cancellation cause/actor is unproven; a cancelled result is not a product pass or an outage diagnosis."
+    },
+    {
+      "run": 38498526693,
+      "head": "8aa581a739d7a7597890f4f3b827718c3b873fc1",
+      "branch": "docs/region-sku-target-analysis-20261013",
+      "workflow": "Go quality gate",
+      "created": "2026-10-14T01:57:57Z",
+      "jobs": [
+        {
+          "id": 115640115345,
+          "name": "windows-validation",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": {
+            "bytes": 34557,
+            "sha256": "7c9eb94423ba322b6a96fd229f9ac8011329faadd26eeba83db5c390195cc890",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": [
+            "2026-10-14T02:01:58.0603368Z ##[error]The operation was canceled."
+          ]
+        },
+        {
+          "id": 115640115574,
+          "name": "quality",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": {
+            "bytes": 40726,
+            "sha256": "3267fd0dd6c50a3c35a8fd8b98d6e4a92dda8b446b823e15aa57a410fcb618e3",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": [
+            "2026-10-14T02:02:09.9788601Z ##[error]The operation was canceled."
+          ]
+        }
+      ],
+      "disposition": "cancelled; incomplete evidence",
+      "interpretation": "No non-gate failed step in captured metadata. Cancellation cause/actor is unproven; a cancelled result is not a product pass or an outage diagnosis."
+    },
+    {
+      "run": 38498406142,
+      "head": "d65224411e2537d1eba7b2eee85818482886bb31",
+      "branch": "docs/region-sku-target-analysis-20261013",
+      "workflow": "Go quality gate",
+      "created": "2026-10-14T01:56:35Z",
+      "jobs": [
+        {
+          "id": 115639693221,
+          "name": "quality",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": {
+            "bytes": 31759,
+            "sha256": "f25308a8da95f1f388e174875ee1909fdc1117a983b414d840a6ebb1a79c56b3",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": [
+            "2026-10-14T01:59:19.9076353Z ##[error]The operation was canceled."
+          ]
+        },
+        {
+          "id": 115639693492,
+          "name": "windows-validation",
+          "conclusion": "cancelled",
+          "failed_steps": [],
+          "retained_log": {
+            "bytes": 32018,
+            "sha256": "ec2bfc95daf5d0eddd807aa87f204230d071ef64aafb8de515fb54aa6853d8a3",
+            "archive_lookup": "all-job-log-archive-map.json by job id"
+          },
+          "error_annotations": [
+            "2026-10-14T01:59:11.4663505Z ##[error]The operation was canceled."
+          ]
+        }
+      ],
+      "disposition": "cancelled; incomplete evidence",
+      "interpretation": "No non-gate failed step in captured metadata. Cancellation cause/actor is unproven; a cancelled result is not a product pass or an outage diagnosis."
+    }
+  ],
+  "job_conclusions": {
+    "success": 4,
+    "cancelled": 70,
+    "failure": 14,
+    "skipped": 2
+  },
+  "non_gate_failed_step_observations": [
+    {
+      "run": 38497615312,
+      "job": 115636894028,
+      "job_conclusion": "failure",
+      "step": "Verify Compute disk SKU collector compiling controls"
+    },
+    {
+      "run": 38493076257,
+      "job": 115622580031,
+      "job_conclusion": "cancelled",
+      "step": "Test with race detector"
+    },
+    {
+      "run": 38906095075,
+      "job": 116989921866,
+      "job_conclusion": "failure",
+      "step": "Verify Storage SKU collector compiling controls"
+    },
+    {
+      "run": 38875550761,
+      "job": 116889620954,
+      "job_conclusion": "failure",
+      "step": "Verify dependency and license inventory freshness"
+    },
+    {
+      "run": 38499748871,
+      "job": 115643847584,
+      "job_conclusion": "cancelled",
+      "step": "Verify Compute disk SKU collector compiling controls"
+    },
+    {
+      "run": 38499748871,
+      "job": 115643847783,
+      "job_conclusion": "failure",
+      "step": "Verify Compute disk SKU collector compiling controls"
+    }
+  ],
+  "source_log_analysis_sha256": "e4b681cf4501e185aa68af30c42ad84d957948f3c97147764e6986858f090fd7",
+  "limits": [
+    "No historical run was reexecuted.",
+    "Initial 35 failed-run total is unchanged; these are additional failed-step observations inside cancelled runs.",
+    "All 28 cancelled runs remain uncertified; later correction evidence belongs to its own head.",
+    "Cancellation timestamps and successor activity do not establish service outage or cancellation actor."
+  ]
+}

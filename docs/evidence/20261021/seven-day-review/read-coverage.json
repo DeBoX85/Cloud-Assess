@@ -521,6 +521,14 @@
     "read": "complete returned source reviewed"
   },
   {
+    "path": "internal/app/testdata/optional-stage-projections.json",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "074ee2a6918414bbb578ef945836fe6152e765fa",
+    "sha256": "6fc4fcd91d370907c7e9dc3617c45d8550a61d3929e2988ba8ad9e400b9089d9",
+    "bytes": 3722,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "internal/app/timeout_test.go",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "20a50b7df1fa03506a66c6a2e1340b1363c46213",
@@ -1454,6 +1462,54 @@
     "read": "complete returned source reviewed"
   },
   {
+    "path": "internal/plugins/aigov/testdata/deployments-input.json",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "2e071f26e617982d775d8a1bd3b508de7c53d24b",
+    "sha256": "ac24ff2a680f1505f861e6768f6989415c3f026b543e3376897657d6c6b9ec7c",
+    "bytes": 198,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/aigov/testdata/metrics-input.json",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "b6c7407eb3364d385f42d39d291d6c3da4201152",
+    "sha256": "b666207abd55744a1e8ac74d5ff4c1a49ce3005f845d7f97614781cac0bb1d48",
+    "bytes": 1269,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/aigov/testdata/source-all.json",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "b018113ea8d9452659751c66fb1e6a5ba17f8a36",
+    "sha256": "d23f7beca04f4c8479c081b2b6103615875eb3e30277a4bc8beb8ec363681d22",
+    "bytes": 3344,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/aigov/testdata/source-deployment-denied.json",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "a93a7f65d04110b9df491125a088a3a43b04a28f",
+    "sha256": "728d371bf3c81f5fb5887b91c3adb23171d36e637167a9fdcde59be49738e551",
+    "bytes": 3293,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/aigov/testdata/source-empty.json",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "49196550c01e0dd866d9d73919bb165185bfec1f",
+    "sha256": "b8028ac622173c209adab0495eff64b46d2921781358ca25be56b723c958ab3f",
+    "bytes": 1694,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/aigov/testdata/source-unknown-include-tag.json",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "49196550c01e0dd866d9d73919bb165185bfec1f",
+    "sha256": "b8028ac622173c209adab0495eff64b46d2921781358ca25be56b723c958ab3f",
+    "bytes": 1694,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "internal/plugins/aigov_projection.go",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "408b7cda42858faeab5b18b9fcba43cf8aa80c01",
@@ -1507,6 +1563,54 @@
     "blob": "6c7d1bcdb70761c8f955e335d29f1a7f50d86225",
     "sha256": "9fb4ad4beba9c066516f83b7360420616a773bfebc1bb63a724bd6b37a96d076",
     "bytes": 5698,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/carbon/testdata/source-all.json",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "4a15cc42ae1b2a3feea8bc076ee7c3b9ec506df7",
+    "sha256": "bb14c9143d7590f431e629c67ca20fd2e47bd7d153472d41d8583ecd14f7391d",
+    "bytes": 1549,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/carbon/testdata/source-batched.json",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "00c4f21c40937d67226fa1871ebf4f1fa1f023a1",
+    "sha256": "6966a5a96ec9b02974c6d6abc847732a041a22d0c8ce419b68d8afb2c87be3f8",
+    "bytes": 1550,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/carbon/testdata/source-calculations.json",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "5464439fd1deeaabbf9bdc5434c0dab311847e89",
+    "sha256": "0c9795aa4d6f063bfc8d9e3d3519a8be059c7e43a7a6b211a3c8b2a365fdb872",
+    "bytes": 1428,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/carbon/testdata/source-denied.json",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "5f2649fa1110a4206e1c0b7aa8db6464b0c99e7d",
+    "sha256": "0152b1ec8081a786e4fbaa7673820a486ffbec411d7057c4cd5c2a4e5724f32f",
+    "bytes": 1179,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/carbon/testdata/source-empty.json",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "5f2649fa1110a4206e1c0b7aa8db6464b0c99e7d",
+    "sha256": "0152b1ec8081a786e4fbaa7673820a486ffbec411d7057c4cd5c2a4e5724f32f",
+    "bytes": 1179,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/carbon/testdata/source-filtered.json",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "ed56b94a9d0a199b95def82693830f33ef998f64",
+    "sha256": "ba2dc5a0b4c9bdf35eed8997fa5789fc05b78cdb89b6865da4ca6d0e7efa4d07",
+    "bytes": 1373,
     "read": "complete returned source reviewed"
   },
   {
@@ -2310,6 +2414,38 @@
     "read": "complete returned source reviewed"
   },
   {
+    "path": "internal/plugins/region/testdata/compute-primary-2021-07-01-ListAvailableResourceSkus.json",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "9d403f67699adfedf2714ada315ba5215f793c81",
+    "sha256": "e4cbaed858756360cf8649e5d6c09006600c8df3ff0665b1bea8f0e02e6da314",
+    "bytes": 4949,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/testdata/compute-primary-2021-07-01-ListAvailableResourceSkusForARegion.json",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "def2413e26e98f88fdbc46448b1b1511fbdf4fb6",
+    "sha256": "11fa69a6a6a3d062f32f780fb86a0ec6153433a05188d198c4216e2f3e69c083",
+    "bytes": 5013,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/testdata/compute-primary-2021-07-01-ListAvailableResourceSkusWithExtendedLocations.json",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "f1c254f72d650831db106561306a1e102a718a02",
+    "sha256": "fe0dd2a9f44d64b4d2b9c7828a4c945d0827ed6f181b478d32e389635e43ed26",
+    "bytes": 5277,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/testdata/compute-primary-2021-07-01-skus.json",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "b85286923a6382356ab773d90faac382e73740ec",
+    "sha256": "81f9bb91b33be77111ef82ffa1549c633cf0b50edb6907ba2ca9e4d9f484fe59",
+    "bytes": 14114,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "internal/plugins/region/testdata/compute_sku_capture_test.go.txt",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "024dd96e96c48e12a7c76831ab5a58c9e56185f5",
@@ -2339,6 +2475,14 @@
     "blob": "bb1f843fa2371d6e1983b0626381a4e4faabd314",
     "sha256": "65298e8bcf426982c89e9764dde20d7f06d0f383a122e66ca4be14f2c8cdea42",
     "bytes": 5294,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/testdata/meter-history-budget-proof-v1.json",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "22508e1fe53c1cf9e630e841e6b56c4d10e67d99",
+    "sha256": "b690edc8d4951d8ad80afc12edfb8483b2f09e92001711165c2133a6e78fce9b",
+    "bytes": 675,
     "read": "complete returned source reviewed"
   },
   {
@@ -2395,6 +2539,22 @@
     "blob": "f9b61fb74075e5a2297be1b898067b8cb047f9b3",
     "sha256": "153dd427c31523e13f29d601c042415cceaad27643ccf95e538ac28db3fdfc3b",
     "bytes": 11560,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/testdata/sql-primary-2021-11-01-common.json",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "f7decac418742c0cd8fb0c6b44d1330a5b6cb46d",
+    "sha256": "709781a78cdfb4ac27edcd4bdc7709e4667b3e33eaf4f91ae1d2c21a42b9a1c3",
+    "bytes": 5904,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/testdata/sql-primary-2021-11-01-schema.json",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "d6c7b7fb88fa594932ba62c5523c343ab85108dd",
+    "sha256": "8246593e56c6d2708186a3603f9d92ee64ef2cc292931c7db09753471e506040",
+    "bytes": 38062,
     "read": "complete returned source reviewed"
   },
   {
@@ -2503,6 +2663,14 @@
     "read": "complete returned source reviewed"
   },
   {
+    "path": "internal/plugins/servicehealth/testdata/source-output.json",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "2b3f846ecada1657f18a267347f4146bfd362ebe",
+    "sha256": "b310fef3dd1eff03cf251e3e948fcebff275a25581966e48c609f0ee8b432549",
+    "bytes": 1702,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "internal/plugins/servicehealth_projection_test.go",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "ff9b4db92f36855a592f79a7c23ecbf08fba5170",
@@ -2543,6 +2711,38 @@
     "read": "complete returned source reviewed"
   },
   {
+    "path": "internal/plugins/sqleol/testdata/source-empty.json",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "20f7fdf1a1c2c631d6162fe8de656a6846bc220e",
+    "sha256": "b2561841d95d8ecca57018c2f8d92bc7758c6c5046de0688de4984dc30e0e82f",
+    "bytes": 3515,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/sqleol/testdata/source-filtered.json",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "73698041e621001011a08c62ace3f3e694e99498",
+    "sha256": "149a153b603fed8c41e0d37ba3dde2f8cd194915f962c97188a031e62a8c9622",
+    "bytes": 4283,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/sqleol/testdata/source-input.json",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "cc6a0937194fa89f73d1681e8eae27d05cfc3c28",
+    "sha256": "2e82c9d3d106ab20236c95a76f0b7c1d692eba439e67b3107da99d15e83821f0",
+    "bytes": 2134,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/sqleol/testdata/source-output.json",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "93adcc1de871cd99e9a2acef7f4c196009318164",
+    "sha256": "881d489015558566b780eb53173b9db55aae992dafee6092c3005dd33cf4078d",
+    "bytes": 4991,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "internal/plugins/sqleol_projection.go",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "a925e0545eaa0e9b4be51a58705d46c0004f56fe",
@@ -2572,6 +2772,14 @@
     "blob": "842fa2d7be23836ec7277bc5dcd2541f9e72a836",
     "sha256": "3727c888cc8f0cf5beb3524c1c779cab01808ad08c6bf38b99bf43ac538181ca",
     "bytes": 14467,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/zone/testdata/source-rows.json",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "f9812b012cbe5c704a85808a70ed802e5eac513a",
+    "sha256": "f75b14ea9012511ed976563984748a63d0bf8baa360c6135e936f3cbcf8aab42",
+    "bytes": 429,
     "read": "complete returned source reviewed"
   },
   {
