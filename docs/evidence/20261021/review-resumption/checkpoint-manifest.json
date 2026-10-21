@@ -1,0 +1,108 @@
+{
+  "format": "cloud-assess-evidence-v1",
+  "classification": "reviewed-synthetic-ci-local",
+  "bundle_sha256": "4e90debd4bb1f069906d399d04d039a89bdcc5e7f3bba6d38b3dc5315b1f13b7",
+  "decoded_sha256": "dd909c86f94c6071da0e6744c2b6d0819be47ca0290c3a85e9df4c107c9e63fc",
+  "members": [
+    {
+      "path": "ASSESSMENT.md",
+      "bytes": 15109,
+      "sha256": "64dccb30b58e5a6ba6a12043629575df24a2b75bf33022e4c91c06ddc4b9b906"
+    },
+    {
+      "path": "helper-trial-dispositions.json",
+      "bytes": 1372,
+      "sha256": "40fa47029a917dbeb6a523863baba0de76e1b939ce3ec98e5d3776433dc54929"
+    },
+    {
+      "path": "verify_reference_data_comment_fix.py.txt",
+      "bytes": 3933,
+      "sha256": "75652d35b83a7182bd181adb3e6ccbdf83f9e38ee4199506c467b3e0d1025570"
+    },
+    {
+      "path": "verify_reference_data_initial.py.txt",
+      "bytes": 3865,
+      "sha256": "d164098160a7fef190aa60cd04a69723e03e993277395cde2fc649ad52899600"
+    },
+    {
+      "path": "resume_audit_verification.py",
+      "bytes": 3200,
+      "sha256": "fca9013e7a24a8be1dd42bfd89f2c32b68ea505c1e369c5b0784dbc6693c62ba"
+    },
+    {
+      "path": "resume-audit-verification.json",
+      "bytes": 8812,
+      "sha256": "a1e4d481d5880ccc8051c39d862561b5fb32ee03d3a0d06e52548b7aed9761d5"
+    },
+    {
+      "path": "data-boundary-recheck.json",
+      "bytes": 985,
+      "sha256": "f3a7dbd9d9314b922a8472eaade19efc731e97a6e3dccbd03b27863b357322eb"
+    },
+    {
+      "path": "reference-data-verification.json",
+      "bytes": 1364,
+      "sha256": "2ad4fb287c46f0371952f80ec2e55fef020a9725bf3e4cdcb50d34c40a2c8fae"
+    },
+    {
+      "path": "verify_reference_data.py",
+      "bytes": 4097,
+      "sha256": "1ab343a255b887b27c39c4b279e222e173e0cd7497e47e58a42570a26af9c38a"
+    },
+    {
+      "path": "fork-process-comparison.json",
+      "bytes": 12558,
+      "sha256": "e2bd1d616fe7b2395093be25e7214c5d486388eb53df886caa819b7d3010d23d"
+    },
+    {
+      "path": "read-coverage.json",
+      "bytes": 268316,
+      "sha256": "7964e6f31b34b34f000d9a7ca63863e9aebe37fc9d0d53d2c6911e0ffb98d66c"
+    },
+    {
+      "path": "semantic-data-read-review.json",
+      "bytes": 14635,
+      "sha256": "a01a038c5e32afe9ce6a3a26d4926a083ff4f6cf23784f82f634e3bd4e6c0ac4"
+    },
+    {
+      "path": "build_resumption_bundle.py",
+      "bytes": 2708,
+      "sha256": "5604af096ed46f991cefff140ae5178d730765939f706fe14a8641ef3a29a47d"
+    },
+    {
+      "path": "own-review-qa/119426804890.log",
+      "bytes": 1362826,
+      "sha256": "fea95b1c4a9315114256ab47aed991fc7768025e59730851671645238d708d54"
+    },
+    {
+      "path": "own-review-qa/119426805183.log",
+      "bytes": 64580,
+      "sha256": "d6d30e013203ec48f4f2834f0f595d7908a5d873a5aee57359033112a8313321"
+    },
+    {
+      "path": "own-review-qa/119426805290.log",
+      "bytes": 45941,
+      "sha256": "865fbd9bbf7ebcd48f76d81945685317aa92097fad6cfbf1a3a369f527789ddd"
+    },
+    {
+      "path": "own-review-qa/quality-jobs-in-progress.json",
+      "bytes": 55615,
+      "sha256": "d56a81dcdffd3a30e6003708409f8a7f7e30cc208a36706f0c085782f87057ae"
+    },
+    {
+      "path": "own-review-qa/source-jobs.json",
+      "bytes": 2986,
+      "sha256": "3e41d5ff532c639652f6fa09a1fc84e6437a96974a0114dc360edda69ad1fd5a"
+    },
+    {
+      "path": "own-review-qa/source-verification.json",
+      "bytes": 4470,
+      "sha256": "7a91e7b07bd5f9b62b03d4125e9818e32340bbb3e90ee9b25e183133ca6e0ae4"
+    }
+  ],
+  "revisions": {
+    "review": "033fdcda88c0af292fc96705446c8b43b2cc0345",
+    "product": "566cc4d8b78d168e5216245a5a386f742a3a2f85",
+    "retail": "458d5c5296c321c8e5e961f18eb5422d43c2eb18"
+  }
+}
