@@ -88,6 +88,46 @@
     "read": "complete returned source reviewed"
   },
   {
+    "path": "AGENTS.md",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "bc1319f4caa5eb53abe1425fdf8052e32f6be4b1",
+    "sha256": "91e1659c925a4ae9114990599476784f6bc2a64b7bca5e1fc36faab4f0bad33b",
+    "bytes": 3052,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "LICENSE",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+    "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "bytes": 11357,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "NOTICE.md",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "86cb5c23e47143042ddb43f28e3749b7ffd77351",
+    "sha256": "b41e1eca768b3f628f41ca4759189877be53fde6049a28567e3cb19b4e123e11",
+    "bytes": 4109,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "README.md",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "b2e35093576992f4845aeab695f7e280cacfd400",
+    "sha256": "76b11a562c63dabaebb4971c1b2b71046fbffb16375755e55b3202371d53e02f",
+    "bytes": 11727,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "THIRD_PARTY_LICENSES.md",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "d8a2e12097e44a66d27683a118bfc1f30cdb5afe",
+    "sha256": "a7242053e16d75ddaf69dc3e972f0118cc3caf38d0bd197d5084dd958c86b71f",
+    "bytes": 4347,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "cmd/cloud-assess/aigov_execution_test.go",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "26737a531244a72859ba49f38d88bd6a97ae3191",
@@ -208,11 +248,27 @@
     "read": "complete returned source reviewed"
   },
   {
+    "path": "cmd/cloud-assess/testdata/scanner-keys-reference.json",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "2719845c92c1098a4a22d4dc4fa6f390ec1198e5",
+    "sha256": "398fed601cae3785f660c5572edfdf58d631380cb9a02be14ed262bec567d861",
+    "bytes": 838,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "cmd/cloud-assess/zone_execution_test.go",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "bfd21f46475553f00bd9c47d45a1f60c2affa53f",
     "sha256": "77afe53b81291d1a478a94c69bbb6a3dbf939f64234c8cacf6d66a82ba5d68b0",
     "bytes": 8806,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "docs/SQL_EOL.md",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "5aa5c8bad73c97f5be6a0f6369787e97707ed49e",
+    "sha256": "690d286a0e894ccdcc30cff8020dd52ba0f35ca07cdd7c324495dc027302a9b5",
+    "bytes": 12413,
     "read": "complete returned source reviewed"
   },
   {
@@ -345,6 +401,14 @@
     "note": "Changed security-toolchain versions separately reviewed; untouched source baseline read"
   },
   {
+    "path": "go.sum",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "b0ed39c3549036654ddbca9d0419495ec557922e",
+    "sha256": "3eec87f5de0e81838cda0c3b96ffaba1ae3b459ca91780c3ec93f9be47cccd02",
+    "bytes": 7941,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "internal/advisor/metadata.go",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "97dd140e5f0bf49b1377ed4c7d713cb6cfdf7be2",
@@ -446,6 +510,14 @@
     "blob": "e82fc2304cd70abecb91ba29ce28e092035a958d",
     "sha256": "e141b6bf6757e638de2e59baf5cb73a848e78ce43ab903e90c055858748c98b9",
     "bytes": 2818,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/app/testdata/README.md",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "f1e0fe410f7a6b4008c12356f6c31b0c113eae0b",
+    "sha256": "8a77ce65a432c0eb8edc48039e29ff8de08cb2ce7cf65f2d1c7f9e5137207736",
+    "bytes": 2151,
     "read": "complete returned source reviewed"
   },
   {
@@ -1374,6 +1446,14 @@
     "read": "complete returned source reviewed"
   },
   {
+    "path": "internal/plugins/aigov/testdata/capture_test.go.txt",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "4ceeb21fb1ab73b17719440753afb36fd0bac1dd",
+    "sha256": "7c751f2296fad0fdbf8fc1646cc6702d943fd257e5fe6ff35cf9d9f41e43567c",
+    "bytes": 9214,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "internal/plugins/aigov_projection.go",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "408b7cda42858faeab5b18b9fcba43cf8aa80c01",
@@ -1419,6 +1499,14 @@
     "blob": "f8e1e5dca08bcc1706a5a48ff804bf45044d326e",
     "sha256": "26aa68d3d27fdb247e23db8373cab3db7a7d7ca919958b1f7fdc5122968faec7",
     "bytes": 26457,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/carbon/testdata/capture_test.go.txt",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "6c7d1bcdb70761c8f955e335d29f1a7f50d86225",
+    "sha256": "9fb4ad4beba9c066516f83b7360420616a773bfebc1bb63a724bd6b37a96d076",
+    "bytes": 5698,
     "read": "complete returned source reviewed"
   },
   {
@@ -2198,6 +2286,134 @@
     "read": "complete returned source reviewed"
   },
   {
+    "path": "internal/plugins/region/testdata/aux_capture_test.go.txt",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "e79411f6b378b76b5f676bf8c48e2bac549cb45a",
+    "sha256": "c034e5ea712a94d43e0fceab61feb195f96780931b7797531f6da0de778977fd",
+    "bytes": 5917,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/testdata/availability_capture_test.go.txt",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "25f3064df53ecfe557f4d825896b00ca93dd6e52",
+    "sha256": "077653ba97597686fafd07681bfa1567d0fa2905df97f9d2c77b5d74fc3e2e4f",
+    "bytes": 8939,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/testdata/capture_test.go.txt",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "ef8950b2abbaab17fcd4be24e0a68048ff56e611",
+    "sha256": "754db7b8a3278090c1895cd22914ae5bf306bf2572ca877402f26151bb4f015b",
+    "bytes": 1442,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/testdata/compute_sku_capture_test.go.txt",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "024dd96e96c48e12a7c76831ab5a58c9e56185f5",
+    "sha256": "b046ff586bd7edbc2b7a6acaac53de0e008103e1aee8a08efda4d6b4862b34f1",
+    "bytes": 26376,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/testdata/cost_enrichment_capture_test.go.txt",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "1a865fcda1a149e884ae3ef543f34de6e9b90c49",
+    "sha256": "24d43163b25ab7304a6dc1efd3a117019a884278a15523f9e577dcc4c8888aa4",
+    "bytes": 6730,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/testdata/inventory_capture_test.go.txt",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "246736fdd46a2d071edcbdc3cd161df58059e5ef",
+    "sha256": "9bd352680bdda69096a622c28c200feb8a4c26644f7c8025fa1ad34ea5605ad5",
+    "bytes": 5114,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/testdata/latency_capture_test.go.txt",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "bb1f843fa2371d6e1983b0626381a4e4faabd314",
+    "sha256": "65298e8bcf426982c89e9764dde20d7f06d0f383a122e66ca4be14f2c8cdea42",
+    "bytes": 5294,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/testdata/other_sku_capture_test.go.txt",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "a9aedb09c9553eadc2e30bef7bd81a6821fe61ae",
+    "sha256": "32a78223e231298695d343b732eb05ca01f1125b970432a0aa782f3cc2fece93",
+    "bytes": 109401,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/testdata/provider_locations_capture_test.go.txt",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "755bc85e0a2c47860d3433cefeba716cae898113",
+    "sha256": "c8f6c1fa9ec2ca858805ca2d49cb5c961f44a7f056c31c46f0914142cba3857f",
+    "bytes": 16043,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/testdata/quota_capture_test.go.txt",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "a25aa04792e0cd873b156914e70cee9f9a76cda6",
+    "sha256": "46da958f5bceb76fe65ac2881bc0c9d724861654e414cc82408cee2280c606cd",
+    "bytes": 8410,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/testdata/reservation_capture_test.go.txt",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "5dfa4022ef513b6aea31271e08eaf5146e3e01fb",
+    "sha256": "a529933be18c70514ef7dbb48952959b9e02d601b4a05deb9e31b3de3aa2eb25",
+    "bytes": 11514,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/testdata/retail-primary-cost.go.txt",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "82b357d2c00dd65c08bc5908000311664431c0e6",
+    "sha256": "c2a80218cf061e94b49f8491f7970a8b668272f06fd60e7d754969f21442120b",
+    "bytes": 32982,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/testdata/retail-primary-http.go.txt",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "05d85c5a50ee81f088731160020a914af83e1ca5",
+    "sha256": "acf65aff604df4c96c7b726423053eb73520e032e78c9aa72ab9c8500016e688",
+    "bytes": 7848,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/testdata/retail-primary-types.go.txt",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "f9b61fb74075e5a2297be1b898067b8cb047f9b3",
+    "sha256": "153dd427c31523e13f29d601c042415cceaad27643ccf95e538ac28db3fdfc3b",
+    "bytes": 11560,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/testdata/storage-primary-LICENSE.txt",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "6acfdd593962ad75691ac6cae598a91a405f348b",
+    "sha256": "b37363bf2295aa0acde60ce78a60034a71a0955075fc01aa09cc23eadff44436",
+    "bytes": 1076,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/testdata/vm_quota_capture_test.go.txt",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "f90d337ce7fa5e7940e5167bd8860ac3993dcb53",
+    "sha256": "a157612c4b1151071768381462f1bd3a061ee85a965aa9c0eee33ff602ec0fab",
+    "bytes": 7588,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "internal/plugins/region/vm_quota_capture_test.go",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "18476fb14c4385d67e7d7fd16ccabbcc7ba8b52c",
@@ -2300,6 +2516,14 @@
     "blob": "bb408e06215f9fb2d667dbc6372033b5e83d7858",
     "sha256": "492c77dacdddfce63a3f15c4441a5a5897c21186ac992b312a81f58d4cd6e34a",
     "bytes": 165,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/sqleol/query.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "1857e4320d16c20b16dd368ee43d56a84ad5206f",
+    "sha256": "f027cb07f082913cf5e83a7d3d77d337ceaa479b46393d3a55a61a2adbe893db",
+    "bytes": 36919,
     "read": "complete returned source reviewed"
   },
   {
@@ -2623,6 +2847,1838 @@
     "read": "complete returned source reviewed"
   },
   {
+    "path": "internal/rules/custom/azure-resources/AAD/domainServices/kql/domain-003.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "e12039b0a994213b4a6f8853f29f6f65d1a763c0",
+    "sha256": "067b7af4ee985f5d129b82947b66a77baff42c8397bc0efc72e9553509321f5a",
+    "bytes": 214,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/AAD/domainServices/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "0003baeba38685767edb681b531619db4e811331",
+    "sha256": "cdcf76f4b6e38c733863304cbeb29544143ed6d8a1566b4073e6b8feae219083",
+    "bytes": 577,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/AVS/privateClouds/kql/avs-003.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "543d4f8db8286ba960bac40b0ce64b4687adad30",
+    "sha256": "6917b1c16c1379496133d3e3023fd14be6d2eb7ecd179d5c0f6f14a90c4b654c",
+    "bytes": 453,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/AVS/privateClouds/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "f3fddddb2617845821bbe411f7b9eccdfd3cb190",
+    "sha256": "081d2e6a8dcba6970283506701df5333c68bf826dc08bbad4167b059d52f015e",
+    "bytes": 553,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/AnalysisServices/servers/kql/as-002.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "da9a3af67b00d94480c1b425671157c503713190",
+    "sha256": "7a4086d6f0f962947ed93769bf7146390003b8ddc3a149450d89fa4bf391dbca",
+    "bytes": 208,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/AnalysisServices/servers/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "7a2638323db5a0f6e98c5c3f27134a0c92110a23",
+    "sha256": "bed18a46d85e3b577b0158d109701d8185b656a47b6bdc0014d951c00770810e",
+    "bytes": 564,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/ApiManagement/service/kql/apim-003.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "bdc5b005821fc63c0abcea8f8046ea2d950a2a8d",
+    "sha256": "12710ecb9253c7042d285edc0b6f6d085dcb133d095226eaff9668cf75994e2c",
+    "bytes": 692,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/ApiManagement/service/kql/apim-004.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "32efdde8773b5dc9b52ff5f03c038bdfa50eff70",
+    "sha256": "589766b67e5f37aea6c9d9fcfcabc64ee231a7298097bea1eeebae4d86f10df1",
+    "bytes": 366,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/ApiManagement/service/kql/apim-008.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "bb6e327b6cf25f3a3defcd8aecb316fab66d7b8f",
+    "sha256": "f6a45d1d852dfdd47542d063786c1bdb3187691fe250a3b1b43fda07f4ab0d3a",
+    "bytes": 315,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/ApiManagement/service/kql/apim-009.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "9dba63ba7c645d5bea44ef275e457d19bd66c3ff",
+    "sha256": "9774e4ad2cda140dcaf4568ce0aff0d6d4a01e1d974ac723eafd054d63687325",
+    "bytes": 915,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/ApiManagement/service/kql/apim-010.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "1b4e22917e575672c41aea9dfc845d9f0ae1ff59",
+    "sha256": "b5b76f6f98733c078a23df52d3c2d0fb893876edc25f677aa3d1cb5ecd34a330",
+    "bytes": 1282,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/ApiManagement/service/kql/apim-011.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "f22073a606e762058800a30223b70058e8b0beb0",
+    "sha256": "827b84d9dde981afc057aa37babbb1b5784160ab7fc02ef4e5fac8e24b49a18e",
+    "bytes": 423,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/ApiManagement/service/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "572dcb965f80ee9b2d86661cbc60b9bdaa1b66f6",
+    "sha256": "cb9199281e3adbfc3a01e35b30d1dbc47bb4a9a822f7a8c5289c5d9d270247e9",
+    "bytes": 3423,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/App/containerApps/kql/ca-003.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "ae274fa5c7602deb3b25c0ff73387a2ff891d497",
+    "sha256": "4e5a22ba2e5381ac727c1208ae4f6beba1462e80724b50d0a78117de2a63a684",
+    "bytes": 401,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/App/containerApps/kql/ca-008.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "42484f0417b618d657f691f3fc9077ed604ad57d",
+    "sha256": "5ada67725a03db99a8914f2e3ec09ffe44934039e62718ba59526553f35bbce6",
+    "bytes": 311,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/App/containerApps/kql/ca-009.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "36fed5044fa549464399f250557dc22e3f83340c",
+    "sha256": "24cdef8ff50a103dee2e1a4c3f3ff5ee09d94942ec5f5bf50ad6625aa2c982aa",
+    "bytes": 288,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/App/containerApps/kql/ca-010.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "dc10a9d6dedb0da30a484b723901dc362c4381c6",
+    "sha256": "ae1033523bc0ce4883c3b04fc203f4508d2569ffe55ea5b789c9e1421710fe5a",
+    "bytes": 340,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/App/containerApps/kql/ca-011.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "330615d90906dae4a9d069f2b03a0d449aad3c28",
+    "sha256": "3c9d607abf2bc81ad57bc2ce0dd2bd6524cb15afe58ae400c52fd8079c8e002f",
+    "bytes": 300,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/App/containerApps/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "4f12bdb415dfb43808ceffaa3dbd3406461065d0",
+    "sha256": "e57110899bed3280669f9c3489237cc1402ec125174c99ed850ae04eeee69b59",
+    "bytes": 3459,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/App/managedenvironments/kql/cae-003.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "6f72c72a13b940a80ec13ab2439103f9b0ae083c",
+    "sha256": "26484cc0a3b04add782c78195d2a6d5a9b2ab959082ba4a7212aebcb893a9ff8",
+    "bytes": 212,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/App/managedenvironments/kql/cae-004.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "3983fe757891dc812297ec9964c676835a1605c6",
+    "sha256": "530a707720556bf56121e4c2f5e506d341c6ff1692831723a9e84500a67b1608",
+    "bytes": 386,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/App/managedenvironments/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "071aaa6f58e7f1a590202a4f666c91c38cbd3e7f",
+    "sha256": "a6bc62342a4175d5753b14b6a60ef7cc966a211ee5a5067d996bf47a9e9dc60b",
+    "bytes": 1163,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/AppConfiguration/configurationStores/kql/appcs-003.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "f29b9e30b6d24578e806bcf1f00be9df8e8130e8",
+    "sha256": "6e9ecb7b1ff566e06c949842e78b2bfdd1f838c0d4c665fa7ab2ea749424d066",
+    "bytes": 682,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/AppConfiguration/configurationStores/kql/appcs-004.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "2734c65c8c2dd8f9325f5fda7a36e3fba65b0615",
+    "sha256": "6ea192e6d148249ac37d1b5a892f556f940c01743a33312264a4e0523557ddf0",
+    "bytes": 385,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/AppConfiguration/configurationStores/kql/appcs-008.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "ea8fb672dfb62f0c6773c21ca7f732b2ab0f60e1",
+    "sha256": "2edfecdf03d6560ea9cd1732ae3f6606b00b06a309816aa4f94b6a31581222e8",
+    "bytes": 372,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/AppConfiguration/configurationStores/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "83db233163b5645eb217a8b926dab760de0b14cd",
+    "sha256": "b0975f7b0ea1f38878048dbb3d37fc416b5df8d053be09237c0ac95ef177055e",
+    "bytes": 1815,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Automation/automationAccounts/kql/aa-003.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "10f8af780570d0b9c04eddc83869fca8ae7aa42f",
+    "sha256": "a291cf092f72f3597b94596bd5e3ffc67708f2ac55ac42560225ea5ae27f24a8",
+    "bytes": 208,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Automation/automationAccounts/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "151bb3452a0c174af24a8e3d8ddacc99e861b469",
+    "sha256": "7866202821d62a192f0169c6fc48a105becfb6be2f5a37031a5a26e0c52075cf",
+    "bytes": 558,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Batch/batchAccounts/kql/ba-003.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "18100342351f9788fcedf7e46a459dfb6366967e",
+    "sha256": "9fbcc80f71d44fd122615e7bc9a63668cd55ee7269acf55b00f63b6ad0edf3d2",
+    "bytes": 193,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Batch/batchAccounts/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "b420cf970077b6efcc4809916affb41a38c25436",
+    "sha256": "892a491932d1e3b0a4ca770a0eb90a670efea8328be7f1a7b4fa9a858cfa3522",
+    "bytes": 538,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Cache/Redis/kql/redis-003.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "58653a572e705abcda965c5aee9b40c5b502843e",
+    "sha256": "5d863357b994d071cec73cb8f7588bb4201e577749473720c3a13bc7b9028f2a",
+    "bytes": 471,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Cache/Redis/kql/redis-008.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "911782eec58df24ae53745de10e2c0955d85b35c",
+    "sha256": "591f863b38aa8c310a02cdc40660a2b3802d65e003979170a456b8e02e385993",
+    "bytes": 293,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Cache/Redis/kql/redis-009.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "a22d02999f0c33c3fb3327a688c9b32ebc1a140a",
+    "sha256": "65900e426d585a32dccd4a925a3e3cf0c4a3b1459a95cb932fb3703a491c6a88",
+    "bytes": 310,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Cache/Redis/kql/redis-011.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "17817238845a8a1308aed68570721fee9545c0c9",
+    "sha256": "5ac69e03dfa1360593528c48b67256f7557dab8168dd2676f2f2cd4f5f1d4cbe",
+    "bytes": 350,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Cache/Redis/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "3eab97b1e78df571eaf24361b11cd914eebe0d14",
+    "sha256": "9591d8c1f744b8aaeda943b3a6bf834a0d675fc1203f0d45d1703e25734e3314",
+    "bytes": 2562,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Cache/redisEnterprise/kql/redis-010.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "7f87c2870bfcb2c5414d96c4622171b0a8e47d6b",
+    "sha256": "27c7f34aed7c071591b22a119c449a15629cecde31cb13bad56fded88e1dbc7c",
+    "bytes": 792,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Cache/redisEnterprise/kql/redis-012.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "201fae10ffef1fd0f5c12c8a7309b7eba9fe34d1",
+    "sha256": "762aadae70b898609206c3419ccaf6ff1ccf9da49a01ce36a26aaac53d9fbc7c",
+    "bytes": 511,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Cache/redisEnterprise/kql/redis-013.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "81b86fd38c3f7777f3d1d570f68eb5b8406b73ad",
+    "sha256": "02db683fba6764a7624c6f3ddcefd580bad4c7c87aae153ef2906c9f699ac548",
+    "bytes": 593,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Cache/redisEnterprise/kql/redis-014.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "86b02acf14b5cbabf8e8ddb52c20225d6423f6c9",
+    "sha256": "3f732dd4d0f110bf3a2843d8082bc93be610ccc3037b910d21c9cb32567340c0",
+    "bytes": 571,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Cache/redisEnterprise/kql/redis-015.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "5b5f659da4889b71732d6c287d7b0ebe1dd55cdf",
+    "sha256": "c6aa4a4a781a455f8eaf4f716335f87b4f4861997b734a0c8841747b0355b0e2",
+    "bytes": 501,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Cache/redisEnterprise/kql/redis-016.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "7cd7567aea80ca638a49b9552848ff0170038ff5",
+    "sha256": "c248dd52e22b3fa201a4536714c3624eac9811b11359f042205679bac3c307d4",
+    "bytes": 489,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Cache/redisEnterprise/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "7081806c723631e179cb817340de0997fee5fa27",
+    "sha256": "9793117ee80ba7eb9899710859ffaa9479c45c72f52a8861a17e1ce2e44d4f38",
+    "bytes": 7746,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Cdn/profiles/kql/afd-003.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "f743b35e080e230ea2223cb9266e839a5c8064eb",
+    "sha256": "7a96f04b77b08f790fcc4277976fdad535061ea7997798923ee9707d6ea60365",
+    "bytes": 190,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Cdn/profiles/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "a225cca34f06f1206ebc505b2b7fddf54f42545b",
+    "sha256": "6ffbd2b39fd3acc2546be1178c5d349872434beb1411ca36a8ce947338e2bbf9",
+    "bytes": 559,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/CognitiveServices/accounts/kql/aif-003.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "5d0cd7935933b0b04ba7a0c4fda71e5211a6e2d0",
+    "sha256": "22bbe9598afdda616b7838ad293136ee4bb088af6302c89257932a2119e4ac49",
+    "bytes": 206,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/CognitiveServices/accounts/kql/aif-004.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "9ccb69a01687cc1c530b2648aa39742cdc5c8075",
+    "sha256": "88abfe0beb110f2215329264a2b548550cc3039bed63ed0f6fa111812bc90117",
+    "bytes": 374,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/CognitiveServices/accounts/kql/aif-008.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "c3a789eaa578cc5c1fa9bd5c4ed0264618f0d76f",
+    "sha256": "2de8685dea6024dfa557bf4bee2e5e01368fc2bc309326079cbd2375c8dcd734",
+    "bytes": 361,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/CognitiveServices/accounts/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "1213617433ee5d7096ad497f7cdd84266795da95",
+    "sha256": "9d067500a69b9fa6fcb9f457fac9a4e8be00cd7f22664e6a78b5188120c10b98",
+    "bytes": 1711,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Compute/virtualMachineScaleSets/kql/vmss-003.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "e4769f25ac1ab1f07a967862530f8b20ce027c9b",
+    "sha256": "02fb5c083b2061a08bd09e6192e57218309a15e17167f99796e3b76a881accc4",
+    "bytes": 263,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Compute/virtualMachineScaleSets/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "62417429d784ddaff8e0c0f375ee44f941eef86b",
+    "sha256": "0ed4ab79cc23128c1a9fcff6f6be9e5a5ae0e1f303d1b3171411dfa5b36ae2d3",
+    "bytes": 576,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Compute/virtualMachines/kql/vm-003.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "b516fa1e7f5222b6a7fa2862170549c791d5bf99",
+    "sha256": "5fbabde81e166af0a58ef4629a66f30572bc1e08901f0a96bd5cf1cb81f0478a",
+    "bytes": 379,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Compute/virtualMachines/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "db1f08e82df8b973e980956db56a3655b9708fc3",
+    "sha256": "46fddd83832faefb754386d1e1f6512ddb9f1d6b1c53e1ab7e299effd5b49f2b",
+    "bytes": 546,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/ContainerInstance/containerGroups/kql/ci-002.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "99ac6c3801e101d469422e9781e0428007523590",
+    "sha256": "69b72bdf1908f32232e7904a5b5cdac5f67e44a70c73c2cae1b8204271ac5d0f",
+    "bytes": 308,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/ContainerInstance/containerGroups/kql/ci-003.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "b72d7e5afab942c3fab8851a21af1eadd6069cf9",
+    "sha256": "1872f6b167a84033894a73c7eaab767e88cb439d2f5a4e3b64c94a4238127e68",
+    "bytes": 233,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/ContainerInstance/containerGroups/kql/ci-004.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "841f1a768878e2d037a47e60b7182c21d0d6a856",
+    "sha256": "5ef75a92a64ef907586fe788f201eb2c6648678bc93807a147441787bda7772e",
+    "bytes": 307,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/ContainerInstance/containerGroups/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "2b7122afd3302fcdf12e0e92d43cf66ff65bd7e7",
+    "sha256": "9a7901fa394c6c600e5a367739263f0593f10a8863b4e8e0d90833431c807c09",
+    "bytes": 2058,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/ContainerRegistry/registries/kql/cr-003.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "1d313e11ea838df4c58d448d088a7bab8cf3595e",
+    "sha256": "863327b2d7b5ebdd74a9a69eed4b3ca685ee81ec6b15ebf104c56fe5bad3ac14",
+    "bytes": 207,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/ContainerRegistry/registries/kql/cr-004.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "044e47b3206038403bfed5eda169f46316b27a73",
+    "sha256": "7645757999ffe58e65f21ed725ca637db813c269f7a3322063334493a6c8ff35",
+    "bytes": 375,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/ContainerRegistry/registries/kql/cr-008.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "f89d83e914c8b668473eff92b317eb8cf5cdb142",
+    "sha256": "1aede7637eb470b8757069ed113c060adddb90e9a7941e907e533be08b33ef3b",
+    "bytes": 323,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/ContainerRegistry/registries/kql/cr-010.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "ae3d871955f557f5e687f01ec0816bc2de1541cd",
+    "sha256": "e13c25e716feb2f5e8bd71d694f8abd6f71b6e1e044269a3fafcfa11a1bb193b",
+    "bytes": 384,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/ContainerRegistry/registries/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "e3fc14422bfeb0a4012e159958c1f6d266224791",
+    "sha256": "23dfc9f17daa73d679d3c64e18ee70fe7ccc731107cbd6a43aaab45475aa38a1",
+    "bytes": 2403,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/ContainerService/managedClusters/kql/aks-003.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "412098003acddd65889d0b3bd659830022d546e0",
+    "sha256": "758d3b38d63b064f253baea961e422f1899de73cf02f0fa00be61ad451741297",
+    "bytes": 547,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/ContainerService/managedClusters/kql/aks-004.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "ba20f04c30d637329fda9eebde8fdceaa8232848",
+    "sha256": "fb0284f6c969b2a558a12b149fb25dbc1740ce99a1f7dce71557e04fde1479e3",
+    "bytes": 385,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/ContainerService/managedClusters/kql/aks-007.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "4a275e4eb4e83c017e47172dea8a37afc7a1be28",
+    "sha256": "cf9710ad217a66245fb3d71f1b4f8b4102b4d2691d84afcb21d161e814bbc0b0",
+    "bytes": 344,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/ContainerService/managedClusters/kql/aks-010.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "73273b3172b196eaba3654e04be6c179ead8e8f6",
+    "sha256": "0efdb2d851b42ac39c5afbdb70a757cf4919a90eb22222c137ff429a390f7c7b",
+    "bytes": 354,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/ContainerService/managedClusters/kql/aks-012.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "89fe88302908bb5f95d17e9f3e271f5a78f1800c",
+    "sha256": "708bbaba0ac6088471512b49429ba6f138296ea896853347bf7b297aeaa14ec1",
+    "bytes": 375,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/ContainerService/managedClusters/kql/aks-016.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "9993f780bf0863f57afa182d31b2238ab9a8eeea",
+    "sha256": "b0328699c721988d899e4c4144d183dd4808083b6e45fa221a236d623b96344d",
+    "bytes": 454,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/ContainerService/managedClusters/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "5f5072c0e19c9a44a971652bb0fdd9ed1e1862d4",
+    "sha256": "79e6150f7d9ca7132cc5b2ef18b14ff8bc5090d702e74c30a8990070a097713d",
+    "bytes": 3355,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/DBforMySQL/servers/kql/mysql-003.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "507117c2cfb7086401ea814908a6ea5786dbed74",
+    "sha256": "9a2f629ec94bd7a709cd5f8fedcb0b40619275eb90c2c99c9a093b9c4a9bac89",
+    "bytes": 269,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/DBforMySQL/servers/kql/mysql-004.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "bcd28f35f2c6403b134b5e98d58cd44fc1796767",
+    "sha256": "dcec31a0fe2f0e10a92969839e1843e28bf00ab6c57eee5b25c2ae44d5885101",
+    "bytes": 369,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/DBforMySQL/servers/kql/mysql-007.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "2c830283eef358d824de14ba86215ad94b9b8d4d",
+    "sha256": "554ff8ee032b5ee889a1785de768a81fdbf1b39570c940521ba4ad9a21ced850",
+    "bytes": 243,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/DBforMySQL/servers/kql/mysqlf-003.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "bde06e5b50b4b9a61aece4f898b18cf7fa6bfab8",
+    "sha256": "4fc0de7a9a9bf9e95ae837f0c2dce74bd7c8a1ab895974b9d04302c7da3036ed",
+    "bytes": 541,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/DBforMySQL/servers/kql/mysqlf-004.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "c39df628825924954ef7385d32702e859f68d520",
+    "sha256": "5b303fb4d432c05ba5707baa526e83d51bda993d46596a7e18bf3ae36b1b47b6",
+    "bytes": 382,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/DBforMySQL/servers/kql/mysqlf-005.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "16693b5cb27a0e74f86dddec6c909024d390e117",
+    "sha256": "a19eaeae9f8c4b0629443144394be77ca02d3ba7ae45404b4f00f4d06a2250c7",
+    "bytes": 609,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/DBforMySQL/servers/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "6a389ff8fa6c57f6b24977022f6bfb8bc4dfe629",
+    "sha256": "dd2cd4c18b6ddaddcdd5b78c31d2e9c7d88561580bf3f8ae4e9b51a493541637",
+    "bytes": 4050,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/DBforPostgreSQL/flexibleServers/kql/psqlf-003.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "544dffcc363a65752f7c57974f0ebef9ba2d8cf3",
+    "sha256": "2251d882d6cf2119cf427f5d919f9e0f6b8a6bb5c0845fd032aa7429470e433a",
+    "bytes": 550,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/DBforPostgreSQL/flexibleServers/kql/psqlf-004.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "a0176e585f0d469230e7deb92f400b7c26143bcb",
+    "sha256": "9177c97cf52b72a80514f3d3bf12b226430924474e7fe96ee7c7c7f81be730f4",
+    "bytes": 391,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/DBforPostgreSQL/flexibleServers/kql/psqlf-005.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "8a7e905cd0988a827dd962b357e233e081c170c6",
+    "sha256": "61b133c86d3af2e48604e2c93329d49fd132018e0f77cd96b4c876a5893d94ac",
+    "bytes": 580,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/DBforPostgreSQL/flexibleServers/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "f93ade38ae5b8a685d06b2066d58da8354c39d9f",
+    "sha256": "5dbdb4425d5e6638bbca2af1a083966a11fb23074914883908a207dd36545918",
+    "bytes": 2342,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/DBforPostgreSQL/servers/kql/psql-003.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "3cee839736753fe152f1c001e935662f31a23f97",
+    "sha256": "f853c098318c8382ab577246a3eaf3760535d94eeddbeeaf514189962c3b1693",
+    "bytes": 278,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/DBforPostgreSQL/servers/kql/psql-004.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "9035912b37b02f384c6c1870e454a6423f33225f",
+    "sha256": "cf5a7245d42f44bc51e780b9f64a03469d64df0bc93d8f1145fdf0e04f723813",
+    "bytes": 364,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/DBforPostgreSQL/servers/kql/psql-008.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "cf99687a04e28e07752e9e1b7590f8f36f468f86",
+    "sha256": "fb8e203058f8034b1bececac0f389f318a48fef85cedbdf292ad0db75ba4b569",
+    "bytes": 324,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/DBforPostgreSQL/servers/kql/psql-009.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "a748c1421445141b0b868fe6999680191713918b",
+    "sha256": "4ec17504802052cff8e8179fce6d9dfe57bee00b5ef1b15814914fefc8eb9470",
+    "bytes": 329,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/DBforPostgreSQL/servers/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "4efbef4fb9ebda587ce4dc45c92a511c09e570ce",
+    "sha256": "3c535a5221e55faa41ae9cc6fe2f76962773a22e2d74c3d062a0eb6b40f37dd2",
+    "bytes": 3454,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Dashboard/grafana/kql/amg-002.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "9f977fffec7d094e40c0e9dbe7132ba5253e5088",
+    "sha256": "79dfdb9ec499e807b9f8d9a21801c4ef743eec8be63573845f35f1cb12108f77",
+    "bytes": 339,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Dashboard/grafana/kql/amg-004.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "9b5d50b17626505bb1f1c4265ef4ed83aee397d0",
+    "sha256": "181c270c5090f0c8a87879b5ef62b714e9857f4535e7353f969d035cbbcba292",
+    "bytes": 314,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Dashboard/grafana/kql/amg-005.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "ab3c04a37a45b7509af1039b832750f32da120eb",
+    "sha256": "711209b760c05d2844b217eacdf9757e05f5a6d7ae2452250305b693856c17e5",
+    "bytes": 300,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Dashboard/grafana/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "cffbf2d1308ab3db564b37b82fd5e5cadfeccd19",
+    "sha256": "447267acc475cfd6892444c9d6e023913c5c65cf2701edf9e080744a1b257692",
+    "bytes": 2167,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/DataFactory/factories/kql/adf-003.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "85ff2ef0e2ee4bd8300572729f9c5afa7b4deefd",
+    "sha256": "25b0137c316ac42412763addb156788877e35b9d6afbd164f87b026e34479b7c",
+    "bytes": 213,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/DataFactory/factories/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "fab61e892d5c013a94ce199bbac23e37f2b1f945",
+    "sha256": "d2a4e4616ca410fcb00d58972b6ce6c3b2af105d38fd54df23db38135f7f86d8",
+    "bytes": 551,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Databricks/workspaces/kql/dbw-003.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "90ae086a02328c67ace5b4159eabb12a3c382de1",
+    "sha256": "d977816b122a9f178260b66ed4b523ec5adf01bf021d703134670a2e1d1c59f0",
+    "bytes": 200,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Databricks/workspaces/kql/dbw-004.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "d581b3bf59eddaaa7cd7865781992df87320e13d",
+    "sha256": "4eff09afc6506a71c1dcc3fe5d255c2c6d948bd4d94708e52d07fb29cf70e0ed",
+    "bytes": 367,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Databricks/workspaces/kql/dbw-007.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "fb22753ac0c22c7cf148b55e6a1dd5220c084d99",
+    "sha256": "47c8484ea534bd874ffd0b51be2e829c94f13f665fb76ac4e93e865525d34a21",
+    "bytes": 339,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Databricks/workspaces/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "ff831f56582d5fc6235e617c3f9a989177ab903a",
+    "sha256": "491d82c8c7f9ba01f7df4f1b336c66beaf52a81c6ff29433ae3edb4d929bdc8e",
+    "bytes": 1748,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Devices/IotHubs/kql/iot-003.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "61d20dc3be920d6840920e00472cbe9da1d2357b",
+    "sha256": "ed1a4363880684b9b6f6e399eda6557f098efec7aaf07e93e53a8925fb6ce4a8",
+    "bytes": 184,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Devices/IotHubs/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "6c3803dc5a88687ce4444acb706e4791d2e420d9",
+    "sha256": "7151929412d0edb7ae280a1a68c5c1b596b6e63deebb6f70a96e99e405064b72",
+    "bytes": 523,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/DocumentDB/databaseAccounts/kql/cosmos-003.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "81d6bd21ff85bf23c3f01052aa3147fbbacdacf9",
+    "sha256": "3660558f5a53c8eef4811a8b64014458790ab34cd47295d5d0d4b00119da217a",
+    "bytes": 794,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/DocumentDB/databaseAccounts/kql/cosmos-004.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "c137bf01f5c89c669ee3543edb33fd9e5f7a6599",
+    "sha256": "0f4a2f66fe5d7a33b888bea198f7f99a914e76ed90fc963ca5fc0c51ee2b98fe",
+    "bytes": 368,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/DocumentDB/databaseAccounts/kql/cosmos-008.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "e86c41426ea303275c77e6e31eacf305fc44b669",
+    "sha256": "ebad68c764e5285b41c96ecd3cf4f145d49b2be5c4c92e2ae7b49e5245cf154f",
+    "bytes": 355,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/DocumentDB/databaseAccounts/kql/cosmos-009.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "301785d9b4ae533a99748d24df450f4afb47b411",
+    "sha256": "4a8b0e626c94db406877447e692aac008a146534be629a5c484c07046be7755b",
+    "bytes": 416,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/DocumentDB/databaseAccounts/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "ee5a2a0e3958972fbbd5b596c44e729a1c815d80",
+    "sha256": "700b520d26baf94630173d596a744d9f4afab2f2f4bcd7b05bb837cea8c15fbe",
+    "bytes": 2406,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/EventGrid/domains/kql/evgd-003.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "d7d7c6e2b5a37ae31bd8be947d7163429ff60deb",
+    "sha256": "4176ff7bc2b42a19b73e13aa99e0ddbf3b698231c926842a3596c070f767e8cc",
+    "bytes": 198,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/EventGrid/domains/kql/evgd-004.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "dcda594d8d42173ffaab18ae14500da56d1bef58",
+    "sha256": "88849e66e244168b32bb9d88d84ed5c42d38a0784405a558682e537a0ce5cd85",
+    "bytes": 365,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/EventGrid/domains/kql/evgd-008.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "15b091d5d1855da899046c9b867497134022ebaf",
+    "sha256": "31c103743a7fb0625541a5409cf7f3ecad7908680c0aafe38331555c4f08f45f",
+    "bytes": 352,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/EventGrid/domains/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "f2bd00c7917cc9691aad4362fb4e4324b097752c",
+    "sha256": "57491e6efa02ad4b380a239077fe79550de1242c0d3c9666983e76f132a8664d",
+    "bytes": 1733,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/EventGrid/topics/kql/evgt-003.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "3c76259a933bf1d8bfa59ca2023750ab9df13580",
+    "sha256": "c8fd65616161d48bec0ed7ea7bd4476a2a4af62c60c9e3f4f9c6579d2e177e12",
+    "bytes": 196,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/EventGrid/topics/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "6d4c0554e0dea333cbd87dcf7061e41c8f1402db",
+    "sha256": "d4fb937858682b0d85de418a383f07dacfe7b5da88d19ec6a7c6443d56a1a0a7",
+    "bytes": 543,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/EventHub/namespaces/kql/evh-003.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "398728cc08fdf469db37b44fcb271043526d159f",
+    "sha256": "90d8dc3b745f1ea6e1f282ec544338e41674d64a066f9b9fa1ab4ebcf0b67199",
+    "bytes": 383,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/EventHub/namespaces/kql/evh-004.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "f7f1f156ec80695ec57db4c6ad5fd656f6f8a075",
+    "sha256": "4ab587277fbe911f5db54210df4c74108e395aac587763b8057d5f2803977957",
+    "bytes": 368,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/EventHub/namespaces/kql/evh-008.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "58de8a4462b0f000015f6580789cdf3b9e371d71",
+    "sha256": "f9bd78d7c1e10c8764a77b04a9d2e987ae87226b621e8801fb942bf97fe5e746",
+    "bytes": 345,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/EventHub/namespaces/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "1e5ff63643f5eae4bab777db8c76dd999c3a3f8f",
+    "sha256": "71b52e3bec0adc03cc04a9f133f66a87053af01514f1cf5e5e9200326646483c",
+    "bytes": 1709,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Fabric/capacities/kql/fabric-003.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "3979c05a132d6ab01d21fd65157b41d81df2bab3",
+    "sha256": "8525cdaebd9b67f89e1e1aa32d754d86aeb10d17c551f2e8ab1baf7d9393c22e",
+    "bytes": 248,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Fabric/capacities/kql/fabric-004.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "b6a32353879504af9d38805908e9c904d8a8d95b",
+    "sha256": "5a6c6d012402aba9fd904d2d095f493e42c1492be15091c0e07e4b2d8c749836",
+    "bytes": 310,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Fabric/capacities/kql/fabric-005.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "6bc8669c5abb96b21658c2cccdbc8e09304216e2",
+    "sha256": "ac3983cc62f5433e1da9e7969f6119d6741c0aa5c3ce4f827163116f60dc5dbd",
+    "bytes": 355,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Fabric/capacities/kql/fabric-006.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "8686b59adcff6531b39a55384efa8eecd96fc192",
+    "sha256": "5dc3f8e23a9db7edf08a659bce53ce2db66eedc2d6e365ea98d132dba7a65b7b",
+    "bytes": 448,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Fabric/capacities/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "9fe516ed1364fe6cc6d4c63b4b42a1d42f54c4ae",
+    "sha256": "864b42d8d110080f1f8ad539e2efeb91c6b6a50058c36c5558ed54314c14aa1d",
+    "bytes": 2591,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Insights/components/kql/appi-003.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "d640034875a6b6f56dd2962f7733d30027c1f140",
+    "sha256": "e6866600f4720ee819509506d2ee9fbf4e6192898d1e84a0711dff4e7fd3e61d",
+    "bytes": 252,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Insights/components/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "82e58083195c1918e894c5e234d8ed5cc53e920e",
+    "sha256": "2a261724580a7838004371509a13446c84e1ab68d34c18d93a1be6a4521c2290",
+    "bytes": 554,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/KeyVault/vaults/kql/kv-003.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "71296db30d34a8919336efe901de0d65861f175e",
+    "sha256": "4326de86d91ac411e2581bf34bb95e6e1e66158f692e95b0cca44aa566339321",
+    "bytes": 186,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/KeyVault/vaults/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "74ce3e6064e51fc348ceae007a1953fac3b1ef88",
+    "sha256": "f0a438c7ee9d7abdaeda8529a15bf2b0cf73e5a5970397e1395c2488e2ff84ee",
+    "bytes": 526,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Kusto/clusters/kql/dec-002.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "4b72325facf77016670c101b2114a1c25f26b702",
+    "sha256": "4df0878a9fab95e19ff800a14bd03a22e818e650799974ebe96548fcea552e60",
+    "bytes": 202,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Kusto/clusters/kql/dec-003.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "060f35cef4dfadc153381f3f123e81f67b0641b5",
+    "sha256": "5363ee92c76c8357b279bd887523dff4e434f0050795c3faeaea381af138bc95",
+    "bytes": 311,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Kusto/clusters/kql/dec-004.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "37099a360fcc98404f925e563d6e78aa9d2f2b7e",
+    "sha256": "521c59bcfda611472885404afb2dad4ec3e1477a66d64942cfe8b7c454a4f398",
+    "bytes": 363,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Kusto/clusters/kql/dec-008.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "8fd49f611a3b1598310beca4cf34aaf5bb03969e",
+    "sha256": "165d2990199a14375ad56325a12144d68932ed6d0eafce3dabba57b519440c6d",
+    "bytes": 332,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Kusto/clusters/kql/dec-009.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "e9ec19b6c18a7cada11eb4c8acca58b5c77bd967",
+    "sha256": "bcb77cc104d0344719a8649e41465d4e9f7785208c18b32780a67695942e75fc",
+    "bytes": 312,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Kusto/clusters/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "ef23aba80fd68a4170b4fd1057df7175a0915530",
+    "sha256": "e4254c3cd65e582fbb56b3d1bf0e5b1ab74dbcf26c5ab5037d6227d0c885ced2",
+    "bytes": 2862,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Logic/workflows/kql/logic-003.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "a5a40692d072f31f3e5ac67c80d6be04ebbe9795",
+    "sha256": "c1c66b376ab96424b1f49502bfd30abd7c871df6e17dbda95e56b9c209385b14",
+    "bytes": 342,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Logic/workflows/kql/logic-004.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "6ab9c85176ee5b57bd574af223ead41425b8f758",
+    "sha256": "b8e3fe22be9843c1d16e103fe66434d20295d5fd8cc269dbbbf3400b518d566c",
+    "bytes": 431,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Logic/workflows/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "59157577b7725de08fcd4199b95814bdd02f727b",
+    "sha256": "9acf0f884f9e281aedd1b4784c7b5aade4408f6929f9a39c20dd737293616c26",
+    "bytes": 1098,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/MachineLearningServices/workspaces/kql/hub-003.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "011258b4de86508072358e4601cfdcffae700d05",
+    "sha256": "fe35d83428644c3b90e79bba80212d3ef32759dd1b34de372a2c0e8edb0ddbdb",
+    "bytes": 268,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/MachineLearningServices/workspaces/kql/hub-004.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "147bd6f853c262c8720cb2903580702cadc90f76",
+    "sha256": "d86e682d5e0fb7c8e7a2f0e11fcb8a5f65ae02301badb60fc0197500b6f04099",
+    "bytes": 371,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/MachineLearningServices/workspaces/kql/hub-005.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "baec02d96dad7c1d9a60967c4e528d19ae1cc14d",
+    "sha256": "9d0332bc0a8ee05e67b04f16534bf5a7cc275f4e7ab43dd2e7575290a3ec0059",
+    "bytes": 374,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/MachineLearningServices/workspaces/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "ad4c7298ab79ec5eafc418ef1e2628992d076769",
+    "sha256": "56494d503a5a160f43513894ab0268390a889c4a8bdc13a94d8b18d2f05083b3",
+    "bytes": 1750,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/NetApp/netAppAccounts/kql/netapp-003.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "39e33321d202a7277eef3232ff333d265e830f11",
+    "sha256": "fbe14ad2af8abc6ef4ba66f48adb008e48d51d38137eac85bc71aae906ce0c84",
+    "bytes": 205,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/NetApp/netAppAccounts/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "8a68263fe1def7a7db9ab9b9a38cd09cdc102415",
+    "sha256": "fc10c7c9ba541343c64b6d8919c9d9322c65e1d608cac70d9265660f9702b0cb",
+    "bytes": 554,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Network/applicationGateways/kql/agw-103.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "bf28875e63b7ec9015a3d97a509f28cda4a8444b",
+    "sha256": "dd55c417c24dbc389336af9d8e24fed9352d5d7d34c416d761e98ae734307141",
+    "bytes": 489,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Network/applicationGateways/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "2c8eb9587f9333797fd21f9df740336b5878ebe4",
+    "sha256": "343387122bf6cbd330ba4677b5832936b5ea4466c319527d5b50cd6d0b8bd499",
+    "bytes": 559,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Network/azureFirewalls/kql/afw-003.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "95e462f76d4ccbf70165f667afd585881293a4e5",
+    "sha256": "4f02d81057523f9fc50ad28381389bcd1c700101f55304cd8c9911a3a4af6abe",
+    "bytes": 373,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Network/azureFirewalls/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "638bfb4112b9ff12ddd9e3166f239bd76c897227",
+    "sha256": "ad6cfb39dbb6d20374dc8451a1d5d36cf1d463e8c56c5342274ea82b6d8aff09",
+    "bytes": 544,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Network/bastionHosts/kql/bastion-003.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "62a9d5a96a6862dffb22c1a8f3b61417b6636462",
+    "sha256": "2f69b4565a1719f545150c15cba2d9871f1584c47b3c0ddc9dfc17f4765789e4",
+    "bytes": 200,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Network/bastionHosts/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "e8706815843d88de0793f5b437da8760a08e08df",
+    "sha256": "ccac4c36550130fd36ed5a957596a330d66b021aa07a3aec18bf31202fa61984",
+    "bytes": 544,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Network/ddosProtectionPlans/kql/ddos-003.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "7811edf0a9fd6d7bbc2dec5c223bc4acc9a4eae5",
+    "sha256": "929882651889e91552b60f79de7ef1fd4526e4a1317906559c3891e49188dba9",
+    "bytes": 212,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Network/ddosProtectionPlans/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "b91b8c7c251f69bef225cf473ad34b07e5a48628",
+    "sha256": "686b186d379480e22ee13eed1d8ca4024de3caa67719109b7ad9cf2b83655340",
+    "bytes": 564,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Network/dnsResolvers/kql/dnsres-003.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "f2ed766eab5e1da8c03edcac5ec16e7432abb543",
+    "sha256": "7756616f22527850a44343011c3629efbbd4a3f9d6aaf039cfc48001daddd3c4",
+    "bytes": 212,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Network/dnsResolvers/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "6ccad6f184d0fe1fbb4d4935b57dab29c1dab5c3",
+    "sha256": "f55a00eccd5ff11db72cbee5109e61d6773ccbab835b67638f65dcb799ef2da4",
+    "bytes": 569,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Network/dnsZones/kql/dnsz-003.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "4844e56231917ed972041d691092a64ec4e0a978",
+    "sha256": "3751bb09ecea2f44d9cf5b16f2b3416896cad9a6e99adaa8c860aebaf034c210",
+    "bytes": 189,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Network/dnsZones/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "b079a0a3af1a1fa302bedc3f09369daae3c40942",
+    "sha256": "84dcf5d4b7a827bfca3f2e5deff6fc0bc69fd9c08904ce2128b5ab186fd93165",
+    "bytes": 529,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Network/expressRouteCircuits/kql/erc-003.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "808dc203a278d5400dbd177b57307fc7d2e7ac1b",
+    "sha256": "6e6c3b874e6f6e8363700366c63cd97045491b7cf3a05198ae20f06e6b2e4237",
+    "bytes": 284,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Network/expressRouteCircuits/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "5e49235da7b9b0e12c07b42e661191603d160e39",
+    "sha256": "09b929c1b423109f7e43bcc14a8b0331a261ab0362b439c566c6d18814366bf6",
+    "bytes": 574,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Network/expressRouteGateways/kql/erg-003.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "9e09a1f8f7baad208345625edbfd6562ea75afe5",
+    "sha256": "6d73358c139c45d129b1ace57ee5053dbb8f8d06d828f2816cbfa45611ee3f60",
+    "bytes": 217,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Network/expressRouteGateways/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "1a90eb48ed7e781e7764c68c81f1d0521b6dbc49",
+    "sha256": "a4be069cd2e756f76c74d17622ac22dc13936d432e3157d917b6c44f0de95f6d",
+    "bytes": 574,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Network/loadBalancers/kql/lb-003.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "e4976aed94d1d441ed0ac575f9889f96747489de",
+    "sha256": "65a6e7dcedd7c797576492d60d8875295f5912130a602c67a13968148e074f9b",
+    "bytes": 328,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Network/loadBalancers/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "037bc28d381eb629c2d9030049ae857328a0fa55",
+    "sha256": "f2d28a624be4f90d042c3358d063f46c971bf51421e1fbc11340087722655f39",
+    "bytes": 540,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Network/natGateways/kql/ng-003.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "ca54b9bb6e2fe5779375cec62e9d7e4da261d18c",
+    "sha256": "0053faedc2e4f0eb7bf7e89f278634d4f3ff16aa6a5fd9fb357d2e1bcd8bd871",
+    "bytes": 192,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Network/natGateways/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "7f7deebad049130a42d522bb4dc5e7c45a061403",
+    "sha256": "0000eabf43be833f3dd31df196070dcad37c6d9d887fd8a74072f444482c8f0c",
+    "bytes": 534,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Network/networkWatchers/kql/nw-003.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "3c717bb904cb8b05e71bbe0294cac954236ae2ac",
+    "sha256": "c73bb3ef89d0e88b74ffd918c106f706a5a1b6f36a81f15775d5335e57012186",
+    "bytes": 164,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Network/networkWatchers/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "155aeb7ffd345bc541fe28e72bce95eddd05d119",
+    "sha256": "7eefba18aa1ecdeb173995f7c8f619e918ca3c2c5debccc4a4675367968edaae",
+    "bytes": 546,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Network/privateEndpoints/kql/pep-003.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "40dad8c7c101b18d21be38ffa3b96dbdf288a02b",
+    "sha256": "56e978f7a6d5bc8c57f42b01c6ab0784aeb113735f520cf2382a1e040a38d1cb",
+    "bytes": 167,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Network/privateEndpoints/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "253c75f5555cb74ec5ae73fa6886dfe9fbcf048b",
+    "sha256": "504ba635406cc9d288b341b2fa99dd4919f052dd735de22ef5186c34cdae5e53",
+    "bytes": 550,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Network/trafficManagerProfiles/kql/traf-003.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "d02fc96bad8e181a4c08e8cf47a74905f2a265b3",
+    "sha256": "f25f46b473a12f08557f6950a6d457808f7d7c7f93995222dc5f0d715141419e",
+    "bytes": 209,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Network/trafficManagerProfiles/kql/traf-009.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "7d9b2895e7843a5f5e269ffc1e74bbbd6f8eed13",
+    "sha256": "67687b70b40fd9468098f1ea9fff4654f92d9053f1250c7e8c8638e853816e3a",
+    "bytes": 444,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Network/trafficManagerProfiles/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "22b2fbd9ae437483f25a2c9a91e5957983e0706f",
+    "sha256": "4e08e451f32e5940454b6c1b52b5f64b6c09e83a9facccce76d27b0beba7469b",
+    "bytes": 1176,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Network/virtualNetworkGateways/kql/vgw-004.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "86f93d815fd9e1d3075a5a7794047db178b6472e",
+    "sha256": "8e19be1b4665f458191fa8ecd1ea49fdfe7350510d9d617dac6c5839b0a97835",
+    "bytes": 401,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Network/virtualNetworkGateways/kql/vgw-005.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "dff66ad7231131452cff7ecbdef674ffcc5b048c",
+    "sha256": "eba4f6bf1eb3f78f9866035f3aa0b87744a9d93d919579984062d14f2f6cfa07",
+    "bytes": 418,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Network/virtualNetworkGateways/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "60a9c392f7d0bae91413188b5631f8698fc249c3",
+    "sha256": "b3d87c17f6f82a45894568499e6dc27fa727b1476b4d061f3107a07f15be9576",
+    "bytes": 1317,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Network/virtualNetworks/kql/vnet-009.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "6133975cf111bd6b37c4c32c11ca0f275a5884d7",
+    "sha256": "82cf364d60efedaeff960a73b9539ab1c5e474a318063a40eb856f4bfe026b9c",
+    "bytes": 403,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Network/virtualNetworks/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "4c4862ad15c7e34f4871d8e3562ad0254f808f54",
+    "sha256": "f48b74a0d595868f522182bdc490359aeb70ab121236ed18faf834f5724ecd79",
+    "bytes": 646,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Network/virtualWans/kql/vwa-003.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "8669b5f5e2138f2623cc838375746e61656714ce",
+    "sha256": "399486c93f6fd5920980278d8999fe2e6aad65a2e76a51803712358e4c2e99af",
+    "bytes": 193,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Network/virtualWans/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "8abd505f85df8d74e95223e0b9d63871d498e237",
+    "sha256": "28559a8759bb1231c8e6cb463e0d430e315d3286693445135d1e8b3a233d4eda",
+    "bytes": 536,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/NetworkFunction/azureTrafficCollectors/kql/ntc-003.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "5ab434bfb863c51f95f13055c7249c280786ed64",
+    "sha256": "ff213f429cd7feac0975d01aff4ceb7b96624b75fcc854190d92d18b2c00f431",
+    "bytes": 217,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/NetworkFunction/azureTrafficCollectors/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "c45c3074211b23a061e7634411a8b99e23c41266",
+    "sha256": "10562774def2ede53c6599c6f3fb865df06ed8069f943c1d12b2c3051c08c804",
+    "bytes": 604,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/OperationalInsights/workspaces/kql/log-003.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "8bd0215952983ce70df509cf11d13c60522b16d7",
+    "sha256": "65cb34e7ca4c3538bc1eb8e1b53847f55f1b3018cbfbd9025f6a47542d95d16e",
+    "bytes": 236,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/OperationalInsights/workspaces/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "4c86348720d90bf770326724a1c8dad4bb65b890",
+    "sha256": "b87a5f2c4834e5d0a4d38cd8eb0fb14baa75f871083d668882ad8656c3eef9b4",
+    "bytes": 570,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/RecoveryServices/vaults/kql/rsv-003.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "f0bee317c90e6e1cd2657d7dad4d1f37016d23d6",
+    "sha256": "fb73d4910790c7ecee8f4613d54e4b12266104f605af849e33df2425f72e5f69",
+    "bytes": 208,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/RecoveryServices/vaults/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "726639b793ff3288fa4e12be5be2987e7217f4a8",
+    "sha256": "b4d0412bb26c204017f1542a145311f3695dba55e5f75fbe3fbf6a89361ef67f",
+    "bytes": 563,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Resources/kql/resources-001.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "ce479a40a26683b4ce58fac6bcb09c0fe4507ff2",
+    "sha256": "ccb954f7e1b7fcccc41d311e2178f7d06e907ffe85152748138e0b46d83a3e90",
+    "bytes": 202,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Resources/kql/resources-002.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "8c0082a3f78bf282b4b9002b1cfaeca7cae229e1",
+    "sha256": "59050accae97dc781ca6940a46ccb71dd99ccecb081b50113a7142d525caf680",
+    "bytes": 9422,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Resources/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "deea07f2575c98311cba07cda6c6ccf6b6bc2f2f",
+    "sha256": "9df59174f5d4aed79891a853a5b22bee8d0c068769a12c7f95e9a0b17549e0ce",
+    "bytes": 1421,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Search/searchServices/kql/srch-002.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "1794271e6901efc5c276e509bfa75fd114724ac0",
+    "sha256": "3a8bda812589026c7971a2fc2ecc180620a7e928e0318f398219d4b78f157958",
+    "bytes": 566,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Search/searchServices/kql/srch-004.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "5ba4b45703b5014e6fda5cbc32b7cd5b02e1c174",
+    "sha256": "c678c46836691ab497cffb31cf47f1e91ccb7a506d0ab4f7550ec896aef55c31",
+    "bytes": 383,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Search/searchServices/kql/srch-005.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "c1bd0693fe58fc97d472c7c541d1b4d11fcc19fa",
+    "sha256": "41a0d1d1d0d0c8e1be37334ff3709095fe076388b076458faa8dc60d39a50196",
+    "bytes": 367,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Search/searchServices/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "b1a49215168783d19aa60072c39b4b18ea2b1106",
+    "sha256": "dc2e4b9da1d020e363132b0965b42f64182a8bdd05fb5a75ffda9f256ceef7d6",
+    "bytes": 1705,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/ServiceBus/namespaces/kql/sb-003.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "4ccf3508c37f2777cde3c4914dcc9caf1560560d",
+    "sha256": "8b46494fb96c3aaf00043a6e629acbb04068c0fda31db7bb62613ec04b75b523",
+    "bytes": 446,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/ServiceBus/namespaces/kql/sb-004.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "42a974734ed1c79999534e4d64f0be82ce288bcd",
+    "sha256": "a0c8f4c4ea90806cddbaa2842c3ccce3d42bf8a139b14498f689df0def6f1212",
+    "bytes": 361,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/ServiceBus/namespaces/kql/sb-008.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "f1c69cc1b4a1b04e533b122c37c70e71f5bfc601",
+    "sha256": "4080fb62ccd49098180c4af7b7c6c51d86c2498de5768a6fd0f7ec8fd03d4d7b",
+    "bytes": 348,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/ServiceBus/namespaces/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "09c997ce404517c396fd1c490d2d06d02ef9f2dc",
+    "sha256": "88bd8f1c7591cf24966fe83e1f520ccefaa139bf072bbeb5c020ab6d966ac259",
+    "bytes": 1710,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/SignalRService/SignalR/kql/sigr-003.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "e7a1fb3fcf5b2c70679e2889431df6de8811f3fd",
+    "sha256": "bb58e24bd96b0dc618e9d1b13f5d9a3d40454428ee1407ca0848bcd84ec38c45",
+    "bytes": 363,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/SignalRService/SignalR/kql/sigr-004.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "3b8fe6839de6733c7e521c1eb90acc2450f6d957",
+    "sha256": "28a110a98fe402a6a2783636637d5d9ff2cc60d2842ff92e6f449b328a01cce4",
+    "bytes": 360,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/SignalRService/SignalR/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "4b9415a586d952ba86b9cf0fc0bd9a781cce0517",
+    "sha256": "566989b2dab9d67da64db8083ff19fe1cb6e972b95acd4614a1e2d87e26c20dc",
+    "bytes": 1099,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/SignalRService/webPubSub/kql/wps-002.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "b1caafc45eb35144c7d175efd049c47f4789f80f",
+    "sha256": "dbdc3eb1bf1d2607460a439c9516c2c62d3df67aadc012f88cc28bbfe795e461",
+    "bytes": 316,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/SignalRService/webPubSub/kql/wps-003.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "ce6574ff75f29cb2d573d362136ac3b9b9652058",
+    "sha256": "2cc88af8818709aaff0358b6e76e1006f9edc3bf0b1427b346bdb59c7d653e01",
+    "bytes": 367,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/SignalRService/webPubSub/kql/wps-004.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "1f28ed4b3734d06c6d08530fbaa8d62ac441cbe6",
+    "sha256": "048678f5a51654f8eea92978b155dd7c8eadfb96866e56319c5f5e6eb75fe00e",
+    "bytes": 365,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/SignalRService/webPubSub/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "60cf0ff2ae4ab0badbde7e1f9af4a3cc7d61ae55",
+    "sha256": "77bc069bef982f24d3dc48907cee290e4270fbe9ab8a05358909cd1dec2d61d7",
+    "bytes": 1718,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Sql/managedInstances/kql/sqlmi-003.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "7cbc3dedff378fbff63e7d469125babdb269f9c5",
+    "sha256": "bf660ea78be1321e4fff00ada2533ffba733482edb2d57058ae585d5093cbe75",
+    "bytes": 381,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Sql/managedInstances/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "98e99fb16fecb94e5064fd52625cda6c3abab33a",
+    "sha256": "0face100c308b04d2ef41d281a0c814fbf44f957cba1e519977d7a88841f7941",
+    "bytes": 568,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Sql/servers/kql/sql-004.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "ffc7bf96b500a9d9ac6cb8144fa45b7dfc87f76e",
+    "sha256": "aa00ddc35f8562468e6c07ac7b54e74a7420654d7b74c746c435edc0844217f9",
+    "bytes": 379,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Sql/servers/kql/sql-008.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "87eb5e65e8ebe562f6503cb562e92ec2c03875e0",
+    "sha256": "c313b5bcc7d7a4f698293f9cbca7d1c9760c2d04607f6b915f88089aa80a336d",
+    "bytes": 385,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Sql/servers/kql/sqldb-003.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "c8ac5f0cb4041fa1ab095e9008e28d23d021bc0b",
+    "sha256": "ffac3b68b9bf683403a8f622bf92226ea35b56731d6511eaf8cd38fa7337158a",
+    "bytes": 517,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Sql/servers/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "4b7bd8eaea34d563c7d4bfadd08a0c4fbd437a5e",
+    "sha256": "204cbb4d424735840ea9d9c2de35215ac638b801f0071a4fc825e909dc2b21b5",
+    "bytes": 1893,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Storage/storageAccounts/kql/st-003.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "ebd37489302db389c483c2ca0a3293d8e087674a",
+    "sha256": "c18cf9c86fadcad5c2fd17b6db49ab79ce9949fe63a024dde8e859365e9c3c1d",
+    "bytes": 1297,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Storage/storageAccounts/kql/st-007.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "140ff82edc5213f50b1bf16d5e415cd878c0e1ff",
+    "sha256": "06f2ecb98284bb627c7e5d22aefc9c031c8cc1f6caa5fd5ffa147e99a361aec4",
+    "bytes": 409,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Storage/storageAccounts/kql/st-009.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "c496f7ffa9edf08d1f2359595c057edd8dae3871",
+    "sha256": "dc06923f0433d00a1c932bab22f0852f85c328ece87e15567cf25bda32dbc721",
+    "bytes": 404,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Storage/storageAccounts/kql/st-010.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "02ecf1a569cc0734d05785ed77a95f29026a853c",
+    "sha256": "764fd5bceff1434b3881b1c6cb50f328cde526732dcc3d1b3c877f7f3a4e0911",
+    "bytes": 441,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Storage/storageAccounts/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "98421154aba9f7c277dd74383f7f1114ff6bea9a",
+    "sha256": "627a9ce4863e364b169f43420bf9a10ed3bfb943c4831381f9290c53a134771e",
+    "bytes": 2655,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/StreamAnalytics/streamingJobs/kql/asa-003.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "7a42fcf40cecd89bf0d469619675bf0ae33c2d62",
+    "sha256": "144f7c74d543daa827dc3ad8c64c08be36aee7ad21e631ee781c5bbd7c261f52",
+    "bytes": 213,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/StreamAnalytics/streamingJobs/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "d2d3323201aac8d29a93f4da37070adee20ac07a",
+    "sha256": "63d5305c82f0033e7796370e24a179cd8d30efc197bed521390636e938a31459",
+    "bytes": 567,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Synapse/workspaces/kql/syndp-002.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "05cbe4df46693c144de34d193deafc8de25cb97b",
+    "sha256": "11dd1adb14d26878789a13bfd35f743f2ec371ce2029255b5365045bc43dc649",
+    "bytes": 226,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Synapse/workspaces/kql/synsp-002.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "b2aba70e53ab639382181afdec6550bcd95f71ed",
+    "sha256": "acacceb99a31ea2691eb37da0e1267e31884630bf5d4a7b1bdcc4771ad6207ed",
+    "bytes": 220,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Synapse/workspaces/kql/synw-002.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "01c24b8006a3a4fe45bb8f927a3d2b2d45f6a763",
+    "sha256": "2f2eded18e9c1f135cc50d0308a1417e0db69acea3713e1310650d747752e5bf",
+    "bytes": 394,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Synapse/workspaces/kql/synw-003.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "41f58d97b611a02ec105ce3e1aa5f478a4f62e42",
+    "sha256": "cb324aaa225db5c2bc94521b396ba42dfa730e0dc5c5c52d7b6f15a4e4139830",
+    "bytes": 207,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Synapse/workspaces/kql/synw-006.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "5354d3615f7c49453dfefda648c002e34d46682b",
+    "sha256": "c9100be1e7912b85d14018c65dfc1bbc1772cb68b0cd68cb5296dcd9ebee8a22",
+    "bytes": 331,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Synapse/workspaces/kql/synw-007.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "df46a20f9df45141282ac99b9c15a518f8dd514c",
+    "sha256": "297858ce31c0fb46d602d4606dd2d091d2a5c45d994c6853f54c4ee571f8840e",
+    "bytes": 302,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Synapse/workspaces/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "8bed8d330b061e28fc2098ee078a05dbf0b41d36",
+    "sha256": "1e0ad9227ecbac0c721ef1df198e6721bd26a3e68220c82667e6f7f1531ef075",
+    "bytes": 4046,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Web/serverFarms/kql/asp-003.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "23dfd5753a7441fc2f1144c70f3c8f15eed2557f",
+    "sha256": "53a6a2bff2401c8a1529e172fe972be2a2f692bb0f5dd920325b224c7e782f33",
+    "bytes": 464,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Web/serverFarms/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "0c92d46752ce080dd3c42fe7babab7614e668fd8",
+    "sha256": "b19a11405cbce4a516f05b01db4e8325e8b799c67be534982562ca42c58dd751",
+    "bytes": 541,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Web/sites/kql/app-003.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "33e709b0858a5e4e5f4821fbd52e2742c3fca3e8",
+    "sha256": "98011bfab083657df5047daf1b8ea3d6b3a1571206c4b9630ae1a16c36f01951",
+    "bytes": 231,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Web/sites/kql/app-007.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "db8c864860337eda32037ea0df1f47f79d2fbcfd",
+    "sha256": "352e83eb16d883cd88c87ed73c77e5170b36880638c5a3c999a78adda4e25891",
+    "bytes": 381,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Web/sites/kql/app-009.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "5eac3e63ebb11e1b2b16071ee6648581ccb069fc",
+    "sha256": "7837344d5941a6a460d8cb6bad1e5e924150c8363b3637183f9a65c532b3e952",
+    "bytes": 391,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Web/sites/kql/app-010.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "d3910eeee3e544ea099cd86fc0ced3763ae6ef6a",
+    "sha256": "d791a557b3ad551a747cd2a6564c578c01f759a9973d17121fc211493ded5394",
+    "bytes": 429,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Web/sites/kql/app-015.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "002f35bbf1a2a312cd0ddaca2705047b2d85304d",
+    "sha256": "d25ae0aad4b28b4227e0498bc5fef3c43927a0340d9de0bb4c671522efdedd6b",
+    "bytes": 343,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Web/sites/kql/func-007.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "fe80601893bf35fdd8fe484fb2f08ee8dbebb3a1",
+    "sha256": "27fc697c0cb43d1188fcab112504b440de4983cc8d67d767ddd19c4f5b41a568",
+    "bytes": 382,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Web/sites/kql/func-009.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "3bb0dc9574001daf0c9b32b80a47706b59394be9",
+    "sha256": "ba2d28c89142526e45e037d415721f2d6a2de20d3a33634bb1b38a970d48dca3",
+    "bytes": 392,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Web/sites/kql/func-010.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "fb54f190efc89fd78d22432e06050322828b2706",
+    "sha256": "a74ac0832b6b565c9210f2a6e20373815f531aefd050145e8cf8f0a2449dc139",
+    "bytes": 430,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Web/sites/kql/func-013.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "44abad2e9e0fd4c778e2a496cb67fec20816ab2d",
+    "sha256": "ed2107b544485a60f5335dc12c525e60fec6bd7646a36386f14d1eddae690d27",
+    "bytes": 344,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Web/sites/kql/logics-007.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "c7e94edb038fb62f61712dc7d0a70c6dcea4110d",
+    "sha256": "729b4fcc57762a4194dffa17d4b4246abc8fde1e6aedc297084f7fd94c386175",
+    "bytes": 351,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Web/sites/kql/logics-009.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "6d292ba36e1c079b0c3377819b51299efdbc7ac9",
+    "sha256": "4ea51e54978916762ab7a8e7feef27f0a10e476367f16b19814c82c6b37c807d",
+    "bytes": 361,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Web/sites/kql/logics-010.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "f5b6ed4dd275e23b272b5a27e6ea16c2a2034697",
+    "sha256": "bfd1f7831fdbd7f96a1e4d2aeba5ef1bc455a16d0f6d11a1b1858216b62951f4",
+    "bytes": 399,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Web/sites/kql/logics-013.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "5a7cbef0b6e93bd18a42ac2632da334ac440533b",
+    "sha256": "95ed07926b4c77b3969e416f1e8c5db540bb6b7d16f9a3e3ccf037d584fc8a78",
+    "bytes": 313,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/custom/azure-resources/Web/sites/recommendations.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "109ad04ed1e8f6b8127dcab01b27f6b7acda5730",
+    "sha256": "2f98995fc8a6f5167d32a368c8e22920a152b9dab63678fbfc180db7f7d45800",
+    "bytes": 8516,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "internal/rules/embedded.go",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "5c3e0ce214e8d1571b9d1977b8f4a7f1d0dd326f",
@@ -2660,6 +4716,238 @@
     "blob": "0315d420dfc05b39cf03a6e782769d630d66ef8a",
     "sha256": "0568228bc7261e67ed1d1a067038f94bf5f882d7a5208b7cd9c95792c93a0080",
     "bytes": 1004,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/testdata/yaml-source-conversion.json",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "9300ce7cdfe2042eff327ad115155b552b5d9993",
+    "sha256": "dbd0ba34d2aff68c8ff8dd28eb353e2906085fa43821bea24becd3188856772c",
+    "bytes": 937,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/upstream/orphan-resources/Compute/kql/2b3c4d5e-6f7a-8b9c-0d1e-2f3a4b5c6d7e.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "6da9ddf8a618384f0e4eca13e9aaff0a10020979",
+    "sha256": "3e3e562e2d9c0f16e5542b023a7af94dc71d0af2a7195ee03e5b516a66d75fba",
+    "bytes": 331,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/upstream/orphan-resources/Compute/kql/3c4d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "08d24b6a265942641352d2070f7d14837bcdf07e",
+    "sha256": "818a4a4be8b3e17a7198d15b5e46b55d7d061ea3116bd69c5eccfce6641d95bb",
+    "bytes": 755,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/upstream/orphan-resources/Compute/queries.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "23fdaf13541808518a96f53891fbaaf68d13ef7f",
+    "sha256": "7f8efbe4c8b89dae67225d2a14aba4b5f609ecb71fcc18e1335da62d8d7e8c4a",
+    "bytes": 1243,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/upstream/orphan-resources/Network/kql/0b1c2d3e-4f5a-6b7c-8d9e-0f1a2b3c4d5e.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "4215fffb60a32d57d459bb96bae055a325e5ae3e",
+    "sha256": "9f26fbfd4f961c213ce3edf32ece5ccb05c13b2e90da03faa25d60a49f8eed50",
+    "bytes": 304,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/upstream/orphan-resources/Network/kql/0d1e2f3a-4b5c-6d7e-8f9a-0b1c2d3e4f5a.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "aea3a1d04c698b438f6a586d0e361cbfd538d0e8",
+    "sha256": "885f0fa4897473dba0d66c8b9249d0211224c0464d9d3a406f9da6ae80252208",
+    "bytes": 357,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/upstream/orphan-resources/Network/kql/1e2f3a4b-5c6d-7e8f-9a0b-1c2d3e4f5a6b.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "2ac0db732349dba54e2406ffd0cee9690cc6f4d0",
+    "sha256": "d996ca6b7d577545ee72563602d33e1485287845645ff1d4aa18c7339fed7a10",
+    "bytes": 272,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/upstream/orphan-resources/Network/kql/2f3a4b5c-6d7e-8f9a-0b1c-2d3e4f5a6b7c.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "74137eccaea750c45987af81c9346d6181e6f250",
+    "sha256": "ea8dfaa609d225c898c7df7506565ae6a96f3c0a3bb487f26a1edaf44645f14d",
+    "bytes": 1395,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/upstream/orphan-resources/Network/kql/3a4b5c6d-7e8f-9a0b-1c2d-3e4f5a6b7c8d.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "e50560fafb4fea6d16f4a11deee3cba243667f3c",
+    "sha256": "edcca6b15d7a5ea2ededfea6e8377d8591df5b9c8cf2b07e423de629df6a96b4",
+    "bytes": 253,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/upstream/orphan-resources/Network/kql/4b5c6d7e-8f9a-0b1c-2d3e-4f5a6b7c8d9e.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "8cb4802e57f8b33bc3814a9469f1fb99c7730d35",
+    "sha256": "7f7e223c07dc102fcc253655496f7bb7088f0fec8d24a5b5ddc10871b7d11490",
+    "bytes": 720,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/upstream/orphan-resources/Network/kql/5c6d7e8f-9a0b-1c2d-3e4f-5a6b7c8d9e0f.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "9c373c53e5a6fed9745acfaf2b174ee6f292b2d0",
+    "sha256": "53f83bb747b84290214a437d6fe342c152a1db5c27889e4edaeaba59ef827322",
+    "bytes": 314,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/upstream/orphan-resources/Network/kql/5e6f7a8b-9c0d-1e2f-3a4b-5c6d7e8f9a0b.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "36990fac301c44bd9666a64ec56281d90c5a88f5",
+    "sha256": "5528c2d70be3ff40b2b15ebe73cf85a4605fa9fd4f6592cd775c76d7e94853b5",
+    "bytes": 467,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/upstream/orphan-resources/Network/kql/6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "d2f6cd71c3d27bf321ef02c2a33e0f93851bb118",
+    "sha256": "4da21a0ba4917f5d32522681b162d205294f28a0d70fdd92fe09a47e29de2f44",
+    "bytes": 304,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/upstream/orphan-resources/Network/kql/6f7a8b9c-0d1e-2f3a-4b5c-6d7e8f9a0b1c.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "9f21e6081fc0294305998317a09407c7fc766576",
+    "sha256": "60a45926b5ac28fd5707fb981262f8ba0ea0252f40edb581eaa6a8acd1d48015",
+    "bytes": 475,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/upstream/orphan-resources/Network/kql/7a8b9c0d-1e2f-3a4b-5c6d-7e8f9a0b1c2d.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "bf8b66d78d62035c138f382d5d24b9b741d28960",
+    "sha256": "dfea1712621640e2f21c34ec13555914670dadb101f6d53a69277c05bba62044",
+    "bytes": 336,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/upstream/orphan-resources/Network/kql/7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "009dd271b6c3ab10227a98ef34ffd2460cb21d7f",
+    "sha256": "4c752c37d2e940514609069f526dbe8e2e08108ba47b33717c99101578e1bf3c",
+    "bytes": 355,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/upstream/orphan-resources/Network/kql/8b9c0d1e-2f3a-4b5c-6d7e-8f9a0b1c2d3e.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "7bdbd0020a7779da5a131271b0e3e2be19dc03e9",
+    "sha256": "9a2266d71935d6d849e7992400ea40a18120c26e7645e28b6f794e497b9aef79",
+    "bytes": 245,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/upstream/orphan-resources/Network/kql/8f9a0b1c-2d3e-4f5a-6b7c-8d9e0f1a2b3c.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "5b22faa9f724954a6ef975f4d824c5e3488e95e1",
+    "sha256": "5202ff0030701a9d819645fe3ad9225d4b4c9a6d574e3e8f100c5313d384a69d",
+    "bytes": 1302,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/upstream/orphan-resources/Network/kql/9a0b1c2d-3e4f-5a6b-7c8d-9e0f1a2b3c4d.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "ace9b0b38d3feb6befd92ef7099c34b0759b10bb",
+    "sha256": "ac8959a5e41986b910421326e7368fe691bd69b7a202138050bb3427db420c30",
+    "bytes": 887,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/upstream/orphan-resources/Network/kql/9c0d1e2f-3a4b-5c6d-7e8f-9a0b1c2d3e4f.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "c45af1f400a22d1693a1cd65d423b3ef4e4dc31b",
+    "sha256": "5fef4ef009a70e4508448e0e56d21500fd0e84c74533f4a77bae0090bb6ac7b9",
+    "bytes": 306,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/upstream/orphan-resources/Network/queries.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "e24681041174b32e8925bd32ad66bb1eedc0dbe3",
+    "sha256": "ad4d2113337fa2196da342c8fe35fbc5198ea8cd661f5393daa99d49fe195e0a",
+    "bytes": 10091,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/upstream/orphan-resources/Resources/kql/1c2d3e4f-5a6b-7c8d-9e0f-1a2b3c4d5e6f.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "992b8329d3c468a664c8a0399ae8ac73e077342f",
+    "sha256": "3f4acf11bb24da2a78a70d5a5927520845b0059c9c60ed14d7f12d97e89e448f",
+    "bytes": 483,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/upstream/orphan-resources/Resources/queries.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "32b7ec48ecfd73dbdb8f3fa440dd2ef5e8a9ca80",
+    "sha256": "21c9023c8b838188e46842894cafffc48ff7a87d87c2784ae0e575fa8c4230a8",
+    "bytes": 607,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/upstream/orphan-resources/Sql/kql/4d5e6f7a-8b9c-0d1e-2f3a-4b5c6d7e8f9a.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "c7dbb4b59892ec76290453760666a65b2773cdd3",
+    "sha256": "94e15a372f8b4100a067408f3434bfa7b38b2e9dcb4905c27ebd23652135cba9",
+    "bytes": 694,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/upstream/orphan-resources/Sql/queries.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "09e41a15a167cc3c5124d7c5de2916b2b064360c",
+    "sha256": "e6013460ef80faad1e63ddf7f70d28618a611842f87b7ab1a3e712bff81f82e6",
+    "bytes": 608,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/upstream/orphan-resources/Web/kql/1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "dd311d4dfe4176c677289cbefdd1b2952066730a",
+    "sha256": "1d7032845250004c01a6be718519ce667b66b51e35ea06fcb8b6fe9581c27cb8",
+    "bytes": 342,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/upstream/orphan-resources/Web/kql/2d3e4f5a-6b7c-8d9e-0f1a-2b3c4d5e6f7a.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "5b24c04785f2a7643e456422649e2a5fcb797233",
+    "sha256": "c76c68c5fe2663a34bfda539a02f3c9bd24639627395efafcc5d297b588a2b1f",
+    "bytes": 827,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/upstream/orphan-resources/Web/kql/3e4f5a6b-7c8d-9e0f-1a2b-3c4d5e6f7a8b.kql",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "6943b999b51378e6a299205d8b5c3e6258f12426",
+    "sha256": "327892e8be462cc83001e3b3d4e6833ff63c9bc1b0788876579ee5575395f6ac",
+    "bytes": 297,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/upstream/orphan-resources/Web/queries.yaml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "2b64eb02bef2594ac77cce67d804fbd14218167b",
+    "sha256": "48a8f9815b605bbce77c54b572c656f97f5b397709c0e46b12f8dde81af3a84f",
+    "bytes": 1781,
     "read": "complete returned source reviewed"
   },
   {
