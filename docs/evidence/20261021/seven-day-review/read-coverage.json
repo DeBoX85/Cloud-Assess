@@ -2542,6 +2542,54 @@
     "read": "complete returned source reviewed"
   },
   {
+    "path": "internal/plugins/region/testdata/source-aux-inputs.json",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "0eb15c3eee36d5bd402a988e46aa4ec9962a1970",
+    "sha256": "f9695cfa0bd662b2dbc52addb68a9208b57be1e60dabe31c99cb5651d2962c28",
+    "bytes": 8331,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/testdata/source-aux-outputs.json",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "7fbdf1bfa4e8656441a1c300bcfb936e0954067c",
+    "sha256": "efe06093eddece6b54617c806bdb74727aed5228a5a96f7300068b22bd77bc06",
+    "bytes": 9461,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/testdata/source-inventory-inputs.json",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "660b1dbf7f182179706247a233066e25791596ba",
+    "sha256": "cdaa6b25e3250e6d701999279f96d5ea225c927e1249ee43c32cfe0b5072b17c",
+    "bytes": 5663,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/testdata/source-inventory-outputs.json",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "67a78477a13f979278be4723892a300a82242dea",
+    "sha256": "756647e2981f8cd0ac4f0d5091ba6b4a74345ad6266de1bc15f8c833afeb2006",
+    "bytes": 9984,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/testdata/source-vm-quota-inputs.json",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "9d593a0ac1fcca636a2b2c597fe52fbf87d275d6",
+    "sha256": "5b5319746110e4e86cc6753ec5b20a3306d6290d03b0e829682d2511324d3a1c",
+    "bytes": 7730,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/testdata/source-vm-quota-outputs.json",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "7c810647dfee30cd9028219efc67fc348934bd0f",
+    "sha256": "b6311db11c7a62c74818ef694c2991cd1ab46d3a8c0bf1337ed5fcd7cb480c32",
+    "bytes": 9708,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "internal/plugins/region/testdata/sql-primary-2021-11-01-common.json",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "f7decac418742c0cd8fb0c6b44d1330a5b6cb46d",
