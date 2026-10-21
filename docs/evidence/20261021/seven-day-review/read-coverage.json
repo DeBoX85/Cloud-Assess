@@ -2790,6 +2790,30 @@
     "read": "complete returned source reviewed"
   },
   {
+    "path": "scripts/tests/branding-reports.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "6c204c8d348ebe19f8d9d431e82133709ec7db91",
+    "sha256": "34a41cdce8d0cf355a94ae8d42ff292f519d25226212e81d117dd616b8637c5d",
+    "bytes": 10509,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "scripts/tests/branding.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "d17d968b181ea3d1c43180fc99880de2b9a22cf2",
+    "sha256": "47899b44a1b990c61795e7c7be395ed642fd85da349a41c969e6f0713b0f7813",
+    "bytes": 6635,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "scripts/tests/built-cli.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "455eb6152187ce2d59e37d068b29d2a7216a9cbd",
+    "sha256": "253daaa87fdcde148efdb243b83abebf3b51a615eea2fe33b4b42c8da0eb52fa",
+    "bytes": 25087,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "scripts/tests/ci-workflow.py",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "35f01e1c3f56fa7e11e852fb8c23569e13d09098",
@@ -2832,6 +2856,22 @@
     "read": "complete returned source reviewed"
   },
   {
+    "path": "scripts/tests/meter-history-controls.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "8c7a99a9f1004a7d3ba69c451b112fd4093628e8",
+    "sha256": "2e313ade7e8fcdf2bcdc1ce499d09cbb28d9ba4f75a6a921f486d4dc3492de63",
+    "bytes": 2485,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "scripts/tests/package-candidate.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "5f7aa9b00d644c4dc3f3b0259109ac36d0efddf2",
+    "sha256": "2af95afba389dbee6cdbb129b57b113e309cf8743600b6798a76ad69930f622a",
+    "bytes": 13402,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "scripts/tests/qa-mutation.py",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "d6e8ee02f9e47773be9e059b430b232eab8a586b",
@@ -2862,6 +2902,46 @@
     "blob": "e6a4873624db9f5fbfb63bc360c93be0e4d14af4",
     "sha256": "0b4bb4c6daf56deab9ec1ba7b1ef658f732e3253429b6d187a2ffcef82791d7c",
     "bytes": 10324,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "scripts/tests/retail-controls.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "f5e57ee51bd04b33bad05d4c203fe27d90780654",
+    "sha256": "8c89aa0f0f1b1d55ccf5718586e906fd531fc7940d5ee14c1813edea8a3fa40a",
+    "bytes": 2430,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "scripts/tests/scope-redaction-controls.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "52f8dc69ffe0349e88c8c71f5ed818c307610072",
+    "sha256": "d9df9b6c0c1eb769a7e905aa78257e85ebb55529f49610b179226d6cdfd77137",
+    "bytes": 2251,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "scripts/tests/sql-database-controls.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "09f5895d6e1eac9da0421a1572982a55fc904011",
+    "sha256": "ce788ef17c69d13cd12afaaf783429fda27b758518c38b34600bbb2b0a195c60",
+    "bytes": 2215,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "scripts/tests/sql-mi-controls.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "afc106d2c30d46003600ce5208304eb7305ee942",
+    "sha256": "a3fc144e4a5ae161d6a8ada3de621a957f65ce1852328c66afce7ee8dfc07c61",
+    "bytes": 2185,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "scripts/tests/sql-report-controls.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "c5e2bd1a28f6754d2e8b5637e3b5b0e1e2d39616",
+    "sha256": "d217822ee4952810fe67cf855c006ba51e2b4682eecb07b22d5e710d965ddd4a",
+    "bytes": 2205,
     "read": "complete returned source reviewed"
   },
   {
