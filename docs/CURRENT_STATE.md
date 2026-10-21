@@ -1,5 +1,12 @@
 # Current project state
 
+## Boundary-review continuation, 22 October 2026
+
+Active review successor is docs/review-boundaries-20261022. Read [boundary and roadmap reconciliation](REVIEW_BOUNDARIES_20261022.md). PR187 own quality39663992340/source39663992339 passed ate7a63bcc: complete10quality logs/steps,622/617conserved control lines,87.6%coverage,0reachable/3imported-not-called/1module-only,23captures/315chunks/909865bytes. New raw-log public retention is BLOCKED by automatic approval review pending explicit disclosure approval; no remote bundle is claimed. The prepared19-member payload remains local and excluded from this successor.
+
+Coverage is795complete raw files/all326Go plus29separate semantic views. All135other183paths have explicit classifications; applicable-document reconciliation/final disposition remain unfinished. Source/reference/data distinctions are explicit. The action register's obsolete Go-decision/task7/SQL states are corrected. Tasks8–15 do not close ancillary compare/alternative-vm-sku/MCP parity obligations; keep them separately open. Task8 remains provisional. This changed successor requires OWN native/source QA; no inherited187green. Product185, pins and all persistent boundaries remain unchanged.
+
+
 Updated 2026-10-21 UTC. This is the active resume authority. Explicit current user scope and live revision-specific PR outcomes take precedence. Earlier snapshots in transfer, handover and frozen commits are history; behavioral contracts remain binding. [Active review plan](REVIEW_PLAN_20261021.md) and [progress](REVIEW_PROGRESS_20261021.md) define the unfinished work.
 
 Denis's 2026-10-21 clarification is binding: [DeBoX85/azqr](https://github.com/DeBoX85/azqr) remains the authoritative initial comparison baseline at the unchanged 8e4f0577 pin. Feature/function/capability parity is required; progressive improvements are encouraged through separately reviewed contracts and evidence. The fork is not the only comparison source or a product ceiling. [Reference policy](REFERENCE_POLICY.md) defines baseline, prospective fork changes, primary platform evidence and secondary project research. Continue the audit and existing task order; this is no automatic refresh or unrelated feature authorization.

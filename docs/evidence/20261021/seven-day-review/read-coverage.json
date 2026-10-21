@@ -272,6 +272,14 @@
     "read": "complete returned source reviewed"
   },
   {
+    "path": "docs/ACTION_REGISTER.md",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "27f33c4f80e215aa0387c8cc135e4dc39ab1cad2",
+    "sha256": "2ab386a0f6582de794ee459eb989153f79e6ac25dce3607dade6157a5eb16be1",
+    "bytes": 16341,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "docs/ARG_COMPLETENESS.md",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "ddf493afe9fa76ebf223ce7847b9d952e9ee9e33",
@@ -328,6 +336,22 @@
     "read": "complete returned source reviewed"
   },
   {
+    "path": "docs/COGNITIVE_SKU_RECONCILIATION_20261017.md",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "08ca196b9eea58c821952c412722eaee4161a83d",
+    "sha256": "7711f29da43e001a8c3ddafd3ca80db53b85482cd961eff7cd7ba44f2e8447ea",
+    "bytes": 8615,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "docs/CONTINUITY.md",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "467641f2e63493a79b3aab29b975c29a76597c3d",
+    "sha256": "4c1d17bbd348db82303fa7eb785f94193b63d0f7af509073486def6dc063ec0d",
+    "bytes": 7987,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "docs/DEFERRED_VALIDATION.md",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "f3c6d36af489a13cb0c6fdf15da1b55407ee438f",
@@ -349,6 +373,22 @@
     "blob": "2764a124311acda359ff4b1e46b528f786665861",
     "sha256": "b39d06cfd075fc9e965bd490289b59dbdd3ce103a374550863a1c3be64b960c0",
     "bytes": 7957,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "docs/DEVELOPMENT_CONTROLS_20261017.md",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "628026df62cb07506266e22eebc8294432fad31d",
+    "sha256": "6e214e353cd7b700c6898fdcdb860e2054ec7f553e8eb599c6d063f8d35855bb",
+    "bytes": 4170,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "docs/DEVELOPMENT_WORKFLOW.md",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "af168b3b14ad72ef9c2963e01a28142a1fe1a59b",
+    "sha256": "8273726ca6862b661ad3e8e83dad0300673ead3443d1aec75e67c8cb01fa59ca",
+    "bytes": 12889,
     "read": "complete returned source reviewed"
   },
   {
@@ -432,6 +472,14 @@
     "read": "complete returned source reviewed"
   },
   {
+    "path": "docs/QUALITY_GATE_004_PLAN.md",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "aee13cfcc85673695e424b6c05914e88c1121d4c",
+    "sha256": "308c1c17cdbce6e57663a9036ba737a06e48ad138cf9d535ba416f793496073d",
+    "bytes": 19590,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "docs/REGION_LATENCY.md",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "31c47b35f29cff7dd5abcca5255442fa008d737b",
@@ -493,6 +541,14 @@
     "blob": "6e266e1beee4a07be3e237c1dd6cb2de6f539ea4",
     "sha256": "f62e7b1f3afefed3d03c1dfcdebb0d40dace5bf64fa2b2094b1521be178ea5f1",
     "bytes": 5807,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "docs/RULES_INSPECTION.md",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "bd9b2b64e66d43758e58a9810beab5566d1862fb",
+    "sha256": "867cfbe166559512bd856db1d30c9124a92b8b8306dc64616e296e11c699ba27",
+    "bytes": 5436,
     "read": "complete returned source reviewed"
   },
   {

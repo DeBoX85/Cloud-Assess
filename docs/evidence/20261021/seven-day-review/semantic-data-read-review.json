@@ -126,6 +126,18 @@
     "helper_sha256": "d412c91bde4655b6a740a1179066fba62e45042d53522cfcb1f29740ca33308c"
   },
   {
+    "path": "internal/plugins/region/testdata/source-latency-inputs.json",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "77d8bafebc9dbf210d481b287ed0e6ebdd170da1",
+    "raw_sha256": "1651ac72d681e39dbf43429ba8c44a9bd4d18f5e0cb801db0af580fa4677a6b7",
+    "bytes": 91626,
+    "view_sha256": "76d755416170e4da6aa19475c2d1614ddd0fc34b0ad7b5aa4df35638fc65a857",
+    "review": "complete reversible JSON view read; original lexical formatting not manually read",
+    "helper_file": "json_review_delta.py.txt",
+    "helper_sha256": "48a39a0ad40dfcf9b4bc48d9ff00ea772523b811aa7a9e2316a7bef5cc127812",
+    "strict_loader_dependency_sha256": "d412c91bde4655b6a740a1179066fba62e45042d53522cfcb1f29740ca33308c"
+  },
+  {
     "path": "internal/plugins/region/testdata/source-latency-outputs.json",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "946868f074f4717c2422fa0144fc7fc75a78c91f",
@@ -250,6 +262,30 @@
     "raw_sha256": "4035965123c5c72c93c099c7accd6c7be8d2d5a84a7041a8359f0ec1ecd720a7",
     "bytes": 399973,
     "view_sha256": "09df5d5e5204182a5f8e77c2b55b361a7b2ef295ab7d5fb95b10d55e34410d98",
+    "review": "complete reversible JSON view read; original lexical formatting not manually read",
+    "helper_file": "json_review_delta.py.txt",
+    "helper_sha256": "48a39a0ad40dfcf9b4bc48d9ff00ea772523b811aa7a9e2316a7bef5cc127812",
+    "strict_loader_dependency_sha256": "d412c91bde4655b6a740a1179066fba62e45042d53522cfcb1f29740ca33308c"
+  },
+  {
+    "path": "internal/plugins/region/testdata/sql-primary-2021-11-01-example.json",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "9815b0a083dd402d2b7b17e29bb9b09df392dfce",
+    "raw_sha256": "f4b992d87b9e6e8bae6a7693092b4028dfa60bc7a79f132a8b658acebc9b57dd",
+    "bytes": 119773,
+    "view_sha256": "761c2794471733f357b9fafd7eafabbb41044a8d9156267d75aa2d1c566136ed",
+    "review": "complete reversible JSON view read; original lexical formatting not manually read",
+    "helper_file": "json_review_delta.py.txt",
+    "helper_sha256": "48a39a0ad40dfcf9b4bc48d9ff00ea772523b811aa7a9e2316a7bef5cc127812",
+    "strict_loader_dependency_sha256": "d412c91bde4655b6a740a1179066fba62e45042d53522cfcb1f29740ca33308c"
+  },
+  {
+    "path": "internal/plugins/region/testdata/storage-primary-2023-01-01-SKUList.json",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "ea659d8e4c2408b470a31fe1152e3d40c675af43",
+    "raw_sha256": "aceb9c06f233a6db9b4adb726e8f7951037531887dd28c949a24dee5b354830e",
+    "bytes": 180419,
+    "view_sha256": "d6914a8283b8231d08fd8ee5d68b28c8945308b7efc3be479fda3e06f7f3de09",
     "review": "complete reversible JSON view read; original lexical formatting not manually read",
     "helper_file": "json_review_delta.py.txt",
     "helper_sha256": "48a39a0ad40dfcf9b4bc48d9ff00ea772523b811aa7a9e2316a7bef5cc127812",

@@ -1,5 +1,12 @@
 # Expanded review progress
 
+## Boundary-review continuation, 22 October 2026
+
+Active review successor is docs/review-boundaries-20261022. Read [boundary and roadmap reconciliation](REVIEW_BOUNDARIES_20261022.md). PR187 own quality39663992340/source39663992339 passed ate7a63bcc: complete10quality logs/steps,622/617conserved control lines,87.6%coverage,0reachable/3imported-not-called/1module-only,23captures/315chunks/909865bytes. New raw-log public retention is BLOCKED by automatic approval review pending explicit disclosure approval; no remote bundle is claimed. The prepared19-member payload remains local and excluded from this successor.
+
+Coverage is795complete raw files/all326Go plus29separate semantic views. All135other183paths have explicit classifications; applicable-document reconciliation/final disposition remain unfinished. Source/reference/data distinctions are explicit. The action register's obsolete Go-decision/task7/SQL states are corrected. Tasks8–15 do not close ancillary compare/alternative-vm-sku/MCP parity obligations; keep them separately open. Task8 remains provisional. This changed successor requires OWN native/source QA; no inherited187green. Product185, pins and all persistent boundaries remain unchanged.
+
+
 ## Input-review continuation, 21 October 2026
 
 This checkpoint adds complete reversible semantic-view reads of the unchanged Cognitive143, SQL Database153 and Managed Instance163-case manifests (459 cases). Coverage is788complete raw reads/all326Go files plus26separate complete semantic views; the updated ledgers and [hash verification](evidence/20261021/seven-day-review/input-read-verification.json) bind exact product183blobs. Five additional complete raw reads cover access, ARG completeness, filter admission, maintenance and retention. No generated scalar or truncated output is credited as a complete manual read. The intermediate embedded-string helper was exploratory only and supplies no credited view; the existing retained delta helper supplied all three credited reads.

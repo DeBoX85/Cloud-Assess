@@ -1,18 +1,17 @@
 # Active action register
 
-Current security hold: PR184 own native jobs fail GO-2026-6809 in pinned Go1.26.9. Read [the blocker and narrow1.26.10proposal](GO_SECURITY_BLOCKER_20261021.md). Await Denis's toolchain decision before task7closure/task8freeze. Source39589963002passed; quality39589962815is not certified. Historical183success remains revision-specific.
+## Current checkpoint, 22 October 2026
 
-## Current checkpoint, 2026-10-21
+Read [CURRENT_STATE](CURRENT_STATE.md) and [review progress](REVIEW_PROGRESS_20261021.md). The Go1.26.10 decision was approved and PR185 own native/source QA passed. Task7 formal offline evidence closure is complete in PR183. Task8 remains provisional during the audit. PR187 own quality39663992340/source39663992339 passed at e7a63bcc; the final PR body owns the verified result. Complete quality-log public retention is blocked by automatic approval review pending explicit disclosure approval; no remote bundle is claimed. Residual advisories and acceptance obligations remain OPEN.
 
-Read [CURRENT_STATE](CURRENT_STATE.md) and [transfer](CHAT_TRANSFER_20261021.md). Security/task6prerequisites complete180; task7retail own hosted QA passes183(622Linux/617Windows,87.6%coverage), with formal archive reconciliation/closure OPEN. Execution reads recovered; raw local controls/preflight/rollback/failure proof and task8provisional files retained under evidence/20261021/recovered-local. Task8not frozen/not implemented. Earlier pending/STOP/no-production and old task counters below are historical snapshots; behavioral contracts stay active. This new handover tree needs its own QA; live PR owns actual outcomes.
-
+Older dated checkpoints below are historical snapshots; behavioral requirements remain in force unless explicitly revised. Product coding remains on verified PR185 lineage with current handover explicitly carried.
 
 Current status authority: [CURRENT_STATE](CURRENT_STATE.md). Detailed evidence belongs in the linked PR/contract; this register is a compact index, not a replacement ledger. Update after material progress and at checkpoints. Responsible party is the agent unless an independent reviewer, authorized operator or release owner is explicitly required. Status labels do not imply protected acceptance. Keep closed rows for traceability; archive older closed rows by link when needed.
 
 | ID | State | Responsible party | Dependency / next action | Closure evidence |
 | --- | --- | --- | --- | --- |
 | DC-RETAIL-SEC-20261020 | Verified offline180; residuals OPEN | Agent; independent review remains open | Narrow update/full QA/evidence completed; no broad refresh | PR180final index; cf93d214evidence; original failed177preserved |
-| DC-RETAIL-EVIDENCE-20261021 | Open formal reconciliation | Agent | Verify recovered local manifest plus hosted archive, finalize PR183index before task8 | [Recovery transfer](CHAT_TRANSFER_20261021.md) |
+| DC-RETAIL-EVIDENCE-20261021 | Verified offline; historical executions | Agent | Both archives reconciled; formal closure in PR183 body | PR183 final index; [reconciliation](evidence/20261021/seven-day-review/task7-archive-reconciliation.json) |
 | DC-INVENTORY-20261021 | Provisional only | Agent | Review/freeze contract and50independent scenarios after task7closure | recovered-local/task8-provisional; no target API yet |
 | DC-001 | Verified offline | Agent | PR150 own-head QA completed; remain draft/unmerged | [PR150 final index](https://github.com/DeBoX85/Cloud-Assess/pull/150), head 4c1ddc0 |
 | DC-002 | Verified offline | Agent | PR151 own-head QA completed; remain draft/unmerged | [PR151 final index](https://github.com/DeBoX85/Cloud-Assess/pull/151), head ba9eeb9 |
@@ -28,7 +27,7 @@ Current status authority: [CURRENT_STATE](CURRENT_STATE.md). Detailed evidence b
 | DC-012 | Open | Agent | PR152 retained local Linux SARIF reversal/restoration with compiling regression failures. Extend platform/installed/dependency breadth before broad rollback claims | Isolated rehearsal plus behavioral tests; current proof is Git/static only |
 | DC-013 | Open design obligation | Agent | Evaluate optional safe diagnostic correlation only through a separate contract if operational requirements justify it; no blanket logger/product schema change now | [Logging assessment](LOGGING_ASSESSMENT_20261017.md), then bounded design/tests if authorized |
 | DC-014 | Verified offline PR157 | Agent | Cognitive batch complete:143cases,46new controls/platform, full native/source/atomic source rollback verified; preserve draft head | [Three-task workstream](COGNITIVE_SKU_WORKSTREAM_20261017.md), active PR final index |
-| DC-015 | Task1 verified offline; task2 frozen, own QA pending | Agent | PR158 complete; task2 316 independent future cases and primary integrity before runtime; full own QA then Database/MI with handover between each | [SQL workstream](SQL_CAPABILITY_WORKSTREAM_20261017.md), active live PR index |
+| DC-015 | Four SQL tasks verified offline | Agent | Preserve completed PR158/160/163/165; no replay | [SQL completion](SQL_BATCH_COMPLETED_20261018.md); exact-head PR indexes |
 
 ## Per-change record
 
