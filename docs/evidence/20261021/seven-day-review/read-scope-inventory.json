@@ -1,7 +1,7 @@
 {
   "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
   "tracked_paths": 959,
-  "manual_complete_reads": 759,
+  "manual_complete_reads": 762,
   "complete_product_go_files": 326,
   "complete_product_go_bytes": 2342970,
   "complete_scripts_files": 84,
@@ -18,7 +18,6 @@
     "docs/ARG_COMPLETENESS.md",
     "docs/AUDIT_72H_20261019.md",
     "docs/AUDIT_ARG_RESPONSE_COMPLETION.md",
-    "docs/AUDIT_COMPARISON_INPUTS.md",
     "docs/AUDIT_COST_CONTINUATION.md",
     "docs/AUDIT_FILTER_SCHEMA.md",
     "docs/AUDIT_RECOVERY.md",
@@ -100,8 +99,6 @@
     "docs/REGION_INVENTORY_AGGREGATION.md",
     "docs/REGION_INVENTORY_CALCULATIONS.md",
     "docs/REGION_LATENCY.md",
-    "docs/REGION_METER_HISTORY_CONTRACT_20261019.md",
-    "docs/REGION_METER_HISTORY_TEST_PLAN_20261019.md",
     "docs/REGION_OTHER_SKU_SOURCE_20261013.md",
     "docs/REGION_PROVIDER_LOCATIONS.md",
     "docs/REGION_PROVIDER_TARGET_RECONCILIATION_20261012.md",
@@ -177,7 +174,6 @@
     "internal/plugins/region/data/latency.json",
     "internal/plugins/region/testdata/cognitive-primary-2024-10-01-schema.json",
     "internal/plugins/region/testdata/cognitive-sku-target-contract-v1.json",
-    "internal/plugins/region/testdata/meter-history-contract-v1.json",
     "internal/plugins/region/testdata/retail-pricing-contract-v1.json",
     "internal/plugins/region/testdata/source-latency-data.json",
     "internal/plugins/region/testdata/source-latency-inputs.json",
@@ -191,8 +187,8 @@
   ],
   "remaining_by_top_level": {
     "cmd": 1,
-    "docs": 165,
-    "internal": 14
+    "docs": 162,
+    "internal": 13
   },
   "scope_notes": [
     "All .go, .go.txt capture/reference source, scripts and first-party KQL/YAML rule files have complete returned-source reads.",
@@ -202,10 +198,11 @@
     "Reversible JSON subtree-reference views are credited separately from complete raw-source reads. Decoded values/order/embedded strings round-trip; original lexical formatting is not manually displayed. No frozen input is rewritten.",
     "The delta helper additionally displays exact changed keys against completed earlier objects with identical ordered keys; complete reconstruction is mandatory. This is review assistance, not product QA or new oracle generation."
   ],
-  "complete_semantic_view_reads": 20,
+  "complete_semantic_view_reads": 21,
   "semantic_view_paths": [
     "internal/plugins/region/testdata/cognitive-primary-2024-10-01-GetSkus.json",
     "internal/plugins/region/testdata/compute-vm-target-contract-v1.json",
+    "internal/plugins/region/testdata/meter-history-contract-v1.json",
     "internal/plugins/region/testdata/source-availability-inputs.json",
     "internal/plugins/region/testdata/source-availability-outputs.json",
     "internal/plugins/region/testdata/source-compute-sku-inputs.json",

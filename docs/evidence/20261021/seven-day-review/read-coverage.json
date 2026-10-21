@@ -264,6 +264,14 @@
     "read": "complete returned source reviewed"
   },
   {
+    "path": "docs/AUDIT_COMPARISON_INPUTS.md",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "a90eda1e2d4863605770f0615404c5fd0d4b46df",
+    "sha256": "fa855a18d2c493e74ac94a898ab95a68ba73d6b9288d4071737baa44eb342c7b",
+    "bytes": 5206,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "docs/DEFERRED_VALIDATION.md",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "f3c6d36af489a13cb0c6fdf15da1b55407ee438f",
@@ -293,6 +301,22 @@
     "blob": "f61db663615e086b59280af301bf1ab3d95cda09",
     "sha256": "250843c3c92d626eb84f9105414efc2d0b38d4c82542e292d4a5b47a48239467",
     "bytes": 9509,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "docs/REGION_METER_HISTORY_CONTRACT_20261019.md",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "455bf7d49687da5c4cd2573548c759413f371789",
+    "sha256": "2b86fd9118c4e251cf9ca28fe136b32a178bded75533ffeb2984bac6fc48f5ff",
+    "bytes": 10737,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "docs/REGION_METER_HISTORY_TEST_PLAN_20261019.md",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "2994af2ce6b490a3c5036cc26e3b3f33b59829cd",
+    "sha256": "3ebdb4f6ee06fcb331793702e774f4329d79ee7c64300e8b521996b73f5f1538",
+    "bytes": 4774,
     "read": "complete returned source reviewed"
   },
   {

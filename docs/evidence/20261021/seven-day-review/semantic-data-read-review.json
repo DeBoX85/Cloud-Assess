@@ -20,6 +20,18 @@
     "helper_sha256": "d412c91bde4655b6a740a1179066fba62e45042d53522cfcb1f29740ca33308c"
   },
   {
+    "path": "internal/plugins/region/testdata/meter-history-contract-v1.json",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "0edb2d0e59261aa7fc1df3415103e39ed4b4af66",
+    "raw_sha256": "fc87a540dc0893ad44b1b54f1397973aa0d0de9db212f806f691e17fe521ebc8",
+    "bytes": 70949,
+    "view_sha256": "f6b44fbd546ac408eaacd65ddfb3453497658404221f6312f571d5d85f858b5e",
+    "review": "complete reversible JSON view read; original lexical formatting not manually read",
+    "helper_file": "json_review_delta.py.txt",
+    "helper_sha256": "48a39a0ad40dfcf9b4bc48d9ff00ea772523b811aa7a9e2316a7bef5cc127812",
+    "strict_loader_dependency_sha256": "d412c91bde4655b6a740a1179066fba62e45042d53522cfcb1f29740ca33308c"
+  },
+  {
     "path": "internal/plugins/region/testdata/source-availability-inputs.json",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "661bf5de672c6f3ddeda1783d4b4d75496f5eb47",
