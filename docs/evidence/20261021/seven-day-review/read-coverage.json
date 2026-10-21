@@ -264,6 +264,30 @@
     "read": "complete returned source reviewed"
   },
   {
+    "path": "docs/ACCESS_MODEL.md",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "7fae8708891ed906bf1dbfbcd7f122d2d5d5f042",
+    "sha256": "38c39cb32ea343b06a21425a46cd45a2e42a2371c9e67a86cb65ef22c711d8d1",
+    "bytes": 13098,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "docs/ARG_COMPLETENESS.md",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "ddf493afe9fa76ebf223ce7847b9d952e9ee9e33",
+    "sha256": "f4fa1d9449242c1288d6d6842b3aa494fc23de9cf83a2f1d633e3679c3995d91",
+    "bytes": 6882,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "docs/AUDIT_72H_20261019.md",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "57f74258ca97b1730b1fcdd9a2afd7a0afc6f52b",
+    "sha256": "b72a45ae96df4164da2c391002056b3132f347129729f6cfd45a1306742e7a43",
+    "bytes": 12508,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "docs/AUDIT_COMPARISON_INPUTS.md",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "a90eda1e2d4863605770f0615404c5fd0d4b46df",
@@ -272,11 +296,83 @@
     "read": "complete returned source reviewed"
   },
   {
+    "path": "docs/AUDIT_FILTER_SCHEMA.md",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "a2001608c9a9d9221845467ecb774485c35365b7",
+    "sha256": "36215a40d78274de03441d750104a6f167a0a45f7de618eacad06b525859ec2e",
+    "bytes": 3154,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "docs/BRANDED_PACKAGES.md",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "f4f0d513acb159a192f1b0abc25deb0ea196558f",
+    "sha256": "687d42515f73c60440b60c7f9db0525d4547c171b1383e1a2844772fd26b0c59",
+    "bytes": 6429,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "docs/BUILT_CLI_VALIDATION.md",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "cecdea86ca4223f9f292bcfdcdd648724257253a",
+    "sha256": "6e62ebb8bed2840b4a210b06b1c43bf56db74f56fe8f64de6a759cb1ad407362",
+    "bytes": 4335,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "docs/COGNITIVE_SKU_CONTRACT_20261017.md",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "b9c7bd2f318c8558d31a5f6480eda82af514e7f1",
+    "sha256": "311dc63966d9db4bd9485685c1639d0be4301a84e940150e2a12707dad716935",
+    "bytes": 14456,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "docs/DEFERRED_VALIDATION.md",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "f3c6d36af489a13cb0c6fdf15da1b55407ee438f",
     "sha256": "9f70cfcb0152f5da58aa815b541c45c5a470c492c6776aedb3d1e172a3f01adb",
     "bytes": 5761,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "docs/DEPENDENCIES.md",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "d469887270a2c39610ee8dff9029eb2459fe7723",
+    "sha256": "51590531cf8bbb19c5ef4b2e4c0113abafc5f8117bd8945b992fa33e3991ab41",
+    "bytes": 6562,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "docs/DEPENDENCY_ADVISORY_REVIEW.md",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "2764a124311acda359ff4b1e46b528f786665861",
+    "sha256": "b39d06cfd075fc9e965bd490289b59dbdd3ce103a374550863a1c3be64b960c0",
+    "bytes": 7957,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "docs/EVIDENCE_RETENTION.md",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "4c4b5b34194c684b3f313849ea1c7455a5732b4c",
+    "sha256": "dbe676186bbeaa5085550bae2b2c506a170de1062abe7e788143086d5a24675c",
+    "bytes": 4537,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "docs/LOGGING_ASSESSMENT_20261017.md",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "0cdde7d332581ad7bc3004ed79ee98eb3f5e8625",
+    "sha256": "ff5c16d9fab5e885bf85d9d9d4061b3b2508f8780a12f2152b958603bb8c624c",
+    "bytes": 4132,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "docs/MAINTENANCE.md",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "9a0abb3bb513c7a0deb3a0022f3595bcfd191372",
+    "sha256": "b937f56b832a77ede6095e5b7c4720511a2133c76bae488dec79a367bf2cfbfe",
+    "bytes": 4167,
     "read": "complete returned source reviewed"
   },
   {
@@ -304,6 +400,46 @@
     "read": "complete returned source reviewed"
   },
   {
+    "path": "docs/OPERATIONS.md",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "75c17f1f0a049a58926d5e5f0b4d59942036d40b",
+    "sha256": "280e11b52b4fc091d8ffe209a471a1ba97331ce6dbaa7e4621be734e3a13bf3a",
+    "bytes": 10514,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "docs/PACKAGE_BUILDS.md",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "e8dc7d1dec700ad3822b75be72aa39a5ccef7082",
+    "sha256": "f3a5829d0a80b7984aeed7b03ed884923252dd943f249087e8c6490a02762e28",
+    "bytes": 5617,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "docs/PACKAGE_INSTALL.md",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "0cd9c20bee25023cb632613352292e2ddebd8e0d",
+    "sha256": "31bc373321ea7316b537c33bd4b629eed8709825d18480df0e7898bf514ca74b",
+    "bytes": 2204,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "docs/QA_SAFEGUARDS_RECONCILIATION_20261017.md",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "b10bbb16a06e8da731cd4e422f2ae6d5e48e5e01",
+    "sha256": "b85c966e8ef563ef4944571702614aea73d3b26168ffc430c82db7317073c4df",
+    "bytes": 6558,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "docs/REGION_LATENCY.md",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "31c47b35f29cff7dd5abcca5255442fa008d737b",
+    "sha256": "b6d831e953c3a52558c648571ca6b5dd06e47ce9f0895cc2eaab53a92b17121e",
+    "bytes": 20406,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "docs/REGION_METER_HISTORY_CONTRACT_20261019.md",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "455bf7d49687da5c4cd2573548c759413f371789",
@@ -320,11 +456,83 @@
     "read": "complete returned source reviewed"
   },
   {
+    "path": "docs/REGION_PROVIDER_TARGET_RECONCILIATION_20261012.md",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "960d48b125372be41770464f8378a8cecf8fded3",
+    "sha256": "44711345d48375c50a393b57b77ab8028774611932363018dbfc569f8a923077",
+    "bytes": 11432,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "docs/REGION_RESERVATION_SOURCE.md",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "7754a4f97b60bf50b795b76b49417248c65b3c9f",
+    "sha256": "09a25d73dd8bf9c7a57bdd2f070ba7aa3d83acf55b2bdfd85a8219b642414941",
+    "bytes": 11296,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "docs/REGION_RETAIL_CONTRACT_20261020.md",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "83e7c426422c292c225c2f0289f997f84fc7488d",
+    "sha256": "b0af3f9622496e6170219bf216de1be04fab66cf2f0f17aaba5a7644e3c1998c",
+    "bytes": 12503,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "docs/REGION_STORAGE_SKU_TARGET_ANALYSIS_20261014.md",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "3496f60bacd325a753e13166d162d4be6496f0cc",
+    "sha256": "676c835142e7624c2b2f02e1e716a87c3f2f5723ad5e84f67b732b258c17a7dc",
+    "bytes": 8713,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "docs/ROLLBACK.md",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "6e266e1beee4a07be3e237c1dd6cb2de6f539ea4",
+    "sha256": "f62e7b1f3afefed3d03c1dfcdebb0d40dace5bf64fa2b2094b1521be178ea5f1",
+    "bytes": 5807,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "docs/SCOPE_REPORTING.md",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "5042bdf6d3ef2170beb64ed80e38988925882084",
+    "sha256": "4310550153041380a8b8cba49cfe3cca3b2d2f980f0cc88865cfa5fce6084c22",
+    "bytes": 5519,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "docs/SQL_CAPABILITY_CONTRACT_20261017.md",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "26b3da90408bf4f67257e5106863f81a5969c08d",
+    "sha256": "9c90b33bb09500805004ae61c2f02f2add3bdd6586bc7b298e2ef0be1ea5e125",
+    "bytes": 15558,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "docs/SQL_CAPABILITY_RECONCILIATION_20261017.md",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "30f69f47b873cedf51e9ccfb26e7cde32e85ca52",
+    "sha256": "84eceaffecd6fce35ddfcac68165222ba299350db75a47a9f01110ae2d34f99d",
+    "bytes": 7781,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "docs/SQL_EOL.md",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "5aa5c8bad73c97f5be6a0f6369787e97707ed49e",
     "sha256": "690d286a0e894ccdcc30cff8020dd52ba0f35ca07cdd7c324495dc027302a9b5",
     "bytes": 12413,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "docs/VMSS_CATALOG_CONTRACT_20261017.md",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "0158c343351599690d192fd6f5248e511c569649",
+    "sha256": "78c4c5d60e7b8dd63cfb0b0f0a600edba890b8606a99c59d790575537fd55564",
+    "bytes": 10752,
     "read": "complete returned source reviewed"
   },
   {

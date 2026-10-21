@@ -1,10 +1,18 @@
-# Current advisory authority, 2026-10-20
+# Current advisory authority, 2026-10-21
+
+The approved product continuation is draft [PR185](https://github.com/DeBoX85/Cloud-Assess/pull/185), exact 566cc4d8b78d168e5216245a5a386f742a3a2f85, using Go **1.26.10**. Its own quality39594186699/source39594186753 passed; both native scans reported zero reachable findings, with 3 imported-not-called and 1 module-only advisory still OPEN. The Excelize prerequisite is complete offline as indexed in [CURRENT_STATE](CURRENT_STATE.md). Neither outcome accepts protected code or clears independent/live/operational/security/license obligations.
+
+This routing supersedes the dated pending/wait instructions below. Those sections preserve historical advisory evidence, not the active toolchain or a request to replay remediation. Verify live revision-specific PR outcomes before use. No additional dependency or source-pin refresh is authorised.
+
+---
+
+# Historical advisory checkpoint, 2026-10-20
 
 Read [CURRENT_STATE](CURRENT_STATE.md), [current advisory review](SECURITY_ADVISORY_REVIEW_20261020.md) and the live maintenance successor linked from PR177. The narrow Excelize update is approved; own final QA remains pending. Older advisory/acceptance states below are historical snapshots, not current clearance. Behavioral requirements remain active.
 
 ---
 
-# Current security remediation authority, 2026-10-11
+# Historical security remediation checkpoint, 2026-10-11
 
 Read [SESSION_HANDOVER.md](SESSION_HANDOVER.md), the
 [security remediation contract](SECURITY_REMEDIATION_20261011.md) and
@@ -32,7 +40,7 @@ The [manifest](dependencies/inventory.json) records the selected Go module graph
 
 ## Regeneration and review
 
-Use Python 3 and Go **1.26.9**, with the APRL submodule initialized at the recorded pin. From the repository root:
+Use Python 3 and Go **1.26.10**, with the APRL submodule initialized at the recorded pin. From the repository root:
 
 ```sh
 python3 scripts/dependency-inventory.py

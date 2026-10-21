@@ -4,6 +4,10 @@ Updated 2026-10-21 UTC. This is the active resume authority. Explicit current us
 
 Denis's 2026-10-21 clarification is binding: [DeBoX85/azqr](https://github.com/DeBoX85/azqr) remains the authoritative initial comparison baseline at the unchanged 8e4f0577 pin. Feature/function/capability parity is required; progressive improvements are encouraged through separately reviewed contracts and evidence. The fork is not the only comparison source or a product ceiling. [Reference policy](REFERENCE_POLICY.md) defines baseline, prospective fork changes, primary platform evidence and secondary project research. Continue the audit and existing task order; this is no automatic refresh or unrelated feature authorization.
 
+## Current review successor
+
+Active review continues on docs/review-inputs-20261021, preserving PR186 at033fdcda. Read the [input-review checkpoint](REVIEW_PROGRESS_20261021.md) before older counts below:788complete raw reads plus26semantic views, including all459Cognitive/SQL manifest cases newly reviewed. PR186own full quality39659013199/source39659013176passed with622/617unchanged identities; its complete evidence is retained atb7208018. The new successor needs own QA and has no inherited green. Product continuation185, task7closure, task8provisional status and every acceptance boundary remain unchanged. No uncertain remote mutation is retried without inspection.
+
 ## Verified product and evidence
 
 | Item | Actual state |
@@ -17,7 +21,7 @@ Denis's 2026-10-21 clarification is binding: [DeBoX85/azqr](https://github.com/D
 | PR185 own QA | quality39594186699/source39594186753SUCCESS; complete logs/steps reviewed,622Linux/617Windows full control lines equal183,87.6%coverage/floor75%;23source captures/315chunks/909865bytes equal candidateGit |
 | PR184 own QA | quality39589962815FAILURE from reachableGO-2026-6809 onGo1.26.9; source39589963002SUCCESS. Preserve this failure;185green does not certify184 |
 | Current security scans | PR185 both nativeGo1.26.10 scans0reachable/3imported-not-called/1module-only. Residual advisories OPEN |
-| Expanded audit | IN PROGRESS. 211 runs / 719 jobs reconciled at first pass; all 691 allocated full logs archived and remotely verified, 28 unallocated without logs. All 43 successful quality runs conserve prior control identities; 93 successful source reconstructions pass and 2 cancelled remain uncertified. Detailed decision reconciliation, complete code/data review and final recommendations/questions remain open |
+| Expanded audit | IN PROGRESS. 211 runs / 719 jobs reconciled, with detailed decisions retained in the resumption archive; all 691 allocated full logs archived and remotely verified, 28 unallocated without logs. All 43 successful quality runs conserve prior control identities; 93 successful source reconstructions pass and 2 cancelled remain uncertified. Remaining data/reference/applicable-documentation review and final audit disposition remain open |
 | Task8 | Three provisional files/50future independent scenarios recovered; NOT frozen, NOT implemented |
 
 PR185 candidate identity/full27changed files were read back. Its logged preview668c676d3a61362b5a2d8e1920c64bfebfdf8310has ordered parents protecteda6fee427 then566cc4d8 and exactly the candidate tree. Local full serial preflight and12file source/toolchain rollback/restoration pass; oldGo1.26.9scan reproduced the advisory. This is source/toolchain rollback, not installed/customer/live rollback. The final PR185 body owns exact-head outcomes; no status-only certificate commit is needed.
