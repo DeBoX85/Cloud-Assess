@@ -26,8 +26,8 @@ workspace=$(cd -- "$1" && pwd -P)
 trap 'printf "Bootstrap failed. Partial task-owned workspace retained: %s\n" "$workspace" >&2' ERR
 mkdir -p "$workspace/tools/downloads" "$workspace/tools/bin" "$workspace/cache" "$workspace/logs"
 
-go_version=1.26.9
-go_sha=42d158b4d8f7b61ac0a830567c940a86098fb7aac52e467a5ebec03ef5cc2f8d
+go_version=1.26.10
+go_sha=ccfe7ae822d2c2f41f4fe7c956199967a4dac22d0ee0d2b2bfdb440aab3b20c5
 pwsh_version=7.6.6
 pwsh_sha=ddbc4a2d113bbd46d283cfedcbcd117a70caefd7673f41f2b4e0000badf103bc
 source_pin=8e4f0577f3615e6c9014c031bcad079f235369cc
@@ -64,7 +64,7 @@ source "$workspace/env.sh"
 [[ $(go version) == "go version go${go_version} linux/amd64" ]]
 [[ $(pwsh -NoLogo -NoProfile -NonInteractive -Command '$PSVersionTable.PSVersion.ToString()') == "$pwsh_version" ]]
 
-git clone --single-branch --branch bootstrap/core-v1 \
+git clone --single-branch --branch "${CLOUD_ASSESS_TARGET_REF:-bootstrap/core-v1}" \
   https://github.com/DeBoX85/Cloud-Assess.git "$workspace/target"
 git -C "$workspace/target" config user.name 'Denis Bogunic'
 git -C "$workspace/target" config user.email '134433647+DeBoX85@users.noreply.github.com'
