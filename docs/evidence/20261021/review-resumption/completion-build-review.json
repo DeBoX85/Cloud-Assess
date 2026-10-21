@@ -1,0 +1,15 @@
+{
+  "integrity": {
+    "members": 28,
+    "bytes": 2367547,
+    "revisions": {
+      "review": "033fdcda88c0af292fc96705446c8b43b2cc0345",
+      "product": "566cc4d8b78d168e5216245a5a386f742a3a2f85",
+      "retail": "458d5c5296c321c8e5e961f18eb5422d43c2eb18"
+    }
+  },
+  "bundle_bytes": 314737,
+  "all_members_equal_original_raw_bytes": true,
+  "method": "read_bytes then decode UTF-8 directly; independent original hashes and complete decoded-original comparison",
+  "limitations": "Self-consistency and byte equality are not independent review, backup, privacy certification or acceptance."
+}

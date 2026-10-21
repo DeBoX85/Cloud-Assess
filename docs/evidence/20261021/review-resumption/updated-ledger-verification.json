@@ -1,0 +1,14 @@
+{
+  "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+  "ledgers": {
+    "read-coverage.json": {
+      "entries": 783,
+      "all_lengths_hashes_blobs_match": true
+    },
+    "semantic-data-read-review.json": {
+      "entries": 23,
+      "all_lengths_hashes_blobs_match": true
+    }
+  },
+  "new_execution": "read-only byte/hash recheck; no manual read credit or test replay"
+}
