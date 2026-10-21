@@ -1,6 +1,6 @@
 # Cloud Assess
 
-Current development checkpoint: [security crossroads](docs/CHAT_TRANSFER_20261020.md); [status and resume authority](docs/CURRENT_STATE.md). Narrow security remediation is approved and undergoing its own QA; no retail implementation has started.
+Current development checkpoint: [current state](docs/CURRENT_STATE.md) and [expanded review](docs/REVIEW_PROGRESS_20261021.md). Retail task7 is implemented and its offline evidence closure is indexed in draft PR183. Approved Go1.26.10 remediation has passed its own full native/source QA in draft PR185. The seven-day/full-codebase/process audit remains in progress; public region selection remains unavailable.
 
 
 Current audited continuation: [status](docs/CURRENT_STATE.md), [restart prompt](docs/RESTART_PROMPT.md), [transfer](docs/CHAT_TRANSFER_20261019.md), [72hour QA](docs/AUDIT_72H_20261019.md) and [discrepancies](docs/DISCREPANCIES_20261019.md). Exact outcomes stay in the live draft PR; verified offline is distinct from acceptance.
@@ -65,11 +65,13 @@ Pinning the reference commit ensures that upstream changes do not silently chang
 
 ## Development and validation
 
-Active development branch:
+Protected baseline branch:
 
 ```text
 bootstrap/core-v1
 ```
+
+Current product candidates and their acceptance state are identified by [CURRENT_STATE](docs/CURRENT_STATE.md).
 
 The repository quality gate verifies pinned source-data provenance, Go formatting, module consistency, branding boundaries, PowerShell validation helpers, executable build/help smoke tests, race-enabled tests, a minimum statement-coverage floor, `go vet`, and reachable-vulnerability scanning. A required Windows job validates PowerShell 5.1 helpers, Go tests and executable smoke checks. Both jobs and pull requests are enforced on `bootstrap/core-v1` by an active ruleset. External GitHub Actions are pinned to immutable commit SHAs.
 

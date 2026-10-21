@@ -23,3 +23,6 @@ R7-O03: the canonical result sort keys omit some secondary fields and compare se
 R7-P01: repeated current/status/stop narratives remain in normative documents and PR bodies despite authority headers. A machine-validated single active state with generated compact routing pages is a candidate recommendation, subject to full continuity review. Historical facts must remain immutable and separately accessible.
 
 R7-P02: implemented draft work, protected acceptance and broader/core-v1 scope are frequently adjacent in status prose. Report them as separate acceptance states; do not turn control counts, coverage or source capture counts into an overall percentage. Roadmap priority and release acceptance need explicit decision ownership.
+
+
+R7-P03 confirmed documentation drift: reviewed README at185still stated no retail implementation had started, while exact183contains it and own QA passes. Existing authority/header tests passed this contradiction. The current review corrects that active statement and removes superseded waits from compact CONTINUE/CURRENT_STATE/RESTART_PROMPT; frozen earlier prose remains accessible through Git. Proposed semantic state generation/validation is not yet implemented, so this does not certify every historical narrative as reconciled.
