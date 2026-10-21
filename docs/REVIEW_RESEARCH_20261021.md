@@ -34,3 +34,8 @@ These are selected workflow/contribution-file comparisons, not complete audits o
 | Packaging/readiness | Independent review/backup, live acceptance, installed rollback and release provenance remain open. Give each obligation an owner and concrete evidence requirement. | Existing synthetic/source rollback does not satisfy installed/live recovery. No release or external notification is authorised here. |
 
 Final recommendation ranking, A-F assessment and questions will be completed after the remaining reads/reconciliation. No gate reduction, new product feature or dependency/source refresh is proposed as an implicit shortcut.
+
+
+Timing refinement: the three measured Windows control walls sum3927seconds. An ideal three-way rebalance with no overhead has a1309second lower bound, only54seconds below the observed1363second maximum. This arithmetic model is not a measured speedup; rebalancing alone has modest potential here. More isolated workers could reduce wall time at additional runner/setup cost, requiring a new conservation-tested layout. Automating evidence collection and preventing repeated status/retention rework are stronger first candidates than cutting checks.
+
+QA-AUD7-02 adds a concrete prevention requirement: archive manifests must bind independently read original raw bytes and the builder must compare decoded members to originals. Self-consistency checks and a -text checkout rule do not prevent newline conversion inside a helper.

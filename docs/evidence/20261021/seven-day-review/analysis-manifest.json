@@ -1,0 +1,37 @@
+{
+  "format": "cloud-assess-evidence-v1",
+  "classification": "reviewed-synthetic-ci-local",
+  "bundle_sha256": "cc9f73bc651d4b2df4e1307fa245010ae97e73c02a5000d45de5e74a0dd92b68",
+  "decoded_sha256": "d43ef46b49df486ff2f13bd5a42b71b1d17ff54931e0fb5160e469a1160c1ae5",
+  "members": [
+    {
+      "path": "audit-control-conservation.json",
+      "bytes": 3247794,
+      "sha256": "bba8779f510a16734c8b9b0892585b2cc28ee01dfa86e5dbe8b2190015da88f8"
+    },
+    {
+      "path": "audit-job-conservation.json",
+      "bytes": 67644,
+      "sha256": "95edb3dd2bea6548bdc089d11a91f872471557a2f3af9536f65c18278f85e871"
+    },
+    {
+      "path": "audit-preview-review.json",
+      "bytes": 364674,
+      "sha256": "cd69818ee07d7a74b1d64d05b5984c9bc5ce8b04fb6d70c30b21a5627057e1cd"
+    },
+    {
+      "path": "audit-failures.json",
+      "bytes": 74072,
+      "sha256": "82dbbdeae41ec1c66b83085f8245d8400670ec090994c738190171396d4e44d8"
+    },
+    {
+      "path": "audit-failure-dispositions.json",
+      "bytes": 85106,
+      "sha256": "9854b85449364cb16dfddf6c10841178c9634de89fc7604b80662b2f423fa367"
+    }
+  ],
+  "revisions": {
+    "product": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "security": "566cc4d8b78d168e5216245a5a386f742a3a2f85"
+  }
+}

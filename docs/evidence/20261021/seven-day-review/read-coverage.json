@@ -598,6 +598,14 @@
     "read": "complete returned source reviewed"
   },
   {
+    "path": "internal/diagnostics/cancellation_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "f53ccf8e9e0a2bf7a290f998f79ca82bf91569f2",
+    "sha256": "0c4a167ec6b0475d55bda9c4fe9dca985e4adaa068a4b849edeaf746a7a53553",
+    "bytes": 1490,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "internal/diagnostics/recommendations.go",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "9fb8f241d68502dd425ebb6e2f40f8414dcc5ba6",
@@ -606,11 +614,27 @@
     "read": "complete returned source reviewed"
   },
   {
+    "path": "internal/diagnostics/response_contract_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "81e887c68d9643fc4d1cc065e4032e1e5ca4efce",
+    "sha256": "a79bdd9444ac612b9c6d6fef05790ff80dc51a28cf8fb7d8a6eb8d8ba9406dd9",
+    "bytes": 4703,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "internal/diagnostics/scanner.go",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "160e516182303c92381fa3aa47205c857f26648a",
     "sha256": "496674d20f117f9c50182daef07ebf074a6444b12d87e83c235936271d86efa1",
     "bytes": 10598,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/diagnostics/scanner_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "7bfcb1ac7a56ad33a14ec79a91de08ff78951bd3",
+    "sha256": "9275814b40c7416df44038d962787ff7484d959a8d3f768bd80ab7ca8c76a301",
+    "bytes": 12518,
     "read": "complete returned source reviewed"
   },
   {
@@ -854,6 +878,198 @@
     "read": "complete returned source reviewed"
   },
   {
+    "path": "internal/plugins/region/auxiliary.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "15ab8323b5b4dd7974105eb15994d777f160ad35",
+    "sha256": "b034343426175281da43f0e51d3194fba98cc7316073c8445ffa9904030501f7",
+    "bytes": 9772,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/availability.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "94360cfbe6a59a3debdf1a8f002cf7b062f8e264",
+    "sha256": "26fd07eb9d2deb2f911e249e0434e6a46c83265d005e4a6c573060f5f7b2df33",
+    "bytes": 10304,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/cognitive_sku_catalog.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "3aaaf86c4634b944270690dda38efeae2a5f1a40",
+    "sha256": "18977442d2c98dbe948b04f395bf5632f121a793a4c01e645a05b0fbf85beabb",
+    "bytes": 6947,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/cognitive_sku_collector.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "096fc7632c3b05e1e50092906d7319dacabe2051",
+    "sha256": "53cf9d6fcaf6d6c284505e3491378998de0282db539d791528b7ce685956d351",
+    "bytes": 12875,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/cost.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "dc7c43cdcfc46c2fa67e00aaafbc5cf0faeec149",
+    "sha256": "ff8a826d4b9436c7159d2731b9bff2c7ba0cd1050cec6e433de25acb996189ac",
+    "bytes": 7971,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/cost_enrichment.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "94a9cc17e8d70a02852274a69bfd6a6f5eb193d5",
+    "sha256": "d7c7c06373fc2a0890791151bf18570ff54aa4f2dd1ad70397e9903814255c36",
+    "bytes": 8667,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/inventory.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "6157171769aaca1a4e78a026a4dc7f02a610bb87",
+    "sha256": "9cfda3a50168023cb2db5498cd31a10fba9510f247f04c32e33efbefb76686c5",
+    "bytes": 5928,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/inventory_aggregation.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "9828cf3a30056e2456028b6e746e1e23afd5782c",
+    "sha256": "697e53a3b795b0bd1ce2c7d666e5f46e02cca428a79f95d2a0eafdea560c74b3",
+    "bytes": 6596,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/latency.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "1a4a037e8d6c1c80aed1d7d51c66a5d5d1ae1090",
+    "sha256": "1df6adb1c430fd8310f2c25b83821b724b4a4f7a0d6caa43ac23f2cb033d53df",
+    "bytes": 7058,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/meter_history_boundary_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "af964951195ce9b50e38a427360eb983f1453c78",
+    "sha256": "26301dcd38bb413363c04ba3b1645f4173a08aa93dce5f93a21d758221f0369d",
+    "bytes": 13966,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/meter_history_collector.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "e575c727a6fabdbc581b86ff2a8382f278b24092",
+    "sha256": "48f99997c48c8328daa7f752ee83fab81e41fad963ab3c685f3172a4f54c470a",
+    "bytes": 7125,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/meter_history_decode.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "1a1e72b7fbb2b0f50e19357ebe4cfb2355bfab6c",
+    "sha256": "7ad029c29aa4002deb96e334ab46bc20f1a9dfada157cba5ed3295867b6258d9",
+    "bytes": 6299,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/meter_history_query.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "de94e07302022263b0799c4153b4fd25342a42d6",
+    "sha256": "3e2398e1c712d7fa679b690e2113629d66a6c943103825409d14dc25ca91dc27",
+    "bytes": 2162,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/primary.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "3a7fb0b9601a525f91c385d0016ce0b8ff532303",
+    "sha256": "4fd778cf756055acabbaec401bebf21b6d6dbef6d45d42337bf2b7c05f3fee17",
+    "bytes": 12971,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/retail_decode.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "c154511bcc5979c1b5dd970c5cc915c8d084363d",
+    "sha256": "eb63c0c734f2dc53d896314947894e4fd888806ebb77a6475038a842b2d09b31",
+    "bytes": 6217,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/retail_http.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "e8ebd63c9b3d9385a4e0666b9c270b90f13fc4d9",
+    "sha256": "b230add077b06bd2ee66209c7aacb48d358b4302bc9a6220e689eb30bef08c2e",
+    "bytes": 3478,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/retail_pricing.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "07c75e62d8b844529e9524dc9c2c26b2dd11eee2",
+    "sha256": "68f7a09fe4aec30e88c99ceaf51869ac7a65b26ef3384a2f506c0942a0922bec",
+    "bytes": 17604,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/service.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "e2e53165c2a4cb597c2bc36c239557189ad68ccd",
+    "sha256": "9be54d3d2197960a86eb20dafd896ee6af17f0e60954918225b7a550be23547e",
+    "bytes": 12264,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/sql_capability_catalog.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "48e8b28150697a771988c0214d1e1429045750b7",
+    "sha256": "e6d5eb88d09f2dfad02eafeb926dc45b55738f7e74736efc6a902e0486b50799",
+    "bytes": 6598,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/sql_capability_collector.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "e1393b937962492797a69d1d671d0f18fe2c5d95",
+    "sha256": "e09b666891abf2281fc3d88f5ce0f7339baa2b57d4f9f2cb65fe5abbf01a0c59",
+    "bytes": 10593,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/sql_capability_shapes.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "eaa735e8ad6a6fd82e81196b5ca571c5a50b88db",
+    "sha256": "2099f8b8a92a387258824f2b34392a3dc99ca93b881bc707146db4254c0c134a",
+    "bytes": 7533,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/sql_managed_instance_collector.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "d5700a159275b50147923f8a269f6f62d845cd95",
+    "sha256": "f6f0706cb8b6ab9c1344eb2fd22e27f548dc04d922d738e2eb9cc44cb5686e43",
+    "bytes": 6440,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/sql_report.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "2036aef5945b12e63344cd6e8a8878786e7424a1",
+    "sha256": "8ebfe01d7c5cb300b4fb9effe52a313d321ecfadcfda10a309b7cc05ac96a643",
+    "bytes": 7345,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/vmss_catalog.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "31bf10e820435f2e3e425c477017fac13769b573",
+    "sha256": "588c06fd510c0aa769c4258669830bb091da4c3af44b7761727bb50a4c94e95d",
+    "bytes": 6693,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "internal/plugins/registry.go",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "0e7e6810d481c5c7e806ee6469daf3c03f3f33c4",
@@ -861,6 +1077,54 @@
     "bytes": 8975,
     "read": "complete returned source reviewed",
     "note": "Changed security-toolchain versions separately reviewed; untouched source baseline read"
+  },
+  {
+    "path": "internal/plugins/servicehealth/query.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "7624c0a3d23788f8c3e1565b2f35f55102b7e48f",
+    "sha256": "e165a29af604a5cd3ba8cce206afcbd4fa12f19a8190975d5401a17d0c33bc0a",
+    "bytes": 3714,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/servicehealth/scanner.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "ffdc63d0b4669ad6ab23908deea1e69a4785ccd0",
+    "sha256": "10d2f16c8e86ca49699e928dd921d3a937f5ee161c8cc27e95646f8d972e9cc9",
+    "bytes": 12376,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/sqleol/query.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "bb408e06215f9fb2d667dbc6372033b5e83d7858",
+    "sha256": "492c77dacdddfce63a3f15c4441a5a5897c21186ac992b312a81f58d4cd6e34a",
+    "bytes": 165,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/sqleol/scanner.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "2abf52dfc1ca3fda34e97dda898b7aa1d8631cc0",
+    "sha256": "521fea6bbc0fd436298868a01101b743a1fb27cddb674d4fbc930367d91a06c1",
+    "bytes": 12378,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/sqleol_projection.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "a925e0545eaa0e9b4be51a58705d46c0004f56fe",
+    "sha256": "0815ed16878566495899741186a5ebee634cbc7f4ba0cf53ea56cf9b44dc1864",
+    "bytes": 3162,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/zone/scanner.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "ce3da2d985586c90740f1e89e1a7d903d4f8f97d",
+    "sha256": "ba0e08052cf5f513f7756e0889a0f5f228de6da5d79f4d7d78a25b938eb66e48",
+    "bytes": 9519,
+    "read": "complete returned source reviewed"
   },
   {
     "path": "internal/policy/scanner.go",
@@ -876,6 +1140,126 @@
     "blob": "74d77a818ba3d0164d141b3ee1b0656503d7e53e",
     "sha256": "19406e2ddaf3210813ddfebf0d340e69d8966095aac210e75141b322756e5820",
     "bytes": 7243,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/redact/subscription.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "74ca62b17ae958c03803be3b8d0550cd1a3c9852",
+    "sha256": "fbb5795f37de7ae828e0bc119f2bc84b9a3f83e48f6e78407a5c6feccbec1e33",
+    "bytes": 592,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/redact/subscription_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "9ce7ed9ac1ac9e8b8e25e260e4105c6b82ddd78c",
+    "sha256": "8b25720d7ca29b0f3e587903cb30a3fc491c53d42740209c10636ba95d9ad9f7",
+    "bytes": 1164,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/renderers/csv/csv.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "8ebe602a03cf70048c495d39881c1ef25242ddf0",
+    "sha256": "6b5e04312614c76926d19acf8405ce14eeb1788f98ece0c50a0816323bd6f8c7",
+    "bytes": 2344,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/renderers/csv/csv_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "b2f6517219ecad4c61b098150499b337d860fb80",
+    "sha256": "0dd0bd9842c2e785980a91f044325d83d1c5958075eb8ad990e0232109de016e",
+    "bytes": 5163,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/renderers/excel/excel.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "198b681647d0037dd60ec7562aeb3b528cdae131",
+    "sha256": "a8b1c07ecfe99d91e3f131e5ebcd0c3322fa525f5c83fcbbf1169ab364e0f9d2",
+    "bytes": 6762,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/renderers/excel/excel_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "70a0c6cf21a57b15da8edd92bd507c6209fa6f3f",
+    "sha256": "f782ac11245bb6173ec45bc4dd51028a58fb30cb2a437cccaf4e2d888641e212",
+    "bytes": 6060,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/renderers/excel/security_dependency_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "93a2a8c572b0e57fa0f61e8ffd36aae5655388db",
+    "sha256": "b8f0268fe044137860d38c0e98ebd5db2f7354145a1b55350be4e20feda7ad95",
+    "bytes": 4749,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/renderers/json/json.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "78c02db82280bc9a268ae87961e9ed070ae852ee",
+    "sha256": "734eeb2c2e1f3e3ec1dc737d2a969522337f8c9458ca224542840def21ebcfd8",
+    "bytes": 6000,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/renderers/json/json_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "08b95ca48d84313fbf7dcba50bb49f4aba104146",
+    "sha256": "9aa8557fd48f0b1aaf95d03d1514fe610bdc21768c06f580f05b69e73a1aa369",
+    "bytes": 7682,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/renderers/sarif/rule_reference_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "d760cdd2e2ab6eb1ca0f5ba5f3c5f6b95cbc7ab3",
+    "sha256": "41ee39addb51a5200b478015d114247fb146566ff468a36ab127778109572fb7",
+    "bytes": 2350,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/renderers/sarif/sarif.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "cbfc6b82356c53c5993e1771ba9be0ec62c3e1e3",
+    "sha256": "15ea7e1662df47686b9d119259f5c587ecd88d4188e4d472d848e22b99ef6440",
+    "bytes": 6317,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/renderers/sarif/sarif_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "06e983fd422dd55265f8941ecd5afff61e1903b5",
+    "sha256": "67b250735c2fcde6325d32ca64840908e429cb7a77f84330824b57f957407f77",
+    "bytes": 6242,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/renderers/tables/plugins.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "c9c95c5016a9ce7354cabf0ee98e6ecfec38b10d",
+    "sha256": "90047ac2acf9395c51bb5b58bd9a47137c49a8663f95b857ff35f4cce673f84b",
+    "bytes": 5224,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/renderers/tables/scope_redaction.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "3b6c1a68d21f6fcf816aa630b68de24d19224a4e",
+    "sha256": "2f040e5e0bc3d38666e5a74a127d06e22bd6411bd4538a4bd2cd2bf9ed4e9cd1",
+    "bytes": 2553,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/renderers/tables/tables.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "ea96c2c21afcdaa182daca05b2c0d76624425604",
+    "sha256": "231b45b04ad6262443a01f87ba7589af8cfb07863a95563c4c1f830a65148852",
+    "bytes": 13584,
     "read": "complete returned source reviewed"
   },
   {
@@ -964,6 +1348,62 @@
     "blob": "ed3ae54acdd9b33e90ab318836810fd3ac1523c4",
     "sha256": "712ed3c320eb5f7377bbf31db936eddb66231efdb6a838b5c84f884120abd2a2",
     "bytes": 1502,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/catalog.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "e2d0a9ba82323ccb01dd837d14f7c25cf5d22c6d",
+    "sha256": "be6432e3462ae17c0ac719eda4f5de1e98b576a3bc43bcb49fa9d8e431a49185",
+    "bytes": 8471,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/embedded.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "5c3e0ce214e8d1571b9d1977b8f4a7f1d0dd326f",
+    "sha256": "1715ec6e108b5d62490b4a0c91b904e1fc018ea39df82947fdc628a8ffa71f19",
+    "bytes": 1542,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/inspection.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "97a998b23916134245f23fd15f0de1d4134897e7",
+    "sha256": "16fee980da29e2364c0e9bf2a3e6064adc9408bdf6bf23a9585044af1ce084a0",
+    "bytes": 2555,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/provenance.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "0315d420dfc05b39cf03a6e782769d630d66ef8a",
+    "sha256": "0568228bc7261e67ed1d1a067038f94bf5f882d7a5208b7cd9c95792c93a0080",
+    "bytes": 1004,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/rules/yaml_plugins.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "5a43f569f3ceceab829b9a26dd1d46c6732b5076",
+    "sha256": "6c45e937a25b96c6e08b3789bcfc36fe25d79a73626628c1abca3d257fc4f957",
+    "bytes": 12189,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/scanners/registry.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "aeecd086657532df46ba21027d5936602bd022e6",
+    "sha256": "91b5af19a586068a1b8b20b22c177cc31c174379ec29c377c62de2cdf5b3b48e",
+    "bytes": 13602,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/skus/skus.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "396cc4b7172f536b08d91355f8f64e9e4f0b97a1",
+    "sha256": "9036aee8cd274afbf9034bed8f3b7ab1e19d52de5da481c370008a2493f259a3",
+    "bytes": 1205,
     "read": "complete returned source reviewed"
   },
   {
