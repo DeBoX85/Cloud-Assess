@@ -264,6 +264,38 @@
     "read": "complete returned source reviewed"
   },
   {
+    "path": "docs/DEFERRED_VALIDATION.md",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "f3c6d36af489a13cb0c6fdf15da1b55407ee438f",
+    "sha256": "9f70cfcb0152f5da58aa815b541c45c5a470c492c6776aedb3d1e172a3f01adb",
+    "bytes": 5761,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "docs/MVP_ACCEPTANCE_MATRIX_20261019.md",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "408b2a29c77dad92d05f3e4b3da4e90ba090a1d3",
+    "sha256": "da3f2edb5c86c35dd0497709221a8eeca198f74c82f396ed620210068cc95c9b",
+    "bytes": 6580,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "docs/MVP_PROGRAMME_20261019.md",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "8bc0b2dfbf621765b3e62923e239aecf507492a3",
+    "sha256": "b69da7afe8b04bc862221515aee341e679b73ee4cb3888e46cdabcdb02065ed9",
+    "bytes": 10752,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "docs/OFFLINE_SEQUENCE_20261019.md",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "f61db663615e086b59280af301bf1ab3d95cda09",
+    "sha256": "250843c3c92d626eb84f9105414efc2d0b38d4c82542e292d4a5b47a48239467",
+    "bytes": 9509,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "docs/SQL_EOL.md",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "5aa5c8bad73c97f5be6a0f6369787e97707ed49e",

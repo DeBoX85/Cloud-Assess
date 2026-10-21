@@ -1,5 +1,25 @@
 [
   {
+    "path": "internal/plugins/region/testdata/cognitive-primary-2024-10-01-GetSkus.json",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "57c0132a67d4958fb40cf20914537b034a10f39f",
+    "raw_sha256": "1c859ac36d080942f817958db9085603cc00b3ce42bbbab5d7a236cf53fc33d6",
+    "bytes": 55486,
+    "view_sha256": "4e92363a1c393f4414177f75968647547a1ded564f5d825a7c7487d5ebcdbb44",
+    "review": "complete reversible JSON subtree-reference view read; original lexical formatting not manually read",
+    "helper_sha256": "d412c91bde4655b6a740a1179066fba62e45042d53522cfcb1f29740ca33308c"
+  },
+  {
+    "path": "internal/plugins/region/testdata/compute-vm-target-contract-v1.json",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "1dccacd2651ea1486adc38be68c545266dbcde08",
+    "raw_sha256": "ac5eb22cb4582959afe6f9ccaf43a9aaba908231019a7b85b4e257c599292c34",
+    "bytes": 77125,
+    "view_sha256": "fcb1cd4a2ec47a8fc59fa2d58efdad5619bda6c253afaba0741f9549ec45a890",
+    "review": "complete reversible JSON subtree-reference view read; original lexical formatting not manually read",
+    "helper_sha256": "d412c91bde4655b6a740a1179066fba62e45042d53522cfcb1f29740ca33308c"
+  },
+  {
     "path": "internal/plugins/region/testdata/source-availability-inputs.json",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "661bf5de672c6f3ddeda1783d4b4d75496f5eb47",
@@ -70,6 +90,30 @@
     "helper_sha256": "d412c91bde4655b6a740a1179066fba62e45042d53522cfcb1f29740ca33308c"
   },
   {
+    "path": "internal/plugins/region/testdata/source-other-sku-inputs.json",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "07e5783b172a5871071d9cc55ff0224c6f807e0b",
+    "raw_sha256": "81ffb15038ec13e007051e79c43076a474b8a671ab4e6808cddb8d24adba3a74",
+    "bytes": 111334,
+    "view_sha256": "b355083008d1df8b89c15f80ce62bb4e85e5b86871f35adb954a8475b7b01a65",
+    "review": "complete reversible JSON reference/same-key-delta view read; lexical formatting not manually read",
+    "helper_file": "json_review_delta.py.txt",
+    "helper_sha256": "48a39a0ad40dfcf9b4bc48d9ff00ea772523b811aa7a9e2316a7bef5cc127812",
+    "strict_loader_dependency_sha256": "d412c91bde4655b6a740a1179066fba62e45042d53522cfcb1f29740ca33308c"
+  },
+  {
+    "path": "internal/plugins/region/testdata/source-other-sku-outputs.json",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "c49f80c973603b28965f70f3b93bd9ea20956452",
+    "raw_sha256": "c7721666656cf97775f849da9212c3f2f7f92c988184aa41e22a59538a63c5a3",
+    "bytes": 132253,
+    "view_sha256": "b6988b20b3a65c26a3ad90282999570f7df0e48b9f0414cf1208c05f398a5691",
+    "review": "complete reversible JSON reference/same-key-delta view read; lexical formatting not manually read",
+    "helper_file": "json_review_delta.py.txt",
+    "helper_sha256": "48a39a0ad40dfcf9b4bc48d9ff00ea772523b811aa7a9e2316a7bef5cc127812",
+    "strict_loader_dependency_sha256": "d412c91bde4655b6a740a1179066fba62e45042d53522cfcb1f29740ca33308c"
+  },
+  {
     "path": "internal/plugins/region/testdata/source-primary.json",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "ea5a30eae95518e06569b3bf466f4328b0d1193a",
@@ -138,5 +182,27 @@
     "view_sha256": "4aa2cb136d15a948de86af0efdc152f89702a4124d7b8df269262e9ad8f62874",
     "review": "complete reversible JSON subtree-reference view read; original lexical formatting not manually read",
     "helper_sha256": "d412c91bde4655b6a740a1179066fba62e45042d53522cfcb1f29740ca33308c"
+  },
+  {
+    "path": "internal/plugins/region/testdata/storage-target-contract-v1.json",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "11e7cfefa657a22d9f1bb933106ce5d0ed1c31ef",
+    "raw_sha256": "0231aab4d2d73e15147e77eefa62aa854283de1e49e49614e67df42c097391cc",
+    "bytes": 70125,
+    "view_sha256": "2ffc1f516db04301e22857524bb5107ba5a1cc55866d6e0eb27c8ee15c441a12",
+    "review": "complete reversible JSON subtree-reference view read; original lexical formatting not manually read",
+    "helper_sha256": "d412c91bde4655b6a740a1179066fba62e45042d53522cfcb1f29740ca33308c"
+  },
+  {
+    "path": "internal/plugins/region/testdata/vmss-catalog-target-contract-v1.json",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "a53e23a194669f537cf3fb9b8a6fe032f3735e9a",
+    "raw_sha256": "e09f3814ebc647265ea2aa7e8614e855ee24a96e4eefd4fa4897d7d739e881c0",
+    "bytes": 93385,
+    "view_sha256": "52bd9a5a75516818620818b48ace9c7c54b8f8d2138f76c1dbbeaccbc3ee9194",
+    "review": "complete reversible JSON reference/same-key-delta view read; lexical formatting not manually read",
+    "helper_file": "json_review_delta.py.txt",
+    "helper_sha256": "48a39a0ad40dfcf9b4bc48d9ff00ea772523b811aa7a9e2316a7bef5cc127812",
+    "strict_loader_dependency_sha256": "d412c91bde4655b6a740a1179066fba62e45042d53522cfcb1f29740ca33308c"
   }
 ]
