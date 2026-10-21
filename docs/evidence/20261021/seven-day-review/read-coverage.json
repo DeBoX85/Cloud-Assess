@@ -1,5 +1,69 @@
 [
   {
+    "path": ".github/go-mod-tidy-trigger",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "21323c5a37b1bf0ef39a3dfa152600b3cc7b84fa",
+    "sha256": "98183b10527c717ee75f1c57517192ff748282987929d029772502ee6f61597a",
+    "bytes": 33,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": ".github/pull_request_template.md",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "33f07fc5bcb2b0d08b3ce4c109b947b42518941a",
+    "sha256": "d3c54cb0590fc0425a926eccb2bf5b9db48a3d7cc09713fb69aea97907df80c4",
+    "bytes": 913,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": ".github/rule-sync-trigger",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "851d604358a9cff997656f9d4c07e8b73dbf0a20",
+    "sha256": "e3cbd7f087970a715473f29d32d8b638304b089f08ecbecc65baf22ee10c8141",
+    "bytes": 97,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": ".github/workflows/gate-contract-probe.yml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "20680e69d2721abc63f463bd1e9241a6a8fd09e8",
+    "sha256": "4213654b97147e05f195337702bc760cb75000c7008107f70c4d1a0356e77c64",
+    "bytes": 3151,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": ".github/workflows/import-rule-baseline.yml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "d8677b2da84ed72abae7dd6a66346f084e010204",
+    "sha256": "dcfe2efb646c392653f762f10091b115559f472d0facdf45b49afe9d73694596",
+    "bytes": 2789,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": ".github/workflows/region-source-characterization.yml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "cfddb4bfcf1fc2276288bafb925d48d4816c8867",
+    "sha256": "319e7a3a89e4795fb19d502a3e04923d72c2c49f3afb24c135350488c41558fe",
+    "bytes": 903,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": ".github/workflows/test.yml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "d31d148f2d2edf602ac148932a448be04597e8c9",
+    "sha256": "b6e1a6bd9a3c85d913c0f11f0cc8dda388bfc8131c2ebe4406adaff301adbd1c",
+    "bytes": 27345,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": ".github/workflows/tidy.yml",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "5d90829578fea27b72f273aace54b23e3aad7ae9",
+    "sha256": "0ae9d55f7a30240e85f801903e7339f94e66632f60b9827044cb7db15c1a8e8d",
+    "bytes": 829,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "cmd/cloud-assess/aigov_execution_test.go",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "26737a531244a72859ba49f38d88bd6a97ae3191",
@@ -1326,6 +1390,14 @@
     "read": "complete returned source reviewed"
   },
   {
+    "path": "internal/plugins/region/compute_disk_sku_collector_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "76ce22e83bc9fe9fe4bdb51520782a0fed4cc97e",
+    "sha256": "ad654952d0e8c36c2857e4cbed1098b49a6502ab1ece1ad7e306a470ab449753",
+    "bytes": 35093,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "internal/plugins/region/compute_disk_sku_review_test.go",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "8789739cb653347be8b596e9fccb7e4836410212",
@@ -1555,6 +1627,14 @@
     "blob": "de94e07302022263b0799c4153b4fd25342a42d6",
     "sha256": "3e2398e1c712d7fa679b690e2113629d66a6c943103825409d14dc25ca91dc27",
     "bytes": 2162,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "internal/plugins/region/other_sku_capture_test.go",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "c73799952e61070813757283c13dc66079408ee7",
+    "sha256": "3efe57cb249946b3ca06647775e2f467f61864dde0ff0c5ba93c433035b39144",
+    "bytes": 64250,
     "read": "complete returned source reviewed"
   },
   {
@@ -2576,6 +2656,22 @@
     "note": "Changed security-toolchain versions separately reviewed; untouched source baseline read"
   },
   {
+    "path": "scripts/branding-profile.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "f97eb370157f18d3b36b355f479413ebbff445b9",
+    "sha256": "c3c1fdc008f9e4e93e2b9bb7e8b3354bdd7b33c96c996c4ba683bf13af43c7f9",
+    "bytes": 2845,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "scripts/capture-region-source.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "59c5a4915600dda8c786aa8b0643bd8af7365bfb",
+    "sha256": "cbc845c1e56a61ad9816d13587e103665d8d9041999f9d61e66896087a2d192d",
+    "bytes": 6862,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "scripts/ci/generate_gate_probe.py",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "fccfa26b5fe13ab652c9bdafc6c506444c0ab84f",
@@ -2594,6 +2690,14 @@
     "note": "Changed security-toolchain versions separately reviewed; untouched source baseline read"
   },
   {
+    "path": "scripts/ci/quality-plan.json",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "38e449801e5f7927de461bd8083276862935ad4c",
+    "sha256": "dd38285836e7963c3fc0adab446ca87b67f02e089605b5b5434fc757d497eca2",
+    "bytes": 8580,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "scripts/ci/required_gate.py",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "eb4d0b36f5a90c35b6951e902661c8dd7eb400b8",
@@ -2601,6 +2705,14 @@
     "bytes": 1529,
     "read": "complete returned source reviewed",
     "note": "Changed security-toolchain versions separately reviewed; untouched source baseline read"
+  },
+  {
+    "path": "scripts/ci/verify_gate_probe.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "e4ac0d8cb6cad7a436f842931e812f6c7687bb57",
+    "sha256": "306b9d08b53e7513927ceef179c77e587aad82026e0969c53e19b9e6ec053aa2",
+    "bytes": 4422,
+    "read": "complete returned source reviewed"
   },
   {
     "path": "scripts/dependency-inventory.py",
@@ -2621,6 +2733,46 @@
     "note": "Changed security-toolchain versions separately reviewed; untouched source baseline read"
   },
   {
+    "path": "scripts/live-equivalence.helpers.psm1",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "bb2b1590e403375c963797daff462c8753f26a21",
+    "sha256": "dd8268adbb1ce7081c671aa93e95eb45ca9109749576ec5f8a0a0da91baf86bb",
+    "bytes": 4911,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "scripts/live-equivalence.ps1",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "5d4f64248659afc0afedca15098ae4ee012a6e72",
+    "sha256": "687c2d4efea85e405fc3387d1042f472968b0d4e2f316e20fcc4434b3cd0ba4e",
+    "bytes": 14101,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "scripts/package-candidate.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "be29991465ba8d847ef8477fd2ce3ed34858c905",
+    "sha256": "516d4cee879b55bf0742c082e2aef9df6f0a7337ac9538d4ee3a005ecdb6803e",
+    "bytes": 12070,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "scripts/prepare-resource-exclusion.ps1",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "74160968e8b6a913342d8b210ee03f0cec1d698a",
+    "sha256": "0ace6ed559efc0a5ce840b346216fe9dd27d2916256b8a4420157226647ad8af",
+    "bytes": 4466,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "scripts/publish-maintenance.sh",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "2ca62cc146154a88b67a37550a14882cd82ef462",
+    "sha256": "cfd9f52b8a3767b19ac5ab2d9117ab8115a0b3fe30ce08085ae37185c01aa44c",
+    "bytes": 2044,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "scripts/tests/bootstrap-workspace.py",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "3a3650f9d5e45a61c4a104f495a9d2f4a2c88729",
@@ -2628,6 +2780,14 @@
     "bytes": 4745,
     "read": "complete returned source reviewed",
     "note": "Changed security-toolchain versions separately reviewed; untouched source baseline read"
+  },
+  {
+    "path": "scripts/tests/branded-package.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "5b729447d473a83c77d40bd57c073bcdaeaa62c7",
+    "sha256": "92578d13b102ffde9ebf431fb0aaf8914808e92b6447192ed9598b6d44c82846",
+    "bytes": 1355,
+    "read": "complete returned source reviewed"
   },
   {
     "path": "scripts/tests/ci-workflow.py",
@@ -2648,6 +2808,22 @@
     "note": "Changed security-toolchain versions separately reviewed; untouched source baseline read"
   },
   {
+    "path": "scripts/tests/documentation.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "73f737436e754ce32e788d742613fcc16b4668ba",
+    "sha256": "9fead5b5cd7ecaeb0513ac365946c561b4aac70339f8dc0a3128ca57c8e2c33d",
+    "bytes": 3474,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "scripts/tests/gate-probe.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "b68326e24248258e26ddbb5af90f97d34639ef0c",
+    "sha256": "c9cd3be44d61a1d4872a0d5ac2680685ab01b01a72d9c1ee356de716facefcb7",
+    "bytes": 3702,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "scripts/tests/handoff.py",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "27a440ba4f47bb86c149756e6fb62401d4687ad9",
@@ -2665,11 +2841,35 @@
     "note": "Changed security-toolchain versions separately reviewed; untouched source baseline read"
   },
   {
+    "path": "scripts/tests/qa-temp-cleanup.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "c44624027c09b377dd6701f529367729f4f9fa3d",
+    "sha256": "56a5e5b8fffca783659593b3fef57045e83bf47c7b2a6fa104ecd49c3298cbe9",
+    "bytes": 4724,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "scripts/tests/qa_temp_cleanup.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "7953e2ba3c2c60d6bdb06d62f6b5ddb771e7d3db",
+    "sha256": "71331b727c774ea03292ad3459de717dc8a7326c2a90e97a98eb07da910c0230",
+    "bytes": 536,
+    "read": "complete returned source reviewed"
+  },
+  {
     "path": "scripts/tests/region-source-capture.py",
     "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
     "blob": "e6a4873624db9f5fbfb63bc360c93be0e4d14af4",
     "sha256": "0b4bb4c6daf56deab9ec1ba7b1ef658f732e3253429b6d187a2ffcef82791d7c",
     "bytes": 10324,
+    "read": "complete returned source reviewed"
+  },
+  {
+    "path": "scripts/tests/workflow-command-failures.py",
+    "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "blob": "fe6cf9e587f5dd2d99318f6b33c3e63d8d12f580",
+    "sha256": "735ae631ec724d27bdf92095274dfe57346e29041be38fc7eaf76d06f061f0ab",
+    "bytes": 2308,
     "read": "complete returned source reviewed"
   },
   {
