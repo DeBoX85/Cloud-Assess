@@ -1,5 +1,10 @@
 # QA-COG-04 independent guard isolation, 2026-10-17
 
+## Inventory preparation header check, 22 October 2026
+
+The first local static preflight rejected the new ROADMAP checkpoint because insertion above the stable authority separator expanded the compact resume header. Move that checkpoint below the existing separator, preserving the authority text and unchanged guard. No product, expectation or CI gate changed. Prevention: place dated state below stable resume headers and run the existing handoff guard before publication. The original failed static run is retained in session output; corrected static and documentation results belong to the successor's own PR evidence.
+
+
 Current security hold: PR184 own native jobs fail GO-2026-6809 in pinned Go1.26.9. Read [the blocker and narrow1.26.10proposal](GO_SECURITY_BLOCKER_20261021.md). Await Denis's toolchain decision before task7closure/task8freeze. Source39589963002passed; quality39589962815is not certified. Historical183success remains revision-specific.
 
 H21-QA-01: first local static handoff check rejected two edited authority headers: missing required historical-contract distinction and a forbidden stale stop word. Corrected the documentation to the existing authority contract, without changing tests or gates; rerun required.

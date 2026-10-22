@@ -383,7 +383,7 @@
         "docs/ACTION_REGISTER.md"
       ],
       "disposition": "historical_programme_step_verified_offline",
-      "closure_reference": "Original programme1\u20135 closure; do not replay; OFFLINE_SEQUENCE current tasks remain separate."
+      "closure_reference": "Original programme1–5 closure; do not replay; OFFLINE_SEQUENCE current tasks remain separate."
     },
     {
       "id": "OP-002",
@@ -391,7 +391,7 @@
         "docs/ACTION_REGISTER.md"
       ],
       "disposition": "historical_programme_step_verified_offline",
-      "closure_reference": "Original programme1\u20135 closure; do not replay; OFFLINE_SEQUENCE current tasks remain separate."
+      "closure_reference": "Original programme1–5 closure; do not replay; OFFLINE_SEQUENCE current tasks remain separate."
     },
     {
       "id": "OP-003",
@@ -399,7 +399,7 @@
         "docs/ACTION_REGISTER.md"
       ],
       "disposition": "historical_programme_step_verified_offline",
-      "closure_reference": "Original programme1\u20135 closure; do not replay; OFFLINE_SEQUENCE current tasks remain separate."
+      "closure_reference": "Original programme1–5 closure; do not replay; OFFLINE_SEQUENCE current tasks remain separate."
     },
     {
       "id": "OP-004",
@@ -407,7 +407,7 @@
         "docs/ACTION_REGISTER.md"
       ],
       "disposition": "historical_programme_step_verified_offline",
-      "closure_reference": "Original programme1\u20135 closure; do not replay; OFFLINE_SEQUENCE current tasks remain separate."
+      "closure_reference": "Original programme1–5 closure; do not replay; OFFLINE_SEQUENCE current tasks remain separate."
     },
     {
       "id": "OP-005",
@@ -415,7 +415,7 @@
         "docs/ACTION_REGISTER.md"
       ],
       "disposition": "historical_programme_step_verified_offline",
-      "closure_reference": "Original programme1\u20135 closure; do not replay; OFFLINE_SEQUENCE current tasks remain separate."
+      "closure_reference": "Original programme1–5 closure; do not replay; OFFLINE_SEQUENCE current tasks remain separate."
     },
     {
       "id": "R7-F01",
@@ -516,7 +516,7 @@
       "id": "AUDIT-REMAINDER",
       "state": "in_progress",
       "owner": "development owner",
-      "next_or_limit": "Complete applicable-document/finding disposition without claiming unread historical/reference files manually read."
+      "next_or_limit": "Six additional complete document reads reconciled;801raw/29semantic/129classified other paths,117documentation paths still without full raw credit. Finish applicable-document/finding disposition; see DOCUMENT_RECONCILIATION_20261022.md."
     },
     {
       "id": "SEC-BASELINE",
@@ -678,7 +678,7 @@
       "id": "PROCESS-EVIDENCE",
       "state": "open_proposal",
       "owner": "development owner",
-      "next_or_limit": "Read-only resumable evidence reconciliation with exact raw-byte/head/attempt/control/source checks."
+      "next_or_limit": "Reconcile PR191 run-success versus quality-job119912379705 in_progress/null metadata before certification; all log content checked. Read-only resumable evidence reconciliation remains a proposal."
     },
     {
       "id": "PROCESS-STATE",
@@ -762,7 +762,7 @@
       "id": "OFFLINE-08",
       "state": "provisional",
       "owner": "development owner",
-      "next_or_limit": "Freeze required-kind contract and50independent literals after audit reevaluation."
+      "next_or_limit": "Provisional50case proposal preserved. Resolve seven explicit freeze prerequisites in INVENTORY_PREPARATION_20261022.md after documentary reevaluation; no production yet."
     },
     {
       "id": "OFFLINE-09",

@@ -6,7 +6,7 @@ The existing handoff test now rejects lost captured source IDs, missing required
 
 | Obligation | State | Owner / next action |
 | --- | --- | --- |
-| AUDIT-REMAINDER | in_progress | development owner: Complete applicable-document/finding disposition without claiming unread historical/reference files manually read. |
+| AUDIT-REMAINDER | in_progress | development owner: Six additional documents reconciled;117documentation paths still without complete raw-read credit. Finish applicable-document/finding disposition; see DOCUMENT_RECONCILIATION_20261022.md. |
 | SEC-BASELINE | ready_for_separate_review | security reviewer; development owner integrates: Assess frozen product185; read-only external chat, no production/ref writes. |
 | R7-F01 | open_confirmed | development owner: Narrow tag ambiguity contract and independent corrections; preserve source characterization. |
 | R7-F03 | open_confirmed | development owner: Narrow comparator admission contract; conditional evidence until corrected. |
@@ -33,7 +33,7 @@ The existing handoff test now rejects lost captured source IDs, missing required
 | ANC-MCP | deferred_design | development owner/security reviewer: Explicit transport/exposure/auth/lifecycle design before any listener or implementation. |
 | ANC-TYPES | open_reconciliation | development owner: Reconcile source types utility and required behavior before claiming parity. |
 | CONTENT-FRESHNESS | open_separate_process | content/review owner: Current SLA/retirement/pricing applicability separate from frozen compatibility; no automatic refresh. |
-| PROCESS-EVIDENCE | open_proposal | development owner: Read-only resumable evidence reconciliation with exact raw-byte/head/attempt/control/source checks. |
+| PROCESS-EVIDENCE | open_proposal | development owner: Reconcile PR191 run/job status contradiction before certification; retain content verification. Read-only resumable evidence tooling remains a proposal. |
 | PROCESS-STATE | open_proposal | development owner: Machine-readable semantic current state with deliberate inconsistent-state controls. |
 | PROCESS-TIMING | open_measurement | development owner: Measure recovery/rework/critical-path over comparable runs; no gate cuts or unsupported speedup. |
 | ACCEPT-SECURITY-LICENSE | open_acceptance | independent security/legal/release owners: Residual risk, licensing, artifact provenance/SBOM and release decision. |
@@ -47,7 +47,7 @@ The existing handoff test now rejects lost captured source IDs, missing required
 | OFFLINE-05 | verified_offline | development owner: Preserve closure evidence; no replay. |
 | OFFLINE-06 | verified_offline | development owner: Preserve closure evidence; no replay. |
 | OFFLINE-07 | verified_offline | development owner: Preserve closure evidence; no replay. |
-| OFFLINE-08 | provisional | development owner: Freeze required-kind contract and50independent literals after audit reevaluation. |
+| OFFLINE-08 | provisional | development owner: Resolve seven freeze prerequisites in INVENTORY_PREPARATION_20261022.md;50provisional cases unchanged. |
 | OFFLINE-09 | not_started | development owner: Publish strict consumer, inspect BOTH native missing APIs before production; exact identity/coordinate preservation. |
 | OFFLINE-10 | not_started | development owner: Owned bounded per-run coordinator after5/7/9. |
 | OFFLINE-11 | not_started | development owner: Public region CLI/registry and early validation after10. |
