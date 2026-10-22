@@ -1,0 +1,2614 @@
+{
+  "contract_version": 1,
+  "status": "pre-implementation expectations; collector runner not implemented",
+  "selected_subscriptions": {
+    "11111111-1111-1111-1111-111111111111": "selected"
+  },
+  "primary": {
+    "repository": "Azure/azure-rest-api-specs",
+    "commit": "1cdcc5414764d20e8815554c8b89708c10747c18",
+    "example_blob": "ea659d8e4c2408b470a31fe1152e3d40c675af43",
+    "example_sha256": "aceb9c06f233a6db9b4adb726e8f7951037531887dd28c949a24dee5b354830e",
+    "expected_rows": 248,
+    "expected_sku_names": 5,
+    "expected_name_kind_groups": 8,
+    "expected_rows_per_group": 31,
+    "expected_distinct_locations": 31,
+    "expected_stage_location": "eastus2(stage)"
+  },
+  "cases": [
+    {
+      "name": "one-kind-available",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"value\":[{\"resourceType\":\"storageAccounts\",\"name\":\"Standard_LRS\",\"kind\":\"Storage\",\"locations\":[\"eastus\"],\"restrictions\":[]}]}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "complete",
+        "failure_code": "",
+        "groups": {
+          "standard_lrs": {
+            "storage": {
+              "known": true,
+              "state": 0
+            }
+          }
+        },
+        "unqualified_names": [],
+        "evidence": {
+          "status": "complete",
+          "values": {
+            "standard_lrs": {
+              "state": 0,
+              "blocked_zones": []
+            }
+          }
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "same-kind-regional-union",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"value\":[{\"resourceType\":\"storageAccounts\",\"name\":\"Standard_LRS\",\"kind\":\"Storage\",\"locations\":[\"westus\"],\"restrictions\":[]},{\"resourceType\":\"storageAccounts\",\"name\":\"Standard_LRS\",\"kind\":\"Storage\",\"locations\":[\"eastus\"],\"restrictions\":[]}]}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "complete",
+        "failure_code": "",
+        "groups": {
+          "standard_lrs": {
+            "storage": {
+              "known": true,
+              "state": 0
+            }
+          }
+        },
+        "unqualified_names": [],
+        "evidence": {
+          "status": "complete",
+          "values": {
+            "standard_lrs": {
+              "state": 0,
+              "blocked_zones": []
+            }
+          }
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "same-kind-regional-union-reversed",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"value\":[{\"resourceType\":\"storageAccounts\",\"name\":\"Standard_LRS\",\"kind\":\"Storage\",\"locations\":[\"eastus\"],\"restrictions\":[]},{\"resourceType\":\"storageAccounts\",\"name\":\"Standard_LRS\",\"kind\":\"Storage\",\"locations\":[\"westus\"],\"restrictions\":[]}]}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "complete",
+        "failure_code": "",
+        "groups": {
+          "standard_lrs": {
+            "storage": {
+              "known": true,
+              "state": 0
+            }
+          }
+        },
+        "unqualified_names": [],
+        "evidence": {
+          "status": "complete",
+          "values": {
+            "standard_lrs": {
+              "state": 0,
+              "blocked_zones": []
+            }
+          }
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "identical-duplicate-idempotent",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"value\":[{\"resourceType\":\"storageAccounts\",\"name\":\"Standard_LRS\",\"kind\":\"Storage\",\"locations\":[\"eastus\"],\"restrictions\":[]},{\"resourceType\":\"storageAccounts\",\"name\":\"Standard_LRS\",\"kind\":\"Storage\",\"locations\":[\"eastus\"],\"restrictions\":[]}]}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "complete",
+        "failure_code": "",
+        "groups": {
+          "standard_lrs": {
+            "storage": {
+              "known": true,
+              "state": 0
+            }
+          }
+        },
+        "unqualified_names": [],
+        "evidence": {
+          "status": "complete",
+          "values": {
+            "standard_lrs": {
+              "state": 0,
+              "blocked_zones": []
+            }
+          }
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "case-normalized-group",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"value\":[{\"resourceType\":\"storageAccounts\",\"name\":\"STANDARD_LRS\",\"kind\":\"storage\",\"locations\":[\"eastus\"],\"restrictions\":[]},{\"resourceType\":\"storageAccounts\",\"name\":\"Standard_LRS\",\"kind\":\"Storage\",\"locations\":[\"eastus\"],\"restrictions\":[]}]}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "complete",
+        "failure_code": "",
+        "groups": {
+          "standard_lrs": {
+            "storage": {
+              "known": true,
+              "state": 0
+            }
+          }
+        },
+        "unqualified_names": [],
+        "evidence": {
+          "status": "complete",
+          "values": {
+            "standard_lrs": {
+              "state": 0,
+              "blocked_zones": []
+            }
+          }
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "different-kind-does-not-substitute",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"value\":[{\"resourceType\":\"storageAccounts\",\"name\":\"Standard_LRS\",\"kind\":\"BlobStorage\",\"locations\":[\"eastus\"],\"restrictions\":[]}]}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "complete",
+        "failure_code": "",
+        "groups": {
+          "standard_lrs": {
+            "blobstorage": {
+              "known": true,
+              "state": 0
+            }
+          }
+        },
+        "unqualified_names": [],
+        "evidence": {
+          "status": "complete",
+          "values": {
+            "standard_lrs": {
+              "state": 2,
+              "blocked_zones": []
+            }
+          }
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "all-required-kinds-available",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage",
+            "BlobStorage"
+          ]
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"value\":[{\"resourceType\":\"storageAccounts\",\"name\":\"Standard_LRS\",\"kind\":\"Storage\",\"locations\":[\"eastus\"],\"restrictions\":[]},{\"resourceType\":\"storageAccounts\",\"name\":\"Standard_LRS\",\"kind\":\"BlobStorage\",\"locations\":[\"eastus\"],\"restrictions\":[]}]}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "complete",
+        "failure_code": "",
+        "groups": {
+          "standard_lrs": {
+            "storage": {
+              "known": true,
+              "state": 0
+            },
+            "blobstorage": {
+              "known": true,
+              "state": 0
+            }
+          }
+        },
+        "unqualified_names": [],
+        "evidence": {
+          "status": "complete",
+          "values": {
+            "standard_lrs": {
+              "state": 0,
+              "blocked_zones": []
+            }
+          }
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "one-required-kind-unavailable",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage",
+            "BlobStorage"
+          ]
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"value\":[{\"resourceType\":\"storageAccounts\",\"name\":\"Standard_LRS\",\"kind\":\"Storage\",\"locations\":[\"eastus\"],\"restrictions\":[]},{\"resourceType\":\"storageAccounts\",\"name\":\"Standard_LRS\",\"kind\":\"BlobStorage\",\"locations\":[\"westus\"],\"restrictions\":[]}]}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "complete",
+        "failure_code": "",
+        "groups": {
+          "standard_lrs": {
+            "storage": {
+              "known": true,
+              "state": 0
+            },
+            "blobstorage": {
+              "known": true,
+              "state": 2
+            }
+          }
+        },
+        "unqualified_names": [],
+        "evidence": {
+          "status": "complete",
+          "values": {
+            "standard_lrs": {
+              "state": 2,
+              "blocked_zones": []
+            }
+          }
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "nonrequired-kind-does-not-block",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"value\":[{\"resourceType\":\"storageAccounts\",\"name\":\"Standard_LRS\",\"kind\":\"Storage\",\"locations\":[\"eastus\"],\"restrictions\":[]},{\"resourceType\":\"storageAccounts\",\"name\":\"Standard_LRS\",\"kind\":\"BlobStorage\",\"locations\":[\"westus\"],\"restrictions\":[]}]}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "complete",
+        "failure_code": "",
+        "groups": {
+          "standard_lrs": {
+            "storage": {
+              "known": true,
+              "state": 0
+            },
+            "blobstorage": {
+              "known": true,
+              "state": 2
+            }
+          }
+        },
+        "unqualified_names": [],
+        "evidence": {
+          "status": "complete",
+          "values": {
+            "standard_lrs": {
+              "state": 0,
+              "blocked_zones": []
+            }
+          }
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "complete-empty",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"value\":[]}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "complete",
+        "failure_code": "",
+        "groups": {},
+        "unqualified_names": [],
+        "evidence": {
+          "status": "complete",
+          "values": {
+            "standard_lrs": {
+              "state": 2,
+              "blocked_zones": []
+            }
+          }
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "other-resource-type-excluded",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"value\":[{\"resourceType\":\"queues\",\"name\":\"Standard_LRS\",\"kind\":\"Storage\",\"locations\":[\"eastus\"],\"restrictions\":[]}]}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "complete",
+        "failure_code": "",
+        "groups": {},
+        "unqualified_names": [],
+        "evidence": {
+          "status": "complete",
+          "values": {
+            "standard_lrs": {
+              "state": 2,
+              "blocked_zones": []
+            }
+          }
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "absent-locations-is-unknown",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"value\":[{\"resourceType\":\"storageAccounts\",\"name\":\"Standard_LRS\",\"kind\":\"Storage\",\"restrictions\":[]}]}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "complete",
+        "failure_code": "",
+        "groups": {
+          "standard_lrs": {
+            "storage": {
+              "known": false,
+              "state": 2
+            }
+          }
+        },
+        "unqualified_names": [],
+        "evidence": {
+          "status": "unknown",
+          "values": {}
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "empty-locations-is-unavailable",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"value\":[{\"resourceType\":\"storageAccounts\",\"name\":\"Standard_LRS\",\"kind\":\"Storage\",\"locations\":[],\"restrictions\":[]}]}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "complete",
+        "failure_code": "",
+        "groups": {
+          "standard_lrs": {
+            "storage": {
+              "known": true,
+              "state": 2
+            }
+          }
+        },
+        "unqualified_names": [],
+        "evidence": {
+          "status": "complete",
+          "values": {
+            "standard_lrs": {
+              "state": 2,
+              "blocked_zones": []
+            }
+          }
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "absent-restrictions-is-unknown",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"value\":[{\"resourceType\":\"storageAccounts\",\"name\":\"Standard_LRS\",\"kind\":\"Storage\",\"locations\":[\"eastus\"]}]}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "complete",
+        "failure_code": "",
+        "groups": {
+          "standard_lrs": {
+            "storage": {
+              "known": false,
+              "state": 2
+            }
+          }
+        },
+        "unqualified_names": [],
+        "evidence": {
+          "status": "unknown",
+          "values": {}
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "missing-kind-is-unqualified",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"value\":[{\"resourceType\":\"storageAccounts\",\"name\":\"Standard_LRS\",\"locations\":[\"eastus\"],\"restrictions\":[]}]}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "complete",
+        "failure_code": "",
+        "groups": {},
+        "unqualified_names": [
+          "standard_lrs"
+        ],
+        "evidence": {
+          "status": "unknown",
+          "values": {}
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "missing-resource-type-is-unqualified",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"value\":[{\"name\":\"Standard_LRS\",\"kind\":\"Storage\",\"locations\":[\"eastus\"],\"restrictions\":[]}]}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "complete",
+        "failure_code": "",
+        "groups": {},
+        "unqualified_names": [
+          "standard_lrs"
+        ],
+        "evidence": {
+          "status": "unknown",
+          "values": {}
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "missing-inventory-kind-is-unknown",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            ""
+          ]
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"value\":[{\"resourceType\":\"storageAccounts\",\"name\":\"Standard_LRS\",\"kind\":\"Storage\",\"locations\":[\"eastus\"],\"restrictions\":[]}]}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "complete",
+        "failure_code": "",
+        "groups": {
+          "standard_lrs": {
+            "storage": {
+              "known": true,
+              "state": 0
+            }
+          }
+        },
+        "unqualified_names": [],
+        "evidence": {
+          "status": "unknown",
+          "values": {}
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "no-inventory-kind-list-is-unknown",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": []
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"value\":[{\"resourceType\":\"storageAccounts\",\"name\":\"Standard_LRS\",\"kind\":\"Storage\",\"locations\":[\"eastus\"],\"restrictions\":[]}]}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "complete",
+        "failure_code": "",
+        "groups": {
+          "standard_lrs": {
+            "storage": {
+              "known": true,
+              "state": 0
+            }
+          }
+        },
+        "unqualified_names": [],
+        "evidence": {
+          "status": "unknown",
+          "values": {}
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "empty-requirements",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {}
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"value\":[]}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "complete",
+        "failure_code": "",
+        "groups": {},
+        "unqualified_names": [],
+        "evidence": {
+          "status": "complete",
+          "values": {}
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "explicit-display-alias",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {
+          "east us": "eastus"
+        },
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"value\":[{\"resourceType\":\"storageAccounts\",\"name\":\"Standard_LRS\",\"kind\":\"Storage\",\"locations\":[\"East US\"],\"restrictions\":[]}]}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "complete",
+        "failure_code": "",
+        "groups": {
+          "standard_lrs": {
+            "storage": {
+              "known": true,
+              "state": 0
+            }
+          }
+        },
+        "unqualified_names": [],
+        "evidence": {
+          "status": "complete",
+          "values": {
+            "standard_lrs": {
+              "state": 0,
+              "blocked_zones": []
+            }
+          }
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "unmapped-display-is-unknown",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"value\":[{\"resourceType\":\"storageAccounts\",\"name\":\"Standard_LRS\",\"kind\":\"Storage\",\"locations\":[\"East US\"],\"restrictions\":[]}]}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "complete",
+        "failure_code": "",
+        "groups": {
+          "standard_lrs": {
+            "storage": {
+              "known": false,
+              "state": 2
+            }
+          }
+        },
+        "unqualified_names": [],
+        "evidence": {
+          "status": "unknown",
+          "values": {}
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "stage-is-not-physical",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus2",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"value\":[{\"resourceType\":\"storageAccounts\",\"name\":\"Standard_LRS\",\"kind\":\"Storage\",\"locations\":[\"eastus2(stage)\"],\"restrictions\":[]}]}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "complete",
+        "failure_code": "",
+        "groups": {
+          "standard_lrs": {
+            "storage": {
+              "known": true,
+              "state": 2
+            }
+          }
+        },
+        "unqualified_names": [],
+        "evidence": {
+          "status": "complete",
+          "values": {
+            "standard_lrs": {
+              "state": 2,
+              "blocked_zones": []
+            }
+          }
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "physical-plus-stage",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus2",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"value\":[{\"resourceType\":\"storageAccounts\",\"name\":\"Standard_LRS\",\"kind\":\"Storage\",\"locations\":[\"eastus2(stage)\",\"eastus2\"],\"restrictions\":[]}]}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "complete",
+        "failure_code": "",
+        "groups": {
+          "standard_lrs": {
+            "storage": {
+              "known": true,
+              "state": 0
+            }
+          }
+        },
+        "unqualified_names": [],
+        "evidence": {
+          "status": "complete",
+          "values": {
+            "standard_lrs": {
+              "state": 0,
+              "blocked_zones": []
+            }
+          }
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "notavailable-reason-remains-restricted",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"value\":[{\"resourceType\":\"storageAccounts\",\"name\":\"Standard_LRS\",\"kind\":\"Storage\",\"locations\":[\"eastus\"],\"restrictions\":[{\"type\":\"location\",\"values\":[\"eastus\"],\"reasonCode\":\"NotAvailableForSubscription\"}]}]}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "complete",
+        "failure_code": "",
+        "groups": {
+          "standard_lrs": {
+            "storage": {
+              "known": true,
+              "state": 1
+            }
+          }
+        },
+        "unqualified_names": [],
+        "evidence": {
+          "status": "complete",
+          "values": {
+            "standard_lrs": {
+              "state": 1,
+              "blocked_zones": []
+            }
+          }
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "quota-reason-remains-unavailable",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"value\":[{\"resourceType\":\"storageAccounts\",\"name\":\"Standard_LRS\",\"kind\":\"Storage\",\"locations\":[\"eastus\"],\"restrictions\":[{\"type\":\"location\",\"values\":[\"eastus\"],\"reasonCode\":\"QuotaId\"}]}]}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "complete",
+        "failure_code": "",
+        "groups": {
+          "standard_lrs": {
+            "storage": {
+              "known": true,
+              "state": 2
+            }
+          }
+        },
+        "unqualified_names": [],
+        "evidence": {
+          "status": "complete",
+          "values": {
+            "standard_lrs": {
+              "state": 2,
+              "blocked_zones": []
+            }
+          }
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "restriction-outside-target",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"value\":[{\"resourceType\":\"storageAccounts\",\"name\":\"Standard_LRS\",\"kind\":\"Storage\",\"locations\":[\"eastus\"],\"restrictions\":[{\"type\":\"location\",\"values\":[\"westus\"],\"reasonCode\":\"NotAvailableForSubscription\"}]}]}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "complete",
+        "failure_code": "",
+        "groups": {
+          "standard_lrs": {
+            "storage": {
+              "known": true,
+              "state": 0
+            }
+          }
+        },
+        "unqualified_names": [],
+        "evidence": {
+          "status": "complete",
+          "values": {
+            "standard_lrs": {
+              "state": 0,
+              "blocked_zones": []
+            }
+          }
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "restriction-union-wins-over-unrestricted",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"value\":[{\"resourceType\":\"storageAccounts\",\"name\":\"Standard_LRS\",\"kind\":\"Storage\",\"locations\":[\"eastus\"],\"restrictions\":[]},{\"resourceType\":\"storageAccounts\",\"name\":\"Standard_LRS\",\"kind\":\"Storage\",\"locations\":[\"eastus\"],\"restrictions\":[{\"type\":\"location\",\"values\":[\"eastus\"],\"reasonCode\":\"NotAvailableForSubscription\"}]}]}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "complete",
+        "failure_code": "",
+        "groups": {
+          "standard_lrs": {
+            "storage": {
+              "known": true,
+              "state": 1
+            }
+          }
+        },
+        "unqualified_names": [],
+        "evidence": {
+          "status": "complete",
+          "values": {
+            "standard_lrs": {
+              "state": 1,
+              "blocked_zones": []
+            }
+          }
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "restriction-union-wins-reversed",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"value\":[{\"resourceType\":\"storageAccounts\",\"name\":\"Standard_LRS\",\"kind\":\"Storage\",\"locations\":[\"eastus\"],\"restrictions\":[{\"type\":\"location\",\"values\":[\"eastus\"],\"reasonCode\":\"NotAvailableForSubscription\"}]},{\"resourceType\":\"storageAccounts\",\"name\":\"Standard_LRS\",\"kind\":\"Storage\",\"locations\":[\"eastus\"],\"restrictions\":[]}]}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "complete",
+        "failure_code": "",
+        "groups": {
+          "standard_lrs": {
+            "storage": {
+              "known": true,
+              "state": 1
+            }
+          }
+        },
+        "unqualified_names": [],
+        "evidence": {
+          "status": "complete",
+          "values": {
+            "standard_lrs": {
+              "state": 1,
+              "blocked_zones": []
+            }
+          }
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "restriction-missing-values-is-unknown",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"value\":[{\"resourceType\":\"storageAccounts\",\"name\":\"Standard_LRS\",\"kind\":\"Storage\",\"locations\":[\"eastus\"],\"restrictions\":[{\"type\":\"location\",\"reasonCode\":\"QuotaId\"}]}]}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "complete",
+        "failure_code": "",
+        "groups": {
+          "standard_lrs": {
+            "storage": {
+              "known": false,
+              "state": 2
+            }
+          }
+        },
+        "unqualified_names": [],
+        "evidence": {
+          "status": "unknown",
+          "values": {}
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "unsupported-zone-restriction-is-unknown",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"value\":[{\"resourceType\":\"storageAccounts\",\"name\":\"Standard_LRS\",\"kind\":\"Storage\",\"locations\":[\"eastus\"],\"restrictions\":[{\"type\":\"Zone\",\"values\":[\"eastus\"],\"reasonCode\":\"NotAvailableForSubscription\"}]}]}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "complete",
+        "failure_code": "",
+        "groups": {
+          "standard_lrs": {
+            "storage": {
+              "known": false,
+              "state": 2
+            }
+          }
+        },
+        "unqualified_names": [],
+        "evidence": {
+          "status": "unknown",
+          "values": {}
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "unknown-restriction-reason-is-unknown",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"value\":[{\"resourceType\":\"storageAccounts\",\"name\":\"Standard_LRS\",\"kind\":\"Storage\",\"locations\":[\"eastus\"],\"restrictions\":[{\"type\":\"location\",\"values\":[\"eastus\"],\"reasonCode\":\"FutureReason\"}]}]}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "complete",
+        "failure_code": "",
+        "groups": {
+          "standard_lrs": {
+            "storage": {
+              "known": false,
+              "state": 2
+            }
+          }
+        },
+        "unqualified_names": [],
+        "evidence": {
+          "status": "unknown",
+          "values": {}
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "available-false-capability",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"value\":[{\"resourceType\":\"storageAccounts\",\"name\":\"Standard_LRS\",\"kind\":\"Storage\",\"locations\":[\"eastus\"],\"restrictions\":[],\"capabilities\":[{\"name\":\"available\",\"value\":\"false\"}]}]}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "complete",
+        "failure_code": "",
+        "groups": {
+          "standard_lrs": {
+            "storage": {
+              "known": true,
+              "state": 2
+            }
+          }
+        },
+        "unqualified_names": [],
+        "evidence": {
+          "status": "complete",
+          "values": {
+            "standard_lrs": {
+              "state": 2,
+              "blocked_zones": []
+            }
+          }
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "informational-false-capability",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"value\":[{\"resourceType\":\"storageAccounts\",\"name\":\"Standard_LRS\",\"kind\":\"Storage\",\"locations\":[\"eastus\"],\"restrictions\":[],\"capabilities\":[{\"name\":\"supportsnetworkacls\",\"value\":\"false\"}]}]}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "complete",
+        "failure_code": "",
+        "groups": {
+          "standard_lrs": {
+            "storage": {
+              "known": true,
+              "state": 0
+            }
+          }
+        },
+        "unqualified_names": [],
+        "evidence": {
+          "status": "complete",
+          "values": {
+            "standard_lrs": {
+              "state": 0,
+              "blocked_zones": []
+            }
+          }
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "available-unknown-value",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"value\":[{\"resourceType\":\"storageAccounts\",\"name\":\"Standard_LRS\",\"kind\":\"Storage\",\"locations\":[\"eastus\"],\"restrictions\":[],\"capabilities\":[{\"name\":\"available\",\"value\":\"maybe\"}]}]}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "complete",
+        "failure_code": "",
+        "groups": {
+          "standard_lrs": {
+            "storage": {
+              "known": false,
+              "state": 2
+            }
+          }
+        },
+        "unqualified_names": [],
+        "evidence": {
+          "status": "unknown",
+          "values": {}
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "one-unknown-sku-poisons-whole-name-only-evidence",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ],
+          "Standard_GRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"value\":[{\"resourceType\":\"storageAccounts\",\"name\":\"Standard_LRS\",\"kind\":\"Storage\",\"locations\":[\"eastus\"],\"restrictions\":[]},{\"resourceType\":\"storageAccounts\",\"name\":\"Standard_GRS\",\"kind\":\"Storage\",\"locations\":[\"eastus\"]}]}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "complete",
+        "failure_code": "",
+        "groups": {
+          "standard_lrs": {
+            "storage": {
+              "known": true,
+              "state": 0
+            }
+          },
+          "standard_grs": {
+            "storage": {
+              "known": false,
+              "state": 2
+            }
+          }
+        },
+        "unqualified_names": [],
+        "evidence": {
+          "status": "unknown",
+          "values": {}
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "missing-value",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "unknown",
+        "failure_code": "storage_sku_invalid_response",
+        "groups": {},
+        "unqualified_names": [],
+        "evidence": {
+          "status": "unknown",
+          "values": {}
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "null-value",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"value\":null}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "unknown",
+        "failure_code": "storage_sku_invalid_response",
+        "groups": {},
+        "unqualified_names": [],
+        "evidence": {
+          "status": "unknown",
+          "values": {}
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "wrong-value",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"value\":{}}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "unknown",
+        "failure_code": "storage_sku_invalid_response",
+        "groups": {},
+        "unqualified_names": [],
+        "evidence": {
+          "status": "unknown",
+          "values": {}
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "null-row",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"value\":[null]}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "unknown",
+        "failure_code": "storage_sku_invalid_response",
+        "groups": {},
+        "unqualified_names": [],
+        "evidence": {
+          "status": "unknown",
+          "values": {}
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "missing-required-name",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"value\":[{\"resourceType\":\"storageAccounts\",\"kind\":\"Storage\",\"locations\":[\"eastus\"],\"restrictions\":[],\"tier\":\"Standard\"}]}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "unknown",
+        "failure_code": "storage_sku_invalid_response",
+        "groups": {},
+        "unqualified_names": [],
+        "evidence": {
+          "status": "unknown",
+          "values": {}
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "null-optional-locations",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"value\":[{\"resourceType\":\"storageAccounts\",\"name\":\"Standard_LRS\",\"kind\":\"Storage\",\"locations\":null,\"restrictions\":[]}]}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "unknown",
+        "failure_code": "storage_sku_invalid_response",
+        "groups": {},
+        "unqualified_names": [],
+        "evidence": {
+          "status": "unknown",
+          "values": {}
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "noncanonical-wire-property",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"Value\":[]}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "unknown",
+        "failure_code": "storage_sku_invalid_response",
+        "groups": {},
+        "unqualified_names": [],
+        "evidence": {
+          "status": "unknown",
+          "values": {}
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "unicode-wire-property",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"value\":[{\"resourceType\":\"storageAccounts\",\"name\":\"Standard_LRS\",\"kind\":\"Storage\",\"locations\":[\"eastus\"],\"restrictionſ\":[]}]}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "unknown",
+        "failure_code": "storage_sku_invalid_response",
+        "groups": {},
+        "unqualified_names": [],
+        "evidence": {
+          "status": "unknown",
+          "values": {}
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "duplicate-envelope-property",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"value\":[],\"value\":[]}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "unknown",
+        "failure_code": "storage_sku_invalid_response",
+        "groups": {},
+        "unqualified_names": [],
+        "evidence": {
+          "status": "unknown",
+          "values": {}
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "trailing-json",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"value\":[]}{}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "unknown",
+        "failure_code": "storage_sku_invalid_response",
+        "groups": {},
+        "unqualified_names": [],
+        "evidence": {
+          "status": "unknown",
+          "values": {}
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "unknown-property-duplicate",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"value\":[],\"metadata\":{\"x\":1,\"X\":2}}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "unknown",
+        "failure_code": "storage_sku_invalid_response",
+        "groups": {},
+        "unqualified_names": [],
+        "evidence": {
+          "status": "unknown",
+          "values": {}
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "malformed-after-valid-row",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"value\":[{\"resourceType\":\"storageAccounts\",\"name\":\"Standard_LRS\",\"kind\":\"Storage\",\"locations\":[\"eastus\"],\"restrictions\":[]},{\"name\":5}]}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "unknown",
+        "failure_code": "storage_sku_invalid_response",
+        "groups": {},
+        "unqualified_names": [],
+        "evidence": {
+          "status": "unknown",
+          "values": {}
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "nonempty-continuation",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"value\":[{\"resourceType\":\"storageAccounts\",\"name\":\"Standard_LRS\",\"kind\":\"Storage\",\"locations\":[\"eastus\"],\"restrictions\":[]}],\"nextLink\":\"https://canary.invalid/next\"}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "unknown",
+        "failure_code": "storage_sku_unexpected_paging",
+        "groups": {},
+        "unqualified_names": [],
+        "evidence": {
+          "status": "unknown",
+          "values": {}
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "null-continuation",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"value\":[{\"resourceType\":\"storageAccounts\",\"name\":\"Standard_LRS\",\"kind\":\"Storage\",\"locations\":[\"eastus\"],\"restrictions\":[]}],\"nextLink\":null}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "unknown",
+        "failure_code": "storage_sku_unexpected_paging",
+        "groups": {},
+        "unqualified_names": [],
+        "evidence": {
+          "status": "unknown",
+          "values": {}
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "empty-continuation",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"value\":[{\"resourceType\":\"storageAccounts\",\"name\":\"Standard_LRS\",\"kind\":\"Storage\",\"locations\":[\"eastus\"],\"restrictions\":[]}],\"nextLink\":\"\"}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "unknown",
+        "failure_code": "storage_sku_unexpected_paging",
+        "groups": {},
+        "unqualified_names": [],
+        "evidence": {
+          "status": "unknown",
+          "values": {}
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "http-status-201",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 201,
+        "body": "{\"value\":[]}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "unknown",
+        "failure_code": "storage_sku_status_invalid",
+        "groups": {},
+        "unqualified_names": [],
+        "evidence": {
+          "status": "unknown",
+          "values": {}
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "http-status-202",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 202,
+        "body": "{\"value\":[]}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "unknown",
+        "failure_code": "storage_sku_status_invalid",
+        "groups": {},
+        "unqualified_names": [],
+        "evidence": {
+          "status": "unknown",
+          "values": {}
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "http-status-204",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 204,
+        "body": "{\"value\":[]}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "unknown",
+        "failure_code": "storage_sku_status_invalid",
+        "groups": {},
+        "unqualified_names": [],
+        "evidence": {
+          "status": "unknown",
+          "values": {}
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "http-status-206",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 206,
+        "body": "{\"value\":[]}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "unknown",
+        "failure_code": "storage_sku_status_invalid",
+        "groups": {},
+        "unqualified_names": [],
+        "evidence": {
+          "status": "unknown",
+          "values": {}
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "http-status-301",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 301,
+        "body": "{\"value\":[]}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "unknown",
+        "failure_code": "storage_sku_status_invalid",
+        "groups": {},
+        "unqualified_names": [],
+        "evidence": {
+          "status": "unknown",
+          "values": {}
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "http-status-403",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 403,
+        "body": "{\"value\":[]}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "unknown",
+        "failure_code": "storage_sku_status_invalid",
+        "groups": {},
+        "unqualified_names": [],
+        "evidence": {
+          "status": "unknown",
+          "values": {}
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "http-status-404",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 404,
+        "body": "{\"value\":[]}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "unknown",
+        "failure_code": "storage_sku_status_invalid",
+        "groups": {},
+        "unqualified_names": [],
+        "evidence": {
+          "status": "unknown",
+          "values": {}
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "http-status-429",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 429,
+        "body": "{\"value\":[]}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "unknown",
+        "failure_code": "storage_sku_status_invalid",
+        "groups": {},
+        "unqualified_names": [],
+        "evidence": {
+          "status": "unknown",
+          "values": {}
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "http-status-500",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 500,
+        "body": "{\"value\":[]}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "unknown",
+        "failure_code": "storage_sku_status_invalid",
+        "groups": {},
+        "unqualified_names": [],
+        "evidence": {
+          "status": "unknown",
+          "values": {}
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "http-status-with-getter-error",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 403,
+        "body": "{\"value\":[]}",
+        "error": "opaque-canary"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "unknown",
+        "failure_code": "storage_sku_status_invalid",
+        "groups": {},
+        "unqualified_names": [],
+        "evidence": {
+          "status": "unknown",
+          "values": {}
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "getter-error-no-response",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": null,
+        "body": "{\"value\":[]}",
+        "error": "opaque-canary"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "unknown",
+        "failure_code": "storage_sku_request_failed",
+        "groups": {},
+        "unqualified_names": [],
+        "evidence": {
+          "status": "unknown",
+          "values": {}
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "parent-cancelled-before-request",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"value\":[]}"
+      },
+      "context": "cancelled-before",
+      "expected": {
+        "collection_status": null,
+        "failure_code": "",
+        "groups": {},
+        "unqualified_names": [],
+        "evidence": null,
+        "getter_calls": 0,
+        "error": "context.Canceled"
+      }
+    },
+    {
+      "name": "parent-deadline-after-get",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 403,
+        "body": "{\"value\":[]}",
+        "error": "opaque-canary"
+      },
+      "context": "deadline-after-get",
+      "expected": {
+        "collection_status": null,
+        "failure_code": "",
+        "groups": {},
+        "unqualified_names": [],
+        "evidence": null,
+        "getter_calls": 1,
+        "error": "context.DeadlineExceeded"
+      }
+    },
+    {
+      "name": "getter-cancelled",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"value\":[]}",
+        "error": "context.Canceled"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": null,
+        "failure_code": "",
+        "groups": {},
+        "unqualified_names": [],
+        "evidence": null,
+        "getter_calls": 1,
+        "error": "context.Canceled"
+      }
+    },
+    {
+      "name": "unselected-subscription",
+      "request": {
+        "subscription_id": "22222222-2222-2222-2222-222222222222",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"value\":[]}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": null,
+        "failure_code": "",
+        "groups": {},
+        "unqualified_names": [],
+        "evidence": null,
+        "getter_calls": 0,
+        "error": "storage_sku_request_invalid"
+      }
+    },
+    {
+      "name": "display-target-region-rejected",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "East US",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"value\":[]}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": null,
+        "failure_code": "",
+        "groups": {},
+        "unqualified_names": [],
+        "evidence": null,
+        "getter_calls": 0,
+        "error": "storage_sku_request_invalid"
+      }
+    },
+    {
+      "name": "alias-cannot-remap-canonical-region",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {
+          "eastus": "westus"
+        },
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"value\":[]}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": null,
+        "failure_code": "",
+        "groups": {},
+        "unqualified_names": [],
+        "evidence": null,
+        "getter_calls": 0,
+        "error": "storage_sku_request_invalid"
+      }
+    },
+    {
+      "name": "primary-full-248-row-example",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage",
+            "BlobStorage"
+          ],
+          "Standard_ZRS": [
+            "Storage"
+          ],
+          "Premium_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 200,
+        "body_file": "storage-primary-2023-01-01-SKUList.json",
+        "body_pointer": "/responses/200/body"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "complete",
+        "failure_code": "",
+        "groups": {
+          "standard_lrs": {
+            "storage": {
+              "known": true,
+              "state": 0
+            },
+            "blobstorage": {
+              "known": true,
+              "state": 0
+            }
+          },
+          "standard_zrs": {
+            "storage": {
+              "known": true,
+              "state": 0
+            }
+          },
+          "standard_grs": {
+            "storage": {
+              "known": true,
+              "state": 0
+            },
+            "blobstorage": {
+              "known": true,
+              "state": 0
+            }
+          },
+          "standard_ragrs": {
+            "storage": {
+              "known": true,
+              "state": 0
+            },
+            "blobstorage": {
+              "known": true,
+              "state": 0
+            }
+          },
+          "premium_lrs": {
+            "storage": {
+              "known": true,
+              "state": 0
+            }
+          }
+        },
+        "unqualified_names": [],
+        "evidence": {
+          "status": "complete",
+          "values": {
+            "standard_lrs": {
+              "state": 0,
+              "blocked_zones": []
+            },
+            "standard_zrs": {
+              "state": 0,
+              "blocked_zones": []
+            },
+            "premium_lrs": {
+              "state": 0,
+              "blocked_zones": []
+            }
+          }
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "primary-does-not-invent-storagev2",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "StorageV2"
+          ]
+        }
+      },
+      "response": {
+        "status": 200,
+        "body_file": "storage-primary-2023-01-01-SKUList.json",
+        "body_pointer": "/responses/200/body"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "complete",
+        "failure_code": "",
+        "groups": {
+          "standard_lrs": {
+            "storage": {
+              "known": true,
+              "state": 0
+            },
+            "blobstorage": {
+              "known": true,
+              "state": 0
+            }
+          },
+          "standard_zrs": {
+            "storage": {
+              "known": true,
+              "state": 0
+            }
+          },
+          "standard_grs": {
+            "storage": {
+              "known": true,
+              "state": 0
+            },
+            "blobstorage": {
+              "known": true,
+              "state": 0
+            }
+          },
+          "standard_ragrs": {
+            "storage": {
+              "known": true,
+              "state": 0
+            },
+            "blobstorage": {
+              "known": true,
+              "state": 0
+            }
+          },
+          "premium_lrs": {
+            "storage": {
+              "known": true,
+              "state": 0
+            }
+          }
+        },
+        "unqualified_names": [],
+        "evidence": {
+          "status": "complete",
+          "values": {
+            "standard_lrs": {
+              "state": 2,
+              "blocked_zones": []
+            }
+          }
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "duplicate-capability-equal-is-idempotent",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"value\":[{\"resourceType\":\"storageAccounts\",\"name\":\"Standard_LRS\",\"kind\":\"Storage\",\"locations\":[\"eastus\"],\"restrictions\":[],\"capabilities\":[{\"name\":\"available\",\"value\":\"true\"},{\"name\":\"AVAILABLE\",\"value\":\"TRUE\"}]}]}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "complete",
+        "failure_code": "",
+        "groups": {
+          "standard_lrs": {
+            "storage": {
+              "known": true,
+              "state": 0
+            }
+          }
+        },
+        "unqualified_names": [],
+        "evidence": {
+          "status": "complete",
+          "values": {
+            "standard_lrs": {
+              "state": 0,
+              "blocked_zones": []
+            }
+          }
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    },
+    {
+      "name": "contradictory-capability-is-unknown",
+      "request": {
+        "subscription_id": "11111111-1111-1111-1111-111111111111",
+        "region": "eastus",
+        "location_aliases": {},
+        "required_kinds": {
+          "Standard_LRS": [
+            "Storage"
+          ]
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"value\":[{\"resourceType\":\"storageAccounts\",\"name\":\"Standard_LRS\",\"kind\":\"Storage\",\"locations\":[\"eastus\"],\"restrictions\":[],\"capabilities\":[{\"name\":\"available\",\"value\":\"true\"},{\"name\":\"available\",\"value\":\"false\"}]}]}"
+      },
+      "context": "active",
+      "expected": {
+        "collection_status": "complete",
+        "failure_code": "",
+        "groups": {
+          "standard_lrs": {
+            "storage": {
+              "known": false,
+              "state": 2
+            }
+          }
+        },
+        "unqualified_names": [],
+        "evidence": {
+          "status": "unknown",
+          "values": {}
+        },
+        "getter_calls": 1,
+        "error": ""
+      }
+    }
+  ]
+}
