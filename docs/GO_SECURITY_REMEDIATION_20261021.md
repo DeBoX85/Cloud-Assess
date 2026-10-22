@@ -1,0 +1,17 @@
+# Approved Go security remediation
+
+Denis approved Go1.26.9to1.26.10on2026-10-21with full QA and rollback. Product base183/458d5c52is preserved; current handover is carried explicitly through planning checkpoint1348503b. No application module version, source pin, frozen workflow baseline, capture or expected control identity is to change.
+
+Official go.dev release metadata was downloaded and the Linux amd64 archive verified at66936659bytes/SHA256ccfe7ae822d2c2f41f4fe7c956199967a4dac22d0ee0d2b2bfdb440aab3b20c5. Installed isolated compiler reports go1.26.10linux/amd64. Windows amd64 ZIP metadata:75004774bytes/SHA2567ecd2d7260e82c59bcbd7f1077a07cee2dea607295b858df67195a1e4e09629b. A metadata hash does not claim a local Windows installation.
+
+Full upstream [go1.26.9...go1.26.10](https://github.com/golang/go/compare/go1.26.9...go1.26.10) comparison has3commits/8files: VERSION; crypto/x509 pure Go/macOS/Windows chain filtering; standard-library vendored x/net metadata; and moddeps test housekeeping. All8patches were read. The x509 fix rejects chains containing8distrusted intermediate SPKI hashes and applies it to OS chain verification too. No target SDK/x-net module refresh follows from Go's internal vendored dependency change. Existing standard-library licenses must be regenerated/compared, not assumed equal.
+
+Active Go declarations, inventory collector/fixtures and generated workflows move to1.26.10. Frozen quality-before-20261017.yml.txt and its hash stay unchanged; generator applies an explicit setup-only override. Conservation comparison reverses only that reviewed version substitution, while its negative control rejects an old-version setup. All original test/race/fuzz/coverage/scans/worker/gate blocks stay mandatory. Bootstrap checksum changes and an optional target-branch environment setting allow recreating the candidate while protected code retains the old pin; version mismatch remains a hard error.
+
+Required closure: exact module graph/sums/source-pin comparison, regenerated dependency inventory/notices and tidy-clean check; local serial preflight plus narrow setup/inventory/conservation controls; source/toolchain rollback/restoration proof; own full Linux/Windows/source QA with complete logs,622/617control identity conservation,23captures/315chunks/909865bytes and explicit current security findings. Any failure is retained and classified before another run. This is not installed/customer rollback, independent review, live validation, protected acceptance or release.
+
+Expanded seven-day/full-codebase review proceeds under [the plan](REVIEW_PLAN_20261021.md) and remains incomplete. Task7formal closure and task8freeze wait for their dependencies. No live requests, unrelated refresh or protected mutations.
+
+## Local candidate proof
+
+Full serial repository preflight passed.12active source/toolchain/config/inventory files were atomically restored to exact183bytes: original static checks and focused Azure/CLI tests pass; unchanged old1.26.9scanner reproduces GO-2026-6809. All candidate bytes restored exactly; static/focused checks pass and1.26.10scan reports0reachable/3imported-not-called/1module-only. Full local proof/raw logs in [manifest](evidence/20261021/go-remediation/MANIFEST.json). Module versions/sums, reference pins/frozen baseline unchanged; regenerated inventory changes only Go version and root go.mod hash, notices only Go heading labels with unchanged license hashes. Full own hosted/native/source/control/capture QA remains pending at publication.

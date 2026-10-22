@@ -1,0 +1,14 @@
+{
+  "issue": "QA-AUD7-03 review narrative used1004instead of959tracked paths",
+  "product_revision": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+  "product_tracked_paths": 959,
+  "original_snapshot_inventory_members": 959,
+  "all_snapshot_path_mode_blob_entries_match_product": true,
+  "product_go_files": 326,
+  "product_go_bytes": 2342970,
+  "context_handover_93b086fb_paths": 1004,
+  "root_cause_status": "1004equals handover tree count; copying that count is a plausible inference, not proven operation history",
+  "impact": "narrative count only; original retained inventory and exact183read ledger remain correct",
+  "snapshot_member": "code-inventory-initial.json",
+  "snapshot_member_sha256": "554bbdfc320a26a7aa8ad1f8be817c9bf3b1226f5af7e7739aec51970a3f0e3d"
+}
