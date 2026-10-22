@@ -1,0 +1,4115 @@
+{
+  "format": "required-inventory-contract-v1",
+  "frozen_before_production": false,
+  "prepared_against": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+  "cases": [
+    {
+      "name": "vm-complete-owned-coordinates",
+      "selected": {
+        "aaaaaaaa-1111-4111-8111-111111111111": "One"
+      },
+      "resources": [
+        {
+          "id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm",
+          "subscriptionId": "aaaaaaaa-1111-4111-8111-111111111111",
+          "resourceGroup": "rg",
+          "name": "vm",
+          "type": "microsoft.compute/virtualmachines",
+          "location": "eastus",
+          "skuName": "Standard_D2s_v5",
+          "skuTier": "Standard",
+          "skuFamily": "DSv5",
+          "skuCapacity": 2,
+          "kind": "",
+          "tags": {
+            "not-a-coordinate": "ignored"
+          },
+          "sla": "ignored"
+        }
+      ],
+      "declarations": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "status": "complete"
+        }
+      ],
+      "request": {
+        "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+        "source_region": "eastus",
+        "target_region": "westeurope"
+      },
+      "collections": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "source_region": "eastus",
+          "target_region": "westeurope",
+          "resource_type": "microsoft.compute/virtualmachines",
+          "kind": "",
+          "vm": {
+            "SubscriptionID": "aaaaaaaa-1111-4111-8111-111111111111",
+            "Region": "westeurope",
+            "ResourceType": "microsoft.compute/virtualmachines",
+            "Status": "complete",
+            "Groups": {
+              "standard_d2s_v5": {
+                "Known": true,
+                "State": 0,
+                "BlockedZones": []
+              }
+            },
+            "FailureCode": ""
+          }
+        }
+      ],
+      "want": {
+        "error": "",
+        "error_phase": "",
+        "plan_status": "complete",
+        "scope_status": "complete",
+        "requirements": [
+          {
+            "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+            "source_region": "eastus",
+            "resource_type": "microsoft.compute/virtualmachines",
+            "kind": "",
+            "skus": [
+              "standard_d2s_v5"
+            ],
+            "kinds": {},
+            "resource_ids": [
+              "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm"
+            ],
+            "flags": []
+          }
+        ],
+        "admission_status": "complete",
+        "sku_evidence": {
+          "microsoft.compute/virtualmachines": {
+            "status": "complete",
+            "values": {
+              "standard_d2s_v5": {
+                "state": 0,
+                "blocked_zones": []
+              }
+            }
+          }
+        },
+        "catalogs": [],
+        "preserve_raw_records": true
+      }
+    },
+    {
+      "name": "vm-no-collection-is-unknown",
+      "selected": {
+        "aaaaaaaa-1111-4111-8111-111111111111": "One"
+      },
+      "resources": [
+        {
+          "id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm",
+          "subscriptionId": "aaaaaaaa-1111-4111-8111-111111111111",
+          "resourceGroup": "rg",
+          "name": "vm",
+          "type": "microsoft.compute/virtualmachines",
+          "location": "eastus",
+          "skuName": "Standard_D2s_v5",
+          "skuTier": "",
+          "skuFamily": "",
+          "skuCapacity": 0,
+          "kind": ""
+        }
+      ],
+      "declarations": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "status": "complete"
+        }
+      ],
+      "request": {
+        "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+        "source_region": "eastus",
+        "target_region": "westeurope"
+      },
+      "collections": [],
+      "want": {
+        "error": "",
+        "error_phase": "",
+        "plan_status": "complete",
+        "scope_status": "complete",
+        "requirements": [
+          {
+            "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+            "source_region": "eastus",
+            "resource_type": "microsoft.compute/virtualmachines",
+            "kind": "",
+            "skus": [
+              "standard_d2s_v5"
+            ],
+            "kinds": {},
+            "resource_ids": [
+              "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm"
+            ],
+            "flags": []
+          }
+        ],
+        "admission_status": "partial",
+        "sku_evidence": {
+          "microsoft.compute/virtualmachines": {
+            "status": "unknown",
+            "values": {}
+          }
+        },
+        "catalogs": [],
+        "preserve_raw_records": true
+      }
+    },
+    {
+      "name": "vm-complete-empty-is-unavailable",
+      "selected": {
+        "aaaaaaaa-1111-4111-8111-111111111111": "One"
+      },
+      "resources": [
+        {
+          "id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm",
+          "subscriptionId": "aaaaaaaa-1111-4111-8111-111111111111",
+          "resourceGroup": "rg",
+          "name": "vm",
+          "type": "microsoft.compute/virtualmachines",
+          "location": "eastus",
+          "skuName": "Standard_D2s_v5",
+          "skuTier": "",
+          "skuFamily": "",
+          "skuCapacity": 0,
+          "kind": ""
+        }
+      ],
+      "declarations": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "status": "complete"
+        }
+      ],
+      "request": {
+        "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+        "source_region": "eastus",
+        "target_region": "westeurope"
+      },
+      "collections": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "source_region": "eastus",
+          "target_region": "westeurope",
+          "resource_type": "microsoft.compute/virtualmachines",
+          "kind": "",
+          "vm": {
+            "SubscriptionID": "aaaaaaaa-1111-4111-8111-111111111111",
+            "Region": "westeurope",
+            "ResourceType": "microsoft.compute/virtualmachines",
+            "Status": "complete",
+            "Groups": {},
+            "FailureCode": ""
+          }
+        }
+      ],
+      "want": {
+        "error": "",
+        "error_phase": "",
+        "plan_status": "complete",
+        "scope_status": "complete",
+        "requirements": [
+          {
+            "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+            "source_region": "eastus",
+            "resource_type": "microsoft.compute/virtualmachines",
+            "kind": "",
+            "skus": [
+              "standard_d2s_v5"
+            ],
+            "kinds": {},
+            "resource_ids": [
+              "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm"
+            ],
+            "flags": []
+          }
+        ],
+        "admission_status": "complete",
+        "sku_evidence": {
+          "microsoft.compute/virtualmachines": {
+            "status": "complete",
+            "values": {
+              "standard_d2s_v5": {
+                "state": 2,
+                "blocked_zones": []
+              }
+            }
+          }
+        },
+        "catalogs": [],
+        "preserve_raw_records": true
+      }
+    },
+    {
+      "name": "vm-partial-prefix-not-eligible",
+      "selected": {
+        "aaaaaaaa-1111-4111-8111-111111111111": "One"
+      },
+      "resources": [
+        {
+          "id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm",
+          "subscriptionId": "aaaaaaaa-1111-4111-8111-111111111111",
+          "resourceGroup": "rg",
+          "name": "vm",
+          "type": "microsoft.compute/virtualmachines",
+          "location": "eastus",
+          "skuName": "Standard_D2s_v5",
+          "skuTier": "",
+          "skuFamily": "",
+          "skuCapacity": 0,
+          "kind": ""
+        }
+      ],
+      "declarations": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "status": "complete"
+        }
+      ],
+      "request": {
+        "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+        "source_region": "eastus",
+        "target_region": "westeurope"
+      },
+      "collections": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "source_region": "eastus",
+          "target_region": "westeurope",
+          "resource_type": "microsoft.compute/virtualmachines",
+          "kind": "",
+          "vm": {
+            "SubscriptionID": "aaaaaaaa-1111-4111-8111-111111111111",
+            "Region": "westeurope",
+            "ResourceType": "microsoft.compute/virtualmachines",
+            "Status": "partial",
+            "Groups": {
+              "standard_d2s_v5": {
+                "Known": true,
+                "State": 0,
+                "BlockedZones": []
+              }
+            },
+            "FailureCode": "vm_sku_request_failed"
+          }
+        }
+      ],
+      "want": {
+        "error": "",
+        "error_phase": "",
+        "plan_status": "complete",
+        "scope_status": "complete",
+        "requirements": [
+          {
+            "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+            "source_region": "eastus",
+            "resource_type": "microsoft.compute/virtualmachines",
+            "kind": "",
+            "skus": [
+              "standard_d2s_v5"
+            ],
+            "kinds": {},
+            "resource_ids": [
+              "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm"
+            ],
+            "flags": []
+          }
+        ],
+        "admission_status": "partial",
+        "sku_evidence": {
+          "microsoft.compute/virtualmachines": {
+            "status": "unknown",
+            "values": {}
+          }
+        },
+        "catalogs": [],
+        "preserve_raw_records": true
+      }
+    },
+    {
+      "name": "scope-missing-is-unknown",
+      "selected": {
+        "aaaaaaaa-1111-4111-8111-111111111111": "One"
+      },
+      "resources": [
+        {
+          "id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm",
+          "subscriptionId": "aaaaaaaa-1111-4111-8111-111111111111",
+          "resourceGroup": "rg",
+          "name": "vm",
+          "type": "microsoft.compute/virtualmachines",
+          "location": "eastus",
+          "skuName": "Standard_D2s_v5",
+          "skuTier": "",
+          "skuFamily": "",
+          "skuCapacity": 0,
+          "kind": ""
+        }
+      ],
+      "declarations": [],
+      "request": {
+        "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+        "source_region": "eastus",
+        "target_region": "westeurope"
+      },
+      "collections": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "source_region": "eastus",
+          "target_region": "westeurope",
+          "resource_type": "microsoft.compute/virtualmachines",
+          "kind": "",
+          "vm": {
+            "SubscriptionID": "aaaaaaaa-1111-4111-8111-111111111111",
+            "Region": "westeurope",
+            "ResourceType": "microsoft.compute/virtualmachines",
+            "Status": "complete",
+            "Groups": {
+              "standard_d2s_v5": {
+                "Known": true,
+                "State": 0,
+                "BlockedZones": []
+              }
+            },
+            "FailureCode": ""
+          }
+        }
+      ],
+      "want": {
+        "error": "",
+        "error_phase": "",
+        "plan_status": "partial",
+        "scope_status": "unknown",
+        "requirements": [
+          {
+            "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+            "source_region": "eastus",
+            "resource_type": "microsoft.compute/virtualmachines",
+            "kind": "",
+            "skus": [
+              "standard_d2s_v5"
+            ],
+            "kinds": {},
+            "resource_ids": [
+              "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm"
+            ],
+            "flags": []
+          }
+        ],
+        "admission_status": "unknown",
+        "sku_evidence": {
+          "microsoft.compute/virtualmachines": {
+            "status": "unknown",
+            "values": {}
+          }
+        },
+        "catalogs": [],
+        "preserve_raw_records": true
+      }
+    },
+    {
+      "name": "scope-partial-retains-diagnostics",
+      "selected": {
+        "aaaaaaaa-1111-4111-8111-111111111111": "One"
+      },
+      "resources": [
+        {
+          "id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm",
+          "subscriptionId": "aaaaaaaa-1111-4111-8111-111111111111",
+          "resourceGroup": "rg",
+          "name": "vm",
+          "type": "microsoft.compute/virtualmachines",
+          "location": "eastus",
+          "skuName": "Standard_D2s_v5",
+          "skuTier": "",
+          "skuFamily": "",
+          "skuCapacity": 0,
+          "kind": ""
+        }
+      ],
+      "declarations": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "status": "partial"
+        }
+      ],
+      "request": {
+        "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+        "source_region": "eastus",
+        "target_region": "westeurope"
+      },
+      "collections": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "source_region": "eastus",
+          "target_region": "westeurope",
+          "resource_type": "microsoft.compute/virtualmachines",
+          "kind": "",
+          "vm": {
+            "SubscriptionID": "aaaaaaaa-1111-4111-8111-111111111111",
+            "Region": "westeurope",
+            "ResourceType": "microsoft.compute/virtualmachines",
+            "Status": "complete",
+            "Groups": {
+              "standard_d2s_v5": {
+                "Known": true,
+                "State": 0,
+                "BlockedZones": []
+              }
+            },
+            "FailureCode": ""
+          }
+        }
+      ],
+      "want": {
+        "error": "",
+        "error_phase": "",
+        "plan_status": "partial",
+        "scope_status": "partial",
+        "requirements": [
+          {
+            "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+            "source_region": "eastus",
+            "resource_type": "microsoft.compute/virtualmachines",
+            "kind": "",
+            "skus": [
+              "standard_d2s_v5"
+            ],
+            "kinds": {},
+            "resource_ids": [
+              "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm"
+            ],
+            "flags": []
+          }
+        ],
+        "admission_status": "partial",
+        "sku_evidence": {
+          "microsoft.compute/virtualmachines": {
+            "status": "unknown",
+            "values": {}
+          }
+        },
+        "catalogs": [],
+        "preserve_raw_records": true
+      }
+    },
+    {
+      "name": "other-scope-partial-does-not-poison-complete",
+      "selected": {
+        "aaaaaaaa-1111-4111-8111-111111111111": "One",
+        "bbbbbbbb-2222-4222-8222-222222222222": "Two"
+      },
+      "resources": [
+        {
+          "id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm",
+          "subscriptionId": "aaaaaaaa-1111-4111-8111-111111111111",
+          "resourceGroup": "rg",
+          "name": "vm",
+          "type": "microsoft.compute/virtualmachines",
+          "location": "eastus",
+          "skuName": "Standard_D2s_v5",
+          "skuTier": "",
+          "skuFamily": "",
+          "skuCapacity": 0,
+          "kind": ""
+        }
+      ],
+      "declarations": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "status": "complete"
+        },
+        {
+          "subscription_id": "bbbbbbbb-2222-4222-8222-222222222222",
+          "status": "partial"
+        }
+      ],
+      "request": {
+        "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+        "source_region": "eastus",
+        "target_region": "westeurope"
+      },
+      "collections": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "source_region": "eastus",
+          "target_region": "westeurope",
+          "resource_type": "microsoft.compute/virtualmachines",
+          "kind": "",
+          "vm": {
+            "SubscriptionID": "aaaaaaaa-1111-4111-8111-111111111111",
+            "Region": "westeurope",
+            "ResourceType": "microsoft.compute/virtualmachines",
+            "Status": "complete",
+            "Groups": {
+              "standard_d2s_v5": {
+                "Known": true,
+                "State": 0,
+                "BlockedZones": []
+              }
+            },
+            "FailureCode": ""
+          }
+        }
+      ],
+      "want": {
+        "error": "",
+        "error_phase": "",
+        "plan_status": "partial",
+        "scope_status": "complete",
+        "requirements": [
+          {
+            "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+            "source_region": "eastus",
+            "resource_type": "microsoft.compute/virtualmachines",
+            "kind": "",
+            "skus": [
+              "standard_d2s_v5"
+            ],
+            "kinds": {},
+            "resource_ids": [
+              "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm"
+            ],
+            "flags": []
+          }
+        ],
+        "admission_status": "complete",
+        "sku_evidence": {
+          "microsoft.compute/virtualmachines": {
+            "status": "complete",
+            "values": {
+              "standard_d2s_v5": {
+                "state": 0,
+                "blocked_zones": []
+              }
+            }
+          }
+        },
+        "catalogs": [],
+        "preserve_raw_records": true
+      }
+    },
+    {
+      "name": "complete-empty-inventory",
+      "selected": {
+        "aaaaaaaa-1111-4111-8111-111111111111": "One"
+      },
+      "resources": [],
+      "declarations": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "status": "complete"
+        }
+      ],
+      "request": {
+        "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+        "source_region": "eastus",
+        "target_region": "westeurope"
+      },
+      "collections": [],
+      "want": {
+        "error": "",
+        "error_phase": "",
+        "plan_status": "complete",
+        "scope_status": "complete",
+        "requirements": [],
+        "admission_status": "complete",
+        "sku_evidence": {},
+        "catalogs": [],
+        "preserve_raw_records": true
+      }
+    },
+    {
+      "name": "empty-selected-plan",
+      "selected": {},
+      "resources": [],
+      "declarations": [],
+      "request": {
+        "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+        "source_region": "eastus",
+        "target_region": "westeurope"
+      },
+      "collections": [],
+      "want": {
+        "error": "required_evidence_invalid",
+        "error_phase": "admission",
+        "plan_status": "complete",
+        "scope_status": "",
+        "requirements": [],
+        "admission_status": "",
+        "sku_evidence": {},
+        "catalogs": [],
+        "preserve_raw_records": true
+      }
+    },
+    {
+      "name": "missing-sku-does-not-vanish",
+      "selected": {
+        "aaaaaaaa-1111-4111-8111-111111111111": "One"
+      },
+      "resources": [
+        {
+          "id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm",
+          "subscriptionId": "aaaaaaaa-1111-4111-8111-111111111111",
+          "resourceGroup": "rg",
+          "name": "vm",
+          "type": "microsoft.compute/virtualmachines",
+          "location": "eastus",
+          "skuName": "",
+          "skuTier": "",
+          "skuFamily": "",
+          "skuCapacity": 0,
+          "kind": ""
+        }
+      ],
+      "declarations": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "status": "complete"
+        }
+      ],
+      "request": {
+        "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+        "source_region": "eastus",
+        "target_region": "westeurope"
+      },
+      "collections": [],
+      "want": {
+        "error": "",
+        "error_phase": "",
+        "plan_status": "complete",
+        "scope_status": "complete",
+        "requirements": [
+          {
+            "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+            "source_region": "eastus",
+            "resource_type": "microsoft.compute/virtualmachines",
+            "kind": "",
+            "skus": [],
+            "kinds": {},
+            "resource_ids": [
+              "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm"
+            ],
+            "flags": [
+              "missing_sku"
+            ]
+          }
+        ],
+        "admission_status": "partial",
+        "sku_evidence": {
+          "microsoft.compute/virtualmachines": {
+            "status": "unknown",
+            "values": {}
+          }
+        },
+        "catalogs": [],
+        "preserve_raw_records": true
+      }
+    },
+    {
+      "name": "unicode-sku-retained-unrepresentable",
+      "selected": {
+        "aaaaaaaa-1111-4111-8111-111111111111": "One"
+      },
+      "resources": [
+        {
+          "id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm",
+          "subscriptionId": "aaaaaaaa-1111-4111-8111-111111111111",
+          "resourceGroup": "rg",
+          "name": "vm",
+          "type": "microsoft.compute/virtualmachines",
+          "location": "eastus",
+          "skuName": "Dø",
+          "skuTier": "",
+          "skuFamily": "",
+          "skuCapacity": 0,
+          "kind": ""
+        }
+      ],
+      "declarations": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "status": "complete"
+        }
+      ],
+      "request": {
+        "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+        "source_region": "eastus",
+        "target_region": "westeurope"
+      },
+      "collections": [],
+      "want": {
+        "error": "",
+        "error_phase": "",
+        "plan_status": "complete",
+        "scope_status": "complete",
+        "requirements": [
+          {
+            "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+            "source_region": "eastus",
+            "resource_type": "microsoft.compute/virtualmachines",
+            "kind": "",
+            "skus": [],
+            "kinds": {},
+            "resource_ids": [
+              "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm"
+            ],
+            "flags": [
+              "unrepresentable_sku"
+            ]
+          }
+        ],
+        "admission_status": "partial",
+        "sku_evidence": {
+          "microsoft.compute/virtualmachines": {
+            "status": "unknown",
+            "values": {}
+          }
+        },
+        "catalogs": [],
+        "preserve_raw_records": true
+      }
+    },
+    {
+      "name": "sku-alias-raw-retained",
+      "selected": {
+        "aaaaaaaa-1111-4111-8111-111111111111": "One"
+      },
+      "resources": [
+        {
+          "id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm",
+          "subscriptionId": "aaaaaaaa-1111-4111-8111-111111111111",
+          "resourceGroup": "rg",
+          "name": "vm",
+          "type": "microsoft.compute/virtualmachines",
+          "location": "eastus",
+          "skuName": " Standard_D2s_v5 ",
+          "skuTier": "",
+          "skuFamily": "",
+          "skuCapacity": 0,
+          "kind": ""
+        }
+      ],
+      "declarations": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "status": "complete"
+        }
+      ],
+      "request": {
+        "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+        "source_region": "eastus",
+        "target_region": "westeurope"
+      },
+      "collections": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "source_region": "eastus",
+          "target_region": "westeurope",
+          "resource_type": "microsoft.compute/virtualmachines",
+          "kind": "",
+          "vm": {
+            "SubscriptionID": "aaaaaaaa-1111-4111-8111-111111111111",
+            "Region": "westeurope",
+            "ResourceType": "microsoft.compute/virtualmachines",
+            "Status": "complete",
+            "Groups": {
+              "standard_d2s_v5": {
+                "Known": true,
+                "State": 0,
+                "BlockedZones": []
+              }
+            },
+            "FailureCode": ""
+          }
+        }
+      ],
+      "want": {
+        "error": "",
+        "error_phase": "",
+        "plan_status": "complete",
+        "scope_status": "complete",
+        "requirements": [
+          {
+            "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+            "source_region": "eastus",
+            "resource_type": "microsoft.compute/virtualmachines",
+            "kind": "",
+            "skus": [
+              "standard_d2s_v5"
+            ],
+            "kinds": {},
+            "resource_ids": [
+              "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm"
+            ],
+            "flags": []
+          }
+        ],
+        "admission_status": "complete",
+        "sku_evidence": {
+          "microsoft.compute/virtualmachines": {
+            "status": "complete",
+            "values": {
+              "standard_d2s_v5": {
+                "state": 0,
+                "blocked_zones": []
+              }
+            }
+          }
+        },
+        "catalogs": [],
+        "preserve_raw_records": true
+      }
+    },
+    {
+      "name": "display-source-normalized-raw-retained",
+      "selected": {
+        "aaaaaaaa-1111-4111-8111-111111111111": "One"
+      },
+      "resources": [
+        {
+          "id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm",
+          "subscriptionId": "aaaaaaaa-1111-4111-8111-111111111111",
+          "resourceGroup": "rg",
+          "name": "vm",
+          "type": "microsoft.compute/virtualmachines",
+          "location": "East US",
+          "skuName": "Standard_D2s_v5",
+          "skuTier": "",
+          "skuFamily": "",
+          "skuCapacity": 0,
+          "kind": ""
+        }
+      ],
+      "declarations": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "status": "complete"
+        }
+      ],
+      "request": {
+        "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+        "source_region": "eastus",
+        "target_region": "westeurope"
+      },
+      "collections": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "source_region": "eastus",
+          "target_region": "westeurope",
+          "resource_type": "microsoft.compute/virtualmachines",
+          "kind": "",
+          "vm": {
+            "SubscriptionID": "aaaaaaaa-1111-4111-8111-111111111111",
+            "Region": "westeurope",
+            "ResourceType": "microsoft.compute/virtualmachines",
+            "Status": "complete",
+            "Groups": {
+              "standard_d2s_v5": {
+                "Known": true,
+                "State": 0,
+                "BlockedZones": []
+              }
+            },
+            "FailureCode": ""
+          }
+        }
+      ],
+      "want": {
+        "error": "",
+        "error_phase": "",
+        "plan_status": "complete",
+        "scope_status": "complete",
+        "requirements": [
+          {
+            "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+            "source_region": "eastus",
+            "resource_type": "microsoft.compute/virtualmachines",
+            "kind": "",
+            "skus": [
+              "standard_d2s_v5"
+            ],
+            "kinds": {},
+            "resource_ids": [
+              "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm"
+            ],
+            "flags": []
+          }
+        ],
+        "admission_status": "complete",
+        "sku_evidence": {
+          "microsoft.compute/virtualmachines": {
+            "status": "complete",
+            "values": {
+              "standard_d2s_v5": {
+                "state": 0,
+                "blocked_zones": []
+              }
+            }
+          }
+        },
+        "catalogs": [],
+        "preserve_raw_records": true
+      }
+    },
+    {
+      "name": "global-source-not-guessed",
+      "selected": {
+        "aaaaaaaa-1111-4111-8111-111111111111": "One"
+      },
+      "resources": [
+        {
+          "id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm",
+          "subscriptionId": "aaaaaaaa-1111-4111-8111-111111111111",
+          "resourceGroup": "rg",
+          "name": "vm",
+          "type": "microsoft.compute/virtualmachines",
+          "location": "global",
+          "skuName": "Standard_D2s_v5",
+          "skuTier": "",
+          "skuFamily": "",
+          "skuCapacity": 0,
+          "kind": ""
+        }
+      ],
+      "declarations": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "status": "complete"
+        }
+      ],
+      "request": {
+        "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+        "source_region": "eastus",
+        "target_region": "westeurope"
+      },
+      "collections": [],
+      "want": {
+        "error": "",
+        "error_phase": "",
+        "plan_status": "complete",
+        "scope_status": "complete",
+        "requirements": [],
+        "admission_status": "complete",
+        "sku_evidence": {},
+        "catalogs": [],
+        "preserve_raw_records": true
+      }
+    },
+    {
+      "name": "duplicate-resource-id",
+      "selected": {
+        "aaaaaaaa-1111-4111-8111-111111111111": "One"
+      },
+      "resources": [
+        {
+          "id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm",
+          "subscriptionId": "aaaaaaaa-1111-4111-8111-111111111111",
+          "resourceGroup": "rg",
+          "name": "vm",
+          "type": "microsoft.compute/virtualmachines",
+          "location": "eastus",
+          "skuName": "Standard_D2s_v5",
+          "skuTier": "",
+          "skuFamily": "",
+          "skuCapacity": 0,
+          "kind": ""
+        },
+        {
+          "id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm",
+          "subscriptionId": "aaaaaaaa-1111-4111-8111-111111111111",
+          "resourceGroup": "rg",
+          "name": "vm",
+          "type": "microsoft.compute/virtualmachines",
+          "location": "eastus",
+          "skuName": "Standard_D2s_v5",
+          "skuTier": "",
+          "skuFamily": "",
+          "skuCapacity": 0,
+          "kind": ""
+        }
+      ],
+      "declarations": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "status": "complete"
+        }
+      ],
+      "request": {
+        "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+        "source_region": "eastus",
+        "target_region": "westeurope"
+      },
+      "collections": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "source_region": "eastus",
+          "target_region": "westeurope",
+          "resource_type": "microsoft.compute/virtualmachines",
+          "kind": "",
+          "vm": {
+            "SubscriptionID": "aaaaaaaa-1111-4111-8111-111111111111",
+            "Region": "westeurope",
+            "ResourceType": "microsoft.compute/virtualmachines",
+            "Status": "complete",
+            "Groups": {
+              "standard_d2s_v5": {
+                "Known": true,
+                "State": 0,
+                "BlockedZones": []
+              }
+            },
+            "FailureCode": ""
+          }
+        }
+      ],
+      "want": {
+        "error": "required_inventory_invalid",
+        "error_phase": "inventory",
+        "plan_status": "",
+        "scope_status": "",
+        "requirements": [],
+        "admission_status": "",
+        "sku_evidence": {},
+        "catalogs": [],
+        "preserve_raw_records": true
+      }
+    },
+    {
+      "name": "case-alias-resource-id",
+      "selected": {
+        "aaaaaaaa-1111-4111-8111-111111111111": "One"
+      },
+      "resources": [
+        {
+          "id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm",
+          "subscriptionId": "aaaaaaaa-1111-4111-8111-111111111111",
+          "resourceGroup": "rg",
+          "name": "vm",
+          "type": "microsoft.compute/virtualmachines",
+          "location": "eastus",
+          "skuName": "Standard_D2s_v5",
+          "skuTier": "",
+          "skuFamily": "",
+          "skuCapacity": 0,
+          "kind": ""
+        },
+        {
+          "id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/VM",
+          "subscriptionId": "aaaaaaaa-1111-4111-8111-111111111111",
+          "resourceGroup": "rg",
+          "name": "vm",
+          "type": "microsoft.compute/virtualmachines",
+          "location": "eastus",
+          "skuName": "Standard_D2s_v5",
+          "skuTier": "",
+          "skuFamily": "",
+          "skuCapacity": 0,
+          "kind": ""
+        }
+      ],
+      "declarations": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "status": "complete"
+        }
+      ],
+      "request": {
+        "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+        "source_region": "eastus",
+        "target_region": "westeurope"
+      },
+      "collections": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "source_region": "eastus",
+          "target_region": "westeurope",
+          "resource_type": "microsoft.compute/virtualmachines",
+          "kind": "",
+          "vm": {
+            "SubscriptionID": "aaaaaaaa-1111-4111-8111-111111111111",
+            "Region": "westeurope",
+            "ResourceType": "microsoft.compute/virtualmachines",
+            "Status": "complete",
+            "Groups": {
+              "standard_d2s_v5": {
+                "Known": true,
+                "State": 0,
+                "BlockedZones": []
+              }
+            },
+            "FailureCode": ""
+          }
+        }
+      ],
+      "want": {
+        "error": "required_inventory_invalid",
+        "error_phase": "inventory",
+        "plan_status": "",
+        "scope_status": "",
+        "requirements": [],
+        "admission_status": "",
+        "sku_evidence": {},
+        "catalogs": [],
+        "preserve_raw_records": true
+      }
+    },
+    {
+      "name": "resource-unselected-subscription",
+      "selected": {
+        "aaaaaaaa-1111-4111-8111-111111111111": "One"
+      },
+      "resources": [
+        {
+          "id": "/subscriptions/bbbbbbbb-2222-4222-8222-222222222222/resourceGroups/rg/providers/microsoft.compute/virtualmachines/other",
+          "subscriptionId": "bbbbbbbb-2222-4222-8222-222222222222",
+          "resourceGroup": "rg",
+          "name": "other",
+          "type": "microsoft.compute/virtualmachines",
+          "location": "eastus",
+          "skuName": "Standard_D2s_v5",
+          "skuTier": "",
+          "skuFamily": "",
+          "skuCapacity": 0,
+          "kind": ""
+        }
+      ],
+      "declarations": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "status": "complete"
+        }
+      ],
+      "request": {
+        "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+        "source_region": "eastus",
+        "target_region": "westeurope"
+      },
+      "collections": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "source_region": "eastus",
+          "target_region": "westeurope",
+          "resource_type": "microsoft.compute/virtualmachines",
+          "kind": "",
+          "vm": {
+            "SubscriptionID": "aaaaaaaa-1111-4111-8111-111111111111",
+            "Region": "westeurope",
+            "ResourceType": "microsoft.compute/virtualmachines",
+            "Status": "complete",
+            "Groups": {
+              "standard_d2s_v5": {
+                "Known": true,
+                "State": 0,
+                "BlockedZones": []
+              }
+            },
+            "FailureCode": ""
+          }
+        }
+      ],
+      "want": {
+        "error": "required_inventory_invalid",
+        "error_phase": "inventory",
+        "plan_status": "",
+        "scope_status": "",
+        "requirements": [],
+        "admission_status": "",
+        "sku_evidence": {},
+        "catalogs": [],
+        "preserve_raw_records": true
+      }
+    },
+    {
+      "name": "id-subscription-mismatch",
+      "selected": {
+        "aaaaaaaa-1111-4111-8111-111111111111": "One"
+      },
+      "resources": [
+        {
+          "id": "/subscriptions/bbbbbbbb-2222-4222-8222-222222222222/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm",
+          "subscriptionId": "aaaaaaaa-1111-4111-8111-111111111111",
+          "resourceGroup": "rg",
+          "name": "vm",
+          "type": "microsoft.compute/virtualmachines",
+          "location": "eastus",
+          "skuName": "Standard_D2s_v5",
+          "skuTier": "",
+          "skuFamily": "",
+          "skuCapacity": 0,
+          "kind": ""
+        }
+      ],
+      "declarations": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "status": "complete"
+        }
+      ],
+      "request": {
+        "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+        "source_region": "eastus",
+        "target_region": "westeurope"
+      },
+      "collections": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "source_region": "eastus",
+          "target_region": "westeurope",
+          "resource_type": "microsoft.compute/virtualmachines",
+          "kind": "",
+          "vm": {
+            "SubscriptionID": "aaaaaaaa-1111-4111-8111-111111111111",
+            "Region": "westeurope",
+            "ResourceType": "microsoft.compute/virtualmachines",
+            "Status": "complete",
+            "Groups": {
+              "standard_d2s_v5": {
+                "Known": true,
+                "State": 0,
+                "BlockedZones": []
+              }
+            },
+            "FailureCode": ""
+          }
+        }
+      ],
+      "want": {
+        "error": "required_inventory_invalid",
+        "error_phase": "inventory",
+        "plan_status": "",
+        "scope_status": "",
+        "requirements": [],
+        "admission_status": "",
+        "sku_evidence": {},
+        "catalogs": [],
+        "preserve_raw_records": true
+      }
+    },
+    {
+      "name": "id-type-mismatch",
+      "selected": {
+        "aaaaaaaa-1111-4111-8111-111111111111": "One"
+      },
+      "resources": [
+        {
+          "id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm",
+          "subscriptionId": "aaaaaaaa-1111-4111-8111-111111111111",
+          "resourceGroup": "rg",
+          "name": "vm",
+          "type": "microsoft.compute/disks",
+          "location": "eastus",
+          "skuName": "Standard_D2s_v5",
+          "skuTier": "",
+          "skuFamily": "",
+          "skuCapacity": 0,
+          "kind": ""
+        }
+      ],
+      "declarations": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "status": "complete"
+        }
+      ],
+      "request": {
+        "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+        "source_region": "eastus",
+        "target_region": "westeurope"
+      },
+      "collections": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "source_region": "eastus",
+          "target_region": "westeurope",
+          "resource_type": "microsoft.compute/virtualmachines",
+          "kind": "",
+          "vm": {
+            "SubscriptionID": "aaaaaaaa-1111-4111-8111-111111111111",
+            "Region": "westeurope",
+            "ResourceType": "microsoft.compute/virtualmachines",
+            "Status": "complete",
+            "Groups": {
+              "standard_d2s_v5": {
+                "Known": true,
+                "State": 0,
+                "BlockedZones": []
+              }
+            },
+            "FailureCode": ""
+          }
+        }
+      ],
+      "want": {
+        "error": "required_inventory_invalid",
+        "error_phase": "inventory",
+        "plan_status": "",
+        "scope_status": "",
+        "requirements": [],
+        "admission_status": "",
+        "sku_evidence": {},
+        "catalogs": [],
+        "preserve_raw_records": true
+      }
+    },
+    {
+      "name": "id-group-mismatch",
+      "selected": {
+        "aaaaaaaa-1111-4111-8111-111111111111": "One"
+      },
+      "resources": [
+        {
+          "id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm",
+          "subscriptionId": "aaaaaaaa-1111-4111-8111-111111111111",
+          "resourceGroup": "other",
+          "name": "vm",
+          "type": "microsoft.compute/virtualmachines",
+          "location": "eastus",
+          "skuName": "Standard_D2s_v5",
+          "skuTier": "",
+          "skuFamily": "",
+          "skuCapacity": 0,
+          "kind": ""
+        }
+      ],
+      "declarations": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "status": "complete"
+        }
+      ],
+      "request": {
+        "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+        "source_region": "eastus",
+        "target_region": "westeurope"
+      },
+      "collections": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "source_region": "eastus",
+          "target_region": "westeurope",
+          "resource_type": "microsoft.compute/virtualmachines",
+          "kind": "",
+          "vm": {
+            "SubscriptionID": "aaaaaaaa-1111-4111-8111-111111111111",
+            "Region": "westeurope",
+            "ResourceType": "microsoft.compute/virtualmachines",
+            "Status": "complete",
+            "Groups": {
+              "standard_d2s_v5": {
+                "Known": true,
+                "State": 0,
+                "BlockedZones": []
+              }
+            },
+            "FailureCode": ""
+          }
+        }
+      ],
+      "want": {
+        "error": "required_inventory_invalid",
+        "error_phase": "inventory",
+        "plan_status": "",
+        "scope_status": "",
+        "requirements": [],
+        "admission_status": "",
+        "sku_evidence": {},
+        "catalogs": [],
+        "preserve_raw_records": true
+      }
+    },
+    {
+      "name": "id-empty-path-segment",
+      "selected": {
+        "aaaaaaaa-1111-4111-8111-111111111111": "One"
+      },
+      "resources": [
+        {
+          "id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg//providers/microsoft.compute/virtualmachines/vm",
+          "subscriptionId": "aaaaaaaa-1111-4111-8111-111111111111",
+          "resourceGroup": "rg",
+          "name": "vm",
+          "type": "microsoft.compute/virtualmachines",
+          "location": "eastus",
+          "skuName": "Standard_D2s_v5",
+          "skuTier": "",
+          "skuFamily": "",
+          "skuCapacity": 0,
+          "kind": ""
+        }
+      ],
+      "declarations": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "status": "complete"
+        }
+      ],
+      "request": {
+        "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+        "source_region": "eastus",
+        "target_region": "westeurope"
+      },
+      "collections": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "source_region": "eastus",
+          "target_region": "westeurope",
+          "resource_type": "microsoft.compute/virtualmachines",
+          "kind": "",
+          "vm": {
+            "SubscriptionID": "aaaaaaaa-1111-4111-8111-111111111111",
+            "Region": "westeurope",
+            "ResourceType": "microsoft.compute/virtualmachines",
+            "Status": "complete",
+            "Groups": {
+              "standard_d2s_v5": {
+                "Known": true,
+                "State": 0,
+                "BlockedZones": []
+              }
+            },
+            "FailureCode": ""
+          }
+        }
+      ],
+      "want": {
+        "error": "required_inventory_invalid",
+        "error_phase": "inventory",
+        "plan_status": "",
+        "scope_status": "",
+        "requirements": [],
+        "admission_status": "",
+        "sku_evidence": {},
+        "catalogs": [],
+        "preserve_raw_records": true
+      }
+    },
+    {
+      "name": "negative-capacity",
+      "selected": {
+        "aaaaaaaa-1111-4111-8111-111111111111": "One"
+      },
+      "resources": [
+        {
+          "id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm",
+          "subscriptionId": "aaaaaaaa-1111-4111-8111-111111111111",
+          "resourceGroup": "rg",
+          "name": "vm",
+          "type": "microsoft.compute/virtualmachines",
+          "location": "eastus",
+          "skuName": "Standard_D2s_v5",
+          "skuTier": "",
+          "skuFamily": "",
+          "skuCapacity": -1,
+          "kind": ""
+        }
+      ],
+      "declarations": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "status": "complete"
+        }
+      ],
+      "request": {
+        "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+        "source_region": "eastus",
+        "target_region": "westeurope"
+      },
+      "collections": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "source_region": "eastus",
+          "target_region": "westeurope",
+          "resource_type": "microsoft.compute/virtualmachines",
+          "kind": "",
+          "vm": {
+            "SubscriptionID": "aaaaaaaa-1111-4111-8111-111111111111",
+            "Region": "westeurope",
+            "ResourceType": "microsoft.compute/virtualmachines",
+            "Status": "complete",
+            "Groups": {
+              "standard_d2s_v5": {
+                "Known": true,
+                "State": 0,
+                "BlockedZones": []
+              }
+            },
+            "FailureCode": ""
+          }
+        }
+      ],
+      "want": {
+        "error": "required_inventory_invalid",
+        "error_phase": "inventory",
+        "plan_status": "",
+        "scope_status": "",
+        "requirements": [],
+        "admission_status": "",
+        "sku_evidence": {},
+        "catalogs": [],
+        "preserve_raw_records": true
+      }
+    },
+    {
+      "name": "oversized-retained-cell",
+      "selected": {
+        "aaaaaaaa-1111-4111-8111-111111111111": "One"
+      },
+      "resources": [
+        {
+          "id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm",
+          "subscriptionId": "aaaaaaaa-1111-4111-8111-111111111111",
+          "resourceGroup": "rg",
+          "name": "vm",
+          "type": "microsoft.compute/virtualmachines",
+          "location": "eastus",
+          "skuName": "Standard_D2s_v5",
+          "skuTier": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "skuFamily": "",
+          "skuCapacity": 0,
+          "kind": ""
+        }
+      ],
+      "declarations": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "status": "complete"
+        }
+      ],
+      "request": {
+        "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+        "source_region": "eastus",
+        "target_region": "westeurope"
+      },
+      "collections": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "source_region": "eastus",
+          "target_region": "westeurope",
+          "resource_type": "microsoft.compute/virtualmachines",
+          "kind": "",
+          "vm": {
+            "SubscriptionID": "aaaaaaaa-1111-4111-8111-111111111111",
+            "Region": "westeurope",
+            "ResourceType": "microsoft.compute/virtualmachines",
+            "Status": "complete",
+            "Groups": {
+              "standard_d2s_v5": {
+                "Known": true,
+                "State": 0,
+                "BlockedZones": []
+              }
+            },
+            "FailureCode": ""
+          }
+        }
+      ],
+      "want": {
+        "error": "required_inventory_invalid",
+        "error_phase": "inventory",
+        "plan_status": "",
+        "scope_status": "",
+        "requirements": [],
+        "admission_status": "",
+        "sku_evidence": {},
+        "catalogs": [],
+        "preserve_raw_records": true
+      }
+    },
+    {
+      "name": "duplicate-completeness",
+      "selected": {
+        "aaaaaaaa-1111-4111-8111-111111111111": "One"
+      },
+      "resources": [
+        {
+          "id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm",
+          "subscriptionId": "aaaaaaaa-1111-4111-8111-111111111111",
+          "resourceGroup": "rg",
+          "name": "vm",
+          "type": "microsoft.compute/virtualmachines",
+          "location": "eastus",
+          "skuName": "Standard_D2s_v5",
+          "skuTier": "",
+          "skuFamily": "",
+          "skuCapacity": 0,
+          "kind": ""
+        }
+      ],
+      "declarations": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "status": "complete"
+        },
+        {
+          "subscription_id": "AAAAAAAA-1111-4111-8111-111111111111",
+          "status": "partial"
+        }
+      ],
+      "request": {
+        "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+        "source_region": "eastus",
+        "target_region": "westeurope"
+      },
+      "collections": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "source_region": "eastus",
+          "target_region": "westeurope",
+          "resource_type": "microsoft.compute/virtualmachines",
+          "kind": "",
+          "vm": {
+            "SubscriptionID": "aaaaaaaa-1111-4111-8111-111111111111",
+            "Region": "westeurope",
+            "ResourceType": "microsoft.compute/virtualmachines",
+            "Status": "complete",
+            "Groups": {
+              "standard_d2s_v5": {
+                "Known": true,
+                "State": 0,
+                "BlockedZones": []
+              }
+            },
+            "FailureCode": ""
+          }
+        }
+      ],
+      "want": {
+        "error": "required_inventory_invalid",
+        "error_phase": "inventory",
+        "plan_status": "",
+        "scope_status": "",
+        "requirements": [],
+        "admission_status": "",
+        "sku_evidence": {},
+        "catalogs": [],
+        "preserve_raw_records": true
+      }
+    },
+    {
+      "name": "extra-completeness",
+      "selected": {
+        "aaaaaaaa-1111-4111-8111-111111111111": "One"
+      },
+      "resources": [
+        {
+          "id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm",
+          "subscriptionId": "aaaaaaaa-1111-4111-8111-111111111111",
+          "resourceGroup": "rg",
+          "name": "vm",
+          "type": "microsoft.compute/virtualmachines",
+          "location": "eastus",
+          "skuName": "Standard_D2s_v5",
+          "skuTier": "",
+          "skuFamily": "",
+          "skuCapacity": 0,
+          "kind": ""
+        }
+      ],
+      "declarations": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "status": "complete"
+        },
+        {
+          "subscription_id": "bbbbbbbb-2222-4222-8222-222222222222",
+          "status": "complete"
+        }
+      ],
+      "request": {
+        "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+        "source_region": "eastus",
+        "target_region": "westeurope"
+      },
+      "collections": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "source_region": "eastus",
+          "target_region": "westeurope",
+          "resource_type": "microsoft.compute/virtualmachines",
+          "kind": "",
+          "vm": {
+            "SubscriptionID": "aaaaaaaa-1111-4111-8111-111111111111",
+            "Region": "westeurope",
+            "ResourceType": "microsoft.compute/virtualmachines",
+            "Status": "complete",
+            "Groups": {
+              "standard_d2s_v5": {
+                "Known": true,
+                "State": 0,
+                "BlockedZones": []
+              }
+            },
+            "FailureCode": ""
+          }
+        }
+      ],
+      "want": {
+        "error": "required_inventory_invalid",
+        "error_phase": "inventory",
+        "plan_status": "",
+        "scope_status": "",
+        "requirements": [],
+        "admission_status": "",
+        "sku_evidence": {},
+        "catalogs": [],
+        "preserve_raw_records": true
+      }
+    },
+    {
+      "name": "invalid-completeness",
+      "selected": {
+        "aaaaaaaa-1111-4111-8111-111111111111": "One"
+      },
+      "resources": [
+        {
+          "id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm",
+          "subscriptionId": "aaaaaaaa-1111-4111-8111-111111111111",
+          "resourceGroup": "rg",
+          "name": "vm",
+          "type": "microsoft.compute/virtualmachines",
+          "location": "eastus",
+          "skuName": "Standard_D2s_v5",
+          "skuTier": "",
+          "skuFamily": "",
+          "skuCapacity": 0,
+          "kind": ""
+        }
+      ],
+      "declarations": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "status": "success"
+        }
+      ],
+      "request": {
+        "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+        "source_region": "eastus",
+        "target_region": "westeurope"
+      },
+      "collections": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "source_region": "eastus",
+          "target_region": "westeurope",
+          "resource_type": "microsoft.compute/virtualmachines",
+          "kind": "",
+          "vm": {
+            "SubscriptionID": "aaaaaaaa-1111-4111-8111-111111111111",
+            "Region": "westeurope",
+            "ResourceType": "microsoft.compute/virtualmachines",
+            "Status": "complete",
+            "Groups": {
+              "standard_d2s_v5": {
+                "Known": true,
+                "State": 0,
+                "BlockedZones": []
+              }
+            },
+            "FailureCode": ""
+          }
+        }
+      ],
+      "want": {
+        "error": "required_inventory_invalid",
+        "error_phase": "inventory",
+        "plan_status": "",
+        "scope_status": "",
+        "requirements": [],
+        "admission_status": "",
+        "sku_evidence": {},
+        "catalogs": [],
+        "preserve_raw_records": true
+      }
+    },
+    {
+      "name": "wrong-target-evidence",
+      "selected": {
+        "aaaaaaaa-1111-4111-8111-111111111111": "One"
+      },
+      "resources": [
+        {
+          "id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm",
+          "subscriptionId": "aaaaaaaa-1111-4111-8111-111111111111",
+          "resourceGroup": "rg",
+          "name": "vm",
+          "type": "microsoft.compute/virtualmachines",
+          "location": "eastus",
+          "skuName": "Standard_D2s_v5",
+          "skuTier": "",
+          "skuFamily": "",
+          "skuCapacity": 0,
+          "kind": ""
+        }
+      ],
+      "declarations": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "status": "complete"
+        }
+      ],
+      "request": {
+        "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+        "source_region": "eastus",
+        "target_region": "westeurope"
+      },
+      "collections": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "source_region": "eastus",
+          "target_region": "westus",
+          "resource_type": "microsoft.compute/virtualmachines",
+          "kind": "",
+          "vm": {
+            "SubscriptionID": "aaaaaaaa-1111-4111-8111-111111111111",
+            "Region": "westeurope",
+            "ResourceType": "microsoft.compute/virtualmachines",
+            "Status": "complete",
+            "Groups": {
+              "standard_d2s_v5": {
+                "Known": true,
+                "State": 0,
+                "BlockedZones": []
+              }
+            },
+            "FailureCode": ""
+          }
+        }
+      ],
+      "want": {
+        "error": "required_evidence_invalid",
+        "error_phase": "admission",
+        "plan_status": "complete",
+        "scope_status": "complete",
+        "requirements": [
+          {
+            "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+            "source_region": "eastus",
+            "resource_type": "microsoft.compute/virtualmachines",
+            "kind": "",
+            "skus": [
+              "standard_d2s_v5"
+            ],
+            "kinds": {},
+            "resource_ids": [
+              "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm"
+            ],
+            "flags": []
+          }
+        ],
+        "admission_status": "",
+        "sku_evidence": {},
+        "catalogs": [],
+        "preserve_raw_records": true
+      }
+    },
+    {
+      "name": "wrong-source-evidence",
+      "selected": {
+        "aaaaaaaa-1111-4111-8111-111111111111": "One"
+      },
+      "resources": [
+        {
+          "id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm",
+          "subscriptionId": "aaaaaaaa-1111-4111-8111-111111111111",
+          "resourceGroup": "rg",
+          "name": "vm",
+          "type": "microsoft.compute/virtualmachines",
+          "location": "eastus",
+          "skuName": "Standard_D2s_v5",
+          "skuTier": "",
+          "skuFamily": "",
+          "skuCapacity": 0,
+          "kind": ""
+        }
+      ],
+      "declarations": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "status": "complete"
+        }
+      ],
+      "request": {
+        "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+        "source_region": "eastus",
+        "target_region": "westeurope"
+      },
+      "collections": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "source_region": "westus",
+          "target_region": "westeurope",
+          "resource_type": "microsoft.compute/virtualmachines",
+          "kind": "",
+          "vm": {
+            "SubscriptionID": "aaaaaaaa-1111-4111-8111-111111111111",
+            "Region": "westeurope",
+            "ResourceType": "microsoft.compute/virtualmachines",
+            "Status": "complete",
+            "Groups": {
+              "standard_d2s_v5": {
+                "Known": true,
+                "State": 0,
+                "BlockedZones": []
+              }
+            },
+            "FailureCode": ""
+          }
+        }
+      ],
+      "want": {
+        "error": "required_evidence_invalid",
+        "error_phase": "admission",
+        "plan_status": "complete",
+        "scope_status": "complete",
+        "requirements": [
+          {
+            "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+            "source_region": "eastus",
+            "resource_type": "microsoft.compute/virtualmachines",
+            "kind": "",
+            "skus": [
+              "standard_d2s_v5"
+            ],
+            "kinds": {},
+            "resource_ids": [
+              "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm"
+            ],
+            "flags": []
+          }
+        ],
+        "admission_status": "",
+        "sku_evidence": {},
+        "catalogs": [],
+        "preserve_raw_records": true
+      }
+    },
+    {
+      "name": "wrong-selected-scope-evidence",
+      "selected": {
+        "aaaaaaaa-1111-4111-8111-111111111111": "One"
+      },
+      "resources": [
+        {
+          "id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm",
+          "subscriptionId": "aaaaaaaa-1111-4111-8111-111111111111",
+          "resourceGroup": "rg",
+          "name": "vm",
+          "type": "microsoft.compute/virtualmachines",
+          "location": "eastus",
+          "skuName": "Standard_D2s_v5",
+          "skuTier": "",
+          "skuFamily": "",
+          "skuCapacity": 0,
+          "kind": ""
+        }
+      ],
+      "declarations": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "status": "complete"
+        }
+      ],
+      "request": {
+        "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+        "source_region": "eastus",
+        "target_region": "westeurope"
+      },
+      "collections": [
+        {
+          "subscription_id": "bbbbbbbb-2222-4222-8222-222222222222",
+          "source_region": "eastus",
+          "target_region": "westeurope",
+          "resource_type": "microsoft.compute/virtualmachines",
+          "kind": "",
+          "vm": {
+            "SubscriptionID": "aaaaaaaa-1111-4111-8111-111111111111",
+            "Region": "westeurope",
+            "ResourceType": "microsoft.compute/virtualmachines",
+            "Status": "complete",
+            "Groups": {
+              "standard_d2s_v5": {
+                "Known": true,
+                "State": 0,
+                "BlockedZones": []
+              }
+            },
+            "FailureCode": ""
+          }
+        }
+      ],
+      "want": {
+        "error": "required_evidence_invalid",
+        "error_phase": "admission",
+        "plan_status": "complete",
+        "scope_status": "complete",
+        "requirements": [
+          {
+            "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+            "source_region": "eastus",
+            "resource_type": "microsoft.compute/virtualmachines",
+            "kind": "",
+            "skus": [
+              "standard_d2s_v5"
+            ],
+            "kinds": {},
+            "resource_ids": [
+              "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm"
+            ],
+            "flags": []
+          }
+        ],
+        "admission_status": "",
+        "sku_evidence": {},
+        "catalogs": [],
+        "preserve_raw_records": true
+      }
+    },
+    {
+      "name": "duplicate-evidence-binding",
+      "selected": {
+        "aaaaaaaa-1111-4111-8111-111111111111": "One"
+      },
+      "resources": [
+        {
+          "id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm",
+          "subscriptionId": "aaaaaaaa-1111-4111-8111-111111111111",
+          "resourceGroup": "rg",
+          "name": "vm",
+          "type": "microsoft.compute/virtualmachines",
+          "location": "eastus",
+          "skuName": "Standard_D2s_v5",
+          "skuTier": "",
+          "skuFamily": "",
+          "skuCapacity": 0,
+          "kind": ""
+        }
+      ],
+      "declarations": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "status": "complete"
+        }
+      ],
+      "request": {
+        "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+        "source_region": "eastus",
+        "target_region": "westeurope"
+      },
+      "collections": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "source_region": "eastus",
+          "target_region": "westeurope",
+          "resource_type": "microsoft.compute/virtualmachines",
+          "kind": "",
+          "vm": {
+            "SubscriptionID": "aaaaaaaa-1111-4111-8111-111111111111",
+            "Region": "westeurope",
+            "ResourceType": "microsoft.compute/virtualmachines",
+            "Status": "complete",
+            "Groups": {
+              "standard_d2s_v5": {
+                "Known": true,
+                "State": 0,
+                "BlockedZones": []
+              }
+            },
+            "FailureCode": ""
+          }
+        },
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "source_region": "eastus",
+          "target_region": "westeurope",
+          "resource_type": "microsoft.compute/virtualmachines",
+          "kind": "",
+          "vm": {
+            "SubscriptionID": "aaaaaaaa-1111-4111-8111-111111111111",
+            "Region": "westeurope",
+            "ResourceType": "microsoft.compute/virtualmachines",
+            "Status": "complete",
+            "Groups": {
+              "standard_d2s_v5": {
+                "Known": true,
+                "State": 0,
+                "BlockedZones": []
+              }
+            },
+            "FailureCode": ""
+          }
+        }
+      ],
+      "want": {
+        "error": "required_evidence_invalid",
+        "error_phase": "admission",
+        "plan_status": "complete",
+        "scope_status": "complete",
+        "requirements": [
+          {
+            "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+            "source_region": "eastus",
+            "resource_type": "microsoft.compute/virtualmachines",
+            "kind": "",
+            "skus": [
+              "standard_d2s_v5"
+            ],
+            "kinds": {},
+            "resource_ids": [
+              "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm"
+            ],
+            "flags": []
+          }
+        ],
+        "admission_status": "",
+        "sku_evidence": {},
+        "catalogs": [],
+        "preserve_raw_records": true
+      }
+    },
+    {
+      "name": "inner-target-binding-mismatch",
+      "selected": {
+        "aaaaaaaa-1111-4111-8111-111111111111": "One"
+      },
+      "resources": [
+        {
+          "id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm",
+          "subscriptionId": "aaaaaaaa-1111-4111-8111-111111111111",
+          "resourceGroup": "rg",
+          "name": "vm",
+          "type": "microsoft.compute/virtualmachines",
+          "location": "eastus",
+          "skuName": "Standard_D2s_v5",
+          "skuTier": "",
+          "skuFamily": "",
+          "skuCapacity": 0,
+          "kind": ""
+        }
+      ],
+      "declarations": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "status": "complete"
+        }
+      ],
+      "request": {
+        "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+        "source_region": "eastus",
+        "target_region": "westeurope"
+      },
+      "collections": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "source_region": "eastus",
+          "target_region": "westeurope",
+          "resource_type": "microsoft.compute/virtualmachines",
+          "kind": "",
+          "vm": {
+            "SubscriptionID": "aaaaaaaa-1111-4111-8111-111111111111",
+            "Region": "westus",
+            "ResourceType": "microsoft.compute/virtualmachines",
+            "Status": "complete",
+            "Groups": {},
+            "FailureCode": ""
+          }
+        }
+      ],
+      "want": {
+        "error": "required_evidence_invalid",
+        "error_phase": "admission",
+        "plan_status": "complete",
+        "scope_status": "complete",
+        "requirements": [
+          {
+            "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+            "source_region": "eastus",
+            "resource_type": "microsoft.compute/virtualmachines",
+            "kind": "",
+            "skus": [
+              "standard_d2s_v5"
+            ],
+            "kinds": {},
+            "resource_ids": [
+              "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm"
+            ],
+            "flags": []
+          }
+        ],
+        "admission_status": "",
+        "sku_evidence": {},
+        "catalogs": [],
+        "preserve_raw_records": true
+      }
+    },
+    {
+      "name": "wrong-inner-resource-type",
+      "selected": {
+        "aaaaaaaa-1111-4111-8111-111111111111": "One"
+      },
+      "resources": [
+        {
+          "id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm",
+          "subscriptionId": "aaaaaaaa-1111-4111-8111-111111111111",
+          "resourceGroup": "rg",
+          "name": "vm",
+          "type": "microsoft.compute/virtualmachines",
+          "location": "eastus",
+          "skuName": "Standard_D2s_v5",
+          "skuTier": "",
+          "skuFamily": "",
+          "skuCapacity": 0,
+          "kind": ""
+        }
+      ],
+      "declarations": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "status": "complete"
+        }
+      ],
+      "request": {
+        "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+        "source_region": "eastus",
+        "target_region": "westeurope"
+      },
+      "collections": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "source_region": "eastus",
+          "target_region": "westeurope",
+          "resource_type": "microsoft.compute/virtualmachines",
+          "kind": "",
+          "vm": {
+            "SubscriptionID": "aaaaaaaa-1111-4111-8111-111111111111",
+            "Region": "westeurope",
+            "ResourceType": "microsoft.compute/virtualmachinescalesets",
+            "Status": "complete",
+            "Groups": {},
+            "FailureCode": ""
+          }
+        }
+      ],
+      "want": {
+        "error": "required_evidence_invalid",
+        "error_phase": "admission",
+        "plan_status": "complete",
+        "scope_status": "complete",
+        "requirements": [
+          {
+            "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+            "source_region": "eastus",
+            "resource_type": "microsoft.compute/virtualmachines",
+            "kind": "",
+            "skus": [
+              "standard_d2s_v5"
+            ],
+            "kinds": {},
+            "resource_ids": [
+              "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm"
+            ],
+            "flags": []
+          }
+        ],
+        "admission_status": "",
+        "sku_evidence": {},
+        "catalogs": [],
+        "preserve_raw_records": true
+      }
+    },
+    {
+      "name": "wrong-payload-family",
+      "selected": {
+        "aaaaaaaa-1111-4111-8111-111111111111": "One"
+      },
+      "resources": [
+        {
+          "id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm",
+          "subscriptionId": "aaaaaaaa-1111-4111-8111-111111111111",
+          "resourceGroup": "rg",
+          "name": "vm",
+          "type": "microsoft.compute/virtualmachines",
+          "location": "eastus",
+          "skuName": "Standard_D2s_v5",
+          "skuTier": "",
+          "skuFamily": "",
+          "skuCapacity": 0,
+          "kind": ""
+        }
+      ],
+      "declarations": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "status": "complete"
+        }
+      ],
+      "request": {
+        "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+        "source_region": "eastus",
+        "target_region": "westeurope"
+      },
+      "collections": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "source_region": "eastus",
+          "target_region": "westeurope",
+          "resource_type": "microsoft.compute/virtualmachines",
+          "kind": "",
+          "disk": {
+            "SubscriptionID": "aaaaaaaa-1111-4111-8111-111111111111",
+            "Region": "westeurope",
+            "Status": "complete",
+            "Values": {}
+          }
+        }
+      ],
+      "want": {
+        "error": "required_evidence_invalid",
+        "error_phase": "admission",
+        "plan_status": "complete",
+        "scope_status": "complete",
+        "requirements": [
+          {
+            "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+            "source_region": "eastus",
+            "resource_type": "microsoft.compute/virtualmachines",
+            "kind": "",
+            "skus": [
+              "standard_d2s_v5"
+            ],
+            "kinds": {},
+            "resource_ids": [
+              "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm"
+            ],
+            "flags": []
+          }
+        ],
+        "admission_status": "",
+        "sku_evidence": {},
+        "catalogs": [],
+        "preserve_raw_records": true
+      }
+    },
+    {
+      "name": "nil-union-payload",
+      "selected": {
+        "aaaaaaaa-1111-4111-8111-111111111111": "One"
+      },
+      "resources": [
+        {
+          "id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm",
+          "subscriptionId": "aaaaaaaa-1111-4111-8111-111111111111",
+          "resourceGroup": "rg",
+          "name": "vm",
+          "type": "microsoft.compute/virtualmachines",
+          "location": "eastus",
+          "skuName": "Standard_D2s_v5",
+          "skuTier": "",
+          "skuFamily": "",
+          "skuCapacity": 0,
+          "kind": ""
+        }
+      ],
+      "declarations": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "status": "complete"
+        }
+      ],
+      "request": {
+        "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+        "source_region": "eastus",
+        "target_region": "westeurope"
+      },
+      "collections": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "source_region": "eastus",
+          "target_region": "westeurope",
+          "resource_type": "microsoft.compute/virtualmachines",
+          "kind": ""
+        }
+      ],
+      "want": {
+        "error": "required_evidence_invalid",
+        "error_phase": "admission",
+        "plan_status": "complete",
+        "scope_status": "complete",
+        "requirements": [
+          {
+            "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+            "source_region": "eastus",
+            "resource_type": "microsoft.compute/virtualmachines",
+            "kind": "",
+            "skus": [
+              "standard_d2s_v5"
+            ],
+            "kinds": {},
+            "resource_ids": [
+              "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm"
+            ],
+            "flags": []
+          }
+        ],
+        "admission_status": "",
+        "sku_evidence": {},
+        "catalogs": [],
+        "preserve_raw_records": true
+      }
+    },
+    {
+      "name": "noncanonical-target",
+      "selected": {
+        "aaaaaaaa-1111-4111-8111-111111111111": "One"
+      },
+      "resources": [
+        {
+          "id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm",
+          "subscriptionId": "aaaaaaaa-1111-4111-8111-111111111111",
+          "resourceGroup": "rg",
+          "name": "vm",
+          "type": "microsoft.compute/virtualmachines",
+          "location": "eastus",
+          "skuName": "Standard_D2s_v5",
+          "skuTier": "",
+          "skuFamily": "",
+          "skuCapacity": 0,
+          "kind": ""
+        }
+      ],
+      "declarations": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "status": "complete"
+        }
+      ],
+      "request": {
+        "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+        "source_region": "eastus",
+        "target_region": "West Europe"
+      },
+      "collections": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "source_region": "eastus",
+          "target_region": "westeurope",
+          "resource_type": "microsoft.compute/virtualmachines",
+          "kind": "",
+          "vm": {
+            "SubscriptionID": "aaaaaaaa-1111-4111-8111-111111111111",
+            "Region": "westeurope",
+            "ResourceType": "microsoft.compute/virtualmachines",
+            "Status": "complete",
+            "Groups": {
+              "standard_d2s_v5": {
+                "Known": true,
+                "State": 0,
+                "BlockedZones": []
+              }
+            },
+            "FailureCode": ""
+          }
+        }
+      ],
+      "want": {
+        "error": "required_evidence_invalid",
+        "error_phase": "admission",
+        "plan_status": "complete",
+        "scope_status": "complete",
+        "requirements": [
+          {
+            "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+            "source_region": "eastus",
+            "resource_type": "microsoft.compute/virtualmachines",
+            "kind": "",
+            "skus": [
+              "standard_d2s_v5"
+            ],
+            "kinds": {},
+            "resource_ids": [
+              "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm"
+            ],
+            "flags": []
+          }
+        ],
+        "admission_status": "",
+        "sku_evidence": {},
+        "catalogs": [],
+        "preserve_raw_records": true
+      }
+    },
+    {
+      "name": "storage-all-required-kinds-intersect",
+      "selected": {
+        "aaaaaaaa-1111-4111-8111-111111111111": "One"
+      },
+      "resources": [
+        {
+          "id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.storage/storageaccounts/s1",
+          "subscriptionId": "aaaaaaaa-1111-4111-8111-111111111111",
+          "resourceGroup": "rg",
+          "name": "s1",
+          "type": "microsoft.storage/storageaccounts",
+          "location": "eastus",
+          "skuName": "Standard_LRS",
+          "skuTier": "",
+          "skuFamily": "",
+          "skuCapacity": 0,
+          "kind": "Storage"
+        },
+        {
+          "id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.storage/storageaccounts/s2",
+          "subscriptionId": "aaaaaaaa-1111-4111-8111-111111111111",
+          "resourceGroup": "rg",
+          "name": "s2",
+          "type": "microsoft.storage/storageaccounts",
+          "location": "eastus",
+          "skuName": "Standard_LRS",
+          "skuTier": "",
+          "skuFamily": "",
+          "skuCapacity": 0,
+          "kind": "StorageV2"
+        }
+      ],
+      "declarations": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "status": "complete"
+        }
+      ],
+      "request": {
+        "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+        "source_region": "eastus",
+        "target_region": "westeurope"
+      },
+      "collections": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "source_region": "eastus",
+          "target_region": "westeurope",
+          "resource_type": "microsoft.storage/storageaccounts",
+          "kind": "",
+          "storage": {
+            "SubscriptionID": "aaaaaaaa-1111-4111-8111-111111111111",
+            "Region": "westeurope",
+            "Status": "complete",
+            "Groups": {
+              "standard_lrs": {
+                "storage": {
+                  "Known": true,
+                  "State": 0
+                },
+                "storagev2": {
+                  "Known": true,
+                  "State": 1
+                }
+              }
+            },
+            "UnqualifiedNames": {},
+            "FailureCode": ""
+          }
+        }
+      ],
+      "want": {
+        "error": "",
+        "error_phase": "",
+        "plan_status": "complete",
+        "scope_status": "complete",
+        "requirements": [
+          {
+            "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+            "source_region": "eastus",
+            "resource_type": "microsoft.storage/storageaccounts",
+            "kind": "",
+            "skus": [
+              "standard_lrs"
+            ],
+            "kinds": {
+              "standard_lrs": [
+                "storage",
+                "storagev2"
+              ]
+            },
+            "resource_ids": [
+              "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.storage/storageaccounts/s1",
+              "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.storage/storageaccounts/s2"
+            ],
+            "flags": []
+          }
+        ],
+        "admission_status": "complete",
+        "sku_evidence": {
+          "microsoft.storage/storageaccounts": {
+            "status": "complete",
+            "values": {
+              "standard_lrs": {
+                "state": 1,
+                "blocked_zones": []
+              }
+            }
+          }
+        },
+        "catalogs": [],
+        "preserve_raw_records": true
+      }
+    },
+    {
+      "name": "storage-input-order-independent",
+      "selected": {
+        "aaaaaaaa-1111-4111-8111-111111111111": "One"
+      },
+      "resources": [
+        {
+          "id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.storage/storageaccounts/s2",
+          "subscriptionId": "aaaaaaaa-1111-4111-8111-111111111111",
+          "resourceGroup": "rg",
+          "name": "s2",
+          "type": "microsoft.storage/storageaccounts",
+          "location": "eastus",
+          "skuName": "Standard_LRS",
+          "skuTier": "",
+          "skuFamily": "",
+          "skuCapacity": 0,
+          "kind": "StorageV2"
+        },
+        {
+          "id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.storage/storageaccounts/s1",
+          "subscriptionId": "aaaaaaaa-1111-4111-8111-111111111111",
+          "resourceGroup": "rg",
+          "name": "s1",
+          "type": "microsoft.storage/storageaccounts",
+          "location": "eastus",
+          "skuName": "Standard_LRS",
+          "skuTier": "",
+          "skuFamily": "",
+          "skuCapacity": 0,
+          "kind": "Storage"
+        }
+      ],
+      "declarations": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "status": "complete"
+        }
+      ],
+      "request": {
+        "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+        "source_region": "eastus",
+        "target_region": "westeurope"
+      },
+      "collections": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "source_region": "eastus",
+          "target_region": "westeurope",
+          "resource_type": "microsoft.storage/storageaccounts",
+          "kind": "",
+          "storage": {
+            "SubscriptionID": "aaaaaaaa-1111-4111-8111-111111111111",
+            "Region": "westeurope",
+            "Status": "complete",
+            "Groups": {
+              "standard_lrs": {
+                "storage": {
+                  "Known": true,
+                  "State": 0
+                },
+                "storagev2": {
+                  "Known": true,
+                  "State": 1
+                }
+              }
+            },
+            "UnqualifiedNames": {},
+            "FailureCode": ""
+          }
+        }
+      ],
+      "want": {
+        "error": "",
+        "error_phase": "",
+        "plan_status": "complete",
+        "scope_status": "complete",
+        "requirements": [
+          {
+            "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+            "source_region": "eastus",
+            "resource_type": "microsoft.storage/storageaccounts",
+            "kind": "",
+            "skus": [
+              "standard_lrs"
+            ],
+            "kinds": {
+              "standard_lrs": [
+                "storage",
+                "storagev2"
+              ]
+            },
+            "resource_ids": [
+              "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.storage/storageaccounts/s1",
+              "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.storage/storageaccounts/s2"
+            ],
+            "flags": []
+          }
+        ],
+        "admission_status": "complete",
+        "sku_evidence": {
+          "microsoft.storage/storageaccounts": {
+            "status": "complete",
+            "values": {
+              "standard_lrs": {
+                "state": 1,
+                "blocked_zones": []
+              }
+            }
+          }
+        },
+        "catalogs": [],
+        "preserve_raw_records": true
+      }
+    },
+    {
+      "name": "storage-one-missing-kind-not-first-wins",
+      "selected": {
+        "aaaaaaaa-1111-4111-8111-111111111111": "One"
+      },
+      "resources": [
+        {
+          "id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.storage/storageaccounts/s1",
+          "subscriptionId": "aaaaaaaa-1111-4111-8111-111111111111",
+          "resourceGroup": "rg",
+          "name": "s1",
+          "type": "microsoft.storage/storageaccounts",
+          "location": "eastus",
+          "skuName": "Standard_LRS",
+          "skuTier": "",
+          "skuFamily": "",
+          "skuCapacity": 0,
+          "kind": "Storage"
+        },
+        {
+          "id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.storage/storageaccounts/s2",
+          "subscriptionId": "aaaaaaaa-1111-4111-8111-111111111111",
+          "resourceGroup": "rg",
+          "name": "s2",
+          "type": "microsoft.storage/storageaccounts",
+          "location": "eastus",
+          "skuName": "Standard_LRS",
+          "skuTier": "",
+          "skuFamily": "",
+          "skuCapacity": 0,
+          "kind": ""
+        }
+      ],
+      "declarations": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "status": "complete"
+        }
+      ],
+      "request": {
+        "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+        "source_region": "eastus",
+        "target_region": "westeurope"
+      },
+      "collections": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "source_region": "eastus",
+          "target_region": "westeurope",
+          "resource_type": "microsoft.storage/storageaccounts",
+          "kind": "",
+          "storage": {
+            "SubscriptionID": "aaaaaaaa-1111-4111-8111-111111111111",
+            "Region": "westeurope",
+            "Status": "complete",
+            "Groups": {
+              "standard_lrs": {
+                "storage": {
+                  "Known": true,
+                  "State": 0
+                },
+                "storagev2": {
+                  "Known": true,
+                  "State": 1
+                }
+              }
+            },
+            "UnqualifiedNames": {},
+            "FailureCode": ""
+          }
+        }
+      ],
+      "want": {
+        "error": "",
+        "error_phase": "",
+        "plan_status": "complete",
+        "scope_status": "complete",
+        "requirements": [
+          {
+            "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+            "source_region": "eastus",
+            "resource_type": "microsoft.storage/storageaccounts",
+            "kind": "",
+            "skus": [
+              "standard_lrs"
+            ],
+            "kinds": {
+              "standard_lrs": [
+                "",
+                "storage"
+              ]
+            },
+            "resource_ids": [
+              "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.storage/storageaccounts/s1",
+              "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.storage/storageaccounts/s2"
+            ],
+            "flags": [
+              "missing_kind"
+            ]
+          }
+        ],
+        "admission_status": "partial",
+        "sku_evidence": {
+          "microsoft.storage/storageaccounts": {
+            "status": "unknown",
+            "values": {}
+          }
+        },
+        "catalogs": [],
+        "preserve_raw_records": true
+      }
+    },
+    {
+      "name": "cognitive-same-sku-different-kinds",
+      "selected": {
+        "aaaaaaaa-1111-4111-8111-111111111111": "One"
+      },
+      "resources": [
+        {
+          "id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.cognitiveservices/accounts/c1",
+          "subscriptionId": "aaaaaaaa-1111-4111-8111-111111111111",
+          "resourceGroup": "rg",
+          "name": "c1",
+          "type": "microsoft.cognitiveservices/accounts",
+          "location": "eastus",
+          "skuName": "S0",
+          "skuTier": "",
+          "skuFamily": "",
+          "skuCapacity": 0,
+          "kind": "OpenAI"
+        },
+        {
+          "id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.cognitiveservices/accounts/c2",
+          "subscriptionId": "aaaaaaaa-1111-4111-8111-111111111111",
+          "resourceGroup": "rg",
+          "name": "c2",
+          "type": "microsoft.cognitiveservices/accounts",
+          "location": "eastus",
+          "skuName": "S0",
+          "skuTier": "",
+          "skuFamily": "",
+          "skuCapacity": 0,
+          "kind": "SpeechServices"
+        }
+      ],
+      "declarations": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "status": "complete"
+        }
+      ],
+      "request": {
+        "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+        "source_region": "eastus",
+        "target_region": "westeurope"
+      },
+      "collections": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "source_region": "eastus",
+          "target_region": "westeurope",
+          "resource_type": "microsoft.cognitiveservices/accounts",
+          "kind": "speechservices",
+          "cognitive": {
+            "SubscriptionID": "aaaaaaaa-1111-4111-8111-111111111111",
+            "Region": "westeurope",
+            "ResourceType": "microsoft.cognitiveservices/accounts",
+            "Status": "complete",
+            "Groups": {
+              "s0": {
+                "Known": true,
+                "State": 1,
+                "BlockedZones": []
+              }
+            },
+            "FailureCode": "",
+            "Kind": "speechservices"
+          }
+        },
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "source_region": "eastus",
+          "target_region": "westeurope",
+          "resource_type": "microsoft.cognitiveservices/accounts",
+          "kind": "openai",
+          "cognitive": {
+            "SubscriptionID": "aaaaaaaa-1111-4111-8111-111111111111",
+            "Region": "westeurope",
+            "ResourceType": "microsoft.cognitiveservices/accounts",
+            "Status": "complete",
+            "Groups": {
+              "s0": {
+                "Known": true,
+                "State": 0,
+                "BlockedZones": []
+              }
+            },
+            "FailureCode": "",
+            "Kind": "openai"
+          }
+        }
+      ],
+      "want": {
+        "error": "",
+        "error_phase": "",
+        "plan_status": "complete",
+        "scope_status": "complete",
+        "requirements": [
+          {
+            "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+            "source_region": "eastus",
+            "resource_type": "microsoft.cognitiveservices/accounts",
+            "kind": "openai",
+            "skus": [
+              "s0"
+            ],
+            "kinds": {},
+            "resource_ids": [
+              "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.cognitiveservices/accounts/c1"
+            ],
+            "flags": [
+              "catalog_only"
+            ]
+          },
+          {
+            "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+            "source_region": "eastus",
+            "resource_type": "microsoft.cognitiveservices/accounts",
+            "kind": "speechservices",
+            "skus": [
+              "s0"
+            ],
+            "kinds": {},
+            "resource_ids": [
+              "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.cognitiveservices/accounts/c2"
+            ],
+            "flags": [
+              "catalog_only"
+            ]
+          }
+        ],
+        "admission_status": "complete",
+        "sku_evidence": {
+          "microsoft.cognitiveservices/accounts": {
+            "status": "unsupported",
+            "values": {}
+          }
+        },
+        "catalogs": [
+          {
+            "resource_type": "microsoft.cognitiveservices/accounts",
+            "kind": "openai",
+            "status": "complete",
+            "deployment_eligibility": "not_assessed",
+            "keys": [
+              "s0"
+            ],
+            "states": {
+              "s0": 0
+            }
+          },
+          {
+            "resource_type": "microsoft.cognitiveservices/accounts",
+            "kind": "speechservices",
+            "status": "complete",
+            "deployment_eligibility": "not_assessed",
+            "keys": [
+              "s0"
+            ],
+            "states": {
+              "s0": 1
+            }
+          }
+        ],
+        "preserve_raw_records": true
+      }
+    },
+    {
+      "name": "cognitive-wrong-kind-evidence",
+      "selected": {
+        "aaaaaaaa-1111-4111-8111-111111111111": "One"
+      },
+      "resources": [
+        {
+          "id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.cognitiveservices/accounts/c1",
+          "subscriptionId": "aaaaaaaa-1111-4111-8111-111111111111",
+          "resourceGroup": "rg",
+          "name": "c1",
+          "type": "microsoft.cognitiveservices/accounts",
+          "location": "eastus",
+          "skuName": "S0",
+          "skuTier": "",
+          "skuFamily": "",
+          "skuCapacity": 0,
+          "kind": "OpenAI"
+        }
+      ],
+      "declarations": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "status": "complete"
+        }
+      ],
+      "request": {
+        "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+        "source_region": "eastus",
+        "target_region": "westeurope"
+      },
+      "collections": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "source_region": "eastus",
+          "target_region": "westeurope",
+          "resource_type": "microsoft.cognitiveservices/accounts",
+          "kind": "speechservices",
+          "cognitive": {
+            "SubscriptionID": "aaaaaaaa-1111-4111-8111-111111111111",
+            "Region": "westeurope",
+            "ResourceType": "microsoft.cognitiveservices/accounts",
+            "Status": "complete",
+            "Groups": {
+              "s0": {
+                "Known": true,
+                "State": 1,
+                "BlockedZones": []
+              }
+            },
+            "FailureCode": "",
+            "Kind": "speechservices"
+          }
+        }
+      ],
+      "want": {
+        "error": "required_evidence_invalid",
+        "error_phase": "admission",
+        "plan_status": "complete",
+        "scope_status": "complete",
+        "requirements": [
+          {
+            "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+            "source_region": "eastus",
+            "resource_type": "microsoft.cognitiveservices/accounts",
+            "kind": "openai",
+            "skus": [
+              "s0"
+            ],
+            "kinds": {},
+            "resource_ids": [
+              "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.cognitiveservices/accounts/c1"
+            ],
+            "flags": [
+              "catalog_only"
+            ]
+          }
+        ],
+        "admission_status": "",
+        "sku_evidence": {},
+        "catalogs": [],
+        "preserve_raw_records": true
+      }
+    },
+    {
+      "name": "cognitive-missing-kind-not-guessed-from-tags",
+      "selected": {
+        "aaaaaaaa-1111-4111-8111-111111111111": "One"
+      },
+      "resources": [
+        {
+          "id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.cognitiveservices/accounts/c1",
+          "subscriptionId": "aaaaaaaa-1111-4111-8111-111111111111",
+          "resourceGroup": "rg",
+          "name": "c1",
+          "type": "microsoft.cognitiveservices/accounts",
+          "location": "eastus",
+          "skuName": "S0",
+          "skuTier": "",
+          "skuFamily": "",
+          "skuCapacity": 0,
+          "kind": "",
+          "tags": {
+            "kind": "OpenAI"
+          }
+        }
+      ],
+      "declarations": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "status": "complete"
+        }
+      ],
+      "request": {
+        "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+        "source_region": "eastus",
+        "target_region": "westeurope"
+      },
+      "collections": [],
+      "want": {
+        "error": "",
+        "error_phase": "",
+        "plan_status": "complete",
+        "scope_status": "complete",
+        "requirements": [
+          {
+            "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+            "source_region": "eastus",
+            "resource_type": "microsoft.cognitiveservices/accounts",
+            "kind": "",
+            "skus": [
+              "s0"
+            ],
+            "kinds": {},
+            "resource_ids": [
+              "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.cognitiveservices/accounts/c1"
+            ],
+            "flags": [
+              "catalog_only",
+              "missing_kind"
+            ]
+          }
+        ],
+        "admission_status": "partial",
+        "sku_evidence": {
+          "microsoft.cognitiveservices/accounts": {
+            "status": "unsupported",
+            "values": {}
+          }
+        },
+        "catalogs": [
+          {
+            "resource_type": "microsoft.cognitiveservices/accounts",
+            "kind": "",
+            "status": "unknown",
+            "deployment_eligibility": "not_assessed",
+            "keys": [],
+            "states": {}
+          }
+        ],
+        "preserve_raw_records": true
+      }
+    },
+    {
+      "name": "vmss-remains-catalog-only",
+      "selected": {
+        "aaaaaaaa-1111-4111-8111-111111111111": "One"
+      },
+      "resources": [
+        {
+          "id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachinescalesets/ss",
+          "subscriptionId": "aaaaaaaa-1111-4111-8111-111111111111",
+          "resourceGroup": "rg",
+          "name": "ss",
+          "type": "microsoft.compute/virtualmachinescalesets",
+          "location": "eastus",
+          "skuName": "Standard_D2s_v5",
+          "skuTier": "",
+          "skuFamily": "",
+          "skuCapacity": 0,
+          "kind": ""
+        }
+      ],
+      "declarations": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "status": "complete"
+        }
+      ],
+      "request": {
+        "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+        "source_region": "eastus",
+        "target_region": "westeurope"
+      },
+      "collections": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "source_region": "eastus",
+          "target_region": "westeurope",
+          "resource_type": "microsoft.compute/virtualmachinescalesets",
+          "kind": "",
+          "vm": {
+            "SubscriptionID": "aaaaaaaa-1111-4111-8111-111111111111",
+            "Region": "westeurope",
+            "ResourceType": "microsoft.compute/virtualmachinescalesets",
+            "Status": "complete",
+            "Groups": {
+              "standard_d2s_v5": {
+                "Known": true,
+                "State": 0,
+                "BlockedZones": []
+              }
+            },
+            "FailureCode": ""
+          }
+        }
+      ],
+      "want": {
+        "error": "",
+        "error_phase": "",
+        "plan_status": "complete",
+        "scope_status": "complete",
+        "requirements": [
+          {
+            "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+            "source_region": "eastus",
+            "resource_type": "microsoft.compute/virtualmachinescalesets",
+            "kind": "",
+            "skus": [
+              "standard_d2s_v5"
+            ],
+            "kinds": {},
+            "resource_ids": [
+              "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachinescalesets/ss"
+            ],
+            "flags": [
+              "catalog_only"
+            ]
+          }
+        ],
+        "admission_status": "complete",
+        "sku_evidence": {
+          "microsoft.compute/virtualmachinescalesets": {
+            "status": "unsupported",
+            "values": {}
+          }
+        },
+        "catalogs": [
+          {
+            "resource_type": "microsoft.compute/virtualmachinescalesets",
+            "kind": "",
+            "status": "complete",
+            "deployment_eligibility": "not_assessed",
+            "keys": [
+              "standard_d2s_v5"
+            ],
+            "states": {
+              "standard_d2s_v5": 0
+            }
+          }
+        ],
+        "preserve_raw_records": true
+      }
+    },
+    {
+      "name": "sql-database-no-coordinate-inference",
+      "selected": {
+        "aaaaaaaa-1111-4111-8111-111111111111": "One"
+      },
+      "resources": [
+        {
+          "id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.sql/servers/server/databases/sql",
+          "subscriptionId": "aaaaaaaa-1111-4111-8111-111111111111",
+          "resourceGroup": "rg",
+          "name": "sql",
+          "type": "microsoft.sql/servers/databases",
+          "location": "eastus",
+          "skuName": "12.0/generalpurpose/name",
+          "skuTier": "GeneralPurpose",
+          "skuFamily": "Gen5",
+          "skuCapacity": 4,
+          "kind": "",
+          "tags": {
+            "edition": "generalpurpose",
+            "version": "12.0",
+            "instancePool": "enabled"
+          }
+        }
+      ],
+      "declarations": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "status": "complete"
+        }
+      ],
+      "request": {
+        "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+        "source_region": "eastus",
+        "target_region": "westeurope"
+      },
+      "collections": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "source_region": "eastus",
+          "target_region": "westeurope",
+          "resource_type": "microsoft.sql/servers/databases",
+          "kind": "",
+          "sql": {
+            "SubscriptionID": "aaaaaaaa-1111-4111-8111-111111111111",
+            "Region": "westeurope",
+            "ResourceType": "microsoft.sql/servers/databases",
+            "Status": "complete",
+            "Groups": {},
+            "FailureCode": ""
+          }
+        }
+      ],
+      "want": {
+        "error": "",
+        "error_phase": "",
+        "plan_status": "complete",
+        "scope_status": "complete",
+        "requirements": [
+          {
+            "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+            "source_region": "eastus",
+            "resource_type": "microsoft.sql/servers/databases",
+            "kind": "",
+            "skus": [
+              "12.0/generalpurpose/name"
+            ],
+            "kinds": {},
+            "resource_ids": [
+              "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.sql/servers/server/databases/sql"
+            ],
+            "flags": [
+              "catalog_only"
+            ]
+          }
+        ],
+        "admission_status": "complete",
+        "sku_evidence": {
+          "microsoft.sql/servers/databases": {
+            "status": "unsupported",
+            "values": {}
+          }
+        },
+        "catalogs": [
+          {
+            "resource_type": "microsoft.sql/servers/databases",
+            "kind": "",
+            "status": "complete",
+            "deployment_eligibility": "not_assessed",
+            "keys": [],
+            "states": {}
+          }
+        ],
+        "preserve_raw_records": true
+      }
+    },
+    {
+      "name": "sql-mi-no-policy-inference",
+      "selected": {
+        "aaaaaaaa-1111-4111-8111-111111111111": "One"
+      },
+      "resources": [
+        {
+          "id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.sql/managedinstances/sql",
+          "subscriptionId": "aaaaaaaa-1111-4111-8111-111111111111",
+          "resourceGroup": "rg",
+          "name": "sql",
+          "type": "microsoft.sql/managedinstances",
+          "location": "eastus",
+          "skuName": "12.0/generalpurpose/name",
+          "skuTier": "GeneralPurpose",
+          "skuFamily": "Gen5",
+          "skuCapacity": 4,
+          "kind": "",
+          "tags": {
+            "edition": "generalpurpose",
+            "version": "12.0",
+            "instancePool": "enabled"
+          }
+        }
+      ],
+      "declarations": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "status": "complete"
+        }
+      ],
+      "request": {
+        "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+        "source_region": "eastus",
+        "target_region": "westeurope"
+      },
+      "collections": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "source_region": "eastus",
+          "target_region": "westeurope",
+          "resource_type": "microsoft.sql/managedinstances",
+          "kind": "",
+          "sql": {
+            "SubscriptionID": "aaaaaaaa-1111-4111-8111-111111111111",
+            "Region": "westeurope",
+            "ResourceType": "microsoft.sql/managedinstances",
+            "Status": "complete",
+            "Groups": {},
+            "FailureCode": ""
+          }
+        }
+      ],
+      "want": {
+        "error": "",
+        "error_phase": "",
+        "plan_status": "complete",
+        "scope_status": "complete",
+        "requirements": [
+          {
+            "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+            "source_region": "eastus",
+            "resource_type": "microsoft.sql/managedinstances",
+            "kind": "",
+            "skus": [
+              "12.0/generalpurpose/name"
+            ],
+            "kinds": {},
+            "resource_ids": [
+              "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.sql/managedinstances/sql"
+            ],
+            "flags": [
+              "catalog_only"
+            ]
+          }
+        ],
+        "admission_status": "complete",
+        "sku_evidence": {
+          "microsoft.sql/managedinstances": {
+            "status": "unsupported",
+            "values": {}
+          }
+        },
+        "catalogs": [
+          {
+            "resource_type": "microsoft.sql/managedinstances",
+            "kind": "",
+            "status": "complete",
+            "deployment_eligibility": "not_assessed",
+            "keys": [],
+            "states": {}
+          }
+        ],
+        "preserve_raw_records": true
+      }
+    },
+    {
+      "name": "disk-validated-owned-evidence",
+      "selected": {
+        "aaaaaaaa-1111-4111-8111-111111111111": "One"
+      },
+      "resources": [
+        {
+          "id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/disks/disk",
+          "subscriptionId": "aaaaaaaa-1111-4111-8111-111111111111",
+          "resourceGroup": "rg",
+          "name": "disk",
+          "type": "microsoft.compute/disks",
+          "location": "eastus",
+          "skuName": "Premium_LRS",
+          "skuTier": "",
+          "skuFamily": "",
+          "skuCapacity": 0,
+          "kind": ""
+        }
+      ],
+      "declarations": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "status": "complete"
+        }
+      ],
+      "request": {
+        "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+        "source_region": "eastus",
+        "target_region": "westeurope"
+      },
+      "collections": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "source_region": "eastus",
+          "target_region": "westeurope",
+          "resource_type": "microsoft.compute/disks",
+          "kind": "",
+          "disk": {
+            "SubscriptionID": "aaaaaaaa-1111-4111-8111-111111111111",
+            "Region": "westeurope",
+            "Status": "complete",
+            "Values": {
+              "premium_lrs": {
+                "State": 0,
+                "BlockedZones": []
+              }
+            },
+            "FailureCode": ""
+          }
+        }
+      ],
+      "want": {
+        "error": "",
+        "error_phase": "",
+        "plan_status": "complete",
+        "scope_status": "complete",
+        "requirements": [
+          {
+            "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+            "source_region": "eastus",
+            "resource_type": "microsoft.compute/disks",
+            "kind": "",
+            "skus": [
+              "premium_lrs"
+            ],
+            "kinds": {},
+            "resource_ids": [
+              "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/disks/disk"
+            ],
+            "flags": []
+          }
+        ],
+        "admission_status": "complete",
+        "sku_evidence": {
+          "microsoft.compute/disks": {
+            "status": "complete",
+            "values": {
+              "premium_lrs": {
+                "state": 0,
+                "blocked_zones": []
+              }
+            }
+          }
+        },
+        "catalogs": [],
+        "preserve_raw_records": true
+      }
+    },
+    {
+      "name": "disk-forged-complete-state-rejected",
+      "selected": {
+        "aaaaaaaa-1111-4111-8111-111111111111": "One"
+      },
+      "resources": [
+        {
+          "id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/disks/disk",
+          "subscriptionId": "aaaaaaaa-1111-4111-8111-111111111111",
+          "resourceGroup": "rg",
+          "name": "disk",
+          "type": "microsoft.compute/disks",
+          "location": "eastus",
+          "skuName": "Premium_LRS",
+          "skuTier": "",
+          "skuFamily": "",
+          "skuCapacity": 0,
+          "kind": ""
+        }
+      ],
+      "declarations": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "status": "complete"
+        }
+      ],
+      "request": {
+        "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+        "source_region": "eastus",
+        "target_region": "westeurope"
+      },
+      "collections": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "source_region": "eastus",
+          "target_region": "westeurope",
+          "resource_type": "microsoft.compute/disks",
+          "kind": "",
+          "disk": {
+            "SubscriptionID": "aaaaaaaa-1111-4111-8111-111111111111",
+            "Region": "westeurope",
+            "Status": "complete",
+            "Values": {
+              "premium_lrs": {
+                "State": 99,
+                "BlockedZones": []
+              }
+            },
+            "FailureCode": ""
+          }
+        }
+      ],
+      "want": {
+        "error": "required_evidence_invalid",
+        "error_phase": "admission",
+        "plan_status": "complete",
+        "scope_status": "complete",
+        "requirements": [
+          {
+            "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+            "source_region": "eastus",
+            "resource_type": "microsoft.compute/disks",
+            "kind": "",
+            "skus": [
+              "premium_lrs"
+            ],
+            "kinds": {},
+            "resource_ids": [
+              "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/disks/disk"
+            ],
+            "flags": []
+          }
+        ],
+        "admission_status": "",
+        "sku_evidence": {},
+        "catalogs": [],
+        "preserve_raw_records": true
+      }
+    },
+    {
+      "name": "unknown-type-no-adapter-invention",
+      "selected": {
+        "aaaaaaaa-1111-4111-8111-111111111111": "One"
+      },
+      "resources": [
+        {
+          "id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.example/widgets/u",
+          "subscriptionId": "aaaaaaaa-1111-4111-8111-111111111111",
+          "resourceGroup": "rg",
+          "name": "u",
+          "type": "microsoft.example/widgets",
+          "location": "eastus",
+          "skuName": "Opaque",
+          "skuTier": "",
+          "skuFamily": "",
+          "skuCapacity": 0,
+          "kind": ""
+        }
+      ],
+      "declarations": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "status": "complete"
+        }
+      ],
+      "request": {
+        "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+        "source_region": "eastus",
+        "target_region": "westeurope"
+      },
+      "collections": [],
+      "want": {
+        "error": "",
+        "error_phase": "",
+        "plan_status": "complete",
+        "scope_status": "complete",
+        "requirements": [
+          {
+            "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+            "source_region": "eastus",
+            "resource_type": "microsoft.example/widgets",
+            "kind": "",
+            "skus": [
+              "opaque"
+            ],
+            "kinds": {},
+            "resource_ids": [
+              "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.example/widgets/u"
+            ],
+            "flags": [
+              "unsupported"
+            ]
+          }
+        ],
+        "admission_status": "complete",
+        "sku_evidence": {
+          "microsoft.example/widgets": {
+            "status": "unsupported",
+            "values": {}
+          }
+        },
+        "catalogs": [],
+        "preserve_raw_records": true
+      }
+    },
+    {
+      "name": "cognitive-kind-case-alias-stays-one-owned-group",
+      "selected": {
+        "aaaaaaaa-1111-4111-8111-111111111111": "One"
+      },
+      "resources": [
+        {
+          "id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.cognitiveservices/accounts/c3",
+          "subscriptionId": "aaaaaaaa-1111-4111-8111-111111111111",
+          "resourceGroup": "rg",
+          "name": "c3",
+          "type": "microsoft.cognitiveservices/accounts",
+          "location": "eastus",
+          "skuName": "S0",
+          "skuTier": "",
+          "skuFamily": "",
+          "skuCapacity": 0,
+          "kind": "openai"
+        },
+        {
+          "id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.cognitiveservices/accounts/c1",
+          "subscriptionId": "aaaaaaaa-1111-4111-8111-111111111111",
+          "resourceGroup": "rg",
+          "name": "c1",
+          "type": "microsoft.cognitiveservices/accounts",
+          "location": "eastus",
+          "skuName": "S0",
+          "skuTier": "",
+          "skuFamily": "",
+          "skuCapacity": 0,
+          "kind": "OpenAI"
+        }
+      ],
+      "declarations": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "status": "complete"
+        }
+      ],
+      "request": {
+        "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+        "source_region": "eastus",
+        "target_region": "westeurope"
+      },
+      "collections": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "source_region": "eastus",
+          "target_region": "westeurope",
+          "resource_type": "microsoft.cognitiveservices/accounts",
+          "kind": "openai",
+          "cognitive": {
+            "SubscriptionID": "aaaaaaaa-1111-4111-8111-111111111111",
+            "Region": "westeurope",
+            "ResourceType": "microsoft.cognitiveservices/accounts",
+            "Status": "complete",
+            "Groups": {
+              "s0": {
+                "Known": true,
+                "State": 0,
+                "BlockedZones": []
+              }
+            },
+            "FailureCode": "",
+            "Kind": "openai"
+          }
+        }
+      ],
+      "want": {
+        "error": "",
+        "error_phase": "",
+        "plan_status": "complete",
+        "scope_status": "complete",
+        "requirements": [
+          {
+            "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+            "source_region": "eastus",
+            "resource_type": "microsoft.cognitiveservices/accounts",
+            "kind": "openai",
+            "skus": [
+              "s0"
+            ],
+            "kinds": {},
+            "resource_ids": [
+              "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.cognitiveservices/accounts/c1",
+              "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.cognitiveservices/accounts/c3"
+            ],
+            "flags": [
+              "catalog_only"
+            ]
+          }
+        ],
+        "admission_status": "complete",
+        "sku_evidence": {
+          "microsoft.cognitiveservices/accounts": {
+            "status": "unsupported",
+            "values": {}
+          }
+        },
+        "catalogs": [
+          {
+            "resource_type": "microsoft.cognitiveservices/accounts",
+            "kind": "openai",
+            "status": "complete",
+            "deployment_eligibility": "not_assessed",
+            "keys": [
+              "s0"
+            ],
+            "states": {
+              "s0": 0
+            }
+          }
+        ],
+        "preserve_raw_records": true
+      }
+    },
+    {
+      "name": "invalid-second-family-rejects-prefix",
+      "selected": {
+        "aaaaaaaa-1111-4111-8111-111111111111": "One"
+      },
+      "resources": [
+        {
+          "id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm",
+          "subscriptionId": "aaaaaaaa-1111-4111-8111-111111111111",
+          "resourceGroup": "rg",
+          "name": "vm",
+          "type": "microsoft.compute/virtualmachines",
+          "location": "eastus",
+          "skuName": "Standard_D2s_v5",
+          "skuTier": "",
+          "skuFamily": "",
+          "skuCapacity": 0,
+          "kind": ""
+        },
+        {
+          "id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/disks/disk",
+          "subscriptionId": "aaaaaaaa-1111-4111-8111-111111111111",
+          "resourceGroup": "rg",
+          "name": "disk",
+          "type": "microsoft.compute/disks",
+          "location": "eastus",
+          "skuName": "Premium_LRS",
+          "skuTier": "",
+          "skuFamily": "",
+          "skuCapacity": 0,
+          "kind": ""
+        }
+      ],
+      "declarations": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "status": "complete"
+        }
+      ],
+      "request": {
+        "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+        "source_region": "eastus",
+        "target_region": "westeurope"
+      },
+      "collections": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "source_region": "eastus",
+          "target_region": "westeurope",
+          "resource_type": "microsoft.compute/virtualmachines",
+          "kind": "",
+          "vm": {
+            "SubscriptionID": "aaaaaaaa-1111-4111-8111-111111111111",
+            "Region": "westeurope",
+            "ResourceType": "microsoft.compute/virtualmachines",
+            "Status": "complete",
+            "Groups": {
+              "standard_d2s_v5": {
+                "Known": true,
+                "State": 0,
+                "BlockedZones": []
+              }
+            },
+            "FailureCode": ""
+          }
+        },
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "source_region": "eastus",
+          "target_region": "westeurope",
+          "resource_type": "microsoft.compute/disks",
+          "kind": "",
+          "disk": {
+            "SubscriptionID": "aaaaaaaa-1111-4111-8111-111111111111",
+            "Region": "westeurope",
+            "Status": "complete",
+            "Values": {
+              "premium_lrs": {
+                "State": 99,
+                "BlockedZones": []
+              }
+            },
+            "FailureCode": ""
+          }
+        }
+      ],
+      "want": {
+        "error": "required_evidence_invalid",
+        "error_phase": "admission",
+        "plan_status": "complete",
+        "scope_status": "complete",
+        "requirements": [
+          {
+            "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+            "source_region": "eastus",
+            "resource_type": "microsoft.compute/disks",
+            "kind": "",
+            "skus": [
+              "premium_lrs"
+            ],
+            "kinds": {},
+            "resource_ids": [
+              "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/disks/disk"
+            ],
+            "flags": []
+          },
+          {
+            "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+            "source_region": "eastus",
+            "resource_type": "microsoft.compute/virtualmachines",
+            "kind": "",
+            "skus": [
+              "standard_d2s_v5"
+            ],
+            "kinds": {},
+            "resource_ids": [
+              "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm"
+            ],
+            "flags": []
+          }
+        ],
+        "admission_status": "",
+        "sku_evidence": {},
+        "catalogs": [],
+        "preserve_raw_records": true
+      }
+    },
+    {
+      "name": "complete-family-survives-other-family-unknown",
+      "selected": {
+        "aaaaaaaa-1111-4111-8111-111111111111": "One"
+      },
+      "resources": [
+        {
+          "id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm",
+          "subscriptionId": "aaaaaaaa-1111-4111-8111-111111111111",
+          "resourceGroup": "rg",
+          "name": "vm",
+          "type": "microsoft.compute/virtualmachines",
+          "location": "eastus",
+          "skuName": "Standard_D2s_v5",
+          "skuTier": "",
+          "skuFamily": "",
+          "skuCapacity": 0,
+          "kind": ""
+        },
+        {
+          "id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.storage/storageaccounts/s1",
+          "subscriptionId": "aaaaaaaa-1111-4111-8111-111111111111",
+          "resourceGroup": "rg",
+          "name": "s1",
+          "type": "microsoft.storage/storageaccounts",
+          "location": "eastus",
+          "skuName": "Standard_LRS",
+          "skuTier": "",
+          "skuFamily": "",
+          "skuCapacity": 0,
+          "kind": "Storage"
+        }
+      ],
+      "declarations": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "status": "complete"
+        }
+      ],
+      "request": {
+        "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+        "source_region": "eastus",
+        "target_region": "westeurope"
+      },
+      "collections": [
+        {
+          "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+          "source_region": "eastus",
+          "target_region": "westeurope",
+          "resource_type": "microsoft.compute/virtualmachines",
+          "kind": "",
+          "vm": {
+            "SubscriptionID": "aaaaaaaa-1111-4111-8111-111111111111",
+            "Region": "westeurope",
+            "ResourceType": "microsoft.compute/virtualmachines",
+            "Status": "complete",
+            "Groups": {
+              "standard_d2s_v5": {
+                "Known": true,
+                "State": 0,
+                "BlockedZones": []
+              }
+            },
+            "FailureCode": ""
+          }
+        }
+      ],
+      "want": {
+        "error": "",
+        "error_phase": "",
+        "plan_status": "complete",
+        "scope_status": "complete",
+        "requirements": [
+          {
+            "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+            "source_region": "eastus",
+            "resource_type": "microsoft.compute/virtualmachines",
+            "kind": "",
+            "skus": [
+              "standard_d2s_v5"
+            ],
+            "kinds": {},
+            "resource_ids": [
+              "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm"
+            ],
+            "flags": []
+          },
+          {
+            "subscription_id": "aaaaaaaa-1111-4111-8111-111111111111",
+            "source_region": "eastus",
+            "resource_type": "microsoft.storage/storageaccounts",
+            "kind": "",
+            "skus": [
+              "standard_lrs"
+            ],
+            "kinds": {
+              "standard_lrs": [
+                "storage"
+              ]
+            },
+            "resource_ids": [
+              "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.storage/storageaccounts/s1"
+            ],
+            "flags": []
+          }
+        ],
+        "admission_status": "partial",
+        "sku_evidence": {
+          "microsoft.compute/virtualmachines": {
+            "status": "complete",
+            "values": {
+              "standard_d2s_v5": {
+                "state": 0,
+                "blocked_zones": []
+              }
+            }
+          },
+          "microsoft.storage/storageaccounts": {
+            "status": "unknown",
+            "values": {}
+          }
+        },
+        "catalogs": [],
+        "preserve_raw_records": true
+      }
+    }
+  ]
+}

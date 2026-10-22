@@ -1,0 +1,164 @@
+#!/usr/bin/env python3
+"""Independent failures for skipped dependencies, lost checks and weaker budgets."""
+import importlib.util
+from collections import Counter
+import json
+from pathlib import Path
+import subprocess
+import sys
+import unittest
+from unittest.mock import patch
+
+sys.dont_write_bytecode = True
+ROOT = Path(__file__).resolve().parents[2]
+
+
+def load(name):
+    spec = importlib.util.spec_from_file_location(name, ROOT / 'scripts/ci' / (name + '.py'))
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+workflow = load('generate_quality_workflow')
+gate = load('required_gate')
+
+
+class GateTests(unittest.TestCase):
+    def test_actual_cli_success_and_failure_exit(self):
+        for platform in ('linux', 'windows'):
+            needs = {k: {'result': 'success', 'outputs': {}} for k in gate.worker_ids(platform)}
+            for status, expected in [('success', 0), ('skipped', 1), ('failure', 1), ('cancelled', 1)]:
+                needs[platform + '-native']['result'] = status
+                with patch.dict('os.environ', {'NEEDS_JSON': json.dumps(needs)}):
+                    result = subprocess.run([sys.executable, str(ROOT / 'scripts/ci/required_gate.py'), '--platform', platform], capture_output=True, timeout=10)
+                self.assertEqual(result.returncode, expected, (platform, status))
+
+    def test_every_required_worker_rejects_non_success(self):
+        for platform in ('linux', 'windows'):
+            expected = [platform + '-native', platform + '-controls-1', platform + '-controls-2', platform + '-controls-3']
+            self.assertEqual(gate.worker_ids(platform), expected)
+            for key in expected:
+                for status in ('failure', 'cancelled', 'skipped', 'neutral', 'timed_out', '', None):
+                    with self.subTest(platform=platform, worker=key, status=status):
+                        needs = {k: {'result': 'success'} for k in expected}
+                        needs[key]['result'] = status
+                        with self.assertRaises(ValueError):
+                            gate.require_workers(json.dumps(needs), platform)
+
+    def test_missing_extra_duplicate_and_malformed_dependencies(self):
+        good = {k: {'result': 'success'} for k in gate.worker_ids('linux')}
+        bad = [[], None, {}, {**good, 'unexpected': {'result': 'success'}}]
+        for key in good:
+            bad.append({k: value for k, value in good.items() if k != key})
+        for value in bad:
+            with self.assertRaises(ValueError):
+                gate.require_workers(json.dumps(value), 'linux')
+        for value in ('{', '{"linux-native":{},"linux-native":{}}'):
+            with self.assertRaises(ValueError):
+                gate.require_workers(value, 'linux')
+
+
+class ConservationTests(unittest.TestCase):
+    def test_every_original_step_block_runs_on_its_original_platform(self):
+        _, before = workflow.split_jobs(workflow.BASELINE.read_text(encoding='utf-8'))
+        _, after = workflow.split_jobs(workflow.WORKFLOW.read_text(encoding='utf-8'))
+        for platform, old_id, count in [('linux', 'quality', 62), ('windows', 'windows-validation', 47)]:
+            _, originals = workflow.split_steps(before[old_id])
+            self.assertEqual(len(originals), count)
+            expected = Counter(originals.values())
+            for name in ('Checkout', 'Set up Go'):
+                expected[originals[name]] += 3
+            actual = Counter()
+            for job_id in [platform + '-native', platform + '-controls-1', platform + '-controls-2', platform + '-controls-3']:
+                _, steps = workflow.split_steps(after[job_id])
+                self.assertIn('Verify parallel workflow conservation and gate guards', steps)
+                del steps['Verify parallel workflow conservation and gate guards']
+                plan = json.loads(workflow.PLAN.read_text(encoding='utf-8'))
+                for addition in plan['additions'][platform]:
+                    if job_id == platform + '-' + addition['worker']:
+                        self.assertIn(addition['name'], steps)
+                        del steps[addition['name']]
+                for block in steps.values():
+                    block = block.replace("go-version: '1.26.10'", "go-version: '1.26.9'")
+                    block = block.replace('go test -count=1 -covermode=atomic', 'go test -covermode=atomic')
+                    block = block.replace('run: go test -count=1 ./...', 'run: go test ./...')
+                    actual[block] += 1
+            self.assertEqual(actual, expected)
+
+    def test_native_crlf_checkout_preserves_baseline_authority(self):
+        raw = workflow.BASELINE.read_bytes().replace(b'\r\n', b'\n')
+        with patch.object(Path, 'read_bytes', return_value=raw.replace(b'\n', b'\r\n')):
+            workflow.read_baseline()
+        with patch.object(Path, 'read_bytes', return_value=raw.replace(b'go test -race', b'go test', 1)):
+            with self.assertRaises(ValueError):
+                workflow.read_baseline()
+
+    def test_actual_workflow_is_conserved(self):
+        workflow.verify(workflow.WORKFLOW.read_text(encoding='utf-8'))
+
+    def test_actual_workflow_rejects_lost_checks_or_weaker_guards(self):
+        text = workflow.WORKFLOW.read_text(encoding='utf-8')
+        changes = [
+            ('go test -race -count=1 ./...', 'go test ./...'),
+            ('< 75.0', '< 70.0'),
+            ('-fuzztime 500000x', '-fuzztime 50x'),
+            ('run: python3 scripts/tests/compute-vm-sku-collector-mutation.py', 'run: true'),
+            ('if: ${{ always() }}', 'if: ${{ success() }}'),
+            ('linux-native, linux-controls-1, linux-controls-2, linux-controls-3', 'linux-native'),
+            ('runs-on: windows-2022', 'runs-on: ubuntu-24.04'),
+            ('contents: read', 'contents: write'),
+            ("go-version: '1.26.10'", "go-version: '1.26.9'"),
+            ('run: go test -count=1 ./...', 'run: go test ./...'),
+        ]
+        for old, new in changes:
+            with self.subTest(guard=old):
+                self.assertIn(old, text)
+                with self.assertRaises(ValueError):
+                    workflow.verify(text.replace(old, new, 1))
+
+    def test_plan_cannot_drop_duplicate_or_move_a_suite(self):
+        header, baseline, plan = workflow.read_baseline()
+        for operation in ('drop', 'duplicate', 'foreign'):
+            changed = json.loads(json.dumps(plan))
+            groups = changed['groups']['linux']
+            if operation == 'drop':
+                groups[0].pop()
+            elif operation == 'duplicate':
+                groups[0].append(groups[1][0])
+            else:
+                groups[0][0] = 'Nonexistent or foreign-platform suite'
+            with patch.object(workflow, 'read_baseline', return_value=(header, baseline, changed)):
+                with self.assertRaises(ValueError):
+                    workflow.generate()
+
+
+class AdditiveInventoryTests(unittest.TestCase):
+    def test_process_checks_are_mandatory_on_both_native_workers(self):
+        _, jobs = workflow.split_jobs(workflow.WORKFLOW.read_text(encoding='utf-8'))
+        for platform in ('linux', 'windows'):
+            _, steps = workflow.split_steps(jobs[platform + '-native'])
+            for name, script in [('Verify hosted gate contract definitions', 'gate-probe.py'), ('Verify handoff authority consistency', 'handoff.py')]:
+                self.assertIn(name, steps)
+                self.assertIn('run: ' + ('python3' if platform == 'linux' else 'python') + ' scripts/tests/' + script, steps[name])
+                self.assertNotIn('        if:', steps[name])
+                self.assertNotIn('continue-on-error', steps[name])
+
+    def test_additive_inventory_rejects_replacement_skip_and_foreign_paths(self):
+        header, baseline, plan = workflow.read_baseline()
+        bad = [
+            {'name': 'Checkout', 'script': 'scripts/tests/gate-probe.py', 'worker': 'native'},
+            {'name': 'Extra check', 'script': '../outside.py', 'worker': 'native'},
+            {'name': 'Extra check', 'script': 'scripts/tests/gate-probe.py', 'worker': 'other'},
+            {'name': 'Extra check', 'script': 'scripts/tests/gate-probe.py', 'worker': 'native', 'if': 'false'},
+        ]
+        for addition in bad:
+            changed = json.loads(json.dumps(plan))
+            changed['additions']['linux'].append(addition)
+            with patch.object(workflow, 'read_baseline', return_value=(header, baseline, changed)):
+                with self.assertRaises(ValueError):
+                    workflow.generate()
+
+
+if __name__ == '__main__':
+    unittest.main()

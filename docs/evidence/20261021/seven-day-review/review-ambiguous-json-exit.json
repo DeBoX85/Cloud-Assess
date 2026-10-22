@@ -1,0 +1,6 @@
+{
+  "exit_code": 1,
+  "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+  "toolchain": "go1.26.10 linux/amd64",
+  "production_changes": false
+}

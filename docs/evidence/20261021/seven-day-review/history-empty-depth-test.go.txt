@@ -1,0 +1,45 @@
+package region
+
+import (
+	"context"
+	"fmt"
+	"io"
+	"net/http"
+	"strings"
+	"testing"
+	"time"
+)
+
+type reviewHistoryDepthPoster struct{ body string }
+
+func (p reviewHistoryDepthPoster) PostBounded(_ context.Context, _ string, request io.ReadSeekCloser, _ int64) ([]byte, *http.Response, error) {
+	defer request.Close()
+	return []byte(p.body), &http.Response{StatusCode: http.StatusOK}, nil
+}
+
+// Count containers including the root object. Empty innermost containers must
+// obey the same published32-depth boundary as the scalar-terminated case.
+func TestReviewHistoryEmptyContainerDepth(t *testing.T) {
+	const sub = "11111111-1111-1111-1111-111111111111"
+	for _, levels := range []int{32, 33} {
+		t.Run(fmt.Sprint(levels), func(t *testing.T) {
+			arrays := levels - 1
+			body := `{"properties":{"columns":[],"rows":[]},"extra":` + strings.Repeat("[", arrays) + strings.Repeat("]", arrays) + `}`
+			collector, err := NewMeterHistoryCollector("https://management.example.test", reviewHistoryDepthPoster{body})
+			if err != nil {
+				t.Fatal(err)
+			}
+			got, err := collector.Collect(context.Background(), map[string]string{sub: "Synthetic"}, MeterHistoryRequest{SubscriptionID: sub, Months: 1, Currency: "USD", Now: time.Date(2026, 10, 21, 0, 0, 0, 0, time.UTC)})
+			if err != nil || got == nil {
+				t.Fatalf("collection did not execute: %v", err)
+			}
+			t.Logf("containers=%d status=%s code=%s bytes=%d", levels, got.Status, got.FailureCode, len(body))
+			if levels == 32 && (got.Status != "complete" || got.FailureCode != "") {
+				t.Fatal("exact32-container healthy control rejected")
+			}
+			if levels == 33 && (got.Status != "unknown" || got.FailureCode != "history_limit") {
+				t.Fatal("33empty containers admitted beyond the32-container boundary")
+			}
+		})
+	}
+}
