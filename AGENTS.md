@@ -1,5 +1,7 @@
 # Repository agent continuity and QA
 
+Preserve docs/TASK_CARRY_FORWARD_20261022.json and its captured legacy IDs/current obligations; reconcile new tasks explicitly. The security reviewer uses docs/SECURITY_REVIEW_HANDOFF_20261022.md read-only on the frozen scope, while this development thread remains sole production/integration owner. No automatic cross-chat synchronization or independent-human approval is implied.
+
 Carry forward docs/CI_EVIDENCE_TASK.json and issue189 (DC-CI-EVIDENCE-20261022) at every handover/end-of-run checkpoint and before readiness/acceptance/release. Denis deferred storage; no public log upload is authorized. Remind Denis at the end of each run to consider an independent security audit. Continue authorized independent work; stop for an unexpected issue requiring Denis when no safe mitigation or deferral exists.
 
 Use Denis's fork `DeBoX85/azqr` as the authoritative pinned compatibility baseline. Follow `docs/REFERENCE_POLICY.md`: feature/function/capability parity is required, and the fork is the starting point rather than a ceiling or the only comparison source. Evaluate deliberate improvements separately with explicit contracts, independent expectations and own QA; preserve all pins and frozen evidence unless a baseline change is expressly authorized.

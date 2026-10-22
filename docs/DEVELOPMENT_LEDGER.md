@@ -1,5 +1,16 @@
 # A–F assessment and evidence deferral, 22 October 2026
 
+## Security handoff and task reconciliation, 22 October 2026
+
+Current successor is docs/security-review-handoff-20261022. Read [task reconciliation](TASK_RECONCILIATION_20261022.md), [44legacy/49current obligation map](TASK_CARRY_FORWARD_20261022.json), [audit disposition](AUDIT_DISPOSITION_20261022.md), [security review handoff](SECURITY_REVIEW_HANDOFF_20261022.md) and [start prompt](SECURITY_REVIEW_START_PROMPT_20261022.md). The separate chat reviews fixed product185read-only; this development chat remains sole writer/integrator. The handoff is prepared, not proof a reviewer is running. No automatic cross-chat synchronization. Later changes need delta review. Independent human review remains open.
+
+PR190 b2c52466own quality39699574080/source39699574023 SUCCESS fully verified: all10quality logs/steps,622Linux/617Windows full controls conserved,87.6%coverage/floor75%,0reachable/3imported-not-called/1module-only OPEN,23captures/315chunks/909865bytes exactGit. [Summary](evidence/20261022/pr190-qa-summary.json) is metadata/hashes only; recent raw logs remain LOCAL ONLY under issue189deferral. This changed successor requires OWN QA and cannot inherit190green.
+
+A–F assessment is delivered and bounded disposition recorded. Applicable-document/whole-repository coverage remains OPEN, not silently certified; task8provisional. Complete remaining audit scope and task8analysis while security review starts separately; retain three confirmed findings and four unconfirmed observations. The carry-forward map preserves offline1–15, AR/DC/DV obligations, ancillary parity, process proposals and all independent/live/operational/security/license/acceptance limits. No work was canceled by creating the security workstream.
+
+Prior dated checkpoints below remain historical evidence; behavioral contracts remain active.
+
+
 Denis deferred storage, requested a task that cannot silently disappear, authorized continued independent work and required a security-audit reminder at the end of the run. Issue189/DC-CI-EVIDENCE-20261022 now records owner/triggers/closure criteria. CI_EVIDENCE_TASK.json plus additive existing handoff tests enforce visible references in four resume pages and required closure fields, with missing-marker/status/closure negative cases. These do not prove external retention. Recent raw CI logs remain LOCAL ONLY; no blocked payload is published.
 
 PR188 own full quality39695096155/source39695096162 verified successful:622/617controls,87.6%coverage,0reachable/3imported-not-called/1module-only OPEN,23captures/315chunks/909865bytes. Old worktree Git metadata disappeared; separate clone recovery preserved old files and verified the published baseline. New consolidated A–F report is delivered; applicable-document/final audit disposition remains unfinished. Task8provisional, product185and all boundaries preserved. New successor requires own full QA, not inherited188green.
