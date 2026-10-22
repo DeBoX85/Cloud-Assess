@@ -520,9 +520,9 @@
     },
     {
       "id": "SEC-BASELINE",
-      "state": "ready_for_separate_review",
+      "state": "in_progress_user_reported",
       "owner": "security reviewer; development owner integrates",
-      "next_or_limit": "Assess frozen product185; read-only external chat, no production/ref writes."
+      "next_or_limit": "Denis confirms bounded setup authorization sent and security chat proceeding. Await actual sanitized finding/coverage/execution report via Denis; no automatic sharing or assumed execution completion."
     },
     {
       "id": "R7-F01",
@@ -678,7 +678,7 @@
       "id": "PROCESS-EVIDENCE",
       "state": "open_proposal",
       "owner": "development owner",
-      "next_or_limit": "PR191 metadata contradiction resolved and full strict log/source/control verification passes. PR192/current successor need own full QA; resumable evidence tooling remains a proposal."
+      "next_or_limit": "PR192 own full quality/source/control logs verified;193/current successor need own full QA. Keep pending/inconsistent job/run observations uncertified. Resumable evidence tooling remains a proposal."
     },
     {
       "id": "PROCESS-STATE",
@@ -762,7 +762,7 @@
       "id": "OFFLINE-08",
       "state": "provisional",
       "owner": "development owner",
-      "next_or_limit": "Cell invalid-versus-global-limit classification resolved; seven SDK parser controls executed, requiring pre-parser empty/trimmed/unnamed-leaf checks and full terminal type binding. Finish exact validation/budget sequence, future admission literals and remaining freeze prerequisites in INVENTORY_DECISIONS_20261022.md."
+      "next_or_limit": "Admission-input global ledger and four independent exact/+1 recipes pass arithmetic checks;24existing scoped projector calls confirm no local bound masks fixtures. Finish owned-output/Build-text ledger/proofs, validation sequence, future identity/union/status/context/ownership literals and applicable-document reconciliation before freeze."
     },
     {
       "id": "OFFLINE-09",

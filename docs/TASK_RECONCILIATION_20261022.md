@@ -1,5 +1,8 @@
 # Task reconciliation, 22 October 2026
 
+Latest: [global input-budget design](INVENTORY_BUDGET_20261022.md), four independent exact/+1recipes and24existing local Catalog proofs. Task8remains provisional with output/Build-text and other freeze requirements open. PR192fullQA verified;193/current successor need ownQA. Denis confirms bounded authorization sent and security chat proceeding; actual findings/coverage return manually. All44legacy/49current IDs, source membership and independent/live/operational/acceptance limits remain.
+
+
 Current continuation: [inventory decisions](INVENTORY_DECISIONS_20261022.md). Raw scope803files/all326Go,29semantic views,127other paths including115documentation paths without complete raw credit. Task8stays provisional; original50cases preserved. PR191metadata/fullQA reconciled;192/current successor need ownQA. Human evaluation is considered but deferred for unavailable access/budget, with no block on authorized offline work; SEC-INDEPENDENT remains visible. All44legacy/49current IDs and captured source mappings are preserved.
 
 

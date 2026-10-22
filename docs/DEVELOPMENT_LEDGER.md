@@ -1,5 +1,16 @@
 # A–F assessment and evidence deferral, 22 October 2026
 
+## Global inventory input-budget preparation, 22 October 2026
+
+Current successor is `docs/inventory-budget-20261022`. [Budget design](INVENTORY_BUDGET_20261022.md) supplies a whole-call input ledger and four independent exact/+1recipes for65536entries/16711680UTF8bytes. Arithmetic and four negative controls pass;24existing scoped Catalog calls on isolated frozen185all accept the fixtures, so individual projector limits do not mask the future global threshold. No global API exists or was executed. Owned-output/Build-text budgets/proofs and remaining task8freeze work stay OPEN; original50cases unchanged. Coverage stays803raw/all326Go/29semantic/127other paths,115documentation paths without full raw credit.
+
+PR192OWN full quality39809871207/source39809871101now verified from complete10quality logs/steps and source capture reconstruction:622Linux/617Windows full controls conserved,87.6%coverage/floor75%,23captures/315chunks/909865bytes exactGit,3imported-not-called/1module-only advisories OPEN. [Safe summary](evidence/20261022/inventory-budget/pr192-qa-summary.json). PR193/current successor require own full QA; pending/inconsistent status is not success. All44legacy/49current IDs retained in [the register](TASK_CARRY_FORWARD_20261022.json).
+
+Denis confirms bounded setup authorization sent and separate security chat proceeding; this is user-reported status, not proof setup/tests/findings completed. Frozen product scope, manual report exchange and sole production writer remain. Human evaluation deferred for access/budget; authorized offline work continues. Product coding only185lineage with guidance carried, never review/archive trees. Next: pending QA and remaining task8owned-output/Build-text/validation/future-literal/documentary work before strict consumer/BOTH native missing APIs and production.
+
+Mandatory carry-forward: [DC-CI-EVIDENCE-20261022](https://github.com/DeBoX85/Cloud-Assess/issues/189) stays DEFERRED OPEN at every handover/end of run and before readiness/acceptance/release; recent raw logs local only, no public raw upload. Preserve old heads/pins/oracles/controls/unrelated worktrees. No Azure/live retail/fixtures/RBAC/subagents/protected merge/bypass/release/unrelated refresh. Human security evaluation remains an acknowledged budget/access deferral. Continue without routine reapproval; stop unexpected issues needing Denis without safe mitigation or explicit deferral.
+
+
 ## Inventory decisions and security-review limits, 22 October 2026
 
 Current documentary successor is `docs/inventory-decisions-20261022`, preserving PR192/7aa2e591 and the frozen security scope. [Inventory decisions](INVENTORY_DECISIONS_20261022.md) resolve individual-label versus global-budget error classification and require pre-parser checks for empty/trimmed segments and unnamed leaves. Seven independent SDK-only controls ran with Go1.26.10Linux, unchanged frozen module files, verified cached dependencies and no requests/listeners. They are not execution of future task8/9APIs. Two more complete documents bring raw coverage to803files/all326Go;29semantic views and127other classified paths remain, including115documentation paths without complete raw credit. Task8 remains provisional, with original50cases unchanged.
