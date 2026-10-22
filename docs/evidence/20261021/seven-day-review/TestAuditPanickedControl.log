@@ -1,0 +1,18 @@
+--- FAIL: TestAuditPanickedControl (0.00s)
+panic: independent panic must not count as assertion proof [recovered, repanicked]
+
+goroutine 7 [running]:
+testing.tRunner.func1.2({0x550fc0, 0x594630})
+	/workspace/scratch/81f11bb42cee/tooling/go/src/testing/testing.go:1974 +0x232
+testing.tRunner.func1()
+	/workspace/scratch/81f11bb42cee/tooling/go/src/testing/testing.go:1977 +0x349
+panic({0x550fc0?, 0x594630?})
+	/workspace/scratch/81f11bb42cee/tooling/go/src/runtime/panic.go:860 +0x13a
+command-line-arguments.TestAuditPanickedControl(0x28e4a1bd6248?)
+	/tmp/cloud-assess-audit-admission-ac4jrdym/admission_test.go:4 +0x25
+testing.tRunner(0x28e4a1bd6248, 0x592eb8)
+	/workspace/scratch/81f11bb42cee/tooling/go/src/testing/testing.go:2036 +0xea
+created by testing.(*T).Run in goroutine 1
+	/workspace/scratch/81f11bb42cee/tooling/go/src/testing/testing.go:2101 +0x4c5
+FAIL	command-line-arguments	0.004s
+FAIL

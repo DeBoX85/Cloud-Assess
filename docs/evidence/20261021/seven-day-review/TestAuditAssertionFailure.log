@@ -1,0 +1,5 @@
+--- FAIL: TestAuditAssertionFailure (0.00s)
+    admission_test.go:3: independent expected assertion failure
+FAIL
+FAIL	command-line-arguments	0.002s
+FAIL

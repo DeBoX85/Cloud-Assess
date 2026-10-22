@@ -1,0 +1,25 @@
+{
+  "id": "DC-CI-EVIDENCE-20261022",
+  "issue": "https://github.com/DeBoX85/Cloud-Assess/issues/189",
+  "status": "deferred_open",
+  "authorized_deferral": "Denis, 22October2026: no receiving private repository or Azure access; continue independent offline work.",
+  "owner": "Working agent maintains and revisits; Denis authorizes destination when available.",
+  "revisit": [
+    "every handover and end-of-run checkpoint",
+    "when a private destination becomes available",
+    "before task15 readiness, protected acceptance or release"
+  ],
+  "scope": [
+    "PR187 prepared19-member own-QA bundle",
+    "PR188 newly retained complete own-QA logs",
+    "other irreplaceable evidence after inventory"
+  ],
+  "closure": {},
+  "constraints": [
+    "No public raw-log publication approval",
+    "No new Azure operation",
+    "Do not mark retained or resolved from green QA or hashes alone",
+    "Re-inventory actual surviving bytes; record missing/expired files honestly"
+  ],
+  "verification_limit": "Handoff checks enforce visible references and required closure fields, not actual external backup correctness or an independent restore."
+}

@@ -1,0 +1,125 @@
+{
+  "format": "sql-report-controls-v1",
+  "mutations": [
+    {
+      "name": "output-text-cap-plus-one",
+      "file": "internal/plugins/region/sql_report.go",
+      "old": "total > sqlReportTextCap",
+      "replace": "total > sqlReportTextCap+1",
+      "test": "TestSQLReportOutputBoundary",
+      "count": 2
+    },
+    {
+      "name": "warning-text-byte-charge",
+      "file": "internal/plugins/region/sql_report.go",
+      "old": "n += len(w.Message)",
+      "replace": "n += len(w.Message)*0",
+      "test": "TestSQLReportOutputBoundary",
+      "count": 1
+    },
+    {
+      "name": "coordinate-text-byte-charge",
+      "file": "internal/plugins/region/sql_report.go",
+      "old": "len(key)",
+      "replace": "len(key)*0",
+      "test": "TestSQLReportOutputBoundary",
+      "count": 1
+    },
+    {
+      "name": "catalog-availability-state",
+      "file": "internal/plugins/region/sql_report.go",
+      "old": "g.State == SKUAvailable",
+      "replace": "g.State != SKUAvailable",
+      "test": "TestSQLReportFrozenOracle",
+      "count": 1
+    },
+    {
+      "name": "deployment-eligibility-not-assessed",
+      "file": "internal/plugins/region/sql_report.go",
+      "old": "\"not_assessed\"",
+      "replace": "\"available\"",
+      "test": "TestSQLReportFrozenOracle",
+      "count": 2
+    },
+    {
+      "name": "full-coordinate-column",
+      "file": "internal/plugins/region/sql_report.go",
+      "old": "\"Capability coordinate\"",
+      "replace": "\"SKU\"",
+      "test": "TestSQLReportFrozenOracle",
+      "count": 1
+    },
+    {
+      "name": "exact-record-count",
+      "file": "internal/plugins/region/sql_report.go",
+      "old": "table.Health.Records = len(table.Rows)",
+      "replace": "table.Health.Records = 0",
+      "test": "TestSQLReportFrozenOracle",
+      "count": 1
+    },
+    {
+      "name": "unknown-evidence-warning",
+      "file": "internal/plugins/region/sql_report.go",
+      "old": "catalog.Status == \"unknown\"",
+      "replace": "catalog.Status == \"unknown\" && false",
+      "test": "TestSQLReportFrozenOracle",
+      "count": 1
+    },
+    {
+      "name": "full-coordinate-order",
+      "file": "internal/plugins/region/sql_report.go",
+      "old": "sort.Strings(keys)",
+      "replace": "sort.Sort(sort.Reverse(sort.StringSlice(keys)))",
+      "test": "TestSQLReportFrozenOracle",
+      "count": 1
+    },
+    {
+      "name": "final-success-context",
+      "file": "internal/plugins/region/sql_report.go",
+      "old": "if err := ctx.Err(); err != nil {\n\t\treturn sqlReportFailure(ctx, kind, \"sql_capability_report_cancelled\", err)\n\t}",
+      "replace": "if err := ctx.Err(); err != nil && false {\n\t\treturn sqlReportFailure(ctx, kind, \"sql_capability_report_cancelled\", err)\n\t}",
+      "test": "TestSQLReportFixedLateContext",
+      "count": 1
+    },
+    {
+      "name": "wrapped-cancellation-canonical",
+      "file": "internal/plugins/region/sql_report.go",
+      "old": "errors.Is(cause, context.Canceled)",
+      "replace": "errors.Is(cause, context.Canceled) && false",
+      "test": "TestSQLReportWrappedGetterContext",
+      "count": 1
+    },
+    {
+      "name": "selected-snapshot",
+      "file": "internal/plugins/region/sql_report.go",
+      "old": "selected = maps.Clone(selected)",
+      "replace": "selected = selected",
+      "test": "TestSQLReportTransportSnapshot",
+      "count": 1
+    },
+    {
+      "name": "alias-snapshot",
+      "file": "internal/plugins/region/sql_report.go",
+      "old": "q.LocationAliases = maps.Clone(q.LocationAliases)",
+      "replace": "q.LocationAliases = q.LocationAliases",
+      "test": "TestSQLReportTransportSnapshot",
+      "count": 1
+    },
+    {
+      "name": "required-snapshot",
+      "file": "internal/plugins/region/sql_report.go",
+      "old": "required = append([]string(nil), required...)",
+      "replace": "required = required",
+      "test": "TestSQLReportTransportSnapshot",
+      "count": 1
+    },
+    {
+      "name": "preauth-required-validation",
+      "file": "internal/plugins/region/sql_report.go",
+      "old": "preflight, err := absent.Catalog(ctx, selected, q, required)\n\tif err != nil {",
+      "replace": "preflight, err := absent.Catalog(ctx, selected, q, required)\n\tif err != nil && false {",
+      "test": "TestSQLReportPreflightNoGET",
+      "count": 1
+    }
+  ]
+}
