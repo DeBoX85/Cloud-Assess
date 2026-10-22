@@ -1,3 +1,9 @@
+# Assessment successor
+
+Read [the consolidated A–F assessment](ASSESSMENT_AF_20261022.md). It supersedes the working assessment below for current status and recommendations; audit completion limitations remain explicit.
+
+---
+
 # Assessment working draft, 2026-10-21
 
 INCOMPLETE REVIEW, not final disposition, product acceptance or release approval. The [review progress](REVIEW_PROGRESS_20261021.md) records read/evidence coverage and remaining work. The final report must reconcile remaining data/reference contracts, finish its own review-tree QA and collect unresolved questions at the end. This working draft makes the current assessment concrete without calling the audit finished.

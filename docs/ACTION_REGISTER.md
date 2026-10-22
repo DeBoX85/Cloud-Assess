@@ -1,5 +1,8 @@
 # Active action register
 
+Mandatory carry-forward: [DC-CI-EVIDENCE-20261022](https://github.com/DeBoX85/Cloud-Assess/issues/189) is DEFERRED OPEN by Denis. Revisit at every handover/end of run, when private storage becomes available, and before task15/readiness/protected acceptance/release. No public upload or retention closure is authorized. See [tracked task](CI_EVIDENCE_TASK.json). Continue independent offline work. At the end of each run remind Denis to consider an independent security audit of the codebase; this is a reminder, not commissioned audit approval.
+
+
 ## Current checkpoint, 22 October 2026
 
 Read [CURRENT_STATE](CURRENT_STATE.md) and [review progress](REVIEW_PROGRESS_20261021.md). The Go1.26.10 decision was approved and PR185 own native/source QA passed. Task7 formal offline evidence closure is complete in PR183. Task8 remains provisional during the audit. PR187 own quality39663992340/source39663992339 passed at e7a63bcc; the final PR body owns the verified result. Complete quality-log public retention is blocked by automatic approval review pending explicit disclosure approval; no remote bundle is claimed. Residual advisories and acceptance obligations remain OPEN.
@@ -10,6 +13,7 @@ Current status authority: [CURRENT_STATE](CURRENT_STATE.md). Detailed evidence b
 
 | ID | State | Responsible party | Dependency / next action | Closure evidence |
 | --- | --- | --- | --- | --- |
+| DC-CI-EVIDENCE-20261022 | Deferred OPEN by Denis | Agent tracks; Denis selects destination | Revisit every handover/end of run, destination availability and before readiness/acceptance/release | [Issue189](https://github.com/DeBoX85/Cloud-Assess/issues/189); [task record](CI_EVIDENCE_TASK.json); closure needs authorization, retention owner, manifest, readback and restore |
 | DC-RETAIL-SEC-20261020 | Verified offline180; residuals OPEN | Agent; independent review remains open | Narrow update/full QA/evidence completed; no broad refresh | PR180final index; cf93d214evidence; original failed177preserved |
 | DC-RETAIL-EVIDENCE-20261021 | Verified offline; historical executions | Agent | Both archives reconciled; formal closure in PR183 body | PR183 final index; [reconciliation](evidence/20261021/seven-day-review/task7-archive-reconciliation.json) |
 | DC-INVENTORY-20261021 | Provisional only | Agent | Review/freeze contract and50independent scenarios after task7closure | recovered-local/task8-provisional; no target API yet |

@@ -1,5 +1,25 @@
 # Current project state
 
+## A–F and deferred-evidence checkpoint, 22 October 2026
+
+Mandatory carry-forward: [DC-CI-EVIDENCE-20261022](https://github.com/DeBoX85/Cloud-Assess/issues/189) is DEFERRED OPEN by Denis. Revisit at every handover/end of run, when private storage becomes available, and before task15/readiness/protected acceptance/release. No public upload or retention closure is authorized. See [tracked task](CI_EVIDENCE_TASK.json). Continue independent offline work. At the end of each run remind Denis to consider an independent security audit of the codebase; this is a reminder, not commissioned audit approval.
+
+The consolidated [A–F assessment](ASSESSMENT_AF_20261022.md) is delivered for review, including goal/progress/remaining work/risks/blockers/roadmap, ranked quality/speed improvements and final questions. The expanded audit is still unfinished: applicable-document reconciliation and final disposition remain open. All326first-party Go files are read;795raw reads/29semantic views and135classified other paths remain the recorded scope. Task8contract/50scenarios stays provisional; no new production implementation. Preserve all frozen evidence and source pins.
+
+PR188e210ca1f own quality39695096155/source39695096162 SUCCESS verified from all10quality logs/steps and source log:622Linux/617Windows full control lines conserved,87.6%coverage/floor75%,0reachable/3imported-not-called/1module-only (residuals OPEN),23captures/315chunks/909865bytes equal exactGit. Preview3a064249 has identical treef51ac9a0 and ordered protected/candidate parents. [Summary](evidence/20261022/pr188-qa-summary.json) contains metadata/hashes only; complete recent logs remain local, not durable archives.
+
+Active successor is docs/review-af-20261022, preserving PR188 and every prior head. New handoff checks enforce the visible issue189task in four resume pages and require closure references before marking its local record resolved. Those checks are reminders/structural safeguards, not proof a real backup exists. This successor needs OWN full native/source QA; never inherit188green. No status-only certificate commits.
+
+Product coding remains draft PR185/566cc4d8b78d168e5216245a5a386f742a3a2f85 with current handover explicitly carried, never review/archive trees. Protectedbootstrap/core-v1a6fee427e19feeef28691737ea9bc5026086efa0; AZQR fork8e4f0577f3615e6c9014c031bcad079f235369cc; APRL60eaddda76541f6adbc1c5ffa686829807e55e29 unchanged. Both human Git identities Denis Bogunic <134433647+DeBoX85@users.noreply.github.com>. No Azure/live retail/fixtures/RBAC/subagents/protected merge/bypass/release/unrelated refresh.
+
+Next: inspect this successor's own QA, finish the explicitly remaining documentary/finding disposition, then reevaluate task8before task9's strict consumer and BOTH native missing-API observations. Tasks10–15follow dependencies; compare/alternative-vm-sku/MCP and types reconciliation remain separately open parity obligations. Independent/live/operational/security/license/acceptance remain OPEN. Stop on an unexpected issue needing Denis with no safe mitigation or explicit deferral.
+
+## Prior checkpoints, retained history
+
+
+Mandatory carry-forward: [DC-CI-EVIDENCE-20261022](https://github.com/DeBoX85/Cloud-Assess/issues/189) is DEFERRED OPEN by Denis. Revisit at every handover/end of run, when private storage becomes available, and before task15/readiness/protected acceptance/release. No public upload or retention closure is authorized. See [tracked task](CI_EVIDENCE_TASK.json). Continue independent offline work. At the end of each run remind Denis to consider an independent security audit of the codebase; this is a reminder, not commissioned audit approval.
+
+
 ## Boundary-review continuation, 22 October 2026
 
 Active review successor is docs/review-boundaries-20261022. Read [boundary and roadmap reconciliation](REVIEW_BOUNDARIES_20261022.md). PR187 own quality39663992340/source39663992339 passed ate7a63bcc: complete10quality logs/steps,622/617conserved control lines,87.6%coverage,0reachable/3imported-not-called/1module-only,23captures/315chunks/909865bytes. New raw-log public retention is BLOCKED by automatic approval review pending explicit disclosure approval; no remote bundle is claimed. The prepared19-member payload remains local and excluded from this successor.

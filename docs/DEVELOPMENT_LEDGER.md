@@ -1,3 +1,11 @@
+# A–F assessment and evidence deferral, 22 October 2026
+
+Denis deferred storage, requested a task that cannot silently disappear, authorized continued independent work and required a security-audit reminder at the end of the run. Issue189/DC-CI-EVIDENCE-20261022 now records owner/triggers/closure criteria. CI_EVIDENCE_TASK.json plus additive existing handoff tests enforce visible references in four resume pages and required closure fields, with missing-marker/status/closure negative cases. These do not prove external retention. Recent raw CI logs remain LOCAL ONLY; no blocked payload is published.
+
+PR188 own full quality39695096155/source39695096162 verified successful:622/617controls,87.6%coverage,0reachable/3imported-not-called/1module-only OPEN,23captures/315chunks/909865bytes. Old worktree Git metadata disappeared; separate clone recovery preserved old files and verified the published baseline. New consolidated A–F report is delivered; applicable-document/final audit disposition remains unfinished. Task8provisional, product185and all boundaries preserved. New successor requires own full QA, not inherited188green.
+
+---
+
 # Review continuation, 22 October 2026
 
 PR187 own quality39663992340/source39663992339 verified successful at exacte7a63bcc. Complete log/step/control/source checks retain622Linux/617Windows and87.6%coverage,0reachable/3imported-not-called/1module-only (residuals OPEN). Full newly retained19-member own-QA archive is LOCAL ONLY: automatic approval review rejected public disclosure. No remote bundle is claimed. Current documentation-only successor updates action-register drift, read/reference classifications and ancillary parity obligations; see [the boundary review](REVIEW_BOUNDARIES_20261022.md).795raw reads/29semantic views;135paths classified, applicable-document/final disposition still incomplete. Own successor QA remains mandatory. Task8provisional; product185and all pins/boundaries preserved. Prior dated narratives below remain historical evidence.
