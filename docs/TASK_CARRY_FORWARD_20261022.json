@@ -516,7 +516,7 @@
       "id": "AUDIT-REMAINDER",
       "state": "in_progress",
       "owner": "development owner",
-      "next_or_limit": "Six additional complete document reads reconciled;801raw/29semantic/129classified other paths,117documentation paths still without full raw credit. Finish applicable-document/finding disposition; see DOCUMENT_RECONCILIATION_20261022.md."
+      "next_or_limit": "Eight additional complete documents reconciled across192/current continuation;803raw/29semantic/127classified other paths,115documentation paths still without full raw credit. Finish applicable-document/finding disposition."
     },
     {
       "id": "SEC-BASELINE",
@@ -678,7 +678,7 @@
       "id": "PROCESS-EVIDENCE",
       "state": "open_proposal",
       "owner": "development owner",
-      "next_or_limit": "Reconcile PR191 run-success versus quality-job119912379705 in_progress/null metadata before certification; all log content checked. Read-only resumable evidence reconciliation remains a proposal."
+      "next_or_limit": "PR191 metadata contradiction resolved and full strict log/source/control verification passes. PR192/current successor need own full QA; resumable evidence tooling remains a proposal."
     },
     {
       "id": "PROCESS-STATE",
@@ -712,9 +712,9 @@
     },
     {
       "id": "SEC-INDEPENDENT",
-      "state": "open_independent",
+      "state": "deferred_access_budget",
       "owner": "Denis selects independent reviewer",
-      "next_or_limit": "Independent human security audit remains recommended before acceptance/release; reminder each run."
+      "next_or_limit": "Denis will consider human evaluation; access and budget currently unavailable. Keep assurance limitation visible without blocking authorized offline work or treating AI review as human approval."
     },
     {
       "id": "OFFLINE-01",
@@ -762,7 +762,7 @@
       "id": "OFFLINE-08",
       "state": "provisional",
       "owner": "development owner",
-      "next_or_limit": "Provisional50case proposal preserved. Resolve seven explicit freeze prerequisites in INVENTORY_PREPARATION_20261022.md after documentary reevaluation; no production yet."
+      "next_or_limit": "Cell invalid-versus-global-limit classification resolved; seven SDK parser controls executed, requiring pre-parser empty/trimmed/unnamed-leaf checks and full terminal type binding. Finish exact validation/budget sequence, future admission literals and remaining freeze prerequisites in INVENTORY_DECISIONS_20261022.md."
     },
     {
       "id": "OFFLINE-09",

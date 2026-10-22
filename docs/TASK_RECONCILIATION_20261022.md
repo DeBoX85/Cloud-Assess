@@ -1,5 +1,8 @@
 # Task reconciliation, 22 October 2026
 
+Current continuation: [inventory decisions](INVENTORY_DECISIONS_20261022.md). Raw scope803files/all326Go,29semantic views,127other paths including115documentation paths without complete raw credit. Task8stays provisional; original50cases preserved. PR191metadata/fullQA reconciled;192/current successor need ownQA. Human evaluation is considered but deferred for unavailable access/budget, with no block on authorized offline work; SEC-INDEPENDENT remains visible. All44legacy/49current IDs and captured source mappings are preserved.
+
+
 The task map preserves44legacy task/finding identifiers from11explicit source records and49current obligation groups. These counts are an accounting aid, not49new tasks, a completion percentage or evidence every historical sentence was reviewed. The [machine-readable map](TASK_CARRY_FORWARD_20261022.json) binds the original source revision/blob/hash and records current disposition or bounded prior closure. Closed work stays visible; historical task names are not restarted.
 
 The existing handoff test now rejects lost captured source IDs, missing required current obligations and mappings to absent tasks. This protects the captured inventory from silent omission. Future requirements still need explicit addition and review.
@@ -39,7 +42,7 @@ The existing handoff test now rejects lost captured source IDs, missing required
 | ACCEPT-SECURITY-LICENSE | open_acceptance | independent security/legal/release owners: Residual risk, licensing, artifact provenance/SBOM and release decision. |
 | ACCEPT-OPERATIONS | open_acceptance | operator/release owner: Supported OS/architecture native evidence, fresh OS, installed rollback, least privilege/visibility and safe pilot. |
 | GATE-004 | open_acceptance | review/acceptance owner: Row-by-row pass/accepted limitation/blocked on exact candidate; no auto pass from development QA. |
-| SEC-INDEPENDENT | open_independent | Denis selects independent reviewer: Independent human security audit remains recommended before acceptance/release; reminder each run. |
+| SEC-INDEPENDENT | deferred_access_budget | Denis: Human evaluation will be considered; access/budget unavailable. Keep assurance limits visible and continue authorized offline work. |
 | OFFLINE-01 | verified_offline | development owner: Preserve closure evidence; no replay. |
 | OFFLINE-02 | verified_offline | development owner: Preserve closure evidence; no replay. |
 | OFFLINE-03 | verified_offline | development owner: Preserve closure evidence; no replay. |

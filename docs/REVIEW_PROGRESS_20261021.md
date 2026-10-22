@@ -1,5 +1,18 @@
 # Expanded review progress
 
+## Inventory decisions and security-review limits, 22 October 2026
+
+Current documentary successor is `docs/inventory-decisions-20261022`, preserving PR192/7aa2e591 and the frozen security scope. [Inventory decisions](INVENTORY_DECISIONS_20261022.md) resolve individual-label versus global-budget error classification and require pre-parser checks for empty/trimmed segments and unnamed leaves. Seven independent SDK-only controls ran with Go1.26.10Linux, unchanged frozen module files, verified cached dependencies and no requests/listeners. They are not execution of future task8/9APIs. Two more complete documents bring raw coverage to803files/all326Go;29semantic views and127other classified paths remain, including115documentation paths without complete raw credit. Task8 remains provisional, with original50cases unchanged.
+
+PR191's job/run discrepancy resolved: all10jobs now completed/success; final gate log equals its earlier full bytes and the strict verifier passes. [Final safe QA summary](evidence/20261022/inventory-decisions/pr191-qa-final-summary.json) records full622Linux/617Windows control conservation,87.6%coverage,23exact source captures and residual3imported-not-called/1module-only advisories OPEN. PR192 and this successor still need OWN full QA; follow their live PR bodies, never inherit191green.
+
+Denis will consider human evaluation, but access/budget are currently unavailable. [Execution advice](SECURITY_REVIEW_EXECUTION_ADVICE_20261022.md) records this deferred assurance limit and recommends bounded setup/execution restrictions for the separate reviewer. This is advice, not authorization already granted in that chat; the reviewer handoff is unchanged. Its reported observation is not a confirmed integrated finding. No automatic chat/filesystem sharing or new production-writing permission.
+
+Next: inspect192/own QA; finish applicable-document reconciliation and remaining task8budget/validation-order/future-literal/ownership/context requirements before freezing. Task9first publishes its strict consumer and inspects BOTH native missing APIs before production. All44legacy/49current obligations remain in [the register](TASK_CARRY_FORWARD_20261022.json). Product coding stays on185lineage, never a review/archive tree. No Azure/live retail/fixtures/RBAC/subagents/protected merge/bypass/release/unrelated refresh.
+
+Mandatory carry-forward: [DC-CI-EVIDENCE-20261022](https://github.com/DeBoX85/Cloud-Assess/issues/189) stays DEFERRED OPEN, revisited every handover/end of run, on private destination availability and before task15/readiness/acceptance/release. Recent raw logs local only; no public raw upload. Preserve all prior heads/pins/oracles/controls/unrelated worktrees. Human security review remains an acknowledged access/budget deferral; continue authorized offline work and stop only an unexpected issue needing Denis without safe mitigation or explicit deferral.
+
+
 ## Inventory preparation continuation, 22 October 2026
 
 Current documentation successor is `docs/inventory-preparation-20261022`, preserving PR191 and the security review snapshot. Read [documentary reconciliation](DOCUMENT_RECONCILIATION_20261022.md), [task8 preparation](INVENTORY_PREPARATION_20261022.md) and [exact scope/case inventory](evidence/20261022/inventory-preparation.json). Six additional complete document reads bring raw coverage to801files/all326Go;29semantic views and129classified other paths remain, including117documentation paths without complete raw-read credit. Whole-repository reconciliation remains OPEN. Seven explicit task8freeze prerequisites are recorded; the three provisional files/50cases remain unchanged, no API freeze or production edits.
