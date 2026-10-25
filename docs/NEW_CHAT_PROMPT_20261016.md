@@ -1,10 +1,8 @@
 # Current status and authority
 
-Historical snapshot. For current task state and next action use [2026-10-21 transfer](CHAT_TRANSFER_20261021.md), [CURRENT_STATE](CURRENT_STATE.md) and [RESTART_PROMPT](RESTART_PROMPT.md). Preserve technical contracts and evidence; use the maintained prompt rather than dated instructions.
+Read [CURRENT_STATE](CURRENT_STATE.md), [25 October handover](HANDOVER_CHECKPOINT_20261025.md), [transfer](CHAT_TRANSFER_20261025.md), [CONTINUE](CONTINUE.md) and [restart prompt](RESTART_PROMPT.md). The live task PR owns exact-revision publication and QA outcomes separately from protected acceptance.
 
-Read [CURRENT_STATE](CURRENT_STATE.md) for current status, authorization and the next action, and [development workflow](DEVELOPMENT_WORKFLOW.md) for procedure. Dated progress and resume sections below are historical snapshots; behavioral requirements remain in force unless explicitly revised. The live task PR records exact-revision QA outcomes separately from protected acceptance.
-
-Use [RESTART_PROMPT](RESTART_PROMPT.md) for the maintained copy-ready prompt and [CONTINUE](CONTINUE.md) for routing. The dated prompts below are historical snapshots. [Complete historical handoff](HANDOFF_20261017.md).
+Dated progress and resume sections below are historical snapshots; behavioral requirements remain in force unless explicitly revised. Verify live refs and preserve old heads before acting.
 
 ---
 

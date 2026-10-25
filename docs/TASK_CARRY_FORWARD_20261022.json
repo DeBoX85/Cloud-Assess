@@ -522,7 +522,7 @@
       "id": "SEC-BASELINE",
       "state": "in_progress_user_reported",
       "owner": "security reviewer; development owner integrates",
-      "next_or_limit": "Denis confirms bounded setup authorization sent and security chat proceeding. Await actual sanitized finding/coverage/execution report via Denis; no automatic sharing or assumed execution completion."
+      "next_or_limit": "Separate review authorized and private checkpoints exist. Reconcile actual sanitized report, reviewed revisions/coverage/reproductions through Denis before integrating findings; no completion/approval inferred from file or commit titles."
     },
     {
       "id": "R7-F01",
@@ -574,9 +574,9 @@
     },
     {
       "id": "DC-CI-EVIDENCE-20261022",
-      "state": "deferred_open",
+      "state": "in_progress",
       "owner": "agent tracks; Denis selects destination",
-      "next_or_limit": "Issue189, every handover/end-of-run/destination availability/before readiness/acceptance/release."
+      "next_or_limit": "Private SC-storage authorized;33files and200restored members verified at64f3c6d8, receiptf4081f57. Integrate with newest shared main preserving security files and append8later PR194logs. Issue189open; no public raw upload, independent backup separate."
     },
     {
       "id": "AR-01",
@@ -678,7 +678,7 @@
       "id": "PROCESS-EVIDENCE",
       "state": "open_proposal",
       "owner": "development owner",
-      "next_or_limit": "PR192 own full quality/source/control logs verified;193/current successor need own full QA. Keep pending/inconsistent job/run observations uncertified. Resumable evidence tooling remains a proposal."
+      "next_or_limit": "PR193and194strict full QA verified from completed metadata/logs on25October; new handover needs own QA. Finish private storage integration and capture latest logs; resumable automation remains a proposal."
     },
     {
       "id": "PROCESS-STATE",

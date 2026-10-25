@@ -1,8 +1,8 @@
 # Current status and authority
 
-Read [CURRENT_STATE](CURRENT_STATE.md) for current status, authorization and the next action, and [development workflow](DEVELOPMENT_WORKFLOW.md) for procedure. Dated progress and resume sections below are historical snapshots; behavioral requirements remain in force unless explicitly revised. The live task PR records exact-revision QA outcomes separately from protected acceptance.
+Read [CURRENT_STATE](CURRENT_STATE.md), [25 October handover](HANDOVER_CHECKPOINT_20261025.md), [transfer](CHAT_TRANSFER_20261025.md), [CONTINUE](CONTINUE.md) and [restart prompt](RESTART_PROMPT.md). The live task PR owns exact-revision publication and QA outcomes separately from protected acceptance.
 
-Current session transition: read [the 2026-10-17 handoff](HANDOFF_20261017.md) and [resume prompt](NEW_CHAT_PROMPT_20261016.md). The live handoff PR owns its exact-revision outcomes.
+Dated progress and resume sections below are historical snapshots; behavioral requirements remain in force unless explicitly revised. Verify live refs and preserve old heads before acting.
 
 ---
 

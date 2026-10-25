@@ -1,5 +1,10 @@
 # Development evidence retention and verification
 
+## Current private retention, 25 October 2026
+
+Denis authorized DeBoX85/SC-storage. Use [the handover storage section](HANDOVER_CHECKPOINT_20261025.md) and [tracked task](CI_EVIDENCE_TASK.json):33remote files/200restored members verified on preserved archive branches. Shared-main integration preserving security-review files and later PR194capture remain open. New raw CI evidence goes only to the approved private category; public Cloud-Assess receives safe summaries/references. Prior public archives remain historical public evidence. Retain until explicit owner-approved deletion; no automated pruning/upload or independent-backup closure is claimed.
+
+
 [CURRENT_STATE](CURRENT_STATE.md) owns status; [action register](ACTION_REGISTER.md) tracks gaps. This procedure preserves reviewable development evidence, not regulatory immutability or release approval.
 
 ## Evidence classes and ownership

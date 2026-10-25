@@ -1,5 +1,18 @@
 # Expanded review progress
 
+## Current handover, 25 October 2026
+
+Use [the full checkpoint](HANDOVER_CHECKPOINT_20261025.md), [transfer](CHAT_TRANSFER_20261025.md) and [restart prompt](RESTART_PROMPT.md). Current documentation successor is `docs/handover-20261025`, preserving PR194/b6df02841b09d422dfdc7d6e1bfd1f25b7ab4ccb. Product coding remains PR185/566cc4d8b78d168e5216245a5a386f742a3a2f85 with current guidance carried, never a review/storage tree. Tasks1–7 complete;8 provisional;9–15 follow dependencies. All44legacy/49current obligations remain. Audit scope803raw/all326Go/29semantic/127other paths, including115documentation paths without complete raw-read credit; whole documentary audit open.
+
+PR193and194 own recorded native/source QA now fully verified from completed run/job metadata and complete logs:622Linux/617Windows conserved controls,87.6%coverage/floor75%,23captures/315chunks/909865bytes exactGit; recorded0reachable/3imported-not-called/1module-only residuals open. [Safe summary](evidence/20261025/qa-checkpoint.json). This new candidate needs its own full QA; do not inherit194green or claim fresh25October scans.
+
+[DC-CI-EVIDENCE-20261022](https://github.com/DeBoX85/Cloud-Assess/issues/189) is IN PROGRESS. Denis authorized privateSC-storage. Full remote readback of33files and restore of200members/25196544bytes verified original69complete job logs across7captures. Private artifact64f3c6d8 and receiptf4081f57 are on preserved archive branches; [safe status](evidence/20261025/storage-status.json). Shared main advanced with security evidence; the old guarded update failed without overwriting it. Next integrate CI files into the newest shared main with an expected-head lease, preserve the security category, and append8later PR194logs as a new immutable capture. Issue189 stays open; no public raw logs. Retain until explicit owner-approved deletion; independent backup/DC-006 remains separate.
+
+Then finish task8owned-output/Build-text budget proofs, validation order, future identity/union/status/context/ownership cases and applicable-document reconciliation before freeze. Task9must publish its strict consumer and inspect BOTH actual native missing APIs before production. Storage ALL kinds, exact Cognitive kind, no inferred SQL coordinates and unsupported VMSS scoring remain binding. No Azure/live retail/real credentials/fixtures/RBAC/subagents/unrelated refresh/protected merge/bypass/release.
+
+The separate security chat was authorized and private checkpoints exist, but its actual final report/revisions/findings have not been reconciled here. No automatic exchange or assumed security clearance. This chat remains sole production/integration writer. Human evaluation is considered but deferred for access/budget. Preserve all prior heads/pins/oracles/controls/unrelated worktrees; stop unexpected issues needing Denis without safe mitigation or explicit deferral. Revisit issue189 at every handover/end of run and before task15/readiness/acceptance/release.
+
+
 ## Global inventory input-budget preparation, 22 October 2026
 
 Current successor is `docs/inventory-budget-20261022`. [Budget design](INVENTORY_BUDGET_20261022.md) supplies a whole-call input ledger and four independent exact/+1recipes for65536entries/16711680UTF8bytes. Arithmetic and four negative controls pass;24existing scoped Catalog calls on isolated frozen185all accept the fixtures, so individual projector limits do not mask the future global threshold. No global API exists or was executed. Owned-output/Build-text budgets/proofs and remaining task8freeze work stay OPEN; original50cases unchanged. Coverage stays803raw/all326Go/29semantic/127other paths,115documentation paths without full raw credit.
