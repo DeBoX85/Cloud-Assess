@@ -1,0 +1,30 @@
+{
+  "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+  "finding": "R7-F02",
+  "disposition": "not a demonstrated defect; unsupported audit expectation",
+  "evidence": [
+    {
+      "path": "docs/REGION_METER_HISTORY_CONTRACT_20261019.md",
+      "blob": "455bf7d49687da5c4cd2573548c759413f371789",
+      "bytes": 10737,
+      "sha256": "2b86fd9118c4e251cf9ca28fe136b32a178bded75533ffeb2984bac6fc48f5ff"
+    },
+    {
+      "path": "docs/REGION_METER_HISTORY_TEST_PLAN_20261019.md",
+      "blob": "2994af2ce6b490a3c5036cc26e3b3f33b59829cd",
+      "bytes": 4774,
+      "sha256": "3ebdb4f6ee06fcb331793702e774f4329d79ee7c64300e8b521996b73f5f1538"
+    },
+    {
+      "path": "internal/plugins/region/meter_history_decode.go",
+      "blob": "1a1e72b7fbb2b0f50e19357ebe4cfb2355bfab6c",
+      "bytes": 6299,
+      "sha256": "7ad029c29aa4002deb96e334ab46bc20f1a9dfada157cba5ed3295867b6258d9"
+    }
+  ],
+  "frozen_plan_definition": "root depth0;31 arrays then null reaches32 and passes;32 arrays then null reaches33 and rejects",
+  "deduction": "root plus32 arrays with empty innermost array has maximum value depth32, matching observed admission",
+  "retention": "Original audit test/logs/exit records unchanged; historical review checkpoints retained",
+  "execution": "No new product test/replay in this contract rereview",
+  "prevention": "Bind regression expectation to complete governing contract plus supplemental plan before assigning defect status"
+}
