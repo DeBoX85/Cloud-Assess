@@ -383,7 +383,7 @@
         "docs/ACTION_REGISTER.md"
       ],
       "disposition": "historical_programme_step_verified_offline",
-      "closure_reference": "Original programme1–5 closure; do not replay; OFFLINE_SEQUENCE current tasks remain separate."
+      "closure_reference": "Original programme1\u20135 closure; do not replay; OFFLINE_SEQUENCE current tasks remain separate."
     },
     {
       "id": "OP-002",
@@ -391,7 +391,7 @@
         "docs/ACTION_REGISTER.md"
       ],
       "disposition": "historical_programme_step_verified_offline",
-      "closure_reference": "Original programme1–5 closure; do not replay; OFFLINE_SEQUENCE current tasks remain separate."
+      "closure_reference": "Original programme1\u20135 closure; do not replay; OFFLINE_SEQUENCE current tasks remain separate."
     },
     {
       "id": "OP-003",
@@ -399,7 +399,7 @@
         "docs/ACTION_REGISTER.md"
       ],
       "disposition": "historical_programme_step_verified_offline",
-      "closure_reference": "Original programme1–5 closure; do not replay; OFFLINE_SEQUENCE current tasks remain separate."
+      "closure_reference": "Original programme1\u20135 closure; do not replay; OFFLINE_SEQUENCE current tasks remain separate."
     },
     {
       "id": "OP-004",
@@ -407,7 +407,7 @@
         "docs/ACTION_REGISTER.md"
       ],
       "disposition": "historical_programme_step_verified_offline",
-      "closure_reference": "Original programme1–5 closure; do not replay; OFFLINE_SEQUENCE current tasks remain separate."
+      "closure_reference": "Original programme1\u20135 closure; do not replay; OFFLINE_SEQUENCE current tasks remain separate."
     },
     {
       "id": "OP-005",
@@ -415,7 +415,7 @@
         "docs/ACTION_REGISTER.md"
       ],
       "disposition": "historical_programme_step_verified_offline",
-      "closure_reference": "Original programme1–5 closure; do not replay; OFFLINE_SEQUENCE current tasks remain separate."
+      "closure_reference": "Original programme1\u20135 closure; do not replay; OFFLINE_SEQUENCE current tasks remain separate."
     },
     {
       "id": "R7-F01",
@@ -520,9 +520,9 @@
     },
     {
       "id": "SEC-BASELINE",
-      "state": "in_progress_user_reported",
+      "state": "report_received_triaged_bounded",
       "owner": "security reviewer; development owner integrates",
-      "next_or_limit": "Separate review authorized and private checkpoints exist. Reconcile actual sanitized report, reviewed revisions/coverage/reproductions through Denis before integrating findings; no completion/approval inferred from file or commit titles."
+      "next_or_limit": "Denis supplied immutable private report;14manifest members and23explicit source blob pairs checked. No fresh reproduction/full archive certification; R7findings remain open; separate corrective candidates."
     },
     {
       "id": "R7-F01",
@@ -576,7 +576,7 @@
       "id": "DC-CI-EVIDENCE-20261022",
       "state": "in_progress",
       "owner": "agent tracks; Denis selects destination",
-      "next_or_limit": "Private SC-storage authorized;33files and200restored members verified at64f3c6d8, receiptf4081f57. Integrate with newest shared main preserving security files and append8later PR194logs. Issue189open; no public raw upload, independent backup separate."
+      "next_or_limit": "Shared-main integration, PR194later supplement and PR195capture verified at8e2eb044; seven new remote files/33restored members equal originals. Final source-record publication/ownQA and issue closure pending; independent backup separate."
     },
     {
       "id": "AR-01",
@@ -712,9 +712,9 @@
     },
     {
       "id": "SEC-INDEPENDENT",
-      "state": "deferred_access_budget",
+      "state": "deferred_until_project_complete",
       "owner": "Denis selects independent reviewer",
-      "next_or_limit": "Denis will consider human evaluation; access and budget currently unavailable. Keep assurance limitation visible without blocking authorized offline work or treating AI review as human approval."
+      "next_or_limit": "Denis explicitly places consideration of human security assessment after overall project completion; no development/offline-QA blocker or human approval claim."
     },
     {
       "id": "OFFLINE-01",

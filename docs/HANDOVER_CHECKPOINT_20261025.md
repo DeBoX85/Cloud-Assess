@@ -1,3 +1,5 @@
+Current successor: [26October checkpoint](HANDOVER_CHECKPOINT_20261026.md). This25October snapshot is retained history; current explicit instructions and live successor PR outcomes take precedence.
+
 # Development handover, 25 October 2026
 
 This is the development/integration chat's checkpoint. Start with [CONTINUE](CONTINUE.md), [CURRENT_STATE](CURRENT_STATE.md) and the [copy-ready restart prompt](RESTART_PROMPT.md). Current publication branch: `docs/handover-20261025`. Its live draft PR owns the final commit, tree, readback and own QA outcomes. This checkpoint changes documentation only and does not certify itself using predecessor QA.
