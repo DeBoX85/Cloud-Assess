@@ -1,0 +1,7 @@
+--- FAIL: TestRetailStrictRFC3339 (0.00s)
+    retail_dates_test.go:17: non-RFC3339 timestamp admitted 2026-01-01T0:00:00Z &{complete  [{m1 {USD 0 2 2 eastus  2026-01-01T0:00:00Z m1 Meter Product   SKU    1 Hour Consumption true } false}] [{m1 {USD 0 2 2 eastus  2026-01-01T0:00:00Z m1 Meter Product   SKU    1 Hour Consumption true } false}] [{USD 0 2 2 eastus  2026-01-01T0:00:00Z m1 Meter Product   SKU    1 Hour Consumption true } {USD 0 2 2 eastus  2026-01-01T0:00:00Z m1 Meter Product   SKU    1 Hour Consumption true }] [{m1 {USD 0 2 2 eastus  2026-01-01T0:00:00Z m1 Meter Product   SKU    1 Hour Consumption true } metadata} {m1 {USD 0 2 2 eastus  2026-01-01T0:00:00Z m1 Meter Product   SKU    1 Hour Consumption true } pricing}] [] {2 2 74 2 3 684} complete map[m1:map[eastus:2]]} <nil> 2
+--- FAIL: TestRetailExactDateOrdering (0.00s)
+    retail_dates_test.go:59: date precision/missing sentinel {[ 0000-01-01T00:00:00Z] [2 10] 10} false map[m1:map[eastus:2]]
+FAIL
+FAIL	github.com/DeBoX85/Cloud-Assess/internal/plugins/region	0.031s
+FAIL

@@ -1,0 +1,133 @@
+{
+  "candidate": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+  "files": [
+    {
+      "path": ".github/workflows/test.yml",
+      "bytes": 27345,
+      "sha256": "b6e1a6bd9a3c85d913c0f11f0cc8dda388bfc8131c2ebe4406adaff301adbd1c"
+    },
+    {
+      "path": "docs/ACTION_REGISTER.md",
+      "bytes": 16341,
+      "sha256": "2ab386a0f6582de794ee459eb989153f79e6ac25dce3607dade6157a5eb16be1"
+    },
+    {
+      "path": "docs/CONTINUE.md",
+      "bytes": 4307,
+      "sha256": "717960439c2598d553f6d085ef1dcf1966bcf11479dd4857ee966cd011d90557"
+    },
+    {
+      "path": "docs/CURRENT_STATE.md",
+      "bytes": 13167,
+      "sha256": "edc5006159e65fcaaf002d602ec739921d60d9dd71607b2e095eada3902af983"
+    },
+    {
+      "path": "docs/DEVELOPMENT_LEDGER.md",
+      "bytes": 610590,
+      "sha256": "b57ca5ba1204e3e46999101efd4620c504802b05fce14efa28d0fbdb61411d04"
+    },
+    {
+      "path": "docs/DEVELOPMENT_WORKFLOW.md",
+      "bytes": 12889,
+      "sha256": "8273726ca6862b661ad3e8e83dad0300673ead3443d1aec75e67c8cb01fa59ca"
+    },
+    {
+      "path": "docs/FAILURE_NOTES.md",
+      "bytes": 320919,
+      "sha256": "b0b99e2c4848869b44728f198df74779e6952a7ec5ec4282c637a55644481239"
+    },
+    {
+      "path": "docs/MVP_PROGRAMME_20261019.md",
+      "bytes": 10752,
+      "sha256": "b69da7afe8b04bc862221515aee341e679b73ee4cb3888e46cdabcdb02065ed9"
+    },
+    {
+      "path": "docs/OFFLINE_SEQUENCE_20261019.md",
+      "bytes": 9509,
+      "sha256": "250843c3c92d626eb84f9105414efc2d0b38d4c82542e292d4a5b47a48239467"
+    },
+    {
+      "path": "docs/REGION_RETAIL_IMPLEMENTATION_20261020.md",
+      "bytes": 9947,
+      "sha256": "1744a10b8f47f388dc1ff54e16717f3187ed44d0b7cf95b04795dd1a40cda7a0"
+    },
+    {
+      "path": "docs/RESTART_PROMPT.md",
+      "bytes": 1668,
+      "sha256": "dbcb9805dc3423cec48423bb408f585da3fc961fd0a4917e3d125e43baeceee5"
+    },
+    {
+      "path": "docs/SESSION_HANDOVER.md",
+      "bytes": 336347,
+      "sha256": "a75e2ea624588549d59790a8131f5ebe64a0e593157acb5520d65ee1f5643e46"
+    },
+    {
+      "path": "internal/plugins/region/retail_00_contract_test.go",
+      "bytes": 4731,
+      "sha256": "2b9137f8bcdb51c2ecefebb1de0c5972dbad137fcd1cb0c4a8d133b61f9d5c40"
+    },
+    {
+      "path": "internal/plugins/region/retail_boundary_test.go",
+      "bytes": 13583,
+      "sha256": "b2421d59a2a2ce6ce1c9bce51cf879b8dadd4d0cf2c40312bc4d2a7dee18fcc6"
+    },
+    {
+      "path": "internal/plugins/region/retail_budget_test.go",
+      "bytes": 7244,
+      "sha256": "58e18c2d0ba45ae93f67e67d8315a37ce2b791fc17b52ceb8366e1faa35ae7bf"
+    },
+    {
+      "path": "internal/plugins/region/retail_context_test.go",
+      "bytes": 1735,
+      "sha256": "730d2e233a89f5e93659913cb5c0bc7f99e85fe0dc3ec311b6dd2fd1ac40cb7d"
+    },
+    {
+      "path": "internal/plugins/region/retail_cost_integration_test.go",
+      "bytes": 2307,
+      "sha256": "be76ce11af9d8465e899f6eba0c02353c772e1e9fdbff923461cacabc8608d16"
+    },
+    {
+      "path": "internal/plugins/region/retail_dates_test.go",
+      "bytes": 2273,
+      "sha256": "98007d8e1adaf153871cba98ff6e14f24c59d58b12377c56e0b1067443e33473"
+    },
+    {
+      "path": "internal/plugins/region/retail_decode.go",
+      "bytes": 6217,
+      "sha256": "eb63c0c734f2dc53d896314947894e4fd888806ebb77a6475038a842b2d09b31"
+    },
+    {
+      "path": "internal/plugins/region/retail_http.go",
+      "bytes": 3478,
+      "sha256": "b230add077b06bd2ee66209c7aacb48d358b4302bc9a6220e689eb30bef08c2e"
+    },
+    {
+      "path": "internal/plugins/region/retail_limits_test.go",
+      "bytes": 14589,
+      "sha256": "608642051645d6c10297953c796ed4c487015e7329fd24060ea0a8931997256d"
+    },
+    {
+      "path": "internal/plugins/region/retail_pricing.go",
+      "bytes": 17604,
+      "sha256": "68f7a09fe4aec30e88c99ceaf51869ac7a65b26ef3384a2f506c0942a0922bec"
+    },
+    {
+      "path": "scripts/ci/quality-plan.json",
+      "bytes": 8580,
+      "sha256": "dd38285836e7963c3fc0adab446ca87b67f02e089605b5b5434fc757d497eca2"
+    },
+    {
+      "path": "scripts/tests/retail-controls.plan.json",
+      "bytes": 13413,
+      "sha256": "71a6edbb216191b1936b726aeb6e47da45cbb7f36492e0ff6032e8a5173e867b"
+    },
+    {
+      "path": "scripts/tests/retail-controls.py",
+      "bytes": 2430,
+      "sha256": "8c89aa0f0f1b1d55ccf5718586e906fd531fc7940d5ee14c1813edea8a3fa40a"
+    }
+  ],
+  "consumer_frozen_inputs_unchanged": true,
+  "prepared_supplemental_gofmt_only": true,
+  "final_control_fingerprints_exact": true
+}

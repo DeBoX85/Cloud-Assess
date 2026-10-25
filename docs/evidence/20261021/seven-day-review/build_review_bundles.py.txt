@@ -1,0 +1,59 @@
+import base64
+import gzip
+import importlib.util
+import json
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent
+OUT = ROOT / 'audit-review/docs/evidence/20261021/seven-day-review'
+spec = importlib.util.spec_from_file_location('verifier', ROOT / 'audit-review/scripts/verify-evidence-bundle.py')
+verifier = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(verifier)
+files = [('go-hosted/' + p.parent.name + '/' + p.name, p)
+         for p in sorted((ROOT / 'go-hosted').glob('*/*')) if p.suffix in ('.log', '.json')]
+files += [('audit-log-recovery/' + p.name, p) for p in sorted((ROOT / 'audit-log-recovery').glob('*.log'))]
+files += [(p.name, p) for p in [ROOT / 'audit-log-analysis.json', ROOT / 'audit-source-review.json',
+                               ROOT / 'audit-log-recovery/recovery-index.json', ROOT / 'review_all_source_logs.py']]
+index = []
+
+
+def save(batch):
+    # Decode bytes directly. Path.read_text() would normalize CRLF line endings.
+    members = [{'path': name, 'text': path.read_bytes().decode('utf-8')} for name, path in batch]
+    decoded = json.dumps({'format': verifier.FORMAT, 'members': members}, ensure_ascii=False,
+                         separators=(',', ':')).encode('utf-8')
+    bundle = base64.b64encode(gzip.compress(decoded, mtime=0)) + b'\n'
+    manifest = {'format': verifier.FORMAT, 'classification': 'reviewed-synthetic-ci-local',
+                'bundle_sha256': verifier.digest(bundle), 'decoded_sha256': verifier.digest(decoded),
+                'members': [{'path': name, 'bytes': len(path.read_bytes()),
+                             'sha256': verifier.digest(path.read_bytes())} for name, path in batch],
+                'revisions': {'product': '458d5c5296c321c8e5e961f18eb5422d43c2eb18',
+                              'security': '566cc4d8b78d168e5216245a5a386f742a3a2f85'}}
+    manifest_bytes = json.dumps(manifest, indent=2).encode() + b'\n'
+    result = verifier.verify(bundle, manifest_bytes)
+    restored = json.loads(gzip.decompress(base64.b64decode(bundle)))
+    assert len(restored['members']) == len(batch)
+    for member, (name, original) in zip(restored['members'], batch):
+        assert member['path'] == name and member['text'].encode('utf-8') == original.read_bytes(), name
+    prefix = 'logs-' + str(len(index) + 1).zfill(2)
+    (OUT / (prefix + '.base64')).write_bytes(bundle)
+    (OUT / (prefix + '-manifest.json')).write_bytes(manifest_bytes)
+    index.append({'bundle': prefix + '.base64', 'manifest': prefix + '-manifest.json',
+                  'integrity': result, 'bundle_bytes': len(bundle), 'decoded_bytes': len(decoded),
+                  'all_members_equal_original_raw_bytes': True})
+
+
+batch, size = [], 0
+for name, path in files:
+    member_size = len(json.dumps(path.read_bytes().decode('utf-8'), ensure_ascii=False).encode()) + len(name) + 100
+    if batch and (size + member_size > 14000000 or len(batch) >= 100):
+        save(batch)
+        batch, size = [], 0
+    batch.append((name, path))
+    size += member_size
+if batch:
+    save(batch)
+(OUT / 'logs-index.json').write_text(json.dumps(index, indent=2) + '\n')
+print(json.dumps({'bundles': len(index), 'members': sum(x['integrity']['members'] for x in index),
+                  'raw_bytes': sum(x['integrity']['bytes'] for x in index),
+                  'bundle_bytes': sum(x['bundle_bytes'] for x in index), 'all_raw_bytes_equal': True}))
