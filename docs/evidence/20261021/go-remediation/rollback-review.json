@@ -1,0 +1,89 @@
+{
+  "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+  "paths": {
+    "go.mod": {
+      "old": "ae2060c07bebfad96c4ec88ece968dbe6ae0bcf31dc4cbdbde37434900f47f0d",
+      "candidate": "ef6d403844f6fbf321e6bc2ad90311598000fbb5b8c251aa366a9bdbea376dd9"
+    },
+    "scripts/bootstrap-workspace.sh": {
+      "old": "b5b20f3fc6579121da33ba43fd1569238f6ad5e3282353c172fca3b6ca891480",
+      "candidate": "0aa5321026ef610854875d9a06d098c7968573c33ede89aa8d95fb4448a92d61"
+    },
+    "scripts/dependency-inventory.py": {
+      "old": "6ca0832d86393d498de1f887fc89ce76d262dd1c0e96da5bfab9d9d57b783d1c",
+      "candidate": "cf82198aba2f35ab3e69309e683ea38f41377e6d1be628ed1b210ffb55eed31f"
+    },
+    "scripts/tests/dependency-inventory.py": {
+      "old": "3b532d09b0bfce25fbb6a649fb26b7a96f89d35c2bfb9de386f2bc2e6b67b791",
+      "candidate": "98813ba06330b6f1b4f888db680228aafbec922bd7c99891723d259bbaa50dce"
+    },
+    "scripts/tests/qa-mutation.py": {
+      "old": "84ec55f0569f08c65f4249bea97e99dd02755d3dcd8055e5856c1a995add4b0a",
+      "candidate": "20b53294cf50b7be560eb7b565f6f8b256f236ee005cdd2cf184b96761b2be93"
+    },
+    "scripts/ci/generate_quality_workflow.py": {
+      "old": "4677827b97498b6e33766bedc1873dd7e0ca3c07e06edd7aeacf6b501435d664",
+      "candidate": "bc7e990e9f0ad32580f920cf74a7ca4ea0c3889305407d7890d52cbd809c970d"
+    },
+    "scripts/tests/ci-workflow.py": {
+      "old": "05c590ba1208c3eff75c15ad73a65a7a20ace45fe14e763963d6892373d0ab29",
+      "candidate": "fbd0dee9b33e358d3039cd39aaad691c083645e95f24eb218ea57550665ca5a7"
+    },
+    ".github/workflows/test.yml": {
+      "old": "b6e1a6bd9a3c85d913c0f11f0cc8dda388bfc8131c2ebe4406adaff301adbd1c",
+      "candidate": "0f1c77f6b77746b6dde900537186f6e92c827d695b2b9e42ff8ced775b760146"
+    },
+    ".github/workflows/region-source-characterization.yml": {
+      "old": "319e7a3a89e4795fb19d502a3e04923d72c2c49f3afb24c135350488c41558fe",
+      "candidate": "dcfd81a8893d969131a930c3b539877f5fe37f84bc0c02fc674b953568319dd8"
+    },
+    ".github/workflows/tidy.yml": {
+      "old": "0ae9d55f7a30240e85f801903e7339f94e66632f60b9827044cb7db15c1a8e8d",
+      "candidate": "62e997eca8f02aab97b08563add54013537f3476495645440e06769133bc2608"
+    },
+    "docs/dependencies/inventory.json": {
+      "old": "93c7d405e6f09f0ed5f96655e9dfde7ed7fd65bb82dca5027aba6f9cd248b818",
+      "candidate": "43d05065ca7e9aa712080472f155eeb6b5b8e5c2eec2902c605695861090adec"
+    },
+    "docs/dependencies/NOTICES.md": {
+      "old": "96ac4b4b9f4d2c94da94336dca73f018d476f44a007b131ceb35809ea6b6bd04",
+      "candidate": "32361a00cfcbe3e9dfe746d31f71aab1471b33ff5b6b324abbe9bc8f79d5cdd9"
+    }
+  },
+  "new_toolchain": "1.26.10",
+  "old_toolchain": "1.26.9",
+  "scope": "source/toolchain configuration reversal, not installed/customer/live rollback",
+  "old-static.log": {
+    "exit": 0,
+    "bytes": 478,
+    "sha256": "89e4e5f21202df5b63becd4c6bf1bd6478c79d9849724f5dcf27905e7604b852"
+  },
+  "old-focused.log": {
+    "exit": 0,
+    "bytes": 121,
+    "sha256": "50a91a74e6f3cf05335ce531ff76b895187ef3b088c1056b911e7f5bec46ca6a"
+  },
+  "old-security.log": {
+    "exit": 1,
+    "bytes": 900,
+    "sha256": "fc00647fd93678decfcc9344679c96f8169e5b4a7b0d5eacb9a902772892e35f"
+  },
+  "old_scan_reports_expected_advisory": true,
+  "all_candidate_bytes_restored": true,
+  "restored-static.log": {
+    "exit": 0,
+    "bytes": 478,
+    "sha256": "2c4b391db99daa9d36ef337bc615e224e569167b7bfe88482d0179b9586b0641"
+  },
+  "restored-focused.log": {
+    "exit": 0,
+    "bytes": 121,
+    "sha256": "f91d8497c176920a3a28a1dd81fdc79a7ad0dd0fb5499633995727ba27bbda91"
+  },
+  "new-security.log": {
+    "exit": 0,
+    "bytes": 299,
+    "sha256": "ad69f133adefccc9759e15ab22c7681d4a7e4b413857929bdac33769a678284f"
+  },
+  "new_security_exit": 0
+}
