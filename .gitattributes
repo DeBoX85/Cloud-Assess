@@ -76,3 +76,7 @@ docs/evidence/20261026/inventory-output/projector-proof.json -text
 internal/plugins/region/required_evidence.go -text
 internal/plugins/region/required_evidence_input.go -text
 docs/evidence/20261026/inventory-admission/** -text
+
+# Keep source-addressed assertion provenance stable on native hosts.
+tools/mutationassertions/main.go -text
+docs/evidence/20261026/mutation-assurance/** -text

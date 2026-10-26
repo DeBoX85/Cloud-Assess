@@ -1,4 +1,5 @@
 """Confirm selected comparator tests reject faults in an isolated standard-library module."""
+from mutation_assertions import intended_failure, run_go_test
 from pathlib import Path
 import shutil
 import subprocess
@@ -15,7 +16,7 @@ MUTATIONS = (
 
 
 def run(directory):
-    return subprocess.run(
+    return run_go_test(
         ["go", "test", "-count=1", "-run", "^TestCompareGuards$", "."],
         cwd=directory, capture_output=True, text=True, timeout=60,
     )
@@ -37,6 +38,6 @@ with tempfile.TemporaryDirectory(prefix="cloud-assess-mutations-") as temporary:
         path.write_text(original.replace(before, after))
         outcome = run(directory)
         path.write_text(original)
-        if outcome.returncode == 0 or "--- FAIL: TestCompareGuards" not in outcome.stdout:
+        if not intended_failure(outcome,'TestCompareGuards'):
             raise SystemExit("Mutation survived or failed outside assertions: " + name + "\n" + outcome.stdout + outcome.stderr)
         print("Comparator mutation rejected:", name)

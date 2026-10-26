@@ -1,3 +1,7 @@
+## Mutation assurance corrective priority, 26 October 2026
+
+Current authority: [CURRENT_STATE](CURRENT_STATE.md). Read [corrective checkpoint](MUTATION_ASSURANCE_REMEDIATION_20261026.md) and live draft PR202exact-head index. PR201/b568task9verified offline, quality40360612424/source40360612320success, full622/617plus25new controls preserved; private archive479641f8/receiptab85a3a7restored55members/6554227bytes equal originals. New R7-F04six-task batch precedes task10:18driver inventory/shared source-bound assertion classifier/migrations prepared, full own native/source/rollback/private restore pending. R7-F01tag collision/R7-F03comparison ambiguity remain confirmed OPEN and next corrections before10. All44legacy/49current and wider obligations/pins/oracles retained. Human assessment considered after overall project completion; issue189closed bounded migration, retention/revisit/latest-base preservation duties remain.
+
 ## Admission local milestone, 26 October 2026
 
 [Admission checkpoint](INVENTORY_ADMISSION_IMPLEMENTATION_20261026.md): product-lineage PR201WIP763157c9published/read back, local76frozen/eight budget/eight terminal/13strict controls and full offline race suite pass. Final OWN hosted native/source, complete original622/617control conservation/current coverage/advisory results, coherent rollback/private restore pending. No task10start or full acceptance; issue189closed bounded migration with ongoing retention/revisit. All44legacy/49current and wider obligations retained; human assessment considered after overall project completion.

@@ -6,6 +6,10 @@ Dated progress and resume sections below are historical snapshots; behavioral re
 
 ---
 
+## Mutation assurance active corrective successor
+
+Verify draft PR202/fix/mutation-assurance-20261026 and its exact-head index. MUTATION_ASSURANCE_REMEDIATION_20261026.md owns18driver correction; own full QA/restore pending. PR201/b568final index owns completed task9offline QA. R7-F01/F03remain next corrections before task10. No inherited green or finding closure.
+
 ## Admission current successor
 
 Verify live draft PR201/dev/required-inventory-admission-20261026 and exact-head outcome index. Read INVENTORY_ADMISSION_IMPLEMENTATION_20261026.md. Local implementation/76frozen/eight-budget/eight-terminal/13strict proof/full race suite verified; own hosted QA/private restore/coherent rollback pending. PR200Build final index remains separate. No task10start, inherited green or full acceptance.

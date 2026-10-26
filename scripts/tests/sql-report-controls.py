@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """SQL report compiling behavioral reversals; own isolated checkout only."""
+from mutation_assertions import intended_failure, run_go_test
 import hashlib,json,subprocess,sys
 from pathlib import Path
 root=Path(__file__).resolve().parents[2]
@@ -9,17 +10,17 @@ original={m['file']:(root/m['file']).read_bytes() for m in plan['mutations']}
 assert len({m['name'] for m in plan['mutations']})==15
 
 def test(name):
- return subprocess.run(['go','test','./internal/plugins/region','-run','^'+name+'$','-count=1'],cwd=root,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,text=True,encoding='utf-8',errors='strict')
+ return run_go_test(['go','test','./internal/plugins/region','-run','^'+name+'$','-count=1'],cwd=root,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,text=True,encoding='utf-8',errors='strict')
+baseline=test('TestSQL.*');assert baseline.returncode==0,('initial healthy baseline failed',baseline.stdout)
 try:
  for m in plan['mutations']:
   path=root/m['file'];before=original[m['file']];source=before.decode('utf-8').replace('\r\n','\n')
   assert source.count(m['old'])==m['count'],('control anchor',m['name'])
   try:
    path.write_bytes(source.replace(m['old'],m['replace']).encode('utf-8'))
+   compiled=test('');assert compiled.returncode==0,('uncompilable reversal',m['name'],compiled.stdout)
    result=test(m['test'])
-   assert result.returncode!=0,('reversal survived',m['name'],result.stdout)
-   assert '[build failed]' not in result.stdout and 'undefined:' not in result.stdout and 'syntax error' not in result.stdout,('uncompilable reversal',m['name'],result.stdout)
-   assert '--- FAIL: '+m['test'].split('/')[0] in result.stdout,('missing named assertion',m['name'],result.stdout)
+   assert intended_failure(result,m['test']),('not original named assertion',m['name'],result.stdout)
   finally:
    path.write_bytes(before)
   assert path.read_bytes()==before,('source restoration',m['name'])

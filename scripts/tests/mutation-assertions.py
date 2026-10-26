@@ -1,12 +1,42 @@
 #!/usr/bin/env python3
 """Real compiled assertion/panic controls plus fail-closed classifier cases."""
-import copy,hashlib,json,os,subprocess,sys,tempfile
+import ast,copy,hashlib,json,os,subprocess,sys,tempfile
 from pathlib import Path
 sys.dont_write_bytecode=True
 from mutation_assertions import assertion_witness,run_go_test
 from qa_temp_cleanup import cleanup_temporary_directory
 
+def verify_driver_source(source):
+ tree=ast.parse(source)
+ calls=[n for n in ast.walk(tree) if isinstance(n,ast.Call)]
+ if sum(isinstance(n.func,ast.Name) and n.func.id=='run_go_test' for n in calls)!=1:raise ValueError('bounded wrapper missing or duplicated')
+ if any(isinstance(n.func,ast.Attribute) and ast.unparse(n.func)=='subprocess.run' for n in calls):raise ValueError('unwrapped driver subprocess')
+ guards=[]
+ for n in ast.walk(tree):
+  if isinstance(n,(ast.If,ast.Assert)) and 'intended_failure(' in ast.unparse(n.test):guards.append(n)
+ if len(guards)!=1:raise ValueError('strict admission guard missing or duplicated')
+ test=guards[0].test
+ if isinstance(guards[0],ast.If):
+  if not isinstance(test,ast.UnaryOp) or not isinstance(test.op,ast.Not):raise ValueError('weakened rejecting guard')
+  test=test.operand
+  if not any(isinstance(n,ast.Raise) for n in ast.walk(guards[0])):raise ValueError('guard does not reject')
+ if not isinstance(test,ast.Call) or not isinstance(test.func,ast.Name) or test.func.id!='intended_failure' or len(test.args)!=2:raise ValueError('noncanonical admission predicate')
+ return tree
+
+def verify_driver_inventory():
+ root=Path(__file__).resolve().parents[2];data=json.loads((root/'docs/evidence/20261026/mutation-assurance/driver-inventory.json').read_text());assert len(data['drivers'])==18;names={'MUTATIONS','controls','FILES','FILE','SOURCE','SELECT','manifest'}
+ for row in data['drivers']:
+  path=root/row['path'];source=path.read_text();tree=verify_driver_source(source);nodes=[n for n in ast.walk(tree) if isinstance(n,ast.Assign) and any(isinstance(a,ast.Name) and a.id in names for a in n.targets)]
+  assert hashlib.sha256(ast.dump(ast.Module(body=nodes,type_ignores=[]),include_attributes=False).encode()).hexdigest()==row['control_declarations_sha256'],row['path']
+  if 'plan_sha256' in row:assert hashlib.sha256(path.with_suffix('.plan.json').read_bytes()).hexdigest()==row['plan_sha256']
+  for bad in [source.replace('run_go_test(', 'subprocess.run(',1),source.replace('intended_failure(', 'missing_admission(',1)]:
+   try:verify_driver_source(bad)
+   except ValueError:pass
+   else:raise AssertionError('driver wiring negative accepted '+row['path'])
+ return 18
+
 def main():
+ drivers=verify_driver_inventory()
  directory=tempfile.TemporaryDirectory(prefix='cloud-assess-assertion-admission-')
  try:
   root=Path(directory.name);(root/'go.mod').write_text('module assertionfixture\n\ngo 1.26.10\n')
@@ -58,6 +88,6 @@ func TestSubtests(t *testing.T) { t.Run("selected",func(t *testing.T){ t.Fatal("
   # A real compilation error cannot become assertion evidence.
   path.write_text(source+'\nvar broken = DoesNotExist\n');bad=run_go_test([go,'test','-run','^TestExpected$','.'],cwd=root,capture_output=True,text=True,timeout=30);assert not assertion_witness(bad,'TestExpected');path.write_bytes(original)
   restored=run_go_test([go,'test','-run','^TestHealthy$','.'],cwd=root,capture_output=True,text=True,timeout=30);assert restored.returncode==0 and path.read_bytes()==original
-  print('MUTATION_ASSERTION_CLASSIFIER_PROOF_JSON '+json.dumps({'actual_assertion_accepted':True,'actual_helper_and_subtest_accepted':True,'actual_panic_rejected':True,'panic_after_assertion_rejected':True,'actual_build_error_rejected':True,'actual_go_timeout_rejected':True,'actual_parent_timeout_raised':True,'actual_source_change_rejected':True,'negative_cases':rejected,'restored_healthy_exit':0,'source_unchanged':True,'go_test_timeout':120,'parent_wall_max':180,'scope':'assertion-site provenance, not semantic completeness or authenticated test provenance'},separators=(',',':')),flush=True)
+  print('MUTATION_ASSERTION_CLASSIFIER_PROOF_JSON '+json.dumps({'drivers_verified':drivers,'driver_wiring_negatives':36,'actual_assertion_accepted':True,'actual_helper_and_subtest_accepted':True,'actual_panic_rejected':True,'panic_after_assertion_rejected':True,'actual_build_error_rejected':True,'actual_go_timeout_rejected':True,'actual_parent_timeout_raised':True,'actual_source_change_rejected':True,'negative_cases':rejected,'restored_healthy_exit':0,'source_unchanged':True,'go_test_timeout':120,'parent_wall_max':180,'scope':'assertion-site provenance, not semantic completeness or authenticated test provenance'},separators=(',',':')),flush=True)
  finally:cleanup_temporary_directory(directory)
 if __name__=='__main__':main()

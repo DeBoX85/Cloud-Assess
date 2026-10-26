@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Compile isolated VM collector reversals, require named failures and restore bytes."""
+from mutation_assertions import intended_failure, run_go_test
 from pathlib import Path
 import os
 import subprocess
@@ -10,7 +11,7 @@ GO = os.environ.get('QA_GO', 'go')
 
 
 def run(select):
-    return subprocess.run([GO, 'test', './internal/plugins/region', '-run', select, '-count=1', '-v'],
+    return run_go_test([GO, 'test', './internal/plugins/region', '-run', select, '-count=1', '-v'],
                           cwd=ROOT, capture_output=True, text=True, encoding='utf-8',
                           errors='backslashreplace', timeout=180)
 
@@ -69,7 +70,7 @@ try:
         if compiled.returncode:
             raise SystemExit('VM mutation did not compile: ' + name + '\n' + compiled.stdout + compiled.stderr)
         failed = run('^' + expected + '$')
-        if failed.returncode == 0 or ('--- FAIL: ' + expected) not in failed.stdout or '[build failed]' in failed.stdout + failed.stderr:
+        if not intended_failure(failed,expected):
             raise SystemExit('VM mutation missed named assertion: ' + name + '\n' + failed.stdout + failed.stderr)
         SOURCE.write_bytes(original)
         check('^' + expected + '$')

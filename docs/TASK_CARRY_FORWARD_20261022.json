@@ -538,9 +538,9 @@
     },
     {
       "id": "R7-F04",
-      "state": "open_confirmed",
+      "state": "corrective_candidate_in_progress",
       "owner": "development owner",
-      "next_or_limit": "Mutation-result classification contract and staged migration conserving controls."
+      "next_or_limit": "PR202product-lineage child of verified201/b568;18driver source-bound Go-JSON classifier/migrations prepared, real panic/timeout/compiler/source-change controls pass locally; complete own native/source/control conservation/restore required, no closure yet."
     },
     {
       "id": "R7-F02",
@@ -766,9 +766,9 @@
     },
     {
       "id": "OFFLINE-09",
-      "state": "admission_locally_verified_pending_own_qa",
+      "state": "complete_verified_offline",
       "owner": "development owner",
-      "next_or_limit": "PR201Admission WIP763157c9published/read back; local76frozen/eight budgets/eight terminal/13strict reversals and full race suite verified. Final own native/source, original622/617plus new controls, current coverage/advisory review, coherent full source/runner rollback/private restore required before10."
+      "next_or_limit": "PR201/b568final index: own quality40360612424/source40360612320success; full76consumer,622/617original+25new controls/host,87.3%coverage/floor75%, full source/runner rollback, archive479641f8/receiptab85a3a7fresh restore verified. R7-F04then F01/F03corrections precede task10."
     },
     {
       "id": "OFFLINE-10",

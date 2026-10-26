@@ -43,6 +43,9 @@ jobs:
       - name: Verify required evidence Admission controls
         run: python3 scripts/tests/required-inventory-admission.py
 
+      - name: Verify legacy mutation assertion admission
+        run: python3 scripts/tests/mutation-assertions.py
+
       - name: Verify pinned source-data provenance
         shell: bash
         run: |
@@ -444,6 +447,9 @@ jobs:
 
       - name: Verify required evidence Admission controls
         run: python scripts/tests/required-inventory-admission.py
+
+      - name: Verify legacy mutation assertion admission
+        run: python scripts/tests/mutation-assertions.py
 
       - name: Parse scripts with Windows PowerShell 5.1
         shell: powershell

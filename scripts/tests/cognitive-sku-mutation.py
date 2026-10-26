@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Compile bounded Cognitive reversals; require named failure and exact restoration."""
+from mutation_assertions import intended_failure, run_go_test
 from pathlib import Path
 import os
 import subprocess
@@ -11,7 +12,7 @@ TRANSPORT = ROOT / 'internal/plugins/region/quota_collector.go'
 HTTP = ROOT / 'internal/azure/bounded_get.go'
 GO = os.environ.get('QA_GO', 'go')
 def run(select):
-    return subprocess.run([GO, 'test', './internal/plugins/region', '-run', select,
+    return run_go_test([GO, 'test', './internal/plugins/region', '-run', select,
                            '-count=1', '-v'], cwd=ROOT, capture_output=True,
                           text=True, encoding='utf-8', errors='backslashreplace', timeout=180)
 
@@ -84,7 +85,7 @@ try:
         if compiled.returncode:
             raise SystemExit('Cognitive reversal did not compile: ' + name + '\n' + compiled.stdout + compiled.stderr)
         failed = run('^' + expected + '$')
-        if failed.returncode == 0 or ('--- FAIL: ' + expected) not in failed.stdout or '[build failed]' in failed.stdout + failed.stderr:
+        if not intended_failure(failed,expected):
             raise SystemExit('Cognitive reversal missed named assertion: ' + name + '\n' + failed.stdout + failed.stderr)
         source.write_bytes(originals[source])
         check('^' + expected + '$')

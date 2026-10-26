@@ -50,7 +50,26 @@ def require_admission_before_consumer(text):
             raise ValueError('Admission proof weakened')
 
 
+def require_legacy_admission(text):
+    for platform, consumer in [('linux', 'Test with race detector'), ('windows', 'Test Go packages on Windows')]:
+        match = re.search(r'^  '+platform+r'-native:\n(.*?)(?=^  [a-z][a-z0-9-]*:\n|\Z)',text,re.M|re.S)
+        if match is None: raise ValueError('missing native job')
+        body=match.group(1);marker='      - name: Verify legacy mutation assertion admission\n'
+        if body.count(marker)!=1 or body.index(marker)>=body.index('      - name: '+consumer+'\n'): raise ValueError('legacy assertion proof missing/late')
+        block=body.split(marker,1)[1].split('      - name:',1)[0]
+        if 'scripts/tests/mutation-assertions.py' not in block or 'continue-on-error' in block or 'if:' in block: raise ValueError('legacy assertion proof weakened')
+
+
 class GateTests(unittest.TestCase):
+    def test_legacy_assertion_admission_required_both_hosts(self):
+        require_legacy_admission(workflow.generate())
+
+    def test_legacy_assertion_admission_cannot_be_removed_or_weakened(self):
+        text=workflow.generate();marker='      - name: Verify legacy mutation assertion admission\n'
+        for bad in [text.replace(marker,'      - name: Lost assertion proof\n',1),text.replace(marker,marker+'        continue-on-error: true\n',1)]:
+            with self.assertRaises(ValueError): require_legacy_admission(bad)
+
+
     def test_admission_proof_precedes_consumer(self):
         require_admission_before_consumer(workflow.generate())
 
