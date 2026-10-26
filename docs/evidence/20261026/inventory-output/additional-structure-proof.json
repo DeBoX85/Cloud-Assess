@@ -1,0 +1,14 @@
+{
+  "literal_cases": 26,
+  "literal_failures": 20,
+  "literal_successes": 6,
+  "procedural_expectations": 13,
+  "future_api_executed": false,
+  "late_cancellation_schedule": "OPEN before freeze",
+  "negative_controls_rejected": [
+    "unknown-base",
+    "lost-nil-result",
+    "false-freeze",
+    "lost-late-cancel"
+  ]
+}

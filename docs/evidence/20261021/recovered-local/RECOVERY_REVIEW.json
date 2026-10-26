@@ -1,0 +1,9 @@
+{
+  "candidate": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+  "verified_files": 25,
+  "exact_git_and_recorded_hash_match": true,
+  "environment": "shell/filesystem/Git reads recovered; not full toolchain recertification",
+  "task8_worktree": "clean at recovery inspection; no required preparation helper found",
+  "new_native_execution": false,
+  "checked_at": "2026-10-21T11:08:09.713822+00:00"
+}

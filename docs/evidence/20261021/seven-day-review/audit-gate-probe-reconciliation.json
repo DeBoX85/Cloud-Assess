@@ -1,0 +1,281 @@
+{
+  "purpose": "retained historical evidence rereview, not fresh hosted execution",
+  "runs": [
+    {
+      "case": "skipped",
+      "sha": "0067731b73cef1f0a9e201b680c5c85fc38f6672",
+      "run": 38993223034,
+      "verified_jobs": 10,
+      "gates": [
+        {
+          "job": 117279989065,
+          "name": "linux-probe-gate",
+          "bytes": 16023,
+          "sha256": "cf529fe866210ee4008ab8a66543b0c46e583883c64676caa2cca56ef9a11efb"
+        },
+        {
+          "job": 117279997338,
+          "name": "windows-probe-gate",
+          "bytes": 16038,
+          "sha256": "fd27071a955a720bb45d69364413f95394f1e065f3d0e106eb439c503b8e526c"
+        }
+      ],
+      "gate_inputs": [
+        {
+          "job": 117279989065,
+          "name": "linux-probe-gate",
+          "results": {
+            "linux-native": "success",
+            "linux-controls-1": "skipped",
+            "linux-controls-2": "success",
+            "linux-controls-3": "success"
+          }
+        },
+        {
+          "job": 117279997338,
+          "name": "windows-probe-gate",
+          "results": {
+            "windows-native": "success",
+            "windows-controls-1": "skipped",
+            "windows-controls-2": "success",
+            "windows-controls-3": "success"
+          }
+        }
+      ],
+      "verifier_sha256": "306b9d08b53e7513927ceef179c77e587aad82026e0969c53e19b9e6ec053aa2"
+    },
+    {
+      "run": 38993221359,
+      "sha": "4032e7416d747262118c41a38682b7b9ce13327a",
+      "outcome": "cancelled-uncertified"
+    },
+    {
+      "case": "failure",
+      "sha": "0067731b73cef1f0a9e201b680c5c85fc38f6672",
+      "run": 38993220496,
+      "verified_jobs": 10,
+      "gates": [
+        {
+          "job": 117279987856,
+          "name": "linux-probe-gate",
+          "bytes": 16024,
+          "sha256": "7d9480a5aee7f76d50a4df61455cd4b093d12b7e8e163eb07a219310b234b1a6"
+        },
+        {
+          "job": 117280011033,
+          "name": "windows-probe-gate",
+          "bytes": 16037,
+          "sha256": "46f673aa9ac459972023c31f79f6cd3d4e7275d3b970b6c95bfdcadd82a36615"
+        }
+      ],
+      "gate_inputs": [
+        {
+          "job": 117279987856,
+          "name": "linux-probe-gate",
+          "results": {
+            "linux-native": "success",
+            "linux-controls-1": "failure",
+            "linux-controls-2": "success",
+            "linux-controls-3": "success"
+          }
+        },
+        {
+          "job": 117280011033,
+          "name": "windows-probe-gate",
+          "results": {
+            "windows-native": "success",
+            "windows-controls-1": "failure",
+            "windows-controls-2": "success",
+            "windows-controls-3": "success"
+          }
+        }
+      ],
+      "verifier_sha256": "306b9d08b53e7513927ceef179c77e587aad82026e0969c53e19b9e6ec053aa2"
+    },
+    {
+      "run": 38993219521,
+      "sha": "4032e7416d747262118c41a38682b7b9ce13327a",
+      "outcome": "cancelled-uncertified"
+    },
+    {
+      "case": "success",
+      "sha": "0067731b73cef1f0a9e201b680c5c85fc38f6672",
+      "run": 38993218406,
+      "verified_jobs": 10,
+      "gates": [
+        {
+          "job": 117279969940,
+          "name": "linux-probe-gate",
+          "bytes": 15983,
+          "sha256": "44b0dd568ba60d5ac2fc1448fb55feda75c1c2929ae30a2326331cd1d5fd9f75"
+        },
+        {
+          "job": 117280006366,
+          "name": "windows-probe-gate",
+          "bytes": 16007,
+          "sha256": "81e41ceedc64f81faaa7b357ab9130dceda8389d984e13b2a9a8db17968c47bc"
+        }
+      ],
+      "gate_inputs": [
+        {
+          "job": 117279969940,
+          "name": "linux-probe-gate",
+          "results": {
+            "linux-native": "success",
+            "linux-controls-1": "success",
+            "linux-controls-2": "success",
+            "linux-controls-3": "success"
+          }
+        },
+        {
+          "job": 117280006366,
+          "name": "windows-probe-gate",
+          "results": {
+            "windows-native": "success",
+            "windows-controls-1": "success",
+            "windows-controls-2": "success",
+            "windows-controls-3": "success"
+          }
+        }
+      ],
+      "verifier_sha256": "306b9d08b53e7513927ceef179c77e587aad82026e0969c53e19b9e6ec053aa2"
+    },
+    {
+      "run": 38993216913,
+      "sha": "4032e7416d747262118c41a38682b7b9ce13327a",
+      "outcome": "cancelled-uncertified"
+    },
+    {
+      "case": "failure",
+      "sha": "fcc153659d8e1333cf0a3c4741f2ba984890c9df",
+      "run": 38988702063,
+      "verified_jobs": 10,
+      "gates": [
+        {
+          "job": 117266045342,
+          "name": "windows-probe-gate",
+          "bytes": 15980,
+          "sha256": "60f3b888f1b000fd8d829159dd2118d57fd21b745e607791ba5519d8bdf9bae6"
+        },
+        {
+          "job": 117266053465,
+          "name": "linux-probe-gate",
+          "bytes": 15966,
+          "sha256": "6224242f0bc00386e06d8ed8dc310d2570471195961f57fc7deb38cc18333eeb"
+        }
+      ],
+      "gate_inputs": [
+        {
+          "job": 117266045342,
+          "name": "windows-probe-gate",
+          "results": {
+            "windows-native": "success",
+            "windows-controls-1": "failure",
+            "windows-controls-2": "success",
+            "windows-controls-3": "success"
+          }
+        },
+        {
+          "job": 117266053465,
+          "name": "linux-probe-gate",
+          "results": {
+            "linux-native": "success",
+            "linux-controls-1": "failure",
+            "linux-controls-2": "success",
+            "linux-controls-3": "success"
+          }
+        }
+      ],
+      "verifier_sha256": "306b9d08b53e7513927ceef179c77e587aad82026e0969c53e19b9e6ec053aa2"
+    },
+    {
+      "case": "skipped",
+      "sha": "fcc153659d8e1333cf0a3c4741f2ba984890c9df",
+      "run": 38988698907,
+      "verified_jobs": 10,
+      "gates": [
+        {
+          "job": 117266031372,
+          "name": "linux-probe-gate",
+          "bytes": 15963,
+          "sha256": "09a40735a51f2f52d6577eb0c8f17dc60b74169bbf0e8fa791231da5f3bae204"
+        },
+        {
+          "job": 117266036890,
+          "name": "windows-probe-gate",
+          "bytes": 15978,
+          "sha256": "6e468f725458d2b7903fb01d7b928d5098ff4bb6fed33bfdc3e01d1a3dab229e"
+        }
+      ],
+      "gate_inputs": [
+        {
+          "job": 117266031372,
+          "name": "linux-probe-gate",
+          "results": {
+            "linux-native": "success",
+            "linux-controls-1": "skipped",
+            "linux-controls-2": "success",
+            "linux-controls-3": "success"
+          }
+        },
+        {
+          "job": 117266036890,
+          "name": "windows-probe-gate",
+          "results": {
+            "windows-native": "success",
+            "windows-controls-1": "skipped",
+            "windows-controls-2": "success",
+            "windows-controls-3": "success"
+          }
+        }
+      ],
+      "verifier_sha256": "306b9d08b53e7513927ceef179c77e587aad82026e0969c53e19b9e6ec053aa2"
+    },
+    {
+      "case": "success",
+      "sha": "fcc153659d8e1333cf0a3c4741f2ba984890c9df",
+      "run": 38988694745,
+      "verified_jobs": 10,
+      "gates": [
+        {
+          "job": 117266013576,
+          "name": "linux-probe-gate",
+          "bytes": 15923,
+          "sha256": "d58445f51eaa9733c0d75ed1e3e7a4e76820d91535fbc4bb1dced7a81aa7f9bc"
+        },
+        {
+          "job": 117266015094,
+          "name": "windows-probe-gate",
+          "bytes": 15944,
+          "sha256": "cac9af4608b81d5e084bc338724601a899ffd74032d719f78a221b997e9b8808"
+        }
+      ],
+      "gate_inputs": [
+        {
+          "job": 117266013576,
+          "name": "linux-probe-gate",
+          "results": {
+            "linux-native": "success",
+            "linux-controls-1": "success",
+            "linux-controls-2": "success",
+            "linux-controls-3": "success"
+          }
+        },
+        {
+          "job": 117266015094,
+          "name": "windows-probe-gate",
+          "results": {
+            "windows-native": "success",
+            "windows-controls-1": "success",
+            "windows-controls-2": "success",
+            "windows-controls-3": "success"
+          }
+        }
+      ],
+      "verifier_sha256": "306b9d08b53e7513927ceef179c77e587aad82026e0969c53e19b9e6ec053aa2"
+    }
+  ],
+  "certified_terminal_runs": 6,
+  "cancelled_uncertified_runs": 3,
+  "verified_gate_inputs": 12
+}
