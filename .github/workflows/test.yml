@@ -711,6 +711,9 @@ jobs:
       - name: Verify assessment status scope redaction compiling controls
         run: python scripts/tests/scope-redaction-controls.py
 
+      - name: Verify Windows comparator assertion controls
+        run: python scripts/tests/qa-mutation.py
+
   windows-validation:
     if: ${{ always() }}
     needs: [windows-native, windows-controls-1, windows-controls-2, windows-controls-3]

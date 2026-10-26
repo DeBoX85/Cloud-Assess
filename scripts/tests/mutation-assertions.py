@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Real compiled assertion/panic controls plus fail-closed classifier cases."""
-import ast,copy,hashlib,json,os,subprocess,sys,tempfile
+import ast,copy,hashlib,json,os,re,subprocess,sys,tempfile
 from pathlib import Path
 sys.dont_write_bytecode=True
 from mutation_assertions import assertion_witness,run_go_test
@@ -24,9 +24,11 @@ def verify_driver_source(source):
  return tree
 
 def verify_driver_inventory():
- root=Path(__file__).resolve().parents[2];data=json.loads((root/'docs/evidence/20261026/mutation-assurance/driver-inventory.json').read_text());assert len(data['drivers'])==18;names={'MUTATIONS','controls','FILES','FILE','SOURCE','SELECT','manifest'}
+ root=Path(__file__).resolve().parents[2];workflow=(root/'.github/workflows/test.yml').read_text();jobs=re.findall(r'^  ([a-z][a-z0-9-]*):\n(.*?)(?=^  [a-z][a-z0-9-]*:\n|\Z)',workflow,re.M|re.S);data=json.loads((root/'docs/evidence/20261026/mutation-assurance/driver-inventory.json').read_text());assert len(data['drivers'])==18;names={'MUTATIONS','controls','FILES','FILE','SOURCE','SELECT','manifest'}
  for row in data['drivers']:
-  path=root/row['path'];source=path.read_text();tree=verify_driver_source(source);nodes=[n for n in ast.walk(tree) if isinstance(n,ast.Assign) and any(isinstance(a,ast.Name) and a.id in names for a in n.targets)]
+  path=root/row['path'];source=path.read_text();tree=verify_driver_source(source);
+  for platform in ['linux','windows']:assert sum(row['path'] in body for name,body in jobs if name.startswith(platform+'-'))==1,('driver native wiring',platform,row['path'])
+  nodes=[n for n in ast.walk(tree) if isinstance(n,ast.Assign) and any(isinstance(a,ast.Name) and a.id in names for a in n.targets)]
   assert hashlib.sha256(ast.dump(ast.Module(body=nodes,type_ignores=[]),include_attributes=False).encode()).hexdigest()==row['control_declarations_sha256'],row['path']
   if 'plan_sha256' in row:assert hashlib.sha256(path.with_suffix('.plan.json').read_bytes()).hexdigest()==row['plan_sha256']
   for bad in [source.replace('run_go_test(', 'subprocess.run(',1),source.replace('intended_failure(', 'missing_admission(',1)]:
@@ -88,6 +90,6 @@ func TestSubtests(t *testing.T) { t.Run("selected",func(t *testing.T){ t.Fatal("
   # A real compilation error cannot become assertion evidence.
   path.write_text(source+'\nvar broken = DoesNotExist\n');bad=run_go_test([go,'test','-run','^TestExpected$','.'],cwd=root,capture_output=True,text=True,timeout=30);assert not assertion_witness(bad,'TestExpected');path.write_bytes(original)
   restored=run_go_test([go,'test','-run','^TestHealthy$','.'],cwd=root,capture_output=True,text=True,timeout=30);assert restored.returncode==0 and path.read_bytes()==original
-  print('MUTATION_ASSERTION_CLASSIFIER_PROOF_JSON '+json.dumps({'drivers_verified':drivers,'driver_wiring_negatives':36,'actual_assertion_accepted':True,'actual_helper_and_subtest_accepted':True,'actual_panic_rejected':True,'panic_after_assertion_rejected':True,'actual_build_error_rejected':True,'actual_go_timeout_rejected':True,'actual_parent_timeout_raised':True,'actual_source_change_rejected':True,'negative_cases':rejected,'restored_healthy_exit':0,'source_unchanged':True,'go_test_timeout':120,'parent_wall_max':180,'scope':'assertion-site provenance, not semantic completeness or authenticated test provenance'},separators=(',',':')),flush=True)
+  print('MUTATION_ASSERTION_CLASSIFIER_PROOF_JSON '+json.dumps({'drivers_verified':drivers,'driver_wiring_negatives':36,'native_driver_platforms':['linux','windows'],'actual_assertion_accepted':True,'actual_helper_and_subtest_accepted':True,'actual_panic_rejected':True,'panic_after_assertion_rejected':True,'actual_build_error_rejected':True,'actual_go_timeout_rejected':True,'actual_parent_timeout_raised':True,'actual_source_change_rejected':True,'negative_cases':rejected,'restored_healthy_exit':0,'source_unchanged':True,'go_test_timeout':120,'parent_wall_max':180,'scope':'assertion-site provenance, not semantic completeness or authenticated test provenance'},separators=(',',':')),flush=True)
  finally:cleanup_temporary_directory(directory)
 if __name__=='__main__':main()

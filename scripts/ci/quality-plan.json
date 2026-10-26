@@ -236,6 +236,11 @@
         "name": "Verify retail pricing compiling controls",
         "script": "scripts/tests/retail-controls.py",
         "worker": "controls-2"
+      },
+      {
+        "name": "Verify Windows comparator assertion controls",
+        "script": "scripts/tests/qa-mutation.py",
+        "worker": "controls-3"
       }
     ]
   }
