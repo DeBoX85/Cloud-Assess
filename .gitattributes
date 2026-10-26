@@ -10,3 +10,25 @@ internal/plugins/carbon/testdata/source-*.json -text
 internal/plugins/aigov/testdata/*.json -text
 internal/plugins/region/testdata/*.json -text
 internal/plugins/region/data/latency.json -text
+# Preserve byte-addressed evidence bundle text across native checkouts.
+docs/evidence/**/*.base64 -text
+
+# Retain exact upstream MIT license bytes used by SQL primary integrity checks.
+internal/plugins/region/testdata/storage-primary-LICENSE.txt -text
+internal/plugins/region/sql_report_oracle_test.go -text
+internal/plugins/region/sql_report_budget_plan_test.go -text
+
+# Byte-addressed independent region meter-history expectations.
+internal/plugins/region/testdata/meter-history-contract-v1.json -text
+internal/plugins/region/testdata/meter-history-budget-proof-v1.json -text
+internal/plugins/region/testdata/retail-pricing-contract-v1.json -text
+internal/plugins/region/testdata/retail-primary-cost.go.txt -text
+internal/plugins/region/testdata/retail-primary-types.go.txt -text
+internal/plugins/region/testdata/retail-primary-http.go.txt -text
+
+# Byte-addressed pre-API output-ledger evidence.
+docs/evidence/20261026/inventory-output/** -text
+
+# Freeze-descriptor/model/schema bytes.
+docs/evidence/20261026/inventory-freeze/** -text
+docs/evidence/20261026/inventory-consumer/** -text

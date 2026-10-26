@@ -1,0 +1,132 @@
+{
+  "format": "cloud-assess-evidence-v1",
+  "classification": "reviewed-synthetic-ci-local",
+  "bundle_sha256": "d527c32b6d54adb3068e2903312ca866a6aaf9fafb07aad5aae3772ab331e9c5",
+  "decoded_sha256": "651d815d19d5fcfbaeb3eae66f298c9d329818b4d7acb5c106d852f3ef1c9fda",
+  "members": [
+    {
+      "path": "audit-log-recovery/116891981197.log",
+      "bytes": 1359873,
+      "sha256": "a42b86d84afb24d8a2733a2443551429101366c91cc1b78a9e800f8e6d53e65b"
+    },
+    {
+      "path": "audit-log-recovery/116892411759.log",
+      "bytes": 103920,
+      "sha256": "a2f856bfd1518c459bf8c70ea1355bb9b779d642c36b6b8ac132d79b1e115995"
+    },
+    {
+      "path": "audit-log-recovery/116892412198.log",
+      "bytes": 83274,
+      "sha256": "50dab7111c28e6185275eb8144ca1987d1e5d8bb55666ed1ca0011acf9328f05"
+    },
+    {
+      "path": "audit-log-recovery/116981113328.log",
+      "bytes": 33824,
+      "sha256": "e29436b13a727d3518be60f5570ac1905450db06aad6c70ae4adf7882732da87"
+    },
+    {
+      "path": "audit-log-recovery/116981113477.log",
+      "bytes": 33191,
+      "sha256": "c98e350c03b5f9e73a32e3920ea0ac546476738a8b7175114cf92f0dc62c9f17"
+    },
+    {
+      "path": "audit-log-recovery/116981113727.log",
+      "bytes": 1359874,
+      "sha256": "8ce6c81916196b47d391b14f110c152f62409bc02c0f3682367b0a79e4c8b7ad"
+    },
+    {
+      "path": "audit-log-recovery/116983313773.log",
+      "bytes": 1359953,
+      "sha256": "1edc19297cf781d401cf02d67867498e286b1d7b5d93eaa62f13535167c0dee6"
+    },
+    {
+      "path": "audit-log-recovery/116983313777.log",
+      "bytes": 34146,
+      "sha256": "3ee95160c61a452c9b39cb40608029bc8438e4110d29a2fc651caee32adbee09"
+    },
+    {
+      "path": "audit-log-recovery/116983314130.log",
+      "bytes": 34861,
+      "sha256": "c812ba01eec2593906ad8237d8c2b7a1eef4c06b26945b33d92cb0720df7e38b"
+    },
+    {
+      "path": "audit-log-recovery/116989921866.log",
+      "bytes": 36706,
+      "sha256": "8bf7ffc77d1bcfdc47a788cf544e8189481f4141ad3feaf388df80aaa0380337"
+    },
+    {
+      "path": "audit-log-recovery/116989921985.log",
+      "bytes": 1359867,
+      "sha256": "1f8a53324d1a7682ffc38f60123c4149553e5280f4ed6047090685a2ee3a02e0"
+    },
+    {
+      "path": "audit-log-recovery/116989922179.log",
+      "bytes": 74862,
+      "sha256": "5d53c9275c67b6b4427cb2546178b3f508afe69f72cce30b139ebde986f58cee"
+    },
+    {
+      "path": "audit-log-recovery/116994406387.log",
+      "bytes": 1359873,
+      "sha256": "d1e9cd4818bcc70fa447d7a1d760e7306ab3999ec852a643a805e95cd07798f2"
+    },
+    {
+      "path": "audit-log-recovery/116994897339.log",
+      "bytes": 106912,
+      "sha256": "9492a6865f4669534920abe5cf694dba46e4fc06e7e22c2ea1c74afe8ba64da6"
+    },
+    {
+      "path": "audit-log-recovery/116994897883.log",
+      "bytes": 86744,
+      "sha256": "045ff378a319718d3b976ec687828063440b9bda94674c0fd501e535dcaca932"
+    },
+    {
+      "path": "audit-log-recovery/117087216282.log",
+      "bytes": 1359869,
+      "sha256": "4bc03b12b57a2343967b0586487a5dbeb921015d4564a7b4b84584d230e6dd74"
+    },
+    {
+      "path": "audit-log-recovery/117087216843.log",
+      "bytes": 86657,
+      "sha256": "49f82bb174898517265906fc13f4dce6017517623796ef7f1bb887516bd7e582"
+    },
+    {
+      "path": "audit-log-recovery/117087217071.log",
+      "bytes": 107098,
+      "sha256": "612df522aab64851e027811a8ce2feda187b554de320e3e18180015d6ea210fc"
+    },
+    {
+      "path": "audit-log-recovery/117114708851.log",
+      "bytes": 33281,
+      "sha256": "4059e4c931306866e07d149a28cda605ca3468dbad7ed3fc8735364f3f72d397"
+    },
+    {
+      "path": "audit-log-recovery/117114709102.log",
+      "bytes": 33769,
+      "sha256": "53855572291db2e56b87fa8259a9d987c7b33a1d609ebfd3469b5cccf302e5d4"
+    },
+    {
+      "path": "audit-log-recovery/117114709120.log",
+      "bytes": 1359874,
+      "sha256": "290420128480f32577128c01a5019b629eb87a3a455314f6729f6a9874f84c04"
+    },
+    {
+      "path": "audit-log-recovery/117117559452.log",
+      "bytes": 1359869,
+      "sha256": "245f8d3340ff1d8c9a2e79f7865d237cc8f58729dd466f8d5fdd3b0cc16cb083"
+    },
+    {
+      "path": "audit-log-recovery/117117559677.log",
+      "bytes": 34096,
+      "sha256": "83fb80556b66a5a3e618d1e0c55ab3ed129c954c82f775bb310074ab73af9d3e"
+    },
+    {
+      "path": "audit-log-recovery/117117559900.log",
+      "bytes": 34821,
+      "sha256": "e8fe09dd767cf375f3f2f9529c72669fc465d854c40cdef72de667b5798bca83"
+    }
+  ],
+  "revisions": {
+    "product": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "security": "566cc4d8b78d168e5216245a5a386f742a3a2f85"
+  }
+}

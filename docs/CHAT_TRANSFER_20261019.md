@@ -1,0 +1,19 @@
+# Transfer checkpoint,2026-10-19
+
+Historical snapshot. For current task state and next action use [2026-10-21 transfer](CHAT_TRANSFER_20261021.md), [CURRENT_STATE](CURRENT_STATE.md) and [RESTART_PROMPT](RESTART_PROMPT.md). Preserve technical contracts and evidence; do not replay dated pending/STOP instructions.
+
+Use [RESTART_PROMPT](RESTART_PROMPT.md) as instructions and this file as supporting context. [CURRENT_STATE](CURRENT_STATE.md)/current live PR own actual outcomes. Handover branchdocs/72h-audit-handover-20261019 descends from verified175; its own QA/continuation is reached through live175. Never choose a successor solely by date/PR number.
+
+Product175/eb554ee826187bef05126d3c59e81eb4bd68ecf8/tree30d91cfab3cac86021c49902f1b18a785ea2b1ca/parent80bbcbd8, preview68c9651280dd73619f00652ffaf3b64fb47e0860, quality39182715043/source39182715015 are complete.580/575controls,87.4%coverage/75%floor,23captures. Evidence01e63c54/tree8181c643/parent175,89members/all4files verified. First preparation174 remains intentionally failing; complete preproduction logs/source retained. Original67oracle/consumer/contract unchanged; timeout amendment and three independent mutation-isolation tests documented.
+
+[Audit](AUDIT_72H_20261019.md) covers request-time20PRs156-175 plus148-155:28PRs/56runs/308full logs,22successful/6historically failed quality runs,28source reconstructions,64recent commits/214heads. Evidence2fa53c346a19798e4ad90124d26275a32d42ae91/tree505d4ad55cc12ffcac5d62ef0802127f8c8c3547/parent45c565d6,22complete files/nine remote bounded bundles verified; the storage chain descends from175. [Discrepancies](DISCREPANCIES_20261019.md) distinguish repairs/supersedence/evidence limits. No unexplained inspected divergence or critical blocker; cross-conversation search failed and cannot exclude unpublished/deleted work.
+
+Next: finish/check this handover head's own full QA/archive/readback, then task6retail contract only, followed by sequence7-15. No further user/Azure input currently needed. Do not merge all drafts, replay completed review/SQL/history or choose artifact/recipe branches as code. Existing critical-blocker stop/document/wait rule remains.
+
+Local hints: isolated Linux `/workspace/scratch/ee3c2680ffe8/audit-handover-code`; older dirty worktrees preserved. Pinned Go1.26.9 at `/workspace/scratch/ee3c2680ffe8/tooling/go/bin`, official archive SHA25642d158b4d8f7b61ac0a830567c940a86098fb7aac52e467a5ebec03ef5cc2f8d. Reconstruct from remote if absent; use GOTOOLCHAIN=local/readonly modules, exact APRL60eaddda and scripts/dev-preflight.py; hosted Windows/source remain mandatory. Connector writes require complete readback and human Denis identity. Scratch/caches are hints, not durable authority.
+
+No Azure/fixture/RBAC/refresh/subagents/protected merge/bypass/release.1module-only advisory OPEN despite0reachable/imported findings; independent review/backup, human/security/license/Gate004, fresh-OS/operational/live/acceptance/release remain open. Source rollback is not installed/live recovery.
+
+## Complete workflow-event scope
+
+The complete all-events check covers75runs (64PR/11push),444job records and416retained available logs:58successful/12failed/5cancelled runs. The28final PR-head pairs account for56runs/308complete logs;19earlier-head/push runs add108available logs. Six jobs were skipped and22cancelled before runner allocation, with no steps/logs; none is called verification. All32successful source runs reconstruct736capture instances/10080chunks/29115680UTF8bytes against their own Git. Six completed success/failure/skipped hosted probes at149/152 were reverified using the unchanged strict validator. The two additional red heads are expected absent Cognitive/VMSS APIs; two QA recipes have no product-code delta.25preceding boundary runs were also checked: none updated within the request window.

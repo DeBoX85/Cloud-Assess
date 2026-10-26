@@ -1,0 +1,4 @@
+# github.com/DeBoX85/Cloud-Assess/internal/equivalence
+internal/rules/embedded.go:13:12: pattern upstream/aprl/azure-resources: no matching files found
+FAIL	github.com/DeBoX85/Cloud-Assess/internal/equivalence [setup failed]
+FAIL

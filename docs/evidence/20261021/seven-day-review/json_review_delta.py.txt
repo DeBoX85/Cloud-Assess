@@ -1,0 +1,87 @@
+"""Reversible JSON review view with explicit same-key object deltas.
+
+Uses the first helper's strict outer parsing. Original lexical formatting is not
+shown. Frozen files are read only; decoding must reproduce every decoded value,
+scalar type and object/array order before a view can be displayed.
+"""
+from pathlib import Path
+import hashlib
+import sys
+from json_review_view import compact, load_strict
+
+
+def make_view(value):
+    seen = {}
+    bases = {}
+
+    def child(pointer, key):
+        return pointer + '/' + str(key).replace('~', '~0').replace('/', '~1')
+
+    def encode(item, pointer):
+        if isinstance(item, dict) and any(k.startswith('$review_') for k in item):
+            raise ValueError('reserved review key exists')
+        key = compact(item)
+        if len(key) >= 80 and key in seen:
+            return {'$review_ref': seen[key]}
+        if len(key) >= 80:
+            seen[key] = pointer
+        if isinstance(item, dict):
+            shape = tuple(item)
+            # Only completed earlier objects can serve as a delta base.
+            candidates = list(bases.get(shape, []))
+            result = {k: encode(v, child(pointer, k)) for k, v in item.items()}
+            best = result
+            cost = len(compact(result))
+            for base_pointer, base in candidates:
+                changes = {k: result[k] for k in item if compact(item[k]) != compact(base[k])}
+                delta = {'$review_base': base_pointer, '$review_changes': changes}
+                delta_cost = len(compact(delta))
+                if delta_cost + 40 < cost:
+                    best, cost = delta, delta_cost
+                else:
+                    continue
+            bases.setdefault(shape, []).append((pointer, item))
+            return best
+        if isinstance(item, list):
+            return [encode(v, child(pointer, i)) for i, v in enumerate(item)]
+        return item
+
+    view = encode(value, '')
+    restored = {}
+
+    def remember(item, pointer):
+        restored[pointer] = item
+        if isinstance(item, dict):
+            for k, v in item.items():
+                remember(v, child(pointer, k))
+        elif isinstance(item, list):
+            for i, v in enumerate(item):
+                remember(v, child(pointer, i))
+
+    def decode(item, pointer):
+        if isinstance(item, dict) and set(item) == {'$review_ref'}:
+            out = restored[item['$review_ref']]
+        elif isinstance(item, dict) and set(item) == {'$review_base', '$review_changes'}:
+            base = restored[item['$review_base']]
+            changes = item['$review_changes']
+            assert isinstance(base, dict) and set(changes) <= set(base)
+            out = {k: decode(changes[k], child(pointer, k)) if k in changes else v for k, v in base.items()}
+        elif isinstance(item, dict):
+            out = {k: decode(v, child(pointer, k)) for k, v in item.items()}
+        elif isinstance(item, list):
+            out = [decode(v, child(pointer, i)) for i, v in enumerate(item)]
+        else:
+            out = item
+        remember(out, pointer)
+        return out
+
+    assert compact(decode(view, '')) == compact(value)
+    return view
+
+
+if __name__ == '__main__':
+    source = Path(sys.argv[1])
+    raw = source.read_bytes()
+    print(compact({'source': str(source), 'raw_sha256': hashlib.sha256(raw).hexdigest(),
+                   'mode': 'reversible decoded JSON references and same-key object changes; lexical formatting not shown',
+                   'view': make_view(load_strict(raw))}))

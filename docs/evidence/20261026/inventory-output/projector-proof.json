@@ -1,0 +1,55 @@
+{
+  "base": "566cc4d8b78d168e5216245a5a386f742a3a2f85",
+  "toolchain": "go1.26.10 linux/amd64",
+  "actual_exit": 0,
+  "calls": 8,
+  "cases": [
+    {
+      "name": "entries-exact",
+      "VMValues": 8191,
+      "Zones": 13650,
+      "SQLValues": 1,
+      "VMStatus": "complete",
+      "SQLStatus": "complete",
+      "DeploymentEligibility": "not_assessed"
+    },
+    {
+      "name": "entries-first-excess",
+      "VMValues": 8191,
+      "Zones": 13650,
+      "SQLValues": 2,
+      "VMStatus": "complete",
+      "SQLStatus": "complete",
+      "DeploymentEligibility": "not_assessed"
+    },
+    {
+      "name": "text-exact",
+      "VMValues": 8190,
+      "Zones": 13650,
+      "SQLValues": 1,
+      "VMStatus": "complete",
+      "SQLStatus": "complete",
+      "DeploymentEligibility": "not_assessed"
+    },
+    {
+      "name": "text-first-excess",
+      "VMValues": 8190,
+      "Zones": 13650,
+      "SQLValues": 1,
+      "VMStatus": "complete",
+      "SQLStatus": "complete",
+      "DeploymentEligibility": "not_assessed"
+    }
+  ],
+  "command": "env -i PATH=<pinned Go bin>:/usr/bin:/bin HOME=<task-home> TMPDIR=<task-tmp> GOCACHE=<task-cache> GOMODCACHE=<verified-frozen-module-cache> GOTOOLCHAIN=local GOPROXY=off GOSUMDB=off GOFLAGS=-mod=readonly GOWORK=off GOTELEMETRY=off GOMAXPROCS=2 timeout 120 go run ./cmd/output-budget-probe",
+  "probe_sha256": "16bdfc142af118107bc8f1338dbab4274bf656f51315461c4f168f8936a9c8b7",
+  "module_files": {
+    "go.mod": "ef6d403844f6fbf321e6bc2ad90311598000fbb5b8c251aa366a9bdbea376dd9",
+    "go.sum": "3eec87f5de0e81838cda0c3b96ffaba1ae3b459ca91780c3ec93f9be47cccd02"
+  },
+  "execution_limits": [
+    "No credential factory, endpoint, collector constructor, request or listener in inspected direct projector path.",
+    "No hard network-denial or memory-jail claim.",
+    "Existing projectors only; future BuildRequiredInventory/AdmitRequiredEvidence absent and not executed."
+  ]
+}

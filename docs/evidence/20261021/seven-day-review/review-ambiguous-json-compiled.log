@@ -1,0 +1,16 @@
+=== RUN   TestReviewRejectsAmbiguousComparisonJSON
+=== RUN   TestReviewRejectsAmbiguousComparisonJSON/healthy-control
+    review_ambiguous_json_test.go:19: reference_error=<nil> target_error=<nil> equivalent=true
+=== RUN   TestReviewRejectsAmbiguousComparisonJSON/hidden-reference-row
+    review_ambiguous_json_test.go:19: reference_error=<nil> target_error=<nil> equivalent=true
+    review_ambiguous_json_test.go:20: ambiguous input declared equivalent
+=== RUN   TestReviewRejectsAmbiguousComparisonJSON/contradictory-target-completeness
+    review_ambiguous_json_test.go:19: reference_error=<nil> target_error=<nil> equivalent=true
+    review_ambiguous_json_test.go:20: ambiguous input declared equivalent
+--- FAIL: TestReviewRejectsAmbiguousComparisonJSON (0.00s)
+    --- PASS: TestReviewRejectsAmbiguousComparisonJSON/healthy-control (0.00s)
+    --- FAIL: TestReviewRejectsAmbiguousComparisonJSON/hidden-reference-row (0.00s)
+    --- FAIL: TestReviewRejectsAmbiguousComparisonJSON/contradictory-target-completeness (0.00s)
+FAIL
+FAIL	github.com/DeBoX85/Cloud-Assess/internal/equivalence	0.025s
+FAIL

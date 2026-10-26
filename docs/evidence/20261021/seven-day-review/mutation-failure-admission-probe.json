@@ -1,0 +1,140 @@
+{
+  "purpose": "independent audit of admission guards, no production mutation or historical rerun",
+  "toolchain": "go version go1.26.10 linux/amd64",
+  "observations": [
+    {
+      "test": "TestAuditAssertionFailure",
+      "go_exit": 1,
+      "log_sha256": "3294b005c3978c2d69cf41e31d9b36d1862a70b80df0a615c440a450e5f2528b",
+      "admissions": [
+        {
+          "script": "sql-database-controls.py",
+          "source_sha256": "ce788ef17c69d13cd12afaaf783429fda27b758518c38b34600bbb2b0a195c60",
+          "admitted_as_compiling_named_failure": true,
+          "exact_guard_source": [
+            "assert result.returncode!=0,('reversal survived',m['name'],result.stdout)",
+            "assert '[build failed]' not in result.stdout and 'undefined:' not in result.stdout and 'syntax error' not in result.stdout,('uncompilable reversal',m['name'],result.stdout)",
+            "assert '--- FAIL: '+m['test'].split('/')[0] in result.stdout,('missing named assertion',m['name'],result.stdout)"
+          ]
+        },
+        {
+          "script": "sql-mi-controls.py",
+          "source_sha256": "a3fc144e4a5ae161d6a8ada3de621a957f65ce1852328c66afce7ee8dfc07c61",
+          "admitted_as_compiling_named_failure": true,
+          "exact_guard_source": [
+            "assert result.returncode!=0,('reversal survived',m['name'],result.stdout)",
+            "assert '[build failed]' not in result.stdout and 'undefined:' not in result.stdout and 'syntax error' not in result.stdout,('uncompilable reversal',m['name'],result.stdout)",
+            "assert '--- FAIL: '+m['test'].split('/')[0] in result.stdout,('missing named assertion',m['name'],result.stdout)"
+          ]
+        },
+        {
+          "script": "sql-report-controls.py",
+          "source_sha256": "d217822ee4952810fe67cf855c006ba51e2b4682eecb07b22d5e710d965ddd4a",
+          "admitted_as_compiling_named_failure": true,
+          "exact_guard_source": [
+            "assert result.returncode!=0,('reversal survived',m['name'],result.stdout)",
+            "assert '[build failed]' not in result.stdout and 'undefined:' not in result.stdout and 'syntax error' not in result.stdout,('uncompilable reversal',m['name'],result.stdout)",
+            "assert '--- FAIL: '+m['test'].split('/')[0] in result.stdout,('missing named assertion',m['name'],result.stdout)"
+          ]
+        },
+        {
+          "script": "scope-redaction-controls.py",
+          "source_sha256": "d9df9b6c0c1eb769a7e905aa78257e85ebb55529f49610b179226d6cdfd77137",
+          "admitted_as_compiling_named_failure": true,
+          "exact_guard_source": [
+            "assert result.returncode!=0,('reversal survived',m['name'],result.stdout)",
+            "assert '[build failed]' not in result.stdout and 'undefined:' not in result.stdout and 'syntax error' not in result.stdout,('uncompilable reversal',m['name'],result.stdout)",
+            "assert '--- FAIL: '+m['test'].split('/')[0] in result.stdout,('missing named assertion',m['name'],result.stdout)"
+          ]
+        },
+        {
+          "script": "meter-history-controls.py",
+          "source_sha256": "2e313ade7e8fcdf2bcdc1ce499d09cbb28d9ba4f75a6a921f486d4dc3492de63",
+          "admitted_as_compiling_named_failure": true,
+          "exact_guard_source": [
+            "assert result.returncode!=0,('reversal survived',m['name'],result.stdout)",
+            "assert '[build failed]' not in result.stdout and 'undefined:' not in result.stdout and 'syntax error' not in result.stdout and 'panic:' not in result.stdout,('uncompilable reversal',m['name'],result.stdout)",
+            "assert '--- FAIL: '+m['test'].split('/')[0] in result.stdout,('missing named assertion',m['name'],result.stdout)"
+          ]
+        },
+        {
+          "script": "retail-controls.py",
+          "source_sha256": "8c89aa0f0f1b1d55ccf5718586e906fd531fc7940d5ee14c1813edea8a3fa40a",
+          "admitted_as_compiling_named_failure": true,
+          "exact_guard_source": [
+            "assert result.returncode!=0,('reversal survived',m['name'],result.stdout)",
+            "assert '[build failed]' not in result.stdout and 'undefined:' not in result.stdout and 'syntax error' not in result.stdout and 'panic:' not in result.stdout,('uncompilable reversal',m['name'],result.stdout)",
+            "assert '--- FAIL: '+m['test'].split('/')[0] in result.stdout,('missing named assertion',m['name'],result.stdout)"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAuditPanickedControl",
+      "go_exit": 1,
+      "log_sha256": "53d6bcca21185b74bee818334c69ada04a3141b7819730549ffd0b3f76e3ea1a",
+      "admissions": [
+        {
+          "script": "sql-database-controls.py",
+          "source_sha256": "ce788ef17c69d13cd12afaaf783429fda27b758518c38b34600bbb2b0a195c60",
+          "admitted_as_compiling_named_failure": true,
+          "exact_guard_source": [
+            "assert result.returncode!=0,('reversal survived',m['name'],result.stdout)",
+            "assert '[build failed]' not in result.stdout and 'undefined:' not in result.stdout and 'syntax error' not in result.stdout,('uncompilable reversal',m['name'],result.stdout)",
+            "assert '--- FAIL: '+m['test'].split('/')[0] in result.stdout,('missing named assertion',m['name'],result.stdout)"
+          ]
+        },
+        {
+          "script": "sql-mi-controls.py",
+          "source_sha256": "a3fc144e4a5ae161d6a8ada3de621a957f65ce1852328c66afce7ee8dfc07c61",
+          "admitted_as_compiling_named_failure": true,
+          "exact_guard_source": [
+            "assert result.returncode!=0,('reversal survived',m['name'],result.stdout)",
+            "assert '[build failed]' not in result.stdout and 'undefined:' not in result.stdout and 'syntax error' not in result.stdout,('uncompilable reversal',m['name'],result.stdout)",
+            "assert '--- FAIL: '+m['test'].split('/')[0] in result.stdout,('missing named assertion',m['name'],result.stdout)"
+          ]
+        },
+        {
+          "script": "sql-report-controls.py",
+          "source_sha256": "d217822ee4952810fe67cf855c006ba51e2b4682eecb07b22d5e710d965ddd4a",
+          "admitted_as_compiling_named_failure": true,
+          "exact_guard_source": [
+            "assert result.returncode!=0,('reversal survived',m['name'],result.stdout)",
+            "assert '[build failed]' not in result.stdout and 'undefined:' not in result.stdout and 'syntax error' not in result.stdout,('uncompilable reversal',m['name'],result.stdout)",
+            "assert '--- FAIL: '+m['test'].split('/')[0] in result.stdout,('missing named assertion',m['name'],result.stdout)"
+          ]
+        },
+        {
+          "script": "scope-redaction-controls.py",
+          "source_sha256": "d9df9b6c0c1eb769a7e905aa78257e85ebb55529f49610b179226d6cdfd77137",
+          "admitted_as_compiling_named_failure": true,
+          "exact_guard_source": [
+            "assert result.returncode!=0,('reversal survived',m['name'],result.stdout)",
+            "assert '[build failed]' not in result.stdout and 'undefined:' not in result.stdout and 'syntax error' not in result.stdout,('uncompilable reversal',m['name'],result.stdout)",
+            "assert '--- FAIL: '+m['test'].split('/')[0] in result.stdout,('missing named assertion',m['name'],result.stdout)"
+          ]
+        },
+        {
+          "script": "meter-history-controls.py",
+          "source_sha256": "2e313ade7e8fcdf2bcdc1ce499d09cbb28d9ba4f75a6a921f486d4dc3492de63",
+          "admitted_as_compiling_named_failure": false,
+          "exact_guard_source": [
+            "assert result.returncode!=0,('reversal survived',m['name'],result.stdout)",
+            "assert '[build failed]' not in result.stdout and 'undefined:' not in result.stdout and 'syntax error' not in result.stdout and 'panic:' not in result.stdout,('uncompilable reversal',m['name'],result.stdout)",
+            "assert '--- FAIL: '+m['test'].split('/')[0] in result.stdout,('missing named assertion',m['name'],result.stdout)"
+          ]
+        },
+        {
+          "script": "retail-controls.py",
+          "source_sha256": "8c89aa0f0f1b1d55ccf5718586e906fd531fc7940d5ee14c1813edea8a3fa40a",
+          "admitted_as_compiling_named_failure": false,
+          "exact_guard_source": [
+            "assert result.returncode!=0,('reversal survived',m['name'],result.stdout)",
+            "assert '[build failed]' not in result.stdout and 'undefined:' not in result.stdout and 'syntax error' not in result.stdout and 'panic:' not in result.stdout,('uncompilable reversal',m['name'],result.stdout)",
+            "assert '--- FAIL: '+m['test'].split('/')[0] in result.stdout,('missing named assertion',m['name'],result.stdout)"
+          ]
+        }
+      ]
+    }
+  ]
+}
