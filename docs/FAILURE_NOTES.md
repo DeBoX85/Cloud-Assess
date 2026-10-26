@@ -1,3 +1,7 @@
+## Windows frozen-document newline guard correction, 26 October 2026
+
+Revisionc4b4e478passed the hosted Linux isolated Build proof and both locked-cache bootstraps. Windows then failed the unchanged32dependency byte guard at INVENTORY_BUDGET_20261022.md: normative Markdown had no -textattribute and native checkout could convert LF to CRLF. The first consumer had previously stopped at missing APIs, so its runtime hash guard had not yet executed on Windows. Preserve every descriptor-bound path as raw Git bytes via explicit -textattributes; do not normalize away a mismatch or alter any expected hash/fixture. No production source change. Preserve revision2actual full outcomes, then use a fresh successor's own native/source run. This is why predecessor green and Linux-only preparation are not native parity proof.
+
 ## Hosted cold-cache assumption corrected, 26 October 2026
 
 The first Build candidate's isolated step ran before the normal module-loading suites and forced GOPROXY=offagainst an empty hosted cache. Both native steps failed before tests; this was an environment/bootstrap error, never a rejected mutation or successful API proof. Add locked-module-only cache prefill/verification in a disposable project, verify declared Path/Version and unchanged go.mod/go.sum bytes, then run tests offline. Seven bootstrap rejection models retain failure distinctions. No version, SDK, action or source pin refresh. Preserve the original exact-revision failed logs/metadata and run full own QA on the successor. No user credential or Azure access needed.
