@@ -1,3 +1,7 @@
+## Admission local milestone, 26 October 2026
+
+[Admission checkpoint](INVENTORY_ADMISSION_IMPLEMENTATION_20261026.md): product-lineage PR201WIP763157c9published/read back, local76frozen/eight budget/eight terminal/13strict controls and full offline race suite pass. Final OWN hosted native/source, complete original622/617control conservation/current coverage/advisory results, coherent rollback/private restore pending. No task10start or full acceptance; issue189closed bounded migration with ongoing retention/revisit. All44legacy/49current and wider obligations retained; human assessment considered after overall project completion.
+
 ## Build boundary and mutation milestone, 26 October 2026
 
 Current branch dev/required-inventory-build-20261026: tasks1–5locally verified, task6own final native/source outcomes/private retention pending. Read [Build checkpoint](INVENTORY_BUILD_IMPLEMENTATION_20261026.md) and live PR final index. First WIP61b09f5c/tree585a94e8/sole parent199published/read back all17changed files/both Denis identities. Final candidate extends that WIP with six frozen Build recipes,16/17Storage-kind boundary, two Unicode-identity controls,12compiling assertion-specific reversals and ten malformed-failure classifier controls. Local race baseline/restored baseline pass;76frozen Build scenarios/eight terminal schedules remain. All32frozen dependency hashes/original3files unchanged.

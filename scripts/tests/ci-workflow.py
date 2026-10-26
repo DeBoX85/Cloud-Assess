@@ -39,7 +39,29 @@ def require_build_before_consumer(text):
             raise ValueError('Build proof weakened')
 
 
+def require_admission_before_consumer(text):
+    for platform, consumer in [('linux', 'Test with race detector'), ('windows', 'Test Go packages on Windows')]:
+        body = re.search(r'^  ' + platform + r'-native:\n(.*?)(?=^  [a-z][a-z0-9-]*:\n|\Z)', text, re.M | re.S).group(1)
+        marker = '      - name: Verify required evidence Admission controls\n'
+        if body.count(marker) != 1 or body.index(marker) >= body.index('      - name: ' + consumer + '\n'):
+            raise ValueError('Admission proof missing or late')
+        block = body.split(marker, 1)[1].split('      - name:', 1)[0]
+        if 'scripts/tests/required-inventory-admission.py' not in block or 'continue-on-error' in block or 'if:' in block:
+            raise ValueError('Admission proof weakened')
+
+
 class GateTests(unittest.TestCase):
+    def test_admission_proof_precedes_consumer(self):
+        require_admission_before_consumer(workflow.generate())
+
+    def test_admission_proof_missing_or_weakened(self):
+        text = workflow.generate()
+        marker = '      - name: Verify required evidence Admission controls\n'
+        for bad in [text.replace(marker, '      - name: Missing Admission\n', 1), text.replace(marker, marker+'        continue-on-error: true\n', 1)]:
+            with self.assertRaises(ValueError):
+                require_admission_before_consumer(bad)
+
+
     def test_build_proof_precedes_full_consumer_on_both_hosts(self):
         require_build_before_consumer(workflow.generate())
 

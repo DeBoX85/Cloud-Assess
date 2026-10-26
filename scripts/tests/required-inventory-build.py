@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Isolated Build proof while admission is absent. Never whole-native acceptance."""
+"""Isolated Build proof. Full native acceptance remains a separate obligation."""
 import hashlib,json,os,re,shutil,subprocess,tempfile,sys
 sys.dont_write_bytecode=True
 from pathlib import Path
@@ -134,8 +134,8 @@ def main():
    if not name:continue
    p=ROOT/name
    if p.is_file():dest=work/name;dest.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(p,dest)
-  # Explicit file-set verification excludes the still-unimplemented admission
-  # consumer. The unchanged full consumer remains in every normal native suite.
+  # Explicit Build file-set proof remains separate from the mandatory full
+  # consumer and the Admission proof in normal native verification.
   module_proof=bootstrap_modules(work)
   print('REQUIRED_BUILD_MODULES_JSON '+json.dumps(module_proof,separators=(',',':')),flush=True)
   baseline=run(work,race=os.name!='nt')
@@ -162,7 +162,7 @@ def main():
   restored=run(work)
   if restored.returncode or restored.stderr.strip():raise RuntimeError('restored isolated baseline failed\n'+restored.stdout+restored.stderr)
   if (ROOT/SOURCE).read_bytes()!=original:raise RuntimeError('original worktree source changed')
-  print('REQUIRED_BUILD_PROOF_JSON '+json.dumps({'scope':'isolated explicit file-set, not whole native acceptance','frozen_build_scenarios':76,'build_terminal_schedules':8,'build_recipes':6,'compiling_assertion_reversals':len(results),'classifier_negative_controls':rejected,'bootstrap_negative_controls':bootstrap_rejected,'source_sha256':hashlib.sha256(original).hexdigest(),'source_restored_exact':True,'restored_baseline_exit':0,'race':os.name!='nt','admission_implemented':False,'healthy_whole_native_accepted':False},separators=(',',':')),flush=True)
+  print('REQUIRED_BUILD_PROOF_JSON '+json.dumps({'scope':'isolated explicit file-set, not whole native acceptance','frozen_build_scenarios':76,'build_terminal_schedules':8,'build_recipes':6,'compiling_assertion_reversals':len(results),'classifier_negative_controls':rejected,'bootstrap_negative_controls':bootstrap_rejected,'source_sha256':hashlib.sha256(original).hexdigest(),'source_restored_exact':True,'restored_baseline_exit':0,'race':os.name!='nt','admission_implemented':True,'healthy_whole_native_accepted':False},separators=(',',':')),flush=True)
  finally:cleanup_temporary_directory(directory)
 
 if __name__=='__main__':main()

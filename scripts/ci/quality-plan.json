@@ -101,6 +101,11 @@
         "worker": "native"
       },
       {
+        "name": "Verify required evidence Admission controls",
+        "script": "scripts/tests/required-inventory-admission.py",
+        "worker": "native"
+      },
+      {
         "name": "Verify hosted gate contract definitions",
         "script": "scripts/tests/gate-probe.py",
         "worker": "native"
@@ -160,6 +165,11 @@
       {
         "name": "Verify isolated required inventory Build controls",
         "script": "scripts/tests/required-inventory-build.py",
+        "worker": "native"
+      },
+      {
+        "name": "Verify required evidence Admission controls",
+        "script": "scripts/tests/required-inventory-admission.py",
         "worker": "native"
       },
       {

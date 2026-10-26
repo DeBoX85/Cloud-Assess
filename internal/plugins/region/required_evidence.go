@@ -72,6 +72,9 @@ func admitRequiredEvidenceObserved(ctx context.Context, plan *RequiredInventoryP
 		requirements = append(requirements, r)
 		required[requiredTuple(r)] = true
 	}
+	if !input.count(len(collections)) {
+		return fail(input.code)
+	}
 	bindings := make(map[[4]string]RequiredCollectionInput, len(collections))
 	for _, raw := range collections {
 		if !input.row() || !input.text(raw.SubscriptionID, raw.SourceRegion, raw.TargetRegion, raw.ResourceType, raw.Kind) {
@@ -215,6 +218,9 @@ func requiredAdmissionOutput(ctx context.Context, a *RequiredEvidenceAdmission) 
 		if !b.add(1, a.Request.SubscriptionID, a.Request.SourceRegion, a.Request.TargetRegion) {
 			return false
 		}
+		if len(a.SKUs) > MaxInventoryEntries-b.entries {
+			return false
+		}
 		for _, typ := range requiredKeys(a.SKUs) {
 			if ctx.Err() != nil {
 				return false
@@ -223,9 +229,15 @@ func requiredAdmissionOutput(ctx context.Context, a *RequiredEvidenceAdmission) 
 			if !b.add(1, typ, e.Status) {
 				return false
 			}
+			if len(e.Values) > MaxInventoryEntries-b.entries {
+				return false
+			}
 			for _, key := range requiredKeys(e.Values) {
 				g := e.Values[key]
 				if !b.add(1, key) {
+					return false
+				}
+				if len(g.BlockedZones) > MaxInventoryEntries-b.entries {
 					return false
 				}
 				for _, z := range g.BlockedZones {
@@ -235,6 +247,9 @@ func requiredAdmissionOutput(ctx context.Context, a *RequiredEvidenceAdmission) 
 				}
 			}
 		}
+	}
+	if len(a.Catalogs) > MaxInventoryEntries-b.entries {
+		return false
 	}
 	for _, c := range a.Catalogs {
 		if ctx.Err() != nil || !b.add(1, c.SubscriptionID, c.SourceRegion, c.TargetRegion, c.ResourceType, c.Kind, c.Status, c.DeploymentEligibility) {
@@ -260,6 +275,9 @@ func requiredAdmissionOutput(ctx context.Context, a *RequiredEvidenceAdmission) 
 			if !b.add(1, p.SubscriptionID, p.Region, p.ResourceType, p.Status, p.DeploymentEligibility) {
 				return false
 			}
+			if len(p.Values) > MaxInventoryEntries-b.entries {
+				return false
+			}
 			for _, key := range requiredKeys(p.Values) {
 				if ctx.Err() != nil || !b.add(1, key) || !b.add(0, sqlGroupStrings(p.Values[key])...) {
 					return false
@@ -267,8 +285,14 @@ func requiredAdmissionOutput(ctx context.Context, a *RequiredEvidenceAdmission) 
 			}
 			warnings = p.Warnings
 		}
+		if len(values) > MaxInventoryEntries-b.entries {
+			return false
+		}
 		for _, key := range requiredKeys(values) {
 			if ctx.Err() != nil || !b.add(1, key) {
+				return false
+			}
+			if len(values[key].BlockedZones) > MaxInventoryEntries-b.entries {
 				return false
 			}
 			for _, z := range values[key].BlockedZones {
@@ -276,6 +300,9 @@ func requiredAdmissionOutput(ctx context.Context, a *RequiredEvidenceAdmission) 
 					return false
 				}
 			}
+		}
+		if len(warnings) > MaxInventoryEntries-b.entries {
+			return false
 		}
 		for _, w := range warnings {
 			if ctx.Err() != nil || !b.add(1, w.Code, w.Message) {

@@ -6,6 +6,10 @@ Dated progress and resume sections below are historical snapshots; behavioral re
 
 ---
 
+## Admission current successor
+
+Verify live draft PR201/dev/required-inventory-admission-20261026 and exact-head outcome index. Read INVENTORY_ADMISSION_IMPLEMENTATION_20261026.md. Local implementation/76frozen/eight-budget/eight-terminal/13strict proof/full race suite verified; own hosted QA/private restore/coherent rollback pending. PR200Build final index remains separate. No task10start, inherited green or full acceptance.
+
 ## Build boundary and mutation milestone, 26 October 2026
 
 Current branch dev/required-inventory-build-20261026: tasks1–5locally verified, task6own final native/source outcomes/private retention pending. Read [Build checkpoint](INVENTORY_BUILD_IMPLEMENTATION_20261026.md) and live PR final index. First WIP61b09f5c/tree585a94e8/sole parent199published/read back all17changed files/both Denis identities. Final candidate extends that WIP with six frozen Build recipes,16/17Storage-kind boundary, two Unicode-identity controls,12compiling assertion-specific reversals and ten malformed-failure classifier controls. Local race baseline/restored baseline pass;76frozen Build scenarios/eight terminal schedules remain. All32frozen dependency hashes/original3files unchanged.

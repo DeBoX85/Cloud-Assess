@@ -766,9 +766,9 @@
     },
     {
       "id": "OFFLINE-09",
-      "state": "build_locally_verified_pending_own_qa",
+      "state": "admission_locally_verified_pending_own_qa",
       "owner": "development owner",
-      "next_or_limit": "Build isolated76/eight-terminal/six-recipe/12strict compiling reversals verified locally; final own native/source actual outcomes/SC-storage restore next. Admission implementation/proofs, healthy full622/617plus new controls and coherent rollback remain required before10."
+      "next_or_limit": "PR201Admission WIP763157c9published/read back; local76frozen/eight budgets/eight terminal/13strict reversals and full race suite verified. Final own native/source, original622/617plus new controls, current coverage/advisory review, coherent full source/runner rollback/private restore required before10."
     },
     {
       "id": "OFFLINE-10",

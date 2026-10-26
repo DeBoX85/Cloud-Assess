@@ -3,6 +3,7 @@ package region
 import (
 	"context"
 	"errors"
+	"github.com/DeBoX85/Cloud-Assess/internal/assessment"
 	"reflect"
 	"sync"
 	"testing"
@@ -227,5 +228,182 @@ func TestRequiredAdmissionContext(t *testing.T) {
 		if !reflect.DeepEqual(seen, want) || !reflect.DeepEqual(a, b) || (e == nil) != (f == nil) {
 			t.Fatal("ADMISSION_OBSERVER_EQUIVALENCE")
 		}
+	}
+}
+
+func TestRequiredAdmissionManagedInstanceCoordinates(t *testing.T) {
+	rows := []assessment.Resource{admissionBudgetResource(sqlManagedInstanceType, "mi", "generic", "clean")}
+	p := admissionBudgetPlan(t, rows)
+	q := RequiredEvidenceRequest{admissionBudgetSub, "eastus", "westeurope"}
+	sql := &SQLCapabilityCollection{SubscriptionID: q.SubscriptionID, Region: q.TargetRegion, ResourceType: sqlManagedInstanceType, Status: "complete", Groups: map[string]SQLCapabilityGroup{"v/e/f/n": {Known: true, State: SKUAvailable, Version: "v", Edition: "e", Family: "f", Name: "n", SKUName: "actual", SKUTier: "e", Capacity: 1, Standalone: "supported", InstancePool: "unsupported"}}}
+	cs := []RequiredCollectionInput{{SubscriptionID: q.SubscriptionID, SourceRegion: q.SourceRegion, TargetRegion: q.TargetRegion, ResourceType: sqlManagedInstanceType, SQL: sql}}
+	a, e := AdmitRequiredEvidence(context.Background(), p, q, cs)
+	if e != nil || a == nil || a.Status != "complete" || a.SKUs[sqlManagedInstanceType].Status != "unsupported" || len(a.Catalogs) != 1 || len(a.Catalogs[0].SQL.Values) != 1 || a.Catalogs[0].SQL.Values["v/e/f/n"].SKUName != "actual" {
+		t.Fatal("ADMISSION_MI_ACTUAL_COORDINATE", e)
+	}
+	sql.Groups["v/e/f/n"] = SQLCapabilityGroup{}
+	if a.Catalogs[0].SQL.Values["v/e/f/n"].SKUName != "actual" {
+		t.Fatal("ADMISSION_SQL_CATALOG_OWNERSHIP")
+	}
+}
+func TestRequiredAdmissionAllPayloadPrevalidation(t *testing.T) {
+	// Direct traversal checks establish input validation before projectors. They
+	// are additional single-fault controls, not a substitute for API literals.
+	for _, family := range []string{"storage", "disk", "vm", "cognitive", "sql"} {
+		for _, fault := range []string{"metadata", "unused", "failure"} {
+			t.Run(family+"-"+fault, func(t *testing.T) {
+				q := RequiredEvidenceRequest{admissionBudgetSub, "eastus", "westeurope"}
+				c := RequiredCollectionInput{SubscriptionID: q.SubscriptionID, SourceRegion: q.SourceRegion, TargetRegion: q.TargetRegion}
+				switch family {
+				case "storage":
+					c.ResourceType = "microsoft.storage/storageaccounts"
+					p := &StorageSKUCollection{SubscriptionID: q.SubscriptionID, Region: q.TargetRegion, Status: "complete", Groups: map[string]map[string]StorageSKUGroup{}, UnqualifiedNames: map[string]bool{}}
+					c.Storage = p
+					if fault == "metadata" {
+						p.Region = "eastus"
+					}
+					if fault == "unused" {
+						p.UnqualifiedNames["unused"] = false
+					}
+					if fault == "failure" {
+						p.FailureCode = "private-canary"
+					}
+				case "disk":
+					c.ResourceType = "microsoft.compute/disks"
+					p := &ComputeDiskSKUCollection{SubscriptionID: q.SubscriptionID, Region: q.TargetRegion, Status: "complete", Values: map[string]SKUAvailability{}}
+					c.Disk = p
+					if fault == "metadata" {
+						p.SubscriptionID = "bbbbbbbb-1111-4111-8111-111111111111"
+					}
+					if fault == "unused" {
+						p.Values["unused"] = SKUAvailability{State: 4}
+					}
+					if fault == "failure" {
+						p.Status = "unknown"
+						p.FailureCode = "sku_cancelled"
+					}
+				case "vm":
+					c.ResourceType = vmSKUType
+					p := &ComputeVMSKUCollection{SubscriptionID: q.SubscriptionID, Region: q.TargetRegion, ResourceType: vmSKUType, Status: "complete", Groups: map[string]ComputeVMSKUGroup{}}
+					c.VM = p
+					if fault == "metadata" {
+						p.ResourceType = vmSSSKUType
+					}
+					if fault == "unused" {
+						p.Groups["unused"] = ComputeVMSKUGroup{Known: true, State: SKUZoneRestricted, BlockedZones: []string{"1", "1"}}
+					}
+					if fault == "failure" {
+						p.Status = "partial"
+					}
+				case "cognitive":
+					c.ResourceType = cognitiveSKUType
+					c.Kind = "openai"
+					p := &CognitiveSKUCollection{SubscriptionID: q.SubscriptionID, Region: q.TargetRegion, ResourceType: cognitiveSKUType, Kind: "openai", Status: "complete", Groups: map[string]CognitiveSKUGroup{}}
+					c.Cognitive = p
+					if fault == "metadata" {
+						p.Kind = "speechservices"
+					}
+					if fault == "unused" {
+						p.Groups["unused"] = CognitiveSKUGroup{Known: false, State: SKUAvailable}
+					}
+					if fault == "failure" {
+						p.Status = "unknown"
+						p.FailureCode = "private-canary"
+					}
+				case "sql":
+					c.ResourceType = sqlDatabaseType
+					p := &SQLCapabilityCollection{SubscriptionID: q.SubscriptionID, Region: q.TargetRegion, ResourceType: sqlDatabaseType, Status: "complete", Groups: map[string]SQLCapabilityGroup{}}
+					c.SQL = p
+					if fault == "metadata" {
+						p.ResourceType = sqlManagedInstanceType
+					}
+					if fault == "unused" {
+						p.Groups["v/e/n"] = SQLCapabilityGroup{Known: true, State: SKUAvailable}
+					}
+					if fault == "failure" {
+						p.Status = "partial"
+						p.FailureCode = "sql_capability_incomplete"
+					}
+				}
+				v := requiredInput{ctx: context.Background(), code: "required_evidence_invalid"}
+				if v.collection(c, q) || v.code != "required_evidence_invalid" {
+					t.Fatal("ADMISSION_PREVALIDATION", family, fault, v.code)
+				}
+			})
+		}
+	}
+}
+func TestRequiredAdmissionOuterAndScalar(t *testing.T) {
+	p, q, cs := admissionInput(t)
+	a, e := AdmitRequiredEvidence(context.Background(), nil, q, make([]RequiredCollectionInput, 65537))
+	if a != nil || e == nil || e.Error() != "required_evidence_limit" {
+		t.Fatal("ADMISSION_OUTER_FIRST")
+	}
+	cs[0].SubscriptionID = string(make([]byte, 513))
+	a, e = AdmitRequiredEvidence(context.Background(), p, q, cs)
+	if a != nil || e == nil || e.Error() != "required_evidence_invalid" {
+		t.Fatal("ADMISSION_SCALAR_FIRST")
+	}
+}
+
+func TestRequiredAdmissionCatalogOwnership(t *testing.T) {
+	for _, c := range requiredFixtureLoad(t) {
+		if c.Name != "cognitive-same-sku-different-kinds" && c.Name != "vmss-remains-catalog-only" {
+			continue
+		}
+		t.Run(c.Name, func(t *testing.T) {
+			p := requiredFixtureBuild(t, c)
+			q := RequiredEvidenceRequest{c.Request.SubscriptionID, c.Request.SourceRegion, c.Request.TargetRegion}
+			cs := []RequiredCollectionInput{}
+			for _, x := range c.Collections {
+				if x.Cognitive != nil {
+					x.Cognitive.Groups["s0"] = CognitiveSKUGroup{Known: true, State: SKUZoneRestricted, BlockedZones: []string{"1", "2"}}
+				}
+				if x.VM != nil {
+					x.VM.Groups["standard_d2s_v5"] = ComputeVMSKUGroup{Known: true, State: SKUZoneRestricted, BlockedZones: []string{"1", "2"}}
+				}
+				cs = append(cs, RequiredCollectionInput{x.SubscriptionID, x.SourceRegion, x.TargetRegion, x.ResourceType, x.Kind, x.Storage, x.Disk, x.VM, x.Cognitive, x.SQL})
+			}
+			a, e := AdmitRequiredEvidence(context.Background(), p, q, cs)
+			if e != nil {
+				t.Fatal(e)
+			}
+			b, e := AdmitRequiredEvidence(context.Background(), p, q, cs)
+			if e != nil {
+				t.Fatal(e)
+			}
+			for _, binding := range a.Catalogs {
+				if x := binding.Cognitive; x != nil {
+					x.Values["s0"].BlockedZones[0] = "changed"
+					x.Warnings[0].Code = "changed"
+				}
+				if x := binding.VMSS; x != nil {
+					x.Values["standard_d2s_v5"].BlockedZones[0] = "changed"
+					x.Warnings[0].Code = "changed"
+				}
+			}
+			for _, binding := range b.Catalogs {
+				if x := binding.Cognitive; x != nil {
+					if x.Values["s0"].BlockedZones[0] != "1" || x.Warnings[0].Code != "cognitive_sku_catalog_only" {
+						t.Fatal("ADMISSION_CATALOG_RUN_OWNERSHIP")
+					}
+				}
+				if x := binding.VMSS; x != nil {
+					if x.Values["standard_d2s_v5"].BlockedZones[0] != "1" || x.Warnings[0].Code != "vmss_catalog_only" {
+						t.Fatal("ADMISSION_CATALOG_RUN_OWNERSHIP")
+					}
+				}
+			}
+			again, e := AdmitRequiredEvidence(context.Background(), p, q, cs)
+			if e != nil || !reflect.DeepEqual(b, again) {
+				t.Fatal("ADMISSION_CATALOG_INPUT_OWNERSHIP")
+			}
+			_, score := a.Evidence()
+			for _, e := range score {
+				if e.Status != "unsupported" || len(e.Values) != 0 {
+					t.Fatal("ADMISSION_CATALOG_NOT_SCORING")
+				}
+			}
+		})
 	}
 }

@@ -1,3 +1,7 @@
+## Admission local milestone, 26 October 2026
+
+[Admission checkpoint](INVENTORY_ADMISSION_IMPLEMENTATION_20261026.md): product-lineage PR201WIP763157c9published/read back, local76frozen/eight budget/eight terminal/13strict controls and full offline race suite pass. Final OWN hosted native/source, complete original622/617control conservation/current coverage/advisory results, coherent rollback/private restore pending. No task10start or full acceptance; issue189closed bounded migration with ongoing retention/revisit. All44legacy/49current and wider obligations retained; human assessment considered after overall project completion.
+
 # Current status and authority
 
 Read [CURRENT_STATE](CURRENT_STATE.md) for current status, authorization and the next action, and [development workflow](DEVELOPMENT_WORKFLOW.md) for procedure. Dated progress and resume sections below are historical snapshots; behavioral requirements remain in force unless explicitly revised. The live task PR records exact-revision QA outcomes separately from protected acceptance.

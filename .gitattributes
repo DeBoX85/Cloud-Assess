@@ -71,3 +71,8 @@ docs/evidence/20261026/inventory-output/check-budget-recipes.py.txt -text
 docs/evidence/20261026/inventory-output/integrity.json -text
 docs/evidence/20261026/inventory-output/projector-probe.go.txt -text
 docs/evidence/20261026/inventory-output/projector-proof.json -text
+
+# Preserve exact new Admission source bytes for native mutation proof hashes.
+internal/plugins/region/required_evidence.go -text
+internal/plugins/region/required_evidence_input.go -text
+docs/evidence/20261026/inventory-admission/** -text
