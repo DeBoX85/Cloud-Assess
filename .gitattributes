@@ -80,3 +80,8 @@ docs/evidence/20261026/inventory-admission/** -text
 # Keep source-addressed assertion provenance stable on native hosts.
 tools/mutationassertions/main.go -text
 docs/evidence/20261026/mutation-assurance/** -text
+# Four existing plans are now byte-addressed by the assertion admission inventory.
+scripts/tests/sql-database-controls.plan.json -text
+scripts/tests/sql-mi-controls.plan.json -text
+scripts/tests/sql-report-controls.plan.json -text
+scripts/tests/scope-redaction-controls.plan.json -text

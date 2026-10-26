@@ -1,3 +1,7 @@
+## QA-MUTATION-PLAN-BYTES-20261026
+
+Migration candidate01bd3bcdWindows native stopped at the new exact-plan hash guard before classifier probes: checkout newline conversion changed existing plan JSON bytes. The guard correctly failed. Preserve all four newly byte-addressed plan paths with -text; do not normalize/replace expected hashes or weaken the guard. New candidate needs its own actual Windows/full native/source QA. This repeats the earlier class of checkout-policy issue; when adding any byte-addressed source/fixture inventory, enumerate every bound file and establish its native checkout attributes before publication. First local VM migration attempt exited1after a recorded witness with no error diagnostic; product source restored cleanly, traced repeat completed all32controls/exit0. Original attempt remains failed/unexplained, not relabeled passing; independent fresh hosted controls remain mandatory.
+
 ## QA-MUTATION-ASSURANCE-20261026
 
 The handoff guard rejected a new dated ROADMAPprefix because it pushed the stable authority header beyond14lines. Adding a CURRENT_STATElink alone did not fix that bound. Moved the dated new/previous progress sections below the original stable authority delimiter, preserving history; guard unchanged. No failed guard was published as passing. Keep dated milestones below authority headers before adding further status text. Classifier/control migration remains under its own exact-head QA, not this documentation check.
