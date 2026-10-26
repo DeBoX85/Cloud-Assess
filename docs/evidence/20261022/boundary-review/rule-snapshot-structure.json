@@ -1,0 +1,9 @@
+{
+  "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+  "rows": 380,
+  "unique_ids": 380,
+  "six_string_fields": true,
+  "sha256": "77d7574232a32062d87dc32f6f9fc216f6f509921cc4d75621aa3a0c5279ed08",
+  "manual_whole_snapshot_read": false,
+  "limitations": "Structural/identity check; existing exact-byte CLI tests are in PR187 own QA. Not current recommendation accuracy or execution coverage."
+}

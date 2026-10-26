@@ -1,0 +1,8 @@
+{
+  "status": "independent supplemental expectations prepared before any retail production edit; not executed",
+  "sha256": "f88d36c860233026b461c07a053ebdb337e2f4412ec46648b6e8b2872201a21b",
+  "frozen_contract": "b85655ac43d0f902ab7e3a0d32cc38c928c93e8c",
+  "consumer": "9e15db3df8cd34c35842394e26acaee0ac5d01ef",
+  "prepublication_correction": "Read actual costRuntimeInput signature; build selected scope from literal comparison rather than treating returned cost evidence as scope. No production exists.",
+  "supplemental_named_tests": 15
+}

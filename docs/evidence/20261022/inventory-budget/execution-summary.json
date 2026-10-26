@@ -1,0 +1,99 @@
+{
+  "product_revision": "566cc4d8b78d168e5216245a5a386f742a3a2f85",
+  "review_parent": "ebe8e621e129d235845b8ffd4b5a940845792b1f",
+  "arithmetic_checker": {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "/workspace/scratch/81f11bb42cee/inventory-budget-20261022/docs/evidence/20261022/inventory-budget/budget-recipe-check.py.txt",
+      "/workspace/scratch/81f11bb42cee/inventory-budget-20261022/docs/evidence/20261022/inventory-budget/budget-recipes.json"
+    ],
+    "actual_exit": 0,
+    "checker_sha256": "96613af8535b23fd71f7b16749c25bb11e36589a4a93c12ed54cec625f2e3896",
+    "recipes_sha256": "86481f3d16b871a6ed995650e02e922ad31edadc2ce0c440f8aa910a847c2573",
+    "negative_controls": [
+      {
+        "control": "dropped-case",
+        "actual_exit": 1,
+        "expected_rejection": true,
+        "last_error_line": "AssertionError"
+      },
+      {
+        "control": "wrong-exact-arithmetic",
+        "actual_exit": 1,
+        "expected_rejection": true,
+        "last_error_line": "AssertionError"
+      },
+      {
+        "control": "local-cap-with-same-global-total",
+        "actual_exit": 1,
+        "expected_rejection": true,
+        "last_error_line": "AssertionError"
+      },
+      {
+        "control": "duplicate-bound-field",
+        "actual_exit": 1,
+        "expected_rejection": true,
+        "last_error_line": "ValueError: duplicate recipe key"
+      }
+    ]
+  },
+  "existing_local_projectors": {
+    "command": [
+      "/workspace/scratch/81f11bb42cee/tooling/go/bin/go",
+      "run",
+      "./cmd/budget-input-probe",
+      "/workspace/scratch/81f11bb42cee/inventory-budget-20261022/docs/evidence/20261022/inventory-budget/budget-recipes.json"
+    ],
+    "cwd": "/workspace/scratch/81f11bb42cee/budget-projection-probe-20261022",
+    "actual_exit": 0,
+    "toolchain": "go version go1.26.10 linux/amd64",
+    "process_settings": {
+      "GOTOOLCHAIN": "local",
+      "GOWORK": "off",
+      "GOPROXY": "off",
+      "GOFLAGS": "-mod=readonly",
+      "GOMODCACHE": "/workspace/scratch/81f11bb42cee/tooling/modules",
+      "GOCACHE": "/workspace/scratch/81f11bb42cee/tooling/buildcache"
+    },
+    "probe_sha256": "12f6efd7827351549d0ba5bc84df69f7e9810331c3d3dea35e844aaecb968db1",
+    "module_hashes_before": {
+      "go.mod": "ef6d403844f6fbf321e6bc2ad90311598000fbb5b8c251aa366a9bdbea376dd9",
+      "go.sum": "3eec87f5de0e81838cda0c3b96ffaba1ae3b459ca91780c3ec93f9be47cccd02"
+    },
+    "module_hashes_after": {
+      "go.mod": "ef6d403844f6fbf321e6bc2ad90311598000fbb5b8c251aa366a9bdbea376dd9",
+      "go.sum": "3eec87f5de0e81838cda0c3b96ffaba1ae3b459ca91780c3ec93f9be47cccd02"
+    },
+    "tracked_product_files_unchanged": true,
+    "cases": [
+      {
+        "Name": "entries-exact",
+        "Catalogs": 8,
+        "Result": "each local Catalog accepted; future global admission not executed"
+      },
+      {
+        "Name": "entries-first-excess",
+        "Catalogs": 8,
+        "Result": "each local Catalog accepted; future global admission not executed"
+      },
+      {
+        "Name": "text-exact",
+        "Catalogs": 4,
+        "Result": "each local Catalog accepted; future global admission not executed"
+      },
+      {
+        "Name": "text-first-excess",
+        "Catalogs": 4,
+        "Result": "each local Catalog accepted; future global admission not executed"
+      }
+    ],
+    "successful_projector_calls": 24
+  },
+  "scope_limits": [
+    "No new global admission API exists or was executed.",
+    "Each local projector accepts all four recipes; first-excess rejection is an independently specified FUTURE global-boundary expectation.",
+    "No listeners, credentials, network transports, Azure or live retail calls were invoked.",
+    "No source pins/dependencies/expectations changed.",
+    "Original base read coverage803raw/29semantic/127other paths is unchanged by this design proof."
+  ]
+}

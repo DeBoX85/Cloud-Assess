@@ -1,0 +1,26 @@
+"""Verify specification dependencies, not runtime behavior or release readiness."""
+import copy,hashlib,json,subprocess,sys
+from pathlib import Path
+root=Path(sys.argv[1]);folder=root/'docs/evidence/20261026/inventory-freeze'
+def verify(d):
+ assert d['format']=='cloud-assess-required-inventory-contract-v1'
+ assert d['counts']=={'original_literal_cases':50,'supplemental_literal_cases':26,'procedural_obligations':13,'input_budget_recipes':4,'output_build_budget_recipes':10,'reachable_terminal_schedules':16}
+ assert d['product']['commit']=='566cc4d8b78d168e5216245a5a386f742a3a2f85' and d['runtime_tests_executed'] is False
+ assert d['phases']==['after-input','after-derived-work','before-return'] and d['error_branch_phases']==['before-return']
+ assert d['phase_labels']=={'':'','inventory':'inventory','build':'inventory','admission':'admission','admit':'admission'}
+ names=[]
+ for f in d['files']:
+  p=f['path'];assert p.startswith('docs/') and '..' not in Path(p).parts and p not in names;names.append(p)
+  b=(root/p).read_bytes();assert len(b)==f['bytes'] and hashlib.sha256(b).hexdigest()==f['sha256'],p
+ for p,blob in d['pinned_production_blobs'].items():assert subprocess.check_output(['git','rev-parse',d['product']['commit']+':'+p],cwd=root,text=True).strip()==blob
+ model=json.loads((folder/'cancellation-model-result.json').read_bytes());assert model['positive_terminal_schedules']==16 and model['faulty_terminal_schedules_rejected']==16 and model['scheduler_misuse_controls']==4
+ shape=json.loads((folder/'consumer-schema-result.json').read_bytes());assert shape['original_cases_structurally_admitted']==50 and shape['supplemental_cases_structurally_admitted']==26 and len(shape['negative_controls_rejected'])==10 and shape['future_api_executed'] is False
+ reviewed=json.loads((folder/'document-review.json').read_bytes());assert len(reviewed['documents'])==8
+ return len(names)
+d=json.loads((folder/'contract-descriptor.json').read_bytes());count=verify(d);bad=[]
+for name,alter in [('changed-hash',lambda x:x['files'][0].update(sha256='0'*64)),('lost-case',lambda x:x['counts'].update(original_literal_cases=49)),('unreachable-error-phase',lambda x:x.update(error_branch_phases=['after-input','before-return'])),('invented-runtime-pass',lambda x:x.update(runtime_tests_executed=True))]:
+ candidate=copy.deepcopy(d);alter(candidate)
+ try:verify(candidate)
+ except (AssertionError,ValueError,KeyError):bad.append(name)
+ else:raise AssertionError('invalid freeze descriptor accepted')
+print(json.dumps({'specification_dependencies_verified':count,'negative_controls_rejected':bad,'specification_readiness':'locally verified; own exact-head native/source QA required before task9','runtime_implementation':'absent','whole_documentary_audit':'OPEN','product_acceptance_or_release':False},indent=2))

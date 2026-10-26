@@ -1,0 +1,33 @@
+{
+  "id": "DC-CI-EVIDENCE-20261022",
+  "issue": "https://github.com/DeBoX85/Cloud-Assess/issues/189",
+  "status": "resolved",
+  "authorized_deferral": "Historical22October no-destination deferral superseded by Denis explicitly authorizing private DeBoX85/SC-storage; public raw-log disclosure remains unauthorized.",
+  "owner": "Denis Bogunic (DeBoX85) owns retention/access/deletion; development agent captures, verifies and maintains source records.",
+  "revisit": [
+    "every handover and end-of-run checkpoint",
+    "when a private destination becomes available",
+    "before task15 readiness, protected acceptance or release"
+  ],
+  "scope": [
+    "Preserved PR18719-member bundle",
+    "PR188/190/191/192/193complete recorded own-QA originals",
+    "PR194capture001partial plus later completed evidence pending append"
+  ],
+  "closure": {
+    "authorized_destination": "https://github.com/DeBoX85/SC-storage (ID1429973420, private verified25October)",
+    "retention_owner": "Denis Bogunic (DeBoX85); retain until explicit owner-authorized deletion; policy at private artifact64f3c6d8/policies/retention.md",
+    "manifest": "https://github.com/DeBoX85/SC-storage/blob/cf09377193bd627c918f06176cba7a948e136827/projects/cloud-assess/ci-evidence/v1/index.json",
+    "readback": "https://github.com/DeBoX85/SC-storage/blob/10ba2bcd621df8b9ca63f9690b4f7b9b49cf901b/projects/cloud-assess/ci-evidence/v1/verification-receipts/2026/10/26/pr196-cf093771.json",
+    "restore": "https://github.com/DeBoX85/SC-storage/blob/10ba2bcd621df8b9ca63f9690b4f7b9b49cf901b/projects/cloud-assess/ci-evidence/v1/verification-receipts/2026/10/26/pr196-cf093771.json"
+  },
+  "constraints": [
+    "No public raw-log publication approval",
+    "No new Azure operation",
+    "Do not mark retained or resolved from green QA or hashes alone",
+    "Re-inventory actual surviving bytes; record missing/expired files honestly"
+  ],
+  "verification_limit": "Bounded migration resolved after PR196ownQA, full readback/fresh restore and source-record reconciliation. Retention/revisit duties continue; no automatic future archival or independent-backup closure.",
+  "authorization": "Denis explicitly requested using his dedicated private SC-storage repository for CI evidence and organization suitable for other persistent categories.",
+  "pending": []
+}

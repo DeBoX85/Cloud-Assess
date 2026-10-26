@@ -1,0 +1,58 @@
+Parallel workflow: all original platform checks conserved; protected gates strict
+..........
+----------------------------------------------------------------------
+Ran 10 tests in 0.278s
+
+OK
+...
+----------------------------------------------------------------------
+Ran 3 tests in 0.004s
+
+OK
+...
+----------------------------------------------------------------------
+Ran 3 tests in 0.004s
+
+OK
+ok  	github.com/DeBoX85/Cloud-Assess/cmd/cloud-assess	32.821s
+ok  	github.com/DeBoX85/Cloud-Assess/internal/advisor	0.026s
+ok  	github.com/DeBoX85/Cloud-Assess/internal/app	4.916s
+ok  	github.com/DeBoX85/Cloud-Assess/internal/arcsql	0.019s
+ok  	github.com/DeBoX85/Cloud-Assess/internal/arg	6.040s
+?   	github.com/DeBoX85/Cloud-Assess/internal/assessment	[no test files]
+ok  	github.com/DeBoX85/Cloud-Assess/internal/azure	5.578s
+ok  	github.com/DeBoX85/Cloud-Assess/internal/branding	0.003s
+ok  	github.com/DeBoX85/Cloud-Assess/internal/config	0.006s
+ok  	github.com/DeBoX85/Cloud-Assess/internal/cost	35.009s
+ok  	github.com/DeBoX85/Cloud-Assess/internal/defender	0.004s
+ok  	github.com/DeBoX85/Cloud-Assess/internal/diagnostics	0.005s
+ok  	github.com/DeBoX85/Cloud-Assess/internal/discovery	0.105s
+ok  	github.com/DeBoX85/Cloud-Assess/internal/equivalence	0.038s
+ok  	github.com/DeBoX85/Cloud-Assess/internal/findings	0.003s
+ok  	github.com/DeBoX85/Cloud-Assess/internal/gate	0.003s
+ok  	github.com/DeBoX85/Cloud-Assess/internal/orchestration	0.020s
+ok  	github.com/DeBoX85/Cloud-Assess/internal/plugins	0.009s
+ok  	github.com/DeBoX85/Cloud-Assess/internal/plugins/aigov	11.672s
+ok  	github.com/DeBoX85/Cloud-Assess/internal/plugins/carbon	4.917s
+ok  	github.com/DeBoX85/Cloud-Assess/internal/plugins/region	29.229s
+ok  	github.com/DeBoX85/Cloud-Assess/internal/plugins/servicehealth	0.134s
+ok  	github.com/DeBoX85/Cloud-Assess/internal/plugins/sqleol	0.026s
+ok  	github.com/DeBoX85/Cloud-Assess/internal/plugins/zone	0.362s
+ok  	github.com/DeBoX85/Cloud-Assess/internal/policy	0.003s
+ok  	github.com/DeBoX85/Cloud-Assess/internal/redact	0.002s
+ok  	github.com/DeBoX85/Cloud-Assess/internal/renderers/csv	0.047s
+ok  	github.com/DeBoX85/Cloud-Assess/internal/renderers/excel	0.278s
+ok  	github.com/DeBoX85/Cloud-Assess/internal/renderers/json	0.005s
+ok  	github.com/DeBoX85/Cloud-Assess/internal/renderers/sarif	0.007s
+ok  	github.com/DeBoX85/Cloud-Assess/internal/renderers/tables	0.030s
+ok  	github.com/DeBoX85/Cloud-Assess/internal/reportfile	0.006s
+ok  	github.com/DeBoX85/Cloud-Assess/internal/result	0.073s
+ok  	github.com/DeBoX85/Cloud-Assess/internal/rules	0.223s
+ok  	github.com/DeBoX85/Cloud-Assess/internal/scanners	0.003s
+ok  	github.com/DeBoX85/Cloud-Assess/internal/skus	0.025s
+ok  	github.com/DeBoX85/Cloud-Assess/internal/stages	1.003s
+ok  	github.com/DeBoX85/Cloud-Assess/internal/throttling	0.003s
+?   	github.com/DeBoX85/Cloud-Assess/tools/brand-build	[no test files]
+ok  	github.com/DeBoX85/Cloud-Assess/tools/diagnostics-probe	0.003s
+ok  	github.com/DeBoX85/Cloud-Assess/tools/equivalence	0.045s
+Developer preflight passed. Full final-revision native/source gates remain required.

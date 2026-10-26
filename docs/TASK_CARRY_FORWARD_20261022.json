@@ -1,0 +1,817 @@
+{
+  "snapshot": "b2c524665e06e3a9adabee5ae1cd75ca96b0344c",
+  "purpose": "Carry forward every captured legacy task ID and all current programme/security/acceptance obligations. Source inventory is mechanical, not fresh manual-read credit or automatic closure.",
+  "sources": [
+    {
+      "path": "docs/ACTION_REGISTER.md",
+      "base": "b2c524665e06e3a9adabee5ae1cd75ca96b0344c",
+      "blob": "b3942bb7f9c858b63464a581bb327e0d759cfc63",
+      "sha256": "923445024c9d03d867507a17023674a6b8dbade69dffc66a4a1f1318dcbd22a3",
+      "ids": [
+        "DC-001",
+        "DC-002",
+        "DC-003",
+        "DC-004",
+        "DC-005",
+        "DC-006",
+        "DC-007",
+        "DC-008",
+        "DC-009",
+        "DC-010",
+        "DC-011",
+        "DC-012",
+        "DC-013",
+        "DC-014",
+        "DC-015",
+        "DC-CI-EVIDENCE-20261022",
+        "DC-INVENTORY-20261021",
+        "DC-RETAIL-EVIDENCE-20261021",
+        "DC-RETAIL-SEC-20261020",
+        "OP-001",
+        "OP-002",
+        "OP-003",
+        "OP-004",
+        "OP-005"
+      ]
+    },
+    {
+      "path": "docs/ALIGNMENT_REVIEW.md",
+      "base": "b2c524665e06e3a9adabee5ae1cd75ca96b0344c",
+      "blob": "8162ed9edfd9da677fd6026b935cdc8a46a64015",
+      "sha256": "9876434b034cd2d760ab9764a70f8198f6490d042b3c402d8961140809795bc2",
+      "ids": [
+        "AR-01",
+        "AR-02",
+        "AR-03",
+        "AR-04",
+        "AR-05",
+        "AR-06",
+        "AR-07",
+        "AR-08",
+        "DV-001"
+      ]
+    },
+    {
+      "path": "docs/DEFERRED_VALIDATION.md",
+      "base": "b2c524665e06e3a9adabee5ae1cd75ca96b0344c",
+      "blob": "510ac3866f7dff70b93f20ba2a695e402e0e5050",
+      "sha256": "8626aeee48726bd5b4f703134077ba903a18a2072dd9a7e187b7e4696e17b83f",
+      "ids": [
+        "DV-001"
+      ]
+    },
+    {
+      "path": "docs/OFFLINE_SEQUENCE_20261019.md",
+      "base": "b2c524665e06e3a9adabee5ae1cd75ca96b0344c",
+      "blob": "5b7013bad5e5ba39cb1b0660854b59bdb61e256d",
+      "sha256": "0e179605ce5140db0ecb86448d1707ee61097dc0d48e875fbba851153162d26d",
+      "ids": []
+    },
+    {
+      "path": "docs/MVP_ACCEPTANCE_MATRIX_20261019.md",
+      "base": "b2c524665e06e3a9adabee5ae1cd75ca96b0344c",
+      "blob": "408b2a29c77dad92d05f3e4b3da4e90ba090a1d3",
+      "sha256": "da3f2edb5c86c35dd0497709221a8eeca198f74c82f396ed620210068cc95c9b",
+      "ids": [
+        "DV-001"
+      ]
+    },
+    {
+      "path": "docs/ASSESSMENT_AF_20261022.md",
+      "base": "b2c524665e06e3a9adabee5ae1cd75ca96b0344c",
+      "blob": "6845bf6af43395f2b518a1280a2538a6f5345685",
+      "sha256": "62a3ca928efbc05599c6265d8330310d45dea849059fb53f65e371bb7ac969f2",
+      "ids": [
+        "DC-CI-EVIDENCE-20261022",
+        "R7-F01",
+        "R7-F02",
+        "R7-F03",
+        "R7-F04"
+      ]
+    },
+    {
+      "path": "docs/REVIEW_FINDINGS_20261021.md",
+      "base": "b2c524665e06e3a9adabee5ae1cd75ca96b0344c",
+      "blob": "90e4623195cafaeccdfb6870119ca80f209df6cf",
+      "sha256": "33b555cea4ae8b6b8a1ed9317d333cbaf671760ac09d8e2b4405156e5c775113",
+      "ids": [
+        "R7-F01",
+        "R7-F02",
+        "R7-F03",
+        "R7-F04",
+        "R7-O01",
+        "R7-O02",
+        "R7-O03",
+        "R7-O04",
+        "R7-P01",
+        "R7-P02",
+        "R7-P03"
+      ]
+    },
+    {
+      "path": "docs/QUALITY_GATE_004_PLAN.md",
+      "base": "b2c524665e06e3a9adabee5ae1cd75ca96b0344c",
+      "blob": "aee13cfcc85673695e424b6c05914e88c1121d4c",
+      "sha256": "308c1c17cdbce6e57663a9036ba737a06e48ad138cf9d535ba416f793496073d",
+      "ids": [
+        "DV-001"
+      ]
+    },
+    {
+      "path": "docs/LOGGING_ASSESSMENT_20261017.md",
+      "base": "b2c524665e06e3a9adabee5ae1cd75ca96b0344c",
+      "blob": "0cdde7d332581ad7bc3004ed79ee98eb3f5e8625",
+      "sha256": "ff5c16d9fab5e885bf85d9d9d4061b3b2508f8780a12f2152b958603bb8c624c",
+      "ids": [
+        "DC-006",
+        "DC-008",
+        "DC-013"
+      ]
+    },
+    {
+      "path": "docs/REVIEW_RESEARCH_20261021.md",
+      "base": "b2c524665e06e3a9adabee5ae1cd75ca96b0344c",
+      "blob": "23be1c3b4ad06ce7f039f8697d2940b087850237",
+      "sha256": "bac4c6a0667cec70ff3afc259a244f52edcac1603afd41014199e4ae2966fa77",
+      "ids": [
+        "R7-F04"
+      ]
+    },
+    {
+      "path": "docs/REVIEW_PLAN_20261021.md",
+      "base": "b2c524665e06e3a9adabee5ae1cd75ca96b0344c",
+      "blob": "ced367d483d643c2444f1d0ff85a786879f2d4c9",
+      "sha256": "b7b1151ec38d0dfdc2f864fb2c8ebe46cc4db17332b5e539b96d83f559c503f7",
+      "ids": []
+    }
+  ],
+  "legacy_ids": [
+    {
+      "id": "AR-01",
+      "sources": [
+        "docs/ALIGNMENT_REVIEW.md"
+      ],
+      "disposition": "open_residual",
+      "mapped_to": "AR-01"
+    },
+    {
+      "id": "AR-02",
+      "sources": [
+        "docs/ALIGNMENT_REVIEW.md"
+      ],
+      "disposition": "open_partial",
+      "mapped_to": "AR-02"
+    },
+    {
+      "id": "AR-03",
+      "sources": [
+        "docs/ALIGNMENT_REVIEW.md"
+      ],
+      "disposition": "verified_offline_bounded",
+      "mapped_to": "AR-03"
+    },
+    {
+      "id": "AR-04",
+      "sources": [
+        "docs/ALIGNMENT_REVIEW.md"
+      ],
+      "disposition": "open_partial",
+      "mapped_to": "AR-04"
+    },
+    {
+      "id": "AR-05",
+      "sources": [
+        "docs/ALIGNMENT_REVIEW.md"
+      ],
+      "disposition": "open",
+      "mapped_to": "AR-05"
+    },
+    {
+      "id": "AR-06",
+      "sources": [
+        "docs/ALIGNMENT_REVIEW.md"
+      ],
+      "disposition": "deferred_open",
+      "mapped_to": "AR-06"
+    },
+    {
+      "id": "AR-07",
+      "sources": [
+        "docs/ALIGNMENT_REVIEW.md"
+      ],
+      "disposition": "deferred_open",
+      "mapped_to": "AR-07"
+    },
+    {
+      "id": "AR-08",
+      "sources": [
+        "docs/ALIGNMENT_REVIEW.md"
+      ],
+      "disposition": "open_acceptance",
+      "mapped_to": "AR-08"
+    },
+    {
+      "id": "DC-001",
+      "sources": [
+        "docs/ACTION_REGISTER.md"
+      ],
+      "disposition": "verified_offline_bounded",
+      "closure_reference": "PR150"
+    },
+    {
+      "id": "DC-002",
+      "sources": [
+        "docs/ACTION_REGISTER.md"
+      ],
+      "disposition": "verified_offline_bounded",
+      "closure_reference": "PR151"
+    },
+    {
+      "id": "DC-003",
+      "sources": [
+        "docs/ACTION_REGISTER.md"
+      ],
+      "disposition": "verified_offline_bounded",
+      "closure_reference": "PR152"
+    },
+    {
+      "id": "DC-004",
+      "sources": [
+        "docs/ACTION_REGISTER.md"
+      ],
+      "disposition": "verified_offline_bounded",
+      "closure_reference": "PR152 source/static only; installed operational limits remain open"
+    },
+    {
+      "id": "DC-005",
+      "sources": [
+        "docs/ACTION_REGISTER.md"
+      ],
+      "disposition": "verified_offline_bounded",
+      "closure_reference": "logging assessment; DC-013 remains open"
+    },
+    {
+      "id": "DC-006",
+      "sources": [
+        "docs/ACTION_REGISTER.md",
+        "docs/LOGGING_ASSESSMENT_20261017.md"
+      ],
+      "disposition": "carried_forward",
+      "mapped_to": "DC-CI-EVIDENCE-20261022"
+    },
+    {
+      "id": "DC-007",
+      "sources": [
+        "docs/ACTION_REGISTER.md"
+      ],
+      "disposition": "open_independent",
+      "mapped_to": "DC-007"
+    },
+    {
+      "id": "DC-008",
+      "sources": [
+        "docs/ACTION_REGISTER.md",
+        "docs/LOGGING_ASSESSMENT_20261017.md"
+      ],
+      "disposition": "carried_forward",
+      "mapped_to": "OFFLINE-10"
+    },
+    {
+      "id": "DC-009",
+      "sources": [
+        "docs/ACTION_REGISTER.md"
+      ],
+      "disposition": "carried_forward",
+      "mapped_to": "AR-07"
+    },
+    {
+      "id": "DC-010",
+      "sources": [
+        "docs/ACTION_REGISTER.md"
+      ],
+      "disposition": "carried_forward",
+      "mapped_to": "ACCEPT-OPERATIONS"
+    },
+    {
+      "id": "DC-011",
+      "sources": [
+        "docs/ACTION_REGISTER.md"
+      ],
+      "disposition": "verified_offline_bounded",
+      "closure_reference": "PR154 catalog-only; VMSS scoring unsupported"
+    },
+    {
+      "id": "DC-012",
+      "sources": [
+        "docs/ACTION_REGISTER.md"
+      ],
+      "disposition": "open_partial",
+      "mapped_to": "DC-012"
+    },
+    {
+      "id": "DC-013",
+      "sources": [
+        "docs/ACTION_REGISTER.md",
+        "docs/LOGGING_ASSESSMENT_20261017.md"
+      ],
+      "disposition": "open_design",
+      "mapped_to": "DC-013"
+    },
+    {
+      "id": "DC-014",
+      "sources": [
+        "docs/ACTION_REGISTER.md"
+      ],
+      "disposition": "verified_offline_bounded",
+      "closure_reference": "PR157"
+    },
+    {
+      "id": "DC-015",
+      "sources": [
+        "docs/ACTION_REGISTER.md"
+      ],
+      "disposition": "verified_offline_bounded",
+      "closure_reference": "PR158/160/163/165"
+    },
+    {
+      "id": "DC-CI-EVIDENCE-20261022",
+      "sources": [
+        "docs/ACTION_REGISTER.md",
+        "docs/ASSESSMENT_AF_20261022.md"
+      ],
+      "disposition": "deferred_open",
+      "mapped_to": "DC-CI-EVIDENCE-20261022"
+    },
+    {
+      "id": "DC-INVENTORY-20261021",
+      "sources": [
+        "docs/ACTION_REGISTER.md"
+      ],
+      "disposition": "provisional",
+      "mapped_to": "OFFLINE-08"
+    },
+    {
+      "id": "DC-RETAIL-EVIDENCE-20261021",
+      "sources": [
+        "docs/ACTION_REGISTER.md"
+      ],
+      "disposition": "verified_offline_bounded",
+      "closure_reference": "PR183 historical archive reconciliation"
+    },
+    {
+      "id": "DC-RETAIL-SEC-20261020",
+      "sources": [
+        "docs/ACTION_REGISTER.md"
+      ],
+      "disposition": "verified_offline_bounded",
+      "closure_reference": "PR180; residual advisories open"
+    },
+    {
+      "id": "DV-001",
+      "sources": [
+        "docs/ALIGNMENT_REVIEW.md",
+        "docs/DEFERRED_VALIDATION.md",
+        "docs/MVP_ACCEPTANCE_MATRIX_20261019.md",
+        "docs/QUALITY_GATE_004_PLAN.md"
+      ],
+      "disposition": "carried_forward",
+      "mapped_to": "AR-06"
+    },
+    {
+      "id": "OP-001",
+      "sources": [
+        "docs/ACTION_REGISTER.md"
+      ],
+      "disposition": "historical_programme_step_verified_offline",
+      "closure_reference": "Original programme1\u20135 closure; do not replay; OFFLINE_SEQUENCE current tasks remain separate."
+    },
+    {
+      "id": "OP-002",
+      "sources": [
+        "docs/ACTION_REGISTER.md"
+      ],
+      "disposition": "historical_programme_step_verified_offline",
+      "closure_reference": "Original programme1\u20135 closure; do not replay; OFFLINE_SEQUENCE current tasks remain separate."
+    },
+    {
+      "id": "OP-003",
+      "sources": [
+        "docs/ACTION_REGISTER.md"
+      ],
+      "disposition": "historical_programme_step_verified_offline",
+      "closure_reference": "Original programme1\u20135 closure; do not replay; OFFLINE_SEQUENCE current tasks remain separate."
+    },
+    {
+      "id": "OP-004",
+      "sources": [
+        "docs/ACTION_REGISTER.md"
+      ],
+      "disposition": "historical_programme_step_verified_offline",
+      "closure_reference": "Original programme1\u20135 closure; do not replay; OFFLINE_SEQUENCE current tasks remain separate."
+    },
+    {
+      "id": "OP-005",
+      "sources": [
+        "docs/ACTION_REGISTER.md"
+      ],
+      "disposition": "historical_programme_step_verified_offline",
+      "closure_reference": "Original programme1\u20135 closure; do not replay; OFFLINE_SEQUENCE current tasks remain separate."
+    },
+    {
+      "id": "R7-F01",
+      "sources": [
+        "docs/ASSESSMENT_AF_20261022.md",
+        "docs/REVIEW_FINDINGS_20261021.md"
+      ],
+      "disposition": "open_confirmed",
+      "mapped_to": "R7-F01"
+    },
+    {
+      "id": "R7-F02",
+      "sources": [
+        "docs/ASSESSMENT_AF_20261022.md",
+        "docs/REVIEW_FINDINGS_20261021.md"
+      ],
+      "disposition": "reclassified_not_a_defect",
+      "mapped_to": "R7-F02"
+    },
+    {
+      "id": "R7-F03",
+      "sources": [
+        "docs/ASSESSMENT_AF_20261022.md",
+        "docs/REVIEW_FINDINGS_20261021.md"
+      ],
+      "disposition": "open_confirmed",
+      "mapped_to": "R7-F03"
+    },
+    {
+      "id": "R7-F04",
+      "sources": [
+        "docs/ASSESSMENT_AF_20261022.md",
+        "docs/REVIEW_FINDINGS_20261021.md",
+        "docs/REVIEW_RESEARCH_20261021.md"
+      ],
+      "disposition": "open_confirmed",
+      "mapped_to": "R7-F04"
+    },
+    {
+      "id": "R7-O01",
+      "sources": [
+        "docs/REVIEW_FINDINGS_20261021.md"
+      ],
+      "disposition": "open_observation",
+      "mapped_to": "R7-O01"
+    },
+    {
+      "id": "R7-O02",
+      "sources": [
+        "docs/REVIEW_FINDINGS_20261021.md"
+      ],
+      "disposition": "open_observation",
+      "mapped_to": "R7-O02"
+    },
+    {
+      "id": "R7-O03",
+      "sources": [
+        "docs/REVIEW_FINDINGS_20261021.md"
+      ],
+      "disposition": "open_observation",
+      "mapped_to": "R7-O03"
+    },
+    {
+      "id": "R7-O04",
+      "sources": [
+        "docs/REVIEW_FINDINGS_20261021.md"
+      ],
+      "disposition": "open_observation",
+      "mapped_to": "R7-O04"
+    },
+    {
+      "id": "R7-P01",
+      "sources": [
+        "docs/REVIEW_FINDINGS_20261021.md"
+      ],
+      "disposition": "carried_forward",
+      "mapped_to": "PROCESS-STATE"
+    },
+    {
+      "id": "R7-P02",
+      "sources": [
+        "docs/REVIEW_FINDINGS_20261021.md"
+      ],
+      "disposition": "carried_forward",
+      "mapped_to": "AUDIT-REMAINDER"
+    },
+    {
+      "id": "R7-P03",
+      "sources": [
+        "docs/REVIEW_FINDINGS_20261021.md"
+      ],
+      "disposition": "carried_forward",
+      "mapped_to": "PROCESS-STATE"
+    }
+  ],
+  "obligations": [
+    {
+      "id": "AUDIT-REMAINDER",
+      "state": "in_progress",
+      "owner": "development owner",
+      "next_or_limit": "Eight additional complete documents reconciled across192/current continuation;803raw/29semantic/127classified other paths,115documentation paths still without full raw credit. Finish applicable-document/finding disposition."
+    },
+    {
+      "id": "SEC-BASELINE",
+      "state": "report_received_triaged_bounded",
+      "owner": "security reviewer; development owner integrates",
+      "next_or_limit": "Denis supplied immutable private report;14manifest members and23explicit source blob pairs checked. No fresh reproduction/full archive certification; R7findings remain open; separate corrective candidates."
+    },
+    {
+      "id": "R7-F01",
+      "state": "open_confirmed",
+      "owner": "development owner",
+      "next_or_limit": "Narrow tag ambiguity contract and independent corrections; preserve source characterization."
+    },
+    {
+      "id": "R7-F03",
+      "state": "open_confirmed",
+      "owner": "development owner",
+      "next_or_limit": "Narrow comparator admission contract; conditional evidence until corrected."
+    },
+    {
+      "id": "R7-F04",
+      "state": "open_confirmed",
+      "owner": "development owner",
+      "next_or_limit": "Mutation-result classification contract and staged migration conserving controls."
+    },
+    {
+      "id": "R7-F02",
+      "state": "reclassified_not_a_defect",
+      "owner": "development owner",
+      "next_or_limit": "Retain root-depth0 disposition and original probe; no product fix required."
+    },
+    {
+      "id": "R7-O01",
+      "state": "open_observation",
+      "owner": "security reviewer",
+      "next_or_limit": "Trace generic HTTP unbounded-body callers; demonstrate impact before severity."
+    },
+    {
+      "id": "R7-O02",
+      "state": "open_observation",
+      "owner": "security reviewer",
+      "next_or_limit": "Trace positional ID callers and effective validation."
+    },
+    {
+      "id": "R7-O03",
+      "state": "open_observation",
+      "owner": "development owner",
+      "next_or_limit": "Investigate canonical ordering ties before claiming defect."
+    },
+    {
+      "id": "R7-O04",
+      "state": "open_observation",
+      "owner": "security reviewer",
+      "next_or_limit": "Trace JSON redaction fallback and reachable size/input paths."
+    },
+    {
+      "id": "DC-CI-EVIDENCE-20261022",
+      "state": "resolved_bounded_migration",
+      "owner": "agent tracks; Denis selects destination",
+      "next_or_limit": "Issue189closed/completed after196ownQA. Archivecf093771/receipt10ba2bcdverified; retention/revisit/future capture duties continue. No automatic archival or independent backup."
+    },
+    {
+      "id": "AR-01",
+      "state": "open_residual",
+      "owner": "security/release owner",
+      "next_or_limit": "Approved security updates complete offline;3imported-not-called/1module-only residual dispositions remain open."
+    },
+    {
+      "id": "AR-02",
+      "state": "open_partial",
+      "owner": "development owner",
+      "next_or_limit": "Volume/lifecycle/metadata/workload acceptance; map into task13 without claiming universal caps."
+    },
+    {
+      "id": "AR-03",
+      "state": "verified_offline_bounded",
+      "owner": "development owner",
+      "next_or_limit": "Five-field build branding complete; preserve runtime/logo/theme and release scope boundaries."
+    },
+    {
+      "id": "AR-04",
+      "state": "open_partial",
+      "owner": "development owner",
+      "next_or_limit": "Feature parity obligations remain; do not replay implemented scanner/plugin slices."
+    },
+    {
+      "id": "AR-05",
+      "state": "open",
+      "owner": "development owner/operator",
+      "next_or_limit": "Historical Diagnostics/recommendation-exclusion warnings and Advisor uncertainty require evidence or explicit unresolved disposition."
+    },
+    {
+      "id": "AR-06",
+      "state": "deferred_open",
+      "owner": "authorized operator",
+      "next_or_limit": "DV-001 nested safe non-production hierarchy; no production substitute."
+    },
+    {
+      "id": "AR-07",
+      "state": "deferred_open",
+      "owner": "authorized operator",
+      "next_or_limit": "Non-empty optional stages, Arc numeric shape, restricted-identity intended visibility."
+    },
+    {
+      "id": "AR-08",
+      "state": "open_acceptance",
+      "owner": "release/operator owner",
+      "next_or_limit": "Hosted maintenance dispatch, fresh OS, signed artifacts and approved pilot remain open."
+    },
+    {
+      "id": "DC-007",
+      "state": "open_independent",
+      "owner": "independent reviewer",
+      "next_or_limit": "Human review of product/gate logic/check inventory; AI chat does not satisfy."
+    },
+    {
+      "id": "DC-012",
+      "state": "open_partial",
+      "owner": "development owner/operator",
+      "next_or_limit": "Broaden rollback proof without replacing installed/customer operational validation."
+    },
+    {
+      "id": "DC-013",
+      "state": "open_design",
+      "owner": "development owner",
+      "next_or_limit": "Optional diagnostic correlation only under a separate justified privacy/budget contract."
+    },
+    {
+      "id": "ANC-COMPARE",
+      "state": "open_parity",
+      "owner": "development owner",
+      "next_or_limit": "Source operator report compare, distinct from tools/equivalence."
+    },
+    {
+      "id": "ANC-ALTERNATIVE-VM",
+      "state": "open_parity",
+      "owner": "development owner",
+      "next_or_limit": "Source alternative-vm-sku utility, not bundled data alone."
+    },
+    {
+      "id": "ANC-MCP",
+      "state": "deferred_design",
+      "owner": "development owner/security reviewer",
+      "next_or_limit": "Explicit transport/exposure/auth/lifecycle design before any listener or implementation."
+    },
+    {
+      "id": "ANC-TYPES",
+      "state": "open_reconciliation",
+      "owner": "development owner",
+      "next_or_limit": "Reconcile source types utility and required behavior before claiming parity."
+    },
+    {
+      "id": "CONTENT-FRESHNESS",
+      "state": "open_separate_process",
+      "owner": "content/review owner",
+      "next_or_limit": "Current SLA/retirement/pricing applicability separate from frozen compatibility; no automatic refresh."
+    },
+    {
+      "id": "PROCESS-EVIDENCE",
+      "state": "open_proposal",
+      "owner": "development owner",
+      "next_or_limit": "PR193and194strict full QA verified from completed metadata/logs on25October; new handover needs own QA. Finish private storage integration and capture latest logs; resumable automation remains a proposal."
+    },
+    {
+      "id": "PROCESS-STATE",
+      "state": "open_proposal",
+      "owner": "development owner",
+      "next_or_limit": "Machine-readable semantic current state with deliberate inconsistent-state controls."
+    },
+    {
+      "id": "PROCESS-TIMING",
+      "state": "open_measurement",
+      "owner": "development owner",
+      "next_or_limit": "Measure recovery/rework/critical-path over comparable runs; no gate cuts or unsupported speedup."
+    },
+    {
+      "id": "ACCEPT-SECURITY-LICENSE",
+      "state": "open_acceptance",
+      "owner": "independent security/legal/release owners",
+      "next_or_limit": "Residual risk, licensing, artifact provenance/SBOM and release decision."
+    },
+    {
+      "id": "ACCEPT-OPERATIONS",
+      "state": "open_acceptance",
+      "owner": "operator/release owner",
+      "next_or_limit": "Supported OS/architecture native evidence, fresh OS, installed rollback, least privilege/visibility and safe pilot."
+    },
+    {
+      "id": "GATE-004",
+      "state": "open_acceptance",
+      "owner": "review/acceptance owner",
+      "next_or_limit": "Row-by-row pass/accepted limitation/blocked on exact candidate; no auto pass from development QA."
+    },
+    {
+      "id": "SEC-INDEPENDENT",
+      "state": "deferred_until_project_complete",
+      "owner": "Denis selects independent reviewer",
+      "next_or_limit": "Denis explicitly places consideration of human security assessment after overall project completion; no development/offline-QA blocker or human approval claim."
+    },
+    {
+      "id": "OFFLINE-01",
+      "state": "verified_offline",
+      "owner": "development owner",
+      "next_or_limit": "Preserve closure evidence; no replay."
+    },
+    {
+      "id": "OFFLINE-02",
+      "state": "verified_offline",
+      "owner": "development owner",
+      "next_or_limit": "Preserve closure evidence; no replay."
+    },
+    {
+      "id": "OFFLINE-03",
+      "state": "verified_offline",
+      "owner": "development owner",
+      "next_or_limit": "Preserve closure evidence; no replay."
+    },
+    {
+      "id": "OFFLINE-04",
+      "state": "verified_offline",
+      "owner": "development owner",
+      "next_or_limit": "Preserve closure evidence; no replay."
+    },
+    {
+      "id": "OFFLINE-05",
+      "state": "verified_offline",
+      "owner": "development owner",
+      "next_or_limit": "Preserve closure evidence; no replay."
+    },
+    {
+      "id": "OFFLINE-06",
+      "state": "verified_offline",
+      "owner": "development owner",
+      "next_or_limit": "Preserve closure evidence; no replay."
+    },
+    {
+      "id": "OFFLINE-07",
+      "state": "verified_offline",
+      "owner": "development owner",
+      "next_or_limit": "Preserve closure evidence; no replay."
+    },
+    {
+      "id": "OFFLINE-08",
+      "state": "provisional",
+      "owner": "development owner",
+      "next_or_limit": "Late-cancellation protocol/model16reachable schedules; eight-document scoped reconciliation; strict schema50+26/13procedural with ten negatives. Descriptor readiness/ownQA pending before freeze and task9."
+    },
+    {
+      "id": "OFFLINE-09",
+      "state": "not_started",
+      "owner": "development owner",
+      "next_or_limit": "Publish strict consumer, inspect BOTH native missing APIs before production; exact identity/coordinate preservation."
+    },
+    {
+      "id": "OFFLINE-10",
+      "state": "not_started",
+      "owner": "development owner",
+      "next_or_limit": "Owned bounded per-run coordinator after5/7/9."
+    },
+    {
+      "id": "OFFLINE-11",
+      "state": "not_started",
+      "owner": "development owner",
+      "next_or_limit": "Public region CLI/registry and early validation after10."
+    },
+    {
+      "id": "OFFLINE-12",
+      "state": "not_started",
+      "owner": "development owner",
+      "next_or_limit": "All required outputs/health/exits and FullCost; types reconciliation if required."
+    },
+    {
+      "id": "OFFLINE-13",
+      "state": "not_started",
+      "owner": "development owner",
+      "next_or_limit": "Representative synthetic workload/permission/cancellation/volume/budget validation."
+    },
+    {
+      "id": "OFFLINE-14",
+      "state": "not_started",
+      "owner": "development owner",
+      "next_or_limit": "Installed default/custom package workflows and rollback, explicit fresh-OS limits."
+    },
+    {
+      "id": "OFFLINE-15",
+      "state": "not_started",
+      "owner": "development owner",
+      "next_or_limit": "Readiness/evidence reconciliation with all independent/live/operational/security/license obligations."
+    }
+  ],
+  "legacy_count": 44,
+  "obligation_count": 49,
+  "limits": [
+    "Task names overlap across historical batches; offline programme numbers here mean OFFLINE_SEQUENCE_20261019 only.",
+    "Legacy extracted IDs are preserved, not all reopened or declared complete.",
+    "No repository mutation, Azure operation or acceptance authority is granted by this register."
+  ]
+}
