@@ -1,3 +1,828 @@
+## Mutation assurance corrective priority, 26 October 2026
+
+Current authority: [CURRENT_STATE](CURRENT_STATE.md). Read [corrective checkpoint](MUTATION_ASSURANCE_REMEDIATION_20261026.md) and live draft PR202exact-head index. PR201/b568task9verified offline, quality40360612424/source40360612320success, full622/617plus25new controls preserved; private archive479641f8/receiptab85a3a7restored55members/6554227bytes equal originals. New R7-F04six-task batch precedes task10:18driver inventory/shared source-bound assertion classifier/migrations prepared, full own native/source/rollback/private restore pending. R7-F01tag collision/R7-F03comparison ambiguity remain confirmed OPEN and next corrections before10. All44legacy/49current and wider obligations/pins/oracles retained. Human assessment considered after overall project completion; issue189closed bounded migration, retention/revisit/latest-base preservation duties remain.
+
+## Admission local milestone, 26 October 2026
+
+[Admission checkpoint](INVENTORY_ADMISSION_IMPLEMENTATION_20261026.md): product-lineage PR201WIP763157c9published/read back, local76frozen/eight budget/eight terminal/13strict controls and full offline race suite pass. Final OWN hosted native/source, complete original622/617control conservation/current coverage/advisory results, coherent rollback/private restore pending. No task10start or full acceptance; issue189closed bounded migration with ongoing retention/revisit. All44legacy/49current and wider obligations retained; human assessment considered after overall project completion.
+
+## Build boundary and mutation milestone, 26 October 2026
+
+Current branch dev/required-inventory-build-20261026: tasks1–5locally verified, task6own final native/source outcomes/private retention pending. Read [Build checkpoint](INVENTORY_BUILD_IMPLEMENTATION_20261026.md) and live PR final index. First WIP61b09f5c/tree585a94e8/sole parent199published/read back all17changed files/both Denis identities. Final candidate extends that WIP with six frozen Build recipes,16/17Storage-kind boundary, two Unicode-identity controls,12compiling assertion-specific reversals and ten malformed-failure classifier controls. Local race baseline/restored baseline pass;76frozen Build scenarios/eight terminal schedules remain. All32frozen dependency hashes/original3files unchanged.
+
+The generated native workflow adds the isolated Build proof BEFORE the still-missing AdmitRequiredEvidence consumer on both hosts;12workflow checks include missing/late-proof rejection, seven handoff checks retained. No prior step, gate, action/source pin or original622Linux/617Windows control removed. Full quality remains unaccepted until Admission and its proofs/healthy full QA/coherent rollback. Local intermediate trace reuse is documented in FAILURE_NOTES; no raw restore claim for that overwritten scratch path, final own hosted evidence required.
+
+[DC-CI-EVIDENCE-20261022](https://github.com/DeBoX85/Cloud-Assess/issues/189) bounded migration closed, retention/revisit/private expected-head additive readback/restore duties remain. All44legacy/49current obligations remain, human assessment consideration after overall project completion. No Azure/live retail/credentials/fixtures/RBAC/subagents/unrelated refresh/protected merge/bypass/release. Next task6own actual QA/archive, then bounded Admission implementation/proofs after reassessment; never infer healthy acceptance from isolated proof or inherited green.
+
+## Required inventory Build implementation, 26 October 2026
+
+Current successor dev/required-inventory-build-20261026, direct product-lineage child of PR199/9a7f48f9. Read [Build checkpoint](INVENTORY_BUILD_IMPLEMENTATION_20261026.md). Build implementation/local isolated76scenario/ownership/concurrency/context proof is in progress; admission still absent. Own final native/source outcomes/retention remain mandatory. No healthy whole-package acceptance or runner-only operational rollback claim.
+
+PR199final index fully verifies BOTH native missing APIs before production, quality40271536352failure/source40271536358success and exact23/315/909865source captures; archived603a2b0/receipt830c642frestored18members/1786025bytes equal originals. [DC-CI-EVIDENCE-20261022](https://github.com/DeBoX85/Cloud-Assess/issues/189) bounded migration closed, retention/revisit duties remain, private SC-storage latest-base additive expected-head updates/no force/preserve every unrelated CI/security blob; public metadata only. No automatic archival or independent-backup closure.
+
+Six bounded tasks:1owned types/identity/completeness,2all-seven-type requirements,3Build budgets/context,4frozen Build/ownership/context tests locally verified;5reachable Build boundaries/assertion-specific mutations NEXT;6publication/own actual QA/archive/restore/handover pending. Admission runtime/procedural/input/output/schedule/mutation and healthy622Linux/617Windows restoration/coherent rollback still required before task10. All44legacy/49current obligations and immutable50original/26supplemental/13procedural inputs/pins retained. Wider documentary/independent/live/operational/security/licensing/Gate004/release obligations and confirmed findings OPEN. Human assessment consideration after overall project completion.
+
+No Azure/live retail/credentials/fixtures/RBAC/subagents/unrelated dependency/action/SDK/pin/oracle refresh/protected merge/bypass/release. Both authorANDcommitter Denis Bogunic <134433647+DeBoX85@users.noreply.github.com>. Continue bounded work with milestone publication/readback/self-assessment; stop only unresolved issue requiring Denis without safe mitigation. Never run prepare_literals.py or weaken expectations to fit code.
+
+## First task9consumer checkpoint, 26 October 2026
+
+Current branch dev/required-inventory-consumer-20261026 starts from product185/566cc4d8/tree39c44bf8, carrying verified PR198documentation/frozen inputs only. Read [initial consumer](INVENTORY_FIRST_CONSUMER_20261026.md). No production API implementation. The live draft PR owns exact publication/actual BOTH-native missing APIs and full evidence status; no inherited198green or runner-only operational rollback target.
+
+PR198/528cacb9/tree42874a77specification freeze certified by its final index: own quality40268356832/source40268356868all ten complete logs/steps/order/checkouts/both gates,622Linux/617Windows conserved,87.6%coverage/floor75%,23captures/315chunks/909865bytes exactGit. Archiveb4bb8a13/receiptbfa96409: four remote files read back,18fresh-restored members/1922248bytes equal originals. Recorded residuals3imported-not-called/1module-only OPEN. [DC-CI-EVIDENCE-20261022](https://github.com/DeBoX85/Cloud-Assess/issues/189) bounded migration closed, retention/revisit remains; preserve every unrelated security/CI blob, expected-head lease/no force, no automatic archival or independent-backup closure.
+
+Five-task batch1–4complete at specification scope. Task5initial strict consumer carries all50original+26supplemental literals and32bound hashes. Fixture-only typed-loader probe passed76cases/ten malformed controls with existing185types, no future API/stub. Initial actual native missing APIs remain pending before production. Task9procedural13/input4/output10/phase16/mutation/ownership/concurrency/budget/runtime proofs remain required, then healthy ownQA/rollback/reassessment before10. Tasks10–15and all44legacy/49current obligations remain; whole documentary audit and confirmed findings OPEN. Human assessment consideration after overall project completion.
+
+No Azure/live retail/credentials/fixtures/RBAC/subagents/unrelated dependency/action/SDK/pin/oracle refresh/protected merge/bypass/release. Both author/committer Denis Bogunic <134433647+DeBoX85@users.noreply.github.com>. Continue within authorized bounded work after publication/readback/self-assessment; stop only an unresolved issue needing Denis without safe mitigation. Original three files/50cases and supplemental26/13procedural data unchanged; never run prepare_literals.py.
+
+## Task8 freeze-readiness continuation, 26 October 2026
+
+Current successor: docs/inventory-freeze-readiness-20261026, preserving verified PR197/1bdd4b10. Read [freeze readiness](INVENTORY_FREEZE_READINESS_20261026.md), [v1specification](REQUIRED_INVENTORY_CONTRACT_V1.md), [cancellation protocol](INVENTORY_CANCELLATION_PROTOCOL_20261026.md) and [scoped reconciliation](INVENTORY_CONTRACT_RECONCILIATION_20261026.md). Its live draft PR owns final publication/OWN QA; no inherited197green. Product coding remains185566cc4d8/tree39c44bf8with current guidance carried, never this documentary tree.
+
+PR197own quality40249222193/source40249222204fully verified: all ten quality logs/steps/gates,622Linux/617Windows conserved,87.6%coverage/floor75%,23captures/315chunks/909865bytes exactGit. Private archive6977f977/receipt1342b5a5retain18fresh-restored members/1908367bytes equal originals. Recorded3imported-not-called/1module-only residualsOPEN. [DC-CI-EVIDENCE-20261022](https://github.com/DeBoX85/Cloud-Assess/issues/189) bounded migration remains resolved; retain/revisit future evidence and preserve security-category blobs, no automatic archival or independent-backup closure.
+
+Current five-task batch:1deterministic late-cancellation protocol/model prepared;2eight applicable documents reconciled, wider audit OPEN;3strict consumer shape/schema verified against50original+26supplemental literals with ten negative controls;4specification readiness/ownQA NEXT;5task9first strict consumer/BOTH native actual missing APIs only AFTER freeze verification. Original three files/50cases and supplemental26/13procedural inputs unchanged. Phase labels have explicit closed compatibility mapping, not altered expected results. Standalone model16reachable terminal schedules/16fault rejections is not future API execution; virtual deadlines are not real-timer proof.
+
+No Azure/live retail/credentials/fixtures/RBAC/subagents/unrelated refresh/protected merge/bypass/release. All44legacy/49current obligations/pins/controls retained; human assessment consideration after overall project completion. Maintain milestone publication/readback/logs/handover/self-assessment and continue when justified; stop only unresolved material uncertainty without safe mitigation.
+
+## Validation preparation checkpoint, 26 October 2026
+
+Current successor remains docs/inventory-output-ledger-20261026. [Validation order](INVENTORY_VALIDATION_ORDER_20261026.md) specifies context/cardinality/traversal/error/typed-union and ownership rules. Twenty-six additional literals (20reject/6accept) and13procedural expectations have structural verification/four negative controls; no future API execution. Budget proof has ten cases/four negatives and eight existing-projector calls. Original three files/50cases unchanged. Final candidate requires OWN native/source QA, no inherited196pass.
+
+Four-task batch:196ownQA verified;189bounded migration resolved; budget/validation preparation locally verified WIP pending final ownQA. Task8 NOT frozen: deterministic late-cancellation scheduling, applicable-document reconciliation and supplemental consumer/integrity freeze remain. [Checkpoint](INVENTORY_PREPARATION_CHECKPOINT_20261026.md) owns evidence/limits. [DC-CI-EVIDENCE-20261022](https://github.com/DeBoX85/Cloud-Assess/issues/189) remains visible with ongoing retention/revisit duties, no automatic archival or independent-backup closure. Product185/pins/controls unchanged; human assessment only considered after project completion. No Azure/live retail/credentials/fixtures/RBAC/subagents/unrelated refresh/protected merge/bypass/release.
+
+## Inventory preparation continuation, 26 October 2026
+
+Current documentation successor: `docs/inventory-output-ledger-20261026`, preserving verified PR196/b997bc4676958aff25580c2bb88d1439d6529485. Read [the inventory checkpoint](INVENTORY_PREPARATION_CHECKPOINT_20261026.md) and [output ledger](INVENTORY_OUTPUT_LEDGER_20261026.md). This WIP requires OWN full native/source QA; no inherited196pass. Product coding remains PR185/566cc4d8 with current guidance carried, never this documentary tree.
+
+PR196 OWN quality40245934321/source40245934303 completed/success, fully verified: all ten complete quality logs/steps/both gates,622Linux/617Windows full controls equal product183/185,87.6%coverage/floor75%,23source captures/315chunks/909865bytes exactGit. Recorded advisory residuals3imported-not-called/1module-only remain OPEN, not a fresh scan or release approval.
+
+[DC-CI-EVIDENCE-20261022 / issue189](https://github.com/DeBoX85/Cloud-Assess/issues/189) bounded migration RESOLVED after source-record ownQA/reconciliation. Private archivecf093771/receipt10ba2bcd additionally retain196full evidence: four remote files equal originals and18fresh-restored members/1909078bytes equal originals. Ten captures/99complete log occurrences/251members/29454280memberbytes indexed; prior security/CI blobs and194partialcapture001 unchanged. Retention/revisit duties continue, no automatic archival or independent-backup/DC-006closure.
+
+Task8 remains provisional. Output/Build-text ledgers now have ten independent boundary recipes/four negative controls; eight actual existing VM/SQL projector calls accepted the admission fixtures. This is preparation, not execution of absent future APIs. Build input count/text domination and paired-output first-reachable excess2 are explicit, not invented plus-one success or relaxed limits. Original three files/50cases unchanged. Next exact validation order, additional expectations and remaining applicable-document reconciliation before freeze; task9still first publishes strict consumer/BOTH native missing APIs before production. All44legacy/49current obligations retained; documentary audit unfinished.
+
+Human security assessment is only considered after overall project completion per Denis; no offline-development blocker or human approval claim. Confirmed findings remain open, raw private findings stay private. No Azure/live retail/real credentials/fixtures/RBAC/subagents/unrelated refresh/protected merge/bypass/release. Maintain milestone logs/checkpoints and continue independently when justified; investigate, research first-party evidence, then ask Denis only if material uncertainty has no safe mitigation.
+
+## Development continuation, 26 October 2026
+
+Current documentation successor: `docs/storage-security-checkpoint-20261026`, preserving verified draft PR195/242da51cbfd84fc9ade95dff2362e1d292092ce3. Read [the current checkpoint](HANDOVER_CHECKPOINT_20261026.md). Its live draft PR owns final publication/readback and OWN QA; no predecessor-green inheritance. Product coding stays PR185/566cc4d8 with current guidance carried explicitly, never this review/storage tree.
+
+PR195 OWN quality40243373880/source40243373785 completed/success and fully verified: all ten quality logs/declared steps/both gates,622Linux/617Windows full control lines equal product183/185,87.6%coverage/floor75%,23source captures/315chunks/909865bytes exactGit. Recorded0reachable/3imported-not-called/1module-only residuals OPEN; this is recorded execution, not a new vulnerability-database scan or release acceptance.
+
+[DC-CI-EVIDENCE-20261022 / issue189](https://github.com/DeBoX85/Cloud-Assess/issues/189): private shared-main integration and later PR194 capture are now verified. SC-storage/main8e2eb044 retains integrationb0303e51, new capturesdb506252 and restore receipts. Every unrelated security blob and original capture stayed unchanged. Nine captures/88complete log occurrences/233members/27545202memberbytes are indexed; the33new members/2348658bytes were remotely read back, restored fresh and compared to originals. PR194capture001 remains partial and immutable; capture002 supplements eight later logs/final metadata. PR195own evidence is also captured. Source-document successor publication/ownQA remains pending; keep issue189 visible until reconciliation is finalized. No automatic archival or independent-backup/DC-006closure.
+
+Denis manually supplied the private final security report at0e9693c8. Bounded triage checked14manifest members and23explicit finding path/blob pairs against product185 and read the selected reproduction/healthy logs. Existing confirmed R7-F01/F03/F04 remain open; report observations are not silently promoted to defects. This is supporting-evidence reconciliation, not a fresh reproduction, full archive verification or independent-human approval. Private findings/logs remain private. Corrective candidates require explicit contracts, preserved expectations and own QA.
+
+Denis places consideration of human security assessment AFTER overall project completion. It does not block authorized offline work; no human approval is claimed. Tasks1–7 remain complete;8provisional;9–15 dependency ordered. Finish remaining owned-output/Build-text/validation/future-literal/documentary work before task8freeze and task9strict consumer/BOTH native missing APIs. Preserve ALL Storage kinds, exact Cognitive kind, unresolved SQL coordinates and VMSS unsupported scoring. All44legacy/49current obligations retained; whole documentary audit remains unfinished.
+
+No Azure/live retail/real credentials/fixtures/RBAC/subagents/unrelated dependency/action/SDK/pin/oracle refresh/protected merge/bypass/release. Preserve all prior heads and unrelated worktrees. Continue independently after milestones when checks support it; investigate uncertainty, research first-party evidence if needed, and stop for Denis only when unresolved material uncertainty has no safe mitigation.
+
+# A–F assessment and evidence deferral, 22 October 2026
+
+## Current handover, 25 October 2026
+
+Use [the full checkpoint](HANDOVER_CHECKPOINT_20261025.md), [transfer](CHAT_TRANSFER_20261025.md) and [restart prompt](RESTART_PROMPT.md). Current documentation successor is `docs/handover-20261025`, preserving PR194/b6df02841b09d422dfdc7d6e1bfd1f25b7ab4ccb. Product coding remains PR185/566cc4d8b78d168e5216245a5a386f742a3a2f85 with current guidance carried, never a review/storage tree. Tasks1–7 complete;8 provisional;9–15 follow dependencies. All44legacy/49current obligations remain. Audit scope803raw/all326Go/29semantic/127other paths, including115documentation paths without complete raw-read credit; whole documentary audit open.
+
+PR193and194 own recorded native/source QA now fully verified from completed run/job metadata and complete logs:622Linux/617Windows conserved controls,87.6%coverage/floor75%,23captures/315chunks/909865bytes exactGit; recorded0reachable/3imported-not-called/1module-only residuals open. [Safe summary](evidence/20261025/qa-checkpoint.json). This new candidate needs its own full QA; do not inherit194green or claim fresh25October scans.
+
+[DC-CI-EVIDENCE-20261022](https://github.com/DeBoX85/Cloud-Assess/issues/189) is IN PROGRESS. Denis authorized privateSC-storage. Full remote readback of33files and restore of200members/25196544bytes verified original69complete job logs across7captures. Private artifact64f3c6d8 and receiptf4081f57 are on preserved archive branches; [safe status](evidence/20261025/storage-status.json). Shared main advanced with security evidence; the old guarded update failed without overwriting it. Next integrate CI files into the newest shared main with an expected-head lease, preserve the security category, and append8later PR194logs as a new immutable capture. Issue189 stays open; no public raw logs. Retain until explicit owner-approved deletion; independent backup/DC-006 remains separate.
+
+Then finish task8owned-output/Build-text budget proofs, validation order, future identity/union/status/context/ownership cases and applicable-document reconciliation before freeze. Task9must publish its strict consumer and inspect BOTH actual native missing APIs before production. Storage ALL kinds, exact Cognitive kind, no inferred SQL coordinates and unsupported VMSS scoring remain binding. No Azure/live retail/real credentials/fixtures/RBAC/subagents/unrelated refresh/protected merge/bypass/release.
+
+The separate security chat was authorized and private checkpoints exist, but its actual final report/revisions/findings have not been reconciled here. No automatic exchange or assumed security clearance. This chat remains sole production/integration writer. Human evaluation is considered but deferred for access/budget. Preserve all prior heads/pins/oracles/controls/unrelated worktrees; stop unexpected issues needing Denis without safe mitigation or explicit deferral. Revisit issue189 at every handover/end of run and before task15/readiness/acceptance/release.
+
+
+## Global inventory input-budget preparation, 22 October 2026
+
+Current successor is `docs/inventory-budget-20261022`. [Budget design](INVENTORY_BUDGET_20261022.md) supplies a whole-call input ledger and four independent exact/+1recipes for65536entries/16711680UTF8bytes. Arithmetic and four negative controls pass;24existing scoped Catalog calls on isolated frozen185all accept the fixtures, so individual projector limits do not mask the future global threshold. No global API exists or was executed. Owned-output/Build-text budgets/proofs and remaining task8freeze work stay OPEN; original50cases unchanged. Coverage stays803raw/all326Go/29semantic/127other paths,115documentation paths without full raw credit.
+
+PR192OWN full quality39809871207/source39809871101now verified from complete10quality logs/steps and source capture reconstruction:622Linux/617Windows full controls conserved,87.6%coverage/floor75%,23captures/315chunks/909865bytes exactGit,3imported-not-called/1module-only advisories OPEN. [Safe summary](evidence/20261022/inventory-budget/pr192-qa-summary.json). PR193/current successor require own full QA; pending/inconsistent status is not success. All44legacy/49current IDs retained in [the register](TASK_CARRY_FORWARD_20261022.json).
+
+Denis confirms bounded setup authorization sent and separate security chat proceeding; this is user-reported status, not proof setup/tests/findings completed. Frozen product scope, manual report exchange and sole production writer remain. Human evaluation deferred for access/budget; authorized offline work continues. Product coding only185lineage with guidance carried, never review/archive trees. Next: pending QA and remaining task8owned-output/Build-text/validation/future-literal/documentary work before strict consumer/BOTH native missing APIs and production.
+
+Mandatory carry-forward: [DC-CI-EVIDENCE-20261022](https://github.com/DeBoX85/Cloud-Assess/issues/189) stays DEFERRED OPEN at every handover/end of run and before readiness/acceptance/release; recent raw logs local only, no public raw upload. Preserve old heads/pins/oracles/controls/unrelated worktrees. No Azure/live retail/fixtures/RBAC/subagents/protected merge/bypass/release/unrelated refresh. Human security evaluation remains an acknowledged budget/access deferral. Continue without routine reapproval; stop unexpected issues needing Denis without safe mitigation or explicit deferral.
+
+
+## Inventory decisions and security-review limits, 22 October 2026
+
+Current documentary successor is `docs/inventory-decisions-20261022`, preserving PR192/7aa2e591 and the frozen security scope. [Inventory decisions](INVENTORY_DECISIONS_20261022.md) resolve individual-label versus global-budget error classification and require pre-parser checks for empty/trimmed segments and unnamed leaves. Seven independent SDK-only controls ran with Go1.26.10Linux, unchanged frozen module files, verified cached dependencies and no requests/listeners. They are not execution of future task8/9APIs. Two more complete documents bring raw coverage to803files/all326Go;29semantic views and127other classified paths remain, including115documentation paths without complete raw credit. Task8 remains provisional, with original50cases unchanged.
+
+PR191's job/run discrepancy resolved: all10jobs now completed/success; final gate log equals its earlier full bytes and the strict verifier passes. [Final safe QA summary](evidence/20261022/inventory-decisions/pr191-qa-final-summary.json) records full622Linux/617Windows control conservation,87.6%coverage,23exact source captures and residual3imported-not-called/1module-only advisories OPEN. PR192 and this successor still need OWN full QA; follow their live PR bodies, never inherit191green.
+
+Denis will consider human evaluation, but access/budget are currently unavailable. [Execution advice](SECURITY_REVIEW_EXECUTION_ADVICE_20261022.md) records this deferred assurance limit and recommends bounded setup/execution restrictions for the separate reviewer. This is advice, not authorization already granted in that chat; the reviewer handoff is unchanged. Its reported observation is not a confirmed integrated finding. No automatic chat/filesystem sharing or new production-writing permission.
+
+Next: inspect192/own QA; finish applicable-document reconciliation and remaining task8budget/validation-order/future-literal/ownership/context requirements before freezing. Task9first publishes its strict consumer and inspects BOTH native missing APIs before production. All44legacy/49current obligations remain in [the register](TASK_CARRY_FORWARD_20261022.json). Product coding stays on185lineage, never a review/archive tree. No Azure/live retail/fixtures/RBAC/subagents/protected merge/bypass/release/unrelated refresh.
+
+Mandatory carry-forward: [DC-CI-EVIDENCE-20261022](https://github.com/DeBoX85/Cloud-Assess/issues/189) stays DEFERRED OPEN, revisited every handover/end of run, on private destination availability and before task15/readiness/acceptance/release. Recent raw logs local only; no public raw upload. Preserve all prior heads/pins/oracles/controls/unrelated worktrees. Human security review remains an acknowledged access/budget deferral; continue authorized offline work and stop only an unexpected issue needing Denis without safe mitigation or explicit deferral.
+
+
+## Inventory preparation continuation, 22 October 2026
+
+Current documentation successor is `docs/inventory-preparation-20261022`, preserving PR191 and the security review snapshot. Read [documentary reconciliation](DOCUMENT_RECONCILIATION_20261022.md), [task8 preparation](INVENTORY_PREPARATION_20261022.md) and [exact scope/case inventory](evidence/20261022/inventory-preparation.json). Six additional complete document reads bring raw coverage to801files/all326Go;29semantic views and129classified other paths remain, including117documentation paths without complete raw-read credit. Whole-repository reconciliation remains OPEN. Seven explicit task8freeze prerequisites are recorded; the three provisional files/50cases remain unchanged, no API freeze or production edits.
+
+PR191 run39801524366/source39801525115 report success; all10quality logs/steps and source log were inspected,622Linux/617Windows full control lines conserved,87.6%coverage/floor75%,0reachable/3imported-not-called/1module-only residuals OPEN,23captures/315chunks/909865bytes exactGit. However quality job119912379705 still reports in_progress/null while its steps/footer are complete. Overall191certification remains OPEN pending metadata reconciliation. [Safe observation](evidence/20261022/pr191-qa-observation.json) preserves that discrepancy. This successor also needs OWN QA; no inherited pass.
+
+Next: reconcile191metadata without overriding it; continue the117remaining documentary paths, prioritizing inventory-adjacent collector/admission and public selection contracts, then resolve the seven task8checks and freeze independent expectations before task9. Do not rerun the recovered expectation generator. Task9first publishes its strict consumer and inspects BOTH actual native missing APIs before production. All44legacy/49current obligations remain in [the task register](TASK_CARRY_FORWARD_20261022.json). Product coding stays on185lineage with current guidance carried, never review/archive trees. The separate security chat remains fixed-snapshot read-only, and findings return through Denis; no automatic exchange is implied.
+
+Mandatory carry-forward: [DC-CI-EVIDENCE-20261022](https://github.com/DeBoX85/Cloud-Assess/issues/189) remains DEFERRED OPEN. Revisit every handover/end of run, when a private destination is available and before task15/readiness/acceptance/release. Recent complete logs are local only; no public raw upload or durable-retention closure. Preserve pins, controls, frozen inputs, prior heads and unrelated worktrees. No Azure/live retail/fixtures/RBAC/subagents/protected merge/bypass/release/unrelated refresh. Stop an unexpected issue needing Denis without safe mitigation or explicit deferral. At each run end remind Denis to consider an independent human security audit before acceptance/release.
+
+
+## Security handoff and task reconciliation, 22 October 2026
+
+Current successor is docs/security-review-handoff-20261022. Read [task reconciliation](TASK_RECONCILIATION_20261022.md), [44legacy/49current obligation map](TASK_CARRY_FORWARD_20261022.json), [audit disposition](AUDIT_DISPOSITION_20261022.md), [security review handoff](SECURITY_REVIEW_HANDOFF_20261022.md) and [start prompt](SECURITY_REVIEW_START_PROMPT_20261022.md). The separate chat reviews fixed product185read-only; this development chat remains sole writer/integrator. The handoff is prepared, not proof a reviewer is running. No automatic cross-chat synchronization. Later changes need delta review. Independent human review remains open.
+
+PR190 b2c52466own quality39699574080/source39699574023 SUCCESS fully verified: all10quality logs/steps,622Linux/617Windows full controls conserved,87.6%coverage/floor75%,0reachable/3imported-not-called/1module-only OPEN,23captures/315chunks/909865bytes exactGit. [Summary](evidence/20261022/pr190-qa-summary.json) is metadata/hashes only; recent raw logs remain LOCAL ONLY under issue189deferral. This changed successor requires OWN QA and cannot inherit190green.
+
+A–F assessment is delivered and bounded disposition recorded. Applicable-document/whole-repository coverage remains OPEN, not silently certified; task8provisional. Complete remaining audit scope and task8analysis while security review starts separately; retain three confirmed findings and four unconfirmed observations. The carry-forward map preserves offline1–15, AR/DC/DV obligations, ancillary parity, process proposals and all independent/live/operational/security/license/acceptance limits. No work was canceled by creating the security workstream.
+
+Prior dated checkpoints below remain historical evidence; behavioral contracts remain active.
+
+
+Denis deferred storage, requested a task that cannot silently disappear, authorized continued independent work and required a security-audit reminder at the end of the run. Issue189/DC-CI-EVIDENCE-20261022 now records owner/triggers/closure criteria. CI_EVIDENCE_TASK.json plus additive existing handoff tests enforce visible references in four resume pages and required closure fields, with missing-marker/status/closure negative cases. These do not prove external retention. Recent raw CI logs remain LOCAL ONLY; no blocked payload is published.
+
+PR188 own full quality39695096155/source39695096162 verified successful:622/617controls,87.6%coverage,0reachable/3imported-not-called/1module-only OPEN,23captures/315chunks/909865bytes. Old worktree Git metadata disappeared; separate clone recovery preserved old files and verified the published baseline. New consolidated A–F report is delivered; applicable-document/final audit disposition remains unfinished. Task8provisional, product185and all boundaries preserved. New successor requires own full QA, not inherited188green.
+
+---
+
+# Review continuation, 22 October 2026
+
+PR187 own quality39663992340/source39663992339 verified successful at exacte7a63bcc. Complete log/step/control/source checks retain622Linux/617Windows and87.6%coverage,0reachable/3imported-not-called/1module-only (residuals OPEN). Full newly retained19-member own-QA archive is LOCAL ONLY: automatic approval review rejected public disclosure. No remote bundle is claimed. Current documentation-only successor updates action-register drift, read/reference classifications and ancillary parity obligations; see [the boundary review](REVIEW_BOUNDARIES_20261022.md).795raw reads/29semantic views;135paths classified, applicable-document/final disposition still incomplete. Own successor QA remains mandatory. Task8provisional; product185and all pins/boundaries preserved. Prior dated narratives below remain historical evidence.
+
+---
+
+# SQL task2 frozen contract and task1 completion, 2026-10-17
+
+Current security hold: PR184 own native jobs fail GO-2026-6809 in pinned Go1.26.9. Read [the blocker and narrow1.26.10proposal](GO_SECURITY_BLOCKER_20261021.md). Await Denis's toolchain decision before task7closure/task8freeze. Source39589963002passed; quality39589962815is not certified. Historical183success remains revision-specific.
+
+## 2026-10-21 recovery and handover reconciliation
+
+User requested a new-chat-ready handover. Live183head/draft/unmerged, both exact-head hosted successes and unchanged protected/archive refs rechecked. Shell/filesystem/Git reads recovered;25task-owned files match exact183Git and recorded hashes. Complete surviving top-level local proof/helpers, original preparation where present and3task8provisional files retained byte-for-byte with manifest. No new native execution or product change. Active handover/restart authorities rewritten; [discrepancies](DISCREPANCIES_20261021.md) identifies obsolete statuses without deleting historical proof. Task7formal archive reconciliation/closure remains OPEN; task8not frozen. Exact changed-tree QA/readback belongs in live handover PR. Existing42controls/preflight/25file rollback passed before outage; earlier date/depth/control-selection failures remain distinct. The old service-offline pause is superseded by observed read recovery, not a claim of full environment recertification.
+
+
+Task1 VERIFIED OFFLINE in draft PR158 at df426dbf8aadd26d5f91875a9af52fde23124a4a/treeb8fcc3cb. Quality39035368902 all8workers/bothgates and source39035368875 passed,455Linux/450Windows control identities conserved exactly,23captures/315chunks/909865bytes reconstructed; coverage86.1%/floor75. Evidencea5b66a69fc1a07ee3c22d084476f7d832e396318,34members/2074425memberbytes,246661bundlebytes SHA256f3424fbd4eab55640b337c18ec6b4a343f1fad5c0548dd70edf191af7fc43635; full remote files/metadata read back. Task1 final live PR index owns outcomes; earlier pending snapshots are historical.
+
+Task2 freezes the [SQL contract](SQL_CAPABILITY_CONTRACT_20261017.md), complete immutable primary schema/common/example,153Database/163MI independent literal cases and integrity checks before any target API. Own full QA pending at publication. No API/runtime/scoring/public integration. After own QA/archive, update development/handover BEFORE task3. Publish Database runner and inspect BOTH native missing API failures before code; task4 repeats for MI while preserving Database runner/oracle/controls. No current critical input. No Azure/fixture/RBAC/refresh/subagents/protected merge/bypass/release. Independent review/backup/broader operational/live/release and module-only advisory remain open.
+
+---
+
+
+# SQL task2 completion and task3 transition
+
+Task2 COMPLETE VERIFIED OFFLINE in draft PR160 at46223812aedbb63e37f619466fc4ba8a8b5f5bdd/treeead9da2e0d580ff695c92502b06bdb3752fdc8d0, sole parent original6900abc. Own quality39073359343 all8workers/bothgates and source39073359338 passed. Every full log/step reviewed;455Linux/450Windows exact identities conserved and23captures/315chunks/909865bytes reconstructed against candidateGit blobs. Coverage86.1%/unchanged75%floor; module-only advisory OPEN. All9complete corrected files/metadata/ref and ordered preview87ccae9a read back. Final PR160 body independently read back.
+
+Durable evidencea1653e3b99865deba0b5d1cf84a5768fbd231b11/tree15ac8aa541e5ca48efb542de15c7886eb7ade53a/parent exact46223812.62members/3784630UTF8memberbytes/460473bundlebytes SHA2568315717ca6af3f115778a69337801758975ccf432db057c808b3cbe68632030a. Existing bounded verifier and full3file remote readback passed. Archive is storage only, not a code successor/certification. Full original failed39073018480 and corrected39073359343 logs retained. Original PR159/6900abc preserves failed Windows license-integrity evidence; do not certify it using successor success.
+
+Same SQL four-task batch: task1 COMPLETE PR158; task2 COMPLETE PR160; task3 Database NEXT, task4MI NOT STARTED. This handover is updated BEFORE task3. Code base is verified46223812, never administrative/evidence branches. On feat/sql-database-capability-20261017 first publish strict JSON-tagged runner consuming all153unchanged frozen Database cases; inspect BOTH actual native missing APIs before ANY production edits. Then bounded collector/catalog, every actual pinned schema definition, independent limits/context/HTTP/ownership/status/metadata controls, additive CI inventory, compiling reversals/exact restoration, coherent implementation+runner rollback to verified task2 tree/restoration and full own native/source QA/archive. Update handover BEFORE task4, which separately publishes163case MI runner and inspects missing constructor on BOTH hosts before MI edits. No SQL API/runner exists at this checkpoint. No critical input needed.
+
+QA-SQL-01: exact retained MIT license now has -text protection. Windows1097bytes/21CRLF failed; unchanged1076bytes/hash restored and tests pass. No frozen bytes/expectations changed. QA-SQL-02: pinned SQL schema actually has26definitions plus commonSku, not28in earlier frozen narrative; inventory/resolved refs retained in PR160 evidence. Validate ALL named26plusSku, preserve frozen contract/oracles verbatim. QA-SQL-03: original Linux archive helper emitted Windows backslash members; unchanged bounded verifier rejected before publication. Reviewed additive recovery helper uses as_posix(); original helper retained, rebuilt archive passed.
+
+
+
+# SQL task2 native correction checkpoint
+
+Updated2026-10-17 22:00UTC. Same SQL batch: task1 COMPLETE PR158; task2 correction candidate on docs/sql-contract-byte-preservation-20261017 from canonical6900abc; tasks3Database/4MI NOT STARTED. Read the live successor linked from PR159 for actual head/preview/QA. PR159 full16file readback completed; its own native Windows QA exposed QA-SQL-01, not certified. Source39073018473 passed23captures/315chunks/909865bytes. The narrow .gitattributes fix preserves the exact license bytes and all frozen expectations. Fresh own8workers/bothgates/source/full-log review and durable task2 archive remain mandatory. Update handover BEFORE task3, then publish its consuming runner and inspect BOTH native missing APIs before production edits. No critical user input.
+
+Recovery workspace C:/workspace/sql-recovery-20261017/code is isolated at canonical6900abc before correction. Existing C:/workspace/ca3-20261016/repo is dirty unrelated work and must remain untouched. Node child-process Git/Python work; shell Git fetch failed. Retained41member bundle passed bounded verifier before explicit allowlisted restoration to adjacent qa-review. Pinned Windows Go1.26.9 archive75002909bytes SHA256d722201a9c0c086d1610e111c48203009af690892ed708072bd5ae20160e7a59 verified against official go.dev metadata; modules verified, APRL initialized unchanged. Original Linux scratch unavailable. Helpers are retained scripts, never blindly rerun freeze-sql-task2.py. Preserve prior heads, contract/oracles/primaries/source captures/pins and protecteda6fee427. No Azure/fixture/RBAC/refresh/subagents/protected merge/bypass/release. Independent review/backup/broader operational/live/release/advisory obligations remain open.
+
+## QA-SQL-01: Windows license checkout byte preservation, 2026-10-17
+
+Task2 canonical6900abc was fully read back and published as draft PR159. Quality39073018480 Windows-native117514365936 failed TestSQLCapabilityPrimaryIntegrity on unchanged storage-primary-LICENSE.txt; full decoded log retained in task2 evidence. A fresh core.autocrlf=true checkout reproduced1097bytes/21CRLF and the named failing assertion. The canonical Git blob is1076bytes/SHA256b37363bf2295aa0acde60ce78a60034a71a0955075fc01aa09cc23eadff44436. Add only the exact license path with -text in .gitattributes. Recheckout restores1076bytes/zeroCRLF and unchanged integrity tests pass. Frozen oracles/primaries/license/test expectations and production are unchanged. Prevention: every byte-addressed input, including reused licenses, needs checkout-byte protection and native verification. No normalization or weaker hash assertion. Preserve6900abc and publish the correction on docs/sql-contract-byte-preservation-20261017; require full fresh own QA/source before task3.
+
+
+# SQL task1 reconciliation and four-task authorization, 2026-10-17
+
+Verified live PR157/13097058/treecd7f3d74 and completed quality39009853499/source39009853488: all8workers/bothgates,455Linux/450Windows identities,23captures/315chunks/909865bytes; coverage86.1%/floor75, existing one module-only advisory open. Complete evidence1f60aaaeaabb376325e1bcdde1e60f28150e0f04 and atomic source rollback/restoration retained. Protecteda6fee427/all prior draft heads unchanged. Earlier pending Cognitive paragraphs are historical, not remaining work.
+
+The user authorized four further independent tasks, with handover BETWEEN each. [SQL workstream](SQL_CAPABILITY_WORKSTREAM_20261017.md) selects source/schema/status/identity reconciliation, contract/oracles, Database implementation, then MI support. Immutable SQL2021-11-01schema/common/example and original sql.go inspected;67retained SQL cases preserved. Primary example26Database objective coordinates but2SKU names,19MI vcore leaves under4explicit SKU names. Source ignores parent statuses and collapses sizing; distinct full-coordinate capability catalogs are proposed, with no scoring/public integration. Task1 prepared; publication/ownQA pending. No current critical input. Restored local pinned Go/Pwsh with original checksums and readonly modules; hosted QA remains mandatory. Preserve no-Azure/refresh/subagents/protected merge/release boundaries. [CURRENT_STATE](CURRENT_STATE.md) owns next action; live final PR owns exact revision outcomes.
+
+---
+
+# Cognitive task3 bounded internal candidate, 2026-10-17
+
+Published first runner8220345a/d36ca37b after task2 completion and handover update. Inspected actual Linux117327688350/Windows117327688477 in39009143283: absent Cognitive API compilation only, retained complete native logs/metadata. Then implemented kind-bound collector/catalog. All143unchanged cases and independent bounds/HTTP/context/ownership checks pass locally. Added46compiling controls to conserved CI inventory; full local controls/preflight/race/rollback/own hosted QA pending at this checkpoint. [Implementation record](COGNITIVE_SKU_IMPLEMENTATION_20261017.md) and CURRENT_STATE own requirements/resume; live PR157 owns actual final outcomes. Preserve first runner/oracle/primaries and all prior heads. QA-COG-02/03/04 retain documentation/test-harness corrections. No scoring/public/Azure/refresh/subagents/protected merge/release; broader review/backup/operational/live/release remain open.
+
+---
+
+# Cognitive task3 runner preparation, 2026-10-17
+
+Task2 verified offline at PR156/2d65a772/tree50b51df3 after all8native workers/bothgates in39008247168 and source39008247280. Full10logs reviewed;409Linux/404Windows identities and23captures/315chunks/909865bytes preserved. Coverage85.7%, unchanged75%floor; one module-only advisory remains open. Artifact209f15da339915be8ad7f0993b3985fad0770e3e retains22members/1878170memberbytes; all3files/identity/tree/parent read back and bounded verifier passed. Existing protecteda6fee427/previous draft heads preserved. This updates development/handover BETWEEN tasks as requested.
+
+Task3 strict JSON-tagged runner consumes143frozen scenarios with unknown-field/trailing rejection, complete collection/catalog/error comparisons, exact URLs/calls/1MiB getter bounds and input/output ownership. API absent; expected missing-API compilation is preparation, not product regression or acceptance. Publish/read back and inspect actual BOTH native logs before production edits. Then bounded collector/catalog, independent limits/HTTP/context/ownership/compiling reversals and atomic rollback+restoration/fullQA. [Implementation record](COGNITIVE_SKU_IMPLEMENTATION_20261017.md) owns details. No Azure/refresh/subagents/protected merge/release; no critical input needed. Independent backup/review/broad operational/live/release remain open.
+
+---
+
+# Cognitive task2 contract and independent future oracle, 2026-10-17
+
+Task1 is verified offline in PR155/002fa148, tree10d40682, after full native/source review:409Linux/404Windows identities,23captures/315chunks/909865bytes,85.7%coverage/floor75 and existing one module-only advisory. Corrected actual-head quality39006846906/source39006846900 supersede the table-presentation preparation runs; artifacta53d58c16487e404e8a7e42023338c84a0844d45 retains complete proof and primary research. All previous draft heads/protecteda6fee427 preserved. Updated workstream/CURRENT_STATE/action/handover routing between tasks under the user's three-task authorization.
+
+Task2 freezes [kind-bound Cognitive catalog contract](COGNITIVE_SKU_CONTRACT_20261017.md), complete239116-byte schema f0919ebc and55486-byte GetSkus57c0132a from REST-spec1cdcc541, and143literal future expectations (108collector/35direct),268084bytes SHA256c12604b2a6ac8b7fed6eb7c66397cf181bba8c0505b512bd5e844972f6aaa81b. Requires explicit kind provenance, correct disjoint regional reduction versus overlapping collision rejection, honest GLOBAL/missing metadata, documented restrictions, bounded exact-path paging and distinct catalog-only/not_assessed result. No production API or case execution exists yet. Added byte/primary integrity tests and synchronized only root NOTICE/generated NOTICE section, preserving module inventory/graph/pins/captures. Independent structural review of all143cases, uncached focused preflight/region vet and1430local links passed. One-byte oracle drift compiled and failed its named assertion; exact restoration passed both new integrity tests. Own publication/native/source QA pending at preparation. Task3 must first publish the consuming runner and inspect both-host missing-API compilation before code. No Azure/fixture/RBAC/refresh/subagents/protected merge/release; independent backup/review/broad rollback/live/release remain open.
+
+---
+
+# Cognitive task1 reconciliation and three-task authorization, 2026-10-17
+
+The user authorized the next three offline tasks with documentation/handover between each. Verified live draft PR154/ec191ba56c2c2c7bdf9360c8037952f1070894c8 and its completed native/source/control/archive/rollback proof; protecteda6fee427 and all prior heads remain unchanged. Created isolated docs/cognitive-sku-reconciliation-20261017. Rechecked Microsoft2024-10-01schema f0919ebc and complete GetSkus example57c0132a at immutable REST-spec commit1cdcc541. Independent example analysis215rows/47kind-name identities/14regional repetitions disproves a blanket duplicate-name rejection policy. Prepublication byte review corrected the schema count from239102Unicode characters to239116UTF-8bytes; both original Gitblob identities independently verified. Original source blob7b3dc63a and53retained vectors confirm ignored kind/restrictions and empty-location/global behavior. Inventory rows retain Kind but aggregates drop it, so require explicit provenance and keep scoring/public integration separate.
+
+Task1 [reconciliation](COGNITIVE_SKU_RECONCILIATION_20261017.md) records facts versus conservative proposed policies. Task2 freezes the concrete contract and independent expectations; task3 publishes runner/missing-API preparation before a bounded internal collector and full controls. [Workstream](COGNITIVE_SKU_WORKSTREAM_20261017.md) and CURRENT_STATE record recovery/authorization. No production, pinned source/capture/module/action/SDK/public-schema change, Azure operation, subagents, protected merge or release. Task1 publication/readback and own full native/source QA are pending; require all409/404control identities and23captures before proceeding. Independent review/backup/retention/broader rollback/live/release remain open.
+
+---
+
+# VMSS pure catalog diagnostic candidate, 2026-10-17
+
+Published runner b64e185478fd5230d5c9e93b56b1420311cdc752, tree d01e0f3e140f5a0c51f2a6ae73ade5ed54248d7c, parent verified PR153/ccfee397. Full five-file readback and human commit identity passed; frozen PR153 explicitly routes to draft PR154 while PR151/152 routes and all heads stay preserved. Quality39004558282/Linux-native117314255942 and Windows-native117314256030 show exactly the expected missing type/method compilation before production edits; red preparation is not product regression or acceptance. Retained8-member preparation bundle203483memberbytes/42417bundlebytes SHA2568b8525ff10a89502cffab90b3b8a5065e1351e298896e321362b6df39669a4df, bounded verifier passed.
+
+Implemented pure distinct VMSSCatalogEvidence and projection using existing strict validation/budget primitives, without changing the old collector/Evidence file or scoring. Added input occurrence/text accounting, source/target/scope binding, canonical/sanitized failures, unknown knowledge before unused output size, owned output and fixed limitation/not_assessed. All61unchanged scenarios and independent exact/one-over scope/group/required/label/work/input/output limits, late context, ownership/concurrency, malformed unrequired data and unsupported-score consumer pass locally. Region suite and focused vet pass. Added24compiling reversals to each conserved native inventory; corrected two test-isolation gaps as QA-VMSS-01/02 without production/oracle changes and retained failed transcripts. All24corrected compiling controls/restorations, focused preflight, new focused race tests,1410local links and8evidence-verifier groups passed. Own exact-head native/source QA is pending at this candidate snapshot; actual PR154 index owns outcomes. Require all385/380original identities plus24new,23captures/315chunks/909865bytes and full reviewed logs before completion. No Azure, refresh, public integration, subagents, protected merge or release. Independent backup/review and broader rollback/live/release obligations remain open. See [implementation record](VMSS_CATALOG_IMPLEMENTATION_20261017.md).
+
+---
+
+# VMSS catalog runner preparation, 2026-10-17
+
+Verified live PR153/ccfee397, tree24089ad9, parent0067731; draft/open/unmerged and protecteda6fee427 unchanged. Its complete native/source proof retained385/380controls and23captures; final evidence archive8ec04807 is storage only. Created isolated feat/vmss-catalog-diagnostics-20261017 from the verified code head, preserving all predecessor/local marker/unrelated work.
+
+Added strict explicit JSON wire types and unknown-field/trailing-JSON rejection for all61unchanged literal cases. Runner checks complete outputs, sanitized/canonical errors, input preservation, owned storage, exact getter URLs/counts/1MiB bounds and unchanged unsupported scoring after projection. Local preparation fails at absent VMSSCatalogEvidence/VMSSCatalog symbols only; no production code exists yet and no case pass is claimed. Publication/native preparation are pending at this snapshot. Inspect both actual native logs before implementation, then independent boundaries/reversals and full exact-head QA. Original fixture hash remains e09f3814ebc647265ea2aa7e8614e855ee24a96e4eefd4fa4897d7d739e881c0. See [implementation record](VMSS_CATALOG_IMPLEMENTATION_20261017.md). No Azure, refresh, subagents, protected merge or release.
+
+---
+
+# VMSS catalog-only contract and prior QA reconciliation, 2026-10-17
+
+Verified live PR152/0067731b73cef1f0a9e201b680c5c85fc38f6672, draft/unmerged; protecteda6fee427 unchanged. Its full native/source/probe proof and durable artifact7be2df394b99ec47d7e405326fcfffda2cfaec10 are complete; all385/380controls and23captures retained. Indexed later local Linux SARIF reversal/restoration and retained remaining operational/backup/independent/live/release obligations. The artifact branch is not a feature successor.
+
+The user authorized continued development with practical context economy while preserving QA/precision. Rechecked Microsoft FAQ, SKU restrictions and Resource SKUs2021-07-01; no source/dependency/API refresh. Defined distinct pure VMSS catalog diagnostics with explicit source/target binding, fixed limitation, not_assessed deployment and unchanged unsupported scoring. Froze61future cases (93385bytes SHA256e09f3814ebc647265ea2aa7e8614e855ee24a96e4eefd4fa4897d7d739e881c0) plus a byte-integrity test; these cases have NOT run against the absent API. No production collector/scoring/report/coordinator/schema change. The original67VM cases and all source captures are unchanged.
+
+Prepublication premise review corrected one invalid-name vector to use actual leading padding: internal ASCII spaces alone are allowed by the existing name contract. This is a fixture-authoring correction before freeze/publication, not a product defect or relaxed assertion. Updated current state, compact action register, README/region/roadmap and targeted-read guidance. Own full QA/readback remains pending; active PR owns actual outcomes. Next after contract verification: publish consuming runner/missing-API preparation, then bounded pure projection with independent boundary/reversal checks. Preserve existing heads, pins, no Azure/subagents/protected merge/release.
+
+---
+
+# Development controls implemented, 2026-10-17
+
+Pre-edit contract4032e7416d747262118c41a38682b7b9ce13327a was published/read back before the evidence-verifier implementation. Added bounded read-only verification with independent valid/tamper/inventory/path/JSON/expansion and actual CLI success/failure tests, plus committed real-bundle validation. Added required checks through the existing additive Linux/Windows native inventory and generator, without baseline replacement. The initial real-bundle test correctly failed while its planned file was absent; after generating the archive all8test groups passed, including checkout-byte preservation. No product failure is inferred.
+
+Retained44members of synthetic CI/local proof (526101-byte base64 gzip bundle) with per-member hashes and metadata, rollback commands and source/control reconstruction summaries. Added rollback runbook/change records and a bounded source/test logging assessment. Local Git reversal/restoration and synthetic mainline/dependency-conflict abort passed; production/native/installed rollback and global runtime correlation remain unproven. Repository-wide retention/off-repository backup remain open; failure artifact retention14days is observed. No private Azure data or product/public-schema change.
+
+Resolved a real continuity conflict: frozen bookmark PR151 cannot receive pointer commits while its head must be preserved. Use an explicit successor link in its live PR body after successor readback, and teach that route in current CONTINUE/CONTINUITY. Preserve original commit snapshots. Static/negative/real-bundle/doc validation and full own-head QA/readback outcomes belong in live PR152. No protected acceptance/release/live/independent-person proof. Next after verified controls checkpoint remains bounded VMSS catalog contract/independent expectations, scoring unsupported.
+
+---
+
+# Development-controls contract, 2026-10-17
+
+PR150 and PR151 exact-head native/source QA are complete and indexed separately in their live PR bodies. Full decoded logs and job/step metadata reviewed; direct predecessor control conservation is 385 Linux/380 Windows with no missing/extra/duplicate identities. Each source job reconstructed all23captures/315chunks/909865bytes against exact Git blobs and emitted hashes. Both draft heads and protected baseline remain unchanged. One module-only advisory stays open.
+
+The user authorized the planned controls work. Contract and action register now define evidence archival/verifier independent rejection cases, rollback, change tracking and bounded logging assessment. Existing pinned Go1.26.9 and PowerShell7.6.6 were found/verified in the historical local tool store, without refresh. A disposable local PR151 reversal/restoration matched exact trees and restored static preflight; synthetic mainline/conflict-abort also passed. No product/native/installed rollback or independent reviewer claim. Publish this pre-edit contract before implementing the new verifier. No Azure/pins/captures/dependencies/public-schema/protected changes. Own successor QA is pending; live task PR owns actual outcomes.
+
+---
+
+# Proactive continuity protocol, 2026-10-17
+
+The user requested reassessment and formalization of interruption recovery with a copy-ready prompt. Added stable CONTINUE/RESTART_PROMPT and a detailed CONTINUITY procedure; connected AGENTS, README, workflow and principal handover/QA/execution entrypoints. Kept CURRENT_STATE as the single active-state authority; historical handoffs/prompts remain historical. Defined safe-boundary, best-effort 20-30 active-minute checkpoints, uncertain-operation recovery, remote readback, successor routing, evidence retention and environment recreation. No automatic chat transfer, outage prediction, precise token threshold or zero-loss guarantee is claimed.
+
+Prepared on a separate successor branch docs/continuity-protocol-20261017 from PR150/4c1ddc0c5593afd175925e8d9a43a370d25c0757, preserving PR150 and all earlier heads. Explicitly named gate logic/check inventory for independent review and collection/partial failure/scoring/report/exit agreement for integration tests. Those obligations remain open. Product, CI executable files, pins/captures/dependencies/public schemas and protected baseline are unchanged. Local and own-head hosted QA/readback outcomes belong in the task PR evidence index; pending preparation is not verification. Next development remains PR150 outstanding QA, then bounded VMSS catalog contract/independent expectations with scoring unsupported. Rollback this task through a new task-owned revert, without resetting unrelated work or protected history.
+
+---
+
+# Verified safeguards and session handoff, 2026-10-17
+
+PR149/fcc153659d8e1333cf0a3c4741f2ba984890c9df completed all8workers/both protected-name gates, full source reconstruction and all3hosted gate-probe cases. Original385/380control identities are retained. No protected acceptance or independent human review is implied. The user requested a new-chat handoff; [CURRENT_STATE](CURRENT_STATE.md), [handoff](HANDOFF_20261017.md), prompt and relevant resume/procedure entrypoints now route to the final live evidence. VMSS catalog/deployment reconciliation is preserved as research only; unsupported scoring remains. The documentation-only successor has its own QA pending at publication. Complete it if still outstanding, then follow the bounded contract/expectation next action. Preserve unrelated work and all constraints.
+
+---
+
+# QA safeguards and continuity reconciliation, 2026-10-17
+
+Current authorization continues beyond the earlier tooling stop. PR148 completed exact-revision QA at 5a1e783 with all 385/380 original identities and full native/source gates; it remains draft/unmerged. Added hosted success/failure/skipped gate probes, strict outcome verification, additive CI check inventory and mandatory handoff-authority checks. Reconciled current versus historical status, offline verification versus protected acceptance and unavailable independent review. See [current state](CURRENT_STATE.md) and [safeguards assessment](QA_SAFEGUARDS_RECONCILIATION_20261017.md). Own-head hosted outcomes remain pending at publication; the task PR final body is authoritative. After verification, continue the separately bounded VMSS eligibility reconciliation without Azure or protected writes.
+
+---
+
+# Development process candidate, 2026-10-17
+
+Research completed before implementation; see [research record](DEVELOPMENT_WORKFLOW_RESEARCH_20261017.md). The user authorized process improvements preserving quality. Based on completed PR147/b5fd314, this candidate conserves all original native steps while isolating three control groups and one native worker per OS; strict always-running validators preserve the original protected check names. Added conservation/negative gate tests, uncached native test/coverage execution, developer preflight and compact [current state](CURRENT_STATE.md). Local workflow guards pass. Full own-head native/source results and measured elapsed/runner tradeoffs remain pending at publication; the task draft PR final body is authoritative. No product behavior, pin/module/schema, protected baseline or existing PR head changed. STOP after the tooling checkpoint.
+
+---
+
+QA-VM-03 refinement: the later-page caller cancellation/deadline cases now return a nonterminal getter error with HTTP500, independently isolating caller-context priority. Getter-terminal cases retain wrapped cancellation/deadline. This corrects test isolation only; no production or frozen-oracle change. Superseded 8d66bde evidence is historical; require full fresh native/source gates for the corrected test revision.
+
+## QA-VM-03: explicit terminal context after an admitted page
+
+Final coverage review added four direct later-page assertions: caller cancellation/deadline and wrapped getter cancellation/deadline, each after a successfully admitted nonempty first page. Exact first/continuation URLs,1MiB request bounds,two calls and nil-result/context-error priority over a second-page HTTP500 are asserted. The full region suite and repository vet pass after this addition. No production behavior change or failure was observed; this completes an explicit frozen-contract coverage obligation. Prevention: review first/later outcomes separately before declaring the test matrix complete.
+
+Production blob0fa5008b5fc24fcf4a9d0a96b72e1aeececdf0ac,32control helper,original runner/frozen67oracle/primary files and all earlier tests/limits remain unchanged. Local later-page full-region log69bytes SHA25641a1aadb95d27018ede9c90f0d49782f3b2f3f10dbd160d2505344e39cef981f; vet empty log SHA256e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855. Candidate721dd3c is superseded; its native38946081219/source38946080445 outcomes do not certify this added test head. Fresh complete own-head gates and final live PR147 index remain mandatory. STOP only at the completed collector checkpoint.
+
+# Current continuation authority: bounded VM collector candidate, 2026-10-16
+
+The user authorized implementation after completed PR146/37954dd. The internal VM catalog collector is locally implemented: all67unchanged frozen scenarios, primary integrity, supplemental limits/HTTP/context/ownership/projection/scoring tests and32compiling reversals/restored baselines passed. The complete region package and repository-wide vet passed. Read [the active collector record](REGION_VM_SKU_COLLECTOR_20261016.md), frozen contract and live draft [PR147](https://github.com/DeBoX85/Cloud-Assess/pull/147) for actual final head/tree/parent/preview and its own full QA. Full Linux/Windows/source gates are pending at publication; test-preparation failures and predecessor green do not certify this candidate.
+
+Continue this candidate's full exact-head QA, verify all353priorLinux+32VM=385 and348priorWindows+32VM=380control identities, full logs/packages/scans and complete pinned-source capture proof; finalize the PR evidence index, then STOP at the completed bounded VM collector checkpoint. No VMSS eligibility, required-kind coordinator or public execution in this slice. The next distinct contract after checkpoint evaluation is VMSS eligibility reconciliation from primary evidence; keep scoring unsupported while that contract is unresolved.
+
+PR141-147 remain draft/open/unmerged. Protected bootstrap/core-v1 stays a6fee427; accepted target adapters remain1/7, source characterization7/7. Frozen67-case manifest, first runner, four primary files and pre-edit contract remain unchanged; only the supplemental token-limit request builder was corrected as QA-VM-01. Preserve prior audit fixes/controls/source23captures/modules/pins/public schemas and all open roadmap/live/security/license/release obligations. No Azure operations, resource fixtures/RBAC, refresh, sub-agents, protected merge or release. Earlier missing-API/pending/branch/stop paragraphs below are history.
+
+---
+
+# Current continuation authority: bounded VM collector implementation, 2026-10-16
+
+The user authorized continuation after completed draft PR146/37954dd. Its own full Linux/Windows/source gates passed and the final evidence index remains in [PR146](https://github.com/DeBoX85/Cloud-Assess/pull/146). Continue the bounded VM catalog collector under the frozen [contract](REGION_VM_VMSS_SKU_CONTRACT_20261016.md); VMSS scoring remains unsupported. Read [the active collector record](REGION_VM_SKU_COLLECTOR_20261016.md) and the live draft implementation PR for actual current head and QA.
+
+This publication is test preparation: a runner consumes all67unchanged frozen scenarios and the four immutable primary files; the collector API is absent. Inspect the expected missing-API compilation on both mandatory native hosts before production edits. That failure is preparation, not product regression reproduction or acceptance. Then complete the already-authorized collector, independent boundaries/HTTP/context/ownership/projection tests and compiling reversals with restored baselines; require fresh complete corrected-head native/source evidence before STOP at the collector checkpoint.
+
+Keep prior PR141-146 draft/open/unmerged and protected bootstrap/core-v1 a6fee427 unchanged. Accepted target adapters remain1/7; source characterization7/7. Preserve the frozen67-case manifest/primary bytes, source23captures/pins/modules/public schemas, all353Linux/348Windows prior controls and audit corrections. No Azure operations, fixtures/RBAC, refresh, sub-agents, protected merge or release. Coordinator/public integration and VMSS eligibility remain outside this slice. Earlier pre-edit stop/branch/pending wording below is historical.
+
+---
+
+# Current continuation authority: VM/VMSS pre-edit contract, 2026-10-16
+
+The user requested all relevant handover/status updates and continuation to the next natural stopping point. [Storage collector completion](STORAGE_COLLECTOR_COMPLETION_20261016.md) and the [full PR145 evidence snapshot](STORAGE_COLLECTOR_PR145_EVIDENCE_20261016.md) now record its completed exact-head Linux/Windows/source proof. Do not rerun the completed Storage slice or treat the historical pending wording below as current.
+
+Active branch: docs/vm-vmss-contract-20261016, based on verified PR145 a14128bc94bf531dd1c28553db14d2be011b2214. Read [the VM/VMSS pre-edit contract](REGION_VM_VMSS_SKU_CONTRACT_20261016.md). This slice freezes primary Compute schema/examples and literal future expectations; it adds no VM collector, production change, new executable control or public integration. VM size catalog and VMSS deployment eligibility are explicitly separate; VMSS evidence remains unsupported in the first proposed collector. Future manifest scenarios have NOT executed against the absent API.
+
+This successor requires its OWN complete Linux/Windows/source gates. At publication these are pending; its live draft PR is the final exact-head commit/tree/parent/preview/log evidence index. Finish those gates, update that index, then STOP at the contract/expectation checkpoint before writing VM production code. A later implementation must first publish compiling tests consuming the frozen oracle and inspect the expected missing-API preparation; compilation failure is never a product pass.
+
+PR141-145 remain draft/open/unmerged at their recorded heads; protected bootstrap/core-v1 remains a6fee427e19feeef28691737ea9bc5026086efa0. Accepted target adapters remain 1/7; Storage is an unaccepted candidate, and this contract adds no accepted adapter. Source characterization remains 7/7. Preserve all audit corrections, 353 Linux / 348 Windows controls, original 23 source captures, pins/dependencies/public schemas and open roadmap/live/security/license/release obligations. No Azure operations, fixtures/RBAC, refresh, sub-agents, protected merge or release authorization. Earlier dated next actions and stop instructions below are historical unless their behavioral contracts remain applicable.
+
+---
+
+## Storage collector Windows QA correction, 2026-10-16
+
+Candidate `c2d5c5df48fa0e4939b5b3a3b7b67f9bd391ca8c` failed Windows native job `116989921866` in run `38906095075`: the new mutation helper decoded raw CRLF checkout bytes while its multiline anchors used LF. Six controls ran before `stage-physical` rejected the mismatched anchor. The helper restored the original source in its `finally` block. This is QA-ST-03, a control portability defect, not a product pass or frozen-oracle change. Full failed Windows log: 36,704 characters, 36,706 UTF-8 bytes, SHA256 `8bf7ffc77d1bcfdc47a788cf544e8189481f4141ad3feaf388df80aaa0380337`.
+
+Correction normalizes only the helper's in-memory anchor text to LF; exact original checkout bytes remain the restoration authority. Production collector, frozen71-case oracle, primary example and all25control assertions remain unchanged. All25controls passed locally with both LF and simulated CRLF, including exact CRLF restoration followed by original LF restoration; fresh complete Linux, Windows and source gates must pass on the corrected published head. Local logs: storage-controls-portable-lf.log: 2215 bytes, SHA256 `ceec94ce21e61bf5b791b65ed735599def5ba85e2df3cce8e2b5135f45fd4b4f`; storage-controls-portable-crlf.log: 2215 bytes, SHA256 `ceec94ce21e61bf5b791b65ed735599def5ba85e2df3cce8e2b5135f45fd4b4f`. The first CRLF launcher omitted the pinned Go PATH and stopped before testing; the corrected launcher completed all25controls. The live draft PR145 body remains the final exact-head evidence index. No protected merge or next-family implementation is authorized by this correction.
+
+# Current continuation authority: bounded Storage collector candidate, 2026-10-16
+
+The user authorized continuation after completed contract PR144/cd5d234. The bounded Storage collector is now implemented locally under the frozen contract; all71manifest scenarios, independent limits/lifecycle/cancellation/ownership cases,25compiling reversal/restoration controls and the complete local race/vet suites passed. The original71oracle, primary example and published preparation tests are unchanged. See [the active implementation record](REGION_STORAGE_SKU_COLLECTOR_20261016.md) and live draft PR145 for the actual final head/tree/parents and its own native/source outcome. Full candidate QA is pending at publication; earlier preparation/source passes do not certify this head.
+
+Continue the already-authorized exact-head QA if still pending, then STOP at the completed collector checkpoint before required-kind coordinator or public integration. After checkpoint evaluation, the next bounded development task is a VM/VMSS pre-edit contract against the pinned [Compute source observations](REGION_COMPUTE_SKU_SOURCE_20261013.md) and [target analysis](REGION_SKU_TARGET_ANALYSIS_20261013.md), with immutable primary examples and independent expectations before code. Do not activate region selection or skip remaining adapters.
+
+PR141/142/143/144 remain draft/unmerged at their verified heads; PR145 stays draft/unmerged and protected bootstrap/core-v1 stays a6fee427. Accepted target SKU adapters remain1/7; this is an unaccepted second-family candidate, not accepted2/7 or live proof. Source captures remain7/7. Retain all audit corrections/regressions, original captures, dependencies/pins and public schemas. No Azure operations, dependency refresh, sub-agents, protected merge or release approval.
+
+---
+
+# Current continuation authority: Storage collector implementation, 2026-10-16
+
+The user authorized the bounded collector slice after completed [PR144](https://github.com/DeBoX85/Cloud-Assess/pull/144), cd5d234. Read [the active implementation record](REGION_STORAGE_SKU_COLLECTOR_20261016.md), frozen contract and this branch's live draft PR. Current branch feat/storage-sku-collector-20261016. This checkpoint is test preparation only: all71frozen collector scenarios are consumed, but the proposed API is absent and the expected missing-symbol build failure is not a product pass. Publish/inspect both-host preparation, then continue the already-authorized bounded implementation, independent boundaries/controls and full exact-head QA. STOP after the collector checkpoint, before required-kind coordinator or public integration.
+
+Earlier contract stop instructions below are historical. PR141/142/143/144 remain draft/unmerged at their verified heads; protected a6fee427 is unchanged. Retain all audit fixes/regressions, original captures and source/dependency/public-schema pins. No Azure operation, fixture/RBAC change, dependency refresh, protected merge, sub-agents or release approval.
+
+---
+
+## QA-SC-01: generated attribution correction
+
+Initial contract head `15422be7e60326832040ad233fd6d53d17315fbb` failed native run38875550761/Linux116889620954 at the unchanged dependency/license freshness check: docs/dependencies/NOTICES.md was stale after the new NOTICE.md attribution. Formatting and preceding controls passed; subsequent skipped checks are not passes. Full returned failed log53127characters, SHA256`06ebc37225dfd10c7f79d2b26840021d6f2edb7186c62c3aab01b42bec94b4a1`. Source38875550677/job116889619866 passed separately on that initial head, not the correction.
+
+Correction replaces exactly the generated NOTICE.md section with its new complete text and SHA256, following the unchanged generator's section construction; every other generated-notice byte and inventory.json/module/pin/capture byte remains unchanged. This is required attribution synchronization for the new primary fixture, not a dependency refresh or check relaxation. Fresh full exact-head native/source QA is required. Prevent recurrence by synchronizing generated attribution whenever a root license/notice input changes. The failed candidate and logs remain in history.
+
+---
+
+# Current continuation authority: Storage pre-edit contract, 2026-10-16
+
+The user authorized the next bounded slice after completed reconciliation [PR143](https://github.com/DeBoX85/Cloud-Assess/pull/143), head `8e482c8d7c3a3b438ad4688be1a9718c5880a85a`. That integration's own Linux/Windows/source QA is complete. This successor defines [the Storage contract](REGION_STORAGE_SKU_CONTRACT_20261016.md), preserves an immutable primary example/license, adds71literal future collector scenarios and three executable tests of the existing availability consumer. No Storage collector, required-kind coordinator or public execution is implemented.
+
+Active proposal branch: `docs/storage-sku-contract-20261016`. This successor's own full exact-head QA is pending at publication; read its live draft PR for the final commit/tree/parents, preview, logs and actual outcome. After publication/readback and full QA, STOP at the contract/expectation checkpoint before implementing the proposed API. The next implementation slice must publish compiling tests consuming the frozen manifest before production edits; a missing-API compilation failure is test preparation, never a product pass. Do not claim the71collector scenarios have executed.
+
+PR141/142/143 stay draft/unmerged at their existing heads; protected bootstrap/core-v1 remains `a6fee427e19feeef28691737ea9bc5026086efa0`. Audit corrections and regressions are retained. No Azure operations, source capture/pin/module/SDK/public-schema refresh, protected merge, sub-agents or release approval. Prior status and stop instructions below are historical; preserve their evidence and behavioral contracts unless explicitly superseded.
+
+---
+
+# Current continuation authority: audit and Storage reconciliation, 2026-10-16
+
+The user authorized continuation to the next natural stopping point after reviewing the completed audit. This checkpoint reconciles the audited code with PR141's Storage analysis; it does not implement Storage or accept a protected merge. Read [the reconciliation record](AUDIT_STORAGE_RECONCILIATION_20261016.md) and this branch's live draft PR for its exact head and own QA outcome. PR142 remains the completed, draft/unmerged audit at `1c6c479341ee3d272bf0a93b539f2421d00f09a2`; its native/source evidence is complete, not pending. Protected `bootstrap/core-v1` remains `a6fee427e19feeef28691737ea9bc5026086efa0`.
+
+This successor has separate mandatory QA, pending at publication. Verify its own final PR evidence before claiming it passed; do not transfer PR142's results. After complete publication/readback and exact-head QA, STOP at the integration checkpoint for evaluation before starting the Storage contract/independent-expectation slice. No collector code, protected merge, Azure operation, dependency/pin/capture/schema refresh, sub-agents or release approval is authorized by this checkpoint. Earlier status and next-action paragraphs below are historical; retain their behavioral contracts and evidence unless explicitly superseded.
+
+---
+
+# Current audit recovery authority, 2026-10-16
+
+The Section 4 review and SR-F12 correction are prepared. Their exact-head QA is pending at publication; read [the active report](SYSTEMATIC_REVIEW_SECTION4_20261016.md), [final assessment](SYSTEMATIC_REVIEW_FINAL_ASSESSMENT_20261016.md) and [PR142 evidence index](https://github.com/DeBoX85/Cloud-Assess/pull/142) for actual final head/results. Do not replay completed fixes. Finish this checkpoint's QA if pending, then stop for final audit re-evaluation. PR142 stays draft/unmerged; protected a6fee427, pins/captures/dependencies/schema remain unchanged. No Azure operations, refreshes or sub-agents. Feature work resumes at draft PR141 Storage contract/tests only after audit disposition. Earlier dated status/next-action paragraphs are history; behavioral contracts remain active unless explicitly corrected.
+
+---
+
+# Section 4 SR-F12 pre-edit checkpoint, 2026-10-16
+
+Continue the authorized Section4 review. Live entry c8a15c7984d61cb9a20f777767aa5a3c5a430b34/tree1600a692d57a8cf970ec6998a21ad48784d99f38 and protected a6fee427 were verified. The recovered local3aefcaa has the identical entry tree but different commit metadata; it was preserved unchanged, and a fresh genuine-ancestry worktree was created at the live head. PR142 is draft/unmerged.
+
+SR-F12 conflicting duplicate equivalence rows are reproduced locally and UNFIXED. The independent literal real-command regression and pre-edit correction/rollback contract are in [the active Section4 report](SYSTEMATIC_REVIEW_SECTION4_20261016.md). This test-only checkpoint deliberately retains the faulty production; inspect both native hosts' compiling failures before correcting. All nine conflict assertions fail locally; identical normalized duplicate and resource-type aggregation controls pass. No earlier green certifies this changed head.
+
+NEXT: obtain/inspect native reproduction; apply only the published private duplicate conflict guard, retain original regression, add a compiling reversal/restoration control in both native jobs, finish scripts/workflows/provenance/docs reconciliation and full corrected exact-head QA. Section4 is incomplete. No sub-agents, Azure operations, dependency/pin/capture/schema refresh, protected merge or release approval. After final audit disposition, development resumes Storage contract/tests in draftPR141, not a new region implementation.
+
+---
+
+# Section3 corrective checkpoint and STOP rule, 2026-10-16
+
+All94 baseline Go files (43production/51tests), both added regressions and all15Section3package contracts/integration boundaries are reviewed. [Active report](SYSTEMATIC_REVIEW_SECTION3_20261015.md), [contract map](SYSTEMATIC_REVIEW_SECTION3_CONTRACTS_20261016.md) and [failure notes](FAILURE_NOTES.md) retain findings, full reproduction/log hashes, fixes and rollback. SR-F10 is fixed in7384439 with complete earlier native/source proof. SR-F11 is corrected in this checkpoint after both-host compiling reproduction at b82de398; its regression expectations are unchanged and both compiling reversal/restoration controls pass locally. Parent for this correction is b82de3982c1bdec21a0a50bcbfa21a2a2aa08069.
+
+Own exact-head nativeLinux/Windows/source gates are initially pending AT PUBLICATION. The top current [PR142 evidence index](https://github.com/DeBoX85/Cloud-Assess/pull/142) supplies the actual commit/tree/parent/tested-preview/runs/full-log hashes and verified final disposition, per QA_PROCESS's rule avoiding a documentation/CI loop. Do not transfer an earlier pass. After full proof, the checkpoint is3/4audit sections and37/41package directories by unweighted count, not project completion or defect-free certification.
+
+RESUME: verify actual live refs and this checkpoint's own gates; finish corrective QA only if still pending, then STOP for the user's re-evaluation BEFORE Section4. Do not republish/replay completed corrections, spawn sub-agents, start Section4/features, mark ready or merge. PR142 stays draft/unmerged; protected bootstrap/core-v1 remains a6fee427e19feeef28691737ea9bc5026086efa0. All pins/captures/schema/dependencies stay unchanged (AZQR8e4f0577/tree17d93b20, APRL60eaddda, Go1.26.9/x-net0.60.0). No Azure operations or dependency refresh.
+
+Public region remains unavailable; source SKU coverage7/7 is distinct from accepted target1/7. Storage PR141/other adapters/FullCost/coordinator/AR-02/load/live/freshOS/module-only advisory/human/license/security/Gate004/release remain open. No protected acceptance/push or independent-person review is claimed. Earlier estimates/status/resume instructions below are historical.
+
+---
+
+## Historical records below
+
+# SR-F10 full corrective QA and SR-F11 published reproduction, 2026-10-16
+
+SR-F10 correction7384439c4058feb8c3f7a2241a6b1a8e45950163/tree434f498ee2668cfb80e61687fe01a1a50ae0d372/parent e9dd8d182054a768ff6ab65a91072f7fc11f5615 completed native38837602499 SUCCESS on Linux116770101098 and Windows116770100656; source38837602502/job116770100933 also SUCCESS. Every mandatory step passed; only conditional Linux failure-evidence upload skipped. All326Linux and321Windows named controls contain every previous325/320 identity plus exactly the SARIF compiling reversal/restoration control. Both native full Go suites, Linux race85.2%coverage/five bounded fuzz/vet, actual CLI/default+custom packages/isolated install/branding/PowerShell/docs/provenance/inventory and scans passed. Both scans report0reachable/0imported-package/1module-only advisory; the last remains open.
+
+Full exact returned log hashes: Linux102675characters/102679UTF8bytes SHA256309ed6c59f0c4b23fc5c1d8d6fee1d16de3936b70f2cabe61b25e928e9d88d76; Windows84106/84108 SHA2561d154ea37adc6d414f18d43da1eb8010672515939122ca17df3f1298f27f5350; source1359863/1359939 SHA256073baad731d40ce0d768ba04f98fd484853b7433c339f593911a993599efdc35.23captures/315unique contiguous chunks independently reconstructed/hashed/byte-matched plus all23fresh published files909865bytes independently fetched/matched. Pinned source/tree/APRL and tested preview5e6970718289fe0e25b2b7a28467510535776a10 exact fix tree and ordered protected-base/fix parents verified. No build/race/error marker in completed corrective logs.
+
+Current published reproduction head is b82de3982c1bdec21a0a50bcbfa21a2a2aa08069/tree1f93508d21ccc8841476967231c17a7e52ca82b0/parent7384439. Full six-file readback/independent local tree/Denis author+committer and expected-ref publication verified. PR142 remains draft/unmerged; protected base remains a6fee427. It adds independent zone regression and pre-edit contract with production zone unchanged. SR-F11 remains UNFIXED; both-host compiling reproduction is pending. Prior SARIF green is not this changed head acceptance.
+
+All94 baseline Go initial reads and15-package contract/integration reconciliation are now recorded in [contract map](SYSTEMATIC_REVIEW_SECTION3_CONTRACTS_20261016.md). No final Section3package/section credit until SR-F11 corrected full QA. NEXT: inspect this exact reproduction head native failures, apply isolated decoder-equivalent zone guard/control under the already published contract, verify full corrected Linux/Windows/source gates and publish the completed Section3 stopping checkpoint. STOP before Section4 for user reevaluation. No Azure, dependency/pin/capture/schema change.
+
+---
+
+# Section 3 continuation: SR-F11 reproduction and pre-edit correction contract, 2026-10-16
+
+Current published correction head is 7384439c4058feb8c3f7a2241a6b1a8e45950163, tree434f498ee2668cfb80e61687fe01a1a50ae0d372, parent e9dd8d182054a768ff6ab65a91072f7fc11f5615. All eight published changed files were independently read back and blob/tree/parent/Denis identity matched. PR142 remains draft/unmerged; protected bootstrap/core-v1 remains a6fee427e19feeef28691737ea9bc5026086efa0. SR-F10 fixed locally and both-host compiling reversal/restoration controls passed; full native38837602499 remains pending, source38837602502 succeeded separately. Full log/capture reconciliation is still required.
+
+All remaining52 baseline Go files have now received complete initial reads: AI10 and region42, including all1961 lines of other_sku_capture_test.go. Thus initial reads cover94/94 baseline files, plus added regressions; this is not final package or Section3 acceptance. Contract/data/integration reconciliation remains active. The baseline manifest below preserves exact entry blobs and reading history. Region source-only seven-family captures do not certify more than the accepted one target disk adapter; public region execution remains unavailable.
+
+## SR-F11: zone Unicode-fold duplicate keys, P2, REPRODUCED and UNFIXED
+
+The documented ZONE_MAPPING.md contract rejects duplicate JSON keys including case variants, while allowing unknown additional properties. Zone validateJSON uses strings.ToLower; pinned Go1.26.9 encoding/json fold.go/decode.go use Unicode SimpleFold equivalence for struct-field matching. Distinct spellings physicalZone/phyſicalZone and availabilityZoneMappings/availabilityZoneMappingſ pass the zone guard but the decoder accepts the second alias and overwrites the first value. Literal independent cases demonstrate a forged physical zone or a healthy empty mapping list. A nested unknown Σ/ς duplicate also escapes the declared duplicate-key guard. This is a target safety-guard defect, not a reason to modify the pinned source or captures.
+
+Independent regression internal/plugins/zone/unicode_key_test.go requires zero admitted rows and the exact zone_invalid_response failure for each duplicate. Unique unknown Unicode metadata remains accepted with all original rows. Kelvin nextLinK is already rejected by the existing guard and remains a passing control; no continuation-erasure defect is claimed. Local Windows Go1.26.9 compiles and reproduces three named assertion failures. Both-host reproduction is pending.
+
+BEFORE production edits: replace only the private zone duplicate-key equivalence with the same minimum Unicode SimpleFold orbit used by pinned encoding/json, preserving original API fields, Unicode metadata acceptance, source rows, pagination, prefix retention, cancellation, row/byte/depth/worker limits and sanitized failures. No shared JSON refactor. Keep all independent expectations. Add a compiling control that restores strings.ToLower at this one guard, requires the named Unicode assertion failure, restores exact bytes and requires the clean baseline, in both existing native Section3 jobs. Review carbon/AI/region siblings: carbon/AI reject noncanonical known fields via EqualFold, and regional JSON guards already use SimpleFold; no equivalent overwrite reproduced there.
+
+Correction acceptance requires independent duplicate/unique controls, complete zone tests, both native compiling controls, full corrected exact-head Linux/Windows/source QA with fresh retained-capture byte/hash proof, and unchanged pins/dependencies/schema. Isolate production correction after this regression/contract checkpoint. Rollback is an ordinary targeted revert after checking helper-anchor successors; preserving the independent regression intentionally restores red. Do not delete failing expectations or force/reset history.
+
+Local Section3 package trial passed14 packages but reportfile failed because PowerShell was initially absent from PATH; a corrected-PATH focused trial then failed Set-Acl due to executor SeSecurityPrivilege. This restricted local environment does not establish a Windows ACL product defect or a full local suite pass. Native Windows reportfile QA remains mandatory; no ACL expectation is relaxed.
+
+NEXT: complete SR-F10 full-log QA, publish/read back this regression/contract, obtain both-host SR-F11 reproduction, apply isolated correction and control, finish contract reconciliation and corrective full QA. Stop at completed Section3 for user reevaluation before Section4. No Azure operations or dependency/pin/capture refresh.
+
+---
+
+# Section 3 resumed: SR-F10 correction candidate, 2026-10-16
+
+Live PR142/task ref verified at e9dd8d182054a768ff6ab65a91072f7fc11f5615; protected bootstrap/core-v1 remains a6fee427e19feeef28691737ea9bc5026086efa0. PR142 remains draft/unmerged. The four requested handover documents and root AGENTS.md were read. This entry supersedes the earlier unfixed/paused resume paragraphs; historical evidence is retained.
+
+SR-F10 production correction now passes local Windows Go1.26.9 regression and full SARIF package tests. Results use the published descriptor ID through the private builder argument. Canonical IDs, dedup keys, resource identities and fingerprint code are unchanged; the original regression file/expectations are byte-identical to e9dd8d1. scripts/tests/section3-regressions.py deliberately restores the old result-ID expression, requires a compiling named assertion failure, restores exact production bytes and requires the clean test to pass. Both native jobs now run this control. These are LOCAL corrective results only; full exact-head Linux/Windows/source acceptance is pending. Section3 remains incomplete; no package receives final credit.
+
+Fresh handoff-head native38835324513 failed only the two declared mixed-case assertions after compilation on Linux116763053490 and Windows116763053350; no build-failure or race-warning marker appeared in complete returned logs. Source38835324499 succeeded separately. Later native steps skipped are not credited.
+
+Recovery: current short-path workspace C:/workspace/ca3-20261016/repo was reconstructed from the exact e9dd8d1 archive. All773 tracked file blobs matched before edits; reconstructed Git tree fbfdf3dcb71d997518d53c2da195a497e7265ee2 matched. Its local root commit is a reconstruction marker, not remote ancestry. Go1.26.9 official Windows archive SHA256 d722201a9c0c086d1610e111c48203009af690892ed708072bd5ae20160e7a59 was verified. Shell Git networking failed, but direct fetch and authenticated GitHub publication work. APRL archive extraction first hit Windows path length; same pinned archive re-extracted to the short path. Pinned module downloads do not refresh go.mod/go.sum. None of these setup events is a product finding.
+
+Parent for this isolated correction: e9dd8d182054a768ff6ab65a91072f7fc11f5615. Identify its resulting commit/tree from live PR142 and read-back before resuming. Rollback is an ordinary targeted revert of the production/helper/workflow changes together, after dependency review; that intentionally restores the known red original regression, whose expectations must not be removed. No protected reset, pin/capture/schema/dependency change or Azure action.
+
+NEXT: inspect fresh exact-head native/source controls and full outcomes; finish AI/region complete reads plus all94-file contract/data/integration reconciliation, independently fix any substantiated finding, obtain complete corrective QA and publish the completed Section3checkpoint. STOP before Section4 for the user.
+
+Local log bytes and SHA256:
+
+- sarif-baseline-proxy: 785 bytes, 42617cc4fcfac2dfbcaf6cb9ba57b31571af5be569b62d6f901d64f9b2b48935
+- section3-control: 93 bytes, 732e82dba98a06831cc2db36a587f640066ddc8d64cdacf99c55382425bf7c10
+- sarif-suite: 69 bytes, 965b4edb6305ea551f55e400142cec634cce87998840ef0b7ce5122b8e58af8b
+
+---
+
+# Current handover authority — 2026-10-16
+
+Read [handover checkpoint](HANDOVER_CHECKPOINT_20261016.md), [restart prompt](NEW_CHAT_PROMPT_20261016.md) and [Section 3 active report](SYSTEMATIC_REVIEW_SECTION3_20261015.md) first. This entry supersedes earlier current-state, pause and next-action paragraphs below; historical contracts, failures and evidence remain preserved.
+
+The user requested a new-conversation handoff during Section 3. Audit Sections 1–2 are complete; Section 3 is incomplete, with 42/94 baseline Go files initially read and no Section 3 package finally verified. Audit counts remain **2/4 sections (50%), 22/41 package directories (53.7%)**; neither measures weighted overall project completion. Section 3 has 15 packages/94 baseline Go files (43 production,51 tests), plus one added SARIF regression. AI governance10Go files and region42Go files remain, alongside contract/data/architecture reconciliation across the initial reads.
+
+Verified code/test head `b293e9533b06667d15b5e7efb6a20b39a9ea8427`, tree `71a1adb10c20ac23b0a55bd361c88b2204a2b048`, is draft/unmerged in [PR142](https://github.com/DeBoX85/Cloud-Assess/pull/142). Protected `bootstrap/core-v1` stays `a6fee427e19feeef28691737ea9bc5026086efa0`. **SR-F10 is reproduced and UNFIXED**: SARIF mixed-case result IDs do not match their published rule descriptors. Formatted regression-only native38829684903 fails the declared two assertions on BOTH Linux116745335663 and Windows116745335627 after compilation; Linux formatting passes and no race warning was observed. Source38829684879 succeeds separately. Red is reproduction, never acceptance. Earlier ed30ef4 Linux formatting failure is QA-S3-01 and is corrected in b293e95; do not repeat it.
+
+NEXT: verify live refs/PR142 and actual files; implement the documented isolated SR-F10 correction without mutating canonical IDs or fingerprints, add compiling reversal/restoration control to both required jobs, complete ALL remaining Section 3 source/test/contract review, fix substantiated findings, obtain full corrected exact-head Linux/Windows/source QA, then publish the Section 3 checkpoint and STOP for re-evaluation before Section 4. Continuation of Section 3 is already authorized. Do not start Section 4, merge protected history, repeat Sections 1–2 or resume feature development as part of this handoff.
+
+Remaining estimate: Section 3 **5–8 active hours**, Section 4 **2–4 active hours**, plus material fixes/repeat QA. This replaces the earlier optimistic6–11hour combined estimate; it is not a wall-clock completion promise. Overall project percentage/release ETA are unverified. After the FULL audit resume Storage contract/tests on draft [PR141](https://github.com/DeBoX85/Cloud-Assess/pull/141), then remaining adapters/integration. Source captures7/7, accepted target SKU adapters1/7, public region unavailable. FullCost/other parity, AR-02/load, live/fresh OS, module-only advisory disposition, human/license/security/Gate004/release remain open. No Azure access/write, fixture/RBAC change, dependency/pin/capture/schema update or production-scope substitution is authorized by this handoff.
+
+This documentation successor changes no Go/Python/workflow/data. Its new checks are separate and initially pending; the known unfixed regression can keep native CI red. Inspect live PR142 for the actual documentation head/results. Earlier passing code evidence must not be transferred to a failing/changed head.
+
+---
+
+## Historical record below
+
+# Section 3 material finding checkpoint, 2026-10-15
+
+SR-F10 SARIF mixed-case descriptor-reference defect is confirmed by two compiling local failures with a passing same-case control; correction is documented before production edits in [active report](SYSTEMATIC_REVIEW_SECTION3_20261015.md). No Section3 production fix or completion yet. Baseline local race tests passed all15packages. The new regression is intentionally failing on unchanged production; pending/failing CI is reproduction evidence only, never acceptance. Continue remaining full review and source contracts, apply isolated fixes and obtain full corrected exact-head native/source QA; stop before Section4. Audit remains2/4sections and22/41packages finally verified, PR142 draft/unmerged. No Azure/pin/dependency changes. See report for exact log hashes, source/OASIS contract and rollback requirements.
+
+---
+
+# Section 3 authorized and in progress, 2026-10-15
+
+The user authorized continuation at 05:04 Europe/Oslo. Complete the full Section 3 module review, independent reproduction/primary-source checks, isolated fixes and full corrective QA; stop for re-evaluation before Section 4. Earlier stop instructions below are historical.
+
+Entry head `798d7be21e393f1e85503303e3d8eb83d311913d` is draft/unmerged in [PR142](https://github.com/DeBoX85/Cloud-Assess/pull/142). Its native38652456544 and source38652456593 now completed/success on that exact head (fresh run/job metadata; full log reconciliation follows). Protected baseline stays `a6fee427e19feeef28691737ea9bc5026086efa0`. Audit remains **2/4 complete (50% by section count), 22/41 package directories (53.7% by count)**; Section 3 is not complete. These are unweighted audit counts, not project completion.
+
+Section 3 inventory: **15 package directories, 94 Go files (43 production/51 tests), 24439 lines including tests**. All local files independently Git-blob checked against the exact entry commit. Read the [active Section 3 report](SYSTEMATIC_REVIEW_SECTION3_20261015.md) for file-level coverage, findings, fixes, QA and rollback. Source pins/captures/dependencies/schema are unchanged; no Azure action or laptop access assumed.
+
+NEXT: complete report/privacy/branding and plugin contracts, then small adapters, AI governance and region calculations/collectors, including all tests. Independently substantiate suspected defects before production changes, keep compatibility limits explicit, publish coherent code/notes checkpoints and read them back. Require full corrective Linux/Windows/source QA; remain unmerged and stop before Section 4.
+
+After the FULL audit resume Storage contract/tests and remaining region adapters/integration. Source captures7/7, accepted target adapters1/7, public region unavailable. FullCost/other parity, AR-02/load, live/fresh OS, module-only advisory disposition, human/license/security/Gate004/release remain. Prior remaining-audit budget6–11active hours plus substantial fixes/repeat QA; weighted overall progress and release ETA unverified. Do not replay completed Sections 1–2 or begin feature work during this audit.
+
+---
+
+## Historical records below — superseded resume instructions
+
+# Section 2 stopping checkpoint, review started 2026-10-14
+
+Section 2 source/test review and corrective code QA are complete on `1c5d300ce2f726a36b0bc4e3eac09fc82588f337`, tree `a8147abfea11cbcd21151be447e51347c331a0bc`. This documentation-only successor records that verified code evidence and the user's planned re-evaluation stop. It does not inherit exact-head workflow acceptance. PR142 remains draft/unmerged; protected accepted baseline stays `a6fee427e19feeef28691737ea9bc5026086efa0`.
+
+Coverage: all 13 Section 2 package directories, 51 baseline Go files (25 production/26 tests), six added tests inside the section and one coordinator integration test in Section 1. Whole audit: **2/4 sections complete (50% by section count)**, **22/41 package directories reviewed (53.7% by directory count)**. These are unweighted review counts, not overall project completion or defect-free certification. Current repository: 260 Go files and 48 Python files; the original inventory remains traceable.
+
+Six baseline P2 finding groups (SR-F04–SR-F09) were reproduced after compilation on both hosts and corrected in isolated commits. Seven compiling/restoration controls and the final-Cost coordinator regression passed. Introduced QA-S2-01 (Cost local-name collision) failed candidate 7ce5on both hosts and was corrected in 4284; it was never accepted. Earlier automated no-major-issues feedback did not override that failure. Exact heads, parents, logs/hashes, fixture correction, source contracts and rollback dependencies are in the [Section 2 report](SYSTEMATIC_REVIEW_SECTION2_20261014.md) and [journal](SYSTEMATIC_REVIEW_CHANGELOG_20261014.md).
+
+NEXT: stop for the user's re-evaluation. On authorized continuation, start Section 3's 15 plugin/reporting/platform packages; Section 4's four Go directories and all remaining tooling/delivery/data/provenance/docs follow. Do not replay completed fixes. Inspect live PR142/task/protected refs and any documentation-successor checks before a merge; no accepted-push proof exists for the unmerged audit. A new chat should read this current record and the current reports, then validate actual run heads/results.
+
+Remaining audit estimate: **6–11 active review hours**, plus substantial findings and repeated QA. Overall weighted project progress and release ETA remain unverified. Source-compatible Arc SQL numeric decoding, core business-row/volume constraints and other residuals are explicitly recorded; review completion does not close them silently.
+
+Project state remains: accepted region target adapters 1/7 (14.3% of that specific scope), source captures7/7, public region unavailable. Six adapters, coordinator/public region, FullCost/other parity, AR-02/load, live/fresh OS, module-only advisory disposition, human/license/security/Gate004 and release remain. After the entire audit, resume Storage contract/tests and remaining adapter/integration work; PR141 retains draft Storage analysis. Laptop/Azure restoration is unconfirmed. No Azure action or source pin/capture/dependency/schema/KQL change occurred.
+
+Normal targeted revert commits must account for dependent helpers and tests, especially shared Diagnostics/Cost edits and the later HTTP variable correction. Do not reset protected history or rewrite retained source fixtures. Scratch and tool stores can disappear; the repository history is the recovery record.
+
+## Verified code-head QA evidence
+
+All evidence below targets `1c5d300ce2f726a36b0bc4e3eac09fc82588f337`, tree `a8147abfea11cbcd21151be447e51347c331a0bc`. The eventual documentation successor has separate checks and must not be treated as exact-head accepted by these results.
+
+Native run [38649413582](https://github.com/DeBoX85/Cloud-Assess/actions/runs/38649413582). Linux job 116144226683 completed successfully with 62 steps: 61 successful and the conditional failure-evidence step appropriately skipped. Race tests, 85.2% total statement coverage, bounded fuzzing, vet, builds/smoke tests, installation/package checks and all compiling controls passed. Its 325 control identities contain every previous 318 identity plus exactly seven Section 2 controls. Identity comparison removes only log timestamps and terminal CR; hashes preserve the complete returned UTF-8 content.
+
+Source run [38649413551](https://github.com/DeBoX85/Cloud-Assess/actions/runs/38649413551), job 116144226354, completed successfully. All 23 captures/315 chunks were reconstructed, index/count/duplicate/chunk hashes and Git blobs independently checked, and all 23 fresh candidate files matched. AZQR `8e4f0577f3615e6c9014c031bcad079f235369cc`, tree `17d93b20c303f90f7843036be82f0dc32f3260f1`, and APRL `60eaddda76541f6adbc1c5ffa686829807e55e29` remain unchanged.
+
+Windows job 116144227611 completed successfully, all 47 steps. Native Windows Go tests, CLI/preflight, PowerShell 5.1 checks, builds/smoke, branding, package/isolated-install and all compiling controls passed. Its 320 identities contain all previous 313 identities plus exactly the same seven Section 2 controls. Overall native run completed/success at the stated code head. Both fresh vulnerability scans report 0 reachable, 0 imported-package and 1 module-only advisory; that advisory remains open.
+
+| Exact returned log | Job | Characters | UTF-8 bytes | SHA-256 |
+| --- | ---: | ---: | ---: | --- |
+| Linux | 116144226683 | 101775 | 101779 | `3c1af7d4e581c77bead3bcfc8acd0822b8067d88017056ca3647490c59f6f9e6` |
+| Windows | 116144227611 | 82321 | 82323 | `ab0dc13c5f79a81d5fd7d7fdb465fbcc79a66f0429c5a7a7dadc3590d6b57aa8` |
+| Source captures | 116144226354 | 1359878 | 1359954 | `b6c80e8f7169a0188f9c0b147929b14282cd0391a053135f9a9be32bdff0ca1f` |
+
+This evidence closes corrective code QA for Section 2. It does not merge PR142, provide protected accepted-push proof, close release/live gates or accept an unverified documentation-successor head. CI triggered by this documentation checkpoint is separately pending at publication; inspect live PR142/checks for its later outcome. No code, source captures, dependency versions, query/schema or workflow settings change in this checkpoint.
+
+---
+
+## Historical records below — superseded progress and resume actions
+
+The checkpoint above is current authority. Earlier in-progress/failed/pending snapshots below are retained for audit and rollback history, not instructions to replay completed work. The module/file inventory tables are reconciled to the completed checkpoints; baseline blob identities remain unchanged.
+
+# Section 2 CI envelope correction in progress
+
+This is current recovery authority. Code head4284ffeccc4bfd7c2bf7e257311b310937a29226 is still unaccepted: native38646061400 Linux116133085260 was canceled after1213seconds (22:13:01–22:33:14UTC), with timeout-minutes20 configured. Task head stayed4284and no newer workflow superseded it. This timing and GitHub's documented job timeout behavior support a CI-envelope timeout classification, not a product assertion failure. Check-run annotations are unavailable through the connector's allowed Fetch endpoints, so the cause is inferred from configuration, elapsed time and complete logs.
+
+All325Linux control identities were present, including all318previous ones; race/coverage/fuzz/vet passed and govulncheck printed0reachable/0imported-package/1module-only advisory before cancellation. The canceled gate is not accepted. Returned full log102984characters/102988UTF-8 bytes, SHA-256b436bbeef0e848451675682bddca340063e37f3039bed6e713dc701cd9f86079. Windows116133085006 completed/success with all47steps. Complete returned log83777characters/83779UTF-8 bytes SHA-25612dd4081a0f592ef20d511ed01c9947e041fde9d64ea6b13da85ffbb2f62e5e4; all320control identities were present, with all313previous ones retained. Its complete scan reported0reachable/0imported-package/1module-only advisory. This successful job does not override the canceled Linux job or accept the overall run.
+
+QA-S2-02 correction: increase only the bounded Linux job envelope from20to25minutes for the added controls/full-suite runtime. Retain every required test, control identity, coverage floor, individual Go/Python/fuzz timeout, pins, source checks, permissions and failure propagation. Windows remains30minutes. This changes CI execution allowance, not application timeouts or product/load acceptance criteria. Primary guidance:
+https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idtimeout-minutes
+
+The earlier7ce5compile defect was corrected in4284; its HTTP and decoded Cost response locals are now distinct. Both hosts' seven new controls and ordinary full Go suites passed, and source38646061358/23captures/315chunks matched fresh retained bytes/pins; automated review4284reported no major issues. These partial results do not turn a canceled native run into acceptance.
+
+NEXT: inspect complete native38649413582/source38649413551 and review on the already published candidate1c5d300ce2f726a36b0bc4e3eac09fc82588f337. The workflow-envelope change and preceding Windows outcome are already recorded. Continue with this candidate's actual-head verification, then save Section2checkpoint and stop for user re-evaluation. Section2is not complete yet; Section3has not started. PR142 stays draft/unmerged, protectedbaselinea6fee427unchanged, no Azure action or dependency/source-capture/pin change.
+
+---
+
+# Section 2 QA correction: Cost local response name, 2026-10-14 UTC
+
+Superseded candidate7ce5cf2273edc6e95183ad3a8eabfa9fe6a11c38 FAILED native38645472872 on both hosts at the Section2control healthy Cost baseline. The new HTTP response local collided with the existing decoded queryResult local. This is QA-S2-01, an introduced compile defect, not an expected compiling mutation rejection or one of the baseline product findings. No passing acceptance is claimed.
+
+Full returned Linux116131114362 log32401characters SHA-256e1b2405ac4e98a4345c38927190217527a3e718a1f5c3ab8a69e37ac9eb7f363; Windows116131113918 log32221characters SHA-256de5bc2f083ffe07634230daf35c3a7a80b6f25213fdd3e72833c57ca5bd53781. First two Section2controls passed/restored on both; later controls and full QA were not reached. Source38645472929 passed separately, with23captures/315chunks verified against retained baseline blobs; it does not clear native failure.
+
+Correction: rename only the HTTP local to httpResponse, retain decoded response, and update the exact Cost-status mutation anchor. Fresh full candidate QA and exact-head review are required. Read live PR142/current refs for actual successor; do not transfer previous results. The Section2checkpoint remains pending and Section3has not started.
+
+---
+
+# Section 2 correction candidate, review started 2026-10-14
+
+This is the current authority; older Section 1 stop/preparation paragraphs below are historical. The user authorized Section 2 continuation at 23:23 Europe/Berlin. Full manual review covers all 13 assigned packages and 51 baseline Go files (25 production, 26 tests), with independent full-content/Git-blob checks. Six P2 finding groups reproduced after compilation on both hosts and are corrected in separate commits. Full corrected-candidate QA and review are pending; do not credit Section 2 complete yet.
+
+Read [Section 2 report](SYSTEMATIC_REVIEW_SECTION2_20261014.md), [change journal](SYSTEMATIC_REVIEW_CHANGELOG_20261014.md) and [live PR142](https://github.com/DeBoX85/Cloud-Assess/pull/142). Production correction ancestry ends at `cece5532c1ac79fd2f4964b1594bbafc06a0c61d`; current candidate refs may include subsequent helper/documentation or review fixes. PR142 stays draft/unmerged; protected baseline is `a6fee427e19feeef28691737ea9bc5026086efa0`.
+
+Finding groups: SR-F04 terminal stage health; SR-F05 nested registry ownership; SR-F06 caller context in Cost/Diagnostics workers; SR-F07 one Diagnostics response/EOF; SR-F08 requested-batch setting scope; SR-F09 documented Cost 200/204 success. Seven compiling controls and one coordinator integration regression are retained. The first Cost status fixture failed before transport and is not status proof; corrected 10-second fixture/calls==1 reproduced all five invalid statuses on both hosts. A misplaced guard was caught in an unpublished draft and corrected before ref advance.
+
+Reproduction-only `ac08820a66cdcbf55dfe39314f03b2138b11a48c`: native38642216627 failed only the declared Go tests on Linux116120286515 and Windows116120287313, after compilation/formatting/build; source38642216664 passed separately. Full logs/hashes, predecessor fixture classification, fix/parent and rollback dependencies are in the report. These failing runs are evidence, not acceptance.
+
+NEXT: inspect complete latest-head native/source QA and automated review; address real findings, reconcile coverage and publish the Section 2 checkpoint. Do not replay completed work. Stop for the user's re-evaluation before Section 3. Audit remains 1/4 sections complete and 9/41 finally verified packages while candidate QA is pending.
+
+Section 1 code00ba2716 and documentation7911764 passed both hosts/source; exact-current success is never inherited. Source captures/pins/dependencies/schemas remain unchanged; no Azure action, live parity or release approval. Source-compatible numeric Arc SQL and other business-row/volume limits are explicitly residual. One module-only advisory remained in prior scans; inspect fresh results rather than assuming current clearance.
+
+Project state remains: accepted target region adapters1/7, source captures7/7, public region unavailable. Six adapters, coordinator/public region, FullCost/other parity, AR-02/load, live/fresh OS, advisory and human/license/security/Gate004/release work remain. After the entire audit, resume Storage contract/tests and remaining adapter/integration work; draft PR141 holds Storage analysis. Laptop/Azure restoration is unconfirmed. Sections 3–4 planning budget is 6–11 active review hours plus material fixes/repeat QA; no reliable overall weighted percentage or release ETA.
+
+Recovery: freshly inspect task/protected refs, PR142 and actual run heads/results; read this current report and journal. Scratch/tool stores may disappear. Use normal targeted revert commits after dependency/QA assessment; never reset protected history or modify retained source captures to hide regressions.
+
+---
+
+## Section 2 correction ledger
+
+| Finding | Fix commit | Parent | State |
+| --- | --- | --- | --- |
+| SR-F04 | `3c5860adee63e710e1d7015dbdc631522f276f42` | `ac08820a66cdcbf55dfe39314f03b2138b11a48c` | Corrected candidate; exact-current QA pending |
+| SR-F05 | `b871736a17b7d3375fc1be424b23655e9bcef044` | `3c5860adee63e710e1d7015dbdc631522f276f42` | Corrected candidate; exact-current QA pending |
+| SR-F06 | `0c21ac4c08300ee23f7cc9da3651f0819fd9c2b5` | `b871736a17b7d3375fc1be424b23655e9bcef044` | Corrected candidate; exact-current QA pending |
+| SR-F07 | `fe39724654dd944297b3ff73de8b0ab5f733f34f` | `6c897ef200c381ab8292e1129940da07dd084bd9` | Corrected candidate; exact-current QA pending |
+| SR-F08 | `d12baf35aaaa70e204405594a06d3aed42c29488` | `fe39724654dd944297b3ff73de8b0ab5f733f34f` | Corrected candidate; exact-current QA pending |
+| SR-F09 | `cece5532c1ac79fd2f4964b1594bbafc06a0c61d` | `d12baf35aaaa70e204405594a06d3aed42c29488` | Corrected candidate; exact-current QA pending |
+
+Supplementary trailing-reader failure expectations: `6c897ef200c381ab8292e1129940da07dd084bd9`, parent `0c21ac4c08300ee23f7cc9da3651f0819fd9c2b5`, declared before the framing repair. Literal malformed suffix failures already reproduced on both hosts; supplementary cause-retention cases await corrected-candidate QA. Source/reproduction/fixture classifications and exact log hashes are retained in the current Section 2 report. Existing Section 1 history below is preserved.
+
+---
+
+# Section 1 stopping checkpoint, 2026-10-14
+
+This is the authoritative current state; earlier preparation paragraphs below are retained history. Section 1 code review and corrective QA are complete on code candidate `00ba2716f76366f6663de15531fdef4de6b812f8`, tree `e5098c01f631e0186d244631c61b4fad95cdda44`. This documentation-only successor does not claim exact-head QA inherited from its parent. PR142 remains draft and unmerged; protected baseline is still `a6fee427e19feeef28691737ea9bc5026086efa0`.
+
+Coverage: all nine Section 1 packages, 95 baseline Go files plus two new regression files, reviewed and reconciled. Audit checkpoints completed: **1/4 (25% by sections)**. Package coverage: **9/41 (22.0% by directory count)**. Neither is a weighted overall-project percentage, a claim that all modules are reviewed, or defect-free certification.
+
+Three confirmed Section 1 P2 defects corrected: terminal ARG executor context/error priority, nonunique inventory paging order, and undocumented ARG201–206 completed-query admission. Four compiling counterfactual/restoration controls are retained on Linux and Windows. First-review gaps in the correction and test oracle were reproduced/corrected; the current review on00ba2716 completed with no major issues reported. Historical repro runs/fix parents/hashes remain in the report and journal.
+
+NEXT: stop for the user's planned re-evaluation. Do not start Section 2 automatically or replay completed fixes. Once continuation is authorized, review Section 2's 13 assessment/collector packages against the coverage map, including business-row completeness and request/memory budgets. Sections 2–4 need approximately **9–15 active review hours**, plus material findings and repeated QA. Overall project release ETA remains unverified.
+
+Project scope remains: accepted region target adapters1/7, source captures7/7, public region unavailable; six adapters, coordinator/public region, FullCost/other parity, AR-02/load, live/fresh-OS, advisory disposition, Gate004/license/security/human and release checks remain. After the entire audit resume Storage contract/tests, then remaining adapters and integration. Storage analysis remains on draft PR141. Laptop/Azure restoration is unconfirmed; no Azure call or write occurred.
+
+Recovery: freshly inspect PR142/task/protected refs; use the latest Section 1 report and change journal, retaining the distinction between verified code head and documentation successor. Follow documented normal revert commits with dependency review and appropriate QA; do not reset protected history or rewrite pinned source fixtures.
+
+## Verified code-head evidence
+
+All following evidence is for `00ba2716f76366f6663de15531fdef4de6b812f8`, not this documentation-only successor:
+- Native [run38570549786](https://github.com/DeBoX85/Cloud-Assess/actions/runs/38570549786), pull_request event, completed/success. Linux job115874677557:61steps, all success except conditional failure-evidence step appropriately skipped. Windows115874677774:46steps, all success.
+- Complete returned Linux log:100982characters; SHA-256 `997e3543589bae24fec402b113caffa6fe6538e9d2a064e39ff95918d3b00dee`. Windows:82461characters/82463UTF-8 bytes; SHA-256 `fa29a05b2d4d79cd49708bbd00c6385de2041d875a8c8ac1e3015063dce24912`. Hashes retain original line endings; control identities alone normalize terminal CRLF.
+- All prior control identities retained; four new compiling Go regressions/restorations passed. Linux318total (317Go-labeled controls plus one shell bootstrap control), Windows313Go-labeled controls.
+- Race suite, formatting/module/dependency/provenance/docs checks, bounded fuzzing, vet, native CLI/branding/package checks passed; total Linux statement coverage85.2%. Both vulnerability scans:0reachable,0imported-package,1module-only advisory. Advisory disposition remains open.
+- Source [run38570546281](https://github.com/DeBoX85/Cloud-Assess/actions/runs/38570546281), same actual head/pull_request event, completed/success; job115874269869 all7steps success. Complete log1360512characters; SHA-256 `21914898e23c78a09179f39dbc1651537dbf175f676a0d623c6dcb743a0690cf`. Reconstructed315chunks/23captures with per-capture SHA-256; every capture matched fresh candidate file bytes, API Git-blob SHA and baseline retained blob.
+- Source/AZQR `8e4f0577f3615e6c9014c031bcad079f235369cc`, tree `17d93b20c303f90f7843036be82f0dc32f3260f1`, APRL `60eaddda76541f6adbc1c5ffa686829807e55e29` unchanged.
+- Automated review result6169320382 and marker6168441214 completed2026-10-14T13:20:05.783287Z on00ba2716 with no major issues reported. This is not human or release approval.
+- All17changed candidate files were freshly read back and their full authored contents/Git-blob hashes matched; final diff inspected. Protected branch and PRdraft/unmerged state independently re-read.
+- This successor changes only eight Markdown records. It records completed parent-code QA and the user stopping point. Fresh successor checks must be inspected before any merge; no accepted-push QA exists for these corrections.
+
+---
+
+# Current Section 1 correction candidate, 2026-10-14
+
+This record supersedes earlier current-state paragraphs; older checkpoints remain history. Read [live PR142](https://github.com/DeBoX85/Cloud-Assess/pull/142) and freshly inspect refs for the exact candidate and later results. Protected accepted code remains `a6fee427e19feeef28691737ea9bc5026086efa0`. Task branch is `audit/systematic-module-review-20261014`, still draft and unaccepted.
+
+Section 1 source/test pass covers all 95 baseline files in nine packages: 38 production and 57 tests, with fresh full-content/blob checks. Two added test files bring the current section to 97 Go files. The new Python regression helper and both CI execution paths have received an immediate review; the wider tooling audit remains Section 4. The current codebase has 253 Go files and 47 Python files; baseline inventory remains 251/46 for traceability.
+
+Three confirmed P2 findings:
+- SR-F01: terminal executor context can return success or be masked by a plain query error. Original cases and the remaining parent-priority symptom reproduced after compilation on both hosts. First correction5dd97b0f was incomplete; parent-priority correctione65e66cd74d8e08ebfe1ea4452f6391a65e12878 retains parent context and prioritizes its terminal error, preserving ordinary initiating errors for internal sibling cancellation. Public stage runner separately guards context.
+- SR-F02: tied inventory sort keys permit duplicate/missing pages. Query correction9d1872b1a1737da05db512addae8479e530aa238 adds id asc. The first fixture was insufficiently independent and is retained only as history. The stronger fixture computes projection/sorting from its rows, calibrates four cases, and passes both hosts; controls restore old ordering and nonunique projection, require compiled failures and exact byte restoration.
+- SR-F03: ARG transport accepts undocumented201–206statuses as complete queries. Both hosts reproduced six failures against unchanged transport using the actual shared HTTP client and mocked responses. Correction1f93442eca7e949c9b31f7af20b594c91ff10b62 enforces the documented200completed-query contract and adds a fourth control.
+
+Review on1243461 was not clearance. Its caller-priority, fixture-independence and stale resume-prose findings are corrected in the new candidate. The current report is rewritten around pending QA rather than telling the next session to replay completed corrections. Old AGENTS procedural requirements remain revoked by the user; technical findings are assessed independently.
+
+Read [current Section 1 report](SYSTEMATIC_REVIEW_SECTION1_20261014.md), [file coverage](SYSTEMATIC_MODULE_REVIEW_20261014.md), and [change journal](SYSTEMATIC_REVIEW_CHANGELOG_20261014.md). They retain exact repro heads/jobs, log hashes, fix parents and rollback details. Original source captures, pins and dependencies remain unchanged.
+
+**Next action:** inspect this latest candidate's complete Linux/Windows/source QA and exact-head review. Resolve genuine failures, reconcile coverage, publish the Section 1 checkpoint, then stop for the user's progress re-evaluation. Do not repeat completed original repro/corrections or start Section 2 automatically. At this preparation, audit completion is still0/4sections and0/41finally verified packages. Earlier canceled/failed runs are not accepted gates.
+
+Native control accounting: old Linux314total=313named Go controls plus one shell bootstrap control; Windows309Go controls. Four new Go controls give expected318Linux (317Go+one shell) and313Windows. Compare identities, not only counts.
+
+Project state: core and several plugins accepted offline; region target adapters1/7 (14.3% of that specific scope), source captures7/7, public region unavailable. Six adapters, coordinator/public region, FullCost/other parity, AR-02/load, live/fresh-OS, module-only advisory disposition, Gate004/license/security/human review and release remain open. No reliable weighted overall project percentage or release ETA exists. After the entire audit, resume Storage's contract/tests and remaining adapters/integration/parity/release work. Storage analysis stays on draft PR141; no production Storage implementation is claimed.
+
+No laptop/Azure restoration is confirmed; no Azure operation occurs. Recovery after service interruption: inspect current refs and PR142, read this branch's latest report/journal/handover, validate actual run heads and results, then continue the next action above. Tool stores/scratch can disappear. Revert isolated code commits through normal Git revert with dependency assessment and repeat QA, never protected history reset or fixture rewriting.
+
+---
+
+# Active recovery checkpoint: four-section systematic audit, 2026-10-14
+
+This checkpoint supersedes the status of historical entries below. It is on task branch `audit/systematic-module-review-20261014`, not yet merged into `bootstrap/core-v1`. A new session must read this branch's handover and audit notes, then freshly inspect refs/PRs before making changes.
+
+## Verified project state
+
+Protected baseline is `a6fee427e19feeef28691737ea9bc5026086efa0`, tree `1b13eec931b510592e42608fe8605ebdc287b0a9`, PR140 merged. Fresh reads confirm accepted-push native run38502782779 and source run38502782765 both completed/success on that exact push head. Earlier full logs, controls, source-byte proofs and corrective evidence are recorded in draft PR141's checkpoint at `6cd002cb77fcead75a602b06a75625a178a84e49`; no new complete-log pass is claimed here.
+
+Three prior focused-review defects are corrected in the accepted baseline: FN124 ARG trailing data admission, FN126 documented disk null pagination and FN127 disk HTTP status/error classification. They are not a whole-codebase defect total.
+
+Core scan and multiple plugin migrations are accepted offline. Source SKU capture scope is7/7; target SKU adapters1/7 (14.3% of that scope), internal Compute disks. Public region remains unavailable. Six remaining adapters, coordinator/public integration, FullCost/other migrations, AR-02/load, fresh-OS/live evidence, advisory disposition, Gate004/license/security/human/release work remain open. No defensible weighted overall project percentage or release ETA is established.
+
+PR141 is still OPEN/DRAFT at6cd002cb. Storage analysis is documentation only; implementation is paused while the new audit takes priority. Its corrected acceptance record was not present at the top of accepted-branch handover. This new checkpoint resolves that recovery ambiguity on the audit branch while preserving historical entries and PR141.
+
+## Active work and stopping points
+
+User requested four logical audit sections and active notes at13:38 Europe/Berlin on2026-10-14:
+1. Foundations, scope and execution:3–5active hours.
+2. Assessment logic and auxiliary collectors:3–4active hours.
+3. Plugins, outputs and platform protections:4–7active hours.
+4. Tooling/dependencies/delivery and final integrated QA:2–4active hours.
+
+Stop after each section to publish coverage, findings, fixes, verification, open questions and revised ETA for user re-evaluation. Total review estimate12–20active hours; ordinary fixes/repeat QA planning allowance2–4working days. These are effort estimates, not automatic background execution.
+
+Current audit progress:0/4sections complete;0/41packages complete. Initial pass19production Go files plus9test files in assessment/Azure/reportfile, not completed module validation. Section1started; reportfile initial work is credited only as preliminary section3 work. No new confirmed production defect or code correction in this audit yet.
+
+Read [audit scope and file coverage](SYSTEMATIC_MODULE_REVIEW_20261014.md) and [findings/change journal](SYSTEMATIC_REVIEW_CHANGELOG_20261014.md). Package mapping covers all41exactly once; section4 also covers46Python/fourPowerShell/twoShell/fourCIworkflows and non-code provenance/config/docs reconciliation.
+
+## Resume procedure after interruption
+
+1. Fetch protected ref, audit ref, open PR141 and recent runs. Do not treat memory, local caches or this recorded ref as necessarily latest.
+2. Read latest audit-branch SESSION_HANDOVER, SYSTEMATIC_MODULE_REVIEW and SYSTEMATIC_REVIEW_CHANGELOG, then authoritative target/intent documents. If this branch merged later, follow verified ancestry and newer checkpoint.
+3. Confirm pins: original AZQR8e4f0577f3615e6c9014c031bcad079f235369cc, source tree17d93b20c303f90f7843036be82f0dc32f3260f1, APRL60eaddda76541f6adbc1c5ffa686829807e55e29. Keep captures immutable.
+4. Continue section1 with CLI/configuration/scope/discovery and Azure/ARG call sites. Trace bounded/unbounded clients, destination/credential guards, ownership, cancellation and partial-failure propagation. Positional resource-ID helper behavior is an open question, not a confirmed bug.
+5. Verify uncertain or changing details from primary/version-pinned sources and record outcomes. Do not credit fetches as reviewed code, metadata success as new full-log verification, or offline tests as live validation.
+6. Checkpoint after substantive findings/fixes, before lengthy QA, after QA and at each section stop. Use small remote-read batches; a previous broad batch failed and was not credited.
+7. For each fix, retain original repro, before/after behavior, file/blob/parent and fix commit, original expectations, regression evidence and rollback plan. Separate unrelated fixes into reviewable commits.
+8. Revert reviewed changes through Git revert in a task branch with repeat required QA and protected PR flow. Never reset/force-update protected history or silently rewrite source fixtures.
+
+No laptop/Azure restoration has been confirmed. Azure scope stays read-oriented; no provisioning, RBAC changes or production-scope substitutions. Automated review is not independent human/release approval. Previous user instructions revoked the earlier AGENTS procedural constraints; do not reinstate obsolete local permission requirements. Follow currently applicable higher-priority policies and actual user-authorized scope.
+
+---
+
+
+
+---
+
+## Preserved Storage proposal history from PR141
+
+The following entry predates the completed audit. Its earlier stop/next-step statements are historical; the current continuation authority above governs.
+
+# Review and QA complete; PR140 verified offline, 2026-10-14
+
+PR140 merged at a6fee427e19feeef28691737ea9bc5026086efa0 and completed
+candidate AND distinct actual accepted-push verification on both native hosts.
+The protected branch still points to that verified merge. Signed commit/raw SHA1,
+human identities, tree1b13eec931b510592e42608fe8605ebdc287b0a9 and ordered parents
+6f923c1d/01e8de62 matched; protected expected-head merge used active ruleset23890737
+and required integration15368 checks, with no bypass.
+
+Three confirmed defects are corrected:
+| Severity | Defect | Verified correction |
+| --- | --- | --- |
+| P2 | ARG accepted a valid JSON prefix followed by extra data | Validate buffered and remaining bytes as JSON whitespace through EOF |
+| P1 | Disk collector rejected documented nextLink:null final pages | Accept omitted, empty or null terminators; keep nonstring and unsafe-link rejection |
+| P2 | Disk collector lost HTTP status classification from actual bounded-client errors | Preserve terminal context priority, then classify non-200 response status before remaining transport failures |
+
+Each defect reproduced after unchanged production compilation on Linux and Windows.
+ARG FN124 includes18bad suffix cases and4compiling controls. Disk FN126/FN127 use
+three full immutable Microsoft2021-07-01 examples plus actual bounded-client and
+partial-prefix fixtures;23compiling disk controls, restored baselines, vet and
+Linux race/native Windows passed. FN125 preserves the UTF-8 mutation diagnostic
+failure and its exact harness correction. Full formatter bytes matched both hosts.
+No original source capture or independent fixture was rewritten to resemble target
+code; only the mistaken null-terminal target expectation was explicitly corrected
+from primary evidence.
+
+Complete final candidate QA38500431232:
+Linux115645943577/full100868/60steps (conditional failure upload only skipped)/
+314controls; Windows115645943804/full81672/45steps/all-success/309controls.
+Every earlier291Linux/286Windows identity retained plus23disk controls.
+Candidate source38500431285/115645861513/full1360507:7successful steps,
+23records315chunks/SHA256/fresh full candidate UTF8 and Gitblob equality.
+Final automated marker6159203561 completed on01e8de6 at
+2026-10-14T02:23:10.953464Z; no-major-issues comment6159475528 reviewed
+01e8de6244. Both original threads resolved with specific correction QA evidence.
+This automated review is not independent-human or release approval.
+
+DISTINCT actual merge-head PUSH native38502782779:
+Linux115653354934/full100555/60steps (same conditional skip)/314controls;
+Windows115653354646/full81129/45steps/all-success/309controls.
+All314/309candidate identities independently preserved, not only matching counts.
+Actual PUSH source38502782765/115653354694/full1359850:7successful steps,
+23records315chunks, each SHA256 and fresh full a6fee427 merge bytes/Gitblobs matched.
+Both runs explicitly event=push/head=a6fee427/branch=bootstrap/core-v1/completed
+success; final protected ref matched. No candidate/push substitution.
+Original AZQR8e4f0577/tree17d93b20/APRL60eaddda, source/SDK/modules and
+Go1.26.9 remain pinned. Dependency scan still reports0reachable/0imported and
+1module-only advisory; the graph is not declared advisory-free.
+
+Progress measures distinct scopes: source SKU captures7/7; target SKU adapters
+1/7 (14.3%), with Compute disks now verified internally. These are not a weighted
+overall project percentage. Public region execution is still unavailable.
+Remaining6types, coordinator/public integration, FullCost/other adapters,
+AR-02/load/fresh-OS/live/Gate004/licensing/human/release work remain open.
+Overall release ETA requires those contracts, integration and live/laptop QA;
+the completed review/first-disk phase has no remaining acceptance step.
+
+Continuation: full immutable primary Storage2023-01-01 schema/common/example
+read and Gitblob checked. The248-row example repeats5names across kinds/regions;
+source discovery retains kind, while SKU counts lose it. Storage grouping,
+kind-aware projection, display/stage locations and no-schema-paging rules need
+a concrete pre-edit contract and independent expectations before production code.
+This checkpoint/Storage-analysis branch remains task-owned DRAFT/UNACCEPTED;
+its prose records verified PR140 evidence and does not accept new Storage code.
+Laptops/Azure scope have not been reverified; no Azure action or live claim.
+
+Historical checkpoints below remain as historical evidence; this outcome governs.
+
+---
+
+# PR140 merged; distinct actual accepted-push verification pending, 2026-10-14
+
+Current protected baseline is PR140 a6fee427e19feeef28691737ea9bc5026086efa0.
+Signed Git commit/raw SHA1 reproduced, Denis author/GitHub committer, verified
+signature, tree1b13eec931b510592e42608fe8605ebdc287b0a9, ordered parents
+6f923c1dd40a3396db65415510f599a328ed38b5 and
+01e8de6244214204e4b34530c62e42c2c83221e3; original protected ref and merged PR
+read back exactly. Active ruleset23890737/no bypass/integration15368 gates
+enforced; expected-head protected merge succeeded.
+
+Candidate full QA38500431232: Linux115645943577/full100868/60steps (only
+conditional failure upload skipped)/314controls and Windows115645943804/
+full81672/45steps all-success/309controls. Every earlier291/286 identity
+retained plus23disk controls. Source38500431285/115645861513/full1360507:
+all7steps-success,23records315chunks, each SHA256 and fresh full candidate
+UTF8/Gitblob matched. Final automated marker6159203561 completed on01e8de6
+2026-10-14T02:23:10.953464Z; no-major-issues comment6159475528; both old
+findings resolved with concrete reproduction/correction QA evidence.
+
+DISTINCT actual merge-head PUSH runs38502782779(native) and38502782765(source)
+are pending complete log/hash/fresh-merge readback verification. Candidate passes
+do not substitute. Target verified acceptance remains pending for first disk
+adapter; source capture coverage7/7 is separate. No public region activation,
+Azure access inference or release readiness claim.
+
+This task-owned checkpoint/Storage analysis branch is DRAFT/UNACCEPTED.
+Storage analysis examines full immutable primary2023-01-01 schema and248-row
+example; grouped name/kind/region semantics, display/stage locations, lack of
+schema paging and absence-of-location evidence still need a concrete contract.
+No Storage production code is authorized by this analysis itself; continue the
+existing user-authorized offline project scope after publishing concrete cases.
+Other6SKUtypes/coordinator/FullCost/AR-02/module-only/load/freshOS/live/Gate004/
+licensing/human/release remain open. Laptop access unconfirmed; no Azure actions.
+
+---
+
 # Corrected disk acceptance candidate, 2026-10-14
 
 PR140 remains UNACCEPTED pending this final head's complete gates.
@@ -4476,3 +5301,150 @@ PR113 recurrence (2026-10-04): final-preparation headab15f5a7 native37173740633/
 PR113 recurrence (2026-10-04): corrected heade4f2f766 native37173909405/Linux111352429239 failed FuzzExactResourceExclusionPreservesOtherResource at10.04s after263825 executions with only context deadline exceeded; no property assertion, panic or saved reproducer reported. Formatting/oracle controls/full race/coverage passed beforehand; later Linux gates were skipped, so this run remains FAILED. Windows111352429415 passed separately and does not waive Linux. The property body has only bounded256-byte string/filter checks and no context calls. Upstream [Go75804](https://github.com/golang/go/issues/75804) and [official regression](https://go.dev/src/cmd/internal/fuzztest/testdata/script/test_fuzz_fuzztime_timeout.txt) describe the same spurious fuzztime shutdown symptom; exact cause of this run remains unconfirmed. Synthetic artifact11291954125/digest23641daf6d83906e5b30ab89c5d16a18f1942c8ed319028f9b5ffd6657b511b4 was retained by Actions; upload log reports one file, with coverage output present and no saved fuzz failure announced. Connector returns a ZIP reference, but local attachment creation was denied and signed-URL shell download was network-blocked; ZIP contents were not locally inspected. Use native evidence and preserve this download limitation, not an invented artifact inventory.
 
 Apply existing count-budget mitigation only to this remaining duration-bounded target:500000x, unchanged two workers/property/corpus and explicit60s timeout. The new count exceeds the failed run's observed execution count and avoids fuzztime duration expiry; [official Go flags](https://go.dev/src/cmd/go/internal/test/test.go) define Nx as target executions. No failure suppression, blind rerun, toolchain/pin change or source assertion relaxation. Require fresh complete exact-head Linux/Windows/source proof, and investigate any genuine saved input/assertion if it appears. Strengthened prevention: keep every mandatory bounded fuzz target on an explicit count budget plus independent timeout; do not leave one duration target behind after FN010 recurrence.
+
+## SQL task3 first Database consuming runner
+
+Prepared strict153case runner after task2 own QA/archive/closure handover. No SQL production API; publish and inspect BOTH actual native missing symbols before production. Frozen bytes unchanged. See SQL_DATABASE_IMPLEMENTATION_20261017.md.
+
+## SQL Database bounded implementation WIP
+
+Both actual missing-API observations were inspected BEFORE production:39074581742 Linux117518982054/Windows117518982212, full logs/metadata and sql-database-missing-api-review.json retained. Published first runnerb6064ce7 remains unchanged. Bounded Database collector/catalog and all26pinned wire definitions plus commonSku are now implemented locally. All153unchanged frozen cases, strict/integrity checks and independent wire/work/leaf/shape/status/context/HTTP/ownership/projection public-count/label/text proofs pass locally. Fixed late schedules9/21/25 were manually derived and frozen before mutations. No MI constructor/traversal/scoring/public integration.
+
+QA-SQL-04: generated supplemental required-text test initially declared required after its first use, causing a local compile failure. Declaration order corrected, affected tests pass. No production, frozen oracle or expectation change; retain failed/fixed logs.
+
+This is recoverable WIP, NOT final QA certification. Pending: compiling named reversals/exact restored baselines, additive generated CI inventory/conservation, atomic implementation+runner rollback to verified task2treeead9da2e/restoration, complete region/race/vet/static/links and final own8workers/bothgates/source/archive/full readback. Update handover BEFORE task4MI. No critical input; all no-Azure/refresh/subagents/protected merge/release boundaries remain.
+
+## Database compiling-control recovery checkpoint
+
+42plans and generated additive both-platform CI step prepared. Runtime reset interrupted first local run after12completed reversals; process absence and exact3source-file restoration verified before standard42suite restart. Partial log is not full evidence. CURRENT_STATE owns actual pending controls, rollback and final QA. No frozen/API/primary changes from this tooling checkpoint.
+
+## Database final-candidate preparation
+
+42compiling named reversals/exact restored baselines and final SQL baseline passed, exit0. First interrupted12-control run is retained but not counted. Final independent pinned-type/coordinate/alias review tests added. Generated CI additions preserve all455Linux/450Windows predecessor identities and add42per platform, final497/492. Publication/own final8workers/bothgates/source/rollback/archive remain pending; CURRENT_STATE/live implementation PR own actual outcomes. Preserve first runner/oracles/primaries/pins. Update handover before MI; no critical input or boundary change.
+
+## QA-SQL-05: shared catalog family test isolation
+
+The Database-only supplemental TestSQLDatabaseProjectionBinding used expected MI as an invalid family on a nil shared SQLCapabilityCollection. That would conflict with the FROZEN task4MI nil-catalog contract once support is added. Correct only that supplemental test to use genuinely unsupported microsoft.sql/servers/elasticpools. Database constructor's MI rejection remains unchanged because constructors are family-bound. First strict Database runner, frozen153Database/163MI oracles, production/schema/limit code and all42control plans remain unchanged. This is a test-isolation correction, not a new production behavior or frozen expectation rewrite. Preserve prior413550cf/PR162; its native/source/rollback evidence does not certify the corrected head. Require fresh complete own QA/source/rollback/archive.
+
+## SQL task3 completion before task4
+
+Database VERIFIED OFFLINE in PR163/e2acce427, own quality39076605881/source39076605862 all8workers/bothgates/23captures;497Linux/492Windows controls exact, coverage86.3%/floor75. Evidence026bbb61 retains110members, full readback/bounded verification and atomic source rollback/restoration. Task4MI NEXT; this update precedes its runner/production. CURRENT_STATE/live PR163 own exact outcomes and next action. Publish163case MI runner and inspect BOTH actual native missing constructors before MI edits. Same batch; no critical input/boundary change.
+
+## MI first runner preparation
+
+After verified Database completion/handover, separate163case strict MI consumer prepared while constructor absent. Publish/read back and inspect BOTH native missing constructors before production. First Database runner/oracles/42controls unchanged. CURRENT_STATE and SQL_MANAGED_INSTANCE_IMPLEMENTATION_20261017.md own preparation status; same final task4, not a new batch.
+
+## MI bounded implementation WIP
+
+Both actual native missing constructors were inspected BEFORE production in39078083638 Linux117529286563/Windows117529286547 at first MI runner4665e9cd/PR164. Complete preparation logs/proof retained. MI constructor/traversal/pure catalog now implemented with authoritative family.sku, four coordinates, all ancestor statuses, explicit modes and no eligibility/scoring/public integration. All163unchanged MI plus153Database cases passed on first run; independent MI wire/work/leaf/status/metadata/mode/name/SKU/context/HTTP/ownership/projection count/label/text/output-inequality/raw-unselected-family tests pass locally. Fixed MI context schedules9/21/25 manually frozen before reversals.
+
+QA-SQL-06: new supplemental MI required-count generator initially retained three-part Database coordinates; named required-8192case correctly rejected invalid syntax. Corrected supplemental literal to four parts, SQL baseline passed. No frozen oracle or production rewrite. First DB runner/42control script+plan bytes and all manifests/primaries/captures/modules/pins verified unchanged.
+
+36MI compiling reversals and additive generated both-platform controls-2 step prepared; existing42DB controls remain on controls-1. Expected final533Linux/528Windows (497/492predecessor+36). WIP publication only, not certification. Pending sequential42DB regression and36MI named reversals/exact restoration, local preflight, coherent MI+runner rollback to verified Database tree6a9f557e/restoration, full own8workers/bothgates/source/23captures/archive/full readback/final handover. Same final task4, no new batch; no critical input and all no-Azure/refresh/subagents/protected merge/release boundaries unchanged.
+
+## Final MI candidate preparation after environment recovery, 2026-10-18
+
+Fresh sequential42Database+36MI compiling reversals, named assertions, exact restoration, per-control baselines and final SQL baselines passed; focused Go1.26.9 region preflight/tests/vet passed. All316frozen cases and independent MI bounds/context/HTTP/modes/metadata/ownership/projection proof pass; first runners/oracles/Database42control bytes/pins/captures preserved. Both actual missing constructors39078083638/Linux117529286563/Windows117529286547 were inspected before production and complete logs reinspected on recovery. Older Windows local logs are unavailable in this Linux session; fresh retained proof replaces them without inheriting certification. Task3bundle110members verified before explicit restore. CURRENT_STATE/live final MI implementation PR own exact next action/outcomes. Final own hosted533Linux/528Windows controls/all8workers/bothgates/source/23captures, atomic MI+runner rollback/restoration, archive/readback/final handover remain pending at publication. Same final task4; tasks1/2/3complete; no new batch, critical input or authorization/boundary change.
+
+## SQL completion and authorized next offline batch, 2026-10-18
+
+## SQL batch complete, 2026-10-18 UTC
+
+All four SQL tasks are COMPLETE VERIFIED OFFLINE: reconciliation PR158, frozen contract PR160, Database PR163 and Managed Instance PR165. Final product code is a3813439223ef6240e1aff8ae677e40a46011ce0, tree855d8a2994285f4b007616e06b3381dd93755503, sole parenta3738eec35bd0074b960a3ca072271e4e0818f80. PR165 remains draft/open/unmerged; protected bootstrap/core-v1 remains a6fee427e19feeef28691737ea9bc5026086efa0. Read [completion checkpoint](SQL_BATCH_COMPLETED_20261018.md) and [live final PR165](https://github.com/DeBoX85/Cloud-Assess/pull/165).
+
+Own quality39095502229 passed all8native workers/both required gates, all10complete logs/steps reviewed. Exact533Linux/528Windows control identities conserved with no missing/extra/duplicates;78cumulative SQL additions include42Database+36MI named compiling reversals/exact restorations. Coverage86.4% with unchanged75%floor. Own source39095502254 reconstructed23captures/315chunks/909865bytes against exact Git blobs. All316frozen literal cases execute unchanged. Both native absent-API preparation failures were inspected before each implementation. Full cumulative20file readback, identical-tree/ordered-parent previewa8e249ca and atomic MI+runner rollback to Database tree6a9f557e/restoration/region tests passed.
+
+Complete86member evidence archive is published and fully read back at0ec0d402392c056c0ab3970769d72d261d097324, tree7142fce4621e024ed6bff6a99221beedab01b610, parent exact final product code. Bundle2854937UTF8memberbytes/440377bytes, SHA256038c2617f4520dc12ffe1141591a35a01f3b5b4aa0aaed0410232bafb66b46dc. Bounded integrity verification precedes any explicit allowlisted restoration. Artifact and this administrative completion record are NOT product candidates or certification of new code trees.
+
+The user authorized a DISTINCT next offline batch on2026-10-18: reconcile remaining work, define a bounded collector-to-report integration contract/independent expectations, implement the justified slice and complete its own QA/evidence/handover. First next action is repository/roadmap reconciliation, not assumed SQL scoring or public region selection. Publish/update handover BETWEEN each task. No critical input or Azure access is needed for reconciliation; resolve later scope using evidence and preserve unsupported eligibility/scoring. No new SQL four-task batch.
+
+Current executor is Windows; recover from published refs, not old Linux scratch paths. Retained workspaces under C:/workspace/sql-recovery-20261017 and the original dirty checkout are preserved. This completion worktree is sql-final-closure. Previously unavailable Windows logs may now be present; final certification uses the retained exact-head archive, not memory. No uncertain remote mutation is claimed completed without readback. No Azure/fixture/RBAC/refresh/subagents/protected merge/bypass/release. Independent review/backup/broader operational/live/security/license/Gate004/release and one module-only advisory remain OPEN; accepted adapters1/7/source characterization7/7 unchanged.
+
+## Offline integration reconciliation complete, 2026-10-18
+
+SQL closure160c0793 and PR165 remain complete. New batch task1 reconciled live PRs/protected ref and current inventory/catalog/registry/result/rendering boundaries. [Reconciliation and ranked work](OFFLINE_INTEGRATION_RECONCILIATION_20261018.md) selects bounded internal explicit-coordinate SQL collector-to-report diagnostics. Task2 NEXT: freeze independent report contract/expectations before adapter production. Task3 implementation and task4 exact-head QA/evidence/handover follow. No automatic inventory match, deployment eligibility, scoring or public execution; no critical input/Azure access. Product baselinea3813439 remains unchanged. Preserve all prior heads/frozen inputs/pins and exclusions.
+
+## SQL report contract freeze, 2026-10-18
+
+New offline batch task1 reconciliation93500331 COMPLETE; task2 freezes [SQL report contract](SQL_REPORT_CONTRACT_20261018.md),26independent literal future report cases and an independent pure-output8MiB exact/+1 proof for BOTH families under all unchanged Catalog bounds. No report API exists and future cases are not runtime coverage. Byte-addressed expectation/budget Go files have exact -text checkout protection and integrity hashes. Existing153DB+163MI oracle/runner/production/capture/pin bytes unchanged.
+
+QA-INT-01: direct sarif.go review confirms primary-findings-only output omits plugin rows/health. Preserve it and test no synthetic findings; JSON/tabular outputs carry diagnostic health. This supersedes the earlier proposed SARIF health wording. New APIs will prevalidate before transport, use existing Collect/Catalog, preserve full coordinates/modes, output only safe diagnostic tables and enforce atomic bounds/ownership/context; no public/scoring/eligibility integration.
+
+Own contract-head QA is pending at publication; read its live draft PR for exact outcomes. After verified contract evidence/handover, task3 first publishes consuming runner while BOTH report APIs are absent and inspects actual Linux+Windows missing APIs before production edits. Task4 completes final own native/source/renderer/control/rollback/evidence/handover. Fixed late schedules Project22/Collect57 manually frozen before reversals. No critical input/Azure access; all prior exclusions remain.
+
+## QA-INT-04 scope-redaction correction, 2026-10-18
+
+Actual core Assessment Status ScopeID masking gap confirmed on BOTH native PR168 jobs before renderer production edits, including actual CSV/XLSX. Isolated narrow correction starts at verified054aba88; independent core/mixed/context/large-selection/all10record-source regressions and three compiling controls preserve masking, unrelated UUIDs and canonical data without introducing plugin4096ID limits into core-only reports. [Correction and fallback amendment](SCOPE_REDACTION_CORRECTION_20261018.md). Own exact-head QA/evidence pending. Report task3/final task4 unfinished. Prevention: exercise actual core status cells as well as extension rows under redaction; feature rollback must retain independently verified boundary corrections. No Azure/input required.
+
+## Scope correction completed before final report transition, 2026-10-18
+
+PR169/724504b7 COMPLETE VERIFIED OFFLINE, own39163414431 all8workers/bothgates and39163414427 source passed.536Linux/531Windows exact identities,23captures/315chunks/909865bytes; full78member evidence9ae98507 read back. Scope masking correction/three controls/atomic15file rollback+restore verified. [Completion and next action](SCOPE_REDACTION_COMPLETED_20261018.md). Report task3 remains unfinished, finalQA task4 pending; final report fallback retains this verified correction. Original SQL batch and all frozen heads unchanged. Module-only advisory/independent/live/release obligations open.
+
+## Final internal SQL report candidate, 2026-10-18
+
+Scope correction PR169/724504b7 own full QA/evidence9ae98507/completion handover24c9ff59 closed BEFORE this transition. Report production/first runner/frozen26oracles preserved exactly;15compiled reversals and corrected actual renderers/full SQL baseline/preflight pass locally. [Implementation/stronger rollback amendment](SQL_REPORT_IMPLEMENTATION_20261018.md). Own final551Linux/546Windows identity QA/source/atomic report rollback retaining scope fix/archive/readback/final handover pending. Original SQL batch remains complete, protected acceptance unchanged.
+
+
+## 2026-10-19: offline programme task1 reconciliation
+
+User authorised15offline tasks with explicit reevaluation/research/escalation rules. [Programme](MVP_PROGRAMME_20261019.md) records live PR/ref/run checks, actual isolated source/product trees, environment recovery and corrected distinction between accepted and implemented adapters. No production/pin/capture/control edits. Tasks2-3 next; ordinary independent work continues without another approval. Local static preflight passed before this documentation change; final documentation validation/publication/readback pending.
+
+
+## 2026-10-19: tasks2-4 MVP mapping, reevaluation and history contract
+
+[MVP matrix](MVP_ACCEPTANCE_MATRIX_20261019.md) and [concrete sequence](OFFLINE_SEQUENCE_20261019.md) published/read back in PR172/3cf6eca8; no duplicate collector work. [Cost-history contract](REGION_METER_HISTORY_CONTRACT_20261019.md) prepares67independent future literals and integrity check before any target API. Pinned source SDK confirmed API2021-10-01; source caller validates1-12months; existing bounded POST reused by contract. Local full region baseline, focused integrity/static preflight and1503authored links pass; full contract own QA and runtime consumer are pending. No Azure/product/pin/capture/control/schema edits. First reevaluation found no unresolved critical blocker.
+
+
+## 2026-10-19: task4 contract closure before task5 production
+
+PR173/42c414ef own full8workers/bothgates39177925107 and source39177925097 passed;551Linux/546Windows exact identities, coverage87.2%,23captures/315chunks/909865bytes. Full45member evidence9eebdd82 read back. First strict consumerPR174/d1published before APIs; both actual native missing APIs observed in39178707109with retained full logs/hashes before production. [Completion and transition](METER_HISTORY_CONTRACT_COMPLETED_20261019.md) updates handover BEFORE implementation, with independent metadata/numeric/context/cost-integration tests and explicit incomplete-prefix protection. Original67cases/contract/first runner/boundary tests unchanged. No production API or public capability exists yet. No critical blocker, Azure operation, pin/schema/capture/control relaxation or protected action.
+
+
+## 2026-10-19: task5 coherent local implementation WIP
+
+[Private implementation](METER_HISTORY_IMPLEMENTATION_20261019.md) adds query/collector/page admission after contract own full QA/evidence closure and both-host missing APIs. All67unchanged literals/current supplemental tests pass locally; fixed late schedules Query2/Collect6/Failure2 and focused vet pass. QA-MH-02 independently reproduced on preimplementation client; only synthetic HTTP timeout line adjusted, all assertions/production throttle/oracle/first runner preserved. Controls/inventory/full region/race/atomic rollback/final own native/source/archive/reevaluation remain pending. No Azure/public/pin/capture/schema/protected changes or critical blocker.
+
+### Task5 recoverable implementation and verification checkpoint
+
+Published80bbcbd83fec85316c8d780036d54c33513286f5/tree d0eeb36b23163228f1cb4d3cf2051877e5ed6fba/parent22ada22; all10complete files and human author independently read back. PR174 explicit successor read back. Full local region -race passed113.762s.29meaningful compiling reversals and additive Linuxcontrols2/Windowscontrols1 generated inventory prepared; static preflight passed, first control run in progress. Own full hosted QA/rollback/evidence remains pending, no task completion claim. Frozen empty-declared/empty-no-columns clarify zero-row admission without changing original bytes.
+
+### Task5 closure,72hour QA and handover,2026-10-19
+
+Task5 verified offline175/eb554ee826187bef05126d3c59e81eb4bd68ecf8/tree30d91cfa, own39182715043/39182715015,580/575controls,87.4%/75%floor,23captures/315chunks/909865bytes, local full preflight/29compiling reversals/source-runner rollback.89member evidence01e63c54 read back. User requested last20PR/72hour fork QA/new-chat handover. Reviewed148-175:28PRs/56runs/308logs,22green/6historically red quality runs,28source reconstructions,64recent commits/214heads. All merge previews/control conservation/pins preserved; intentional167/168fallback verified, no unexplained inspected divergence; inaccessible/unreachable evidence limits explicit. Six-part evidence45c565d6/all15files read back. Reconciled active state/prompt/continuation/handover/roadmap/action/README/procedure and discrepancy register, without production/expectation changes or rewriting old heads. New docs-only branchdocs/72h-audit-handover-20261019 requires own exact-head full QA in its live PR. Afterwards task6retail contract; no critical input/Azure access. Existing exclusions/advisory/independent/live/release boundaries remain.
+
+All-event scope follow-through before handover completion: time-window inventory75runs(64PR/11push),444jobs/416available logs,58success/12failure/5cancelled.19extra events reviewed, including two QA recipes/two missing-API preparations/six completed strict probe cases;22cancelled unassigned/six skipped jobs have no steps/logs, not verification. All32source runs reconstruct736captures/10080chunks/29115680bytes.25preceding runs do not overlap. Complete artifact2fa53c346a19798e4ad90124d26275a32d42ae91/tree505d4ad55cc12ffcac5d62ef0802127f8c8c3547/parent45c565d6, all22files/nine unchanged bounded remote bundles read back. Current handover/procedure/discrepancyD11 updated, no product/expectation/workflow changes.
+
+
+## 2026-10-20 retail contract preparation
+
+User authorised execute/validate/verify/reevaluate autonomous tasks6-8. Verified176head/draft and final evidence; executor recovered, preserved old worktrees. Frozen52independent retail request/page outcomes plus exact pinned cost/types/http sources; no production/public schema/pin refresh. Contract reconciles USD public transport, original identity, units/tiers/dates/conflicts, global limits and FullCost-detail preservation. Own contract native/source QA pending, not runtime execution of future cases. Next strict runner/BOTH native missing APIs only after prerequisite closure.
+
+
+## 2026-10-20 security crossroads
+
+Current authority: [CURRENT_STATE](CURRENT_STATE.md). Autonomous batch paused at task6 own security QA; [blocker/options/decision](RETAIL_SECURITY_BLOCKER_20261020.md) controls the next action.177contract is frozen but unverified;178first consumer intentionally lacks production APIs; tasks7implementation/8contract not started. No dependency/pin refresh or gate bypass. Earlier next-task/no-blocker statuses are historical, not permission to proceed through this pause.
+
+
+## Approved narrow security maintenance, 2026-10-20
+
+Denis authorised the bounded Excelize update; the earlier decision pause is historical within this exception. See [CURRENT_STATE](CURRENT_STATE.md), [remediation contract](EXCELIZE_SECURITY_REMEDIATION_20261020.md) and [advisory review](SECURITY_ADVISORY_REVIEW_20261020.md). Exact fixed commit plus necessary transitive updates only; own full native/source QA pending. No retail production/protected merge/release. Preserve original failed177and first consumer178.
+
+
+## QA-EXCELIZE-02, 2026-10-20
+
+Initial narrow maintenance179failed unchanged go mod tidy/git-diff gate: go get left stale go.sum lines. Original179head/full failed Linux log preserved. Corrected successor removes only obsolete sums/adds required x/image module checksum and regenerates inventory input hash; versions, tests, source pins and notice bytes unchanged. Verify exact atomic pair rollback/restoration and full own native/source QA. Prevention: dependency publication additionally requires go mod tidy followed by an empty go mod tidy -diff and regenerated/check inventory; ordinary dev-preflight does not cover this dependency-specific gate. No suppression/bypass/retry without cause.
+
+
+## Task7 retail checkpoint, 2026-10-20
+
+Current authority: [CURRENT_STATE](CURRENT_STATE.md). Narrow security maintenance/task6 prerequisites are COMPLETE VERIFIED OFFLINE in180/9fe12612; final quality39440501477/source39440501617 and cf93d214evidence supersede dated pending/wait snapshots. Task7 private retail implementation is IN PROGRESS, preliminary52frozen+15prepared+additional boundary cases pass locally. Final controls/rollback/full own QA/evidence remain PENDING; task8 research only. Follow180explicit live successor and [implementation record](REGION_RETAIL_IMPLEMENTATION_20261020.md). Continue existing authorised independent batch, preserving all old heads/pins/gates and live/review/acceptance boundaries.
+
+
+## Task7 final preparation, 2026-10-20
+
+Current authority: [CURRENT_STATE](CURRENT_STATE.md). WIP181/44114c63 is fully published/read back and preserved. Corrected final retail slice includes strict/exact RFC3339 ordering, remaining-wire budgeting and expanded cost/limit/ownership/cancellation tests.42compiling reversals/restored baselines and full serial repository preflight passed locally. Original control selection/redundancy and date defects retained as QA-RETAIL-03/04;52frozen literals/source/consumer unchanged. Final rollback/native/source/archive remain pending; task8 not started. [Implementation record](REGION_RETAIL_IMPLEMENTATION_20261020.md) owns detail.
+
+
+## Task7 empty-container correction, 2026-10-20
+
+Current authority: [CURRENT_STATE](CURRENT_STATE.md). QA-RETAIL-05found/preserved33empty-level failure on182after full preliminary validation. Corrected TestRetail passes under32container guard;42control identities/source expectations retained. Publish child of182with own42controls/full preflight/rollback/native/source evidence pending, then task8reevaluation. No scope/pin/schema change or critical blocker.

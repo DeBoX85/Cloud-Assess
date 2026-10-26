@@ -1,0 +1,18 @@
+{
+  "command": [
+    "/workspace/scratch/81f11bb42cee/tooling/go/bin/go",
+    "test",
+    "./internal/plugins/region",
+    "-run",
+    "^TestReviewHistoryEmptyContainerDepth$",
+    "-count=1",
+    "-v"
+  ],
+  "test_returncode": 1,
+  "compiled": true,
+  "named_assertion_failed": true,
+  "healthy32_passed": true,
+  "log_bytes": 685,
+  "sha256": "e1cbc91cddb7ba4f835b1b861fccc4cc662612998db8d5d168d661d44525f014",
+  "reason_for_confirmation": "Initial shell wrapper ended with cat, so wrapper status0was not the test exit. Capture actual subprocess status; first raw log is retained."
+}

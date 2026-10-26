@@ -37,7 +37,7 @@ class InventoryTests(unittest.TestCase):
         (self.root / 'internal/rules/provenance.go').write_text('\n'.join(k + ' = "' + 'a' * 40 + '"' for k in ('ReferenceRepositoryCommit', 'APRLCommit', 'AORSnapshotTree', 'CustomRulesSnapshotTree')))
         self.calls = []
         self.replace = False
-        self.version = 'go1.26.9'
+        self.version = 'go1.26.10'
 
     def command(self, args, cwd=None, env=None):
         self.calls.append((args, cwd, env))
@@ -96,7 +96,7 @@ class InventoryTests(unittest.TestCase):
 
     def test_wrong_toolchain_rejected(self):
         self.version = 'go1.26.0'
-        with self.assertRaisesRegex(ValueError, 'pinned go1.26.9'):
+        with self.assertRaisesRegex(ValueError, 'pinned go1.26.10'):
             self.collect()
 
     def test_failed_collection_does_not_overwrite_outputs(self):

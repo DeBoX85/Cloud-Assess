@@ -1,0 +1,63 @@
+"""Independent pre-implementation recipe arithmetic; imports no product code."""
+import hashlib
+import json
+from pathlib import Path
+import sys
+
+def unique(pairs):
+    result = {}
+    for key, value in pairs:
+        if key in result:
+            raise ValueError('duplicate recipe key')
+        result[key] = value
+    return result
+
+data = json.loads(Path(sys.argv[1]).read_bytes(), object_pairs_hook=unique)
+assert data['entry_limit'] == 65536 and data['text_limit'] == 16711680
+assert {c['name'] for c in data['cases']} == {'entries-exact', 'entries-first-excess', 'text-exact', 'text-first-excess'}
+subscription = 'aaaaaaaa-1111-4111-8111-111111111111'
+resource_type = 'microsoft.cognitiveservices/accounts'
+rows = []
+for case in data['cases']:
+    count = case['kinds']
+    assert count in (4, 8) and len(case['group_counts']) == count
+    context = [subscription, 'One', 'complete']
+    request = [subscription, 'eastus', 'westeurope']
+    overhead = sum(len(s.encode()) for s in context + request)
+    for kind_number in range(count):
+        kind = 'c' + str(kind_number)
+        resource_id = '/subscriptions/' + subscription + '/resourceGroups/rg/providers/' + resource_type + '/' + kind
+        requirement = [subscription, 'eastus', resource_type, kind, 's0', resource_id]
+        binding = [subscription, 'eastus', 'westeurope', resource_type, kind]
+        metadata = [subscription, 'westeurope', kind, resource_type, 'complete', '']
+        assert sum(map(len, requirement)) == 201
+        assert sum(map(len, binding)) == 90
+        assert sum(map(len, metadata)) == 92
+        overhead += sum(len(s.encode()) for s in requirement + binding + metadata)
+    assert overhead == (3163 if count == 8 else 1631)
+    entries = 2 + 5 * count
+    text = overhead
+    ordinal = 0
+    digest = hashlib.sha256()
+    for groups in case['group_counts']:
+        assert 0 < groups <= 8192
+        names = set()
+        for local_index in range(groups):
+            size = case['key_overrides'].get(str(ordinal), case['key_bytes'])
+            assert 6 <= size <= 512
+            key = 'g' + f'{local_index:05d}' + 'x' * (size - 6)
+            assert key not in names and key != 's0' and key.isascii() and key.lower() == key
+            names.add(key)
+            encoded = key.encode()
+            assert len(encoded) == size
+            digest.update(encoded + b'\n')
+            entries += 1
+            text += len(encoded)
+            ordinal += 1
+    assert entries == case['want_entries'] and text == case['want_text']
+    rejected = entries > 65536 or text > 16711680
+    assert case['want_error'] == ('required_evidence_limit' if rejected else '')
+    assert case['want_catalogs'] == (0 if rejected else count)
+    rows.append({'name': case['name'], 'entries': entries, 'text_bytes': text, 'non_key_text_bytes': overhead, 'group_keys': ordinal, 'ordered_key_stream_sha256': digest.hexdigest(), 'expected_rejection': rejected})
+assert len(rows) == 4
+print(json.dumps({'proof': 'independent arithmetic only; no future API execution', 'cases': rows}, indent=2))

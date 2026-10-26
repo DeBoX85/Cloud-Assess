@@ -1,0 +1,31 @@
+# Initial required inventory consumer
+
+This is task5of the authorized five-task batch, the first task9consumer checkpoint. It starts from product185/566cc4d8/tree39c44bf8, carrying verified documentation and frozen inputs from PR198/528cacb9/tree42874a77. It implements neither missing production API. No review/archive/storage tree is a product-code base.
+
+## Exact prerequisite
+
+PR198own quality40268356832/source40268356868completed/success: all ten complete quality logs/steps/order/checkouts/both gates,622Linux/617Windows full control lines equal183/185,87.6%coverage/floor75%,23source captures/315chunks/909865bytes exactGit. Recorded0reachable/3imported-not-called/1module-only residuals OPEN. Specification-only task8freeze is certified by PR198final index, not its earlier pending publication paragraphs.
+
+Private archiveb4bb8a139810dab92f448bda64aa7c4c9c4be05d/tree5d5b81daac8eb06a1c316d10ae4ce6f68331b249: four remote files full byte readback,18fresh-restored members/1922248bytes equal originals. Receiptbfa964094c9e7bf0b9194a70bc7c0303fe3d931e atprojects/cloud-assess/ci-evidence/v1/verification-receipts/2026/10/26/pr198-b4bb8a13.json read back. Index12captures/121complete log occurrences/287members/33284895memberbytes. All prior non-index security/CI blobs preserved, expected-head updates/no force/both Denis identities. Issue189revisited closed; retention/revisit duties continue, no automatic archival or independent-backup closure.
+
+## Consumer and initial observation gate
+
+internal/plugins/region/required_inventory_contract_test.go consumes every unchanged original50and supplemental26literal. It binds the exact descriptor SHA25699fe17f4367ce3ec37fc8d7a0b3b954a62543ab9b620f8312714e0243e48e6f2 and32dependency hashes before independently validating strict JSON with the frozen Python grammar. The grammar rejects duplicate/unknown/aliased keys, wrong required presence/types, trailing/nonfinite/invalid Unicode input. Only then decode existing typed payloads and apply the explicit literal SET/expected changes; never derive expected results from target code or rerun prepare_literals.py.
+
+The comparator checks fixed error code and nil result at the recorded inventory/admission phase, owned nonnil containers, literal requirements/status/scoring/catalogs, retained raw records without Tags/SLA, canonical bindings and accessor equality. Input-order cases remain explicit. Two before-production consumer details make ambiguous representation choices concrete: invalid/limit error text is the exact fixed code with no payload; Resources order uses ascending case-folded original resource ID. Requirement literal order and all50/26results remain unchanged. These are declared consumer refinements before implementation, not observations of existing missing APIs.
+
+An isolated fixture-only probe extracted the loader/types, used existing product collection types and adjusted its root path. Go1.26.10Linux/readonly existing module cache/offline clean environment loaded all76typed cases after32hashes and strict schema/ten malformed controls, exit0. Source/proof are in evidence/20261026/inventory-consumer. No future API called or stub created. Gofmt proves syntax formatting, not future typecheck/runtime success.
+
+Publish this first consumer before implementing either API, preserve the first revision/oracles, then inspect BOTH actual hosted native missing BuildRequiredInventory and AdmitRequiredEvidence outcomes. Compiler/build/panic/infrastructure/timeout failures cannot count as assertion or mutation success. Current candidate intentionally cannot compile without the APIs and is unaccepted. Its own runs/complete logs and actual revision-specific outcomes must be retained; never inherit198green or use a runner-only revision as operational rollback target.
+
+## Remaining task9 work
+
+The13procedural obligations, four input and ten output recipes,16terminal schedules, deep ownership/concurrency/forged-object/error-tail tests and compiling named mutations are retained but not executed by the literal-only initial consumer. They remain required before task9completion, followed by complete healthy native/source QA, restored622/617controls, coherent source/runner rollback and reevaluation before10. Reject new mutation evidence caused by panic/build/infrastructure/timeout; R7-F04remains OPEN.
+
+All44legacy/49current obligations, seven service types, ALL Storage kinds, exact Cognitive kind, unresolved SQL coordinates and VMSS unsupported scoring remain. Tasks10–15and compare/alternative-vm-sku/MCP/types parity, whole documentary audit, independent/live/operational/licensing/Gate004/release and confirmed findings remain separate. Human security assessment consideration after overall project completion. No Azure/live retail/credentials/fixtures/RBAC/subagents/unrelated dependency/action/SDK/pin/oracle refresh/protected merge/bypass/release.
+
+Current uncertainty: initial consumer actual BOTH-native missing API observations and own evidence retention are pending. No production implementation or future API pass claimed. Self-assessment: fixture-only preflight passed, no frozen input changed, next action is publication/readback and actual native inspection. Continue without user input unless an unexpected issue lacks safe mitigation.
+
+Continuity safeguard carry: product185had only three handoff tests and no task-map file. The verified198continuity-guard delta was explicitly reviewed and applied onto185so all seven current handoff guards remain, including task-ID conservation and issue189visibility/closure references. This narrow QA-guidance port is recorded separately from the new consumer; no production region implementation was taken from a documentation tree. A first local conservation wrapper mistakenly requested the later task map from185; it failed before comparisons and was corrected to the verified198document baseline. Original three task8files still compare against185.
+
+The carried handoff guard caught a restart prompt missing the exact issue189URL in its first6000characters; the stable linked task marker is now at the top of both equal prompts. Archived fixture-probe whitespace-only lines were trimmed and their proof hash updated without changing Go tokens. Both were corrected before first consumer publication; no guard or frozen expectation weakened.

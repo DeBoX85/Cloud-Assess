@@ -1,0 +1,37 @@
+package main
+
+import (
+	"encoding/json"
+	"fmt"
+	"os"
+
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/arm"
+)
+
+func main() {
+	prefix := "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/"
+	cases := []struct {
+		name, id, wantType, wantGroup, wantName string
+	}{
+		{"healthy-vm", prefix + "Microsoft.Compute/virtualMachines/vm", "Microsoft.Compute/virtualMachines", "rg", "vm"},
+		{"empty-segment-collapsed", prefix + "Microsoft.Compute//virtualMachines/vm", "Microsoft.Compute/virtualMachines", "rg", "vm"},
+		{"segment-trimmed", prefix + "Microsoft.Compute/virtualMachines/ vm ", "Microsoft.Compute/virtualMachines", "rg", "vm"},
+		{"unnamed-leaf", prefix + "Microsoft.Compute/virtualMachines/vm/extensions", "Microsoft.Compute/virtualMachines/extensions", "rg", ""},
+		{"nested-sql", prefix + "Microsoft.Sql/servers/s/databases/d", "Microsoft.Sql/servers/databases", "rg", "d"},
+		{"extension-provider", prefix + "Microsoft.Compute/virtualMachines/vm/providers/Microsoft.Insights/diagnosticSettings/setting", "Microsoft.Insights/diagnosticSettings", "rg", "setting"},
+		{"opaque-percent", prefix + "Microsoft.Compute/virtualMachines/vm%2Fchild", "Microsoft.Compute/virtualMachines", "rg", "vm%2Fchild"},
+	}
+	for _, c := range cases {
+		id, err := arm.ParseResourceID(c.id)
+		if err != nil || id.ResourceType.String() != c.wantType || id.ResourceGroupName != c.wantGroup || id.Name != c.wantName {
+			fmt.Fprintln(os.Stderr, "unexpected parser outcome", c.name, err)
+			os.Exit(1)
+		}
+		out := struct {
+			Name, Type, Group, Leaf string
+		}{c.name, id.ResourceType.String(), id.ResourceGroupName, id.Name}
+		if err := json.NewEncoder(os.Stdout).Encode(out); err != nil {
+			panic(err)
+		}
+	}
+}

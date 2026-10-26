@@ -1,0 +1,82 @@
+{
+  "documents": [
+    {
+      "path": "docs/COGNITIVE_SKU_CONTRACT_20261017.md",
+      "revision": "1bdd4b10f366baf1b48130c071155999be054cc5",
+      "blob": "b9c7bd2f318c8558d31a5f6480eda82af514e7f1",
+      "bytes": 14456,
+      "sha256": "311dc63966d9db4bd9485685c1639d0be4301a84e940150e2a12707dad716935",
+      "old_raw_ledger_credit": true,
+      "current_review": "complete current text read and scoped reconciliation; REGION_SELECTION truncated gap recovered"
+    },
+    {
+      "path": "docs/SQL_CAPABILITY_CONTRACT_20261017.md",
+      "revision": "1bdd4b10f366baf1b48130c071155999be054cc5",
+      "blob": "26b3da90408bf4f67257e5106863f81a5969c08d",
+      "bytes": 15558,
+      "sha256": "9c90b33bb09500805004ae61c2f02f2add3bdd6586bc7b298e2ef0be1ea5e125",
+      "old_raw_ledger_credit": true,
+      "current_review": "complete current text read and scoped reconciliation; REGION_SELECTION truncated gap recovered"
+    },
+    {
+      "path": "docs/VMSS_CATALOG_CONTRACT_20261017.md",
+      "revision": "1bdd4b10f366baf1b48130c071155999be054cc5",
+      "blob": "0158c343351599690d192fd6f5248e511c569649",
+      "bytes": 10752,
+      "sha256": "78c4c5d60e7b8dd63cfb0b0f0a600edba890b8606a99c59d790575537fd55564",
+      "old_raw_ledger_credit": true,
+      "current_review": "complete current text read and scoped reconciliation; REGION_SELECTION truncated gap recovered"
+    },
+    {
+      "path": "docs/SQL_REPORT_CONTRACT_20261018.md",
+      "revision": "1bdd4b10f366baf1b48130c071155999be054cc5",
+      "blob": "95c7bb3cb152def421f973b3f255f5665e39b291",
+      "bytes": 9218,
+      "sha256": "ffa4fe7ffa3cdcf16791732285f0102d443928bdc2732c4935043e73ab23a1b9",
+      "old_raw_ledger_credit": false,
+      "current_review": "complete current text read and scoped reconciliation; REGION_SELECTION truncated gap recovered"
+    },
+    {
+      "path": "docs/REGION_PROVIDER_TARGET_RECONCILIATION_20261012.md",
+      "revision": "1bdd4b10f366baf1b48130c071155999be054cc5",
+      "blob": "960d48b125372be41770464f8378a8cecf8fded3",
+      "bytes": 11432,
+      "sha256": "44711345d48375c50a393b57b77ab8028774611932363018dbfc569f8a923077",
+      "old_raw_ledger_credit": true,
+      "current_review": "complete current text read and scoped reconciliation; REGION_SELECTION truncated gap recovered"
+    },
+    {
+      "path": "docs/MVP_ACCEPTANCE_MATRIX_20261019.md",
+      "revision": "1bdd4b10f366baf1b48130c071155999be054cc5",
+      "blob": "408b2a29c77dad92d05f3e4b3da4e90ba090a1d3",
+      "bytes": 6580,
+      "sha256": "da3f2edb5c86c35dd0497709221a8eeca198f74c82f396ed620210068cc95c9b",
+      "old_raw_ledger_credit": true,
+      "current_review": "complete current text read and scoped reconciliation; REGION_SELECTION truncated gap recovered"
+    },
+    {
+      "path": "docs/REGION_SELECTION.md",
+      "revision": "1bdd4b10f366baf1b48130c071155999be054cc5",
+      "blob": "dac2ba19ba759178e96edc5d4e7582c6f69e7784",
+      "bytes": 43594,
+      "sha256": "58094e345993d6a7a9e09af364368e1a1c183851c081dbdde12d37e8d2574b63",
+      "old_raw_ledger_credit": false,
+      "current_review": "complete current text read and scoped reconciliation; REGION_SELECTION truncated gap recovered"
+    },
+    {
+      "path": "docs/REGION_ADAPTER_INVENTORY_20261011.md",
+      "revision": "1bdd4b10f366baf1b48130c071155999be054cc5",
+      "blob": "715766ac2b29e61ac1f450293f24bc9c330086ff",
+      "bytes": 22006,
+      "sha256": "9fd247613fbf32c888756395bc6328c7e88ebb1e52dc98ab17eb7d6990147ab3",
+      "old_raw_ledger_credit": false,
+      "current_review": "complete current text read and scoped reconciliation; REGION_SELECTION truncated gap recovered"
+    }
+  ],
+  "original_coverage": "803raw/326Go/29semantic/127other paths including115documents is prior checkpoint, not silently replaced",
+  "credit_limit": "No aggregate update without deduplicating every later source inventory. SQL_REPORTis in original remainder and absent old raw ledger; record exact new read separately.",
+  "semantic_manifest_review": {
+    "original_cases": 50,
+    "method": "baseline plus literal deltas,29\u201338recovered full; no product execution or new whole-file raw credit"
+  }
+}

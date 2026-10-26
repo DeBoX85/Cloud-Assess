@@ -1,0 +1,45 @@
+package main
+
+import (
+ "context"
+ "encoding/json"
+ "fmt"
+ "os"
+ "strings"
+
+ "github.com/DeBoX85/Cloud-Assess/internal/plugins/region"
+)
+
+func main() {
+ const sub="aaaaaaaa-1111-4111-8111-111111111111"
+ type recipe struct { Name string; VM, Zones, Width, Full, Extra, SQL int; Family string }
+ recipes:=[]recipe{
+  {"entries-exact",8191,13650,1,0,0,1,""},
+  {"entries-first-excess",8191,13650,1,0,0,2,""},
+  {"text-exact",8190,13650,400,546,4,1,"ff"},
+  {"text-first-excess",8190,13650,400,546,4,1,"fff"},
+ }
+ type result struct { Name string; VMValues, Zones, SQLValues int; VMStatus, SQLStatus, DeploymentEligibility string }
+ out:=[]result{}
+ for _,r:=range recipes {
+  vm:=&region.ComputeVMSKUCollection{SubscriptionID:sub,Region:"westeurope",ResourceType:"microsoft.compute/virtualmachines",Status:"complete",Groups:map[string]region.ComputeVMSKUGroup{}}
+  required:=[]string{};ordinal:=0
+  for i:=0;i<r.VM;i++ {
+   key:=fmt.Sprintf("g%05d",i);required=append(required,key);zones:=[]string{};count:=1;if i<r.Zones-r.VM {count=2}
+   for j:=0;j<count;j++ {width:=r.Width;if ordinal<r.Full {width=512}else if ordinal==r.Full {width+=r.Extra};zones=append(zones,strings.Repeat(fmt.Sprint(j+1),width));ordinal++}
+   vm.Groups[key]=region.ComputeVMSKUGroup{Known:true,State:region.SKUZoneRestricted,BlockedZones:zones}
+  }
+  if ordinal!=r.Zones {panic("fixture zone count")}
+  projected,err:=vm.Evidence(context.Background(),required);if err!=nil {panic(err)}
+  if projected.Status!="complete"||len(projected.Values)!=r.VM {panic("VM projector result")}
+  count:=0;for key,g:=range projected.Values {if g.State!=region.SKUZoneRestricted||len(g.BlockedZones)!=len(vm.Groups[key].BlockedZones) {panic("VM projected state")};for j,z:=range g.BlockedZones {if z!=vm.Groups[key].BlockedZones[j] {panic("VM projected zones")}};count+=len(g.BlockedZones)}
+  sql:=&region.SQLCapabilityCollection{SubscriptionID:sub,Region:"westeurope",ResourceType:"microsoft.sql/servers/databases",Status:"complete",Groups:map[string]region.SQLCapabilityGroup{}}
+  coordinates:=[]string{}
+  for _,name:=range []string{"a","b"}[:r.SQL] {key:="v/e/"+name;coordinates=append(coordinates,key);sql.Groups[key]=region.SQLCapabilityGroup{Known:true,State:region.SKUAvailable,Version:"v",Edition:"e",Name:name,Family:r.Family,SKUName:name,SKUTier:"e",Capacity:1,Standalone:"not_applicable",InstancePool:"not_applicable"}}
+  catalog,err:=sql.Catalog(context.Background(),map[string]string{sub:"One"},region.SQLCapabilityRequest{SubscriptionID:sub,Region:"westeurope",ResourceType:"microsoft.sql/servers/databases"},coordinates);if err!=nil {panic(err)}
+  if catalog.Status!="complete"||catalog.DeploymentEligibility!="not_assessed"||len(catalog.Values)!=r.SQL {panic("SQL projector result")}
+  for key,g:=range catalog.Values {if g.Family!=r.Family||g.SKUName!=sql.Groups[key].SKUName {panic("SQL projected coordinates")}}
+  out=append(out,result{r.Name,len(projected.Values),count,len(catalog.Values),projected.Status,catalog.Status,catalog.DeploymentEligibility})
+ }
+ if err:=json.NewEncoder(os.Stdout).Encode(map[string]any{"proof":"existing product185 projectors only; no future API or network execution","cases":out});err!=nil {panic(err)}
+}

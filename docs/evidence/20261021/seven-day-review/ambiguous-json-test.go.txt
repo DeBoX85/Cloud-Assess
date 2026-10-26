@@ -1,0 +1,22 @@
+package equivalence
+
+import (
+ "strings"
+ "testing"
+)
+
+func TestReviewRejectsAmbiguousComparisonJSON(t *testing.T) {
+ healthyRef := `{"advisor":[]}`
+ healthyTarget := `{"schemaVersion":"1.0","completeness":"complete","stages":[{"name":"advisor","status":"completed"}]}`
+ cases := []struct{name, reference, target string}{
+  {"healthy-control",healthyRef,healthyTarget},
+  {"hidden-reference-row",`{"advisor":[{"resourceId":"/synthetic/r","recommendationId":"rec-1","impact":"High"}],"advisor":[]}`,healthyTarget},
+  {"contradictory-target-completeness",healthyRef,`{"schemaVersion":"1.0","completeness":"partial","completeness":"complete","stages":[{"name":"advisor","status":"completed"}]}`},
+ }
+ for _, c := range cases { t.Run(c.name,func(t *testing.T){
+  ref, re := LoadReference(strings.NewReader(c.reference)); target, te := LoadTarget(strings.NewReader(c.target))
+  equivalent := re == nil && te == nil && Compare(ref,target).Equivalent
+  t.Logf("reference_error=%v target_error=%v equivalent=%v", re,te,equivalent)
+  if c.name == "healthy-control" { if !equivalent {t.Fatal("healthy input rejected")} } else if equivalent {t.Fatal("ambiguous input declared equivalent")}
+ }) }
+}
