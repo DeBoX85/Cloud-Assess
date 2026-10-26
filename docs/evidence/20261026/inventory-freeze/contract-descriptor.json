@@ -1,6 +1,6 @@
 {
   "format": "cloud-assess-required-inventory-contract-v1",
-  "stage": "prepared_pending_readiness_and_ownQA",
+  "stage": "specification_candidate_locally_verified_pending_ownQA",
   "product": {
     "commit": "566cc4d8b78d168e5216245a5a386f742a3a2f85",
     "tree": "39c44bf8e1d477623b901105fa752da1e7be9669"
