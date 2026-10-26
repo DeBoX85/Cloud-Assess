@@ -1,0 +1,15 @@
+{
+  "scope": "review helper only; no product test execution",
+  "controls": [
+    "explicit base pointer and changed scalar",
+    "identical subtree reference",
+    "different object order retained",
+    "escaped pointer and Unicode",
+    "empty containers/null/bool/int/float distinctions",
+    "embedded duplicate-key wire string unchanged",
+    "all reserved marker names reject"
+  ],
+  "status": "passed",
+  "helper_sha256": "48a39a0ad40dfcf9b4bc48d9ff00ea772523b811aa7a9e2316a7bef5cc127812",
+  "strict_loader_dependency_sha256": "d412c91bde4655b6a740a1179066fba62e45042d53522cfcb1f29740ca33308c"
+}

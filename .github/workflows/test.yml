@@ -18,9 +18,9 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  quality:
+  linux-native:
     runs-on: ubuntu-24.04
-    timeout-minutes: 20
+    timeout-minutes: 35
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -31,8 +31,14 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # v6.5.0
         with:
-          go-version: '1.26.9'
+          go-version: '1.26.10'
           cache: true
+
+      - name: Verify parallel workflow conservation and gate guards
+        run: python3 scripts/tests/ci-workflow.py
+
+      - name: Verify isolated required inventory Build controls
+        run: python3 scripts/tests/required-inventory-build.py
 
       - name: Verify pinned source-data provenance
         shell: bash
@@ -54,38 +60,6 @@ jobs:
           test "$actual_skus" = "$expected_skus"
 
           test "$(git -C internal/rules/upstream/aprl rev-parse HEAD)" = "$expected_aprl"
-
-      - name: Verify ARG response framing compiling controls
-        run: python3 scripts/tests/arg-response-framing-mutation.py
-
-      - name: Verify Compute disk SKU collector compiling controls
-        run: python3 scripts/tests/compute-disk-sku-collector-mutation.py
-
-      - name: Verify retained source capture byte guard
-        run: python3 scripts/tests/region-source-capture.py
-
-      - name: Verify availability source oracle mutations
-        run: python3 scripts/tests/region-availability-capture-mutation.py
-
-      - name: Verify latency source oracle mutations
-        run: python3 scripts/tests/region-latency-capture-mutation.py
-
-      - name: Verify cost enrichment source oracle mutations
-        run: python3 scripts/tests/region-cost-enrichment-capture-mutation.py
-      - name: Quota source oracle compiling controls
-        run: python3 scripts/tests/region-quota-capture-mutation.py
-      - name: VM quota SDK source oracle compiling controls
-        run: python3 scripts/tests/region-vm-quota-capture-mutation.py
-      - name: Reservation SDK source oracle compiling controls
-        run: python3 scripts/tests/region-reservation-capture-mutation.py
-      - name: Provider locations source oracle compiling controls
-        run: python3 scripts/tests/region-provider-locations-capture-mutation.py
-
-      - name: Compute SKU source oracle compiling controls
-        run: python3 scripts/tests/region-compute-sku-capture-mutation.py
-
-      - name: Remaining SKU source oracle compiling controls
-        run: python3 scripts/tests/region-other-sku-capture-mutation.py
 
       - name: Verify formatting
         shell: bash
@@ -195,7 +169,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          go test -covermode=atomic -coverprofile=.build/coverage.out ./...
+          go test -count=1 -covermode=atomic -coverprofile=.build/coverage.out ./...
           total="$(go tool cover -func=.build/coverage.out | awk '/^total:/ {gsub("%", "", $3); print $3}')"
           echo "Total statement coverage: ${total}%"
           awk -v total="$total" 'BEGIN { if ((total + 0) < 75.0) exit 1 }'
@@ -216,61 +190,20 @@ jobs:
       - name: Test maintenance generation recipes
         run: python3 scripts/tests/maintenance-generation.py
 
-      - name: Verify comparator tests reject selected mutations
-        run: python3 scripts/tests/qa-mutation.py
-
-      - name: Verify AI request boundary tests reject selected mutations
-        run: python3 scripts/tests/ai-request-mutation.py
-
-      - name: Verify AI public execution tests reject selected mutations
-        run: python3 scripts/tests/ai-execution-mutation.py
-
-      - name: Verify region primary tests reject selected mutations
-        run: python3 scripts/tests/region-primary-mutation.py
-
-      - name: Verify region auxiliary tests reject selected mutations
-        run: python3 scripts/tests/region-auxiliary-mutation.py
-
-      - name: Verify region service tests reject selected mutations
-        run: python3 scripts/tests/region-service-mutation.py
-
-      - name: Verify region cost tests reject selected mutations
-        run: python3 scripts/tests/region-cost-mutation.py
-
-      - name: Verify region inventory tests reject selected mutations
-        run: python3 scripts/tests/region-inventory-mutation.py
-
-      - name: Verify region inventory aggregation tests reject selected mutations
-        run: python3 scripts/tests/region-inventory-aggregation-mutation.py
-
-      - name: Verify region availability tests reject selected mutations
-        run: python3 scripts/tests/region-availability-mutation.py
-
-      - name: Verify region latency tests reject selected mutations
-        run: python3 scripts/tests/region-latency-mutation.py
-      - name: Verify region cost enrichment tests reject selected mutations
-        run: python3 scripts/tests/region-cost-enrichment-mutation.py
-
-      - name: Verify region quota runtime tests reject selected mutations
-        run: python3 scripts/tests/region-quota-runtime-mutation.py
-
-      - name: Verify region reservation runtime tests reject selected mutations
-        run: python3 scripts/tests/region-reservation-runtime-mutation.py
-
-      - name: Verify REST quota collector tests reject selected mutations
-        run: python3 scripts/tests/region-quota-collector-mutation.py
-
-      - name: Verify reservation collector tests reject selected mutations
-        run: python3 scripts/tests/region-reservation-collector-mutation.py
-
-      - name: Verify provider collector compiling controls
-        run: python3 scripts/tests/region-provider-locations-collector-mutation.py
-
       - name: Vet
         run: go vet ./...
 
       - name: Check reachable vulnerabilities
         run: go run golang.org/x/vuln/cmd/govulncheck@v1.8.0 ./...
+
+      - name: Verify hosted gate contract definitions
+        run: python3 scripts/tests/gate-probe.py
+
+      - name: Verify handoff authority consistency
+        run: python3 scripts/tests/handoff.py
+
+      - name: Verify durable evidence bundle integrity
+        run: python3 scripts/tests/evidence-bundle.py
 
       - name: Retain synthetic QA failure evidence
         if: failure()
@@ -283,9 +216,211 @@ jobs:
           if-no-files-found: ignore
           retention-days: 14
 
-  windows-validation:
+  linux-controls-1:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          submodules: recursive
+          fetch-depth: 1
+
+      - name: Set up Go
+        uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # v6.5.0
+        with:
+          go-version: '1.26.10'
+          cache: true
+
+      - name: Verify parallel workflow conservation and gate guards
+        run: python3 scripts/tests/ci-workflow.py
+
+      - name: Verify Section 1 compiling regressions
+        run: python3 scripts/tests/section1-regressions.py
+
+      - name: Verify Section 2 compiling regressions
+        run: python3 scripts/tests/section2-regressions.py
+
+      - name: Verify Section 4 compiling regressions
+        run: python3 scripts/tests/section4-regressions.py
+
+      - name: Verify retained source capture byte guard
+        run: python3 scripts/tests/region-source-capture.py
+
+      - name: Quota source oracle compiling controls
+        run: python3 scripts/tests/region-quota-capture-mutation.py
+
+      - name: VM quota SDK source oracle compiling controls
+        run: python3 scripts/tests/region-vm-quota-capture-mutation.py
+
+      - name: Compute SKU source oracle compiling controls
+        run: python3 scripts/tests/region-compute-sku-capture-mutation.py
+
+      - name: Verify region primary tests reject selected mutations
+        run: python3 scripts/tests/region-primary-mutation.py
+
+      - name: Verify region service tests reject selected mutations
+        run: python3 scripts/tests/region-service-mutation.py
+
+      - name: Verify region availability tests reject selected mutations
+        run: python3 scripts/tests/region-availability-mutation.py
+
+      - name: Verify region cost enrichment tests reject selected mutations
+        run: python3 scripts/tests/region-cost-enrichment-mutation.py
+
+      - name: Verify reservation collector tests reject selected mutations
+        run: python3 scripts/tests/region-reservation-collector-mutation.py
+
+      - name: Verify SQL Database capability compiling controls
+        run: python3 scripts/tests/sql-database-controls.py
+
+      - name: Verify retail pricing compiling controls
+        run: python3 scripts/tests/retail-controls.py
+
+  linux-controls-2:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          submodules: recursive
+          fetch-depth: 1
+
+      - name: Set up Go
+        uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # v6.5.0
+        with:
+          go-version: '1.26.10'
+          cache: true
+
+      - name: Verify parallel workflow conservation and gate guards
+        run: python3 scripts/tests/ci-workflow.py
+
+      - name: Verify ARG response framing compiling controls
+        run: python3 scripts/tests/arg-response-framing-mutation.py
+
+      - name: Verify Storage SKU collector compiling controls
+        run: python3 scripts/tests/storage-sku-collector-mutation.py
+
+      - name: Verify VM SKU collector compiling controls
+        run: python3 scripts/tests/compute-vm-sku-collector-mutation.py
+
+      - name: Verify availability source oracle mutations
+        run: python3 scripts/tests/region-availability-capture-mutation.py
+
+      - name: Verify AI request boundary tests reject selected mutations
+        run: python3 scripts/tests/ai-request-mutation.py
+
+      - name: Verify AI public execution tests reject selected mutations
+        run: python3 scripts/tests/ai-execution-mutation.py
+
+      - name: Verify region auxiliary tests reject selected mutations
+        run: python3 scripts/tests/region-auxiliary-mutation.py
+
+      - name: Verify region cost tests reject selected mutations
+        run: python3 scripts/tests/region-cost-mutation.py
+
+      - name: Verify region inventory tests reject selected mutations
+        run: python3 scripts/tests/region-inventory-mutation.py
+
+      - name: Verify region latency tests reject selected mutations
+        run: python3 scripts/tests/region-latency-mutation.py
+
+      - name: Verify region reservation runtime tests reject selected mutations
+        run: python3 scripts/tests/region-reservation-runtime-mutation.py
+
+      - name: Verify SQL Managed Instance capability compiling controls
+        run: python3 scripts/tests/sql-mi-controls.py
+
+      - name: Verify SQL report adapter compiling controls
+        run: python3 scripts/tests/sql-report-controls.py
+
+      - name: Verify meter history compiling controls
+        run: python3 scripts/tests/meter-history-controls.py
+
+  linux-controls-3:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          submodules: recursive
+          fetch-depth: 1
+
+      - name: Set up Go
+        uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # v6.5.0
+        with:
+          go-version: '1.26.10'
+          cache: true
+
+      - name: Verify parallel workflow conservation and gate guards
+        run: python3 scripts/tests/ci-workflow.py
+
+      - name: Verify Section 3 compiling regressions
+        run: python3 scripts/tests/section3-regressions.py
+
+      - name: Verify Compute disk SKU collector compiling controls
+        run: python3 scripts/tests/compute-disk-sku-collector-mutation.py
+
+      - name: Verify latency source oracle mutations
+        run: python3 scripts/tests/region-latency-capture-mutation.py
+
+      - name: Verify cost enrichment source oracle mutations
+        run: python3 scripts/tests/region-cost-enrichment-capture-mutation.py
+
+      - name: Reservation SDK source oracle compiling controls
+        run: python3 scripts/tests/region-reservation-capture-mutation.py
+
+      - name: Provider locations source oracle compiling controls
+        run: python3 scripts/tests/region-provider-locations-capture-mutation.py
+
+      - name: Remaining SKU source oracle compiling controls
+        run: python3 scripts/tests/region-other-sku-capture-mutation.py
+
+      - name: Verify comparator tests reject selected mutations
+        run: python3 scripts/tests/qa-mutation.py
+
+      - name: Verify region inventory aggregation tests reject selected mutations
+        run: python3 scripts/tests/region-inventory-aggregation-mutation.py
+
+      - name: Verify region quota runtime tests reject selected mutations
+        run: python3 scripts/tests/region-quota-runtime-mutation.py
+
+      - name: Verify REST quota collector tests reject selected mutations
+        run: python3 scripts/tests/region-quota-collector-mutation.py
+
+      - name: Verify provider collector compiling controls
+        run: python3 scripts/tests/region-provider-locations-collector-mutation.py
+
+      - name: Verify VMSS catalog compiling controls
+        run: python3 scripts/tests/vmss-catalog-mutation.py
+
+      - name: Verify Cognitive SKU catalog compiling controls
+        run: python3 scripts/tests/cognitive-sku-mutation.py
+
+      - name: Verify assessment status scope redaction compiling controls
+        run: python3 scripts/tests/scope-redaction-controls.py
+
+  quality:
+    if: ${{ always() }}
+    needs: [linux-native, linux-controls-1, linux-controls-2, linux-controls-3]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Checkout gate validator
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Require every native worker to succeed
+        env:
+          NEEDS_JSON: ${{ toJSON(needs) }}
+        run: python3 scripts/ci/required_gate.py --platform linux
+
+  windows-native:
     runs-on: windows-2022
-    timeout-minutes: 30
+    timeout-minutes: 40
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -295,8 +430,14 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # v6.5.0
         with:
-          go-version: '1.26.9'
+          go-version: '1.26.10'
           cache: true
+
+      - name: Verify parallel workflow conservation and gate guards
+        run: python scripts/tests/ci-workflow.py
+
+      - name: Verify isolated required inventory Build controls
+        run: python scripts/tests/required-inventory-build.py
 
       - name: Parse scripts with Windows PowerShell 5.1
         shell: powershell
@@ -320,92 +461,8 @@ jobs:
       - name: Verify Windows workflow native-command failure propagation
         run: python scripts/tests/workflow-command-failures.py
 
-      - name: Verify ARG response framing compiling controls
-        run: python scripts/tests/arg-response-framing-mutation.py
-
-      - name: Verify Compute disk SKU collector compiling controls
-        run: python scripts/tests/compute-disk-sku-collector-mutation.py
-
-      - name: Verify Windows retained source capture byte guard
-        run: python scripts/tests/region-source-capture.py
-
-      - name: Verify Windows availability source oracle mutations
-        run: python scripts/tests/region-availability-capture-mutation.py
-
-      - name: Verify Windows latency source oracle mutations
-        run: python scripts/tests/region-latency-capture-mutation.py
-
-      - name: Verify Windows cost enrichment source oracle mutations
-        run: python scripts/tests/region-cost-enrichment-capture-mutation.py
-      - name: Quota source oracle compiling controls
-        run: python scripts/tests/region-quota-capture-mutation.py
-      - name: VM quota SDK source oracle compiling controls
-        run: python scripts/tests/region-vm-quota-capture-mutation.py
-      - name: Reservation SDK source oracle compiling controls
-        run: python scripts/tests/region-reservation-capture-mutation.py
-      - name: Provider locations source oracle compiling controls
-        run: python scripts/tests/region-provider-locations-capture-mutation.py
-
-      - name: Compute SKU source oracle compiling controls
-        run: python scripts/tests/region-compute-sku-capture-mutation.py
-
-      - name: Remaining SKU source oracle compiling controls
-        run: python scripts/tests/region-other-sku-capture-mutation.py
-
       - name: Test Go packages on Windows
-        run: go test ./...
-
-      - name: Verify Windows AI request boundary tests reject selected mutations
-        run: python scripts/tests/ai-request-mutation.py
-
-      - name: Verify Windows AI public execution tests reject selected mutations
-        run: python scripts/tests/ai-execution-mutation.py
-
-      - name: Verify Windows region primary tests reject selected mutations
-        run: python scripts/tests/region-primary-mutation.py
-
-      - name: Verify Windows region auxiliary tests reject selected mutations
-        run: python scripts/tests/region-auxiliary-mutation.py
-
-      - name: Verify Windows region service tests reject selected mutations
-        run: python scripts/tests/region-service-mutation.py
-
-      - name: Verify Windows region cost tests reject selected mutations
-        run: python scripts/tests/region-cost-mutation.py
-
-      - name: Verify Windows region inventory tests reject selected mutations
-        run: python scripts/tests/region-inventory-mutation.py
-
-      - name: Verify Windows region inventory aggregation tests reject selected mutations
-        run: python scripts/tests/region-inventory-aggregation-mutation.py
-
-      - name: Verify Windows region availability tests reject selected mutations
-        run: python scripts/tests/region-availability-mutation.py
-
-      - name: Verify Windows region latency tests reject selected mutations
-        run: python scripts/tests/region-latency-mutation.py
-      - name: Verify Windows region cost enrichment tests reject selected mutations
-        shell: pwsh
-        run: python scripts/tests/region-cost-enrichment-mutation.py
-
-      - name: Verify Windows region quota runtime tests reject selected mutations
-        shell: pwsh
-        run: python scripts/tests/region-quota-runtime-mutation.py
-
-      - name: Verify Windows region reservation runtime tests reject selected mutations
-        shell: pwsh
-        run: python scripts/tests/region-reservation-runtime-mutation.py
-
-      - name: Verify Windows REST quota collector tests reject selected mutations
-        shell: pwsh
-        run: python scripts/tests/region-quota-collector-mutation.py
-
-      - name: Verify Windows reservation collector tests reject selected mutations
-        shell: pwsh
-        run: python scripts/tests/region-reservation-collector-mutation.py
-
-      - name: Verify Windows provider collector compiling controls
-        run: python scripts/tests/region-provider-locations-collector-mutation.py
+        run: go test -count=1 ./...
 
       - name: Build and smoke-test Windows CLI
         env:
@@ -447,3 +504,213 @@ jobs:
 
       - name: Check Windows reachable vulnerabilities
         run: go run golang.org/x/vuln/cmd/govulncheck@v1.8.0 ./...
+
+      - name: Verify hosted gate contract definitions
+        run: python scripts/tests/gate-probe.py
+
+      - name: Verify handoff authority consistency
+        run: python scripts/tests/handoff.py
+
+      - name: Verify durable evidence bundle integrity
+        run: python scripts/tests/evidence-bundle.py
+
+  windows-controls-1:
+    runs-on: windows-2022
+    timeout-minutes: 40
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          submodules: recursive
+
+      - name: Set up Go
+        uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # v6.5.0
+        with:
+          go-version: '1.26.10'
+          cache: true
+
+      - name: Verify parallel workflow conservation and gate guards
+        run: python scripts/tests/ci-workflow.py
+
+      - name: Verify Section 4 compiling regressions
+        run: python scripts/tests/section4-regressions.py
+
+      - name: Verify Compute disk SKU collector compiling controls
+        run: python scripts/tests/compute-disk-sku-collector-mutation.py
+
+      - name: Verify VM SKU collector compiling controls
+        run: python scripts/tests/compute-vm-sku-collector-mutation.py
+
+      - name: VM quota SDK source oracle compiling controls
+        run: python scripts/tests/region-vm-quota-capture-mutation.py
+
+      - name: Reservation SDK source oracle compiling controls
+        run: python scripts/tests/region-reservation-capture-mutation.py
+
+      - name: Verify Windows AI request boundary tests reject selected mutations
+        run: python scripts/tests/ai-request-mutation.py
+
+      - name: Verify Windows region auxiliary tests reject selected mutations
+        run: python scripts/tests/region-auxiliary-mutation.py
+
+      - name: Verify Windows region cost tests reject selected mutations
+        run: python scripts/tests/region-cost-mutation.py
+
+      - name: Verify Windows region inventory aggregation tests reject selected mutations
+        run: python scripts/tests/region-inventory-aggregation-mutation.py
+
+      - name: Verify Windows region cost enrichment tests reject selected mutations
+        shell: pwsh
+        run: python scripts/tests/region-cost-enrichment-mutation.py
+
+      - name: Verify Windows region quota runtime tests reject selected mutations
+        shell: pwsh
+        run: python scripts/tests/region-quota-runtime-mutation.py
+
+      - name: Verify SQL Database capability compiling controls
+        run: python scripts/tests/sql-database-controls.py
+
+      - name: Verify meter history compiling controls
+        run: python scripts/tests/meter-history-controls.py
+
+  windows-controls-2:
+    runs-on: windows-2022
+    timeout-minutes: 40
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          submodules: recursive
+
+      - name: Set up Go
+        uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # v6.5.0
+        with:
+          go-version: '1.26.10'
+          cache: true
+
+      - name: Verify parallel workflow conservation and gate guards
+        run: python scripts/tests/ci-workflow.py
+
+      - name: Verify Section 3 compiling regressions
+        run: python scripts/tests/section3-regressions.py
+
+      - name: Verify Storage SKU collector compiling controls
+        run: python scripts/tests/storage-sku-collector-mutation.py
+
+      - name: Verify Windows retained source capture byte guard
+        run: python scripts/tests/region-source-capture.py
+
+      - name: Verify Windows latency source oracle mutations
+        run: python scripts/tests/region-latency-capture-mutation.py
+
+      - name: Verify Windows cost enrichment source oracle mutations
+        run: python scripts/tests/region-cost-enrichment-capture-mutation.py
+
+      - name: Provider locations source oracle compiling controls
+        run: python scripts/tests/region-provider-locations-capture-mutation.py
+
+      - name: Compute SKU source oracle compiling controls
+        run: python scripts/tests/region-compute-sku-capture-mutation.py
+
+      - name: Verify Windows AI public execution tests reject selected mutations
+        run: python scripts/tests/ai-execution-mutation.py
+
+      - name: Verify Windows region availability tests reject selected mutations
+        run: python scripts/tests/region-availability-mutation.py
+
+      - name: Verify Windows region latency tests reject selected mutations
+        run: python scripts/tests/region-latency-mutation.py
+
+      - name: Verify Windows region reservation runtime tests reject selected mutations
+        shell: pwsh
+        run: python scripts/tests/region-reservation-runtime-mutation.py
+
+      - name: Verify Windows provider collector compiling controls
+        run: python scripts/tests/region-provider-locations-collector-mutation.py
+
+      - name: Verify SQL Managed Instance capability compiling controls
+        run: python scripts/tests/sql-mi-controls.py
+
+      - name: Verify SQL report adapter compiling controls
+        run: python scripts/tests/sql-report-controls.py
+
+      - name: Verify retail pricing compiling controls
+        run: python scripts/tests/retail-controls.py
+
+  windows-controls-3:
+    runs-on: windows-2022
+    timeout-minutes: 40
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          submodules: recursive
+
+      - name: Set up Go
+        uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # v6.5.0
+        with:
+          go-version: '1.26.10'
+          cache: true
+
+      - name: Verify parallel workflow conservation and gate guards
+        run: python scripts/tests/ci-workflow.py
+
+      - name: Verify Section 1 compiling regressions
+        run: python scripts/tests/section1-regressions.py
+
+      - name: Verify Section 2 compiling regressions
+        run: python scripts/tests/section2-regressions.py
+
+      - name: Verify ARG response framing compiling controls
+        run: python scripts/tests/arg-response-framing-mutation.py
+
+      - name: Verify Windows availability source oracle mutations
+        run: python scripts/tests/region-availability-capture-mutation.py
+
+      - name: Quota source oracle compiling controls
+        run: python scripts/tests/region-quota-capture-mutation.py
+
+      - name: Remaining SKU source oracle compiling controls
+        run: python scripts/tests/region-other-sku-capture-mutation.py
+
+      - name: Verify Windows region primary tests reject selected mutations
+        run: python scripts/tests/region-primary-mutation.py
+
+      - name: Verify Windows region service tests reject selected mutations
+        run: python scripts/tests/region-service-mutation.py
+
+      - name: Verify Windows region inventory tests reject selected mutations
+        run: python scripts/tests/region-inventory-mutation.py
+
+      - name: Verify Windows REST quota collector tests reject selected mutations
+        shell: pwsh
+        run: python scripts/tests/region-quota-collector-mutation.py
+
+      - name: Verify Windows reservation collector tests reject selected mutations
+        shell: pwsh
+        run: python scripts/tests/region-reservation-collector-mutation.py
+
+      - name: Verify VMSS catalog compiling controls
+        run: python scripts/tests/vmss-catalog-mutation.py
+
+      - name: Verify Cognitive SKU catalog compiling controls
+        run: python scripts/tests/cognitive-sku-mutation.py
+
+      - name: Verify assessment status scope redaction compiling controls
+        run: python scripts/tests/scope-redaction-controls.py
+
+  windows-validation:
+    if: ${{ always() }}
+    needs: [windows-native, windows-controls-1, windows-controls-2, windows-controls-3]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Checkout gate validator
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Require every native worker to succeed
+        env:
+          NEEDS_JSON: ${{ toJSON(needs) }}
+        run: python3 scripts/ci/required_gate.py --platform windows

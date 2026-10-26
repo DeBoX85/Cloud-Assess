@@ -1,0 +1,51 @@
+package main
+
+import (
+ "context"
+ "encoding/json"
+ "errors"
+ "fmt"
+ "os"
+ "sync"
+ "time"
+)
+
+// Virtual clock only: no real timer/deadline execution is claimed.
+type signal struct { mu sync.Mutex; done chan struct{}; err error; deadline time.Time; hasDeadline bool }
+func newSignal(deadline bool)*signal{return &signal{done:make(chan struct{}),deadline:time.Unix(1,0),hasDeadline:deadline}}
+func(s *signal)Deadline()(time.Time,bool){return s.deadline,s.hasDeadline}
+func(s *signal)Done()<-chan struct{}{return s.done}
+func(s *signal)Err()error{s.mu.Lock();defer s.mu.Unlock();return s.err}
+func(s *signal)Value(any)any{return nil}
+func(s *signal)trip(e error){s.mu.Lock();defer s.mu.Unlock();if s.err==nil{s.err=e;close(s.done)}}
+var invalid=errors.New("fixed-invalid-tail")
+var phases=[]string{"after-input","after-derived-work","before-return"}
+func operation(ctx context.Context,observer func(string),badTail,ignoreTerminal bool)(*int,error){
+ reached:=phases;if badTail{reached=[]string{"before-return"}}
+ for _,phase:=range reached {if observer!=nil{observer(phase)};if !ignoreTerminal&&ctx.Err()!=nil{return nil,ctx.Err()}}
+ if badTail{return nil,invalid};v:=1;return &v,nil
+}
+func witness(hits int,out *int,err,cause error)bool{return hits==1&&out==nil&&errors.Is(err,cause)}
+func scheduled(api,phase string,deadline,badTail,fault bool)bool{
+ s:=newSignal(deadline);cause:=context.Canceled;if deadline{cause=context.DeadlineExceeded};hits:=0
+ observer:=func(p string){if p==phase{hits++;s.trip(cause)}}
+ out,err:=operation(s,observer,badTail,fault)
+ select{case <-s.Done():default:return false}
+ a,b:=s.Deadline();c,d:=s.Deadline()
+ return (api=="build"||api=="admit")&&witness(hits,out,err,cause)&&s.Err()==cause&&a==c&&b==d
+}
+func main(){
+ positives,negativeFaults:=0,0
+ for _,api:=range []string{"build","admit"}{for _,phase:=range phases{for _,deadline:=range []bool{false,true}{for _,tail:=range []bool{false,true}{
+  if tail&&phase!="before-return"{continue}
+  if !scheduled(api,phase,deadline,tail,false){panic("positive terminal schedule rejected")};positives++
+  if scheduled(api,phase,deadline,tail,true){panic("faulty terminal escape admitted")};negativeFaults++
+ }}}}
+ for _,tail:=range []bool{false,true}{out,err:=operation(context.Background(),nil,tail,false);if tail{if out!=nil||err!=invalid{panic("healthy invalid-tail control")}}else if out==nil||err!=nil{panic("healthy success control")}}
+ if scheduled("unknown","before-return",false,false,false)||scheduled("build","unreached",false,false,false){panic("scheduler misuse admitted")}
+ for _,hits:=range []int{0,2}{if witness(hits,nil,context.Canceled,context.Canceled){panic("invalid phase witness accepted")}}
+ ctx,cancel:=context.WithCancel(context.Background());cancel();if ctx.Err()!=context.Canceled{panic("standard cancellation control")}
+ expired,stop:=context.WithDeadline(context.Background(),time.Unix(0,0));defer stop();if expired.Err()!=context.DeadlineExceeded{panic("standard expired deadline control")}
+ result:=map[string]any{"proof":"standalone scheduler model, not future product API execution","positive_terminal_schedules":positives,"faulty_terminal_schedules_rejected":negativeFaults,"healthy_controls":2,"scheduler_misuse_controls":4,"standard_entry_context_controls":2,"network_or_product_imports":false,"late_deadline":"virtual clock signal, not real timer"}
+ if err:=json.NewEncoder(os.Stdout).Encode(result);err!=nil{fmt.Fprintln(os.Stderr,err);os.Exit(1)}
+}

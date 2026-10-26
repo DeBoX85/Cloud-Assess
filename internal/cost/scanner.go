@@ -79,6 +79,9 @@ func (s *Scanner) scanAt(
 		Records:  []assessment.CostRecord{},
 		Warnings: []assessment.AssessmentWarning{},
 	}
+	if err := ctx.Err(); err != nil {
+		return result, err
+	}
 	if len(subscriptions) == 0 {
 		return result, nil
 	}
@@ -121,6 +124,9 @@ func (s *Scanner) scanAt(
 		go func() {
 			defer wg.Done()
 			for subscriptionID := range jobs {
+				if workerCtx.Err() != nil {
+					return
+				}
 				records, warnings, err := s.querySubscription(
 					workerCtx,
 					subscriptionID,
@@ -161,6 +167,9 @@ func (s *Scanner) scanAt(
 			firstErr = subscription.err
 		}
 	}
+	if err := ctx.Err(); err != nil {
+		return result, err
+	}
 	if firstErr != nil {
 		return result, firstErr
 	}
@@ -183,6 +192,9 @@ func (s *Scanner) scanAt(
 		}
 		return result.Warnings[i].Message < result.Warnings[j].Message
 	})
+	if err := ctx.Err(); err != nil {
+		return result, err
+	}
 	return result, nil
 }
 
@@ -224,7 +236,7 @@ func (s *Scanner) querySubscription(
 		subscriptionID,
 		apiVersion,
 	)
-	responseBody, _, err := s.client.Post(ctx, url, azure.NopReadSeekCloser{Reader: bytes.NewReader(body)})
+	responseBody, httpResponse, err := s.client.Post(ctx, url, azure.NopReadSeekCloser{Reader: bytes.NewReader(body)})
 	if err != nil {
 		if errorCode, ok := azure.IsSkippableResponseError(err); ok {
 			return nil, []assessment.AssessmentWarning{{
@@ -237,6 +249,12 @@ func (s *Scanner) querySubscription(
 			}}, nil
 		}
 		return nil, nil, fmt.Errorf("query costs for subscription %s: %w", subscriptionID, err)
+	}
+	if httpResponse == nil {
+		return nil, nil, fmt.Errorf("Cost Management query returned no HTTP response")
+	}
+	if httpResponse.StatusCode != http.StatusOK && httpResponse.StatusCode != http.StatusNoContent {
+		return nil, nil, fmt.Errorf("Cost Management response status %d is not a completed query", httpResponse.StatusCode)
 	}
 	if len(bytes.TrimSpace(responseBody)) == 0 {
 		return []assessment.CostRecord{}, nil, nil

@@ -1,0 +1,17 @@
+Parallel workflow: all original platform checks conserved; protected gates strict
+..........
+----------------------------------------------------------------------
+Ran 10 tests in 0.222s
+
+OK
+...
+----------------------------------------------------------------------
+Ran 3 tests in 0.007s
+
+OK
+...
+----------------------------------------------------------------------
+Ran 3 tests in 0.004s
+
+OK
+Developer preflight passed. Full final-revision native/source gates remain required.

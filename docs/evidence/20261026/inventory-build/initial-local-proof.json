@@ -1,0 +1,21 @@
+{
+  "scope": "isolated Build explicit-file-set race tests; not whole native acceptance",
+  "go": "go1.26.10 linux/amd64",
+  "exit_code": 0,
+  "frozen_build_cases": 76,
+  "late_terminal_build_schedules": 8,
+  "additional_tests": [
+    "public-core-equivalence",
+    "constructor-input-ownership",
+    "public-private-diagnostic-ownership",
+    "Storage-kind-list-ownership",
+    "nil-context",
+    "standard-canceled-expired-entry",
+    "canonical-context-cause",
+    "repeat-concurrent-isolation",
+    "zero-nil-admission-accessor"
+  ],
+  "log_sha256": "77a784f837728091688c2a614b01c08255dff1966907b032c2f4599882aa388e",
+  "admission_implemented": false,
+  "full_native_quality_accepted": false
+}

@@ -1,0 +1,25 @@
+{
+  "scope": "fixture admission/materialization only; no future API execution",
+  "product_base": "566cc4d8b78d168e5216245a5a386f742a3a2f85",
+  "descriptor_sha256": "99fe17f4367ce3ec37fc8d7a0b3b954a62543ab9b620f8312714e0243e48e6f2",
+  "probe_source_sha256": "1f9987c74146ff9de85d803834af8e991d58e74b33b8cf29c59c21e11cff105c",
+  "go": "go1.26.10 linux/amd64",
+  "command": "env -i PATH=<pinned-Go>:/usr/bin:/bin HOME=<task-home> GOCACHE=<task-cache> GOMODCACHE=<existing-module-cache> GOPROXY=off GOSUMDB=off GOTOOLCHAIN=local GOWORK=off GOTELEMETRY=off timeout 90 go test -mod=readonly -count=1 -v ./cmd/required-fixture-probe",
+  "exit_code": 0,
+  "original_cases": 50,
+  "supplemental_cases": 26,
+  "bound_files": 32,
+  "typed_fixture_count": 76,
+  "schema_negative_controls": 10,
+  "future_apis_called": false,
+  "adaptations": [
+    "Extract first-consumer loader/types before future-API test, remove future API name references, alias existing collection/SKUEvidence types from product region package.",
+    "Adjust root path from package internal/plugins/region to temporary cmd/required-fixture-probe.",
+    "No invented production/API stub; dependency product build does not compile its test files.",
+    "Archived source removes whitespace-only lines left by temporary import extraction; executable token stream unchanged."
+  ],
+  "limits": [
+    "Initial consumer comparison body is syntax-formatted but cannot typecheck or execute until future APIs exist.",
+    "No budget/procedural/cancellation/mutation execution or runtime acceptance is implied."
+  ]
+}
