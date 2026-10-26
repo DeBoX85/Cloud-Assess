@@ -766,9 +766,9 @@
     },
     {
       "id": "OFFLINE-09",
-      "state": "initial_consumer_prepared",
+      "state": "build_implementation_in_progress",
       "owner": "development owner",
-      "next_or_limit": "Product185lineage first strict76literal consumer, fixture-only preflight passed. Publish/read back, inspect BOTH actual native missing APIs before production. Procedural/budget/phase/mutation/runtime/rollback/healthy ownQA remain required."
+      "next_or_limit": "PR199initial BOTH native missing APIs verified and retained. Product-lineage Build implemented/local76Build+ownership/context/concurrency race checks pass; Build boundaries/mutations/own QA-retention next, admission implementation/proofs/healthy622/617/rollback still required before10."
     },
     {
       "id": "OFFLINE-10",
