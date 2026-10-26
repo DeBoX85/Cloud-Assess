@@ -1,5 +1,7 @@
 # Handover discrepancies, 2026-10-21
 
+Current routing: [CURRENT_STATE](CURRENT_STATE.md) and [review progress](REVIEW_PROGRESS_20261021.md). The rows below preserve the original recovery checkpoint. H21-03 task7 closure is now complete in PR183; H21-06 product continuation is PR185 at566cc4d8 with explicitly carried handover; H21-08 received approval and its narrow Go1.26.10 remediation passed own QA in PR185. These successors do not certify PR184 or clear residual advisories. R7-F02 was reclassified under QA-AUD7-04 after the root-depth0 supplemental plan was read. Review/task8 state remains open/provisional.
+
 | ID | Stale or conflicting instruction | Reconciled disposition |
 | --- | --- | --- |
 | H21-01 | Root restart/current state still had corrective183QA pending | Live quality39450901879/source39450901886 pass at exact183; final PR index owns outcomes. This new handover tree has its OWN pending QA |

@@ -1,0 +1,48 @@
+// Disposable probe of existing pure Catalog methods, not a future admission API.
+package main
+
+import (
+	"context"
+	"encoding/json"
+	"fmt"
+	"os"
+	"strings"
+
+	"github.com/DeBoX85/Cloud-Assess/internal/plugins/region"
+)
+
+func main() {
+	data, err := os.ReadFile(os.Args[1])
+	if err != nil { panic(err) }
+	var recipes struct { Cases []struct {
+		Name string `json:"name"`
+		Kinds int `json:"kinds"`
+		GroupCounts []int `json:"group_counts"`
+		KeyBytes int `json:"key_bytes"`
+		Overrides map[string]int `json:"key_overrides"`
+	} `json:"cases"` }
+	if err := json.Unmarshal(data, &recipes); err != nil { panic(err) }
+	if len(recipes.Cases) != 4 { panic("recipe inventory") }
+	const id = "aaaaaaaa-1111-4111-8111-111111111111"
+	for _, recipe := range recipes.Cases {
+		ordinal := 0
+		if len(recipe.GroupCounts) != recipe.Kinds { panic("kind inventory") }
+		for i, count := range recipe.GroupCounts {
+			kind := fmt.Sprintf("c%d", i)
+			groups := map[string]region.CognitiveSKUGroup{}
+			for n := 0; n < count; n++ {
+				size := recipe.KeyBytes
+				if v, ok := recipe.Overrides[fmt.Sprint(ordinal)]; ok { size = v }
+				if size < 6 || size > 512 { panic("scalar bound") }
+				key := fmt.Sprintf("g%05d", n) + strings.Repeat("x", size - 6)
+				groups[key] = region.CognitiveSKUGroup{Known:true, State:region.SKUAvailable, BlockedZones:[]string{}}
+				ordinal++
+			}
+			if len(groups) != count { panic("key collision") }
+			collection := region.CognitiveSKUCollection{SubscriptionID:id, Region:"westeurope", Kind:kind, ResourceType:"microsoft.cognitiveservices/accounts", Status:"complete", Groups:groups}
+			out, err := collection.Catalog(context.Background(), map[string]string{id:"One"}, region.CognitiveSKURequest{SubscriptionID:id, Region:"westeurope", Kind:kind}, []string{"s0"})
+			if err != nil || out.Status != "complete" || out.DeploymentEligibility != "not_assessed" || out.Kind != kind || len(out.Values) != 1 || out.Values["s0"].State != region.SKUUnavailable || len(out.Values["s0"].BlockedZones) != 0 { panic(fmt.Sprint("catalog mismatch: ",recipe.Name," ",kind," ",err)) }
+		}
+		if err := json.NewEncoder(os.Stdout).Encode(struct{Name string; Catalogs int; Result string}{recipe.Name, recipe.Kinds, "each local Catalog accepted; future global admission not executed"}); err != nil { panic(err) }
+	}
+}

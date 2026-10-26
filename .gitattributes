@@ -25,3 +25,10 @@ internal/plugins/region/testdata/retail-pricing-contract-v1.json -text
 internal/plugins/region/testdata/retail-primary-cost.go.txt -text
 internal/plugins/region/testdata/retail-primary-types.go.txt -text
 internal/plugins/region/testdata/retail-primary-http.go.txt -text
+
+# Byte-addressed pre-API output-ledger evidence.
+docs/evidence/20261026/inventory-output/** -text
+
+# Freeze-descriptor/model/schema bytes.
+docs/evidence/20261026/inventory-freeze/** -text
+docs/evidence/20261026/inventory-consumer/** -text

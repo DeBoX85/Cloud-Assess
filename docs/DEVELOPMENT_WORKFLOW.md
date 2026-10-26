@@ -12,6 +12,8 @@ Use [ACTION_REGISTER](ACTION_REGISTER.md) for compact ownership/dependency/closu
 
 ## Developer loop
 
+Use [REFERENCE_POLICY](REFERENCE_POLICY.md) to distinguish compatibility gaps, defect corrections and enhancements. Denis's pinned AZQR fork anchors feature/function/capability parity; additional primary evidence and project comparisons can justify improvements. Define their impact and independent expected behavior before implementation, retain frozen source evidence and use separate bounded review/QA. New work must fit the authorized scope and dependency sequence.
+
 1. Read AGENTS.md, CURRENT_STATE, the applicable contract and relevant failure notes. Verify live refs and the actual worktree before edits. Preserve unrelated work.
 2. Pick a small behavioral slice and its natural stop. Resolve uncertain semantics against pinned source and primary documentation. Freeze independent literal expectations before production changes where required by the contract.
 3. Work in an isolated checkout. Publish coherent WIP checkpoints for recovery. WIP and local checks are not acceptance.

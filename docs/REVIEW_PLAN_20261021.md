@@ -4,6 +4,8 @@ Denis approved the narrow Go1.26.9to1.26.10security update, full QA and rollback
 
 ## Work order and evidence
 
+Apply Denis's clarified [reference and improvement policy](REFERENCE_POLICY.md). Prefer his fork for AZQR comparisons, retain its frozen compatibility pin, and distinguish feature/function/capability gaps from deliberate corrections and future enhancements. Research other projects and primary platform evidence as additional inputs. Recommendations should explain their compatibility impact and separate implementation process; the comparison baseline does not cap product improvements.
+
 1. Preserve current refs and unrelated worktrees; pin audit window and request-time metadata, inventory every tracked first-party file with blob hashes. Record exactly which bytes were read and reviewed; a hash or prior review alone is not a new code read.
 2. In isolated fix/go-1.26.10-security-20261021 based on exact product183/458d5c5296c321c8e5e961f18eb5422d43c2eb18, carry current handover explicitly from93b086fb1c18634b0f92533231946fc02f4a49e5. Review official release/advisory/checksums, then update active toolchain consumers and generated metadata without rewriting frozen historical inputs. Publish candidate before long QA.
 3. Run existing full native/source QA, conserve622Linux/617Windows control identities, inspect full logs/capture reconstruction and current advisory distinctions; verify relevant source/toolchain rollback and restoration. Historical184failure is not acceptance; no unchanged blind rerun.
@@ -14,6 +16,6 @@ Denis approved the narrow Go1.26.9to1.26.10security update, full QA and rollback
 
 ## Current status and boundaries
 
-This is an active plan, not a completed audit. Initial inventory at product183contains326Go files/2342970Go bytes and1004tracked paths before carried/new evidence. PR search identifies45PRs updated since2026-10-14; final window membership needs timestamp reconciliation. PR184source passed; both native security scans failed GO-2026-6809. Recovered35payload manifest passes; task7formal closure remains open pending remediation/full archive reconciliation; task8stays provisional.
+This is an active plan, not a completed audit. Initial inventory at product183contains326Go files/2342970Go bytes and959tracked paths before carried/new evidence. PR search identifies45PRs updated since2026-10-14; final window membership needs timestamp reconciliation. PR184source passed; both native security scans failed GO-2026-6809. Recovered35payload manifest passes; task7formal offline closure is complete after full archive reconciliation and PR183body readback; task8stays provisional.
 
 No Azure/live retail/fixtures/RBAC/subagents/protected merge/bypass/release/unrelated dependency/action/SDK/source/schema/capture refresh. Preserve human author AND committer Denis Bogunic <134433647+DeBoX85@users.noreply.github.com>, all draft heads, frozen expectations/control identities and protected/source pins. Publish recovery checkpoints and update handover between coherent slices. Stop/document/wait only on a new unresolved critical issue or authorisation boundary. No overall MVP percentage or notification claim.

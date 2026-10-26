@@ -322,6 +322,8 @@ Authenticate
 
 Cloud Assess targets behavioral equivalence with the pinned reference implementation, not CLI, configuration, package, or branding compatibility.
 
+The authoritative reference is Denis's fork, DeBoX85/azqr. Matching its features, functions and capabilities is the initial requirement, while progressive improvements are encouraged through [the reference and improvement policy](REFERENCE_POLICY.md). The pinned baseline is reproducible comparison evidence, not a ceiling or the only comparison source. Preserve healthy behavior and frozen evidence; specify deliberate safety/correctness changes and enhancements separately with independent expectations and own QA. Later fork changes are prospective gap research until a deliberate baseline/delta decision is made.
+
 Intentional changes include:
 
 - new product and CLI identity

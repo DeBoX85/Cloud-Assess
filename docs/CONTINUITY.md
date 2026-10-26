@@ -1,5 +1,8 @@
 # Proactive continuity and interruption recovery
 
+Shared private storage: CI and security categories can have different writers. Before any ref update, reread the live parent/tree and preserve unrelated paths. Use an expected-head lease; after an error inspect the actual ref before retrying. Never force an older CI-only tree over shared main. Use immutable capture paths and separate archive refs as safe checkpoints. Current outstanding integration is in [the25October handover](HANDOVER_CHECKPOINT_20261025.md).
+
+
 [CURRENT_STATE](CURRENT_STATE.md) owns current task state. [CONTINUE](CONTINUE.md) is the stable entry point; [RESTART_PROMPT](RESTART_PROMPT.md) is the copy-ready user prompt. This procedure supplements [DEVELOPMENT_WORKFLOW](DEVELOPMENT_WORKFLOW.md). Explicit current user constraints prevail.
 
 ## Ownership and checkpoint triggers

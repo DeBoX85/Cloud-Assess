@@ -1,5 +1,8 @@
 # Chat transfer, 2026-10-21
 
+Historical snapshot. Current routing: [25 October handover](HANDOVER_CHECKPOINT_20261025.md), [CONTINUE](CONTINUE.md), [CURRENT_STATE](CURRENT_STATE.md) and [restart prompt](RESTART_PROMPT.md). Preserve the dated evidence below.
+
+
 Current security hold: PR184 own native jobs fail GO-2026-6809 in pinned Go1.26.9. Read [the blocker and narrow1.26.10proposal](GO_SECURITY_BLOCKER_20261021.md). Await Denis's toolchain decision before task7closure/task8freeze. Source39589963002passed; quality39589962815is not certified. Historical183success remains revision-specific.
 
 ## Purpose and current request

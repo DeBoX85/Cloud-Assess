@@ -1,10 +1,79 @@
 # Current status and authority
 
-Read [CURRENT_STATE](CURRENT_STATE.md), [transfer](CHAT_TRANSFER_20261021.md), [discrepancies](DISCREPANCIES_20261021.md) and [restart prompt](RESTART_PROMPT.md). Live PR bodies own exact-revision QA outcomes; protected acceptance and release remain separate.
+Read [CURRENT_STATE](CURRENT_STATE.md), [25 October handover](HANDOVER_CHECKPOINT_20261025.md), [transfer](CHAT_TRANSFER_20261025.md), [CONTINUE](CONTINUE.md) and [restart prompt](RESTART_PROMPT.md). The live task PR owns exact-revision publication and QA outcomes separately from protected acceptance.
 
-Authority order: explicit current user scope; live refs and revision-specific PR outcomes; CURRENT_STATE/current transfer; applicable frozen contracts/workflow; dated narratives below. Earlier dated sections are historical snapshots; behavioral requirements remain in force unless explicitly revised.
+Dated progress and resume sections below are historical snapshots; behavioral requirements remain in force unless explicitly revised. Verify live refs and preserve old heads before acting.
 
 ---
+
+## First task9consumer checkpoint, 26 October 2026
+
+Current branch dev/required-inventory-consumer-20261026 starts from product185/566cc4d8/tree39c44bf8, carrying verified PR198documentation/frozen inputs only. Read [initial consumer](INVENTORY_FIRST_CONSUMER_20261026.md). No production API implementation. The live draft PR owns exact publication/actual BOTH-native missing APIs and full evidence status; no inherited198green or runner-only operational rollback target.
+
+PR198/528cacb9/tree42874a77specification freeze certified by its final index: own quality40268356832/source40268356868all ten complete logs/steps/order/checkouts/both gates,622Linux/617Windows conserved,87.6%coverage/floor75%,23captures/315chunks/909865bytes exactGit. Archiveb4bb8a13/receiptbfa96409: four remote files read back,18fresh-restored members/1922248bytes equal originals. Recorded residuals3imported-not-called/1module-only OPEN. [DC-CI-EVIDENCE-20261022](https://github.com/DeBoX85/Cloud-Assess/issues/189) bounded migration closed, retention/revisit remains; preserve every unrelated security/CI blob, expected-head lease/no force, no automatic archival or independent-backup closure.
+
+Five-task batch1–4complete at specification scope. Task5initial strict consumer carries all50original+26supplemental literals and32bound hashes. Fixture-only typed-loader probe passed76cases/ten malformed controls with existing185types, no future API/stub. Initial actual native missing APIs remain pending before production. Task9procedural13/input4/output10/phase16/mutation/ownership/concurrency/budget/runtime proofs remain required, then healthy ownQA/rollback/reassessment before10. Tasks10–15and all44legacy/49current obligations remain; whole documentary audit and confirmed findings OPEN. Human assessment consideration after overall project completion.
+
+No Azure/live retail/credentials/fixtures/RBAC/subagents/unrelated dependency/action/SDK/pin/oracle refresh/protected merge/bypass/release. Both author/committer Denis Bogunic <134433647+DeBoX85@users.noreply.github.com>. Continue within authorized bounded work after publication/readback/self-assessment; stop only an unresolved issue needing Denis without safe mitigation. Original three files/50cases and supplemental26/13procedural data unchanged; never run prepare_literals.py.
+
+## Task8 freeze-readiness continuation, 26 October 2026
+
+Current successor: docs/inventory-freeze-readiness-20261026, preserving verified PR197/1bdd4b10. Read [freeze readiness](INVENTORY_FREEZE_READINESS_20261026.md), [v1specification](REQUIRED_INVENTORY_CONTRACT_V1.md), [cancellation protocol](INVENTORY_CANCELLATION_PROTOCOL_20261026.md) and [scoped reconciliation](INVENTORY_CONTRACT_RECONCILIATION_20261026.md). Its live draft PR owns final publication/OWN QA; no inherited197green. Product coding remains185566cc4d8/tree39c44bf8with current guidance carried, never this documentary tree.
+
+PR197own quality40249222193/source40249222204fully verified: all ten quality logs/steps/gates,622Linux/617Windows conserved,87.6%coverage/floor75%,23captures/315chunks/909865bytes exactGit. Private archive6977f977/receipt1342b5a5retain18fresh-restored members/1908367bytes equal originals. Recorded3imported-not-called/1module-only residualsOPEN. [DC-CI-EVIDENCE-20261022](https://github.com/DeBoX85/Cloud-Assess/issues/189) bounded migration remains resolved; retain/revisit future evidence and preserve security-category blobs, no automatic archival or independent-backup closure.
+
+Current five-task batch:1deterministic late-cancellation protocol/model prepared;2eight applicable documents reconciled, wider audit OPEN;3strict consumer shape/schema verified against50original+26supplemental literals with ten negative controls;4specification readiness/ownQA NEXT;5task9first strict consumer/BOTH native actual missing APIs only AFTER freeze verification. Original three files/50cases and supplemental26/13procedural inputs unchanged. Phase labels have explicit closed compatibility mapping, not altered expected results. Standalone model16reachable terminal schedules/16fault rejections is not future API execution; virtual deadlines are not real-timer proof.
+
+No Azure/live retail/credentials/fixtures/RBAC/subagents/unrelated refresh/protected merge/bypass/release. All44legacy/49current obligations/pins/controls retained; human assessment consideration after overall project completion. Maintain milestone publication/readback/logs/handover/self-assessment and continue when justified; stop only unresolved material uncertainty without safe mitigation.
+
+
+## Validation preparation checkpoint, 26 October 2026
+
+Current successor remains docs/inventory-output-ledger-20261026. [Validation order](INVENTORY_VALIDATION_ORDER_20261026.md) specifies context/cardinality/traversal/error/typed-union and ownership rules. Twenty-six additional literals (20reject/6accept) and13procedural expectations have structural verification/four negative controls; no future API execution. Budget proof has ten cases/four negatives and eight existing-projector calls. Original three files/50cases unchanged. Final candidate requires OWN native/source QA, no inherited196pass.
+
+Four-task batch:196ownQA verified;189bounded migration resolved; budget/validation preparation locally verified WIP pending final ownQA. Task8 NOT frozen: deterministic late-cancellation scheduling, applicable-document reconciliation and supplemental consumer/integrity freeze remain. [Checkpoint](INVENTORY_PREPARATION_CHECKPOINT_20261026.md) owns evidence/limits. [DC-CI-EVIDENCE-20261022](https://github.com/DeBoX85/Cloud-Assess/issues/189) remains visible with ongoing retention/revisit duties, no automatic archival or independent-backup closure. Product185/pins/controls unchanged; human assessment only considered after project completion. No Azure/live retail/credentials/fixtures/RBAC/subagents/unrelated refresh/protected merge/bypass/release.
+
+
+## Inventory preparation continuation, 26 October 2026
+
+Current documentation successor: `docs/inventory-output-ledger-20261026`, preserving verified PR196/b997bc4676958aff25580c2bb88d1439d6529485. Read [the inventory checkpoint](INVENTORY_PREPARATION_CHECKPOINT_20261026.md) and [output ledger](INVENTORY_OUTPUT_LEDGER_20261026.md). This WIP requires OWN full native/source QA; no inherited196pass. Product coding remains PR185/566cc4d8 with current guidance carried, never this documentary tree.
+
+PR196 OWN quality40245934321/source40245934303 completed/success, fully verified: all ten complete quality logs/steps/both gates,622Linux/617Windows full controls equal product183/185,87.6%coverage/floor75%,23source captures/315chunks/909865bytes exactGit. Recorded advisory residuals3imported-not-called/1module-only remain OPEN, not a fresh scan or release approval.
+
+[DC-CI-EVIDENCE-20261022 / issue189](https://github.com/DeBoX85/Cloud-Assess/issues/189) bounded migration RESOLVED after source-record ownQA/reconciliation. Private archivecf093771/receipt10ba2bcd additionally retain196full evidence: four remote files equal originals and18fresh-restored members/1909078bytes equal originals. Ten captures/99complete log occurrences/251members/29454280memberbytes indexed; prior security/CI blobs and194partialcapture001 unchanged. Retention/revisit duties continue, no automatic archival or independent-backup/DC-006closure.
+
+Task8 remains provisional. Output/Build-text ledgers now have ten independent boundary recipes/four negative controls; eight actual existing VM/SQL projector calls accepted the admission fixtures. This is preparation, not execution of absent future APIs. Build input count/text domination and paired-output first-reachable excess2 are explicit, not invented plus-one success or relaxed limits. Original three files/50cases unchanged. Next exact validation order, additional expectations and remaining applicable-document reconciliation before freeze; task9still first publishes strict consumer/BOTH native missing APIs before production. All44legacy/49current obligations retained; documentary audit unfinished.
+
+Human security assessment is only considered after overall project completion per Denis; no offline-development blocker or human approval claim. Confirmed findings remain open, raw private findings stay private. No Azure/live retail/real credentials/fixtures/RBAC/subagents/unrelated refresh/protected merge/bypass/release. Maintain milestone logs/checkpoints and continue independently when justified; investigate, research first-party evidence, then ask Denis only if material uncertainty has no safe mitigation.
+
+
+## Development continuation, 26 October 2026
+
+Current documentation successor: `docs/storage-security-checkpoint-20261026`, preserving verified draft PR195/242da51cbfd84fc9ade95dff2362e1d292092ce3. Read [the current checkpoint](HANDOVER_CHECKPOINT_20261026.md). Its live draft PR owns final publication/readback and OWN QA; no predecessor-green inheritance. Product coding stays PR185/566cc4d8 with current guidance carried explicitly, never this review/storage tree.
+
+PR195 OWN quality40243373880/source40243373785 completed/success and fully verified: all ten quality logs/declared steps/both gates,622Linux/617Windows full control lines equal product183/185,87.6%coverage/floor75%,23source captures/315chunks/909865bytes exactGit. Recorded0reachable/3imported-not-called/1module-only residuals OPEN; this is recorded execution, not a new vulnerability-database scan or release acceptance.
+
+[DC-CI-EVIDENCE-20261022 / issue189](https://github.com/DeBoX85/Cloud-Assess/issues/189): private shared-main integration and later PR194 capture are now verified. SC-storage/main8e2eb044 retains integrationb0303e51, new capturesdb506252 and restore receipts. Every unrelated security blob and original capture stayed unchanged. Nine captures/88complete log occurrences/233members/27545202memberbytes are indexed; the33new members/2348658bytes were remotely read back, restored fresh and compared to originals. PR194capture001 remains partial and immutable; capture002 supplements eight later logs/final metadata. PR195own evidence is also captured. Source-document successor publication/ownQA remains pending; keep issue189 visible until reconciliation is finalized. No automatic archival or independent-backup/DC-006closure.
+
+Denis manually supplied the private final security report at0e9693c8. Bounded triage checked14manifest members and23explicit finding path/blob pairs against product185 and read the selected reproduction/healthy logs. Existing confirmed R7-F01/F03/F04 remain open; report observations are not silently promoted to defects. This is supporting-evidence reconciliation, not a fresh reproduction, full archive verification or independent-human approval. Private findings/logs remain private. Corrective candidates require explicit contracts, preserved expectations and own QA.
+
+Denis places consideration of human security assessment AFTER overall project completion. It does not block authorized offline work; no human approval is claimed. Tasks1–7 remain complete;8provisional;9–15 dependency ordered. Finish remaining owned-output/Build-text/validation/future-literal/documentary work before task8freeze and task9strict consumer/BOTH native missing APIs. Preserve ALL Storage kinds, exact Cognitive kind, unresolved SQL coordinates and VMSS unsupported scoring. All44legacy/49current obligations retained; whole documentary audit remains unfinished.
+
+No Azure/live retail/real credentials/fixtures/RBAC/subagents/unrelated dependency/action/SDK/pin/oracle refresh/protected merge/bypass/release. Preserve all prior heads and unrelated worktrees. Continue independently after milestones when checks support it; investigate uncertainty, research first-party evidence if needed, and stop for Denis only when unresolved material uncertainty has no safe mitigation.
+
+
+## Current handover, 25 October 2026
+
+Use [the full checkpoint](HANDOVER_CHECKPOINT_20261025.md), [transfer](CHAT_TRANSFER_20261025.md) and [restart prompt](RESTART_PROMPT.md). Current documentation successor is `docs/handover-20261025`, preserving PR194/b6df02841b09d422dfdc7d6e1bfd1f25b7ab4ccb. Product coding remains PR185/566cc4d8b78d168e5216245a5a386f742a3a2f85 with current guidance carried, never a review/storage tree. Tasks1–7 complete;8 provisional;9–15 follow dependencies. All44legacy/49current obligations remain. Audit scope803raw/all326Go/29semantic/127other paths, including115documentation paths without complete raw-read credit; whole documentary audit open.
+
+PR193and194 own recorded native/source QA now fully verified from completed run/job metadata and complete logs:622Linux/617Windows conserved controls,87.6%coverage/floor75%,23captures/315chunks/909865bytes exactGit; recorded0reachable/3imported-not-called/1module-only residuals open. [Safe summary](evidence/20261025/qa-checkpoint.json). This new candidate needs its own full QA; do not inherit194green or claim fresh25October scans.
+
+[DC-CI-EVIDENCE-20261022](https://github.com/DeBoX85/Cloud-Assess/issues/189) is IN PROGRESS. Denis authorized privateSC-storage. Full remote readback of33files and restore of200members/25196544bytes verified original69complete job logs across7captures. Private artifact64f3c6d8 and receiptf4081f57 are on preserved archive branches; [safe status](evidence/20261025/storage-status.json). Shared main advanced with security evidence; the old guarded update failed without overwriting it. Next integrate CI files into the newest shared main with an expected-head lease, preserve the security category, and append8later PR194logs as a new immutable capture. Issue189 stays open; no public raw logs. Retain until explicit owner-approved deletion; independent backup/DC-006 remains separate.
+
+Then finish task8owned-output/Build-text budget proofs, validation order, future identity/union/status/context/ownership cases and applicable-document reconciliation before freeze. Task9must publish its strict consumer and inspect BOTH actual native missing APIs before production. Storage ALL kinds, exact Cognitive kind, no inferred SQL coordinates and unsupported VMSS scoring remain binding. No Azure/live retail/real credentials/fixtures/RBAC/subagents/unrelated refresh/protected merge/bypass/release.
+
+The separate security chat was authorized and private checkpoints exist, but its actual final report/revisions/findings have not been reconciled here. No automatic exchange or assumed security clearance. This chat remains sole production/integration writer. Human evaluation is considered but deferred for access/budget. Preserve all prior heads/pins/oracles/controls/unrelated worktrees; stop unexpected issues needing Denis without safe mitigation or explicit deferral. Revisit issue189 at every handover/end of run and before task15/readiness/acceptance/release.
+
 
 
 # SQL task2 completion and task3 transition
