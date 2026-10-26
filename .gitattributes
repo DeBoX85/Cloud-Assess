@@ -28,3 +28,6 @@ internal/plugins/region/testdata/retail-primary-http.go.txt -text
 
 # Byte-addressed pre-API output-ledger evidence.
 docs/evidence/20261026/inventory-output/** -text
+
+# Freeze-descriptor/model/schema bytes.
+docs/evidence/20261026/inventory-freeze/** -text

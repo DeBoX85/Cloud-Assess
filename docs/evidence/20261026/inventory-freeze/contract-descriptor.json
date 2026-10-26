@@ -1,0 +1,214 @@
+{
+  "format": "cloud-assess-required-inventory-contract-v1",
+  "stage": "prepared_pending_readiness_and_ownQA",
+  "product": {
+    "commit": "566cc4d8b78d168e5216245a5a386f742a3a2f85",
+    "tree": "39c44bf8e1d477623b901105fa752da1e7be9669"
+  },
+  "reference": {
+    "azqr": "8e4f0577f3615e6c9014c031bcad079f235369cc",
+    "aprl": "60eaddda76541f6adbc1c5ffa686829807e55e29"
+  },
+  "counts": {
+    "original_literal_cases": 50,
+    "supplemental_literal_cases": 26,
+    "procedural_obligations": 13,
+    "input_budget_recipes": 4,
+    "output_build_budget_recipes": 10,
+    "reachable_terminal_schedules": 16
+  },
+  "files": [
+    {
+      "path": "docs/INVENTORY_BUDGET_20261022.md",
+      "bytes": 8940,
+      "sha256": "649cc3e40f82ef63652e3a5e43ce48d134590b438ada61cb9fcc01b0dc51e396"
+    },
+    {
+      "path": "docs/INVENTORY_CANCELLATION_PROTOCOL_20261026.md",
+      "bytes": 4408,
+      "sha256": "b1014b195d9e8b61e9c6772d35dc9f41893c71e48967da3d08125d4b89dd0e91"
+    },
+    {
+      "path": "docs/INVENTORY_CONTRACT_RECONCILIATION_20261026.md",
+      "bytes": 5814,
+      "sha256": "aad3fa4c2cb5a7454eb453f107160293f9e1aed2c1c8b72dec794572096db018"
+    },
+    {
+      "path": "docs/INVENTORY_DECISIONS_20261022.md",
+      "bytes": 6927,
+      "sha256": "a097af7587cad7a9cab654777009fafcb68c53593b3a210bcc8482df5790afef"
+    },
+    {
+      "path": "docs/INVENTORY_OUTPUT_LEDGER_20261026.md",
+      "bytes": 10262,
+      "sha256": "1b90c84b46a9ba4b517e8827b106de7c4603938a6af9ee108ded3528ce024077"
+    },
+    {
+      "path": "docs/INVENTORY_PREPARATION_20261022.md",
+      "bytes": 8108,
+      "sha256": "5af8155d3fa6db32cf3bfea15c649bb90c04d9b0bd632a2fdd8e2ba699cedb2e"
+    },
+    {
+      "path": "docs/INVENTORY_VALIDATION_ORDER_20261026.md",
+      "bytes": 12622,
+      "sha256": "b20c312a61348e898abe0b80ee5281e8ca4dbb0a39eda5eadf42d2678d093231"
+    },
+    {
+      "path": "docs/REQUIRED_INVENTORY_CONTRACT_V1.md",
+      "bytes": 6576,
+      "sha256": "b766155ea47977441f7aee548822a25885d7c61bfe35c7c5bfb568f6fa6663d7"
+    },
+    {
+      "path": "docs/evidence/20261021/recovered-local/task8-provisional/CONTRACT.provisional.md",
+      "bytes": 12894,
+      "sha256": "a1b1d6115d73f393feb3c12fccd0c6b06dfe69aa36e3ab50062c7f904e2e864b"
+    },
+    {
+      "path": "docs/evidence/20261021/recovered-local/task8-provisional/prepare_literals.py",
+      "bytes": 12440,
+      "sha256": "d729857dcaf3e8d1ae0cab2bfaf62b0ad9f3698957ec5e2953b91ff551f9450c"
+    },
+    {
+      "path": "docs/evidence/20261021/recovered-local/task8-provisional/required-inventory-contract.provisional.json",
+      "bytes": 129956,
+      "sha256": "4fe4148e6805e400e3ce43886109f1eae40e2f335f12335479b0adea9b20bc77"
+    },
+    {
+      "path": "docs/evidence/20261022/inventory-budget/budget-recipe-check.py.txt",
+      "bytes": 3070,
+      "sha256": "96613af8535b23fd71f7b16749c25bb11e36589a4a93c12ed54cec625f2e3896"
+    },
+    {
+      "path": "docs/evidence/20261022/inventory-budget/budget-recipes.json",
+      "bytes": 1691,
+      "sha256": "86481f3d16b871a6ed995650e02e922ad31edadc2ce0c440f8aa910a847c2573"
+    },
+    {
+      "path": "docs/evidence/20261022/inventory-budget/execution-summary.json",
+      "bytes": 3907,
+      "sha256": "6fad185af1b132c5f51e823bb6a71a0b894d68321e93c91d318af64069a07514"
+    },
+    {
+      "path": "docs/evidence/20261022/inventory-budget/local-projector-probe.go.txt",
+      "bytes": 2307,
+      "sha256": "12f6efd7827351549d0ba5bc84df69f7e9810331c3d3dea35e844aaecb968db1"
+    },
+    {
+      "path": "docs/evidence/20261022/inventory-budget/recipe-arithmetic-results.json",
+      "bytes": 1273,
+      "sha256": "a4b1f19a47361005368f9942b207d6a2c16d4e751d3e1ffd6557c7680cbbef7b"
+    },
+    {
+      "path": "docs/evidence/20261026/inventory-freeze/cancellation-model-result.json",
+      "bytes": 323,
+      "sha256": "f306581c7f94263e056822a73fa0eadb6aabfb57bae3d9335a59b816d39d5f78"
+    },
+    {
+      "path": "docs/evidence/20261026/inventory-freeze/cancellation-model.go.txt",
+      "bytes": 3462,
+      "sha256": "32193595e860cad5b73812b6a077e9a75998691b273ace6768f9f6adc4439646"
+    },
+    {
+      "path": "docs/evidence/20261026/inventory-freeze/check-consumer-schema.py.txt",
+      "bytes": 4814,
+      "sha256": "2fc2e574093f41cc73a9e54032ab8fdc534ee9f1058a0a505735fc8865066da6"
+    },
+    {
+      "path": "docs/evidence/20261026/inventory-freeze/check-freeze-readiness.py.txt",
+      "bytes": 2812,
+      "sha256": "0e43b21f3287f3245fbedda022d7523e27810ce077fe62da673cdfbeb88f2a1b"
+    },
+    {
+      "path": "docs/evidence/20261026/inventory-freeze/consumer-schema-result.json",
+      "bytes": 522,
+      "sha256": "dbc887d56b728ff8f9b629d23fed78c111e6dd5b1198c927995ec0701b376e24"
+    },
+    {
+      "path": "docs/evidence/20261026/inventory-freeze/consumer-schema.json",
+      "bytes": 7160,
+      "sha256": "86ef7ea230475cb4f947cc1067d0e5d5e57de44990015035cd29d278b5491fe4"
+    },
+    {
+      "path": "docs/evidence/20261026/inventory-freeze/document-review.json",
+      "bytes": 4158,
+      "sha256": "30155eda7be4c49736bc019f78f7ed4569bfe67bc7d9babf3817ed1d158f9885"
+    },
+    {
+      "path": "docs/evidence/20261026/inventory-output/additional-expectations.json",
+      "bytes": 14570,
+      "sha256": "722f3dabec59c0768b83e1423bb938276b8a6c2cafdcbd767a665f21113b8ed4"
+    },
+    {
+      "path": "docs/evidence/20261026/inventory-output/additional-structure-proof.json",
+      "bytes": 322,
+      "sha256": "4b874409bbad67f076bb6aa966f39e494a740f7bb2eee2c51f39fc1b021794b4"
+    },
+    {
+      "path": "docs/evidence/20261026/inventory-output/arithmetic-proof.json",
+      "bytes": 3670,
+      "sha256": "919115168f39313857c4e0ed0d2d59456c72d6757420617eb2c4701b7fe96d69"
+    },
+    {
+      "path": "docs/evidence/20261026/inventory-output/budget-recipes.json",
+      "bytes": 2187,
+      "sha256": "b84c46843a584a9f040b36d6b5f1dc21891dcbd8118ed77b775febdfa96da4e2"
+    },
+    {
+      "path": "docs/evidence/20261026/inventory-output/check-additional-expectations.py.txt",
+      "bytes": 3922,
+      "sha256": "5e2a4929728f84dc13fa7080005054c71289333efd0a01ed3c9fa58a2fa4def0"
+    },
+    {
+      "path": "docs/evidence/20261026/inventory-output/check-budget-recipes.py.txt",
+      "bytes": 5602,
+      "sha256": "81e530a8c539a76551413f34bd6733eb4763e45152b5dfb4ffaacb64ee54dd47"
+    },
+    {
+      "path": "docs/evidence/20261026/inventory-output/integrity.json",
+      "bytes": 2522,
+      "sha256": "c8cfc034d9e43ed62a78e38953c1e8bb6df9da59af6d55755de657094ac1119d"
+    },
+    {
+      "path": "docs/evidence/20261026/inventory-output/projector-probe.go.txt",
+      "bytes": 3213,
+      "sha256": "16bdfc142af118107bc8f1338dbab4274bf656f51315461c4f168f8936a9c8b7"
+    },
+    {
+      "path": "docs/evidence/20261026/inventory-output/projector-proof.json",
+      "bytes": 1920,
+      "sha256": "71464447c96f0991b21330430812e074c57ccdd27b4a441f2927ffa749b82ed9"
+    }
+  ],
+  "pinned_production_blobs": {
+    "internal/assessment/types.go": "5219513683b189cba4498eaff379f31fb67965ea",
+    "internal/plugins/region/inventory.go": "6157171769aaca1a4e78a026a4dc7f02a610bb87",
+    "internal/plugins/region/compute_disk_sku_collector.go": "d7a5b8b2e1facd7a36b157acc9eadd4d91a57465",
+    "internal/plugins/region/compute_vm_sku_collector.go": "0fa5008b5fc24fcf4a9d0a96b72e1aeececdf0ac",
+    "internal/plugins/region/storage_sku_collector.go": "2ff0685a3944a138d057aae59ad76455454fb4eb",
+    "internal/plugins/region/cognitive_sku_catalog.go": "3aaaf86c4634b944270690dda38efeae2a5f1a40",
+    "internal/plugins/region/sql_capability_catalog.go": "48e8b28150697a771988c0214d1e1429045750b7",
+    "internal/plugins/region/vmss_catalog.go": "31bf10e820435f2e3e425c477017fac13769b573"
+  },
+  "phases": [
+    "after-input",
+    "after-derived-work",
+    "before-return"
+  ],
+  "error_branch_phases": [
+    "before-return"
+  ],
+  "phase_labels": {
+    "": "",
+    "inventory": "inventory",
+    "build": "inventory",
+    "admission": "admission",
+    "admit": "admission"
+  },
+  "runtime_tests_executed": false,
+  "original_preparation_metadata": "Original50and supplemental26files immutable; old false/OPEN/version fields remain historical. This descriptor supplies current binding/protocol, never runtime proof.",
+  "gates": [
+    "Own exact-head native/source QA and full readback/archive before task9.",
+    "First task9consumer from product185lineage, both native actual missing APIs before production.",
+    "No frozen expectation regeneration, pin refresh or protected merge."
+  ]
+}

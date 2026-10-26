@@ -1,3 +1,5 @@
+Current successor: [freeze readiness](INVENTORY_FREEZE_READINESS_20261026.md). This prior checkpoint is historical; the current live PR owns exact outcomes.
+
 ## Validation preparation checkpoint, 26 October 2026
 
 Current successor remains docs/inventory-output-ledger-20261026. [Validation order](INVENTORY_VALIDATION_ORDER_20261026.md) specifies context/cardinality/traversal/error/typed-union and ownership rules. Twenty-six additional literals (20reject/6accept) and13procedural expectations have structural verification/four negative controls; no future API execution. Budget proof has ten cases/four negatives and eight existing-projector calls. Original three files/50cases unchanged. Final candidate requires OWN native/source QA, no inherited196pass.
