@@ -762,7 +762,7 @@
       "id": "OFFLINE-08",
       "state": "provisional",
       "owner": "development owner",
-      "next_or_limit": "Ten output/Build-text arithmetic recipes and eight existing projector calls verified; original50cases unchanged. Exact validation/additional expectations/applicable-document reconciliation and ownQA remain before freeze."
+      "next_or_limit": "Ten output/Build-text recipes/four negatives/eight existing-projector calls;26additional literals/13procedural expectations/four structural negatives. No future API execution. Late-cancellation deterministic schedule, applicable-document reconciliation, supplemental consumer/integrity freeze and ownQA remain before freeze."
     },
     {
       "id": "OFFLINE-09",

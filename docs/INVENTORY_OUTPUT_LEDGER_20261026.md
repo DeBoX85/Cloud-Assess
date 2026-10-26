@@ -15,7 +15,7 @@ Build retains two separately owned logical views: public diagnostics and private
 | Requirement row |1| SubscriptionID, SourceRegion, ResourceType, Cognitive-only Kind |
 | Required SKU list | One per member | Every canonical SKU |
 | Storage kind map/list | One per map member plus each kind list member | SKU map key and every kind, including missing-kind marker |
-| ResourceID list | One per member | Every canonical resource ID |
+| ResourceID list | One per member | Every original resource ID |
 
 Thus Build output is two times the sum of those rows plus the single Plan.Status string. Fixed requirement flags are booleans, not a retained string array. External diagnostic mutation cannot change either private view. Neither raw Tags nor SLA is traversed or copied. Raw-input strings and normalized-output strings are separate accounting occurrences even when Go might share immutable string backing storage.
 
