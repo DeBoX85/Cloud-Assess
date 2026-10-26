@@ -127,7 +127,7 @@ func requiredResourceIdentity(r assessment.Resource, scopes map[string]RequiredI
 		}
 	}
 	id, err := arm.ParseResourceID(r.ID)
-	return err == nil && id.Name != "" && strings.EqualFold(id.SubscriptionID, r.SubscriptionID) && strings.EqualFold(id.ResourceGroupName, r.ResourceGroup) && strings.EqualFold(id.ResourceType.String(), r.Type)
+	return err == nil && id.Name != "" && providerTypeIdentifier(id.ResourceType.String()) && strings.EqualFold(id.SubscriptionID, r.SubscriptionID) && strings.EqualFold(id.ResourceGroupName, r.ResourceGroup) && strings.EqualFold(id.ResourceType.String(), r.Type)
 }
 
 // Errors contain fixed codes only. No input, SDK/provider diagnostic or URL is retained.
@@ -318,7 +318,12 @@ func buildRequiredInventoryObserved(ctx context.Context, selected map[string]str
 		record := raw
 		record.Tags = nil
 		record.SLA = ""
-		sub, typ, kind := strings.ToLower(raw.SubscriptionID), strings.ToLower(raw.Type), strings.ToLower(raw.Kind)
+		sub, typ, kind := strings.ToLower(raw.SubscriptionID), strings.ToLower(raw.Type), raw.Kind
+		// Invalid non-ASCII kind labels remain distinct diagnostics. Never fold
+		// a Unicode compatibility letter into an admitted ASCII account kind.
+		if storageASCII(raw.Kind) {
+			kind = strings.ToLower(raw.Kind)
+		}
 		source, known := providerLocation(raw.Location)
 		physical := known && costPhysical(source)
 		if !physical {
@@ -345,7 +350,7 @@ func buildRequiredInventoryObserved(ctx context.Context, selected map[string]str
 		}
 		keyKind := ""
 		if cognitive {
-			keyKind = canonicalKind
+			keyKind = kind
 		}
 		tuple := [4]string{sub, source, typ, keyKind}
 		g := groups[tuple]

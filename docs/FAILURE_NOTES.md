@@ -1,3 +1,11 @@
+## Publication exact-tree guard caught Unicode transfer error, 26 October 2026
+
+The final API tree object did not equal the staged local tree, so publication stopped BEFORE create_commit/update_ref. The live branch was reread and remained verified WIP61b09f5c. Modes/index/working files were inspected: all correct; the transfer helper advanced a Python code-point offset using JavaScript UTF16length. One non-BMP character in the generated workflow made the second chunk skip a character. No incorrect tree was committed, referenced or executed. Fix: Python returns its next offset explicitly (or a single full read), never infer cross-runtime offsets; exact tree/byte readback remains mandatory. The larger diagnostic hash attempt also hit argv length limits before execution; use bounded metadata/chunks instead of passing whole ledgers as argv. No approval escalation or force update was needed. Unreferenced Git objects are left alone.
+
+## Build-slice local trace retention correction, 26 October 2026
+
+The scratch run_build_probe.py reused build-probe.log for successive isolated runs. The initial WIP metadata digest no longer matches that path after the later budget probe, so its original raw local trace is not claimed available/restorable. Do not reconstruct timestamps/bytes or relabel metadata as retained full logs. This affects an intermediate local probe, not the previously archived199/198native evidence or the published first consumer/source checkpoint. New mutation runs use distinct names; final candidate acceptance/observation will rely on its own complete hosted job logs, final metadata and verified private fresh restore. Initial local proof remains historical scope/metadata. Prevention: use unique per-execution trace paths, never overwrite a published digest's trace; no zero-loss claim. This gap has a safe mitigation and does not require a user decision.
+
 # QA-COG-04 independent guard isolation, 2026-10-17
 
 ## Inventory preparation header check, 22 October 2026

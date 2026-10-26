@@ -33,3 +33,5 @@ docs/evidence/20261026/inventory-output/** -text
 docs/evidence/20261026/inventory-freeze/** -text
 docs/evidence/20261026/inventory-consumer/** -text
 docs/evidence/20261026/inventory-build/** -text
+# Preserve the byte-addressed new Build source across native checkouts.
+internal/plugins/region/required_inventory.go -text

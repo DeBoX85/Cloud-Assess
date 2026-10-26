@@ -766,9 +766,9 @@
     },
     {
       "id": "OFFLINE-09",
-      "state": "build_implementation_in_progress",
+      "state": "build_locally_verified_pending_own_qa",
       "owner": "development owner",
-      "next_or_limit": "PR199initial BOTH native missing APIs verified and retained. Product-lineage Build implemented/local76Build+ownership/context/concurrency race checks pass; Build boundaries/mutations/own QA-retention next, admission implementation/proofs/healthy622/617/rollback still required before10."
+      "next_or_limit": "Build isolated76/eight-terminal/six-recipe/12strict compiling reversals verified locally; final own native/source actual outcomes/SC-storage restore next. Admission implementation/proofs, healthy full622/617plus new controls and coherent rollback remain required before10."
     },
     {
       "id": "OFFLINE-10",

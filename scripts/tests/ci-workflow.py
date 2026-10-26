@@ -3,6 +3,7 @@
 import importlib.util
 from collections import Counter
 import json
+import re
 from pathlib import Path
 import subprocess
 import sys
@@ -24,7 +25,38 @@ workflow = load('generate_quality_workflow')
 gate = load('required_gate')
 
 
+def require_build_before_consumer(text):
+    for platform, consumer in [('linux', 'Test with race detector'), ('windows', 'Test Go packages on Windows')]:
+        match = re.search(r'^  ' + platform + r'-native:\n(.*?)(?=^  [a-z][a-z0-9-]*:\n|\Z)', text, re.M | re.S)
+        if match is None:
+            raise ValueError('missing native job')
+        body = match.group(1)
+        marker = '      - name: Verify isolated required inventory Build controls\n'
+        if body.count(marker) != 1 or body.index(marker) >= body.index('      - name: ' + consumer + '\n'):
+            raise ValueError('Build proof missing or hidden behind absent admission consumer')
+        block = body.split(marker, 1)[1].split('      - name:', 1)[0]
+        if 'scripts/tests/required-inventory-build.py' not in block or 'continue-on-error' in block or 'if:' in block:
+            raise ValueError('Build proof weakened')
+
+
 class GateTests(unittest.TestCase):
+    def test_build_proof_precedes_full_consumer_on_both_hosts(self):
+        require_build_before_consumer(workflow.generate())
+
+    def test_lost_or_late_build_proof_rejects(self):
+        text = workflow.generate()
+        marker = '      - name: Verify isolated required inventory Build controls\n'
+        with self.assertRaises(ValueError):
+            require_build_before_consumer(text.replace(marker, '      - name: Lost Build proof\n', 1))
+        start = text.index(marker)
+        end = text.index('      - name:', start + len(marker))
+        block = text[start:end]
+        lost = text[:start] + text[end:]
+        later = lost.index('      - name: Vet\n')
+        with self.assertRaises(ValueError):
+            require_build_before_consumer(lost[:later] + block + lost[later:])
+
+
     def test_actual_cli_success_and_failure_exit(self):
         for platform in ('linux', 'windows'):
             needs = {k: {'result': 'success', 'outputs': {}} for k in gate.worker_ids(platform)}

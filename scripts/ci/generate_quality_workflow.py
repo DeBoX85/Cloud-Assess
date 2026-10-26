@@ -83,12 +83,19 @@ def generate():
         for worker, names in [(platform + '-native', native)] + [(platform + '-controls-' + str(i + 1), setup + group) for i, group in enumerate(groups)]:
             out += '  ' + worker + ':\n' + preamble + '    steps:\n'
             py = 'python3' if platform == 'linux' else 'python'
-            extra_blocks = ''.join('      - name: ' + e['name'] + '\n        run: ' + py + ' ' + e['script'] + '\n\n' for e in extras.get(worker, []))
+            # During the Build-only slice the full consumer still requires the
+            # absent admission API. Run this additive isolated proof before that
+            # intentional compilation failure; it never replaces the full suite.
+            early = [e for e in extras.get(worker, []) if e['script'] == 'scripts/tests/required-inventory-build.py']
+            late = [e for e in extras.get(worker, []) if e not in early]
+            early_blocks = ''.join('      - name: ' + e['name'] + '\n        run: ' + py + ' ' + e['script'] + '\n\n' for e in early)
+            extra_blocks = ''.join('      - name: ' + e['name'] + '\n        run: ' + py + ' ' + e['script'] + '\n\n' for e in late)
             inserted = False
             for index, name in enumerate(names):
                 # Fail quickly on workflow drift, before expensive suites begin.
                 if index == 2:
                     out += '      - name: Verify parallel workflow conservation and gate guards\n        run: ' + py + ' scripts/tests/ci-workflow.py\n\n'
+                    out += early_blocks
                 if name == 'Retain synthetic QA failure evidence':
                     out += extra_blocks
                     inserted = True

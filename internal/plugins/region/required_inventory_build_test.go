@@ -209,3 +209,50 @@ func TestRequiredZeroAdmissionAccessor(t *testing.T) {
 		}
 	}
 }
+
+func TestRequiredBuildTypeUnicodeAliasRejected(t *testing.T) {
+	selected, rows, d := buildInput(t)
+	rows[0].ID = "/subscriptions/" + rows[0].SubscriptionID + "/resourceGroups/rg/providers/microsoft.Kompute/virtualmachines/vm"
+	rows[0].Type = "microsoft.kompute/virtualmachines"
+	p, e := BuildRequiredInventory(context.Background(), selected, rows, d)
+	if p != nil || e == nil || e.Error() != "required_inventory_invalid" {
+		t.Fatal("BUILD_TYPE_ASCII_IDENTITY", p, e)
+	}
+}
+
+func TestRequiredBuildUnrepresentableCognitiveKindIsolation(t *testing.T) {
+	selected, rows, d := buildInput(t)
+	base := rows[0]
+	base.ID = "/subscriptions/" + base.SubscriptionID + "/resourceGroups/rg/providers/microsoft.cognitiveservices/accounts/c1"
+	base.Type = "microsoft.cognitiveservices/accounts"
+	base.Kind = "k"
+	base.SKUName = "S0"
+	other := base
+	other.ID = "/subscriptions/" + base.SubscriptionID + "/resourceGroups/rg/providers/microsoft.cognitiveservices/accounts/c2"
+	other.Kind = "K"
+	p, e := BuildRequiredInventory(context.Background(), selected, []assessment.Resource{base, other}, d)
+	if e != nil || p == nil || len(p.Requirements) != 2 {
+		t.Fatal("BUILD_COGNITIVE_KIND_ISOLATION", e)
+	}
+	if p.Requirements[0].Kind != "k" || p.Requirements[0].UnrepresentableKind || p.Requirements[1].Kind != "K" || !p.Requirements[1].UnrepresentableKind || p.Requirements[1].MissingKind || p.Resources[1].Kind != "K" {
+		t.Fatal("BUILD_COGNITIVE_KIND_ISOLATION")
+	}
+}
+
+func TestRequiredBuildObserverHealthyOrder(t *testing.T) {
+	selected, rows, d := buildInput(t)
+	phases := []string{}
+	p, e := buildRequiredInventoryObserved(context.Background(), selected, rows, d, func(phase string) { phases = append(phases, phase) })
+	if e != nil || p == nil || !reflect.DeepEqual(phases, []string{"after-input", "after-derived-work", "before-return"}) {
+		t.Fatal("BUILD_HEALTHY_PHASE_ORDER", phases, e)
+	}
+	public, e := BuildRequiredInventory(context.Background(), selected, rows, d)
+	if e != nil || !reflect.DeepEqual(p, public) {
+		t.Fatal("BUILD_OBSERVER_OUTPUT_EQUIVALENCE")
+	}
+	phases = []string{}
+	p, e = buildRequiredInventoryObserved(context.Background(), selected, []assessment.Resource{{}}, d, func(phase string) { phases = append(phases, phase) })
+	if p != nil || e == nil || e.Error() != "required_inventory_invalid" || !reflect.DeepEqual(phases, []string{"before-return"}) {
+		t.Fatal("BUILD_ERROR_PHASE_ORDER", phases, e)
+	}
+}

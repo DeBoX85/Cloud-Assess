@@ -8,6 +8,14 @@ The Cognitive three-task batch is verified offline in PR157. The active [SQL fou
 
 ---
 
+## Build boundary and mutation milestone, 26 October 2026
+
+Current branch dev/required-inventory-build-20261026: tasks1–5locally verified, task6own final native/source outcomes/private retention pending. Read [Build checkpoint](INVENTORY_BUILD_IMPLEMENTATION_20261026.md) and live PR final index. First WIP61b09f5c/tree585a94e8/sole parent199published/read back all17changed files/both Denis identities. Final candidate extends that WIP with six frozen Build recipes,16/17Storage-kind boundary, two Unicode-identity controls,12compiling assertion-specific reversals and ten malformed-failure classifier controls. Local race baseline/restored baseline pass;76frozen Build scenarios/eight terminal schedules remain. All32frozen dependency hashes/original3files unchanged.
+
+The generated native workflow adds the isolated Build proof BEFORE the still-missing AdmitRequiredEvidence consumer on both hosts;12workflow checks include missing/late-proof rejection, seven handoff checks retained. No prior step, gate, action/source pin or original622Linux/617Windows control removed. Full quality remains unaccepted until Admission and its proofs/healthy full QA/coherent rollback. Local intermediate trace reuse is documented in FAILURE_NOTES; no raw restore claim for that overwritten scratch path, final own hosted evidence required.
+
+[DC-CI-EVIDENCE-20261022](https://github.com/DeBoX85/Cloud-Assess/issues/189) bounded migration closed, retention/revisit/private expected-head additive readback/restore duties remain. All44legacy/49current obligations remain, human assessment consideration after overall project completion. No Azure/live retail/credentials/fixtures/RBAC/subagents/unrelated refresh/protected merge/bypass/release. Next task6own actual QA/archive, then bounded Admission implementation/proofs after reassessment; never infer healthy acceptance from isolated proof or inherited green.
+
 ## Required inventory Build implementation, 26 October 2026
 
 Current successor dev/required-inventory-build-20261026, direct product-lineage child of PR199/9a7f48f9. Read [Build checkpoint](INVENTORY_BUILD_IMPLEMENTATION_20261026.md). Build implementation/local isolated76scenario/ownership/concurrency/context proof is in progress; admission still absent. Own final native/source outcomes/retention remain mandatory. No healthy whole-package acceptance or runner-only operational rollback claim.

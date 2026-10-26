@@ -96,6 +96,11 @@
   "additions": {
     "linux": [
       {
+        "name": "Verify isolated required inventory Build controls",
+        "script": "scripts/tests/required-inventory-build.py",
+        "worker": "native"
+      },
+      {
         "name": "Verify hosted gate contract definitions",
         "script": "scripts/tests/gate-probe.py",
         "worker": "native"
@@ -152,6 +157,11 @@
       }
     ],
     "windows": [
+      {
+        "name": "Verify isolated required inventory Build controls",
+        "script": "scripts/tests/required-inventory-build.py",
+        "worker": "native"
+      },
       {
         "name": "Verify hosted gate contract definitions",
         "script": "scripts/tests/gate-probe.py",
