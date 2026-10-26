@@ -1,3 +1,5 @@
+Current successor: [inventory preparation checkpoint](INVENTORY_PREPARATION_CHECKPOINT_20261026.md). This storage checkpoint is retained history; live successor PR outcomes and explicit current instructions take precedence.
+
 # Storage and security-report integration checkpoint, 26 October 2026
 
 ## Development continuation, 26 October 2026

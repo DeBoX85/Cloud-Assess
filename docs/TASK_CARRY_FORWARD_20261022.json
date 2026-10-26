@@ -574,9 +574,9 @@
     },
     {
       "id": "DC-CI-EVIDENCE-20261022",
-      "state": "in_progress",
+      "state": "resolved_bounded_migration",
       "owner": "agent tracks; Denis selects destination",
-      "next_or_limit": "Shared-main integration, PR194later supplement and PR195capture verified at8e2eb044; seven new remote files/33restored members equal originals. Final source-record publication/ownQA and issue closure pending; independent backup separate."
+      "next_or_limit": "Issue189closed/completed after196ownQA. Archivecf093771/receipt10ba2bcdverified; retention/revisit/future capture duties continue. No automatic archival or independent backup."
     },
     {
       "id": "AR-01",
@@ -762,7 +762,7 @@
       "id": "OFFLINE-08",
       "state": "provisional",
       "owner": "development owner",
-      "next_or_limit": "Admission-input global ledger and four independent exact/+1 recipes pass arithmetic checks;24existing scoped projector calls confirm no local bound masks fixtures. Finish owned-output/Build-text ledger/proofs, validation sequence, future identity/union/status/context/ownership literals and applicable-document reconciliation before freeze."
+      "next_or_limit": "Ten output/Build-text arithmetic recipes and eight existing projector calls verified; original50cases unchanged. Exact validation/additional expectations/applicable-document reconciliation and ownQA remain before freeze."
     },
     {
       "id": "OFFLINE-09",

@@ -6,6 +6,19 @@ Dated progress and resume sections below are historical snapshots; behavioral re
 
 ---
 
+## Inventory preparation continuation, 26 October 2026
+
+Current documentation successor: `docs/inventory-output-ledger-20261026`, preserving verified PR196/b997bc4676958aff25580c2bb88d1439d6529485. Read [the inventory checkpoint](INVENTORY_PREPARATION_CHECKPOINT_20261026.md) and [output ledger](INVENTORY_OUTPUT_LEDGER_20261026.md). This WIP requires OWN full native/source QA; no inherited196pass. Product coding remains PR185/566cc4d8 with current guidance carried, never this documentary tree.
+
+PR196 OWN quality40245934321/source40245934303 completed/success, fully verified: all ten complete quality logs/steps/both gates,622Linux/617Windows full controls equal product183/185,87.6%coverage/floor75%,23source captures/315chunks/909865bytes exactGit. Recorded advisory residuals3imported-not-called/1module-only remain OPEN, not a fresh scan or release approval.
+
+[DC-CI-EVIDENCE-20261022 / issue189](https://github.com/DeBoX85/Cloud-Assess/issues/189) bounded migration RESOLVED after source-record ownQA/reconciliation. Private archivecf093771/receipt10ba2bcd additionally retain196full evidence: four remote files equal originals and18fresh-restored members/1909078bytes equal originals. Ten captures/99complete log occurrences/251members/29454280memberbytes indexed; prior security/CI blobs and194partialcapture001 unchanged. Retention/revisit duties continue, no automatic archival or independent-backup/DC-006closure.
+
+Task8 remains provisional. Output/Build-text ledgers now have ten independent boundary recipes/four negative controls; eight actual existing VM/SQL projector calls accepted the admission fixtures. This is preparation, not execution of absent future APIs. Build input count/text domination and paired-output first-reachable excess2 are explicit, not invented plus-one success or relaxed limits. Original three files/50cases unchanged. Next exact validation order, additional expectations and remaining applicable-document reconciliation before freeze; task9still first publishes strict consumer/BOTH native missing APIs before production. All44legacy/49current obligations retained; documentary audit unfinished.
+
+Human security assessment is only considered after overall project completion per Denis; no offline-development blocker or human approval claim. Confirmed findings remain open, raw private findings stay private. No Azure/live retail/real credentials/fixtures/RBAC/subagents/unrelated refresh/protected merge/bypass/release. Maintain milestone logs/checkpoints and continue independently when justified; investigate, research first-party evidence, then ask Denis only if material uncertainty has no safe mitigation.
+
+
 ## Development continuation, 26 October 2026
 
 Current documentation successor: `docs/storage-security-checkpoint-20261026`, preserving verified draft PR195/242da51cbfd84fc9ade95dff2362e1d292092ce3. Read [the current checkpoint](HANDOVER_CHECKPOINT_20261026.md). Its live draft PR owns final publication/readback and OWN QA; no predecessor-green inheritance. Product coding stays PR185/566cc4d8 with current guidance carried explicitly, never this review/storage tree.
