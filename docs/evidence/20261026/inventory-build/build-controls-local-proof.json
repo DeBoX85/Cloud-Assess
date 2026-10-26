@@ -20,6 +20,15 @@
       "infrastructure",
       "race"
     ],
+    "bootstrap_negative_controls": [
+      "changed-version",
+      "changed-pin-file",
+      "failed-verification",
+      "missing-module",
+      "duplicate-module",
+      "malformed-json",
+      "timeout"
+    ],
     "source_sha256": "f8523e689a30b15191d18fb6cd6a78f89a9d7808f508ef4f125f6a582045b952",
     "source_restored_exact": true,
     "restored_baseline_exit": 0,
@@ -229,12 +238,52 @@
       "stdout_sha256": "9f8449c2f8c469df77dfcd7ca2f64019501a90e63f1be2e96f8705389ff0c670"
     }
   ],
-  "complete_local_stdout_sha256": "317a72279bc7962d6c8c397debd4fa2d6a655381deb7d7c609769929180837df",
-  "complete_local_stdout_bytes": 131064,
-  "runner_sha256": "1ce5684769efaf8a1df2628582f9ae68c7565ff0af56aa4cd39909d03be85a36",
+  "complete_local_stdout_sha256": "7f919720431c5f188dcbf0efe480ce086f0dba4420441e4ab665b5e77e1826cb",
+  "complete_local_stdout_bytes": 132804,
+  "runner_sha256": "d4aceb80723e2a92f5e38fe431960ef31adcb83d3f034d2d970b09aee2c8cc15",
   "limits": [
     "Hosted native/source exact-head evidence still required.",
     "Initial earlier scratch probe path was reused; initial WIP digest is historical metadata, no raw restore claim.",
     "All Admission proofs, healthy622/617and operational rollback remain pending."
-  ]
+  ],
+  "module_cache_bootstrap": {
+    "locked_modules": 27,
+    "modules": [
+      "github.com/Azure/azure-sdk-for-go/sdk/azcore@v1.23.1",
+      "github.com/Azure/azure-sdk-for-go/sdk/azidentity@v1.14.1",
+      "github.com/Azure/azure-sdk-for-go/sdk/internal@v1.12.0",
+      "github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/managementgroups/armmanagementgroups@v1.2.0",
+      "github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/subscription/armsubscription@v1.2.0",
+      "github.com/AzureAD/microsoft-authentication-library-for-go@v1.8.0",
+      "github.com/golang-jwt/jwt/v5@v5.3.1",
+      "github.com/google/uuid@v1.6.0",
+      "github.com/inconshreveable/mousetrap@v1.1.0",
+      "github.com/kr/text@v0.2.0",
+      "github.com/kylelemons/godebug@v1.1.0",
+      "github.com/pkg/browser@v0.0.0-20240102092130-5ac0b6a4141c",
+      "github.com/richardlehane/mscfb@v1.0.8",
+      "github.com/richardlehane/msoleps@v1.0.6",
+      "github.com/spf13/cobra@v1.10.2",
+      "github.com/spf13/pflag@v1.0.10",
+      "github.com/tiendc/go-deepcopy@v1.7.2",
+      "github.com/xuri/efp@v0.0.1",
+      "github.com/xuri/excelize/v2@v2.11.1-0.20260915055537-22f76f9acb94",
+      "github.com/xuri/nfp@v0.0.2-0.20250530014748-2ddeb826f9a9",
+      "golang.org/x/crypto@v0.57.0",
+      "golang.org/x/net@v0.60.0",
+      "golang.org/x/sync@v0.23.0",
+      "golang.org/x/sys@v0.48.0",
+      "golang.org/x/text@v0.42.0",
+      "golang.org/x/time@v0.16.0",
+      "gopkg.in/yaml.v3@v3.0.1"
+    ],
+    "pin_files": {
+      "go.mod": "ef6d403844f6fbf321e6bc2ad90311598000fbb5b8c251aa366a9bdbea376dd9",
+      "go.sum": "3eec87f5de0e81838cda0c3b96ffaba1ae3b459ca91780c3ec93f9be47cccd02"
+    },
+    "pin_files_byte_unchanged": true,
+    "module_cache_verified": true,
+    "bootstrap_network": "runner proxy may fetch exact locked versions only",
+    "test_phase_proxy": "off"
+  }
 }

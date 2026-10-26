@@ -52,6 +52,68 @@ def classifier_controls():
   if intended_failure(*args):raise ValueError('classifier accepted '+name)
  return [x[0] for x in bad]
 
+def json_stream(text):
+ decoder=json.JSONDecoder();rows=[];at=0
+ while at<len(text):
+  while at<len(text) and text[at].isspace():at+=1
+  if at==len(text):break
+  value,at=decoder.raw_decode(text,at);rows.append(value)
+ return rows
+
+def module_command(command,cwd,env,timeout):
+ return subprocess.run(command,cwd=cwd,env=env,capture_output=True,text=True,encoding='utf-8',errors='strict',timeout=timeout)
+
+def bootstrap_modules(root,invoke=module_command):
+ # Only the immutable current module graph may fill a cold cache. No go get,
+ # @latest query, tidy or dependency-file rewrite is accepted here.
+ before={name:(root/name).read_bytes() for name in ['go.mod','go.sum']}
+ env=dict(os.environ);env.update(GOTOOLCHAIN='local',GOWORK='off',GOTELEMETRY='off')
+ go=os.environ.get('QA_GO','go')
+ metadata=invoke([go,'mod','edit','-json'],root,env,30)
+ if metadata.returncode:raise RuntimeError('cannot read locked module graph')
+ pins={x['Path']:x['Version'] for x in json.loads(metadata.stdout)['Require']}
+ downloaded=invoke([go,'mod','download','-json'],root,env,300)
+ if downloaded.returncode:raise RuntimeError('locked module cache bootstrap failed\n'+downloaded.stderr)
+ rows=json_stream(downloaded.stdout);seen=set()
+ for row in rows:
+  path=row.get('Path')
+  if row.get('Error') or path not in pins or path in seen or row.get('Version')!=pins[path]:raise RuntimeError('download departed from locked module graph')
+  seen.add(path)
+ if seen!=set(pins):raise RuntimeError('incomplete locked module cache bootstrap')
+ verified=invoke([go,'mod','verify'],root,env,90)
+ if verified.returncode or verified.stdout.strip()!='all modules verified':raise RuntimeError('module cache verification failed')
+ if any((root/name).read_bytes()!=raw for name,raw in before.items()):raise RuntimeError('locked module metadata changed during cache bootstrap')
+ return {'locked_modules':len(pins),'modules':sorted(path+'@'+version for path,version in pins.items()),'pin_files':{n:hashlib.sha256(b).hexdigest() for n,b in before.items()},'pin_files_byte_unchanged':True,'module_cache_verified':True,'bootstrap_network':'runner proxy may fetch exact locked versions only','test_phase_proxy':'off'}
+
+def bootstrap_controls():
+ directory=tempfile.TemporaryDirectory(prefix='cloud-assess-module-bootstrap-model-')
+ try:
+  root=Path(directory.name);before={'go.mod':b'module model\n','go.sum':b'locked checksum model\n'}
+  def reset():
+   for name,raw in before.items():(root/name).write_bytes(raw)
+  def fake(mode):
+   def invoke(command,cwd,env,timeout):
+    if mode=='timeout':raise subprocess.TimeoutExpired(command,timeout)
+    if command[1:]==['mod','edit','-json']:return subprocess.CompletedProcess(command,0,json.dumps({'Require':[{'Path':'example.invalid/locked','Version':'v1.2.3'}]}),'')
+    if command[1:]==['mod','verify']:return subprocess.CompletedProcess(command,1 if mode=='failed-verification' else 0,'all modules verified\n','')
+    if mode=='changed-pin-file':(root/'go.sum').write_bytes(b'changed')
+    row={'Path':'example.invalid/locked','Version':'v1.2.4' if mode=='changed-version' else 'v1.2.3'}
+    output='{}' if mode=='missing-module' else json.dumps(row)
+    if mode=='duplicate-module':output+=json.dumps(row)
+    if mode=='malformed-json':output='not JSON'
+    return subprocess.CompletedProcess(command,0,output,'')
+   return invoke
+  reset();bootstrap_modules(root,fake('healthy'))
+  rejected=[]
+  for mode in ['changed-version','changed-pin-file','failed-verification','missing-module','duplicate-module','malformed-json','timeout']:
+   reset()
+   try:bootstrap_modules(root,fake(mode))
+   except (RuntimeError,ValueError,KeyError,subprocess.TimeoutExpired):rejected.append(mode)
+   else:raise RuntimeError('invalid bootstrap accepted: '+mode)
+  return rejected
+ finally:cleanup_temporary_directory(directory)
+
+
 def run(root,selector='',race=False):
  region=root/'internal/plugins/region'
  files=sorted(p.name for p in region.glob('*.go') if not p.name.endswith('_test.go'))+TESTS
@@ -63,6 +125,7 @@ def run(root,selector='',race=False):
 
 def main():
  rejected=classifier_controls()
+ bootstrap_rejected=bootstrap_controls()
  directory=tempfile.TemporaryDirectory(prefix='cloud-assess-required-build-')
  try:
   work=Path(directory.name)
@@ -73,6 +136,8 @@ def main():
    if p.is_file():dest=work/name;dest.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(p,dest)
   # Explicit file-set verification excludes the still-unimplemented admission
   # consumer. The unchanged full consumer remains in every normal native suite.
+  module_proof=bootstrap_modules(work)
+  print('REQUIRED_BUILD_MODULES_JSON '+json.dumps(module_proof,separators=(',',':')),flush=True)
   baseline=run(work,race=os.name!='nt')
   if baseline.returncode!=0 or baseline.stderr.strip():raise RuntimeError('Build healthy isolated baseline failed\n'+baseline.stdout+baseline.stderr)
   base_events=events(baseline.stdout)
@@ -97,7 +162,7 @@ def main():
   restored=run(work)
   if restored.returncode or restored.stderr.strip():raise RuntimeError('restored isolated baseline failed\n'+restored.stdout+restored.stderr)
   if (ROOT/SOURCE).read_bytes()!=original:raise RuntimeError('original worktree source changed')
-  print('REQUIRED_BUILD_PROOF_JSON '+json.dumps({'scope':'isolated explicit file-set, not whole native acceptance','frozen_build_scenarios':76,'build_terminal_schedules':8,'build_recipes':6,'compiling_assertion_reversals':len(results),'classifier_negative_controls':rejected,'source_sha256':hashlib.sha256(original).hexdigest(),'source_restored_exact':True,'restored_baseline_exit':0,'race':os.name!='nt','admission_implemented':False,'healthy_whole_native_accepted':False},separators=(',',':')),flush=True)
+  print('REQUIRED_BUILD_PROOF_JSON '+json.dumps({'scope':'isolated explicit file-set, not whole native acceptance','frozen_build_scenarios':76,'build_terminal_schedules':8,'build_recipes':6,'compiling_assertion_reversals':len(results),'classifier_negative_controls':rejected,'bootstrap_negative_controls':bootstrap_rejected,'source_sha256':hashlib.sha256(original).hexdigest(),'source_restored_exact':True,'restored_baseline_exit':0,'race':os.name!='nt','admission_implemented':False,'healthy_whole_native_accepted':False},separators=(',',':')),flush=True)
  finally:cleanup_temporary_directory(directory)
 
 if __name__=='__main__':main()
