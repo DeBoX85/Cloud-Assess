@@ -9,9 +9,9 @@ This is the short project dashboard for Denis. Update it at every meaningful act
 | Item | Position |
 | --- | --- |
 | Goal | AZQR feature/function/capability parity with adjustable branding, accurate behavior and documented deliberate improvements; verified against Denis's pinned fork |
-| Active task | Establish this dashboard and its mandatory maintenance/recovery workflow on `docs/project-progress-20261027`, a product-lineage successor of PR203 |
-| Latest verified product milestone | [Draft PR203](https://github.com/DeBoX85/Cloud-Assess/pull/203), head `a216aa53bc1281a3febebf97ed07e37200e288de`: F01 tag-filter correction verified offline, own native/source QA and private restore complete |
-| Current candidate verification | Documentation candidate pending its OWN full native/source QA, readback and evidence retention; PR203 green does not certify it |
+| Active task | F03 contract/independent loader and CLI expectations on `fix/comparison-json-admission-20261027`, before production |
+| Latest verified product milestone | [Draft PR204](https://github.com/DeBoX85/Cloud-Assess/pull/204), head `fd746cbfdccc6d3b85bfdf1c21bc5ae497d57ba2`: dashboard/SOP verified offline with own native/source QA/private restore complete; F01 verified in PR203 |
+| Current candidate verification | F03 contract/tests prepared pending publication/readback and preproduction reproduction; no production implementation or inherited204green |
 | Next production task | F03 comparison-JSON admission contract and independently failing expectations BEFORE production; then own QA/retention before task10 |
 | Input needed from Denis now | None for the authorized offline sequence. Stop only for material uncertainty with no safe mitigation or explicit deferral |
 | Protected acceptance | Drafts remain unmerged. Protected baseline and AZQR/APRL pins unchanged; no release approval implied |
@@ -27,14 +27,14 @@ This is the short project dashboard for Denis. Update it at every meaningful act
 | F01 tag-filter integrity | PR203 rejects case/trim aliases including same-value aliases, validates raw maps and fails closed after invalid direct rebuilds; clone/recovery and healthy behavior verified. Configuration integrity, not Azure authorization enforcement |
 | CI evidence migration | [DC-CI-EVIDENCE-20261022 / issue189](https://github.com/DeBoX85/Cloud-Assess/issues/189) bounded migration closed; ongoing retention, readback/restore and revisit duties remain |
 
-PR203 quality40516881579 and source40516881392 completed/success. Original622 Linux/617 Windows controls conserved; coverage86.8% against unchanged75% floor. Initial failed/cancelled revision history is preserved. These are revision-specific recorded executions, not a completion percentage or current security guarantee.
+PR204 quality40531800632 and source40531800701 completed/success; final index owns full review/retention. PR203 quality40516881579 and source40516881392 also completed/success. Original622 Linux/617 Windows controls conserved; coverage86.8% against unchanged75% floor. Initial failed/cancelled revision history is preserved. These are revision-specific recorded executions, not a completion percentage or current security guarantee.
 
 ## Ordered remaining implementation
 
 | Order | Task / state | Exit condition | Dependency |
 | --- | --- | --- | --- |
-| Now | Progress dashboard/workflow: in progress | Published/read back; routing and state reconcile; own full QA and evidence retained | Verified PR203 |
-| Next | F03: confirmed open, inspection only | Freeze duplicate/escaped-name and typed-field-alias expectations; reproduce at intended assertions; bounded correction, own native/source QA and restore | Before task10 |
+| Complete | Progress dashboard/workflow: verified offline | PR204 own full QA and44member private restore verified by final index | Verified PR203 |
+| Now | F03: confirmed open, contract/tests prepared | Freeze duplicate/escaped-name and typed-field-alias expectations; reproduce at intended assertions; bounded correction, own native/source QA and restore | Before task10 |
 | 10 | Owned per-run coordinator: not started | Ownership, lifecycle, cancellation and bounded execution contract implemented and verified | Tasks5/7/9 and corrective sequence |
 | 11 | Public region CLI/registry: not started | Public command wiring and early validation verified | Task10 |
 | 12 | Outputs/FullCost/health/exits: not started | Required output contracts and types reconciled; results and exit behavior verified | Coordinator/CLI |
@@ -72,7 +72,8 @@ ETA: no evidence-based calendar forecast is available yet. Comparable remaining-
 | 27 October | Both existing native package-cleanliness gates caught the new test driver's Python cache issue. Correction and positive/negative hygiene proof retained; failed history not relabelled |
 | 27 October | Private archive `1be50f1ec0a57a2ce542937b9a1ca40f474fd3d8` and receipt `09c4e6ebb2ee850a040df3a45145faddf3117683`: seven remote files read back,87 restored members/8,179,608 bytes equal originals; unrelated security blobs preserved |
 | 27 October | F03 boundary inspected read-only; no new reproduction, fix or closure claimed |
-| 27 October | This dashboard and mandatory maintenance added; own candidate QA pending in its live draft PR |
+| 27 October | Dashboard/SOP PR204 own full QA verified; private archive41e2d576/receiptd2061659,44members/6558197bytes restored equal originals |
+| 27 October | F03 successor contract and literal expectations prepared before production; publication/reproduction pending |
 
 Raw logs/findings stay in private `DeBoX85/SC-storage`; public Git contains safe metadata. Reread current storage main/tree before additive expected-head updates; preserve unrelated blobs, never force older history. Retain until Denis explicitly approves deletion. No automatic archival or independent-backup/DC-006 closure. Revisit issue189 at each handover/end and before readiness/acceptance/release.
 
