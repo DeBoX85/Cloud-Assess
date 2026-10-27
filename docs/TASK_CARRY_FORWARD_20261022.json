@@ -526,9 +526,9 @@
     },
     {
       "id": "R7-F01",
-      "state": "open_confirmed",
+      "state": "corrective_contract_and_regressions_prepared",
       "owner": "development owner",
-      "next_or_limit": "Narrow tag ambiguity contract and independent corrections; preserve source characterization."
+      "next_or_limit": "Tag collision contract27October and independent failing validation/load/runtime assertions prepared before production; healthy exact-value/overlap control passes. Implement bounded correction, strict mutations, own native/source/retention before offline closure."
     },
     {
       "id": "R7-F03",
@@ -538,9 +538,9 @@
     },
     {
       "id": "R7-F04",
-      "state": "corrective_candidate_in_progress",
+      "state": "corrective_candidate_verified_offline",
       "owner": "development owner",
-      "next_or_limit": "PR202product-lineage child of verified201/b568;18driver source-bound Go-JSON classifier/migrations prepared, real panic/timeout/compiler/source-change controls pass locally; complete own native/source/control conservation/restore required, no closure yet."
+      "next_or_limit": "PR202/c824final index owns actual ownQA/301witnesses per host/full622/617conservation, source/runner rollback, archive8bc34b91/receipt7dca9cc5fresh160member restore; remains unmerged, no semantic completeness/independent-human/protected acceptance claim."
     },
     {
       "id": "R7-F02",

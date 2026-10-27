@@ -6,6 +6,11 @@ Dated progress and resume sections below are historical snapshots; behavioral re
 
 ---
 
+## Tag collision correction, 27 October 2026
+
+Current successor fix/tag-filter-collisions-20261027 from verified PR202/c824dbbb. Read [tag contract](TAG_FILTER_COLLISION_CONTRACT_20261027.md) and live task PR exact-head index. Seven-task batch: prior storage/readback/restore/handover QA verified; contract and independent regression tests frozen BEFORE production; actual existing implementation fails alias validation/load/runtime assertions while healthy overlap/value control passes. No production fix yet. R7-F04reported17drivers plus comparator verified offline by202final index: own quality40374577792/source40374577754success, full622/617plus prior25/host and newWindows4,301witnesses/host,86.5%floor75, archive8bc34b91/receipt7dca9cc5remote160members/16374606bytes exact. R7-F01now active; F03next before10. DC-CI-EVIDENCE-20261022 https://github.com/DeBoX85/Cloud-Assess/issues/189 closed bounded migration, ongoing private retention/revisit/latest-base expected-head/no-force preservation duties; all44legacy/49current and wider obligations retained. Human assessment considered after project completion. No Azure/live/subagents/unrelated refresh/protected merge/release.
+
+
 ## Mutation assurance active corrective successor
 
 Verify draft PR202/fix/mutation-assurance-20261026 and its exact-head index. MUTATION_ASSURANCE_REMEDIATION_20261026.md owns18driver correction; own full QA/restore pending. PR201/b568final index owns completed task9offline QA. R7-F01/F03remain next corrections before task10. No inherited green or finding closure.

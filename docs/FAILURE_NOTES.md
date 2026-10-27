@@ -1,3 +1,7 @@
+## 27October tag-contract handover guard
+
+New resume prefix initially pushed the exact stable evidence identifier/link outside the6000character visibility window. Existing handoff guard rejected it before publication. Added the unchanged evidence task ID and issue link to the new compact resume prefix; retained guard/closure contract. No evidence or behavioral expectation changed.
+
 ## QA-MUTATION-AI-PRECONDITION-20261026
 
 The strict migrated AI execution driver rejected recorded-tag-snapshot because the existing test first reported its scope assertion and then continued into a nil-map write under that intentional mutation. The retained real Go output contains both the assertion and panic. Kept the original mutation/name/condition/expected scope behavior; after the already-failed assertion the fake scanner now returns a valid pending table/fixed error immediately, preventing incidental mutation of invalid state. No panic recovery/allowlist or classifier weakening. Healthy scope tests must still pass and the same reversal must now fail the original source assertion without crashing. This is a test-harness correction, not a production filter fix or a blanket invalidation of historical runs. R7-F01/F03remain open.
