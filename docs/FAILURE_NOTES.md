@@ -1,3 +1,7 @@
+## 27October native tag-driver bytecode hygiene
+
+New early native driver omitted its own bytecode suppression; local environment supplied PYTHONDONTWRITEBYTECODE while hosted defaults did not. Helper import left untracked cache, correctly rejected by existing package-integrity clean-checkout gate. Fresh default-policy import reproduction confirms the mechanism. Set sys.dont_write_bytecode before helper import and require exact before/after tracked+untracked Git status. Default-policy positive passes, removing suppression in fresh negative fails. Preserve initial hosted failure and local traces, no weakened gate or ignored cache pattern. Recheck native scripts under runner defaults as part of future setup proofs.
+
 ## 27October tag mutator compile rejection
 
 First include-map mutation replaced its only use with nil, leaving an unused local. Separate compile guard rejected it before assertion credit; original product bytes restored by finally. Changed the mutation to remove only raw-map assignment, leaving compilation valid and the frozen test oracle unchanged. Allninecorrected controls compile and produce original selected assertion witnesses with restored baselines; retain first failed trace privately.

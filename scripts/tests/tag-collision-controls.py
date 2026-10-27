@@ -1,6 +1,9 @@
 """Require compiling alias-scope regressions, restoring every production byte."""
-import hashlib,json,subprocess
+import hashlib,json,subprocess,sys
 from pathlib import Path
+ROOT=Path(__file__).resolve().parents[2]
+CHECKOUT_STATUS=subprocess.check_output(['git','status','--porcelain','--untracked-files=all'],cwd=ROOT)
+sys.dont_write_bytecode=True
 from mutation_assertions import assertion_witness,run_go_test
 
 ROOT=Path(__file__).resolve().parents[2]
@@ -34,4 +37,5 @@ try:
   print('Tag collision mutation rejected: '+name,flush=True)
 finally:FILE.write_bytes(original)
 assert FILE.read_bytes()==original and (ROOT/'internal/config/tag_collision_test.go').read_bytes()==tests
-print('TAG_COLLISION_PROOF_JSON '+json.dumps({'controls':len(CONTROLS),'initial_baseline_exit':baseline.returncode,'source_restored_exact':True,'test_source_unchanged':True,'source_sha256':hashlib.sha256(original).hexdigest(),'test_sha256':hashlib.sha256(tests).hexdigest(),'scope':'configuration aliases only; source assertion evidence, not authenticated provenance or live Azure'},separators=(',',':')),flush=True)
+assert subprocess.check_output(['git','status','--porcelain','--untracked-files=all'],cwd=ROOT)==CHECKOUT_STATUS,'tag control driver changed checkout hygiene'
+print('TAG_COLLISION_PROOF_JSON '+json.dumps({'controls':len(CONTROLS),'initial_baseline_exit':baseline.returncode,'source_restored_exact':True,'test_source_unchanged':True,'checkout_hygiene_unchanged':True,'source_sha256':hashlib.sha256(original).hexdigest(),'test_sha256':hashlib.sha256(tests).hexdigest(),'scope':'configuration aliases only; source assertion evidence, not authenticated provenance or live Azure'},separators=(',',':')),flush=True)
