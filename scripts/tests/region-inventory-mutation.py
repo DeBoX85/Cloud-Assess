@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Require compiling inventory faults, named assertion failures and restoration."""
+from mutation_assertions import intended_failure, run_go_test
 from pathlib import Path
 import shutil
 import subprocess
@@ -29,7 +30,7 @@ MUTATIONS = (
 
 
 def run(directory, test):
-    return subprocess.run(['go', 'test', '-count=1', '-run', '^' + test + '$',
+    return run_go_test(['go', 'test', '-count=1', '-run', '^' + test + '$',
                            './internal/plugins/region'], cwd=directory,
                           capture_output=True, text=True, timeout=120)
 
@@ -53,7 +54,7 @@ with tempfile.TemporaryDirectory(prefix='cloud-assess-region-inventory-mutations
             outcome = run(directory, test)
         finally:
             path.write_text(original, encoding='utf-8')
-        if outcome.returncode == 0 or '--- FAIL: ' + test not in outcome.stdout:
+        if not intended_failure(outcome,test):
             raise SystemExit('Inventory mutation survived or failed outside named assertions: ' + name + '\n' + outcome.stdout + outcome.stderr)
         restored = run(directory, test)
         if restored.returncode:

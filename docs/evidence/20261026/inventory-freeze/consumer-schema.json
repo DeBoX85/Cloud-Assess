@@ -1,0 +1,345 @@
+{
+  "format": "cloud-assess-required-consumer-shape-v1",
+  "definitions": {
+    "request": {
+      "object": {
+        "subscription_id": "string",
+        "source_region": "string",
+        "target_region": "string"
+      },
+      "optional": {}
+    },
+    "resource": {
+      "object": {
+        "id": "string",
+        "subscriptionId": "string",
+        "resourceGroup": "string",
+        "location": "string",
+        "type": "string",
+        "name": "string"
+      },
+      "optional": {
+        "skuName": "string",
+        "skuTier": "string",
+        "skuFamily": "string",
+        "kind": "string",
+        "sla": "string",
+        "skuCapacity": "integer",
+        "tags": {
+          "map": "string"
+        }
+      }
+    },
+    "declaration": {
+      "object": {
+        "subscription_id": "string",
+        "status": "string"
+      },
+      "optional": {}
+    },
+    "vmGroup": {
+      "object": {
+        "Known": "boolean",
+        "State": "integer",
+        "BlockedZones": {
+          "list": "string"
+        }
+      },
+      "optional": {}
+    },
+    "diskValue": {
+      "object": {
+        "State": "integer",
+        "BlockedZones": {
+          "list": "string"
+        }
+      },
+      "optional": {}
+    },
+    "storageGroup": {
+      "object": {
+        "Known": "boolean",
+        "State": "integer"
+      },
+      "optional": {}
+    },
+    "sqlGroup": {
+      "object": {
+        "Known": "boolean",
+        "State": "integer",
+        "Version": "string",
+        "Edition": "string",
+        "Name": "string",
+        "Family": "string",
+        "SKUName": "string",
+        "SKUTier": "string",
+        "Standalone": "string",
+        "InstancePool": "string",
+        "Capacity": "integer"
+      },
+      "optional": {}
+    },
+    "disk": {
+      "object": {
+        "SubscriptionID": "string",
+        "Region": "string",
+        "Status": "string",
+        "Values": {
+          "map": {
+            "ref": "diskValue"
+          }
+        }
+      },
+      "optional": {
+        "FailureCode": "string"
+      }
+    },
+    "vm": {
+      "object": {
+        "SubscriptionID": "string",
+        "Region": "string",
+        "Status": "string",
+        "ResourceType": "string",
+        "Groups": {
+          "map": {
+            "ref": "vmGroup"
+          }
+        }
+      },
+      "optional": {
+        "FailureCode": "string"
+      }
+    },
+    "cognitive": {
+      "object": {
+        "SubscriptionID": "string",
+        "Region": "string",
+        "Status": "string",
+        "ResourceType": "string",
+        "Kind": "string",
+        "Groups": {
+          "map": {
+            "ref": "vmGroup"
+          }
+        }
+      },
+      "optional": {
+        "FailureCode": "string"
+      }
+    },
+    "storage": {
+      "object": {
+        "SubscriptionID": "string",
+        "Region": "string",
+        "Status": "string",
+        "Groups": {
+          "map": {
+            "map": {
+              "ref": "storageGroup"
+            }
+          }
+        },
+        "UnqualifiedNames": {
+          "map": "boolean"
+        }
+      },
+      "optional": {
+        "FailureCode": "string"
+      }
+    },
+    "sql": {
+      "object": {
+        "SubscriptionID": "string",
+        "Region": "string",
+        "Status": "string",
+        "ResourceType": "string",
+        "Groups": {
+          "map": {
+            "ref": "sqlGroup"
+          }
+        }
+      },
+      "optional": {
+        "FailureCode": "string"
+      }
+    },
+    "collection": {
+      "object": {
+        "subscription_id": "string",
+        "source_region": "string",
+        "target_region": "string",
+        "resource_type": "string",
+        "kind": "string"
+      },
+      "optional": {
+        "disk": {
+          "nullable": {
+            "ref": "disk"
+          }
+        },
+        "vm": {
+          "nullable": {
+            "ref": "vm"
+          }
+        },
+        "storage": {
+          "nullable": {
+            "ref": "storage"
+          }
+        },
+        "cognitive": {
+          "nullable": {
+            "ref": "cognitive"
+          }
+        },
+        "sql": {
+          "nullable": {
+            "ref": "sql"
+          }
+        }
+      }
+    },
+    "requirement": {
+      "object": {
+        "subscription_id": "string",
+        "source_region": "string",
+        "resource_type": "string",
+        "kind": "string",
+        "skus": {
+          "list": "string"
+        },
+        "kinds": {
+          "map": {
+            "list": "string"
+          }
+        },
+        "resource_ids": {
+          "list": "string"
+        },
+        "flags": {
+          "list": "string"
+        }
+      },
+      "optional": {}
+    },
+    "skuValue": {
+      "object": {
+        "state": "integer",
+        "blocked_zones": {
+          "list": "string"
+        }
+      },
+      "optional": {}
+    },
+    "skuEvidence": {
+      "object": {
+        "status": "string",
+        "values": {
+          "map": {
+            "ref": "skuValue"
+          }
+        }
+      },
+      "optional": {}
+    },
+    "catalog": {
+      "object": {
+        "resource_type": "string",
+        "kind": "string",
+        "status": "string",
+        "deployment_eligibility": "string",
+        "keys": {
+          "list": "string"
+        },
+        "states": {
+          "map": "integer"
+        }
+      },
+      "optional": {}
+    },
+    "want": {
+      "object": {
+        "error": "string",
+        "error_phase": "string",
+        "plan_status": "string",
+        "scope_status": "string",
+        "admission_status": "string",
+        "requirements": {
+          "list": {
+            "ref": "requirement"
+          }
+        },
+        "sku_evidence": {
+          "map": {
+            "ref": "skuEvidence"
+          }
+        },
+        "catalogs": {
+          "list": {
+            "ref": "catalog"
+          }
+        },
+        "preserve_raw_records": "boolean"
+      },
+      "optional": {}
+    },
+    "case": {
+      "object": {
+        "name": "string",
+        "selected": {
+          "map": "string"
+        },
+        "resources": {
+          "list": {
+            "ref": "resource"
+          }
+        },
+        "declarations": {
+          "list": {
+            "ref": "declaration"
+          }
+        },
+        "request": {
+          "ref": "request"
+        },
+        "collections": {
+          "list": {
+            "ref": "collection"
+          }
+        },
+        "want": {
+          "ref": "want"
+        }
+      },
+      "optional": {}
+    },
+    "manifest": {
+      "object": {
+        "format": "string",
+        "frozen_before_production": "boolean",
+        "prepared_against": "string",
+        "cases": {
+          "list": {
+            "ref": "case"
+          }
+        }
+      },
+      "optional": {}
+    }
+  },
+  "root": {
+    "ref": "manifest"
+  },
+  "phase_labels": {
+    "": "",
+    "inventory": "inventory",
+    "build": "inventory",
+    "admission": "admission",
+    "admit": "admission"
+  },
+  "limits": {
+    "input_bytes": 8388608,
+    "json_depth": 64
+  },
+  "semantics": "Exact keys/types/presence only. Invalid product values remain allowed for negative API scenarios. No production import or expected-output generation."
+}

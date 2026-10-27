@@ -1,0 +1,17 @@
+{
+  "format": "required-inventory-output-budget-preparation-v1",
+  "entry_limit": 65536,
+  "text_limit": 16711680,
+  "cases": [
+    {"name":"build-input-exact","rows":6500,"short_names":2149,"next_name":248,"want_input_text":16711680,"want_error":"required_inventory_limit","isolated_input_enforcement":false},
+    {"name":"build-input-first-excess","rows":6500,"short_names":2149,"next_name":249,"want_input_text":16711681,"want_error":"required_inventory_limit","isolated_input_enforcement":false},
+    {"name":"build-output-text-exact","rows":2600,"short_names":504,"next_name":45,"want_output_text":16711680,"want_input_text":6866072,"want_error":""},
+    {"name":"build-output-text-first-reachable-excess","rows":2600,"short_names":504,"next_name":46,"want_output_text":16711682,"want_input_text":6866073,"want_error":"required_inventory_limit"},
+    {"name":"build-output-entries-exact","scopes":4,"rows":8191,"want_output_entries":65536,"want_input_entries":8199,"want_error":""},
+    {"name":"build-output-entries-first-reachable-excess","scopes":5,"rows":8191,"want_output_entries":65538,"want_input_entries":8201,"want_error":"required_inventory_limit"},
+    {"name":"admission-output-entries-exact","vm_keys":8191,"zones":13650,"zone_base_bytes":1,"full_zone_growths":0,"next_zone_growth":0,"sql_groups":1,"family":"","want_output_entries":65536,"want_input_entries":38234,"want_error":""},
+    {"name":"admission-output-entries-first-excess","vm_keys":8191,"zones":13650,"zone_base_bytes":1,"full_zone_growths":0,"next_zone_growth":0,"sql_groups":2,"family":"","want_output_entries":65537,"want_input_entries":38235,"want_error":"required_evidence_limit"},
+    {"name":"admission-output-text-exact","vm_keys":8190,"zones":13650,"zone_base_bytes":400,"full_zone_growths":546,"next_zone_growth":4,"sql_groups":1,"family":"ff","want_output_entries":65533,"want_output_text":16711680,"want_error":""},
+    {"name":"admission-output-text-first-excess","vm_keys":8190,"zones":13650,"zone_base_bytes":400,"full_zone_growths":546,"next_zone_growth":4,"sql_groups":1,"family":"fff","want_output_entries":65533,"want_output_text":16711681,"want_error":"required_evidence_limit"}
+  ]
+}

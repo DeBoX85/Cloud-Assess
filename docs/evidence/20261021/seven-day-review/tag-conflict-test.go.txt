@@ -1,0 +1,34 @@
+package config
+
+import (
+	"os"
+	"path/filepath"
+	"testing"
+)
+
+// Independent input has mutually incompatible constraints for one logical key.
+// It must not arbitrarily include a resource satisfying only one constraint.
+func TestReviewConflictingCaseEquivalentTagConstraints(t *testing.T) {
+	file := filepath.Join(t.TempDir(), "filters.yaml")
+	if err := os.WriteFile(file, []byte("assessment:\n  include:\n    tags:\n      env: prod\n      ENV: dev\n"), 0600); err != nil {
+		t.Fatal(err)
+	}
+	included, excluded, rejected := 0, 0, 0
+	for i := 0; i < 256; i++ {
+		f, err := LoadFilters(file)
+		if err != nil {
+			rejected++
+			continue
+		}
+		f.Assessment.SetAllowedResourceTypes([]string{"Microsoft.Test/widgets"})
+		if f.Assessment.IsResourceExcluded("/subscriptions/00000000-0000-0000-0000-000000000001/resourceGroups/rg/providers/Microsoft.Test/widgets/one", map[string]string{"env": "prod"}) {
+			excluded++
+		} else {
+			included++
+		}
+	}
+	t.Logf("same file: included=%d excluded=%d rejected=%d", included, excluded, rejected)
+	if included > 0 {
+		t.Fatal("conflicting constraints admitted a resource satisfying only one value")
+	}
+}

@@ -1,0 +1,89 @@
+"""Independent pre-API typed-ledger arithmetic. No product imports or API execution."""
+import copy
+import hashlib
+import json
+from pathlib import Path
+import sys
+
+SUB='aaaaaaaa-1111-4111-8111-111111111111'
+VM='microsoft.compute/virtualmachines'
+SQL='microsoft.sql/servers/databases'
+WARNING='SQL capability catalog evidence does not establish deployment eligibility, quota or allocation capacity.'
+def unique(pairs):
+ d={}
+ for k,v in pairs:
+  if k in d: raise ValueError('duplicate key')
+  d[k]=v
+ return d
+def size(strings): return sum(len(s.encode('utf-8')) for s in strings)
+def rid(kind,name): return '/subscriptions/'+SUB+'/resourceGroups/rg/providers/'+kind+'/'+name
+def sql_strings(name,family):
+ return ['v/e/'+name,'v','e',name,family,name,'e','not_applicable','not_applicable']
+def validate(data):
+ assert data['entry_limit']==65536 and data['text_limit']==16711680 and len(data['cases'])==10
+ assert len({c['name'] for c in data['cases']})==10
+ out=[]
+ for c in data['cases']:
+  n=c['name'];row={'name':n};ie=it=oe=ot=0;digest=hashlib.sha256()
+  if n.startswith('build-') and 'entries' not in n:
+   assert 1<=c['rows']<=8192 and 0<=c['short_names']<c['rows'] and 1<=c['next_name']<=512
+   ie=2+c['rows'];it=83;oe=2*(1+c['rows']);ot=8+2*47
+   for i in range(c['rows']):
+    width=1 if i<c['short_names'] else c['next_name'] if i==c['short_names'] else 512
+    raw=[rid('microsoft.example/widgets',f'r{i:04d}'),SUB,'rg','n'*width,'microsoft.example/widgets','global','k'*512,'s'*512,'t'*512,'f'*512]
+    canonical=[SUB,'','microsoft.example/widgets','k'*512]
+    assert all(len(s.encode())<=512 for s in raw+canonical)
+    it+=size(raw);ot+=2*size(raw+canonical);digest.update(('\0'.join(raw+canonical)+'\n').encode())
+   assert oe<65536
+  elif n.startswith('build-output-entries'):
+   assert c['scopes'] in (4,5) and c['rows']==8191
+   ie=2*c['scopes']+c['rows'];it=83*c['scopes'];oe=2*c['scopes'];ot=8+2*47*c['scopes']
+   for i in range(c['rows']):
+    region=f'r{i:05d}';sku=f'g{i:05d}';identity=rid(VM,f'r{i:05d}')
+    raw=[identity,SUB,'rg',f'r{i:05d}',VM,region,'',sku,'',''];canonical=[SUB,region,VM,'']
+    requirement=[SUB,region,VM,'',sku,identity]
+    it+=size(raw);ot+=2*size(raw+canonical+requirement);oe+=2*(1+1+1+1)
+    digest.update(('\0'.join(raw+canonical+requirement)+'\n').encode())
+   assert it<16711680 and ot<16711680
+  else:
+   assert c['vm_keys'] in (8190,8191) and c['zones']==13650 and c['sql_groups'] in (1,2)
+   assert c['zone_base_bytes'] in (1,400) and 0<=c['full_zone_growths']<c['zones']
+   assert 0<=c['next_zone_growth']<=512-c['zone_base_bytes'] and len(c['family'])<=512
+   v=c['vm_keys'];z=c['zones'];g=c['sql_groups'];double=z-v
+   ie=2+(1+v+v)+(1+1+1)+(1+1+v+z)+(1+1+g)
+   oe=3*(1+2+v+z)+(1+1+1+g)
+   context=[SUB,'One','complete'];request=[SUB,'eastus','westeurope']
+   sql_id='/subscriptions/'+SUB+'/resourceGroups/rg/providers/microsoft.sql/servers/s/databases/d'
+   it=size(context+request+[SUB,'eastus',VM,'']+[SUB,'eastus',SQL,'','x',sql_id]+[SUB,'eastus','westeurope',VM,'']+[SUB,'westeurope',VM,'complete','']+[SUB,'eastus','westeurope',SQL,'']+[SUB,'westeurope',SQL,'complete',''])
+   ot=size(['complete','complete'])+3*size(request+[VM,'complete',SQL,'unsupported'])
+   ot+=size([SUB,'eastus','westeurope',SQL,'','complete','not_assessed']+[SUB,'westeurope',SQL,'complete','not_assessed']+['sql_capability_catalog_only',WARNING])
+   for name in ['a','b'][:g]:it+=size(sql_strings(name,c['family']));ot+=size(sql_strings(name,c['family']))
+   ordinal=0
+   for i in range(v):
+    key=f'g{i:05d}';it+=2*len(key)+len(rid(VM,f'r{i:05d}'));ot+=3*len(key)
+    prior=''
+    for j in range(2 if i<double else 1):
+     width=512 if ordinal<c['full_zone_growths'] else c['zone_base_bytes']+c['next_zone_growth'] if ordinal==c['full_zone_growths'] else c['zone_base_bytes']
+     zone=str(j+1)*width;assert 1<=width<=512 and zone>prior;prior=zone
+     it+=len(zone);ot+=3*len(zone);ordinal+=1;digest.update((key+'\0'+zone+'\n').encode())
+   assert ordinal==z and ie<65536 and it<16711680
+   # Existing VM projector has8192group/required limits and65536work/16MiB-minus64KiB text.
+   assert 2*v+z<65536 and 2*6*v+(ot-790-3*6*v)//3<16711680
+  for label,value in [('input_entries',ie),('input_text',it),('output_entries',oe),('output_text',ot)]:
+   if 'want_'+label in c:assert c['want_'+label]==value,(n,label,value,c['want_'+label])
+   row[label]=value
+  limited=max(ie,oe)>65536 or max(it,ot)>16711680
+  assert c['want_error']==(('required_inventory_limit' if n.startswith('build-') else 'required_evidence_limit') if limited else '')
+  row['expected_error']=c['want_error'];row['constructed_stream_sha256']=digest.hexdigest();out.append(row)
+ return out
+
+data=json.loads(Path(sys.argv[1]).read_bytes(),object_pairs_hook=unique)
+rows=validate(data)
+bad=[]
+for label,change in [('wrong-literal',lambda d:d['cases'][2].update(want_output_text=16711679)),('outer-cap',lambda d:d['cases'][0].update(rows=8193)),('oversized-cell',lambda d:d['cases'][2].update(next_name=513)),('zone-width',lambda d:d['cases'][8].update(next_zone_growth=113))]:
+ d=copy.deepcopy(data);change(d)
+ try:validate(d)
+ except (AssertionError,ValueError):bad.append(label)
+ else:raise AssertionError('bad recipe accepted: '+label)
+assert len(bad)==4
+print(json.dumps({'proof':'independent arithmetic; no future API execution','cases':rows,'negative_controls_rejected':bad,'limits':['Build input text/count dominated; not isolated causal enforcement.','Build duplicate views have first-reachable excess2, not1.','Existing projector execution is a separate prerequisite.']},indent=2))

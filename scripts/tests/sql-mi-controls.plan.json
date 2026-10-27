@@ -1,0 +1,293 @@
+{
+  "format": "sql-mi-controls-v1",
+  "mutations": [
+    {
+      "name": "mi-selected-leaf-bound",
+      "file": "internal/plugins/region/sql_managed_instance_collector.go",
+      "old": "leaves > MaxSQLManagedInstanceLeaves",
+      "replace": "leaves > MaxSQLManagedInstanceLeaves+1",
+      "test": "TestSQLMILeafBound",
+      "count": 1
+    },
+    {
+      "name": "mi-raw-work-before-allocation",
+      "file": "internal/plugins/region/sql_managed_instance_collector.go",
+      "old": "if code := budget.walk(doc, 0, false); code != \"\" {",
+      "replace": "if code := budget.walk(doc, 0, false); code != \"\" && false {",
+      "test": "TestSQLMIRawWorkBound",
+      "count": 1
+    },
+    {
+      "name": "mi-strict-json-precondition",
+      "file": "internal/plugins/region/sql_managed_instance_collector.go",
+      "old": "if !quotaJSON(ctx, body) {",
+      "replace": "if false && !quotaJSON(ctx, body) {",
+      "test": "TestSQLMIStrictWire",
+      "count": 1
+    },
+    {
+      "name": "mi-whole-known-shape-validation",
+      "file": "internal/plugins/region/sql_managed_instance_collector.go",
+      "old": "if !sqlCapabilityShape(ctx, body, \"LocationCapabilities\") {",
+      "replace": "if false && !sqlCapabilityShape(ctx, body, \"LocationCapabilities\") {",
+      "test": "TestSQLMIStrictWire",
+      "count": 1
+    },
+    {
+      "name": "mi-undocumented-next-link",
+      "file": "internal/plugins/region/sql_managed_instance_collector.go",
+      "old": "if _, present := root[\"nextLink\"]; present {",
+      "replace": "if _, present := root[\"nextLink\"]; present && false {",
+      "test": "TestSQLManagedInstanceFrozenManifest/undocumented-next-null",
+      "count": 1
+    },
+    {
+      "name": "mi-no-value-envelope",
+      "file": "internal/plugins/region/sql_managed_instance_collector.go",
+      "old": "if _, present := root[\"value\"]; present {",
+      "replace": "if _, present := root[\"value\"]; present && false {",
+      "test": "TestSQLManagedInstanceFrozenManifest/root-value-envelope",
+      "count": 1
+    },
+    {
+      "name": "mi-root-physical-binding",
+      "file": "internal/plugins/region/sql_managed_instance_collector.go",
+      "old": "if physical != \"\" && physical != q.Region {",
+      "replace": "if false && physical != \"\" && physical != q.Region {",
+      "test": "TestSQLManagedInstanceFrozenManifest/foreign-physical-root",
+      "count": 1
+    },
+    {
+      "name": "mi-unresolved-root-incomplete",
+      "file": "internal/plugins/region/sql_managed_instance_collector.go",
+      "old": "incomplete = physical == \"\"",
+      "replace": "incomplete = false",
+      "test": "TestSQLManagedInstanceFrozenManifest/unresolved-display-root",
+      "count": 1
+    },
+    {
+      "name": "mi-missing-child-incomplete",
+      "file": "internal/plugins/region/sql_managed_instance_collector.go",
+      "old": "incomplete = incomplete || !complete",
+      "replace": "incomplete = incomplete || (!complete && false)",
+      "test": "TestSQLManagedInstanceFrozenManifest/missing-supportedFamilies",
+      "count": 4
+    },
+    {
+      "name": "mi-explicit-family-sku",
+      "file": "internal/plugins/region/sql_managed_instance_collector.go",
+      "old": "g.SKUName = strings.ToLower(sku)",
+      "replace": "g.SKUName = g.Edition+\"_\"+g.Family",
+      "test": "TestSQLMIAuthorityAndModes",
+      "count": 1
+    },
+    {
+      "name": "mi-leaf-name-not-numeric-inference",
+      "file": "internal/plugins/region/sql_managed_instance_collector.go",
+      "old": "var ok bool",
+      "replace": "g.Name = fmt.Sprint(g.Capacity)\nvar ok bool",
+      "test": "TestSQLMIAuthorityAndModes",
+      "count": 1
+    },
+    {
+      "name": "mi-missing-authoritative-fields",
+      "file": "internal/plugins/region/sql_managed_instance_collector.go",
+      "old": "g.Known = false",
+      "replace": "g.Known = true",
+      "test": "TestSQLMIAuthorityAndModes",
+      "count": 2
+    },
+    {
+      "name": "mi-positive-vcore-value",
+      "file": "internal/plugins/region/sql_managed_instance_collector.go",
+      "old": "!diskScalar(raw, &g.Capacity) || g.Capacity <= 0",
+      "replace": "!diskScalar(raw, &g.Capacity) || g.Capacity < 0",
+      "test": "TestSQLMIStrictWire",
+      "count": 1
+    },
+    {
+      "name": "mi-missing-mode-stays-unknown",
+      "file": "internal/plugins/region/sql_managed_instance_collector.go",
+      "old": "return \"unknown\", true",
+      "replace": "return \"unsupported\", true",
+      "test": "TestSQLMIAuthorityAndModes",
+      "count": 1
+    },
+    {
+      "name": "mi-false-mode-stays-unsupported",
+      "file": "internal/plugins/region/sql_managed_instance_collector.go",
+      "old": "return \"unsupported\", true",
+      "replace": "return \"supported\", true",
+      "test": "TestSQLMIAuthorityAndModes",
+      "count": 1
+    },
+    {
+      "name": "mi-no-implicit-mode-eligibility",
+      "file": "internal/plugins/region/sql_managed_instance_collector.go",
+      "old": "if !g.Known {",
+      "replace": "if g.Standalone==\"unsupported\" {g.Known=false}\nif !g.Known {",
+      "test": "TestSQLMIAuthorityAndModes",
+      "count": 1
+    },
+    {
+      "name": "mi-family-governing-status",
+      "file": "internal/plugins/region/sql_managed_instance_collector.go",
+      "old": "sqlCapabilityState(root, version, edition, family, leaf)",
+      "replace": "sqlCapabilityState(root, version, edition, leaf)",
+      "test": "TestSQLMIStatusAndIdentity",
+      "count": 1
+    },
+    {
+      "name": "mi-constructor-family-binding",
+      "file": "internal/plugins/region/sql_managed_instance_collector.go",
+      "old": "family: sqlManagedInstanceType",
+      "replace": "family: sqlDatabaseType",
+      "test": "TestSQLMIFamilyPreauth",
+      "count": 1
+    },
+    {
+      "name": "mi-selected-decoder-dispatch",
+      "file": "internal/plugins/region/sql_capability_collector.go",
+      "old": "if kind == sqlManagedInstanceType {",
+      "replace": "if false && kind == sqlManagedInstanceType {",
+      "test": "TestSQLManagedInstanceFrozenManifest/explicit-full-coordinate",
+      "count": 1
+    },
+    {
+      "name": "mi-reject-three-coordinate-lookup",
+      "file": "internal/plugins/region/sql_managed_instance_collector.go",
+      "old": "if len(parts) != 4 {",
+      "replace": "if len(parts) != 4 && len(parts) != 3 {",
+      "test": "TestSQLMICoordinateDomains",
+      "count": 1
+    },
+    {
+      "name": "mi-reject-name-only-lookup",
+      "file": "internal/plugins/region/sql_managed_instance_collector.go",
+      "old": "if len(parts) != 4 {",
+      "replace": "if len(parts) != 4 && len(parts) != 1 {",
+      "test": "TestSQLMICoordinateDomains",
+      "count": 1
+    },
+    {
+      "name": "mi-group-full-coordinate-binding",
+      "file": "internal/plugins/region/sql_managed_instance_collector.go",
+      "old": "key != g.Version+\"/\"+g.Edition+\"/\"+g.Family+\"/\"+g.Name",
+      "replace": "false && key != g.Version+\"/\"+g.Edition+\"/\"+g.Family+\"/\"+g.Name",
+      "test": "TestSQLMIProjectionWholeValidation",
+      "count": 1
+    },
+    {
+      "name": "mi-projection-state-domain",
+      "file": "internal/plugins/region/sql_managed_instance_collector.go",
+      "old": "g.State != SKUAvailable && g.State != SKUUnavailable",
+      "replace": "false && g.State != SKUAvailable && g.State != SKUUnavailable",
+      "test": "TestSQLMIProjectionWholeValidation",
+      "count": 1
+    },
+    {
+      "name": "mi-unknown-state-invariant",
+      "file": "internal/plugins/region/sql_managed_instance_collector.go",
+      "old": "!g.Known && g.State != SKUUnavailable",
+      "replace": "false && !g.Known && g.State != SKUUnavailable",
+      "test": "TestSQLMIProjectionWholeValidation",
+      "count": 1
+    },
+    {
+      "name": "mi-unknown-negative-capacity",
+      "file": "internal/plugins/region/sql_managed_instance_collector.go",
+      "old": "g.Capacity < 0",
+      "replace": "false && g.Capacity < 0",
+      "test": "TestSQLMIProjectionWholeValidation",
+      "count": 1
+    },
+    {
+      "name": "mi-mode-metadata-domain",
+      "file": "internal/plugins/region/sql_managed_instance_collector.go",
+      "old": "if mode != \"supported\" && mode != \"unsupported\" && mode != \"unknown\" {",
+      "replace": "if mode != \"supported\" && mode != \"unsupported\" && mode != \"unknown\" && false {",
+      "test": "TestSQLMIProjectionWholeValidation",
+      "count": 1
+    },
+    {
+      "name": "mi-known-authoritative-metadata",
+      "file": "internal/plugins/region/sql_managed_instance_collector.go",
+      "old": "if g.Known && (g.SKUName == \"\" || g.Capacity <= 0) {",
+      "replace": "if g.Known && false && (g.SKUName == \"\" || g.Capacity <= 0) {",
+      "test": "TestSQLMIProjectionWholeValidation",
+      "count": 1
+    },
+    {
+      "name": "mi-tier-edition-binding",
+      "file": "internal/plugins/region/sql_managed_instance_collector.go",
+      "old": "g.SKUTier != g.Edition",
+      "replace": "false && g.SKUTier != g.Edition",
+      "test": "TestSQLMIProjectionWholeValidation",
+      "count": 1
+    },
+    {
+      "name": "mi-projection-group-count",
+      "file": "internal/plugins/region/sql_capability_catalog.go",
+      "old": "len(c.Groups) > MaxSQLCapabilityLeaves",
+      "replace": "len(c.Groups) > MaxSQLCapabilityLeaves+1",
+      "test": "TestSQLMIProjectionCounts/groups-8193",
+      "count": 1
+    },
+    {
+      "name": "mi-projection-required-count",
+      "file": "internal/plugins/region/sql_capability_catalog.go",
+      "old": "len(required) > MaxSQLCapabilityLeaves",
+      "replace": "len(required) > MaxSQLCapabilityLeaves+1",
+      "test": "TestSQLMIProjectionCounts/required-8193",
+      "count": 1
+    },
+    {
+      "name": "mi-projection-metadata-charge",
+      "file": "internal/plugins/region/sql_capability_catalog.go",
+      "old": "for _, s := range sqlGroupStrings(g) {",
+      "replace": "for _, s := range sqlGroupStrings(g)[:0] {",
+      "test": "TestSQLMIProjectionTextBound",
+      "count": 2
+    },
+    {
+      "name": "mi-projection-key-charge",
+      "file": "internal/plugins/region/sql_capability_catalog.go",
+      "old": "budget.label(key, MaxSQLCoordinateBytes)",
+      "replace": "budget.label(key[:0], MaxSQLCoordinateBytes)",
+      "test": "TestSQLMIProjectionTextBound",
+      "count": 1
+    },
+    {
+      "name": "mi-required-coordinate-text-charge",
+      "file": "internal/plugins/region/sql_capability_catalog.go",
+      "old": "budget.label(s, MaxSQLCoordinateBytes)",
+      "replace": "budget.label(s[:0], MaxSQLCoordinateBytes)",
+      "test": "TestSQLMIRequiredTextBound",
+      "count": 1
+    },
+    {
+      "name": "mi-alias-value-text-charge",
+      "file": "internal/plugins/region/sql_capability_catalog.go",
+      "old": "budget.label(value, MaxLabelBytes)",
+      "replace": "budget.label(value[:0], MaxLabelBytes)",
+      "test": "TestSQLMIAliasTextBound",
+      "count": 1
+    },
+    {
+      "name": "mi-collector-final-context",
+      "file": "internal/plugins/region/sql_capability_collector.go",
+      "old": "if e := ctx.Err(); e != nil {\n\t\treturn nil, e\n\t}\n\treturn result, nil",
+      "replace": "if e := ctx.Err(); e != nil && false {\n\t\treturn nil, e\n\t}\n\treturn result, nil",
+      "test": "TestSQLMIFixedLateContext",
+      "count": 1
+    },
+    {
+      "name": "mi-catalog-final-context",
+      "file": "internal/plugins/region/sql_capability_catalog.go",
+      "old": "if err := ctx.Err(); err != nil {\n\t\t\treturn SQLCatalogEvidence{}, err\n\t\t}\n\t\treturn out, nil",
+      "replace": "if err := ctx.Err(); err != nil && false {\n\t\t\treturn SQLCatalogEvidence{}, err\n\t\t}\n\t\treturn out, nil",
+      "test": "TestSQLMIFixedLateContext",
+      "count": 1
+    }
+  ]
+}
