@@ -1,0 +1,977 @@
+{
+  "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+  "tracked_paths": 959,
+  "complete_raw_file_reads": 795,
+  "complete_go_reads": 326,
+  "complete_semantic_views": 29,
+  "remaining_individually_classified": [
+    {
+      "path": "cmd/cloud-assess/testdata/rules-reference.json",
+      "type": "blob",
+      "blob": "992b347802179b23bb611440e77d5be59d052f01",
+      "bytes": 129537,
+      "classification": "frozen-source-command-snapshot-byte-identity-and-structural-review"
+    },
+    {
+      "path": "docs/AI_GOVERNANCE.md",
+      "type": "blob",
+      "blob": "524934212cd531b8b7a4e57e47df4902f3897e74",
+      "bytes": 12104,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/AI_GOVERNANCE_EXECUTION.md",
+      "type": "blob",
+      "blob": "686096f2a2bdcb633e1ff3b9ccfb43838ef98df5",
+      "bytes": 25951,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/AI_GOVERNANCE_REQUESTS.md",
+      "type": "blob",
+      "blob": "72be43e1d062b663b1e51eb627ea6497d5c06125",
+      "bytes": 12902,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/ALIGNMENT_REVIEW.md",
+      "type": "blob",
+      "blob": "8162ed9edfd9da677fd6026b935cdc8a46a64015",
+      "bytes": 20049,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/AUDIT_ARG_RESPONSE_COMPLETION.md",
+      "type": "blob",
+      "blob": "ad0ed6133b9833093b5cbbe85f204f1c660930a4",
+      "bytes": 3870,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/AUDIT_COST_CONTINUATION.md",
+      "type": "blob",
+      "blob": "e6fbe4b1176937a826389e6e8b17f9feb0b1524e",
+      "bytes": 4226,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/AUDIT_RECOVERY.md",
+      "type": "blob",
+      "blob": "6172ed1317a13eec5146f3a6efa192e0350e34a6",
+      "bytes": 17715,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/AUDIT_REVIEW_COVERAGE_20261004.md",
+      "type": "blob",
+      "blob": "34dedc5619215ea111dc47e9154f5bf7c21e6e9d",
+      "bytes": 25033,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/AUDIT_STORAGE_RECONCILIATION_20261016.md",
+      "type": "blob",
+      "blob": "93ccff87592e366475c5e12427ed2a3ed9b7acd8",
+      "bytes": 8298,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/BRANDING_PROFILES.md",
+      "type": "blob",
+      "blob": "cd3d9b669501c4d51c97eebee84b98ba8948aa63",
+      "bytes": 5665,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/BRANDING_REPORT_QA.md",
+      "type": "blob",
+      "blob": "2dfff2faec842fd50a517ba04b7b391c56da634c",
+      "bytes": 5434,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/BRANDING_REVIEW.md",
+      "type": "blob",
+      "blob": "fca1b3baf7f7ae9304d4bcee973551a27d81a610",
+      "bytes": 11360,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/CARBON_EMISSIONS.md",
+      "type": "blob",
+      "blob": "5753528f76576e3b8b756231289533ce4f3f24e2",
+      "bytes": 23187,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/CHARACTERIZATION.md",
+      "type": "blob",
+      "blob": "1c76c869e1b179ed7e0490c9996451953b9a278c",
+      "bytes": 22214,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/CHAT_TRANSFER_20261019.md",
+      "type": "blob",
+      "blob": "4b209757d6cbb980eed6cd46397db2b408db9a6a",
+      "bytes": 3577,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/CHAT_TRANSFER_20261020.md",
+      "type": "blob",
+      "blob": "a7bf3a31cb74d7976c5be539679b709e893ad0cc",
+      "bytes": 3155,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/CODE_REVIEW_QA_20261014.md",
+      "type": "blob",
+      "blob": "72a47698bf64d1775b661860a07d4e2cc49ad1b9",
+      "bytes": 34538,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/COGNITIVE_SKU_IMPLEMENTATION_20261017.md",
+      "type": "blob",
+      "blob": "5f8d59acd38dee2eb3b5cc5aa476f214e765770c",
+      "bytes": 4918,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/COGNITIVE_SKU_WORKSTREAM_20261017.md",
+      "type": "blob",
+      "blob": "0f18db93aea8e2f20f65cf90db6097345b1205fd",
+      "bytes": 2420,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/CONTINUE.md",
+      "type": "blob",
+      "blob": "b75f18a1aad99142dae1f26198d8265d02d7732a",
+      "bytes": 4307,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/CURRENT_STATE.md",
+      "type": "blob",
+      "blob": "a7cb7aacf0797ef213728226c61d6c24ac41e59a",
+      "bytes": 13167,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/DEVELOPMENT_EXECUTION_PLAN.md",
+      "type": "blob",
+      "blob": "0c8ed770b212db177cfa0d0411252716292614e9",
+      "bytes": 49919,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/DEVELOPMENT_LEDGER.md",
+      "type": "blob",
+      "blob": "03200c4f48b6f27307a3a39f5fd09127bc30faee",
+      "bytes": 610590,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/DEVELOPMENT_WORKFLOW_RESEARCH_20261017.md",
+      "type": "blob",
+      "blob": "3e56e706d7801559bfe457aaf10109841602cd51",
+      "bytes": 5988,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/DEVELOPMENT_WORKSPACE.md",
+      "type": "blob",
+      "blob": "dd304120c3b0623d55e7cf38f4d4c72801a9a1e8",
+      "bytes": 13243,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/DISCREPANCIES_20261019.md",
+      "type": "blob",
+      "blob": "f80eda4e92343bc0471e4963ddc872fa5d0332bc",
+      "bytes": 3143,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/EQUIVALENCE.md",
+      "type": "blob",
+      "blob": "0c1e98806e1d642dfa9439870c3560473562fd8f",
+      "bytes": 37548,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/EXCELIZE_SECURITY_REMEDIATION_20261020.md",
+      "type": "blob",
+      "blob": "fc60fc65f53ca9aa4d0929ad208f63dd8b116673",
+      "bytes": 5754,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/FAILURE_NOTES.md",
+      "type": "blob",
+      "blob": "7e17eeaaa9691852303aab9061d24ba72aeefc61",
+      "bytes": 320919,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/FEATURE_PARITY_CHARACTERIZATION.md",
+      "type": "blob",
+      "blob": "6279fa07a9dce04725c66a1acadfe2012e465e86",
+      "bytes": 21598,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/HANDOFF_20261017.md",
+      "type": "blob",
+      "blob": "f2ada90f30c007086144b59ef27bb5a2b047dff2",
+      "bytes": 5892,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/HANDOVER_CHECKPOINT_20261009.md",
+      "type": "blob",
+      "blob": "0186f4feb7db32b4d4f20b898f407ebd84c1bd12",
+      "bytes": 24514,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/HANDOVER_CHECKPOINT_20261011.md",
+      "type": "blob",
+      "blob": "11c59a8f7519cfb145e758210ef835162d672818",
+      "bytes": 12715,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/HANDOVER_CHECKPOINT_20261012.md",
+      "type": "blob",
+      "blob": "2c7b7a2abb6b34fcf182efdfb0d96c27f31638c3",
+      "bytes": 12623,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/HANDOVER_CHECKPOINT_20261016.md",
+      "type": "blob",
+      "blob": "bee9b07a55ff3d5227ced18e894536fc6dd34b5b",
+      "bytes": 42748,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/HANDOVER_SECURITY_GATE_20261009.md",
+      "type": "blob",
+      "blob": "eefc324aeebc5fe3107b9d4aaab20437ea05f39e",
+      "bytes": 8404,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/IMPLEMENTATION_PLAN.md",
+      "type": "blob",
+      "blob": "24e91819e8637beb45f82bb280193dfdd87986ac",
+      "bytes": 56407,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/LAPTOP_LIVE_QUEUE_20261013.md",
+      "type": "blob",
+      "blob": "b4c95fc63f99ba4e71169e339262196efa445e4e",
+      "bytes": 5247,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/METER_HISTORY_COMPLETED_20261019.md",
+      "type": "blob",
+      "blob": "3a07786ec0dd94d712024688a3c6b46f7492f463",
+      "bytes": 1842,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/METER_HISTORY_CONTRACT_COMPLETED_20261019.md",
+      "type": "blob",
+      "blob": "d0beda9c51ee4cb1a97c53bdb14b391835e29880",
+      "bytes": 4186,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/METER_HISTORY_IMPLEMENTATION_20261019.md",
+      "type": "blob",
+      "blob": "d63ac211ababbac1d082aec0234cbe841a3b69a9",
+      "bytes": 3965,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/NEW_CHAT_PROMPT_20261009.md",
+      "type": "blob",
+      "blob": "7ce629f766147f07c76f17833d716785afaa92c5",
+      "bytes": 39111,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/NEW_CHAT_PROMPT_20261011.md",
+      "type": "blob",
+      "blob": "1b3565cad05b430e9fe2f8e08ba2dad5ea58d11b",
+      "bytes": 16966,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/NEW_CHAT_PROMPT_20261012.md",
+      "type": "blob",
+      "blob": "f9ec91431d8964d1986ff3acd1ff09cbb80941eb",
+      "bytes": 9745,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/NEW_CHAT_PROMPT_20261016.md",
+      "type": "blob",
+      "blob": "474bd56305214cf5b9a94f7c9da323df8a193816",
+      "bytes": 25297,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/OFFLINE_INTEGRATION_RECONCILIATION_20261018.md",
+      "type": "blob",
+      "blob": "5222155ab338bc2a6ba3e50e7888737f712ad81b",
+      "bytes": 5526,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/OFFLINE_QA_REVIEW.md",
+      "type": "blob",
+      "blob": "b64082f2e3dd746dacc040afc6ee1e1454e4bb7b",
+      "bytes": 15827,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/PAGINATION_LIFECYCLE.md",
+      "type": "blob",
+      "blob": "60efd2722356d139196bb0c504b59b0cc6982271",
+      "bytes": 10335,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/PLUGIN_TABLES.md",
+      "type": "blob",
+      "blob": "c5d1d64dcfd020b8ca727584d483b240910b2620",
+      "bytes": 7147,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/PROJECT_AUDIT_20261004.md",
+      "type": "blob",
+      "blob": "fd16192dccd447fee65bd98db3bb539b47c73553",
+      "bytes": 24405,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/PROJECT_AUDIT_REPORT_20261004.md",
+      "type": "blob",
+      "blob": "f4f9479d434ff554940699e1068c62af6c9b6f49",
+      "bytes": 40751,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/QA_PROCESS.md",
+      "type": "blob",
+      "blob": "e9a7c1bb5c5276df5ed2d68a72c555d2ec7c4eb8",
+      "bytes": 69955,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/QUALITY_GATE_001.md",
+      "type": "blob",
+      "blob": "abfcdd6eaed301987bb09b4eba09a8662657182e",
+      "bytes": 8157,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/QUALITY_GATE_002.md",
+      "type": "blob",
+      "blob": "3dc62ee21c4161b56bdb35c4d972f40d0190e9e2",
+      "bytes": 9153,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/QUALITY_GATE_003.md",
+      "type": "blob",
+      "blob": "bf2429ac2d40ef4dde89cc3c6912dc19c440dc04",
+      "bytes": 7184,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/REGION_ADAPTER_INVENTORY_20261011.md",
+      "type": "blob",
+      "blob": "715766ac2b29e61ac1f450293f24bc9c330086ff",
+      "bytes": 22006,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/REGION_AUXILIARY.md",
+      "type": "blob",
+      "blob": "18c2b9c24df4b00e4b5352411456590ad54d17b4",
+      "bytes": 11238,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/REGION_AVAILABILITY_CALCULATIONS.md",
+      "type": "blob",
+      "blob": "73b1e863bafc136fafbae9c9ffdbd3df0089e71f",
+      "bytes": 21329,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/REGION_AVAILABILITY_RUNTIME.md",
+      "type": "blob",
+      "blob": "84a345b440cf34d352325caa725e7435afbe282d",
+      "bytes": 10868,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/REGION_COMPUTE_DISK_SKU_COLLECTOR_20261013.md",
+      "type": "blob",
+      "blob": "169dca2f8ddfb74060422a28c4d788ea98a967c8",
+      "bytes": 23941,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/REGION_COMPUTE_SKU_SOURCE_20261013.md",
+      "type": "blob",
+      "blob": "37c69c455a342491f4a361e465e3c37175c7ca6f",
+      "bytes": 28190,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/REGION_COST_COMPARISON.md",
+      "type": "blob",
+      "blob": "2587226af9ee360444a0c516aedad7f7279696cd",
+      "bytes": 16379,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/REGION_COST_ENRICHMENT.md",
+      "type": "blob",
+      "blob": "49a2f58f16f022d3500618b3be1ce2307e58b6ca",
+      "bytes": 15115,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/REGION_COST_RUNTIME.md",
+      "type": "blob",
+      "blob": "f93fd5ee408680b93ac41028790bb6cec22b3153",
+      "bytes": 19676,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/REGION_INVENTORY.md",
+      "type": "blob",
+      "blob": "f987bab1aaa4854ba32f27b0afaa4748fc5d2af0",
+      "bytes": 19525,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/REGION_INVENTORY_AGGREGATION.md",
+      "type": "blob",
+      "blob": "b0b2ee5b3fccff1a36763f4ede06d074dd3a48ce",
+      "bytes": 14430,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/REGION_INVENTORY_CALCULATIONS.md",
+      "type": "blob",
+      "blob": "c35560425125135655c59b393a9c24ac1ea79760",
+      "bytes": 18114,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/REGION_OTHER_SKU_SOURCE_20261013.md",
+      "type": "blob",
+      "blob": "8ab40d82bfbc65960d4eb50cdb816647718d18d9",
+      "bytes": 22751,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/REGION_PROVIDER_LOCATIONS.md",
+      "type": "blob",
+      "blob": "bde5a1a30761dce0051db14cc8d80c2ddfe7c406",
+      "bytes": 22387,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/REGION_QUOTA_COLLECTOR.md",
+      "type": "blob",
+      "blob": "feaffb7fdd1d53e3fbd91c047b751b3c583f1e2b",
+      "bytes": 13836,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/REGION_QUOTA_RESERVATION.md",
+      "type": "blob",
+      "blob": "737d3f9257e238b08071d09600944466a8afa1e0",
+      "bytes": 13490,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/REGION_QUOTA_RUNTIME.md",
+      "type": "blob",
+      "blob": "a739f47f19cc009aa9698da3573b3a6c685ac716",
+      "bytes": 16500,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/REGION_RESERVATION_COLLECTOR.md",
+      "type": "blob",
+      "blob": "c04b455d7eb2e5eee8a84f8cd88305b639b7eaa6",
+      "bytes": 15454,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/REGION_RESERVATION_RUNTIME.md",
+      "type": "blob",
+      "blob": "7e4e9c750c0f5794140a9940a531ec3cf093d31b",
+      "bytes": 15127,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/REGION_RETAIL_IMPLEMENTATION_20261020.md",
+      "type": "blob",
+      "blob": "fab5a6e0ed252402ecd994147ed01f8df1cddf7b",
+      "bytes": 9947,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/REGION_SELECTION.md",
+      "type": "blob",
+      "blob": "dac2ba19ba759178e96edc5d4e7582c6f69e7784",
+      "bytes": 43594,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/REGION_SERVICE_AVAILABILITY.md",
+      "type": "blob",
+      "blob": "3828af8f46568568caa6e122519584717e4853ec",
+      "bytes": 19265,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/REGION_SKU_TARGET_ANALYSIS_20261013.md",
+      "type": "blob",
+      "blob": "605349f4098338c455d7da25a994d7533f8f9df4",
+      "bytes": 22259,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/REGION_SOURCE_CHARACTERIZATION.md",
+      "type": "blob",
+      "blob": "347d89b8069200dc263b81e6f8ae9821c689106e",
+      "bytes": 20274,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/REGION_STORAGE_SKU_COLLECTOR_20261016.md",
+      "type": "blob",
+      "blob": "6c510eaf82bafd5b01558501f683fdb3280382f8",
+      "bytes": 19758,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/REGION_STORAGE_SKU_CONTRACT_20261016.md",
+      "type": "blob",
+      "blob": "3920ca4ebd92b0cc795b17d8136b36936721334a",
+      "bytes": 21103,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/REGION_VM_QUOTA_COLLECTOR.md",
+      "type": "blob",
+      "blob": "ca010b2b3e28c11f5607fd6c7a0bb379ea73790a",
+      "bytes": 10151,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/REGION_VM_QUOTA_SOURCE.md",
+      "type": "blob",
+      "blob": "6634641ab60db8f36710fd0bad8f609e80184493",
+      "bytes": 11750,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/REGION_VM_SKU_COLLECTOR_20261016.md",
+      "type": "blob",
+      "blob": "80ae320bf390978627251c44b17ae8922e4e0a62",
+      "bytes": 11644,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/REGION_VM_VMSS_SKU_CONTRACT_20261016.md",
+      "type": "blob",
+      "blob": "155bf463b59a6a1f186fb83393d0aa3b852b13f6",
+      "bytes": 17979,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/RESTART_PROMPT.md",
+      "type": "blob",
+      "blob": "eec7d5a2251093c8daa234014fbf42d9b252d01c",
+      "bytes": 1668,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/RETAIL_SECURITY_BLOCKER_20261020.md",
+      "type": "blob",
+      "blob": "ed877c13f599fa6e5bb9226f978d80418eb054ec",
+      "bytes": 9980,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/ROADMAP.md",
+      "type": "blob",
+      "blob": "231208c06387828ca9bcae2181973bf17f33b398",
+      "bytes": 357385,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/SCANNER_COMMANDS.md",
+      "type": "blob",
+      "blob": "4d0762f02c80a34e51b1b965ef6462f07ca41eb0",
+      "bytes": 4086,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/SCOPE_REDACTION_COMPLETED_20261018.md",
+      "type": "blob",
+      "blob": "9a4c1f42c2d8e80d24d1ed133a00b96fc6ef492d",
+      "bytes": 4859,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/SCOPE_REDACTION_CORRECTION_20261018.md",
+      "type": "blob",
+      "blob": "86793fc7e88db331b5e22cd4779389fb7e638156",
+      "bytes": 3502,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/SECURITY_ADVISORY_REVIEW_20261011.md",
+      "type": "blob",
+      "blob": "e91526ebb59f47a39924cb533d7046c7bbf592e1",
+      "bytes": 10273,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/SECURITY_ADVISORY_REVIEW_20261020.md",
+      "type": "blob",
+      "blob": "ff1fab437c51227d1aa50e652d3c598f1929def7",
+      "bytes": 7094,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/SECURITY_REMEDIATION_20261011.md",
+      "type": "blob",
+      "blob": "64877d95e3bde94a270dd15b5e4d507a51737677",
+      "bytes": 15351,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/SERVICE_HEALTH.md",
+      "type": "blob",
+      "blob": "fd6483668f724e348148f494add049455d69b781",
+      "bytes": 12168,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/SESSION_HANDOVER.md",
+      "type": "blob",
+      "blob": "15e40d2c7c0ef92a0d5aacc44c898af7e9aed131",
+      "bytes": 336347,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/SESSION_HANDOVER_HISTORY_20261003.md",
+      "type": "blob",
+      "blob": "421c8cb628c90b6991863185f004eb8005690f6f",
+      "bytes": 56410,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/SQL_BATCH_COMPLETED_20261018.md",
+      "type": "blob",
+      "blob": "bf10cc04b7fd3e64dcb56fdb59c12c6290260dd0",
+      "bytes": 3441,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/SQL_CAPABILITY_WORKSTREAM_20261017.md",
+      "type": "blob",
+      "blob": "95a5ecc3e997e06bece75a9d868a04d60a19a995",
+      "bytes": 12515,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/SQL_DATABASE_IMPLEMENTATION_20261017.md",
+      "type": "blob",
+      "blob": "2d54cc590a397f60827bdc696de95b0f21cee8fb",
+      "bytes": 6396,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/SQL_MANAGED_INSTANCE_IMPLEMENTATION_20261017.md",
+      "type": "blob",
+      "blob": "7e609a1111e14955f9e6598774949f21db5e833e",
+      "bytes": 7893,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/SQL_REPORT_COMPLETED_20261018.md",
+      "type": "blob",
+      "blob": "494c81a9c063d8b3dd3f846fae04f50dd0d7375d",
+      "bytes": 8387,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/SQL_REPORT_CONTRACT_20261018.md",
+      "type": "blob",
+      "blob": "95c7bb3cb152def421f973b3f255f5665e39b291",
+      "bytes": 9218,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/SQL_REPORT_IMPLEMENTATION_20261018.md",
+      "type": "blob",
+      "blob": "da9e608f145a30b3c287f8c035c5aafeb9c821f7",
+      "bytes": 7031,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/STORAGE_COLLECTOR_COMPLETION_20261016.md",
+      "type": "blob",
+      "blob": "a757a9d505cac58d128900565511d8af181200de",
+      "bytes": 2165,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/STORAGE_COLLECTOR_PR145_EVIDENCE_20261016.md",
+      "type": "blob",
+      "blob": "98b37e26208cd01816e671c471f0f3b2fd713f91",
+      "bytes": 8019,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/SYSTEMATIC_MODULE_REVIEW_20261014.md",
+      "type": "blob",
+      "blob": "3beb9432648f1ea5503224e2d955e79366e8759d",
+      "bytes": 143153,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/SYSTEMATIC_REVIEW_CHANGELOG_20261014.md",
+      "type": "blob",
+      "blob": "256b028893f25ca98e3695483e8129b2145a029e",
+      "bytes": 61156,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/SYSTEMATIC_REVIEW_FINAL_ASSESSMENT_20261016.md",
+      "type": "blob",
+      "blob": "8ff56af10751bc5bdb64dbcc029acfbaf135a60f",
+      "bytes": 17219,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/SYSTEMATIC_REVIEW_SECTION1_20261014.md",
+      "type": "blob",
+      "blob": "79bacf7bd34ee4b676efbd6573d002ff818965ff",
+      "bytes": 19471,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/SYSTEMATIC_REVIEW_SECTION2_20261014.md",
+      "type": "blob",
+      "blob": "018690eef89df103b37cc6280904223e08e32020",
+      "bytes": 30880,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/SYSTEMATIC_REVIEW_SECTION3_20261015.md",
+      "type": "blob",
+      "blob": "e959c5e9a6dc50ffecac4796746d6354ccca8840",
+      "bytes": 44982,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/SYSTEMATIC_REVIEW_SECTION3_CONTRACTS_20261016.md",
+      "type": "blob",
+      "blob": "1dbd00318662897c188aba2b6bb37e74c6e03d92",
+      "bytes": 13543,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/SYSTEMATIC_REVIEW_SECTION4_20261016.md",
+      "type": "blob",
+      "blob": "43057c133a8f68561cf3f9cd77a20de28d62144b",
+      "bytes": 11971,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/SYSTEMATIC_REVIEW_SECTION4_CONTRACTS_20261016.md",
+      "type": "blob",
+      "blob": "22a76ecade2ea764b7e86688787fe96b03e09118",
+      "bytes": 18876,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/TARGET_SPECIFICATION.md",
+      "type": "blob",
+      "blob": "c92c83eddfc08f1757ea3586e6744ce72c1ec13e",
+      "bytes": 78227,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/VMSS_CATALOG_IMPLEMENTATION_20261017.md",
+      "type": "blob",
+      "blob": "cab2e814fbdeeb96d279480f225f7b32f9b3e189",
+      "bytes": 6994,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/VMSS_CATALOG_RECONCILIATION_20261017.md",
+      "type": "blob",
+      "blob": "6fda35d3f28fa7d084ae3a7f18cffd0e5ecc87d5",
+      "bytes": 8527,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/VM_VMSS_PRIMARY_IDENTITIES_20261016.json",
+      "type": "blob",
+      "blob": "70fb74c8df8bed71ea9f193bc027152225ff01e3",
+      "bytes": 1148,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/YAML_GRAPH_PLUGINS.md",
+      "type": "blob",
+      "blob": "8f906ed55d0a7f71a0de0ba120cbbc89dc9ced84",
+      "bytes": 8477,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/ZONE_EXECUTION.md",
+      "type": "blob",
+      "blob": "6ab5662bc863ceaa79652a35bdf3f9e541f66357",
+      "bytes": 9494,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/ZONE_EXECUTION_CHECKPOINT.md",
+      "type": "blob",
+      "blob": "5cf16551c200ca19c607145698e53c8146b2da38",
+      "bytes": 15720,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/ZONE_MAPPING.md",
+      "type": "blob",
+      "blob": "f60c08d242676bd6b3beb644b6996a81fde7e0c1",
+      "bytes": 6242,
+      "classification": "historical-or-applicable-documentation-not-completely-read"
+    },
+    {
+      "path": "docs/dependencies/NOTICES.md",
+      "type": "blob",
+      "blob": "970f08a1bf1cd36be896df007ae41299c68faa26",
+      "bytes": 157796,
+      "classification": "generated-third-party-license-inventory-no-legal-clearance"
+    },
+    {
+      "path": "docs/dependencies/inventory.json",
+      "type": "blob",
+      "blob": "9d77209030ec246c4d75ccad10ca86d4768b0967",
+      "bytes": 25148,
+      "classification": "generated-third-party-license-inventory-no-legal-clearance"
+    },
+    {
+      "path": "docs/evidence/20261017/manifest.json",
+      "type": "blob",
+      "blob": "ada08e10074e049036c8c3744c66628c306364fe",
+      "bytes": 7614,
+      "classification": "historical-archive-or-manifest-not-manual-complete-read"
+    },
+    {
+      "path": "docs/evidence/20261017/pr150-pr151.json.gz.base64",
+      "type": "blob",
+      "blob": "3f0747b156aeec5d7d83e044ffd3fc4a2b70a814",
+      "bytes": 526101,
+      "classification": "historical-archive-or-manifest-not-manual-complete-read"
+    },
+    {
+      "path": "docs/evidence/20261017/pr154-preparation.json.gz.base64",
+      "type": "blob",
+      "blob": "d740b51b41e6c8dc41a0e905547a3e00f77f47bb",
+      "bytes": 42417,
+      "classification": "historical-archive-or-manifest-not-manual-complete-read"
+    },
+    {
+      "path": "docs/evidence/20261017/pr154-preparation.manifest.json",
+      "type": "blob",
+      "blob": "b5b061b085d40165c6b0ad02912b346f17f68c48",
+      "bytes": 1736,
+      "classification": "historical-archive-or-manifest-not-manual-complete-read"
+    },
+    {
+      "path": "internal/plugins/region/data/latency.json",
+      "type": "blob",
+      "blob": "363e872a014e0a4f92b5e43ecc9ee6cad3962bc3",
+      "bytes": 61304,
+      "classification": "generated-reference-data-mechanically-verified-no-manual-scalar-credit"
+    },
+    {
+      "path": "internal/plugins/region/testdata/cognitive-primary-2024-10-01-schema.json",
+      "type": "blob",
+      "blob": "f0919ebcbf91755f10591b931bd80138df13f547",
+      "bytes": 239116,
+      "classification": "external-schema-relevant-operation-and-definitions-read-not-whole-schema"
+    },
+    {
+      "path": "internal/plugins/region/testdata/source-latency-data.json",
+      "type": "blob",
+      "blob": "363e872a014e0a4f92b5e43ecc9ee6cad3962bc3",
+      "bytes": 61304,
+      "classification": "generated-reference-data-mechanically-verified-no-manual-scalar-credit"
+    },
+    {
+      "path": "internal/rules/upstream/aprl",
+      "type": "commit",
+      "blob": "60eaddda76541f6adbc1c5ffa686829807e55e29",
+      "bytes": null,
+      "classification": "external-pinned-submodule-not-whole-upstream-read"
+    },
+    {
+      "path": "internal/skus/known_skus.yaml",
+      "type": "blob",
+      "blob": "a2d97a60ec445ce4023a1a5a9b6c4dca76e31f5a",
+      "bytes": 277314,
+      "classification": "generated-reference-data-mechanically-verified-no-manual-scalar-credit"
+    }
+  ],
+  "partial_normative_reads": [
+    {
+      "path": "docs/TARGET_SPECIFICATION.md",
+      "lines": "290-668",
+      "status": "substantive baseline sections and historical boundaries reviewed, not complete file"
+    },
+    {
+      "path": "docs/QA_PROCESS.md",
+      "lines": "263-337",
+      "status": "main QA contract reviewed, not complete file"
+    },
+    {
+      "path": "docs/DEVELOPMENT_EXECUTION_PLAN.md",
+      "lines": "224-300",
+      "status": "main development contract reviewed; later aggregate output truncated so no complete-file credit"
+    },
+    {
+      "path": "docs/EQUIVALENCE.md",
+      "lines": "337-438,505-586",
+      "status": "required-input/dataset/diff/acceptance sections reviewed; no complete-file credit"
+    }
+  ],
+  "claim": "First-party Go/scripts/workflow/rule source reads are complete. Applicable-document reconciliation and final disposition remain incomplete. No whole-repository or whole-upstream complete-read claim."
+}

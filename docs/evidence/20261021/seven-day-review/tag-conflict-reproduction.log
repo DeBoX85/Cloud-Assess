@@ -1,0 +1,7 @@
+=== RUN   TestReviewConflictingCaseEquivalentTagConstraints
+    review_tag_conflict_test.go:30: same file: included=21 excluded=235 rejected=0
+    review_tag_conflict_test.go:32: conflicting constraints admitted a resource satisfying only one value
+--- FAIL: TestReviewConflictingCaseEquivalentTagConstraints (0.01s)
+FAIL
+FAIL	github.com/DeBoX85/Cloud-Assess/internal/config	0.016s
+FAIL

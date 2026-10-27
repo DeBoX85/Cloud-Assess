@@ -26,6 +26,7 @@ type AssessmentFilter struct {
 	excludeRecommendations map[string]bool
 	excludeTags            map[string]string
 	resourceScope          map[string]bool
+	invalidTagConfig       bool
 
 	// allowedResourceTypes is runtime scanner scope, not raw user configuration.
 	// The reference implementation builds this set from the selected scanner keys and
@@ -120,12 +121,20 @@ func (f *AssessmentFilter) rebuildIndexes() {
 	}
 	f.includeSubscriptions = stringSet(f.Include.Subscriptions)
 	f.includeResourceGroups = stringSet(f.Include.ResourceGroups)
-	f.includeTags = normalizeTags(f.Include.Tags)
 	f.excludeSubscriptions = stringSet(f.Exclude.Subscriptions)
 	f.excludeResourceGroups = stringSet(f.Exclude.ResourceGroups)
 	f.excludeResources = stringSet(f.Exclude.Resources)
 	f.excludeRecommendations = stringSet(f.Exclude.Recommendations)
-	f.excludeTags = normalizeTags(f.Exclude.Tags)
+	// Do not compile ambiguous configuration into an iteration-dependent map.
+	// RebuildIndexes has no error result; Validate reports the raw error and
+	// direct callers remain fail-closed until corrected configuration is rebuilt.
+	f.invalidTagConfig = f.validateTagKeys() != nil
+	f.includeTags = nil
+	f.excludeTags = nil
+	if !f.invalidTagConfig {
+		f.includeTags = normalizeTags(f.Include.Tags)
+		f.excludeTags = normalizeTags(f.Exclude.Tags)
+	}
 	f.resourceScope = map[string]bool{}
 	// Scanner scope depends on Include.ResourceTypes and the CLI scanner selection,
 	// so rebuilding config indexes intentionally invalidates any previous runtime scope.
@@ -133,9 +142,38 @@ func (f *AssessmentFilter) rebuildIndexes() {
 }
 
 func (f *AssessmentFilter) Validate() error {
+	if err := f.validateTagKeys(); err != nil {
+		return err
+	}
 	for _, id := range append(append([]string{}, f.Include.ResourceGroups...), f.Exclude.ResourceGroups...) {
 		if err := ValidateResourceGroupID(id); err != nil {
 			return err
+		}
+	}
+	return nil
+}
+
+// validateTagKeys examines raw configuration before normalization discards aliases.
+// Values and spellings are intentionally omitted from error messages.
+func (f *AssessmentFilter) validateTagKeys() error {
+	var include, exclude map[string]string
+	if f.Include != nil {
+		include = f.Include.Tags
+	}
+	if f.Exclude != nil {
+		exclude = f.Exclude.Tags
+	}
+	for _, group := range []struct {
+		name string
+		tags map[string]string
+	}{{"include", include}, {"exclude", exclude}} {
+		seen := make(map[string]bool, len(group.tags))
+		for key := range group.tags {
+			key = normalize(key)
+			if seen[key] {
+				return fmt.Errorf("assessment.%s.tags contains tag keys that collide after normalization", group.name)
+			}
+			seen[key] = true
 		}
 	}
 	return nil
@@ -196,7 +234,7 @@ func (f *AssessmentFilter) IsRecommendationExcluded(recommendationID string) boo
 // Structural values are derived from the ARM resource ID so inventory and downstream
 // findings use the same source-of-truth semantics.
 func (f *AssessmentFilter) IsResourceExcluded(resourceID string, tags map[string]string) bool {
-	if f.isResourceStructurallyExcluded(resourceID) {
+	if f.invalidTagConfig || f.isResourceStructurallyExcluded(resourceID) {
 		return true
 	}
 
@@ -221,7 +259,7 @@ func (f *AssessmentFilter) SetResourceScope(resourceID string, included bool) {
 // IsServiceExcluded preserves the reference downstream finding filter name and behavior.
 // It reapplies structural scanner/subscription/RG/resource scope before tag-scope inheritance.
 func (f *AssessmentFilter) IsServiceExcluded(resourceID string) bool {
-	if f.isResourceStructurallyExcluded(resourceID) {
+	if f.invalidTagConfig || f.isResourceStructurallyExcluded(resourceID) {
 		return true
 	}
 	if len(f.includeTags) == 0 && len(f.excludeTags) == 0 {

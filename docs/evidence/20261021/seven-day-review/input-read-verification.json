@@ -1,0 +1,24 @@
+{
+  "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+  "ledgers": {
+    "read-coverage.json": {
+      "entries": 788,
+      "all_lengths_hashes_blobs_match": true
+    },
+    "semantic-data-read-review.json": {
+      "entries": 26,
+      "all_lengths_hashes_blobs_match": true
+    }
+  },
+  "local_checks": {
+    "handoff_tests": 3,
+    "documentation_links": 1710,
+    "workflow_generation": "default read-only verification passed; unsupported --check attempt returned argparse2 before inspection/correction",
+    "diff_whitespace": "passed"
+  },
+  "limitations": [
+    "New successor own native/source QA remains pending.",
+    "All data/schema/reference/applicable-documentation review is not complete.",
+    "Exploratory embedded-string helper provided no credited reads."
+  ]
+}
