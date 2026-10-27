@@ -59,3 +59,7 @@ No process guarantees zero loss if the service fails before publication. The rec
 ## Review at each natural checkpoint
 
 Check that the bookmark reaches the active task, next action is executable, uncertain operations are explicit, evidence statuses are revision-specific, changed local files are accounted for and current constraints agree. Automated handoff routing guards are necessary but do not prove semantic accuracy. A useful recovery check is to follow the restart prompt using only published records and confirm the same next action without consulting chat history; report it as a documentation walkthrough, not an independent-person review or real outage test.
+
+## Owner-facing progress dashboard
+
+Update [PROJECT_PROGRESS](PROJECT_PROGRESS.md) at every checkpoint trigger above, including completed bounded tasks and end-of-run. Keep its active/next task, verified milestone, candidate QA, milestone exit criteria, remaining obligations, blockers and dated changes consistent with CURRENT_STATE and the obligation register. The live PR finalizes exact-head outcomes; index them at the next material checkpoint without a status-only certification loop. Updates occur during active work; no unattended execution is implied.

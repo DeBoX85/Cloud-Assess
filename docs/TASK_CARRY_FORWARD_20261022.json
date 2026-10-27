@@ -383,7 +383,7 @@
         "docs/ACTION_REGISTER.md"
       ],
       "disposition": "historical_programme_step_verified_offline",
-      "closure_reference": "Original programme1\u20135 closure; do not replay; OFFLINE_SEQUENCE current tasks remain separate."
+      "closure_reference": "Original programme1–5 closure; do not replay; OFFLINE_SEQUENCE current tasks remain separate."
     },
     {
       "id": "OP-002",
@@ -391,7 +391,7 @@
         "docs/ACTION_REGISTER.md"
       ],
       "disposition": "historical_programme_step_verified_offline",
-      "closure_reference": "Original programme1\u20135 closure; do not replay; OFFLINE_SEQUENCE current tasks remain separate."
+      "closure_reference": "Original programme1–5 closure; do not replay; OFFLINE_SEQUENCE current tasks remain separate."
     },
     {
       "id": "OP-003",
@@ -399,7 +399,7 @@
         "docs/ACTION_REGISTER.md"
       ],
       "disposition": "historical_programme_step_verified_offline",
-      "closure_reference": "Original programme1\u20135 closure; do not replay; OFFLINE_SEQUENCE current tasks remain separate."
+      "closure_reference": "Original programme1–5 closure; do not replay; OFFLINE_SEQUENCE current tasks remain separate."
     },
     {
       "id": "OP-004",
@@ -407,7 +407,7 @@
         "docs/ACTION_REGISTER.md"
       ],
       "disposition": "historical_programme_step_verified_offline",
-      "closure_reference": "Original programme1\u20135 closure; do not replay; OFFLINE_SEQUENCE current tasks remain separate."
+      "closure_reference": "Original programme1–5 closure; do not replay; OFFLINE_SEQUENCE current tasks remain separate."
     },
     {
       "id": "OP-005",
@@ -415,7 +415,7 @@
         "docs/ACTION_REGISTER.md"
       ],
       "disposition": "historical_programme_step_verified_offline",
-      "closure_reference": "Original programme1\u20135 closure; do not replay; OFFLINE_SEQUENCE current tasks remain separate."
+      "closure_reference": "Original programme1–5 closure; do not replay; OFFLINE_SEQUENCE current tasks remain separate."
     },
     {
       "id": "R7-F01",
@@ -526,9 +526,9 @@
     },
     {
       "id": "R7-F01",
-      "state": "corrective_candidate_locally_verified",
+      "state": "corrective_candidate_verified_offline",
       "owner": "development owner",
-      "next_or_limit": "27October frozen contract/regressions precede production; include/exclude rejection/direct-runtime fail-closed/clone/recovery/config race/nine strict compiling reversals locally verified. Own full both-host/source QA/control conservation/rollback/private readback/fresh restore pending; F03before10."
+      "next_or_limit": "PR203/a216aa53 final index: own quality40516881579/source40516881392success, original622/617 and9new tag controls/host verified; archive1be50f1e/receipt09c4e6eb remote87member restore equals originals. Draft/unmerged, no Azure authorization or independent/protected acceptance. F03before10."
     },
     {
       "id": "R7-F03",
@@ -678,13 +678,13 @@
       "id": "PROCESS-EVIDENCE",
       "state": "open_proposal",
       "owner": "development owner",
-      "next_or_limit": "PR193and194strict full QA verified from completed metadata/logs on25October; new handover needs own QA. Finish private storage integration and capture latest logs; resumable automation remains a proposal."
+      "next_or_limit": "Historical193/194 full QA and bounded issue189 migration resolved; later203 archive1be50f1e/receipt09c4e6eb fully read back/restored. Each new candidate needs own exact-head QA/capture/readback/restore on latest private storage base. Resumable automation remains a proposal, no automatic archival."
     },
     {
       "id": "PROCESS-STATE",
       "state": "open_proposal",
       "owner": "development owner",
-      "next_or_limit": "Machine-readable semantic current state with deliberate inconsistent-state controls."
+      "next_or_limit": "Owner-facing PROJECT_PROGRESS dashboard and mandatory maintenance added in current documentation candidate, own QA pending. Machine-readable semantic consistency controls remain an open proposal; existing49 obligations/44legacy IDs preserved."
     },
     {
       "id": "PROCESS-TIMING",

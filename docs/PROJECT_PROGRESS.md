@@ -1,0 +1,83 @@
+# Cloud-Assess project progress
+
+Updated: 27 October 2026 (Europe/Oslo). Maintainer: development/integration owner.
+
+This is the short project dashboard for Denis. Update it at every meaningful active-work checkpoint; no status request is needed. It is a snapshot, not a background activity indicator. The live task PR body owns final exact-revision QA outcomes; a later outcome can resolve a pending snapshot here without a status-only commit. [Restart prompt](RESTART_PROMPT.md) · [Detailed current state](CURRENT_STATE.md) · [Full obligation register](TASK_CARRY_FORWARD_20261022.json) · [Roadmap](ROADMAP.md).
+
+## Current position
+
+| Item | Position |
+| --- | --- |
+| Goal | AZQR feature/function/capability parity with adjustable branding, accurate behavior and documented deliberate improvements; verified against Denis's pinned fork |
+| Active task | Establish this dashboard and its mandatory maintenance/recovery workflow on `docs/project-progress-20261027`, a product-lineage successor of PR203 |
+| Latest verified product milestone | [Draft PR203](https://github.com/DeBoX85/Cloud-Assess/pull/203), head `a216aa53bc1281a3febebf97ed07e37200e288de`: F01 tag-filter correction verified offline, own native/source QA and private restore complete |
+| Current candidate verification | Documentation candidate pending its OWN full native/source QA, readback and evidence retention; PR203 green does not certify it |
+| Next production task | F03 comparison-JSON admission contract and independently failing expectations BEFORE production; then own QA/retention before task10 |
+| Input needed from Denis now | None for the authorized offline sequence. Stop only for material uncertainty with no safe mitigation or explicit deferral |
+| Protected acceptance | Drafts remain unmerged. Protected baseline and AZQR/APRL pins unchanged; no release approval implied |
+
+## Completed milestones
+
+| Work | Verified position / evidence |
+| --- | --- |
+| Tasks1–7 | Complete verified offline; preserve closure evidence, do not replay SQL/Cognitive/VMSS/history/retail work |
+| Task8 | Specification frozen in PR198; original50 cases plus26 supplemental/13 procedural expectations and32 bound files preserved |
+| Task9 | Owned required inventory Build/admission implemented and verified offline in [PR201](https://github.com/DeBoX85/Cloud-Assess/pull/201), frozen head `b568606836f0c20ef0a87f9652c5b59bbf33bcd2` |
+| F04 mutation assurance | Reported17 drivers plus comparator verified offline in [PR202](https://github.com/DeBoX85/Cloud-Assess/pull/202), head `c824dbbb1dc043f9549064485dffc6dd979878c1`; source-bound assertion checks replace weak generic failure admission |
+| F01 tag-filter integrity | PR203 rejects case/trim aliases including same-value aliases, validates raw maps and fails closed after invalid direct rebuilds; clone/recovery and healthy behavior verified. Configuration integrity, not Azure authorization enforcement |
+| CI evidence migration | [DC-CI-EVIDENCE-20261022 / issue189](https://github.com/DeBoX85/Cloud-Assess/issues/189) bounded migration closed; ongoing retention, readback/restore and revisit duties remain |
+
+PR203 quality40516881579 and source40516881392 completed/success. Original622 Linux/617 Windows controls conserved; coverage86.8% against unchanged75% floor. Initial failed/cancelled revision history is preserved. These are revision-specific recorded executions, not a completion percentage or current security guarantee.
+
+## Ordered remaining implementation
+
+| Order | Task / state | Exit condition | Dependency |
+| --- | --- | --- | --- |
+| Now | Progress dashboard/workflow: in progress | Published/read back; routing and state reconcile; own full QA and evidence retained | Verified PR203 |
+| Next | F03: confirmed open, inspection only | Freeze duplicate/escaped-name and typed-field-alias expectations; reproduce at intended assertions; bounded correction, own native/source QA and restore | Before task10 |
+| 10 | Owned per-run coordinator: not started | Ownership, lifecycle, cancellation and bounded execution contract implemented and verified | Tasks5/7/9 and corrective sequence |
+| 11 | Public region CLI/registry: not started | Public command wiring and early validation verified | Task10 |
+| 12 | Outputs/FullCost/health/exits: not started | Required output contracts and types reconciled; results and exit behavior verified | Coordinator/CLI |
+| 13 | Synthetic workloads: not started | Representative permission/cancellation/volume/budget behavior verified; limits explicit | Integrated behavior |
+| 14 | Installed packages/rollback: not started | Default/custom installed workflows and coherent rollback verified; fresh-OS limits explicit | Workload-ready candidate |
+| 15 | Readiness/evidence reconciliation: not started | All applicable obligations have exact evidence or explicit unresolved disposition; no automatic acceptance | Prior sequence and full obligation register |
+
+These are unequal work packages. Counting task numbers is not a reliable measure of distance to completion. Separate operator `compare`, `alternative-vm-sku`, MCP transport/auth/exposure/lifecycle design and types parity remain obligations; the comparator correction does not implement operator compare. MCP needs an explicit design before any listener.
+
+## Milestones and distance to the goal
+
+These labels organize tracking; they do not reduce existing scope or approve release. No MVP scope cut has been authorized.
+
+| Milestone | What must be true | Current distance / uncertainty |
+| --- | --- | --- |
+| Offline MVP candidate | A coherent required assessment path through coordinator, public CLI, required outputs and representative synthetic/installed validation; own full QA and retained evidence | F03 plus tasks10–14 remain. Existing components are substantial, but this integrated path is unfinished; milestone definition is a planning interpretation, not accepted product scope |
+| Feature complete | All contracted capabilities/parity and remaining implementation obligations reconciled, including ancillary utilities/design decisions; task15 accounts for every obligation | Not reached. Tasks10–15 plus separate parity and documentary work remain; unresolved scope must be dispositioned explicitly |
+| Release ready | Exact candidate acceptance, independent/gate review, live/operational validation, licensing/provenance/SBOM and Gate004 decisions | Not reached. Tenant/operator/reviewer-dependent work remains; offline green cannot substitute |
+
+ETA: no evidence-based calendar forecast is available yet. Comparable remaining-task effort and a stable, accepted MVP boundary have not been measured. Record any future estimate as a range with its date, assumptions, exclusions and confidence; do not present a calendar commitment or infer a percentage from task counts. Reassess after F03 and the first coordinator slice establish actual remaining integration effort. Azure/operator/reviewer scheduling remains separate. Human security assessment is considered only AFTER overall project completion, as Denis directed; it does not block authorized offline work.
+
+## Remaining assurance and acceptance
+
+- F03 confirmed open; F02 reclassified not a defect. O01–O04 remain observations, with practical impact not assumed.
+- Recorded advisories: zero reachable, three imported-not-called and one module-only; residual dispositions remain OPEN. No fresh database/security-completeness claim.
+- Whole documentary audit remains unfinished. Historical raw/semantic read counts are not proof of a complete current audit.
+- Independent product/gate/check-inventory review, live Azure visibility/least privilege, supported fresh OS/architecture, safe pilot and operational rollback remain separate obligations.
+- Licensing, artifact provenance/SBOM, content applicability, Gate004 row-by-row disposition and release acceptance remain open. See all44 legacy IDs and49 current obligations in the full register.
+
+## Recent changes and recoverability
+
+| Date | Change / verified result |
+| --- | --- |
+| 27 October | PR203 final index resolves old local/pending F01 snapshots: complete own QA, original control conservation, nine new tag controls per host, private capture and fresh restore |
+| 27 October | Both existing native package-cleanliness gates caught the new test driver's Python cache issue. Correction and positive/negative hygiene proof retained; failed history not relabelled |
+| 27 October | Private archive `1be50f1ec0a57a2ce542937b9a1ca40f474fd3d8` and receipt `09c4e6ebb2ee850a040df3a45145faddf3117683`: seven remote files read back,87 restored members/8,179,608 bytes equal originals; unrelated security blobs preserved |
+| 27 October | F03 boundary inspected read-only; no new reproduction, fix or closure claimed |
+| 27 October | This dashboard and mandatory maintenance added; own candidate QA pending in its live draft PR |
+
+Raw logs/findings stay in private `DeBoX85/SC-storage`; public Git contains safe metadata. Reread current storage main/tree before additive expected-head updates; preserve unrelated blobs, never force older history. Retain until Denis explicitly approves deletion. No automatic archival or independent-backup/DC-006 closure. Revisit issue189 at each handover/end and before readiness/acceptance/release.
+
+## Maintenance rule
+
+The development/integration owner updates this document after each completed bounded task, material finding, changed dependency/blocker or published milestone, and before a handover/end-of-run. Keep active/next, verified milestone, candidate QA, remaining work and recent changes consistent with CURRENT_STATE and the full obligation register. Use explicit states: not started, in progress, pending QA, verified offline, blocked, deferred, accepted. Completion requires its stated evidence, not an implementation claim. Preserve historical evidence in linked records rather than growing this dashboard indefinitely.
+
+Before a new task, verify the live branch/PR/head and successors. After publication, read back content/tree/parents/both Denis identities; finalize exact-head QA in the PR body and index it at the next material checkpoint. Do not create self-certifying status-only commit loops. Updates occur during active execution, not while the session is idle. See [workflow](DEVELOPMENT_WORKFLOW.md), [continuity](CONTINUITY.md) and [restart prompt](RESTART_PROMPT.md).
