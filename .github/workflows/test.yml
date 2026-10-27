@@ -49,6 +49,9 @@ jobs:
       - name: Verify tag collision rejection controls
         run: python3 scripts/tests/tag-collision-controls.py
 
+      - name: Verify comparison JSON admission controls
+        run: python3 scripts/tests/comparison-json-controls.py
+
       - name: Verify pinned source-data provenance
         shell: bash
         run: |
@@ -456,6 +459,9 @@ jobs:
 
       - name: Verify tag collision rejection controls
         run: python scripts/tests/tag-collision-controls.py
+
+      - name: Verify comparison JSON admission controls
+        run: python scripts/tests/comparison-json-controls.py
 
       - name: Parse scripts with Windows PowerShell 5.1
         shell: powershell

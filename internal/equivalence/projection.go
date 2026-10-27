@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"io"
 	"maps"
+	"reflect"
 	"slices"
 	"strconv"
 	"strings"
@@ -34,6 +35,9 @@ func LoadReference(reader io.Reader) (Projection, error) {
 	content, err := io.ReadAll(reader)
 	if err != nil {
 		return Projection{}, fmt.Errorf("read reference JSON: %w", err)
+	}
+	if err := validateComparisonJSON(content, nil); err != nil {
+		return Projection{}, fmt.Errorf("decode reference JSON: %w", err)
 	}
 	var raw map[string]json.RawMessage
 	if err := json.Unmarshal(content, &raw); err != nil {
@@ -97,6 +101,9 @@ func LoadTarget(reader io.Reader) (Projection, error) {
 	content, err := io.ReadAll(reader)
 	if err != nil {
 		return Projection{}, fmt.Errorf("read target JSON: %w", err)
+	}
+	if err := validateComparisonJSON(content, reflect.TypeFor[result.AssessmentResult]()); err != nil {
+		return Projection{}, fmt.Errorf("decode target JSON: %w", err)
 	}
 	var data result.AssessmentResult
 	if err := json.Unmarshal(content, &data); err != nil {
