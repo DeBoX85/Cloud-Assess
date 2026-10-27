@@ -526,9 +526,9 @@
     },
     {
       "id": "R7-F01",
-      "state": "corrective_contract_and_regressions_prepared",
+      "state": "corrective_candidate_locally_verified",
       "owner": "development owner",
-      "next_or_limit": "Tag collision contract27October and independent failing validation/load/runtime assertions prepared before production; healthy exact-value/overlap control passes. Implement bounded correction, strict mutations, own native/source/retention before offline closure."
+      "next_or_limit": "27October frozen contract/regressions precede production; include/exclude rejection/direct-runtime fail-closed/clone/recovery/config race/nine strict compiling reversals locally verified. Own full both-host/source QA/control conservation/rollback/private readback/fresh restore pending; F03before10."
     },
     {
       "id": "R7-F03",

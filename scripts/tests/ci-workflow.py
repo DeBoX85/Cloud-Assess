@@ -59,8 +59,25 @@ def require_legacy_admission(text):
         block=body.split(marker,1)[1].split('      - name:',1)[0]
         if 'scripts/tests/mutation-assertions.py' not in block or 'continue-on-error' in block or 'if:' in block: raise ValueError('legacy assertion proof weakened')
 
+def require_tag_collision_controls(text):
+    for host,consumer in [('linux','Verify pinned source-data provenance'),('windows','Parse scripts with Windows PowerShell 5.1')]:
+        match=re.search(r'^  '+host+r'-native:\n(.*?)(?=^  [a-z]|\Z)',text,re.M|re.S)
+        if not match:raise ValueError('missing tag-control native host')
+        body=match.group(1);marker='      - name: Verify tag collision rejection controls\n'
+        if body.count(marker)!=1 or body.index(marker)>=body.index('      - name: '+consumer+'\n'):raise ValueError('tag controls missing/late')
+        block=body.split(marker,1)[1].split('      - name:',1)[0]
+        if 'scripts/tests/tag-collision-controls.py' not in block or 'continue-on-error' in block or 'if:' in block:raise ValueError('tag controls weakened')
+
 
 class GateTests(unittest.TestCase):
+    def test_tag_collision_controls_both_hosts(self):
+        require_tag_collision_controls(workflow.generate())
+
+    def test_tag_collision_controls_cannot_be_removed_or_weakened(self):
+        text=workflow.generate();marker='      - name: Verify tag collision rejection controls\n'
+        for bad in [text.replace(marker,'      - name: Lost tag controls\n',1),text.replace(marker,marker+'        continue-on-error: true\n',1)]:
+            with self.assertRaises(ValueError):require_tag_collision_controls(bad)
+
     def test_legacy_assertion_admission_required_both_hosts(self):
         require_legacy_admission(workflow.generate())
 

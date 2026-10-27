@@ -1,3 +1,7 @@
+## 27October tag mutator compile rejection
+
+First include-map mutation replaced its only use with nil, leaving an unused local. Separate compile guard rejected it before assertion credit; original product bytes restored by finally. Changed the mutation to remove only raw-map assignment, leaving compilation valid and the frozen test oracle unchanged. Allninecorrected controls compile and produce original selected assertion witnesses with restored baselines; retain first failed trace privately.
+
 ## 27October tag-contract handover guard
 
 New resume prefix initially pushed the exact stable evidence identifier/link outside the6000character visibility window. Existing handoff guard rejected it before publication. Added the unchanged evidence task ID and issue link to the new compact resume prefix; retained guard/closure contract. No evidence or behavioral expectation changed.
