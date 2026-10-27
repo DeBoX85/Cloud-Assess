@@ -1,0 +1,41 @@
+{
+  "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+  "fork": "DeBoX85/azqr",
+  "pin": "8e4f0577f3615e6c9014c031bcad079f235369cc",
+  "known_skus": {
+    "entries": 1571,
+    "bytes": 277314,
+    "sha256": "538caba43a5bb114287656966049a3d240dfbfd861a665c295b5327e94a9a44c",
+    "exact_pinned_bytes": true,
+    "unique_names": true,
+    "unique_yaml_object_keys": true,
+    "loader_field_types_valid": true,
+    "case_folded_name_collisions": 0,
+    "min_vcpus": 1,
+    "max_vcpus": 832
+  },
+  "latency": {
+    "bytes": 61304,
+    "sha256": "45e575040812ee74e006be34623cb253df24e6558f07727cefcef7e55e13326b",
+    "equals_source_capture_raw_bytes": true,
+    "source_blob": "64a6abc72e2a54fec286cb27123175d1d6bcda61",
+    "matrix_equals_parsed_pinned_Go_literal": true,
+    "clusters_equal_parsed_pinned_Go_literal": true,
+    "rows": 49,
+    "cells": 2218,
+    "clusters": 57,
+    "values_finite_nonnegative_within_contract": true,
+    "matrix_rows_without_cluster": [
+      "jioindiawest"
+    ],
+    "matrix_targets_without_cluster": [
+      "jioindiawest"
+    ]
+  },
+  "manual_read_credit": false,
+  "limitations": [
+    "Structural/provenance validation of generated datasets, not manual reading of every scalar.",
+    "No current-live SKU availability, deployability or latency guarantee.",
+    "No source refresh, recapture, Azure or retail request."
+  ]
+}

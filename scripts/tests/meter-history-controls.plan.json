@@ -1,0 +1,248 @@
+{
+  "format": "meter-history-controls-v1",
+  "frozen_before_execution": true,
+  "manually_derived_context_schedules": {
+    "query": 2,
+    "collect_complete_after_POST": 6,
+    "collect_failure_after_POST": 2
+  },
+  "source_sha256": {
+    "internal/plugins/region/meter_history_collector.go": "48f99997c48c8328daa7f752ee83fab81e41fad963ab3c685f3172a4f54c470a",
+    "internal/plugins/region/meter_history_decode.go": "7ad029c29aa4002deb96e334ab46bc20f1a9dfada157cba5ed3295867b6258d9",
+    "internal/plugins/region/meter_history_query.go": "3e2398e1c712d7fa679b690e2113629d66a6c943103825409d14dc25ca91dc27"
+  },
+  "mutations": [
+    {
+      "name": "completed-month-end",
+      "file": "internal/plugins/region/meter_history_query.go",
+      "old": "first.Add(-time.Second)",
+      "replace": "first",
+      "count": 1,
+      "test": "TestMeterHistoryFrozenQuery"
+    },
+    {
+      "name": "query-month-range",
+      "file": "internal/plugins/region/meter_history_query.go",
+      "old": "q.Months > 12",
+      "replace": "q.Months > 13",
+      "count": 1,
+      "test": "TestMeterHistoryQueryInvalidRequest"
+    },
+    {
+      "name": "query-final-context",
+      "file": "internal/plugins/region/meter_history_query.go",
+      "old": "if e = ctx.Err(); e != nil {",
+      "replace": "if e = ctx.Err(); false {",
+      "count": 1,
+      "test": "TestMeterHistoryQueryLateContext"
+    },
+    {
+      "name": "incomplete-evidence",
+      "file": "internal/plugins/region/meter_history_collector.go",
+      "old": "c.Status == \"complete\"",
+      "replace": "c.Status != \"complete\"",
+      "count": 1,
+      "test": "TestMeterHistoryCompleteEvidenceIntegration"
+    },
+    {
+      "name": "evidence-owned-copy",
+      "file": "internal/plugins/region/meter_history_collector.go",
+      "old": "append(e.Meters, c.Meters...)",
+      "replace": "c.Meters",
+      "count": 1,
+      "test": "TestMeterHistoryConcurrentOwnedEvidence"
+    },
+    {
+      "name": "selected-scope-membership",
+      "file": "internal/plugins/region/meter_history_collector.go",
+      "old": "!historyRequestValid(q) || scope[id] == \"\"",
+      "replace": "!historyRequestValid(q)",
+      "count": 1,
+      "test": "TestMeterHistoryFrozenCollector"
+    },
+    {
+      "name": "page-count",
+      "file": "internal/plugins/region/meter_history_collector.go",
+      "old": "pages >= 64",
+      "replace": "pages >= 65",
+      "count": 1,
+      "test": "TestMeterHistoryPageBound"
+    },
+    {
+      "name": "per-page-wire",
+      "file": "internal/plugins/region/meter_history_collector.go",
+      "old": "len(b) > 1<<20 ||",
+      "replace": "len(b) > 2<<20 ||",
+      "count": 1,
+      "test": "TestMeterHistoryWireBound"
+    },
+    {
+      "name": "total-wire",
+      "file": "internal/plugins/region/meter_history_collector.go",
+      "old": "len(b) > 8<<20-received",
+      "replace": "len(b) > 9<<20-received",
+      "count": 1,
+      "test": "TestMeterHistoryTotalWireBound"
+    },
+    {
+      "name": "attempt-bound",
+      "file": "internal/plugins/region/meter_history_collector.go",
+      "old": "bytes.NewReader(body)}, 1<<20)",
+      "replace": "bytes.NewReader(body)}, 2<<20)",
+      "count": 1,
+      "test": "TestMeterHistoryFrozenCollector"
+    },
+    {
+      "name": "status-admission",
+      "file": "internal/plugins/region/meter_history_collector.go",
+      "old": "response.StatusCode != 200 && response.StatusCode != 204",
+      "replace": "response.StatusCode != 200 && response.StatusCode != 204 && response.StatusCode != 201",
+      "count": 1,
+      "test": "TestMeterHistoryFrozenCollector"
+    },
+    {
+      "name": "continuation-loop",
+      "file": "internal/plugins/region/meter_history_collector.go",
+      "old": "!ok || visited[u.String()]",
+      "replace": "!ok || visited[u.String()] && false",
+      "count": 1,
+      "test": "TestMeterHistoryFrozenCollector"
+    },
+    {
+      "name": "continuation-host",
+      "file": "internal/plugins/region/meter_history_collector.go",
+      "old": "!strings.EqualFold(u.Hostname(), c.origin.Hostname())",
+      "replace": "(!strings.EqualFold(u.Hostname(), c.origin.Hostname()) && false)",
+      "count": 1,
+      "test": "TestMeterHistoryContinuationHostIsolation"
+    },
+    {
+      "name": "meter-sum-ceiling",
+      "file": "internal/plugins/region/meter_history_collector.go",
+      "old": "v > MaxCostValue",
+      "replace": "v > MaxCostValue*2",
+      "count": 1,
+      "test": "TestMeterHistoryFrozenCollector"
+    },
+    {
+      "name": "final-result-context",
+      "file": "internal/plugins/region/meter_history_collector.go",
+      "old": "result.Meters = historyMeters(totals)\n\tif e := ctx.Err(); e != nil {",
+      "replace": "result.Meters = historyMeters(totals)\n\tif e := ctx.Err(); false {",
+      "count": 1,
+      "test": "TestMeterHistoryCollectLateContext"
+    },
+    {
+      "name": "failure-final-context",
+      "file": "internal/plugins/region/meter_history_collector.go",
+      "old": "\t\tif e := ctx.Err(); e != nil {\n\t\t\treturn nil, e\n\t\t}\n\t\treturn result, nil",
+      "replace": "\t\tif e := ctx.Err(); false {\n\t\t\treturn nil, e\n\t\t}\n\t\treturn result, nil",
+      "count": 1,
+      "test": "TestMeterHistoryFailureLateContext"
+    },
+    {
+      "name": "json-depth",
+      "file": "internal/plugins/region/meter_history_decode.go",
+      "old": "depth > 32",
+      "replace": "depth > 33",
+      "count": 1,
+      "test": "TestMeterHistoryDepthBound"
+    },
+    {
+      "name": "cumulative-json-work",
+      "file": "internal/plugins/region/meter_history_decode.go",
+      "old": "*work >= 65536",
+      "replace": "*work >= 65537",
+      "count": 1,
+      "test": "TestMeterHistoryCumulativeRawWorkBound"
+    },
+    {
+      "name": "metadata-key-count",
+      "file": "internal/plugins/region/meter_history_decode.go",
+      "old": "len(keys) >= 128",
+      "replace": "len(keys) >= 129",
+      "count": 1,
+      "test": "TestMeterHistoryMetadataBounds"
+    },
+    {
+      "name": "metadata-string-size",
+      "file": "internal/plugins/region/meter_history_decode.go",
+      "old": "len(s) > 8192",
+      "replace": "len(s) > 8193",
+      "count": 1,
+      "test": "TestMeterHistoryMetadataBounds"
+    },
+    {
+      "name": "unicode-duplicate-key",
+      "file": "internal/plugins/region/meter_history_decode.go",
+      "old": "if keys[fold] {",
+      "replace": "if keys[fold] && false {",
+      "count": 1,
+      "test": "TestMeterHistoryFrozenCollector"
+    },
+    {
+      "name": "known-field-folding",
+      "file": "internal/plugins/region/meter_history_decode.go",
+      "old": "regionFoldKey(key) == regionFoldKey(name)",
+      "replace": "key == name",
+      "count": 1,
+      "test": "TestMeterHistoryKnownFieldAliases"
+    },
+    {
+      "name": "raw-row-count",
+      "file": "internal/plugins/region/meter_history_decode.go",
+      "old": "len(rows) > 8192-*rowCount",
+      "replace": "len(rows) > 8193-*rowCount",
+      "count": 1,
+      "test": "TestMeterHistoryRowBound"
+    },
+    {
+      "name": "column-count",
+      "file": "internal/plugins/region/meter_history_decode.go",
+      "old": "len(columns) > 32",
+      "replace": "len(columns) > 33",
+      "count": 1,
+      "test": "TestMeterHistoryColumnBound"
+    },
+    {
+      "name": "resource-ownership",
+      "file": "internal/plugins/region/meter_history_decode.go",
+      "old": "!historyOwnedResource(resource, subscription)",
+      "replace": "(!historyOwnedResource(resource, subscription) && false)",
+      "count": 1,
+      "test": "TestMeterHistoryForeignZeroWeight"
+    },
+    {
+      "name": "currency-admission",
+      "file": "internal/plugins/region/meter_history_decode.go",
+      "old": "row[indices[\"Currency\"]].(string) != currency",
+      "replace": "(row[indices[\"Currency\"]].(string) != currency && false)",
+      "count": 1,
+      "test": "TestMeterHistoryFrozenCollector"
+    },
+    {
+      "name": "positive-underflow",
+      "file": "internal/plugins/region/meter_history_decode.go",
+      "old": "cost == 0 && historyRawPositive(number.String())",
+      "replace": "cost == 0 && historyRawPositive(number.String()) && false",
+      "count": 1,
+      "test": "TestMeterHistoryRawPositiveUnderflow"
+    },
+    {
+      "name": "positive-weight-floor",
+      "file": "internal/plugins/region/meter_history_decode.go",
+      "old": "cost < MinCostWeight",
+      "replace": "cost < MinCostWeight/2",
+      "count": 1,
+      "test": "TestMeterHistoryPositiveFloorIsolation"
+    },
+    {
+      "name": "cost-value-ceiling",
+      "file": "internal/plugins/region/meter_history_decode.go",
+      "old": "math.Abs(cost) > MaxCostValue",
+      "replace": "math.Abs(cost) > MaxCostValue*2",
+      "count": 1,
+      "test": "TestMeterHistoryNegativeValueCeilingIsolation"
+    }
+  ]
+}

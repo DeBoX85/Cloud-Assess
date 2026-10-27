@@ -1,0 +1,8 @@
+{
+  "exit_code": 1,
+  "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+  "toolchain": "go1.26.10 linux/amd64",
+  "production_changes": false,
+  "APRL": "60eaddda76541f6adbc1c5ffa686829807e55e29",
+  "setup": "exact pinned git archive into previously empty submodule directory; initial setup failure retained separately"
+}
