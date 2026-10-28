@@ -1,5 +1,7 @@
 # Current security remediation authority, 2026-10-11
 
+Current approved security candidate: Go1.26.10, [active plan](REVIEW_PLAN_20261021.md). Earlier version/status records are historical. While protected bootstrap/core-v1 retains1.26.9, use `CLOUD_ASSESS_TARGET_REF=fix/go-1.26.10-security-20261021 bash scripts/bootstrap-workspace.sh NEW_DIRECTORY` to select the matching candidate. The default remains the protected branch and explicitly rejects a version mismatch; no protected change is implied. Official Linux archive SHA256: ccfe7ae822d2c2f41f4fe7c956199967a4dac22d0ee0d2b2bfdb440aab3b20c5. Full fresh bootstrap is not yet claimed.
+
 Read [SESSION_HANDOVER.md](SESSION_HANDOVER.md), the
 [security remediation contract](SECURITY_REMEDIATION_20261011.md) and
 [live PR133](https://github.com/DeBoX85/Cloud-Assess/pull/133) for the latest

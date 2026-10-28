@@ -1,0 +1,74 @@
+"""Produce a reversible read view; never change source files or oracle values.
+
+Only repeated, byte-equal JSON subtrees are replaced by earlier JSON pointers.
+Object order, array order, scalar types and embedded string contents are retained.
+This is semantic review assistance, not raw-byte manual read credit or QA.
+"""
+import hashlib
+import json
+from pathlib import Path
+import sys
+
+
+def compact(value):
+    return json.dumps(value, ensure_ascii=False, separators=(',', ':'), allow_nan=False)
+
+
+def load_strict(raw):
+    def pairs(items):
+        result = {}
+        for key, value in items:
+            if key in result:
+                raise ValueError('duplicate JSON object name')
+            result[key] = value
+        return result
+
+    def constant(_):
+        raise ValueError('non-finite JSON number')
+
+    return json.loads(raw, object_pairs_hook=pairs, parse_constant=constant)
+
+
+def make_view(value):
+    seen = {}
+
+    def encode(item, pointer):
+        if isinstance(item, dict) and '$review_ref' in item:
+            raise ValueError('reserved key exists in source')
+        key = compact(item)
+        if len(key) >= 80 and key in seen:
+            return {'$review_ref': seen[key]}
+        if len(key) >= 80:
+            seen[key] = pointer
+        if isinstance(item, dict):
+            return {k: encode(v, pointer + '/' + k.replace('~', '~0').replace('/', '~1')) for k, v in item.items()}
+        if isinstance(item, list):
+            return [encode(v, pointer + '/' + str(i)) for i, v in enumerate(item)]
+        return item
+
+    result = encode(value, '')
+    restored = {}
+
+    def decode(item, pointer):
+        if isinstance(item, dict) and set(item) == {'$review_ref'}:
+            # References must resolve to an earlier completed subtree.
+            return restored[item['$review_ref']]
+        if isinstance(item, dict):
+            out = {k: decode(v, pointer + '/' + k.replace('~', '~0').replace('/', '~1')) for k, v in item.items()}
+        elif isinstance(item, list):
+            out = [decode(v, pointer + '/' + str(i)) for i, v in enumerate(item)]
+        else:
+            out = item
+        restored[pointer] = out
+        return out
+
+    assert compact(decode(result, '')) == compact(value)
+    return result
+
+
+if __name__ == '__main__':
+    source = Path(sys.argv[1])
+    raw = source.read_bytes()
+    value = load_strict(raw)
+    view = make_view(value)
+    print(compact({'source': str(source), 'raw_sha256': hashlib.sha256(raw).hexdigest(), 'mode': 'lossless JSON subtree references; raw lexical formatting not displayed', 'view': view}))

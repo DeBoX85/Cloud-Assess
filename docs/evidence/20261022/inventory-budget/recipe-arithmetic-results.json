@@ -1,0 +1,41 @@
+{
+  "proof": "independent arithmetic only; no future API execution",
+  "cases": [
+    {
+      "name": "entries-exact",
+      "entries": 65536,
+      "text_bytes": 396127,
+      "non_key_text_bytes": 3163,
+      "group_keys": 65494,
+      "ordered_key_stream_sha256": "ef3c4d89f3037ca7addcc586f533ae057bc43f9cc195a5097529ed40e61f0353",
+      "expected_rejection": false
+    },
+    {
+      "name": "entries-first-excess",
+      "entries": 65537,
+      "text_bytes": 396133,
+      "non_key_text_bytes": 3163,
+      "group_keys": 65495,
+      "ordered_key_stream_sha256": "591dc9566c3a517e01ed5472bb8fc757855b966f6527b937927e0ca9a48428b9",
+      "expected_rejection": true
+    },
+    {
+      "name": "text-exact",
+      "entries": 32790,
+      "text_bytes": 16711680,
+      "non_key_text_bytes": 1631,
+      "group_keys": 32768,
+      "ordered_key_stream_sha256": "7441af85ebd2db31b2c6870e042fe0cedbcccd86b3b68943f4f5ee3391e619cd",
+      "expected_rejection": false
+    },
+    {
+      "name": "text-first-excess",
+      "entries": 32790,
+      "text_bytes": 16711681,
+      "non_key_text_bytes": 1631,
+      "group_keys": 32768,
+      "ordered_key_stream_sha256": "1b6aeee9031f1109c62fe4b47b29032e0f8ec0577d073390c9e13cfc039fb70c",
+      "expected_rejection": true
+    }
+  ]
+}

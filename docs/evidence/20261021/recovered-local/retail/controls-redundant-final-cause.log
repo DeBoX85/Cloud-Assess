@@ -1,0 +1,31 @@
+Retail mutation rejected: complete-only-admission; compilation succeeded; named assertion failed; exact source restored; baseline passed
+Retail mutation rejected: owned-evidence-copy; compilation succeeded; named assertion failed; exact source restored; baseline passed
+Retail mutation rejected: private-admission-authority; compilation succeeded; named assertion failed; exact source restored; baseline passed
+Retail mutation rejected: opaque-id-cell-product; compilation succeeded; named assertion failed; exact source restored; baseline passed
+Retail mutation rejected: physical-request-region; compilation succeeded; named assertion failed; exact source restored; baseline passed
+Retail mutation rejected: odata-quote-doubling; compilation succeeded; named assertion failed; exact source restored; baseline passed
+Retail mutation rejected: source-minimum-tier; compilation succeeded; named assertion failed; exact source restored; baseline passed
+Retail mutation rejected: metadata-identity-conflict; compilation succeeded; named assertion failed; exact source restored; baseline passed
+Retail mutation rejected: metadata-future-exclusion; compilation succeeded; named assertion failed; exact source restored; baseline passed
+Retail mutation rejected: latest-parsed-instant; compilation succeeded; named assertion failed; exact source restored; baseline passed
+Retail mutation rejected: price-unit-binding; compilation succeeded; named assertion failed; exact source restored; baseline passed
+Retail mutation rejected: positive-only-price; compilation succeeded; named assertion failed; exact source restored; baseline passed
+Retail mutation rejected: exact-product-tuple; compilation succeeded; named assertion failed; exact source restored; baseline passed
+Retail mutation rejected: every-original-binding; compilation succeeded; named assertion failed; exact source restored; baseline passed
+Retail mutation rejected: equal-date-target-identity; compilation succeeded; named assertion failed; exact source restored; baseline passed
+Retail mutation rejected: continuation-preserves-filter; compilation succeeded; named assertion failed; exact source restored; baseline passed
+Retail mutation rejected: continuation-increasing-skip; compilation succeeded; named assertion failed; exact source restored; baseline passed
+Retail mutation rejected: sixty-four-page-cap; compilation succeeded; named assertion failed; exact source restored; baseline passed
+Retail mutation rejected: whole-run-request-cap; compilation succeeded; named assertion failed; exact source restored; baseline passed
+Retail mutation rejected: whole-run-byte-cap; compilation succeeded; named assertion failed; exact source restored; baseline passed
+Retail mutation rejected: remaining-wire-budget; compilation succeeded; named assertion failed; exact source restored; baseline passed
+Retail mutation rejected: whole-run-binding-cap; compilation succeeded; named assertion failed; exact source restored; baseline passed
+Retail mutation rejected: whole-run-matching-cap; compilation succeeded; named assertion failed; exact source restored; baseline passed
+Retail mutation rejected: source-metadata-batch-fifteen; compilation succeeded; named assertion failed; exact source restored; baseline passed
+Retail mutation rejected: source-pricing-batch-five; compilation succeeded; named assertion failed; exact source restored; baseline passed
+Retail mutation rejected: final-context-precedence; compilation succeeded; named assertion failed; exact source restored; baseline passed
+Traceback (most recent call last):
+  File "/workspace/scratch/ee3c2680ffe8/retail-validation-20261020/scripts/tests/retail-controls.py", line 22, in <module>
+    assert result.returncode!=0,('reversal survived',m['name'],result.stdout)
+           ^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('reversal survived', 'failure-final-context-precedence', 'ok  \tgithub.com/DeBoX85/Cloud-Assess/internal/plugins/region\t0.027s\n')

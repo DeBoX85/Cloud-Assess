@@ -35,6 +35,9 @@ func LoadFilters(filename string) (*Filters, error) {
 	if err := decoder.Decode(&extra); err != io.EOF {
 		return nil, fmt.Errorf("parse filter YAML %q: expected one YAML document", filename)
 	}
+	if err := filters.Assessment.validateTagKeys(); err != nil {
+		return nil, fmt.Errorf("validate filter file %q: %w", filename, err)
+	}
 	filters.RebuildIndexes()
 	if filters.Assessment != nil {
 		if err := filters.Assessment.Validate(); err != nil {
