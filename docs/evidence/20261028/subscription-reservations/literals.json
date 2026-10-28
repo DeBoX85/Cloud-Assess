@@ -1,0 +1,308 @@
+{
+  "format": "cloud-assess-subscription-reservations-v1",
+  "base": "4627a4d9c2853d9337e8c0f959f241a6d319b416",
+  "scope": "Independent literals before production, not captured/candidate-generated results.",
+  "cases": [
+    {
+      "id": "all-three-regions",
+      "scenario": "three",
+      "status": "complete",
+      "code": "",
+      "calls": 7,
+      "regions": [
+        "eastus",
+        "westeurope",
+        "northeurope"
+      ],
+      "rows": [
+        [
+          "eastus",
+          "rg1",
+          "east",
+          "r",
+          4,
+          0
+        ],
+        [
+          "westeurope",
+          "rg2",
+          "west",
+          "r",
+          4,
+          0
+        ],
+        [
+          "northeurope",
+          "rg3",
+          "north",
+          "r",
+          4,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "complete-empty-subscription",
+      "scenario": "empty",
+      "status": "complete",
+      "code": "",
+      "calls": 1,
+      "regions": [],
+      "rows": []
+    },
+    {
+      "id": "observed-empty-group",
+      "scenario": "empty-group",
+      "status": "complete",
+      "code": "",
+      "calls": 2,
+      "regions": [
+        "eastus"
+      ],
+      "rows": []
+    },
+    {
+      "id": "same-region-distinct-groups",
+      "scenario": "same-region",
+      "status": "complete",
+      "code": "",
+      "calls": 5,
+      "regions": [
+        "eastus"
+      ],
+      "rows": [
+        [
+          "eastus",
+          "rg1",
+          "east",
+          "r",
+          4,
+          0
+        ],
+        [
+          "eastus",
+          "rg2",
+          "west",
+          "r",
+          4,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "initial-operational-failure",
+      "scenario": "initial-failure",
+      "status": "unknown",
+      "code": "reservation_request_failed",
+      "calls": 1,
+      "regions": [],
+      "rows": []
+    },
+    {
+      "id": "child-failure-peer-recovers",
+      "scenario": "child-failure",
+      "status": "partial",
+      "code": "reservation_request_failed",
+      "calls": 4,
+      "regions": [
+        "eastus",
+        "westeurope"
+      ],
+      "rows": [
+        [
+          "westeurope",
+          "rg2",
+          "west",
+          "r",
+          4,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "get-failure-peer-recovers",
+      "scenario": "get-failure",
+      "status": "partial",
+      "code": "reservation_request_failed",
+      "calls": 4,
+      "regions": [
+        "eastus"
+      ],
+      "rows": [
+        [
+          "eastus",
+          "rg1",
+          "east",
+          "second",
+          4,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "foreign-group-first-page",
+      "scenario": "foreign-group",
+      "status": "unknown",
+      "code": "reservation_identity_invalid",
+      "calls": 1,
+      "regions": [],
+      "rows": []
+    },
+    {
+      "id": "duplicate-group-page-atomic",
+      "scenario": "duplicate-group",
+      "status": "unknown",
+      "code": "reservation_identity_invalid",
+      "calls": 1,
+      "regions": [],
+      "rows": []
+    },
+    {
+      "id": "duplicate-summary-page-atomic",
+      "scenario": "duplicate-summary",
+      "status": "partial",
+      "code": "reservation_identity_invalid",
+      "calls": 2,
+      "regions": [
+        "eastus"
+      ],
+      "rows": []
+    },
+    {
+      "id": "wrong-detail-region",
+      "scenario": "wrong-region",
+      "status": "partial",
+      "code": "reservation_identity_invalid",
+      "calls": 3,
+      "regions": [
+        "eastus"
+      ],
+      "rows": []
+    },
+    {
+      "id": "unsafe-group-continuation",
+      "scenario": "unsafe-next",
+      "status": "partial",
+      "code": "reservation_unsafe_continuation",
+      "calls": 1,
+      "regions": [],
+      "rows": []
+    },
+    {
+      "id": "later-invalid-group-page",
+      "scenario": "later-invalid",
+      "status": "partial",
+      "code": "reservation_identity_invalid",
+      "calls": 4,
+      "regions": [
+        "eastus"
+      ],
+      "rows": [
+        [
+          "eastus",
+          "rg1",
+          "east",
+          "r",
+          4,
+          0
+        ]
+      ]
+    }
+  ],
+  "budget_recipes": [
+    {
+      "id": "calls-at-limit",
+      "kind": "calls",
+      "amount": 254,
+      "calls": 256,
+      "status": "complete",
+      "code": "",
+      "rows": 254,
+      "allocated": 0
+    },
+    {
+      "id": "calls-plus-one",
+      "kind": "calls",
+      "amount": 255,
+      "calls": 256,
+      "status": "partial",
+      "code": "reservation_request_limit",
+      "rows": 254,
+      "allocated": 0
+    },
+    {
+      "id": "pages-at-limit",
+      "kind": "pages",
+      "amount": 64,
+      "calls": 64,
+      "status": "complete",
+      "code": "",
+      "rows": 0,
+      "allocated": 0
+    },
+    {
+      "id": "pages-plus-one",
+      "kind": "pages",
+      "amount": 65,
+      "calls": 64,
+      "status": "partial",
+      "code": "reservation_page_limit",
+      "rows": 0,
+      "allocated": 0
+    },
+    {
+      "id": "bytes-at-limit",
+      "kind": "bytes",
+      "amount": 8,
+      "calls": 8,
+      "status": "complete",
+      "code": "",
+      "rows": 0,
+      "allocated": 0
+    },
+    {
+      "id": "bytes-plus-one-byte",
+      "kind": "bytes",
+      "amount": 9,
+      "calls": 9,
+      "status": "partial",
+      "code": "reservation_byte_limit",
+      "rows": 0,
+      "allocated": 0
+    },
+    {
+      "id": "work-at-limit",
+      "kind": "work",
+      "amount": 8190,
+      "calls": 3,
+      "status": "complete",
+      "code": "",
+      "rows": 1,
+      "allocated": 8190
+    },
+    {
+      "id": "work-plus-one",
+      "kind": "work",
+      "amount": 8191,
+      "calls": 3,
+      "status": "partial",
+      "code": "reservation_work_limit",
+      "rows": 0,
+      "allocated": 0
+    }
+  ],
+  "procedural": [
+    "context_before_work",
+    "cancel_after_each_of_seven_gets",
+    "deadline_after_each_of_seven_gets",
+    "wrapped_context_error_sanitized",
+    "invalid_caller_scope_before_getter",
+    "nil_context_and_collector",
+    "fabricated_collection_not_admitted",
+    "diagnostic_mutation_cannot_promote_or_redirect",
+    "accessors_and_runs_owned",
+    "concurrent_calls_independent",
+    "regional_api_unchanged",
+    "pair_scope_does_not_prove_third_region"
+  ]
+}

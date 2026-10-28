@@ -1,0 +1,42 @@
+{
+  "scope": "Connector reconstruction after execution environment became unavailable; no fresh local read or final candidate acceptance.",
+  "freeze": "eb85c315a9896d9a653ad7355f48bc5f7aeda5c0",
+  "five_go_and_test_files_match_recorded_local_passing_hashes": [
+    {
+      "path": "internal/plugins/region/reservation_collector.go",
+      "sha256": "ef73efb0fc364b54f387dcfa13c6f92b2cc4465d1dd96df138aef3e6698a89e1"
+    },
+    {
+      "path": "internal/plugins/region/subscription_reservations_contract_test.go",
+      "sha256": "6ecbd4f5d931ad8cb8ed431eb28721f62e32302b497c6c8dc3aeeea1976f417f"
+    },
+    {
+      "path": "internal/plugins/region/subscription_reservations_budget_test.go",
+      "sha256": "304ba0b15b8148fb6819c24efe61f7fb045f4efb7c6a359a4a7e1d8da62cfea8"
+    },
+    {
+      "path": "internal/plugins/region/subscription_reservations_lifecycle_test.go",
+      "sha256": "d9658ad86eea3b13dd6fd05546b94077478549801e2ed876c033c80624a1417b"
+    },
+    {
+      "path": "internal/plugins/region/subscription_reservations.go",
+      "sha256": "a58c6d3184d693b3b7e9a15cb5efe7b831042e1981d5b232c1b4cdebf4cc88bf"
+    }
+  ],
+  "locally_observed_before_outage": {
+    "named_new_race_events": 50,
+    "strict_compiling_reversals": 10,
+    "legacy_reservation_named_events": 32,
+    "original_mutation_anchors": 24,
+    "workflow_guards": 27,
+    "handover_guards": 7
+  },
+  "status": "Recovered WIP; own full hosted native/source QA and private fresh-directory retention still required.",
+  "raw207local_logs": "Unavailable with execution environment, not claimed remotely retained.",
+  "hash_verifier_self_checks": [
+    "SHA256empty",
+    "SHA256abc",
+    "SHA256million-a"
+  ],
+  "security": "Latest206dated0/5/1residuals OPEN; no pin/gate change or security guarantee."
+}

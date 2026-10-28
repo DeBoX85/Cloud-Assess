@@ -1,0 +1,31 @@
+{
+  "rawWork": {
+    "exactValues": 65536,
+    "excessValues": 65537,
+    "exactWireBytes": 327704,
+    "excessWireBytes": 327709
+  },
+  "depth": {
+    "exact": 32,
+    "excess": 33
+  },
+  "rows": {
+    "exact": 8192,
+    "distinctMeters": 8192,
+    "wireBytes": 606397,
+    "rawValues": 40976,
+    "distinctOverflowIndependentlyReachable": false
+  },
+  "wire": {
+    "exact": 1048576,
+    "excess": 1048577,
+    "exactRawValues": 133
+  },
+  "totalWire": {
+    "exact": 8388608,
+    "excess": 8388609,
+    "excessPages": 9,
+    "ninthValidEmptyBytes": 39
+  },
+  "scope": "Independent fixture accounting before production/consumer execution; not collector runtime coverage"
+}

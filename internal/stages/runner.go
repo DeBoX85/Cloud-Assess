@@ -88,8 +88,8 @@ func (r *Runner) Execute(ctx context.Context, tasks []Task) RunResult {
 		err := ctx.Err()
 		if err == nil {
 			outcome, err = task.Run(ctx)
-			if err == nil {
-				err = ctx.Err()
+			if contextErr := ctx.Err(); contextErr != nil {
+				err = contextErr
 			}
 		}
 		finished := r.now().UTC()

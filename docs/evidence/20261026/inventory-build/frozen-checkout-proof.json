@@ -1,0 +1,7 @@
+{
+  "scope": "Git core.autocrlf=true checkout simulation, not actual Windows execution",
+  "verified_frozen_files": 32,
+  "all_bytes_equal_descriptor": true,
+  "hashes_or_expectations_changed": false,
+  "actual_native_QA": "pending successor own run"
+}

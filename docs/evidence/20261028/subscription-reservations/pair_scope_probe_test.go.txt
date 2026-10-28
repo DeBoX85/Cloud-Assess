@@ -1,0 +1,76 @@
+package region
+
+import (
+	"context"
+	"fmt"
+	"net/http"
+	"testing"
+)
+
+type pairProbeGetter func(context.Context, string, int64) ([]byte, *http.Response, error)
+
+func (f pairProbeGetter) GetBoundedWithResponse(ctx context.Context, u string, n int64) ([]byte, *http.Response, error) {
+	return f(ctx, u, n)
+}
+
+func pairProbeCollect(t *testing.T) (int, int) {
+	t.Helper()
+	const sub = "abcdefab-cdef-abcd-efab-cdefabcdefab"
+	const root = "https://management.azure.com/subscriptions/" + sub
+	groups := root + "/providers/Microsoft.Compute/capacityReservationGroups?api-version=2024-11-01"
+	const prefix = "/subscriptions/" + sub + "/resourceGroups/"
+	ids := []string{prefix + "rg1/providers/Microsoft.Compute/capacityReservationGroups/east", prefix + "rg2/providers/Microsoft.Compute/capacityReservationGroups/west", prefix + "rg3/providers/Microsoft.Compute/capacityReservationGroups/north"}
+	regions := []string{"eastus", "westeurope", "northeurope"}
+	groupBody := `{"value":[{"id":"` + ids[0] + `","name":"east","location":"eastus"},{"id":"` + ids[1] + `","name":"west","location":"westeurope"},{"id":"` + ids[2] + `","name":"north","location":"northeurope"}]}`
+	calls := 0
+	c, e := NewReservationCollector("https://management.azure.com", pairProbeGetter(func(_ context.Context, u string, n int64) ([]byte, *http.Response, error) {
+		calls++
+		if n != 1048576 {
+			t.Fatal("PAIR_SCOPE_BODY_BOUND", n)
+		}
+		body := ""
+		if u == groups {
+			body = groupBody
+		}
+		for i, id := range ids {
+			if u == "https://management.azure.com"+id+"/capacityReservations?api-version=2024-11-01" {
+				body = `{"value":[{"name":"r"}]}`
+			}
+			if u == "https://management.azure.com"+id+"/capacityReservations/r?%24expand=instanceView&api-version=2024-11-01" {
+				body = fmt.Sprintf(`{"id":%q,"name":"r","location":%q,"sku":{"name":"S","capacity":4},"properties":{"instanceView":{"utilizationInfo":{"virtualMachinesAllocated":[]}}}}`, id+"/capacityReservations/r", regions[i])
+			}
+		}
+		if body == "" {
+			t.Fatal("PAIR_SCOPE_UNEXPECTED_REQUEST", u)
+		}
+		return []byte(body), &http.Response{StatusCode: 200}, nil
+	}))
+	if e != nil {
+		t.Fatal(e)
+	}
+	rows := 0
+	for _, region := range []string{"eastus", "westeurope"} {
+		got, e := c.Collect(context.Background(), map[string]string{sub: "Selected"}, ReservationRequest{SubscriptionID: sub, Region: region})
+		if e != nil || got == nil || got.Evidence.Status != "complete" || len(got.Evidence.Reservations) != 1 || got.Evidence.Reservations[0].Region != region {
+			t.Fatalf("PAIR_SCOPE_HEALTHY_REGIONAL: %#v %v", got, e)
+		}
+		rows += len(got.Evidence.Reservations)
+	}
+	return rows, calls
+}
+
+func TestSubscriptionPairRegionalHealthy(t *testing.T) {
+	rows, calls := pairProbeCollect(t)
+	if rows != 2 || calls != 6 {
+		t.Fatalf("PAIR_SCOPE_REGIONAL_CONTROL: rows=%d calls=%d", rows, calls)
+	}
+}
+
+// This intentionally failing preproduction observation tests the proposed
+// whole-subscription requirement, not the regional API's existing contract.
+func TestSubscriptionPairOnlyCoverageGap(t *testing.T) {
+	rows, calls := pairProbeCollect(t)
+	if rows != 3 {
+		t.Fatalf("SUBSCRIPTION_SCOPE_REFERENCE: pair-only rows=%d want whole-subscription3 (calls=%d); missing third-region coverage", rows, calls)
+	}
+}

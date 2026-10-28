@@ -1,0 +1,60 @@
+"""Rereview retained gate probes against each run's exact verifier and raw logs."""
+import hashlib
+import json
+from pathlib import Path
+import subprocess
+
+root = Path(__file__).resolve().parent
+runs = [r for r in json.loads((root / 'audit-runs-initial.json').read_bytes())
+        if r['path'] == '.github/workflows/gate-contract-probe.yml']
+jobs = {r['run_id']: r for r in json.loads((root / 'audit-jobs.json').read_bytes())}
+logs = {r['job_id']: r for r in json.loads((root / 'audit-log-analysis.json').read_bytes())}
+def unique(pairs):
+    result = {}
+    for key, value in pairs:
+        if key in result:
+            raise ValueError('duplicate NEEDS_JSON key')
+        result[key] = value
+    return result
+
+reports = []
+for run in runs:
+    if run['conclusion'] == 'cancelled':
+        reports.append({'run': run['id'], 'sha': run['head_sha'], 'outcome': 'cancelled-uncertified'})
+        continue
+    source = subprocess.check_output(['git', 'show', run['head_sha'] + ':scripts/ci/verify_gate_probe.py'], cwd=root / 'audit-review')
+    assert source == (root / 'audit-code/scripts/ci/verify_gate_probe.py').read_bytes()
+    namespace = {'__name__': 'retained_probe_verifier'}
+    exec(compile(source, run['head_sha'] + ':verify_gate_probe.py', 'exec'), namespace)
+    def read_log(job_id):
+        record = logs[job_id]['log']
+        raw = Path(record['path']).read_bytes()
+        assert len(raw) == record['bytes'] and hashlib.sha256(raw).hexdigest() == record['sha256']
+        return raw
+    case = run['head_branch'].rsplit('-', 1)[1]
+    verified = namespace['verify'](run, jobs[run['id']], case, run['head_sha'], read_log)
+    gate_inputs = []
+    for job in jobs[run['id']]['jobs']:
+        if not job['name'].endswith('-probe-gate'):
+            continue
+        raw = read_log(job['id']).decode('utf-8')
+        assert raw.count('NEEDS_JSON: ') == 1
+        payload, _ = json.JSONDecoder(object_pairs_hook=lambda pairs: unique(pairs)).raw_decode(raw.split('NEEDS_JSON: ', 1)[1])
+        platform = job['name'].split('-', 1)[0]
+        expected = {platform + '-' + suffix: (case if suffix == 'controls-1' and case != 'success' else 'success')
+                    for suffix in ('native', 'controls-1', 'controls-2', 'controls-3')}
+        assert set(payload) == set(expected)
+        assert {k: v['result'] for k, v in payload.items()} == expected
+        gate_inputs.append({'job': job['id'], 'name': job['name'], 'results': expected})
+    verified['gate_inputs'] = gate_inputs
+    verified['verifier_sha256'] = hashlib.sha256(source).hexdigest()
+    reports.append(verified)
+
+assert len(reports) == 9
+assert sum(r.get('verified_jobs', 0) for r in reports) == 60
+assert sum(len(r.get('gate_inputs', [])) for r in reports) == 12
+output = {'purpose': 'retained historical evidence rereview, not fresh hosted execution',
+          'runs': reports, 'certified_terminal_runs': 6, 'cancelled_uncertified_runs': 3,
+          'verified_gate_inputs': 12}
+(root / 'audit-gate-probe-reconciliation.json').write_text(json.dumps(output, indent=2) + '\n')
+print(json.dumps({k: v for k, v in output.items() if k != 'runs'}))
