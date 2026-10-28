@@ -52,15 +52,15 @@ These labels organize tracking; they do not reduce existing scope or approve rel
 
 | Milestone | What must be true | Current distance / uncertainty |
 | --- | --- | --- |
-| Offline MVP candidate | A coherent required assessment path through coordinator, public CLI, required outputs and representative synthetic/installed validation; own full QA and retained evidence | F03 plus tasks10–14 remain. Existing components are substantial, but this integrated path is unfinished; milestone definition is a planning interpretation, not accepted product scope |
+| Offline MVP candidate | A coherent required assessment path through coordinator, public CLI, required outputs and representative synthetic/installed validation; own full QA and retained evidence | Tasks10–14 remain; F03 is verified offline in PR205. Existing components are substantial, but this integrated path is unfinished; milestone definition is a planning interpretation, not accepted product scope |
 | Feature complete | All contracted capabilities/parity and remaining implementation obligations reconciled, including ancillary utilities/design decisions; task15 accounts for every obligation | Not reached. Tasks10–15 plus separate parity and documentary work remain; unresolved scope must be dispositioned explicitly |
 | Release ready | Exact candidate acceptance, independent/gate review, live/operational validation, licensing/provenance/SBOM and Gate004 decisions | Not reached. Tenant/operator/reviewer-dependent work remains; offline green cannot substitute |
 
-ETA: no evidence-based calendar forecast is available yet. Comparable remaining-task effort and a stable, accepted MVP boundary have not been measured. Record any future estimate as a range with its date, assumptions, exclusions and confidence; do not present a calendar commitment or infer a percentage from task counts. Reassess after F03 and the first coordinator slice establish actual remaining integration effort. Azure/operator/reviewer scheduling remains separate. Human security assessment is considered only AFTER overall project completion, as Denis directed; it does not block authorized offline work.
+ETA: no evidence-based calendar forecast is available yet. Comparable remaining-task effort and a stable, accepted MVP boundary have not been measured. Record any future estimate as a range with its date, assumptions, exclusions and confidence; do not present a calendar commitment or infer a percentage from task counts. Reassess after the first implemented coordinator slice establishes actual remaining integration effort. Azure/operator/reviewer scheduling remains separate. Human security assessment is considered only AFTER overall project completion, as Denis directed; it does not block authorized offline work.
 
 ## Remaining assurance and acceptance
 
-- F03 confirmed open; F02 reclassified not a defect. O01–O04 remain observations, with practical impact not assumed.
+- F03 verified offline by PR205 final index; F02 reclassified not a defect. O01–O04 remain observations, with practical impact not assumed.
 - Recorded advisories: zero reachable, three imported-not-called and one module-only; residual dispositions remain OPEN. No fresh database/security-completeness claim.
 - Whole documentary audit remains unfinished. Historical raw/semantic read counts are not proof of a complete current audit.
 - Independent product/gate/check-inventory review, live Azure visibility/least privilege, supported fresh OS/architecture, safe pilot and operational rollback remain separate obligations.
@@ -76,6 +76,8 @@ ETA: no evidence-based calendar forecast is available yet. Comparable remaining-
 | 27 October | F03 boundary inspected read-only; no new reproduction, fix or closure claimed |
 | 27 October | Dashboard/SOP PR204 own full QA verified; private archive41e2d576/receiptd2061659,44members/6558197bytes restored equal originals |
 | 27 October | F03 contract/tests frozen at5f1ad72a before production,21intended rejection assertions and10healthy passes; implementation/nine controls locally verified, own QA/restore pending |
+| 28 October | PR205 final index resolves preceding F03pending snapshot: own quality40540010823/source40540010588success, archiveb2d51adb/receiptf99c7951,91fresh-restored members equal originals |
+| 28 October | Coordinator preparation published in draft PR206;40literal/eightmalformed scheduling checks and24workflow/sevenhandoff guards locally pass. Own final exact-head QA/private retention pending; no production coordinator or task10closure |
 
 Raw logs/findings stay in private `DeBoX85/SC-storage`; public Git contains safe metadata. Reread current storage main/tree before additive expected-head updates; preserve unrelated blobs, never force older history. Retain until Denis explicitly approves deletion. No automatic archival or independent-backup/DC-006 closure. Revisit issue189 at each handover/end and before readiness/acceptance/release.
 

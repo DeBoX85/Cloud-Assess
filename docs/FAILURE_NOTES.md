@@ -1,3 +1,7 @@
+## 28 October 2026: residual dashboard status contradiction
+
+Full current-dashboard read during PR206initial QA found remaining F03open/MVP-pending/reassessment statements below its updated active table. PR205final index had already verified F03offline. Corrected those current statements, retained dated27October history with a28October resolving row, and replaced the stale restart text with a copy-ready current checkpoint; original narrative remains in Git history. Initial6aba7223candidate remains unaccepted; publish corrected successor with own exact-head QA, preserving initial run outcomes. Prevention: read the complete short dashboard after updating top rows, search changed task/status references, and reconcile known-issues/milestone/recent-change sections before publication. No production code or frozen descriptor changed.
+
 ## 28 October 2026: coordinator checkpoint authority guard
 
 Initial preparation checkpoint was prepended before the stable authority header in SESSION_HANDOVER/ROADMAP and omitted the full issue189 URL in its first6000characters. Seven handoff checks reported three errors. Moved the checkpoint below each unchanged compact authority header and included the stable evidence issue URL near the top of current restart entrypoints. No guard weakened. Preserve the failed execution in own QA retention. Prevention: preserve authority header placement before adding dated state, and run handoff guards before publication. This is documentary preparation, not coordinator execution evidence.
