@@ -1,0 +1,539 @@
+{
+  "purpose": "read-source scope inventory, including separate panic guards; static conditions are not executions of these drivers",
+  "rows": [
+    {
+      "path": "scripts/tests/ai-execution-mutation.py",
+      "source_sha256": "beac208638bd6aa7fd7dc2bc784496f5299179795146a237bcdebf241ec29a08",
+      "named_failure_conditions": [
+        {
+          "line": 45,
+          "condition": "outcome.returncode == 0 or '--- FAIL: ' + test not in outcome.stdout"
+        }
+      ],
+      "separate_or_combined_panic_conditions": []
+    },
+    {
+      "path": "scripts/tests/ai-request-mutation.py",
+      "source_sha256": "2e262307869199b9b6b47e75b2768f4d1443536cf517eddabb3199eed3f249f6",
+      "named_failure_conditions": [
+        {
+          "line": 47,
+          "condition": "outcome.returncode == 0 or \"--- FAIL: \" + test not in outcome.stdout"
+        }
+      ],
+      "separate_or_combined_panic_conditions": []
+    },
+    {
+      "path": "scripts/tests/arg-response-framing-mutation.py",
+      "source_sha256": "3adfaa4805cd85752342247aa20b7bce14bc78496b93056b0f2cf1a19249de00",
+      "named_failure_conditions": [
+        {
+          "line": 42,
+          "condition": "failed.returncode == 0 or ('--- FAIL: ' + expected) not in failed.stdout or '[build failed]' in failed.stdout + failed.stderr"
+        }
+      ],
+      "separate_or_combined_panic_conditions": []
+    },
+    {
+      "path": "scripts/tests/cognitive-sku-mutation.py",
+      "source_sha256": "7c8148c5e1b6b2c25f21ea2885f90ab4d97a194407aa420a9091882e3520dbeb",
+      "named_failure_conditions": [
+        {
+          "line": 87,
+          "condition": "failed.returncode == 0 or ('--- FAIL: ' + expected) not in failed.stdout or '[build failed]' in failed.stdout + failed.stderr"
+        }
+      ],
+      "separate_or_combined_panic_conditions": []
+    },
+    {
+      "path": "scripts/tests/compute-disk-sku-collector-mutation.py",
+      "source_sha256": "259fa1f4b1e1e585b0ae4dda59b9cc74f122d0b31044a6503f21d51454ef13b4",
+      "named_failure_conditions": [
+        {
+          "line": 60,
+          "condition": "failed.returncode == 0 or ('--- FAIL: ' + expected) not in failed.stdout or '[build failed]' in failed.stdout + failed.stderr"
+        }
+      ],
+      "separate_or_combined_panic_conditions": []
+    },
+    {
+      "path": "scripts/tests/compute-vm-sku-collector-mutation.py",
+      "source_sha256": "f9bf062dd79543af30d51625ca55c590601d9bd9d7fcc07e98d15b5294d39d3c",
+      "named_failure_conditions": [
+        {
+          "line": 72,
+          "condition": "failed.returncode == 0 or ('--- FAIL: ' + expected) not in failed.stdout or '[build failed]' in failed.stdout + failed.stderr"
+        }
+      ],
+      "separate_or_combined_panic_conditions": []
+    },
+    {
+      "path": "scripts/tests/meter-history-controls.py",
+      "source_sha256": "2e313ade7e8fcdf2bcdc1ce499d09cbb28d9ba4f75a6a921f486d4dc3492de63",
+      "named_failure_conditions": [
+        {
+          "line": 24,
+          "condition": "'--- FAIL: '+m['test'].split('/')[0] in result.stdout"
+        }
+      ],
+      "separate_or_combined_panic_conditions": [
+        {
+          "line": 23,
+          "condition": "'[build failed]' not in result.stdout and 'undefined:' not in result.stdout and 'syntax error' not in result.stdout and 'panic:' not in result.stdout"
+        }
+      ]
+    },
+    {
+      "path": "scripts/tests/qa-mutation.py",
+      "source_sha256": "84ec55f0569f08c65f4249bea97e99dd02755d3dcd8055e5856c1a995add4b0a",
+      "named_failure_conditions": [
+        {
+          "line": 40,
+          "condition": "outcome.returncode == 0 or \"--- FAIL: TestCompareGuards\" not in outcome.stdout"
+        }
+      ],
+      "separate_or_combined_panic_conditions": []
+    },
+    {
+      "path": "scripts/tests/region-auxiliary-mutation.py",
+      "source_sha256": "405e82335db9a86632d7e52afce324cda0fa2b53f33592ba3f979f801f1efc1c",
+      "named_failure_conditions": [
+        {
+          "line": 44,
+          "condition": "outcome.returncode == 0 or '--- FAIL: ' + test not in outcome.stdout"
+        }
+      ],
+      "separate_or_combined_panic_conditions": []
+    },
+    {
+      "path": "scripts/tests/region-availability-capture-mutation.py",
+      "source_sha256": "70573670f63b5e4ffbf1aee6168eb8f02a7edb3d4f754246ba2aaff151298a4d",
+      "named_failure_conditions": [
+        {
+          "line": 46,
+          "condition": "outcome.returncode == 0 or \"--- FAIL: \" + TEST not in outcome.stdout or \"panic:\" in outcome.stdout + outcome.stderr or \"[build failed]\" in outcome.stdout"
+        }
+      ],
+      "separate_or_combined_panic_conditions": [
+        {
+          "line": 46,
+          "condition": "outcome.returncode == 0 or \"--- FAIL: \" + TEST not in outcome.stdout or \"panic:\" in outcome.stdout + outcome.stderr or \"[build failed]\" in outcome.stdout"
+        }
+      ]
+    },
+    {
+      "path": "scripts/tests/region-availability-mutation.py",
+      "source_sha256": "9cc2b3b85a19e1c84138f933884d040dfce3f16acee00717982187e3bb3888c1",
+      "named_failure_conditions": [
+        {
+          "line": 49,
+          "condition": "outcome.returncode == 0 or '--- FAIL: ' + test not in outcome.stdout or 'panic:' in outcome.stdout + outcome.stderr or '[build failed]' in outcome.stdout"
+        }
+      ],
+      "separate_or_combined_panic_conditions": [
+        {
+          "line": 49,
+          "condition": "outcome.returncode == 0 or '--- FAIL: ' + test not in outcome.stdout or 'panic:' in outcome.stdout + outcome.stderr or '[build failed]' in outcome.stdout"
+        }
+      ]
+    },
+    {
+      "path": "scripts/tests/region-compute-sku-capture-mutation.py",
+      "source_sha256": "7139a3112e24111407255a179495c627c531bfc78042d331dcef2eeb37c004c2",
+      "named_failure_conditions": [
+        {
+          "line": 86,
+          "condition": "outcome.returncode == 0 or \"--- FAIL: \" + test not in outcome.stdout or \"panic:\" in combined or \"[build failed]\" in combined or \"undefined:\" in combined"
+        }
+      ],
+      "separate_or_combined_panic_conditions": [
+        {
+          "line": 86,
+          "condition": "outcome.returncode == 0 or \"--- FAIL: \" + test not in outcome.stdout or \"panic:\" in combined or \"[build failed]\" in combined or \"undefined:\" in combined"
+        }
+      ]
+    },
+    {
+      "path": "scripts/tests/region-cost-enrichment-capture-mutation.py",
+      "source_sha256": "f173430c95c4f03b202e87c02f7113baac6951104010c5b5122d2ea17a34e954",
+      "named_failure_conditions": [
+        {
+          "line": 49,
+          "condition": "outcome.returncode == 0 or \"--- FAIL: \" + TEST not in outcome.stdout or \"panic:\" in outcome.stdout + outcome.stderr or \"[build failed]\" in outcome.stdout"
+        }
+      ],
+      "separate_or_combined_panic_conditions": [
+        {
+          "line": 49,
+          "condition": "outcome.returncode == 0 or \"--- FAIL: \" + TEST not in outcome.stdout or \"panic:\" in outcome.stdout + outcome.stderr or \"[build failed]\" in outcome.stdout"
+        }
+      ]
+    },
+    {
+      "path": "scripts/tests/region-cost-enrichment-mutation.py",
+      "source_sha256": "310818ae2718fc8afc9a61b5afccfdce02131420dd0749f18d4e11ddb95604ea",
+      "named_failure_conditions": [
+        {
+          "line": 58,
+          "condition": "outcome.returncode == 0 or '--- FAIL: ' + test not in outcome.stdout or 'panic:' in outcome.stdout + outcome.stderr or '[build failed]' in outcome.stdout"
+        }
+      ],
+      "separate_or_combined_panic_conditions": [
+        {
+          "line": 58,
+          "condition": "outcome.returncode == 0 or '--- FAIL: ' + test not in outcome.stdout or 'panic:' in outcome.stdout + outcome.stderr or '[build failed]' in outcome.stdout"
+        }
+      ]
+    },
+    {
+      "path": "scripts/tests/region-cost-mutation.py",
+      "source_sha256": "83fe2c7a91e0eeed49eccd79c8aa7303c707d758598a13c3c941c9a431c1380e",
+      "named_failure_conditions": [
+        {
+          "line": 57,
+          "condition": "outcome.returncode == 0 or '--- FAIL: ' + test not in outcome.stdout"
+        }
+      ],
+      "separate_or_combined_panic_conditions": []
+    },
+    {
+      "path": "scripts/tests/region-inventory-aggregation-mutation.py",
+      "source_sha256": "353ab77bb9371907193e4548c4a278ed74bd8f9d60e77c7938e56335136cf789",
+      "named_failure_conditions": [
+        {
+          "line": 61,
+          "condition": "outcome.returncode == 0 or '--- FAIL: ' + test not in outcome.stdout or 'panic:' in outcome.stdout + outcome.stderr or '[build failed]' in outcome.stdout"
+        }
+      ],
+      "separate_or_combined_panic_conditions": [
+        {
+          "line": 61,
+          "condition": "outcome.returncode == 0 or '--- FAIL: ' + test not in outcome.stdout or 'panic:' in outcome.stdout + outcome.stderr or '[build failed]' in outcome.stdout"
+        }
+      ]
+    },
+    {
+      "path": "scripts/tests/region-inventory-mutation.py",
+      "source_sha256": "166f17681d381ef41ffd5ba1a11665ee4ac0a9014535cd92699f2156a18a4994",
+      "named_failure_conditions": [
+        {
+          "line": 56,
+          "condition": "outcome.returncode == 0 or '--- FAIL: ' + test not in outcome.stdout"
+        }
+      ],
+      "separate_or_combined_panic_conditions": []
+    },
+    {
+      "path": "scripts/tests/region-latency-capture-mutation.py",
+      "source_sha256": "3121eca40080ab1b2a42f8b1692fa1a079c23544eaffbc2778da0afeec305cb3",
+      "named_failure_conditions": [
+        {
+          "line": 46,
+          "condition": "outcome.returncode == 0 or \"--- FAIL: \" + TEST not in outcome.stdout or \"panic:\" in outcome.stdout + outcome.stderr or \"[build failed]\" in outcome.stdout"
+        }
+      ],
+      "separate_or_combined_panic_conditions": [
+        {
+          "line": 46,
+          "condition": "outcome.returncode == 0 or \"--- FAIL: \" + TEST not in outcome.stdout or \"panic:\" in outcome.stdout + outcome.stderr or \"[build failed]\" in outcome.stdout"
+        }
+      ]
+    },
+    {
+      "path": "scripts/tests/region-latency-mutation.py",
+      "source_sha256": "a00eeb105f949ed46c7d6da766482f85962e14f22697a069d927fb0ed9a2a169",
+      "named_failure_conditions": [
+        {
+          "line": 52,
+          "condition": "outcome.returncode == 0 or '--- FAIL: ' + test not in outcome.stdout or 'panic:' in outcome.stdout + outcome.stderr or '[build failed]' in outcome.stdout"
+        }
+      ],
+      "separate_or_combined_panic_conditions": [
+        {
+          "line": 52,
+          "condition": "outcome.returncode == 0 or '--- FAIL: ' + test not in outcome.stdout or 'panic:' in outcome.stdout + outcome.stderr or '[build failed]' in outcome.stdout"
+        }
+      ]
+    },
+    {
+      "path": "scripts/tests/region-other-sku-capture-mutation.py",
+      "source_sha256": "adb32c9c70dcd94056cc4749174f04db7ca0494ada1d7f7206ecdf87838a362c",
+      "named_failure_conditions": [
+        {
+          "line": 95,
+          "condition": "outcome.returncode == 0 or \"--- FAIL: \" + test not in outcome.stdout or \"panic:\" in combined or \"[build failed]\" in combined or \"undefined:\" in combined"
+        }
+      ],
+      "separate_or_combined_panic_conditions": [
+        {
+          "line": 95,
+          "condition": "outcome.returncode == 0 or \"--- FAIL: \" + test not in outcome.stdout or \"panic:\" in combined or \"[build failed]\" in combined or \"undefined:\" in combined"
+        }
+      ]
+    },
+    {
+      "path": "scripts/tests/region-primary-mutation.py",
+      "source_sha256": "d8aefbc76f2760bc248ae19a3d795506879e0aa866623cb1f29c3e46722cc1fa",
+      "named_failure_conditions": [
+        {
+          "line": 48,
+          "condition": "outcome.returncode == 0 or '--- FAIL: ' + test not in outcome.stdout"
+        }
+      ],
+      "separate_or_combined_panic_conditions": []
+    },
+    {
+      "path": "scripts/tests/region-provider-locations-capture-mutation.py",
+      "source_sha256": "ae17ca70d454e757cbdfbe764a4737050d1249e085a39db03a9da0ac4c7c1626",
+      "named_failure_conditions": [
+        {
+          "line": 70,
+          "condition": "outcome.returncode == 0 or \"--- FAIL: \" + test not in outcome.stdout or \"panic:\" in outcome.stdout + outcome.stderr or \"[build failed]\" in outcome.stdout"
+        }
+      ],
+      "separate_or_combined_panic_conditions": [
+        {
+          "line": 70,
+          "condition": "outcome.returncode == 0 or \"--- FAIL: \" + test not in outcome.stdout or \"panic:\" in outcome.stdout + outcome.stderr or \"[build failed]\" in outcome.stdout"
+        }
+      ]
+    },
+    {
+      "path": "scripts/tests/region-provider-locations-collector-mutation.py",
+      "source_sha256": "719210a700b32da51d3544416cedf37da12c080aed763e9f74f9c92a30307118",
+      "named_failure_conditions": [
+        {
+          "line": 62,
+          "condition": "outcome.returncode == 0 or \"--- FAIL: \" + test not in outcome.stdout or \"[build failed]\" in outcome.stdout or \"panic:\" in outcome.stdout + outcome.stderr"
+        }
+      ],
+      "separate_or_combined_panic_conditions": [
+        {
+          "line": 62,
+          "condition": "outcome.returncode == 0 or \"--- FAIL: \" + test not in outcome.stdout or \"[build failed]\" in outcome.stdout or \"panic:\" in outcome.stdout + outcome.stderr"
+        }
+      ]
+    },
+    {
+      "path": "scripts/tests/region-quota-capture-mutation.py",
+      "source_sha256": "c24a608854ecff937eb6ce500effe5dab39ec8c1283f658da09b38bd348f62e7",
+      "named_failure_conditions": [
+        {
+          "line": 47,
+          "condition": "outcome.returncode == 0 or \"--- FAIL: \" + TEST not in outcome.stdout or \"panic:\" in outcome.stdout + outcome.stderr or \"[build failed]\" in outcome.stdout"
+        }
+      ],
+      "separate_or_combined_panic_conditions": [
+        {
+          "line": 47,
+          "condition": "outcome.returncode == 0 or \"--- FAIL: \" + TEST not in outcome.stdout or \"panic:\" in outcome.stdout + outcome.stderr or \"[build failed]\" in outcome.stdout"
+        }
+      ]
+    },
+    {
+      "path": "scripts/tests/region-quota-collector-mutation.py",
+      "source_sha256": "985dfcfb33918c9f5606b5be5395ba66421e50a9984c9a1df7569cf58ee9c7ed",
+      "named_failure_conditions": [
+        {
+          "line": 65,
+          "condition": "outcome.returncode == 0 or '--- FAIL: ' + test not in output or 'panic:' in output or '[build failed]' in output"
+        }
+      ],
+      "separate_or_combined_panic_conditions": [
+        {
+          "line": 65,
+          "condition": "outcome.returncode == 0 or '--- FAIL: ' + test not in output or 'panic:' in output or '[build failed]' in output"
+        }
+      ]
+    },
+    {
+      "path": "scripts/tests/region-quota-runtime-mutation.py",
+      "source_sha256": "25b7f0ba233f1dc83c3cf881357b3cadb00703fd9fadc3235df1049c9fe5693c",
+      "named_failure_conditions": [
+        {
+          "line": 52,
+          "condition": "outcome.returncode == 0 or '--- FAIL: ' + test not in output or 'panic:' in output or '[build failed]' in output"
+        }
+      ],
+      "separate_or_combined_panic_conditions": [
+        {
+          "line": 52,
+          "condition": "outcome.returncode == 0 or '--- FAIL: ' + test not in output or 'panic:' in output or '[build failed]' in output"
+        }
+      ]
+    },
+    {
+      "path": "scripts/tests/region-reservation-capture-mutation.py",
+      "source_sha256": "f5c6c28596443361339fda7d5f9a4a928facd9e5b354e28993eedeb15b3f6fce",
+      "named_failure_conditions": [
+        {
+          "line": 53,
+          "condition": "outcome.returncode == 0 or \"--- FAIL: \" + TEST not in outcome.stdout or \"panic:\" in log or \"[build failed]\" in log"
+        }
+      ],
+      "separate_or_combined_panic_conditions": [
+        {
+          "line": 53,
+          "condition": "outcome.returncode == 0 or \"--- FAIL: \" + TEST not in outcome.stdout or \"panic:\" in log or \"[build failed]\" in log"
+        }
+      ]
+    },
+    {
+      "path": "scripts/tests/region-reservation-collector-mutation.py",
+      "source_sha256": "1ccad1915995afe1d84d21561f25fbdca56febc4935425ee3eeddbc2a2aa5c9c",
+      "named_failure_conditions": [
+        {
+          "line": 122,
+          "condition": "outcome.returncode == 0 or '--- FAIL: ' + test not in output or 'panic:' in output or '[build failed]' in output"
+        }
+      ],
+      "separate_or_combined_panic_conditions": [
+        {
+          "line": 122,
+          "condition": "outcome.returncode == 0 or '--- FAIL: ' + test not in output or 'panic:' in output or '[build failed]' in output"
+        }
+      ]
+    },
+    {
+      "path": "scripts/tests/region-reservation-runtime-mutation.py",
+      "source_sha256": "43df1ba553dd20a9f62256ab8de24bc38bd7bc3542bb3e9691ec6fdc5c4c2efa",
+      "named_failure_conditions": [
+        {
+          "line": 58,
+          "condition": "outcome.returncode == 0 or '--- FAIL: '+test not in output or 'panic:' in output or '[build failed]' in output"
+        }
+      ],
+      "separate_or_combined_panic_conditions": [
+        {
+          "line": 58,
+          "condition": "outcome.returncode == 0 or '--- FAIL: '+test not in output or 'panic:' in output or '[build failed]' in output"
+        }
+      ]
+    },
+    {
+      "path": "scripts/tests/region-service-mutation.py",
+      "source_sha256": "123f7c24d4dd1f8722e85d758b737380a17fd57e86afbddb7c11f99808ffd8b4",
+      "named_failure_conditions": [
+        {
+          "line": 59,
+          "condition": "outcome.returncode == 0 or '--- FAIL: ' + test not in outcome.stdout"
+        }
+      ],
+      "separate_or_combined_panic_conditions": []
+    },
+    {
+      "path": "scripts/tests/region-vm-quota-capture-mutation.py",
+      "source_sha256": "e75f0c5335909cd32343fef54eda6cbf087485c7ec78087e9fa870214c623cab",
+      "named_failure_conditions": [
+        {
+          "line": 47,
+          "condition": "outcome.returncode == 0 or \"--- FAIL: \" + TEST not in outcome.stdout or \"panic:\" in outcome.stdout + outcome.stderr or \"[build failed]\" in outcome.stdout"
+        }
+      ],
+      "separate_or_combined_panic_conditions": [
+        {
+          "line": 47,
+          "condition": "outcome.returncode == 0 or \"--- FAIL: \" + TEST not in outcome.stdout or \"panic:\" in outcome.stdout + outcome.stderr or \"[build failed]\" in outcome.stdout"
+        }
+      ]
+    },
+    {
+      "path": "scripts/tests/retail-controls.py",
+      "source_sha256": "8c89aa0f0f1b1d55ccf5718586e906fd531fc7940d5ee14c1813edea8a3fa40a",
+      "named_failure_conditions": [
+        {
+          "line": 24,
+          "condition": "'--- FAIL: '+m['test'].split('/')[0] in result.stdout"
+        }
+      ],
+      "separate_or_combined_panic_conditions": [
+        {
+          "line": 23,
+          "condition": "'[build failed]' not in result.stdout and 'undefined:' not in result.stdout and 'syntax error' not in result.stdout and 'panic:' not in result.stdout"
+        }
+      ]
+    },
+    {
+      "path": "scripts/tests/scope-redaction-controls.py",
+      "source_sha256": "d9df9b6c0c1eb769a7e905aa78257e85ebb55529f49610b179226d6cdfd77137",
+      "named_failure_conditions": [
+        {
+          "line": 22,
+          "condition": "'--- FAIL: '+m['test'].split('/')[0] in result.stdout"
+        }
+      ],
+      "separate_or_combined_panic_conditions": []
+    },
+    {
+      "path": "scripts/tests/section4-regressions.py",
+      "source_sha256": "c5b8ed57b26c62fca7c3b19763bdd61957f42984f2eef3f115221638c8bdffb9",
+      "named_failure_conditions": [
+        {
+          "line": 46,
+          "condition": "code == 0\n                or \"--- FAIL: TestComparisonRejectsConflictingDuplicateEvidence\" not in output\n                or \"conflicting duplicate evidence\" not in output\n                or \"[build failed]\" in output\n                or \"panic:\" in output"
+        }
+      ],
+      "separate_or_combined_panic_conditions": [
+        {
+          "line": 46,
+          "condition": "code == 0\n                or \"--- FAIL: TestComparisonRejectsConflictingDuplicateEvidence\" not in output\n                or \"conflicting duplicate evidence\" not in output\n                or \"[build failed]\" in output\n                or \"panic:\" in output"
+        }
+      ]
+    },
+    {
+      "path": "scripts/tests/sql-database-controls.py",
+      "source_sha256": "ce788ef17c69d13cd12afaaf783429fda27b758518c38b34600bbb2b0a195c60",
+      "named_failure_conditions": [
+        {
+          "line": 22,
+          "condition": "'--- FAIL: '+m['test'].split('/')[0] in result.stdout"
+        }
+      ],
+      "separate_or_combined_panic_conditions": []
+    },
+    {
+      "path": "scripts/tests/sql-mi-controls.py",
+      "source_sha256": "a3fc144e4a5ae161d6a8ada3de621a957f65ce1852328c66afce7ee8dfc07c61",
+      "named_failure_conditions": [
+        {
+          "line": 22,
+          "condition": "'--- FAIL: '+m['test'].split('/')[0] in result.stdout"
+        }
+      ],
+      "separate_or_combined_panic_conditions": []
+    },
+    {
+      "path": "scripts/tests/sql-report-controls.py",
+      "source_sha256": "d217822ee4952810fe67cf855c006ba51e2b4682eecb07b22d5e710d965ddd4a",
+      "named_failure_conditions": [
+        {
+          "line": 22,
+          "condition": "'--- FAIL: '+m['test'].split('/')[0] in result.stdout"
+        }
+      ],
+      "separate_or_combined_panic_conditions": []
+    },
+    {
+      "path": "scripts/tests/storage-sku-collector-mutation.py",
+      "source_sha256": "224ba9f4acaa6fe9f86245576a9c767112b77c34c992d0917665a0831c869261",
+      "named_failure_conditions": [
+        {
+          "line": 65,
+          "condition": "failed.returncode == 0 or ('--- FAIL: ' + expected) not in failed.stdout or '[build failed]' in failed.stdout + failed.stderr"
+        }
+      ],
+      "separate_or_combined_panic_conditions": []
+    },
+    {
+      "path": "scripts/tests/vmss-catalog-mutation.py",
+      "source_sha256": "b8374b41cbaae91779d61cdcccb3337dcc84f2918e5621e42655a1db72a5c96d",
+      "named_failure_conditions": [
+        {
+          "line": 65,
+          "condition": "failed.returncode == 0 or ('--- FAIL: ' + expected) not in failed.stdout or '[build failed]' in failed.stdout + failed.stderr"
+        }
+      ],
+      "separate_or_combined_panic_conditions": []
+    }
+  ]
+}

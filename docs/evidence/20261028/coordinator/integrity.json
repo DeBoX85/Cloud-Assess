@@ -1,0 +1,32 @@
+{
+  "format": "cloud-assess-coordinator-preparation-v1",
+  "base": "08a220a72edd902eb3f7eafc14b8e95f64a46f12",
+  "scope": "Specification preparation only, private API bindings and production not complete.",
+  "files": [
+    {
+      "path": "docs/REGION_COORDINATOR_CONTRACT_20261028.md",
+      "bytes": 10628,
+      "sha256": "d92bd4bd583f35ec66343a6bfa345c72c8d1fe7ba582317d32c405b29831eaf2"
+    },
+    {
+      "path": "docs/evidence/20261028/coordinator/README.md",
+      "bytes": 2742,
+      "sha256": "c03723069b7088709d7004cb112a4ec0ec898a29c6984a10843706fd509d3535"
+    },
+    {
+      "path": "docs/evidence/20261028/coordinator/scheduling-literals.json",
+      "bytes": 27726,
+      "sha256": "304ecdc9c98aeaa8c4c307565c8268ddc347fc54b285e62223da689f82d3730e"
+    },
+    {
+      "path": "docs/evidence/20261028/coordinator/check_scheduling.py",
+      "bytes": 4869,
+      "sha256": "b3286a42422a8a95a8a3b8bcb7141f91bf805360f4912a725b4e0e8a1afd1797"
+    },
+    {
+      "path": "docs/evidence/20261028/coordinator/scheduling-verification.json",
+      "bytes": 244,
+      "sha256": "d41727973ee20762328836735e5834ab8c9ec57a3681cfad3fc771f3cbdaa5c0"
+    }
+  ]
+}

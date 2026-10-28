@@ -1,0 +1,2844 @@
+{
+  "format": "vmss-catalog-target-contract-v1",
+  "purpose": "Future internal catalog projection expectations; no implementation/scoring acceptance",
+  "base_revision": "0067731b73cef1f0a9e201b680c5c85fc38f6672",
+  "catalog_source_resource_type": "microsoft.compute/virtualmachines",
+  "target_resource_type": "microsoft.compute/virtualmachinescalesets",
+  "limitation": {
+    "code": "vmss_catalog_only",
+    "message": "VMSS catalog evidence does not establish workload deployment eligibility, quota or allocation capacity."
+  },
+  "scoring_invariant": {
+    "api": "ComputeVMSKUCollection.Evidence",
+    "valid_complete_vmss_status": "unsupported",
+    "valid_complete_vmss_values": {},
+    "consumer": {
+      "total_skus_checked": 0,
+      "unknown_skus": 0,
+      "available_skus": 0,
+      "sku_availability_percent": 0,
+      "health": "completed_with_warnings",
+      "warning_code": "availability_sku_unsupported"
+    }
+  },
+  "cases": [
+    {
+      "name": "explicit-unrestricted-node-catalog",
+      "input": {
+        "selected_subscriptions": {
+          "abcdefab-1234-4234-8234-123456789abc": "selected"
+        },
+        "request": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "resource_type": "microsoft.compute/virtualmachinescalesets"
+        },
+        "required_names": [
+          "standard_a1"
+        ],
+        "source": {
+          "kind": "collector",
+          "pages": [
+            {
+              "status": 200,
+              "body": "{\"value\":[{\"resourceType\":\"virtualMachines\",\"name\":\"standard_a1\",\"locations\":[\"eastus\"],\"restrictions\":[]}]}"
+            }
+          ]
+        },
+        "context": "active"
+      },
+      "expected": {
+        "catalog": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "target_resource_type": "microsoft.compute/virtualmachinescalesets",
+          "source_resource_type": "microsoft.compute/virtualmachines",
+          "status": "complete",
+          "deployment_eligibility": "not_assessed",
+          "values": {
+            "standard_a1": {
+              "state": 0,
+              "blocked_zones": []
+            }
+          },
+          "warnings": [
+            {
+              "code": "vmss_catalog_only",
+              "message": "VMSS catalog evidence does not establish workload deployment eligibility, quota or allocation capacity."
+            }
+          ]
+        },
+        "error": null,
+        "getter_calls": 1,
+        "request_urls": [
+          "https://management.azure.com/subscriptions/abcdefab-1234-4234-8234-123456789abc/providers/Microsoft.Compute/skus?%24filter=location+eq+%27eastus%27&api-version=2021-07-01"
+        ],
+        "input_unchanged": true,
+        "owned_output": false
+      }
+    },
+    {
+      "name": "regional-restriction-quota",
+      "input": {
+        "selected_subscriptions": {
+          "abcdefab-1234-4234-8234-123456789abc": "selected"
+        },
+        "request": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "resource_type": "microsoft.compute/virtualmachinescalesets"
+        },
+        "required_names": [
+          "standard_a1"
+        ],
+        "source": {
+          "kind": "collector",
+          "pages": [
+            {
+              "status": 200,
+              "body": "{\"value\":[{\"resourceType\":\"virtualMachines\",\"name\":\"standard_a1\",\"locations\":[\"eastus\"],\"restrictions\":[{\"type\":\"Location\",\"reasonCode\":\"QuotaId\",\"values\":[\"eastus\"]}]}]}"
+            }
+          ]
+        },
+        "context": "active"
+      },
+      "expected": {
+        "catalog": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "target_resource_type": "microsoft.compute/virtualmachinescalesets",
+          "source_resource_type": "microsoft.compute/virtualmachines",
+          "status": "complete",
+          "deployment_eligibility": "not_assessed",
+          "values": {
+            "standard_a1": {
+              "state": 1,
+              "blocked_zones": []
+            }
+          },
+          "warnings": [
+            {
+              "code": "vmss_catalog_only",
+              "message": "VMSS catalog evidence does not establish workload deployment eligibility, quota or allocation capacity."
+            }
+          ]
+        },
+        "error": null,
+        "getter_calls": 1,
+        "request_urls": [
+          "https://management.azure.com/subscriptions/abcdefab-1234-4234-8234-123456789abc/providers/Microsoft.Compute/skus?%24filter=location+eq+%27eastus%27&api-version=2021-07-01"
+        ],
+        "input_unchanged": true,
+        "owned_output": false
+      }
+    },
+    {
+      "name": "zonal-restriction-quota",
+      "input": {
+        "selected_subscriptions": {
+          "abcdefab-1234-4234-8234-123456789abc": "selected"
+        },
+        "request": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "resource_type": "microsoft.compute/virtualmachinescalesets"
+        },
+        "required_names": [
+          "standard_a1"
+        ],
+        "source": {
+          "kind": "collector",
+          "pages": [
+            {
+              "status": 200,
+              "body": "{\"value\":[{\"resourceType\":\"virtualMachines\",\"name\":\"standard_a1\",\"locations\":[\"eastus\"],\"restrictions\":[{\"type\":\"Zone\",\"reasonCode\":\"QuotaId\",\"restrictionInfo\":{\"locations\":[\"eastus\"],\"zones\":[\"2\",\"10\",\"1\",\"2\"]}}]}]}"
+            }
+          ]
+        },
+        "context": "active"
+      },
+      "expected": {
+        "catalog": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "target_resource_type": "microsoft.compute/virtualmachinescalesets",
+          "source_resource_type": "microsoft.compute/virtualmachines",
+          "status": "complete",
+          "deployment_eligibility": "not_assessed",
+          "values": {
+            "standard_a1": {
+              "state": 3,
+              "blocked_zones": [
+                "1",
+                "10",
+                "2"
+              ]
+            }
+          },
+          "warnings": [
+            {
+              "code": "vmss_catalog_only",
+              "message": "VMSS catalog evidence does not establish workload deployment eligibility, quota or allocation capacity."
+            }
+          ]
+        },
+        "error": null,
+        "getter_calls": 1,
+        "request_urls": [
+          "https://management.azure.com/subscriptions/abcdefab-1234-4234-8234-123456789abc/providers/Microsoft.Compute/skus?%24filter=location+eq+%27eastus%27&api-version=2021-07-01"
+        ],
+        "input_unchanged": true,
+        "owned_output": false
+      }
+    },
+    {
+      "name": "regional-restriction-subscription",
+      "input": {
+        "selected_subscriptions": {
+          "abcdefab-1234-4234-8234-123456789abc": "selected"
+        },
+        "request": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "resource_type": "microsoft.compute/virtualmachinescalesets"
+        },
+        "required_names": [
+          "standard_a1"
+        ],
+        "source": {
+          "kind": "collector",
+          "pages": [
+            {
+              "status": 200,
+              "body": "{\"value\":[{\"resourceType\":\"virtualMachines\",\"name\":\"standard_a1\",\"locations\":[\"eastus\"],\"restrictions\":[{\"type\":\"Location\",\"reasonCode\":\"NotAvailableForSubscription\",\"values\":[\"eastus\"]}]}]}"
+            }
+          ]
+        },
+        "context": "active"
+      },
+      "expected": {
+        "catalog": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "target_resource_type": "microsoft.compute/virtualmachinescalesets",
+          "source_resource_type": "microsoft.compute/virtualmachines",
+          "status": "complete",
+          "deployment_eligibility": "not_assessed",
+          "values": {
+            "standard_a1": {
+              "state": 1,
+              "blocked_zones": []
+            }
+          },
+          "warnings": [
+            {
+              "code": "vmss_catalog_only",
+              "message": "VMSS catalog evidence does not establish workload deployment eligibility, quota or allocation capacity."
+            }
+          ]
+        },
+        "error": null,
+        "getter_calls": 1,
+        "request_urls": [
+          "https://management.azure.com/subscriptions/abcdefab-1234-4234-8234-123456789abc/providers/Microsoft.Compute/skus?%24filter=location+eq+%27eastus%27&api-version=2021-07-01"
+        ],
+        "input_unchanged": true,
+        "owned_output": false
+      }
+    },
+    {
+      "name": "zonal-restriction-subscription",
+      "input": {
+        "selected_subscriptions": {
+          "abcdefab-1234-4234-8234-123456789abc": "selected"
+        },
+        "request": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "resource_type": "microsoft.compute/virtualmachinescalesets"
+        },
+        "required_names": [
+          "standard_a1"
+        ],
+        "source": {
+          "kind": "collector",
+          "pages": [
+            {
+              "status": 200,
+              "body": "{\"value\":[{\"resourceType\":\"virtualMachines\",\"name\":\"standard_a1\",\"locations\":[\"eastus\"],\"restrictions\":[{\"type\":\"Zone\",\"reasonCode\":\"NotAvailableForSubscription\",\"restrictionInfo\":{\"locations\":[\"eastus\"],\"zones\":[\"2\",\"10\",\"1\",\"2\"]}}]}]}"
+            }
+          ]
+        },
+        "context": "active"
+      },
+      "expected": {
+        "catalog": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "target_resource_type": "microsoft.compute/virtualmachinescalesets",
+          "source_resource_type": "microsoft.compute/virtualmachines",
+          "status": "complete",
+          "deployment_eligibility": "not_assessed",
+          "values": {
+            "standard_a1": {
+              "state": 3,
+              "blocked_zones": [
+                "1",
+                "10",
+                "2"
+              ]
+            }
+          },
+          "warnings": [
+            {
+              "code": "vmss_catalog_only",
+              "message": "VMSS catalog evidence does not establish workload deployment eligibility, quota or allocation capacity."
+            }
+          ]
+        },
+        "error": null,
+        "getter_calls": 1,
+        "request_urls": [
+          "https://management.azure.com/subscriptions/abcdefab-1234-4234-8234-123456789abc/providers/Microsoft.Compute/skus?%24filter=location+eq+%27eastus%27&api-version=2021-07-01"
+        ],
+        "input_unchanged": true,
+        "owned_output": false
+      }
+    },
+    {
+      "name": "regional-scope-union",
+      "input": {
+        "selected_subscriptions": {
+          "abcdefab-1234-4234-8234-123456789abc": "selected"
+        },
+        "request": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "resource_type": "microsoft.compute/virtualmachinescalesets"
+        },
+        "required_names": [
+          "standard_a1"
+        ],
+        "source": {
+          "kind": "collector",
+          "pages": [
+            {
+              "status": 200,
+              "body": "{\"value\":[{\"resourceType\":\"virtualMachines\",\"name\":\"standard_a1\",\"locations\":[\"eastus\"],\"restrictions\":[{\"type\":\"Location\",\"reasonCode\":\"QuotaId\",\"values\":[\"westus\"],\"restrictionInfo\":{\"locations\":[\"eastus\"]}}]}]}"
+            }
+          ]
+        },
+        "context": "active"
+      },
+      "expected": {
+        "catalog": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "target_resource_type": "microsoft.compute/virtualmachinescalesets",
+          "source_resource_type": "microsoft.compute/virtualmachines",
+          "status": "complete",
+          "deployment_eligibility": "not_assessed",
+          "values": {
+            "standard_a1": {
+              "state": 1,
+              "blocked_zones": []
+            }
+          },
+          "warnings": [
+            {
+              "code": "vmss_catalog_only",
+              "message": "VMSS catalog evidence does not establish workload deployment eligibility, quota or allocation capacity."
+            }
+          ]
+        },
+        "error": null,
+        "getter_calls": 1,
+        "request_urls": [
+          "https://management.azure.com/subscriptions/abcdefab-1234-4234-8234-123456789abc/providers/Microsoft.Compute/skus?%24filter=location+eq+%27eastus%27&api-version=2021-07-01"
+        ],
+        "input_unchanged": true,
+        "owned_output": false
+      }
+    },
+    {
+      "name": "other-region-restriction",
+      "input": {
+        "selected_subscriptions": {
+          "abcdefab-1234-4234-8234-123456789abc": "selected"
+        },
+        "request": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "resource_type": "microsoft.compute/virtualmachinescalesets"
+        },
+        "required_names": [
+          "standard_a1"
+        ],
+        "source": {
+          "kind": "collector",
+          "pages": [
+            {
+              "status": 200,
+              "body": "{\"value\":[{\"resourceType\":\"virtualMachines\",\"name\":\"standard_a1\",\"locations\":[\"eastus\"],\"restrictions\":[{\"type\":\"Location\",\"reasonCode\":\"QuotaId\",\"values\":[\"westus\"]}]}]}"
+            }
+          ]
+        },
+        "context": "active"
+      },
+      "expected": {
+        "catalog": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "target_resource_type": "microsoft.compute/virtualmachinescalesets",
+          "source_resource_type": "microsoft.compute/virtualmachines",
+          "status": "complete",
+          "deployment_eligibility": "not_assessed",
+          "values": {
+            "standard_a1": {
+              "state": 0,
+              "blocked_zones": []
+            }
+          },
+          "warnings": [
+            {
+              "code": "vmss_catalog_only",
+              "message": "VMSS catalog evidence does not establish workload deployment eligibility, quota or allocation capacity."
+            }
+          ]
+        },
+        "error": null,
+        "getter_calls": 1,
+        "request_urls": [
+          "https://management.azure.com/subscriptions/abcdefab-1234-4234-8234-123456789abc/providers/Microsoft.Compute/skus?%24filter=location+eq+%27eastus%27&api-version=2021-07-01"
+        ],
+        "input_unchanged": true,
+        "owned_output": false
+      }
+    },
+    {
+      "name": "regional-dominates-zonal",
+      "input": {
+        "selected_subscriptions": {
+          "abcdefab-1234-4234-8234-123456789abc": "selected"
+        },
+        "request": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "resource_type": "microsoft.compute/virtualmachinescalesets"
+        },
+        "required_names": [
+          "standard_a1"
+        ],
+        "source": {
+          "kind": "collector",
+          "pages": [
+            {
+              "status": 200,
+              "body": "{\"value\":[{\"resourceType\":\"virtualMachines\",\"name\":\"standard_a1\",\"locations\":[\"eastus\"],\"restrictions\":[{\"type\":\"Zone\",\"reasonCode\":\"QuotaId\",\"restrictionInfo\":{\"locations\":[\"eastus\"],\"zones\":[\"1\"]}},{\"type\":\"Location\",\"reasonCode\":\"NotAvailableForSubscription\",\"values\":[\"eastus\"]}]}]}"
+            }
+          ]
+        },
+        "context": "active"
+      },
+      "expected": {
+        "catalog": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "target_resource_type": "microsoft.compute/virtualmachinescalesets",
+          "source_resource_type": "microsoft.compute/virtualmachines",
+          "status": "complete",
+          "deployment_eligibility": "not_assessed",
+          "values": {
+            "standard_a1": {
+              "state": 1,
+              "blocked_zones": []
+            }
+          },
+          "warnings": [
+            {
+              "code": "vmss_catalog_only",
+              "message": "VMSS catalog evidence does not establish workload deployment eligibility, quota or allocation capacity."
+            }
+          ]
+        },
+        "error": null,
+        "getter_calls": 1,
+        "request_urls": [
+          "https://management.azure.com/subscriptions/abcdefab-1234-4234-8234-123456789abc/providers/Microsoft.Compute/skus?%24filter=location+eq+%27eastus%27&api-version=2021-07-01"
+        ],
+        "input_unchanged": true,
+        "owned_output": false
+      }
+    },
+    {
+      "name": "explicit-not-listed",
+      "input": {
+        "selected_subscriptions": {
+          "abcdefab-1234-4234-8234-123456789abc": "selected"
+        },
+        "request": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "resource_type": "microsoft.compute/virtualmachinescalesets"
+        },
+        "required_names": [
+          "standard_a1"
+        ],
+        "source": {
+          "kind": "collector",
+          "pages": [
+            {
+              "status": 200,
+              "body": "{\"value\":[{\"resourceType\":\"virtualMachines\",\"name\":\"standard_a1\",\"locations\":[\"westus\"],\"restrictions\":[]}]}"
+            }
+          ]
+        },
+        "context": "active"
+      },
+      "expected": {
+        "catalog": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "target_resource_type": "microsoft.compute/virtualmachinescalesets",
+          "source_resource_type": "microsoft.compute/virtualmachines",
+          "status": "complete",
+          "deployment_eligibility": "not_assessed",
+          "values": {
+            "standard_a1": {
+              "state": 2,
+              "blocked_zones": []
+            }
+          },
+          "warnings": [
+            {
+              "code": "vmss_catalog_only",
+              "message": "VMSS catalog evidence does not establish workload deployment eligibility, quota or allocation capacity."
+            }
+          ]
+        },
+        "error": null,
+        "getter_calls": 1,
+        "request_urls": [
+          "https://management.azure.com/subscriptions/abcdefab-1234-4234-8234-123456789abc/providers/Microsoft.Compute/skus?%24filter=location+eq+%27eastus%27&api-version=2021-07-01"
+        ],
+        "input_unchanged": true,
+        "owned_output": false
+      }
+    },
+    {
+      "name": "explicit-available-false",
+      "input": {
+        "selected_subscriptions": {
+          "abcdefab-1234-4234-8234-123456789abc": "selected"
+        },
+        "request": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "resource_type": "microsoft.compute/virtualmachinescalesets"
+        },
+        "required_names": [
+          "standard_a1"
+        ],
+        "source": {
+          "kind": "collector",
+          "pages": [
+            {
+              "status": 200,
+              "body": "{\"value\":[{\"resourceType\":\"virtualMachines\",\"name\":\"standard_a1\",\"locations\":[\"eastus\"],\"restrictions\":[],\"capabilities\":[{\"name\":\"available\",\"value\":\"false\"}]}]}"
+            }
+          ]
+        },
+        "context": "active"
+      },
+      "expected": {
+        "catalog": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "target_resource_type": "microsoft.compute/virtualmachinescalesets",
+          "source_resource_type": "microsoft.compute/virtualmachines",
+          "status": "complete",
+          "deployment_eligibility": "not_assessed",
+          "values": {
+            "standard_a1": {
+              "state": 2,
+              "blocked_zones": []
+            }
+          },
+          "warnings": [
+            {
+              "code": "vmss_catalog_only",
+              "message": "VMSS catalog evidence does not establish workload deployment eligibility, quota or allocation capacity."
+            }
+          ]
+        },
+        "error": null,
+        "getter_calls": 1,
+        "request_urls": [
+          "https://management.azure.com/subscriptions/abcdefab-1234-4234-8234-123456789abc/providers/Microsoft.Compute/skus?%24filter=location+eq+%27eastus%27&api-version=2021-07-01"
+        ],
+        "input_unchanged": true,
+        "owned_output": false
+      }
+    },
+    {
+      "name": "missing-locations",
+      "input": {
+        "selected_subscriptions": {
+          "abcdefab-1234-4234-8234-123456789abc": "selected"
+        },
+        "request": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "resource_type": "microsoft.compute/virtualmachinescalesets"
+        },
+        "required_names": [
+          "standard_a1"
+        ],
+        "source": {
+          "kind": "collector",
+          "pages": [
+            {
+              "status": 200,
+              "body": "{\"value\":[{\"resourceType\":\"virtualMachines\",\"name\":\"standard_a1\",\"restrictions\":[]}]}"
+            }
+          ]
+        },
+        "context": "active"
+      },
+      "expected": {
+        "catalog": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "target_resource_type": "microsoft.compute/virtualmachinescalesets",
+          "source_resource_type": "microsoft.compute/virtualmachines",
+          "status": "unknown",
+          "deployment_eligibility": "not_assessed",
+          "values": {},
+          "warnings": [
+            {
+              "code": "vmss_catalog_only",
+              "message": "VMSS catalog evidence does not establish workload deployment eligibility, quota or allocation capacity."
+            }
+          ]
+        },
+        "error": null,
+        "getter_calls": 1,
+        "request_urls": [
+          "https://management.azure.com/subscriptions/abcdefab-1234-4234-8234-123456789abc/providers/Microsoft.Compute/skus?%24filter=location+eq+%27eastus%27&api-version=2021-07-01"
+        ],
+        "input_unchanged": true,
+        "owned_output": false
+      }
+    },
+    {
+      "name": "missing-restrictions",
+      "input": {
+        "selected_subscriptions": {
+          "abcdefab-1234-4234-8234-123456789abc": "selected"
+        },
+        "request": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "resource_type": "microsoft.compute/virtualmachinescalesets"
+        },
+        "required_names": [
+          "standard_a1"
+        ],
+        "source": {
+          "kind": "collector",
+          "pages": [
+            {
+              "status": 200,
+              "body": "{\"value\":[{\"resourceType\":\"virtualMachines\",\"name\":\"standard_a1\",\"locations\":[\"eastus\"]}]}"
+            }
+          ]
+        },
+        "context": "active"
+      },
+      "expected": {
+        "catalog": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "target_resource_type": "microsoft.compute/virtualmachinescalesets",
+          "source_resource_type": "microsoft.compute/virtualmachines",
+          "status": "unknown",
+          "deployment_eligibility": "not_assessed",
+          "values": {},
+          "warnings": [
+            {
+              "code": "vmss_catalog_only",
+              "message": "VMSS catalog evidence does not establish workload deployment eligibility, quota or allocation capacity."
+            }
+          ]
+        },
+        "error": null,
+        "getter_calls": 1,
+        "request_urls": [
+          "https://management.azure.com/subscriptions/abcdefab-1234-4234-8234-123456789abc/providers/Microsoft.Compute/skus?%24filter=location+eq+%27eastus%27&api-version=2021-07-01"
+        ],
+        "input_unchanged": true,
+        "owned_output": false
+      }
+    },
+    {
+      "name": "incomplete-capability",
+      "input": {
+        "selected_subscriptions": {
+          "abcdefab-1234-4234-8234-123456789abc": "selected"
+        },
+        "request": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "resource_type": "microsoft.compute/virtualmachinescalesets"
+        },
+        "required_names": [
+          "standard_a1"
+        ],
+        "source": {
+          "kind": "collector",
+          "pages": [
+            {
+              "status": 200,
+              "body": "{\"value\":[{\"resourceType\":\"virtualMachines\",\"name\":\"standard_a1\",\"locations\":[\"eastus\"],\"restrictions\":[],\"capabilities\":[{\"name\":\"cpu\"}]}]}"
+            }
+          ]
+        },
+        "context": "active"
+      },
+      "expected": {
+        "catalog": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "target_resource_type": "microsoft.compute/virtualmachinescalesets",
+          "source_resource_type": "microsoft.compute/virtualmachines",
+          "status": "unknown",
+          "deployment_eligibility": "not_assessed",
+          "values": {},
+          "warnings": [
+            {
+              "code": "vmss_catalog_only",
+              "message": "VMSS catalog evidence does not establish workload deployment eligibility, quota or allocation capacity."
+            }
+          ]
+        },
+        "error": null,
+        "getter_calls": 1,
+        "request_urls": [
+          "https://management.azure.com/subscriptions/abcdefab-1234-4234-8234-123456789abc/providers/Microsoft.Compute/skus?%24filter=location+eq+%27eastus%27&api-version=2021-07-01"
+        ],
+        "input_unchanged": true,
+        "owned_output": false
+      }
+    },
+    {
+      "name": "optional-capabilities-absent",
+      "input": {
+        "selected_subscriptions": {
+          "abcdefab-1234-4234-8234-123456789abc": "selected"
+        },
+        "request": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "resource_type": "microsoft.compute/virtualmachinescalesets"
+        },
+        "required_names": [
+          "standard_a1"
+        ],
+        "source": {
+          "kind": "collector",
+          "pages": [
+            {
+              "status": 200,
+              "body": "{\"value\":[{\"resourceType\":\"virtualMachines\",\"name\":\"standard_a1\",\"locations\":[\"eastus\"],\"restrictions\":[]}]}"
+            }
+          ]
+        },
+        "context": "active"
+      },
+      "expected": {
+        "catalog": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "target_resource_type": "microsoft.compute/virtualmachinescalesets",
+          "source_resource_type": "microsoft.compute/virtualmachines",
+          "status": "complete",
+          "deployment_eligibility": "not_assessed",
+          "values": {
+            "standard_a1": {
+              "state": 0,
+              "blocked_zones": []
+            }
+          },
+          "warnings": [
+            {
+              "code": "vmss_catalog_only",
+              "message": "VMSS catalog evidence does not establish workload deployment eligibility, quota or allocation capacity."
+            }
+          ]
+        },
+        "error": null,
+        "getter_calls": 1,
+        "request_urls": [
+          "https://management.azure.com/subscriptions/abcdefab-1234-4234-8234-123456789abc/providers/Microsoft.Compute/skus?%24filter=location+eq+%27eastus%27&api-version=2021-07-01"
+        ],
+        "input_unchanged": true,
+        "owned_output": false
+      }
+    },
+    {
+      "name": "unknown-restriction-reason",
+      "input": {
+        "selected_subscriptions": {
+          "abcdefab-1234-4234-8234-123456789abc": "selected"
+        },
+        "request": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "resource_type": "microsoft.compute/virtualmachinescalesets"
+        },
+        "required_names": [
+          "standard_a1"
+        ],
+        "source": {
+          "kind": "collector",
+          "pages": [
+            {
+              "status": 200,
+              "body": "{\"value\":[{\"resourceType\":\"virtualMachines\",\"name\":\"standard_a1\",\"locations\":[\"eastus\"],\"restrictions\":[{\"type\":\"Location\",\"reasonCode\":\"FutureReason\",\"values\":[\"eastus\"]}]}]}"
+            }
+          ]
+        },
+        "context": "active"
+      },
+      "expected": {
+        "catalog": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "target_resource_type": "microsoft.compute/virtualmachinescalesets",
+          "source_resource_type": "microsoft.compute/virtualmachines",
+          "status": "unknown",
+          "deployment_eligibility": "not_assessed",
+          "values": {},
+          "warnings": [
+            {
+              "code": "vmss_catalog_only",
+              "message": "VMSS catalog evidence does not establish workload deployment eligibility, quota or allocation capacity."
+            }
+          ]
+        },
+        "error": null,
+        "getter_calls": 1,
+        "request_urls": [
+          "https://management.azure.com/subscriptions/abcdefab-1234-4234-8234-123456789abc/providers/Microsoft.Compute/skus?%24filter=location+eq+%27eastus%27&api-version=2021-07-01"
+        ],
+        "input_unchanged": true,
+        "owned_output": false
+      }
+    },
+    {
+      "name": "unknown-restriction-kind",
+      "input": {
+        "selected_subscriptions": {
+          "abcdefab-1234-4234-8234-123456789abc": "selected"
+        },
+        "request": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "resource_type": "microsoft.compute/virtualmachinescalesets"
+        },
+        "required_names": [
+          "standard_a1"
+        ],
+        "source": {
+          "kind": "collector",
+          "pages": [
+            {
+              "status": 200,
+              "body": "{\"value\":[{\"resourceType\":\"virtualMachines\",\"name\":\"standard_a1\",\"locations\":[\"eastus\"],\"restrictions\":[{\"type\":\"FutureScope\",\"reasonCode\":\"QuotaId\",\"values\":[\"eastus\"]}]}]}"
+            }
+          ]
+        },
+        "context": "active"
+      },
+      "expected": {
+        "catalog": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "target_resource_type": "microsoft.compute/virtualmachinescalesets",
+          "source_resource_type": "microsoft.compute/virtualmachines",
+          "status": "unknown",
+          "deployment_eligibility": "not_assessed",
+          "values": {},
+          "warnings": [
+            {
+              "code": "vmss_catalog_only",
+              "message": "VMSS catalog evidence does not establish workload deployment eligibility, quota or allocation capacity."
+            }
+          ]
+        },
+        "error": null,
+        "getter_calls": 1,
+        "request_urls": [
+          "https://management.azure.com/subscriptions/abcdefab-1234-4234-8234-123456789abc/providers/Microsoft.Compute/skus?%24filter=location+eq+%27eastus%27&api-version=2021-07-01"
+        ],
+        "input_unchanged": true,
+        "owned_output": false
+      }
+    },
+    {
+      "name": "unknown-unrequired-does-not-poison",
+      "input": {
+        "selected_subscriptions": {
+          "abcdefab-1234-4234-8234-123456789abc": "selected"
+        },
+        "request": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "resource_type": "microsoft.compute/virtualmachinescalesets"
+        },
+        "required_names": [
+          "standard_a1"
+        ],
+        "source": {
+          "kind": "collector",
+          "pages": [
+            {
+              "status": 200,
+              "body": "{\"value\":[{\"resourceType\":\"virtualMachines\",\"name\":\"standard_a1\",\"locations\":[\"eastus\"],\"restrictions\":[]},{\"resourceType\":\"virtualMachines\",\"name\":\"unknown\",\"locations\":[\"eastus\"]}]}"
+            }
+          ]
+        },
+        "context": "active"
+      },
+      "expected": {
+        "catalog": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "target_resource_type": "microsoft.compute/virtualmachinescalesets",
+          "source_resource_type": "microsoft.compute/virtualmachines",
+          "status": "complete",
+          "deployment_eligibility": "not_assessed",
+          "values": {
+            "standard_a1": {
+              "state": 0,
+              "blocked_zones": []
+            }
+          },
+          "warnings": [
+            {
+              "code": "vmss_catalog_only",
+              "message": "VMSS catalog evidence does not establish workload deployment eligibility, quota or allocation capacity."
+            }
+          ]
+        },
+        "error": null,
+        "getter_calls": 1,
+        "request_urls": [
+          "https://management.azure.com/subscriptions/abcdefab-1234-4234-8234-123456789abc/providers/Microsoft.Compute/skus?%24filter=location+eq+%27eastus%27&api-version=2021-07-01"
+        ],
+        "input_unchanged": true,
+        "owned_output": false
+      }
+    },
+    {
+      "name": "required-absent-after-complete-catalog",
+      "input": {
+        "selected_subscriptions": {
+          "abcdefab-1234-4234-8234-123456789abc": "selected"
+        },
+        "request": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "resource_type": "microsoft.compute/virtualmachinescalesets"
+        },
+        "required_names": [
+          "standard_missing"
+        ],
+        "source": {
+          "kind": "collector",
+          "pages": [
+            {
+              "status": 200,
+              "body": "{\"value\":[{\"resourceType\":\"virtualMachines\",\"name\":\"standard_a1\",\"locations\":[\"eastus\"],\"restrictions\":[]}]}"
+            }
+          ]
+        },
+        "context": "active"
+      },
+      "expected": {
+        "catalog": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "target_resource_type": "microsoft.compute/virtualmachinescalesets",
+          "source_resource_type": "microsoft.compute/virtualmachines",
+          "status": "complete",
+          "deployment_eligibility": "not_assessed",
+          "values": {
+            "standard_missing": {
+              "state": 2,
+              "blocked_zones": []
+            }
+          },
+          "warnings": [
+            {
+              "code": "vmss_catalog_only",
+              "message": "VMSS catalog evidence does not establish workload deployment eligibility, quota or allocation capacity."
+            }
+          ]
+        },
+        "error": null,
+        "getter_calls": 1,
+        "request_urls": [
+          "https://management.azure.com/subscriptions/abcdefab-1234-4234-8234-123456789abc/providers/Microsoft.Compute/skus?%24filter=location+eq+%27eastus%27&api-version=2021-07-01"
+        ],
+        "input_unchanged": true,
+        "owned_output": false
+      }
+    },
+    {
+      "name": "mixed-required-known-unknown",
+      "input": {
+        "selected_subscriptions": {
+          "abcdefab-1234-4234-8234-123456789abc": "selected"
+        },
+        "request": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "resource_type": "microsoft.compute/virtualmachinescalesets"
+        },
+        "required_names": [
+          "standard_a1",
+          "unknown"
+        ],
+        "source": {
+          "kind": "collector",
+          "pages": [
+            {
+              "status": 200,
+              "body": "{\"value\":[{\"resourceType\":\"virtualMachines\",\"name\":\"standard_a1\",\"locations\":[\"eastus\"],\"restrictions\":[]},{\"resourceType\":\"virtualMachines\",\"name\":\"unknown\",\"locations\":[\"eastus\"]}]}"
+            }
+          ]
+        },
+        "context": "active"
+      },
+      "expected": {
+        "catalog": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "target_resource_type": "microsoft.compute/virtualmachinescalesets",
+          "source_resource_type": "microsoft.compute/virtualmachines",
+          "status": "unknown",
+          "deployment_eligibility": "not_assessed",
+          "values": {},
+          "warnings": [
+            {
+              "code": "vmss_catalog_only",
+              "message": "VMSS catalog evidence does not establish workload deployment eligibility, quota or allocation capacity."
+            }
+          ]
+        },
+        "error": null,
+        "getter_calls": 1,
+        "request_urls": [
+          "https://management.azure.com/subscriptions/abcdefab-1234-4234-8234-123456789abc/providers/Microsoft.Compute/skus?%24filter=location+eq+%27eastus%27&api-version=2021-07-01"
+        ],
+        "input_unchanged": true,
+        "owned_output": false
+      }
+    },
+    {
+      "name": "empty-requirements-complete",
+      "input": {
+        "selected_subscriptions": {
+          "abcdefab-1234-4234-8234-123456789abc": "selected"
+        },
+        "request": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "resource_type": "microsoft.compute/virtualmachinescalesets"
+        },
+        "required_names": [],
+        "source": {
+          "kind": "collector",
+          "pages": [
+            {
+              "status": 200,
+              "body": "{\"value\":[{\"resourceType\":\"virtualMachines\",\"name\":\"standard_a1\",\"locations\":[\"eastus\"],\"restrictions\":[]}]}"
+            }
+          ]
+        },
+        "context": "active"
+      },
+      "expected": {
+        "catalog": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "target_resource_type": "microsoft.compute/virtualmachinescalesets",
+          "source_resource_type": "microsoft.compute/virtualmachines",
+          "status": "complete",
+          "deployment_eligibility": "not_assessed",
+          "values": {},
+          "warnings": [
+            {
+              "code": "vmss_catalog_only",
+              "message": "VMSS catalog evidence does not establish workload deployment eligibility, quota or allocation capacity."
+            }
+          ]
+        },
+        "error": null,
+        "getter_calls": 1,
+        "request_urls": [
+          "https://management.azure.com/subscriptions/abcdefab-1234-4234-8234-123456789abc/providers/Microsoft.Compute/skus?%24filter=location+eq+%27eastus%27&api-version=2021-07-01"
+        ],
+        "input_unchanged": true,
+        "owned_output": false
+      }
+    },
+    {
+      "name": "wire-vmss-row-not-node-catalog",
+      "input": {
+        "selected_subscriptions": {
+          "abcdefab-1234-4234-8234-123456789abc": "selected"
+        },
+        "request": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "resource_type": "microsoft.compute/virtualmachinescalesets"
+        },
+        "required_names": [
+          "standard_a1"
+        ],
+        "source": {
+          "kind": "collector",
+          "pages": [
+            {
+              "status": 200,
+              "body": "{\"value\":[{\"resourceType\":\"virtualMachineScaleSets\",\"name\":\"standard_a1\",\"locations\":[\"eastus\"],\"restrictions\":[]}]}"
+            }
+          ]
+        },
+        "context": "active"
+      },
+      "expected": {
+        "catalog": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "target_resource_type": "microsoft.compute/virtualmachinescalesets",
+          "source_resource_type": "microsoft.compute/virtualmachines",
+          "status": "complete",
+          "deployment_eligibility": "not_assessed",
+          "values": {
+            "standard_a1": {
+              "state": 2,
+              "blocked_zones": []
+            }
+          },
+          "warnings": [
+            {
+              "code": "vmss_catalog_only",
+              "message": "VMSS catalog evidence does not establish workload deployment eligibility, quota or allocation capacity."
+            }
+          ]
+        },
+        "error": null,
+        "getter_calls": 1,
+        "request_urls": [
+          "https://management.azure.com/subscriptions/abcdefab-1234-4234-8234-123456789abc/providers/Microsoft.Compute/skus?%24filter=location+eq+%27eastus%27&api-version=2021-07-01"
+        ],
+        "input_unchanged": true,
+        "owned_output": false
+      }
+    },
+    {
+      "name": "duplicate-node-catalog-rejects-page",
+      "input": {
+        "selected_subscriptions": {
+          "abcdefab-1234-4234-8234-123456789abc": "selected"
+        },
+        "request": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "resource_type": "microsoft.compute/virtualmachinescalesets"
+        },
+        "required_names": [
+          "standard_a1"
+        ],
+        "source": {
+          "kind": "collector",
+          "pages": [
+            {
+              "status": 200,
+              "body": "{\"value\":[{\"resourceType\":\"virtualMachines\",\"name\":\"standard_a1\",\"locations\":[\"eastus\"],\"restrictions\":[]},{\"resourceType\":\"virtualMachines\",\"name\":\"standard_a1\",\"locations\":[\"eastus\"],\"restrictions\":[]}]}"
+            }
+          ]
+        },
+        "context": "active"
+      },
+      "expected": {
+        "catalog": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "target_resource_type": "microsoft.compute/virtualmachinescalesets",
+          "source_resource_type": "microsoft.compute/virtualmachines",
+          "status": "unknown",
+          "deployment_eligibility": "not_assessed",
+          "values": {},
+          "warnings": [
+            {
+              "code": "vmss_catalog_only",
+              "message": "VMSS catalog evidence does not establish workload deployment eligibility, quota or allocation capacity."
+            }
+          ]
+        },
+        "error": null,
+        "getter_calls": 1,
+        "request_urls": [
+          "https://management.azure.com/subscriptions/abcdefab-1234-4234-8234-123456789abc/providers/Microsoft.Compute/skus?%24filter=location+eq+%27eastus%27&api-version=2021-07-01"
+        ],
+        "input_unchanged": true,
+        "owned_output": false
+      }
+    },
+    {
+      "name": "malformed-wire-catalog",
+      "input": {
+        "selected_subscriptions": {
+          "abcdefab-1234-4234-8234-123456789abc": "selected"
+        },
+        "request": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "resource_type": "microsoft.compute/virtualmachinescalesets"
+        },
+        "required_names": [
+          "standard_a1"
+        ],
+        "source": {
+          "kind": "collector",
+          "pages": [
+            {
+              "status": 200,
+              "body": "{\"value\":null}"
+            }
+          ]
+        },
+        "context": "active"
+      },
+      "expected": {
+        "catalog": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "target_resource_type": "microsoft.compute/virtualmachinescalesets",
+          "source_resource_type": "microsoft.compute/virtualmachines",
+          "status": "unknown",
+          "deployment_eligibility": "not_assessed",
+          "values": {},
+          "warnings": [
+            {
+              "code": "vmss_catalog_only",
+              "message": "VMSS catalog evidence does not establish workload deployment eligibility, quota or allocation capacity."
+            }
+          ]
+        },
+        "error": null,
+        "getter_calls": 1,
+        "request_urls": [
+          "https://management.azure.com/subscriptions/abcdefab-1234-4234-8234-123456789abc/providers/Microsoft.Compute/skus?%24filter=location+eq+%27eastus%27&api-version=2021-07-01"
+        ],
+        "input_unchanged": true,
+        "owned_output": false
+      }
+    },
+    {
+      "name": "first-page-denied",
+      "input": {
+        "selected_subscriptions": {
+          "abcdefab-1234-4234-8234-123456789abc": "selected"
+        },
+        "request": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "resource_type": "microsoft.compute/virtualmachinescalesets"
+        },
+        "required_names": [
+          "standard_a1"
+        ],
+        "source": {
+          "kind": "collector",
+          "pages": [
+            {
+              "status": 403,
+              "body": "{\"value\":[]}"
+            }
+          ]
+        },
+        "context": "active"
+      },
+      "expected": {
+        "catalog": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "target_resource_type": "microsoft.compute/virtualmachinescalesets",
+          "source_resource_type": "microsoft.compute/virtualmachines",
+          "status": "unknown",
+          "deployment_eligibility": "not_assessed",
+          "values": {},
+          "warnings": [
+            {
+              "code": "vmss_catalog_only",
+              "message": "VMSS catalog evidence does not establish workload deployment eligibility, quota or allocation capacity."
+            }
+          ]
+        },
+        "error": null,
+        "getter_calls": 1,
+        "request_urls": [
+          "https://management.azure.com/subscriptions/abcdefab-1234-4234-8234-123456789abc/providers/Microsoft.Compute/skus?%24filter=location+eq+%27eastus%27&api-version=2021-07-01"
+        ],
+        "input_unchanged": true,
+        "owned_output": false
+      }
+    },
+    {
+      "name": "later-page-denied-prefix-not-projected",
+      "input": {
+        "selected_subscriptions": {
+          "abcdefab-1234-4234-8234-123456789abc": "selected"
+        },
+        "request": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "resource_type": "microsoft.compute/virtualmachinescalesets"
+        },
+        "required_names": [
+          "standard_a1"
+        ],
+        "source": {
+          "kind": "collector",
+          "pages": [
+            {
+              "status": 200,
+              "body": "{\"value\":[{\"resourceType\":\"virtualMachines\",\"name\":\"standard_a1\",\"locations\":[\"eastus\"],\"restrictions\":[]}],\"nextLink\":\"https://management.azure.com/subscriptions/abcdefab-1234-4234-8234-123456789abc/providers/Microsoft.Compute/skus?%24filter=location+eq+%27eastus%27&%24skiptoken=n&api-version=2021-07-01\"}"
+            },
+            {
+              "status": 403,
+              "body": "{}"
+            }
+          ]
+        },
+        "context": "active"
+      },
+      "expected": {
+        "catalog": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "target_resource_type": "microsoft.compute/virtualmachinescalesets",
+          "source_resource_type": "microsoft.compute/virtualmachines",
+          "status": "unknown",
+          "deployment_eligibility": "not_assessed",
+          "values": {},
+          "warnings": [
+            {
+              "code": "vmss_catalog_only",
+              "message": "VMSS catalog evidence does not establish workload deployment eligibility, quota or allocation capacity."
+            }
+          ]
+        },
+        "error": null,
+        "getter_calls": 2,
+        "request_urls": [
+          "https://management.azure.com/subscriptions/abcdefab-1234-4234-8234-123456789abc/providers/Microsoft.Compute/skus?%24filter=location+eq+%27eastus%27&api-version=2021-07-01",
+          "https://management.azure.com/subscriptions/abcdefab-1234-4234-8234-123456789abc/providers/Microsoft.Compute/skus?%24filter=location+eq+%27eastus%27&%24skiptoken=n&api-version=2021-07-01"
+        ],
+        "input_unchanged": true,
+        "owned_output": false
+      }
+    },
+    {
+      "name": "nil-collection",
+      "input": {
+        "selected_subscriptions": {
+          "abcdefab-1234-4234-8234-123456789abc": "selected"
+        },
+        "request": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "resource_type": "microsoft.compute/virtualmachinescalesets"
+        },
+        "required_names": [
+          "standard_a1"
+        ],
+        "source": {
+          "kind": "collection",
+          "value": null
+        },
+        "context": "active"
+      },
+      "expected": {
+        "catalog": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "target_resource_type": "microsoft.compute/virtualmachinescalesets",
+          "source_resource_type": "microsoft.compute/virtualmachines",
+          "status": "unknown",
+          "deployment_eligibility": "not_assessed",
+          "values": {},
+          "warnings": [
+            {
+              "code": "vmss_catalog_only",
+              "message": "VMSS catalog evidence does not establish workload deployment eligibility, quota or allocation capacity."
+            }
+          ]
+        },
+        "error": null,
+        "getter_calls": 0,
+        "request_urls": [],
+        "input_unchanged": true,
+        "owned_output": false
+      }
+    },
+    {
+      "name": "valid-partial-diagnostic-prefix",
+      "input": {
+        "selected_subscriptions": {
+          "abcdefab-1234-4234-8234-123456789abc": "selected"
+        },
+        "request": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "resource_type": "microsoft.compute/virtualmachinescalesets"
+        },
+        "required_names": [
+          "standard_a1"
+        ],
+        "source": {
+          "kind": "collection",
+          "value": {
+            "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+            "region": "eastus",
+            "resource_type": "microsoft.compute/virtualmachinescalesets",
+            "status": "partial",
+            "groups": {
+              "standard_a1": {
+                "known": true,
+                "state": 0,
+                "blocked_zones": []
+              }
+            },
+            "failure_code": "vm_sku_status_invalid"
+          }
+        },
+        "context": "active"
+      },
+      "expected": {
+        "catalog": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "target_resource_type": "microsoft.compute/virtualmachinescalesets",
+          "source_resource_type": "microsoft.compute/virtualmachines",
+          "status": "unknown",
+          "deployment_eligibility": "not_assessed",
+          "values": {},
+          "warnings": [
+            {
+              "code": "vmss_catalog_only",
+              "message": "VMSS catalog evidence does not establish workload deployment eligibility, quota or allocation capacity."
+            }
+          ]
+        },
+        "error": null,
+        "getter_calls": 0,
+        "request_urls": [],
+        "input_unchanged": true,
+        "owned_output": false
+      }
+    },
+    {
+      "name": "valid-unknown-empty",
+      "input": {
+        "selected_subscriptions": {
+          "abcdefab-1234-4234-8234-123456789abc": "selected"
+        },
+        "request": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "resource_type": "microsoft.compute/virtualmachinescalesets"
+        },
+        "required_names": [],
+        "source": {
+          "kind": "collection",
+          "value": {
+            "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+            "region": "eastus",
+            "resource_type": "microsoft.compute/virtualmachinescalesets",
+            "status": "unknown",
+            "groups": {},
+            "failure_code": ""
+          }
+        },
+        "context": "active"
+      },
+      "expected": {
+        "catalog": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "target_resource_type": "microsoft.compute/virtualmachinescalesets",
+          "source_resource_type": "microsoft.compute/virtualmachines",
+          "status": "unknown",
+          "deployment_eligibility": "not_assessed",
+          "values": {},
+          "warnings": [
+            {
+              "code": "vmss_catalog_only",
+              "message": "VMSS catalog evidence does not establish workload deployment eligibility, quota or allocation capacity."
+            }
+          ]
+        },
+        "error": null,
+        "getter_calls": 0,
+        "request_urls": [],
+        "input_unchanged": true,
+        "owned_output": false
+      }
+    },
+    {
+      "name": "direct-known-catalog",
+      "input": {
+        "selected_subscriptions": {
+          "abcdefab-1234-4234-8234-123456789abc": "selected"
+        },
+        "request": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "resource_type": "microsoft.compute/virtualmachinescalesets"
+        },
+        "required_names": [
+          "standard_a1"
+        ],
+        "source": {
+          "kind": "collection",
+          "value": {
+            "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+            "region": "eastus",
+            "resource_type": "microsoft.compute/virtualmachinescalesets",
+            "status": "complete",
+            "groups": {
+              "standard_a1": {
+                "known": true,
+                "state": 0,
+                "blocked_zones": []
+              }
+            },
+            "failure_code": ""
+          }
+        },
+        "context": "active"
+      },
+      "expected": {
+        "catalog": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "target_resource_type": "microsoft.compute/virtualmachinescalesets",
+          "source_resource_type": "microsoft.compute/virtualmachines",
+          "status": "complete",
+          "deployment_eligibility": "not_assessed",
+          "values": {
+            "standard_a1": {
+              "state": 0,
+              "blocked_zones": []
+            }
+          },
+          "warnings": [
+            {
+              "code": "vmss_catalog_only",
+              "message": "VMSS catalog evidence does not establish workload deployment eligibility, quota or allocation capacity."
+            }
+          ]
+        },
+        "error": null,
+        "getter_calls": 0,
+        "request_urls": [],
+        "input_unchanged": true,
+        "owned_output": false
+      }
+    },
+    {
+      "name": "normalize-required-name",
+      "input": {
+        "selected_subscriptions": {
+          "abcdefab-1234-4234-8234-123456789abc": "selected"
+        },
+        "request": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "resource_type": "microsoft.compute/virtualmachinescalesets"
+        },
+        "required_names": [
+          "STANDARD_A1"
+        ],
+        "source": {
+          "kind": "collection",
+          "value": {
+            "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+            "region": "eastus",
+            "resource_type": "microsoft.compute/virtualmachinescalesets",
+            "status": "complete",
+            "groups": {
+              "standard_a1": {
+                "known": true,
+                "state": 0,
+                "blocked_zones": []
+              }
+            },
+            "failure_code": ""
+          }
+        },
+        "context": "active"
+      },
+      "expected": {
+        "catalog": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "target_resource_type": "microsoft.compute/virtualmachinescalesets",
+          "source_resource_type": "microsoft.compute/virtualmachines",
+          "status": "complete",
+          "deployment_eligibility": "not_assessed",
+          "values": {
+            "standard_a1": {
+              "state": 0,
+              "blocked_zones": []
+            }
+          },
+          "warnings": [
+            {
+              "code": "vmss_catalog_only",
+              "message": "VMSS catalog evidence does not establish workload deployment eligibility, quota or allocation capacity."
+            }
+          ]
+        },
+        "error": null,
+        "getter_calls": 0,
+        "request_urls": [],
+        "input_unchanged": true,
+        "owned_output": false
+      }
+    },
+    {
+      "name": "owned-zones-and-maps",
+      "input": {
+        "selected_subscriptions": {
+          "abcdefab-1234-4234-8234-123456789abc": "selected"
+        },
+        "request": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "resource_type": "microsoft.compute/virtualmachinescalesets"
+        },
+        "required_names": [
+          "standard_a1"
+        ],
+        "source": {
+          "kind": "collection",
+          "value": {
+            "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+            "region": "eastus",
+            "resource_type": "microsoft.compute/virtualmachinescalesets",
+            "status": "complete",
+            "groups": {
+              "standard_a1": {
+                "known": true,
+                "state": 3,
+                "blocked_zones": [
+                  "1",
+                  "2"
+                ]
+              }
+            },
+            "failure_code": ""
+          }
+        },
+        "context": "active"
+      },
+      "expected": {
+        "catalog": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "target_resource_type": "microsoft.compute/virtualmachinescalesets",
+          "source_resource_type": "microsoft.compute/virtualmachines",
+          "status": "complete",
+          "deployment_eligibility": "not_assessed",
+          "values": {
+            "standard_a1": {
+              "state": 3,
+              "blocked_zones": [
+                "1",
+                "2"
+              ]
+            }
+          },
+          "warnings": [
+            {
+              "code": "vmss_catalog_only",
+              "message": "VMSS catalog evidence does not establish workload deployment eligibility, quota or allocation capacity."
+            }
+          ]
+        },
+        "error": null,
+        "getter_calls": 0,
+        "request_urls": [],
+        "input_unchanged": true,
+        "owned_output": true
+      }
+    },
+    {
+      "name": "complete-with-failure-code",
+      "input": {
+        "selected_subscriptions": {
+          "abcdefab-1234-4234-8234-123456789abc": "selected"
+        },
+        "request": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "resource_type": "microsoft.compute/virtualmachinescalesets"
+        },
+        "required_names": [
+          "standard_a1"
+        ],
+        "source": {
+          "kind": "collection",
+          "value": {
+            "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+            "region": "eastus",
+            "resource_type": "microsoft.compute/virtualmachinescalesets",
+            "status": "complete",
+            "groups": {},
+            "failure_code": "vm_sku_status_invalid"
+          }
+        },
+        "context": "active"
+      },
+      "expected": {
+        "catalog": null,
+        "error": "vmss_catalog_projection_invalid",
+        "getter_calls": 0,
+        "request_urls": [],
+        "input_unchanged": true,
+        "owned_output": false
+      }
+    },
+    {
+      "name": "unknown-retains-groups",
+      "input": {
+        "selected_subscriptions": {
+          "abcdefab-1234-4234-8234-123456789abc": "selected"
+        },
+        "request": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "resource_type": "microsoft.compute/virtualmachinescalesets"
+        },
+        "required_names": [
+          "standard_a1"
+        ],
+        "source": {
+          "kind": "collection",
+          "value": {
+            "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+            "region": "eastus",
+            "resource_type": "microsoft.compute/virtualmachinescalesets",
+            "status": "unknown",
+            "groups": {
+              "standard_a1": {
+                "known": true,
+                "state": 0,
+                "blocked_zones": []
+              }
+            },
+            "failure_code": ""
+          }
+        },
+        "context": "active"
+      },
+      "expected": {
+        "catalog": null,
+        "error": "vmss_catalog_projection_invalid",
+        "getter_calls": 0,
+        "request_urls": [],
+        "input_unchanged": true,
+        "owned_output": false
+      }
+    },
+    {
+      "name": "partial-without-failure-code",
+      "input": {
+        "selected_subscriptions": {
+          "abcdefab-1234-4234-8234-123456789abc": "selected"
+        },
+        "request": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "resource_type": "microsoft.compute/virtualmachinescalesets"
+        },
+        "required_names": [
+          "standard_a1"
+        ],
+        "source": {
+          "kind": "collection",
+          "value": {
+            "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+            "region": "eastus",
+            "resource_type": "microsoft.compute/virtualmachinescalesets",
+            "status": "partial",
+            "groups": {
+              "standard_a1": {
+                "known": true,
+                "state": 0,
+                "blocked_zones": []
+              }
+            },
+            "failure_code": ""
+          }
+        },
+        "context": "active"
+      },
+      "expected": {
+        "catalog": null,
+        "error": "vmss_catalog_projection_invalid",
+        "getter_calls": 0,
+        "request_urls": [],
+        "input_unchanged": true,
+        "owned_output": false
+      }
+    },
+    {
+      "name": "unknown-status-literal",
+      "input": {
+        "selected_subscriptions": {
+          "abcdefab-1234-4234-8234-123456789abc": "selected"
+        },
+        "request": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "resource_type": "microsoft.compute/virtualmachinescalesets"
+        },
+        "required_names": [
+          "standard_a1"
+        ],
+        "source": {
+          "kind": "collection",
+          "value": {
+            "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+            "region": "eastus",
+            "resource_type": "microsoft.compute/virtualmachinescalesets",
+            "status": "success",
+            "groups": {},
+            "failure_code": ""
+          }
+        },
+        "context": "active"
+      },
+      "expected": {
+        "catalog": null,
+        "error": "vmss_catalog_projection_invalid",
+        "getter_calls": 0,
+        "request_urls": [],
+        "input_unchanged": true,
+        "owned_output": false
+      }
+    },
+    {
+      "name": "unknown-failure-code",
+      "input": {
+        "selected_subscriptions": {
+          "abcdefab-1234-4234-8234-123456789abc": "selected"
+        },
+        "request": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "resource_type": "microsoft.compute/virtualmachinescalesets"
+        },
+        "required_names": [
+          "standard_a1"
+        ],
+        "source": {
+          "kind": "collection",
+          "value": {
+            "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+            "region": "eastus",
+            "resource_type": "microsoft.compute/virtualmachinescalesets",
+            "status": "unknown",
+            "groups": {},
+            "failure_code": "raw-secret-canary"
+          }
+        },
+        "context": "active"
+      },
+      "expected": {
+        "catalog": null,
+        "error": "vmss_catalog_projection_invalid",
+        "getter_calls": 0,
+        "request_urls": [],
+        "input_unchanged": true,
+        "owned_output": false
+      }
+    },
+    {
+      "name": "invalid-state",
+      "input": {
+        "selected_subscriptions": {
+          "abcdefab-1234-4234-8234-123456789abc": "selected"
+        },
+        "request": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "resource_type": "microsoft.compute/virtualmachinescalesets"
+        },
+        "required_names": [
+          "standard_a1"
+        ],
+        "source": {
+          "kind": "collection",
+          "value": {
+            "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+            "region": "eastus",
+            "resource_type": "microsoft.compute/virtualmachinescalesets",
+            "status": "complete",
+            "groups": {
+              "standard_a1": {
+                "known": true,
+                "state": 9,
+                "blocked_zones": []
+              }
+            },
+            "failure_code": ""
+          }
+        },
+        "context": "active"
+      },
+      "expected": {
+        "catalog": null,
+        "error": "vmss_catalog_projection_invalid",
+        "getter_calls": 0,
+        "request_urls": [],
+        "input_unchanged": true,
+        "owned_output": false
+      }
+    },
+    {
+      "name": "unknown-with-available-state",
+      "input": {
+        "selected_subscriptions": {
+          "abcdefab-1234-4234-8234-123456789abc": "selected"
+        },
+        "request": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "resource_type": "microsoft.compute/virtualmachinescalesets"
+        },
+        "required_names": [
+          "standard_a1"
+        ],
+        "source": {
+          "kind": "collection",
+          "value": {
+            "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+            "region": "eastus",
+            "resource_type": "microsoft.compute/virtualmachinescalesets",
+            "status": "complete",
+            "groups": {
+              "standard_a1": {
+                "known": false,
+                "state": 0,
+                "blocked_zones": []
+              }
+            },
+            "failure_code": ""
+          }
+        },
+        "context": "active"
+      },
+      "expected": {
+        "catalog": null,
+        "error": "vmss_catalog_projection_invalid",
+        "getter_calls": 0,
+        "request_urls": [],
+        "input_unchanged": true,
+        "owned_output": false
+      }
+    },
+    {
+      "name": "zones-on-unavailable-state",
+      "input": {
+        "selected_subscriptions": {
+          "abcdefab-1234-4234-8234-123456789abc": "selected"
+        },
+        "request": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "resource_type": "microsoft.compute/virtualmachinescalesets"
+        },
+        "required_names": [
+          "standard_a1"
+        ],
+        "source": {
+          "kind": "collection",
+          "value": {
+            "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+            "region": "eastus",
+            "resource_type": "microsoft.compute/virtualmachinescalesets",
+            "status": "complete",
+            "groups": {
+              "standard_a1": {
+                "known": true,
+                "state": 2,
+                "blocked_zones": [
+                  "1"
+                ]
+              }
+            },
+            "failure_code": ""
+          }
+        },
+        "context": "active"
+      },
+      "expected": {
+        "catalog": null,
+        "error": "vmss_catalog_projection_invalid",
+        "getter_calls": 0,
+        "request_urls": [],
+        "input_unchanged": true,
+        "owned_output": false
+      }
+    },
+    {
+      "name": "missing-zones-on-zone-state",
+      "input": {
+        "selected_subscriptions": {
+          "abcdefab-1234-4234-8234-123456789abc": "selected"
+        },
+        "request": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "resource_type": "microsoft.compute/virtualmachinescalesets"
+        },
+        "required_names": [
+          "standard_a1"
+        ],
+        "source": {
+          "kind": "collection",
+          "value": {
+            "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+            "region": "eastus",
+            "resource_type": "microsoft.compute/virtualmachinescalesets",
+            "status": "complete",
+            "groups": {
+              "standard_a1": {
+                "known": true,
+                "state": 3,
+                "blocked_zones": []
+              }
+            },
+            "failure_code": ""
+          }
+        },
+        "context": "active"
+      },
+      "expected": {
+        "catalog": null,
+        "error": "vmss_catalog_projection_invalid",
+        "getter_calls": 0,
+        "request_urls": [],
+        "input_unchanged": true,
+        "owned_output": false
+      }
+    },
+    {
+      "name": "unsorted-zones",
+      "input": {
+        "selected_subscriptions": {
+          "abcdefab-1234-4234-8234-123456789abc": "selected"
+        },
+        "request": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "resource_type": "microsoft.compute/virtualmachinescalesets"
+        },
+        "required_names": [
+          "standard_a1"
+        ],
+        "source": {
+          "kind": "collection",
+          "value": {
+            "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+            "region": "eastus",
+            "resource_type": "microsoft.compute/virtualmachinescalesets",
+            "status": "complete",
+            "groups": {
+              "standard_a1": {
+                "known": true,
+                "state": 3,
+                "blocked_zones": [
+                  "2",
+                  "1"
+                ]
+              }
+            },
+            "failure_code": ""
+          }
+        },
+        "context": "active"
+      },
+      "expected": {
+        "catalog": null,
+        "error": "vmss_catalog_projection_invalid",
+        "getter_calls": 0,
+        "request_urls": [],
+        "input_unchanged": true,
+        "owned_output": false
+      }
+    },
+    {
+      "name": "duplicate-zones",
+      "input": {
+        "selected_subscriptions": {
+          "abcdefab-1234-4234-8234-123456789abc": "selected"
+        },
+        "request": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "resource_type": "microsoft.compute/virtualmachinescalesets"
+        },
+        "required_names": [
+          "standard_a1"
+        ],
+        "source": {
+          "kind": "collection",
+          "value": {
+            "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+            "region": "eastus",
+            "resource_type": "microsoft.compute/virtualmachinescalesets",
+            "status": "complete",
+            "groups": {
+              "standard_a1": {
+                "known": true,
+                "state": 3,
+                "blocked_zones": [
+                  "1",
+                  "1"
+                ]
+              }
+            },
+            "failure_code": ""
+          }
+        },
+        "context": "active"
+      },
+      "expected": {
+        "catalog": null,
+        "error": "vmss_catalog_projection_invalid",
+        "getter_calls": 0,
+        "request_urls": [],
+        "input_unchanged": true,
+        "owned_output": false
+      }
+    },
+    {
+      "name": "noncanonical-zone",
+      "input": {
+        "selected_subscriptions": {
+          "abcdefab-1234-4234-8234-123456789abc": "selected"
+        },
+        "request": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "resource_type": "microsoft.compute/virtualmachinescalesets"
+        },
+        "required_names": [
+          "standard_a1"
+        ],
+        "source": {
+          "kind": "collection",
+          "value": {
+            "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+            "region": "eastus",
+            "resource_type": "microsoft.compute/virtualmachinescalesets",
+            "status": "complete",
+            "groups": {
+              "standard_a1": {
+                "known": true,
+                "state": 3,
+                "blocked_zones": [
+                  "01"
+                ]
+              }
+            },
+            "failure_code": ""
+          }
+        },
+        "context": "active"
+      },
+      "expected": {
+        "catalog": null,
+        "error": "vmss_catalog_projection_invalid",
+        "getter_calls": 0,
+        "request_urls": [],
+        "input_unchanged": true,
+        "owned_output": false
+      }
+    },
+    {
+      "name": "noncanonical-group-key",
+      "input": {
+        "selected_subscriptions": {
+          "abcdefab-1234-4234-8234-123456789abc": "selected"
+        },
+        "request": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "resource_type": "microsoft.compute/virtualmachinescalesets"
+        },
+        "required_names": [
+          "standard_a1"
+        ],
+        "source": {
+          "kind": "collection",
+          "value": {
+            "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+            "region": "eastus",
+            "resource_type": "microsoft.compute/virtualmachinescalesets",
+            "status": "complete",
+            "groups": {
+              "STANDARD_A1": {
+                "known": true,
+                "state": 0,
+                "blocked_zones": []
+              }
+            },
+            "failure_code": ""
+          }
+        },
+        "context": "active"
+      },
+      "expected": {
+        "catalog": null,
+        "error": "vmss_catalog_projection_invalid",
+        "getter_calls": 0,
+        "request_urls": [],
+        "input_unchanged": true,
+        "owned_output": false
+      }
+    },
+    {
+      "name": "invalid-group-key",
+      "input": {
+        "selected_subscriptions": {
+          "abcdefab-1234-4234-8234-123456789abc": "selected"
+        },
+        "request": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "resource_type": "microsoft.compute/virtualmachinescalesets"
+        },
+        "required_names": [
+          "standard_a1"
+        ],
+        "source": {
+          "kind": "collection",
+          "value": {
+            "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+            "region": "eastus",
+            "resource_type": "microsoft.compute/virtualmachinescalesets",
+            "status": "complete",
+            "groups": {
+              " padded-name": {
+                "known": true,
+                "state": 0,
+                "blocked_zones": []
+              }
+            },
+            "failure_code": ""
+          }
+        },
+        "context": "active"
+      },
+      "expected": {
+        "catalog": null,
+        "error": "vmss_catalog_projection_invalid",
+        "getter_calls": 0,
+        "request_urls": [],
+        "input_unchanged": true,
+        "owned_output": false
+      }
+    },
+    {
+      "name": "wrong-collection-subscription",
+      "input": {
+        "selected_subscriptions": {
+          "abcdefab-1234-4234-8234-123456789abc": "selected",
+          "bbbbbbbb-2222-4222-8222-bbbbbbbbbbbb": "also-selected"
+        },
+        "request": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "resource_type": "microsoft.compute/virtualmachinescalesets"
+        },
+        "required_names": [
+          "standard_a1"
+        ],
+        "source": {
+          "kind": "collection",
+          "value": {
+            "subscription_id": "bbbbbbbb-2222-4222-8222-bbbbbbbbbbbb",
+            "region": "eastus",
+            "resource_type": "microsoft.compute/virtualmachinescalesets",
+            "status": "complete",
+            "groups": {},
+            "failure_code": ""
+          }
+        },
+        "context": "active"
+      },
+      "expected": {
+        "catalog": null,
+        "error": "vmss_catalog_projection_invalid",
+        "getter_calls": 0,
+        "request_urls": [],
+        "input_unchanged": true,
+        "owned_output": false
+      }
+    },
+    {
+      "name": "wrong-collection-region",
+      "input": {
+        "selected_subscriptions": {
+          "abcdefab-1234-4234-8234-123456789abc": "selected"
+        },
+        "request": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "resource_type": "microsoft.compute/virtualmachinescalesets"
+        },
+        "required_names": [
+          "standard_a1"
+        ],
+        "source": {
+          "kind": "collection",
+          "value": {
+            "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+            "region": "westus",
+            "resource_type": "microsoft.compute/virtualmachinescalesets",
+            "status": "complete",
+            "groups": {},
+            "failure_code": ""
+          }
+        },
+        "context": "active"
+      },
+      "expected": {
+        "catalog": null,
+        "error": "vmss_catalog_projection_invalid",
+        "getter_calls": 0,
+        "request_urls": [],
+        "input_unchanged": true,
+        "owned_output": false
+      }
+    },
+    {
+      "name": "vm-bound-collection-cannot-be-relabeled",
+      "input": {
+        "selected_subscriptions": {
+          "abcdefab-1234-4234-8234-123456789abc": "selected"
+        },
+        "request": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "resource_type": "microsoft.compute/virtualmachinescalesets"
+        },
+        "required_names": [
+          "standard_a1"
+        ],
+        "source": {
+          "kind": "collection",
+          "value": {
+            "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+            "region": "eastus",
+            "resource_type": "microsoft.compute/virtualmachines",
+            "status": "complete",
+            "groups": {},
+            "failure_code": ""
+          }
+        },
+        "context": "active"
+      },
+      "expected": {
+        "catalog": null,
+        "error": "vmss_catalog_projection_invalid",
+        "getter_calls": 0,
+        "request_urls": [],
+        "input_unchanged": true,
+        "owned_output": false
+      }
+    },
+    {
+      "name": "duplicate-required-normalization",
+      "input": {
+        "selected_subscriptions": {
+          "abcdefab-1234-4234-8234-123456789abc": "selected"
+        },
+        "request": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "resource_type": "microsoft.compute/virtualmachinescalesets"
+        },
+        "required_names": [
+          "standard_a1",
+          "STANDARD_A1"
+        ],
+        "source": {
+          "kind": "collection",
+          "value": {
+            "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+            "region": "eastus",
+            "resource_type": "microsoft.compute/virtualmachinescalesets",
+            "status": "complete",
+            "groups": {},
+            "failure_code": ""
+          }
+        },
+        "context": "active"
+      },
+      "expected": {
+        "catalog": null,
+        "error": "vmss_catalog_projection_invalid",
+        "getter_calls": 0,
+        "request_urls": [],
+        "input_unchanged": true,
+        "owned_output": false
+      }
+    },
+    {
+      "name": "empty-required-name",
+      "input": {
+        "selected_subscriptions": {
+          "abcdefab-1234-4234-8234-123456789abc": "selected"
+        },
+        "request": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "resource_type": "microsoft.compute/virtualmachinescalesets"
+        },
+        "required_names": [
+          ""
+        ],
+        "source": {
+          "kind": "collection",
+          "value": {
+            "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+            "region": "eastus",
+            "resource_type": "microsoft.compute/virtualmachinescalesets",
+            "status": "complete",
+            "groups": {},
+            "failure_code": ""
+          }
+        },
+        "context": "active"
+      },
+      "expected": {
+        "catalog": null,
+        "error": "vmss_catalog_projection_invalid",
+        "getter_calls": 0,
+        "request_urls": [],
+        "input_unchanged": true,
+        "owned_output": false
+      }
+    },
+    {
+      "name": "padded-required-name",
+      "input": {
+        "selected_subscriptions": {
+          "abcdefab-1234-4234-8234-123456789abc": "selected"
+        },
+        "request": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "resource_type": "microsoft.compute/virtualmachinescalesets"
+        },
+        "required_names": [
+          " standard_a1"
+        ],
+        "source": {
+          "kind": "collection",
+          "value": {
+            "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+            "region": "eastus",
+            "resource_type": "microsoft.compute/virtualmachinescalesets",
+            "status": "complete",
+            "groups": {},
+            "failure_code": ""
+          }
+        },
+        "context": "active"
+      },
+      "expected": {
+        "catalog": null,
+        "error": "vmss_catalog_projection_invalid",
+        "getter_calls": 0,
+        "request_urls": [],
+        "input_unchanged": true,
+        "owned_output": false
+      }
+    },
+    {
+      "name": "wrong-target-type",
+      "input": {
+        "selected_subscriptions": {
+          "abcdefab-1234-4234-8234-123456789abc": "selected"
+        },
+        "request": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "resource_type": "microsoft.compute/virtualmachines"
+        },
+        "required_names": [],
+        "source": {
+          "kind": "collection",
+          "value": {
+            "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+            "region": "eastus",
+            "resource_type": "microsoft.compute/virtualmachinescalesets",
+            "status": "complete",
+            "groups": {},
+            "failure_code": ""
+          }
+        },
+        "context": "active"
+      },
+      "expected": {
+        "catalog": null,
+        "error": "vmss_catalog_projection_invalid",
+        "getter_calls": 0,
+        "request_urls": [],
+        "input_unchanged": true,
+        "owned_output": false
+      }
+    },
+    {
+      "name": "noncanonical-target-region",
+      "input": {
+        "selected_subscriptions": {
+          "abcdefab-1234-4234-8234-123456789abc": "selected"
+        },
+        "request": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "East US",
+          "resource_type": "microsoft.compute/virtualmachinescalesets"
+        },
+        "required_names": [],
+        "source": {
+          "kind": "collection",
+          "value": {
+            "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+            "region": "eastus",
+            "resource_type": "microsoft.compute/virtualmachinescalesets",
+            "status": "complete",
+            "groups": {},
+            "failure_code": ""
+          }
+        },
+        "context": "active"
+      },
+      "expected": {
+        "catalog": null,
+        "error": "vmss_catalog_projection_invalid",
+        "getter_calls": 0,
+        "request_urls": [],
+        "input_unchanged": true,
+        "owned_output": false
+      }
+    },
+    {
+      "name": "unselected-target-subscription",
+      "input": {
+        "selected_subscriptions": {
+          "abcdefab-1234-4234-8234-123456789abc": "selected"
+        },
+        "request": {
+          "subscription_id": "bbbbbbbb-2222-4222-8222-bbbbbbbbbbbb",
+          "region": "eastus",
+          "resource_type": "microsoft.compute/virtualmachinescalesets"
+        },
+        "required_names": [],
+        "source": {
+          "kind": "collection",
+          "value": {
+            "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+            "region": "eastus",
+            "resource_type": "microsoft.compute/virtualmachinescalesets",
+            "status": "complete",
+            "groups": {},
+            "failure_code": ""
+          }
+        },
+        "context": "active"
+      },
+      "expected": {
+        "catalog": null,
+        "error": "vmss_catalog_projection_invalid",
+        "getter_calls": 0,
+        "request_urls": [],
+        "input_unchanged": true,
+        "owned_output": false
+      }
+    },
+    {
+      "name": "uppercase-request-and-selected-uuid",
+      "input": {
+        "selected_subscriptions": {
+          "ABCDEFAB-1234-4234-8234-123456789ABC": "selected"
+        },
+        "request": {
+          "subscription_id": "ABCDEFAB-1234-4234-8234-123456789ABC",
+          "region": "eastus",
+          "resource_type": "microsoft.compute/virtualmachinescalesets"
+        },
+        "required_names": [],
+        "source": {
+          "kind": "collection",
+          "value": {
+            "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+            "region": "eastus",
+            "resource_type": "microsoft.compute/virtualmachinescalesets",
+            "status": "complete",
+            "groups": {},
+            "failure_code": ""
+          }
+        },
+        "context": "active"
+      },
+      "expected": {
+        "catalog": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "target_resource_type": "microsoft.compute/virtualmachinescalesets",
+          "source_resource_type": "microsoft.compute/virtualmachines",
+          "status": "complete",
+          "deployment_eligibility": "not_assessed",
+          "values": {},
+          "warnings": [
+            {
+              "code": "vmss_catalog_only",
+              "message": "VMSS catalog evidence does not establish workload deployment eligibility, quota or allocation capacity."
+            }
+          ]
+        },
+        "error": null,
+        "getter_calls": 0,
+        "request_urls": [],
+        "input_unchanged": true,
+        "owned_output": false
+      }
+    },
+    {
+      "name": "normalized-selected-collision",
+      "input": {
+        "selected_subscriptions": {
+          "abcdefab-1234-4234-8234-123456789abc": "first",
+          "ABCDEFAB-1234-4234-8234-123456789ABC": "second"
+        },
+        "request": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "resource_type": "microsoft.compute/virtualmachinescalesets"
+        },
+        "required_names": [],
+        "source": {
+          "kind": "collection",
+          "value": {
+            "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+            "region": "eastus",
+            "resource_type": "microsoft.compute/virtualmachinescalesets",
+            "status": "complete",
+            "groups": {},
+            "failure_code": ""
+          }
+        },
+        "context": "active"
+      },
+      "expected": {
+        "catalog": null,
+        "error": "vmss_catalog_projection_invalid",
+        "getter_calls": 0,
+        "request_urls": [],
+        "input_unchanged": true,
+        "owned_output": false
+      }
+    },
+    {
+      "name": "empty-selected-scope",
+      "input": {
+        "selected_subscriptions": {},
+        "request": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "resource_type": "microsoft.compute/virtualmachinescalesets"
+        },
+        "required_names": [],
+        "source": {
+          "kind": "collection",
+          "value": {
+            "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+            "region": "eastus",
+            "resource_type": "microsoft.compute/virtualmachinescalesets",
+            "status": "complete",
+            "groups": {},
+            "failure_code": ""
+          }
+        },
+        "context": "active"
+      },
+      "expected": {
+        "catalog": null,
+        "error": "vmss_catalog_projection_invalid",
+        "getter_calls": 0,
+        "request_urls": [],
+        "input_unchanged": true,
+        "owned_output": false
+      }
+    },
+    {
+      "name": "empty-selected-label",
+      "input": {
+        "selected_subscriptions": {
+          "abcdefab-1234-4234-8234-123456789abc": ""
+        },
+        "request": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "resource_type": "microsoft.compute/virtualmachinescalesets"
+        },
+        "required_names": [],
+        "source": {
+          "kind": "collection",
+          "value": {
+            "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+            "region": "eastus",
+            "resource_type": "microsoft.compute/virtualmachinescalesets",
+            "status": "complete",
+            "groups": {},
+            "failure_code": ""
+          }
+        },
+        "context": "active"
+      },
+      "expected": {
+        "catalog": null,
+        "error": "vmss_catalog_projection_invalid",
+        "getter_calls": 0,
+        "request_urls": [],
+        "input_unchanged": true,
+        "owned_output": false
+      }
+    },
+    {
+      "name": "invalid-selected-uuid",
+      "input": {
+        "selected_subscriptions": {
+          "invalid-id": "selected"
+        },
+        "request": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "resource_type": "microsoft.compute/virtualmachinescalesets"
+        },
+        "required_names": [],
+        "source": {
+          "kind": "collection",
+          "value": {
+            "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+            "region": "eastus",
+            "resource_type": "microsoft.compute/virtualmachinescalesets",
+            "status": "complete",
+            "groups": {},
+            "failure_code": ""
+          }
+        },
+        "context": "active"
+      },
+      "expected": {
+        "catalog": null,
+        "error": "vmss_catalog_projection_invalid",
+        "getter_calls": 0,
+        "request_urls": [],
+        "input_unchanged": true,
+        "owned_output": false
+      }
+    },
+    {
+      "name": "cancelled-before-complete-result",
+      "input": {
+        "selected_subscriptions": {
+          "abcdefab-1234-4234-8234-123456789abc": "selected"
+        },
+        "request": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "resource_type": "microsoft.compute/virtualmachinescalesets"
+        },
+        "required_names": [
+          "standard_a1"
+        ],
+        "source": {
+          "kind": "collection",
+          "value": {
+            "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+            "region": "eastus",
+            "resource_type": "microsoft.compute/virtualmachinescalesets",
+            "status": "complete",
+            "groups": {
+              "standard_a1": {
+                "known": true,
+                "state": 0,
+                "blocked_zones": []
+              }
+            },
+            "failure_code": ""
+          }
+        },
+        "context": "cancelled"
+      },
+      "expected": {
+        "catalog": null,
+        "error": "context_canceled",
+        "getter_calls": 0,
+        "request_urls": [],
+        "input_unchanged": true,
+        "owned_output": false
+      }
+    },
+    {
+      "name": "deadline-before-nil-invalid-scope",
+      "input": {
+        "selected_subscriptions": {},
+        "request": {
+          "subscription_id": "abcdefab-1234-4234-8234-123456789abc",
+          "region": "eastus",
+          "resource_type": "microsoft.compute/virtualmachinescalesets"
+        },
+        "required_names": [],
+        "source": {
+          "kind": "collection",
+          "value": null
+        },
+        "context": "deadline"
+      },
+      "expected": {
+        "catalog": null,
+        "error": "context_deadline_exceeded",
+        "getter_calls": 0,
+        "request_urls": [],
+        "input_unchanged": true,
+        "owned_output": false
+      }
+    }
+  ]
+}

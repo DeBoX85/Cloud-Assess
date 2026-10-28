@@ -1,0 +1,56 @@
+"""Structural preparation checks only, never a future API or expected-output generator."""
+import copy
+import json
+from pathlib import Path
+import sys
+
+def unique(pairs):
+ d={}
+ for k,v in pairs:
+  if k in d:raise ValueError('duplicate key')
+  d[k]=v
+ return d
+def put(doc,path,value):
+ assert path.startswith('/')
+ parts=path[1:].split('/');parts=[p.replace('~1','/').replace('~0','~') for p in parts]
+ current=doc
+ for token in parts[:-1]:current=current[int(token)] if isinstance(current,list) else current[token]
+ if isinstance(current,list):
+  index=int(parts[-1]);assert 0<=index<len(current);current[index]=copy.deepcopy(value)
+ else:
+  assert isinstance(current,dict);current[parts[-1]]=copy.deepcopy(value)
+def validate(data,base):
+ assert data['format']=='required-inventory-additional-expectations-preparation-v1' and data['frozen'] is False
+ assert len(base['cases'])==50 and len(data['cases'])==26 and len(data['procedural_expectations'])==13
+ names=[c['name'] for c in data['cases']+data['procedural_expectations']]
+ assert len(names)==len(set(names)) and not set(names)&{c['name'] for c in base['cases']}
+ lookup={c['name']:c for c in base['cases']};failures=successes=0
+ for c in data['cases']:
+  assert c['base_case'] in lookup and c['set']
+  fixture=copy.deepcopy(lookup[c['base_case']]);expected=copy.deepcopy(fixture['want'])
+  for p,v in c['set'].items():
+   assert p.startswith(('/resources/','/collections/','/selected/','/declarations/','/request/'));put(fixture,p,v)
+  assert c['want_error'] in ('','required_inventory_invalid','required_evidence_invalid','required_inventory_limit','required_evidence_limit')
+  if c['want_error']:
+   failures+=1;assert c['want_nil'] is True and c['want_phase'] in ('build','admit') and 'want_same_as_base_except' not in c
+   assert c['want_error'].startswith('required_inventory_' if c['want_phase']=='build' else 'required_evidence_')
+  else:
+   successes+=1;assert c['want_nil'] is False and c['want_phase']=='' and isinstance(c['want_same_as_base_except'],dict)
+   for p,v in c['want_same_as_base_except'].items():put(expected,p,v)
+   assert expected['error']=='' and expected['preserve_raw_records'] is True
+  # This checks literal references/types, not whether either API produces expected values.
+ assert failures==20 and successes==6
+ required={'nil-context-build','nil-context-admit','nil-zero-forged-plan','constructor-input-ownership','plan-diagnostic-mutation-resistance','admission-input-ownership','accessor-deep-copy','zero-admission-accessor','repeat-and-concurrent-isolation','terminal-context-priority','late-terminal-context','late-invalid-tail-atomicity','storage-all-kinds-first-excess'}
+ assert {c['name'] for c in data['procedural_expectations']}==required
+ late=next(c for c in data['procedural_expectations'] if c['name']=='late-terminal-context');assert late['executed'] is False and late['schedule'].startswith('OPEN:')
+ return {'literal_cases':len(data['cases']),'literal_failures':failures,'literal_successes':successes,'procedural_expectations':len(required),'future_api_executed':False,'late_cancellation_schedule':'OPEN before freeze'}
+
+root=Path(sys.argv[1]);data=json.loads((root/'docs/evidence/20261026/inventory-output/additional-expectations.json').read_bytes(),object_pairs_hook=unique);base=json.loads((root/data['base_manifest']).read_bytes(),object_pairs_hook=unique);out=validate(data,base)
+bad=[]
+for name,change in [('unknown-base',lambda d:d['cases'][0].update(base_case='absent')),('lost-nil-result',lambda d:d['cases'][0].update(want_nil=False)),('false-freeze',lambda d:d.update(frozen=True)),('lost-late-cancel',lambda d:d['procedural_expectations'].pop())]:
+ d=copy.deepcopy(data);change(d)
+ try:validate(d,base)
+ except (AssertionError,ValueError,KeyError,IndexError):bad.append(name)
+ else:raise AssertionError('negative scenario accepted')
+out['negative_controls_rejected']=bad
+print(json.dumps(out,indent=2))
