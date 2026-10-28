@@ -1,0 +1,5 @@
+# Independent subscription location consumer
+
+These35wire literals, eight collection-boundary recipes,11JSON-boundary cases,13unsafe-continuation cases and eight procedural obligations were authored before production. The three Go consumer files stay .go.txt until a separately published implementation copies them byte-for-byte. Pinned zone counts copy the unchanged33-entry source table; no source-generated execution oracle or refresh.
+
+Publish/read back the bound files and manifest before observing missing APIs or implementing. A compile-only shape stub can validate fixture syntax without invoking the future API; it is not a runtime implementation pass. Both native hosts must independently record the missing actual APIs. The final implementation must pass all97named baseline events, all33fallback constants and compiling assertion-specific reversals, with all original controls/pins conserved and own full QA/private retention. JSON opaque keys remain case-sensitive; known typed aliases are distinct admission rules. No coordinator/task10closure, timer/heap/live/credential/installed/security/release acceptance.

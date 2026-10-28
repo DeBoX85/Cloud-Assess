@@ -105,6 +105,18 @@ def require_subscription_reservation_controls(text):
             raise ValueError('subscription reservation controls weakened')
 
 
+def require_subscription_location_preproduction(text):
+    for host, consumer in [('linux', 'Verify pinned source-data provenance'), ('windows', 'Parse scripts with Windows PowerShell 5.1')]:
+        match = re.search(r'^  '+host+r'-native:\n(.*?)(?=^  [a-z]|\Z)', text, re.M|re.S)
+        if not match: raise ValueError('missing subscription location preproduction native host')
+        body = match.group(1); marker = '      - name: Verify subscription location preproduction contract\n'
+        if body.count(marker) != 1 or body.index(marker) >= body.index('      - name: '+consumer+'\n'):
+            raise ValueError('subscription location preproduction missing/late')
+        block = body.split(marker, 1)[1].split('      - name:', 1)[0]
+        if 'scripts/tests/subscription-location-preproduction.py' not in block or 'continue-on-error' in block or 'if:' in block:
+            raise ValueError('subscription location preproduction weakened')
+
+
 class GateTests(unittest.TestCase):
     def test_coordinator_specification_both_hosts(self):
         require_coordinator_specification(workflow.generate())
@@ -141,6 +153,24 @@ class GateTests(unittest.TestCase):
         lost = text[:start]+text[end:]; later = lost.index('      - name: Vet\n')
         with self.assertRaises(ValueError):
             require_subscription_reservation_controls(lost[:later]+block+lost[later:])
+
+    def test_subscription_location_preproduction_both_hosts(self):
+        require_subscription_location_preproduction(workflow.generate())
+
+    def test_subscription_location_preproduction_cannot_be_removed_or_weakened(self):
+        text = workflow.generate(); marker = '      - name: Verify subscription location preproduction contract\n'
+        for host in ('linux', 'windows'):
+            before, rest = text.split('  '+host+'-native:\n', 1)
+            for mutation in ('      - name: Lost subscription location preproduction\n', marker+'        continue-on-error: true\n', marker+'        if: false\n'):
+                with self.assertRaises(ValueError):
+                    require_subscription_location_preproduction(before+'  '+host+'-native:\n'+rest.replace(marker, mutation, 1))
+
+    def test_subscription_location_preproduction_cannot_run_late(self):
+        text = workflow.generate(); marker = '      - name: Verify subscription location preproduction contract\n'
+        start = text.index(marker); end = text.index('      - name:', start+len(marker)); block = text[start:end]
+        lost = text[:start]+text[end:]; later = lost.index('      - name: Vet\n')
+        with self.assertRaises(ValueError):
+            require_subscription_location_preproduction(lost[:later]+block+lost[later:])
 
     def test_comparison_json_controls_both_hosts(self):
         require_comparison_json_controls(workflow.generate())

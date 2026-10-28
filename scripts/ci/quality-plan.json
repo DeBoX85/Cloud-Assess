@@ -184,6 +184,11 @@
         "name": "Verify subscription reservation contract controls",
         "script": "scripts/tests/subscription-reservation-controls.py",
         "worker": "native"
+      },
+      {
+        "name": "Verify subscription location preproduction contract",
+        "script": "scripts/tests/subscription-location-preproduction.py",
+        "worker": "native"
       }
     ],
     "windows": [
@@ -280,6 +285,11 @@
       {
         "name": "Verify subscription reservation contract controls",
         "script": "scripts/tests/subscription-reservation-controls.py",
+        "worker": "native"
+      },
+      {
+        "name": "Verify subscription location preproduction contract",
+        "script": "scripts/tests/subscription-location-preproduction.py",
         "worker": "native"
       }
     ]

@@ -9,21 +9,24 @@ This is the short project dashboard for Denis. Update it at every meaningful act
 | Item | Position |
 | --- | --- |
 | Goal | AZQR feature/function/capability parity with adjustable branding, accurate behavior and documented deliberate improvements; verified against Denis's pinned fork |
-| Active task | Task10 binding/audit successor `dev/coordinator-binding-audit-20261028`; region/AZ strict contract/consumer next, coordinator unimplemented |
+| Active task | Task10 prerequisite: subscription location/AZ contract and strict consumer preparation on `dev/subscription-locations-contract-20261028`; production API and coordinator absent |
 | Latest verified product milestone | [Draft PR207](https://github.com/DeBoX85/Cloud-Assess/pull/207), frozen `5fe46d8c394b45995402850944e63b236c792912`: subscription-wide reservation component verified offline with own QA/private110member restore |
-| Current candidate verification | 207own native/source/full controls/rollback/retention verified by final index. This new documentary/binding candidate requires OWN QA/retention |
-| Next production task | Finish own successor QA/retention; freeze/reproduce region/AZ independent consumer and exact API before production; currency/cumulative-budget bindings remain |
+| Current candidate verification | PR208 audit/binding checkpoint verified offline by own quality40716534512/source40716534340 and private96member restore. New location preparation needs OWN full QA/retention; fixture-only shape check is not API runtime proof |
+| Next production task | Publish/read back location contract/consumer freeze, verify BOTH-native missing APIs and own QA/retention, then implement on a separate PRODUCT successor; exact coordinator/currency/cumulative budgets remain |
 | Input needed from Denis now | None for the authorized offline sequence. Stop only for material uncertainty with no safe mitigation or explicit deferral |
 | Protected acceptance | Drafts remain unmerged. Protected baseline and AZQR/APRL pins unchanged; no release approval implied |
 
+Current location prerequisite: [strict contract and independent consumer](SUBSCRIPTION_LOCATION_CONTRACT_20261028.md). No new API is implemented.
+
 Current preparation scope and remaining bindings: [coordinator contract](REGION_COORDINATOR_CONTRACT_20261028.md). Its finite model does not execute or accept the future Go coordinator. [PR206 final index](https://github.com/DeBoX85/Cloud-Assess/pull/206) verifies its own preparation QA/private retention; the completed subscription contract is [subscription reservations](SUBSCRIPTION_RESERVATION_CONTRACT_20261028.md) and next binding work is [region/AZ preparation](COORDINATOR_BINDING_AUDIT_20261028.md). No input from Denis or Azure tenant is required for the next binding review.
 
-Current audit: [three-task QA and binding checkpoint](COORDINATOR_BINDING_AUDIT_20261028.md). Runtime available again; old dirty work preserved. PR205/206fresh private restores verify91/122members;207own110member restore completes the component. Earlier outage/pending snapshots below are history resolved by the live final index.
+Current audit: latest206–208live exact heads/own QA and private retention rechecked. Fresh restores122/110/96members match original manifests; no members executed. Old dirty work is preserved.208final index owns full review; earlier pending snapshots are history.
 
 ## Completed milestones
 
 | Work | Verified position / evidence |
 | --- | --- |
+| Audit/binding checkpoint | PR208own quality40716534512/source40716534340 and capture5fee1aaf/receipt922d9373;96fresh-restored members/6900417bytes equal originals. No coordinator/API freeze closure |
 | Subscription reservations | PR207own quality40695510572/source40695510575success; capturebcb7c44a/receipte9de8d8d,110fresh-restored members/4451776bytes equal originals; no coordinator closure |
 | Tasks1–7 | Complete verified offline; preserve closure evidence, do not replay SQL/Cognitive/VMSS/history/retail work |
 | Task8 | Specification frozen in PR198; original50 cases plus26 supplemental/13 procedural expectations and32 bound files preserved |
@@ -73,6 +76,7 @@ ETA: no evidence-based calendar forecast is available yet. Comparable remaining-
 
 | Date | Change / verified result |
 | --- | --- |
+| 28 October | Latest206–208own QA/retention rechecked; location contract,35wire literals/eightboundaries and strict future consumer prepared before production. New candidate own QA/retention pending; no API runtime pass |
 | 28 October | Three-task audit/recovery complete;207own QA/retention verified, environment available, region/AZ/currency/cumulative-budget source binding findings published on separate PRODUCT successor; own new QA pending |
 | 27 October | PR203 final index resolves old local/pending F01 snapshots: complete own QA, original control conservation, nine new tag controls per host, private capture and fresh restore |
 | 27 October | Both existing native package-cleanliness gates caught the new test driver's Python cache issue. Correction and positive/negative hygiene proof retained; failed history not relabelled |
@@ -87,7 +91,7 @@ ETA: no evidence-based calendar forecast is available yet. Comparable remaining-
 
 Raw logs/findings stay in private `DeBoX85/SC-storage`; public Git contains safe metadata. Reread current storage main/tree before additive expected-head updates; preserve unrelated blobs, never force older history. Retain until Denis explicitly approves deletion. No automatic archival or independent-backup/DC-006 closure. Revisit issue189 at each handover/end and before readiness/acceptance/release.
 
-Recovery milestone: contract/consumer were frozen in PR207 before implementation; the scope gap and missing APIs were independently observed. The private API passes local contract/legacy checks. Runtime outage blocks local verification and the mandatory fresh-directory retention step; no final207acceptance is claimed. See [implementation checkpoint](SUBSCRIPTION_RESERVATION_IMPLEMENTATION_20261028.md).
+Recovery milestone: PR207contract/consumer preceded implementation and its own full QA/private110member restore are verified. The old runtime outage is historical. Current paths differ from last turn, so the location prerequisite was recovered from published208/private evidence. See [implementation checkpoint](SUBSCRIPTION_RESERVATION_IMPLEMENTATION_20261028.md).
 
 ## Maintenance rule
 
