@@ -9,19 +9,22 @@ This is the short project dashboard for Denis. Update it at every meaningful act
 | Item | Position |
 | --- | --- |
 | Goal | AZQR feature/function/capability parity with adjustable branding, accurate behavior and documented deliberate improvements; verified against Denis's pinned fork |
-| Active task | Task10 prerequisite on `dev/subscription-reservations-20261028`: private whole-subscription API locally verified; implementation recovered by recorded Go/test hashes after runtime outage; own hosted QA/retention pending; coordinator remains unimplemented |
-| Latest verified product milestone | [Draft PR205](https://github.com/DeBoX85/Cloud-Assess/pull/205), head `08a220a72edd902eb3f7eafc14b8e95f64a46f12`: F03 verified offline with own native/source QA and private91member restore; dashboard/SOP verified in204 |
-| Current candidate verification | PR206preparation verified offline by its final index, own native/source QA and122member private restore complete. Current207Go implementation passed50named race events/ten strict reversals and32legacy events before outage; five Go/test hashes recovered exactly. Own full hosted QA/private fresh-directory retention pending |
-| Next production task | Verify recovered207WIP/full hosted native-source QA; finish private capture/fresh-directory restore when execution returns; then remaining coordinator bindings |
+| Active task | Task10 binding/audit successor `dev/coordinator-binding-audit-20261028`; region/AZ strict contract/consumer next, coordinator unimplemented |
+| Latest verified product milestone | [Draft PR207](https://github.com/DeBoX85/Cloud-Assess/pull/207), frozen `5fe46d8c394b45995402850944e63b236c792912`: subscription-wide reservation component verified offline with own QA/private110member restore |
+| Current candidate verification | 207own native/source/full controls/rollback/retention verified by final index. This new documentary/binding candidate requires OWN QA/retention |
+| Next production task | Finish own successor QA/retention; freeze/reproduce region/AZ independent consumer and exact API before production; currency/cumulative-budget bindings remain |
 | Input needed from Denis now | None for the authorized offline sequence. Stop only for material uncertainty with no safe mitigation or explicit deferral |
 | Protected acceptance | Drafts remain unmerged. Protected baseline and AZQR/APRL pins unchanged; no release approval implied |
 
-Current preparation scope and remaining bindings: [coordinator contract](REGION_COORDINATOR_CONTRACT_20261028.md). Its finite model does not execute or accept the future Go coordinator. [PR206 final index](https://github.com/DeBoX85/Cloud-Assess/pull/206) verifies its own preparation QA/private retention; current next contract is [subscription reservations](SUBSCRIPTION_RESERVATION_CONTRACT_20261028.md). No input from Denis or Azure tenant is required for the next binding review.
+Current preparation scope and remaining bindings: [coordinator contract](REGION_COORDINATOR_CONTRACT_20261028.md). Its finite model does not execute or accept the future Go coordinator. [PR206 final index](https://github.com/DeBoX85/Cloud-Assess/pull/206) verifies its own preparation QA/private retention; the completed subscription contract is [subscription reservations](SUBSCRIPTION_RESERVATION_CONTRACT_20261028.md) and next binding work is [region/AZ preparation](COORDINATOR_BINDING_AUDIT_20261028.md). No input from Denis or Azure tenant is required for the next binding review.
+
+Current audit: [three-task QA and binding checkpoint](COORDINATOR_BINDING_AUDIT_20261028.md). Runtime available again; old dirty work preserved. PR205/206fresh private restores verify91/122members;207own110member restore completes the component. Earlier outage/pending snapshots below are history resolved by the live final index.
 
 ## Completed milestones
 
 | Work | Verified position / evidence |
 | --- | --- |
+| Subscription reservations | PR207own quality40695510572/source40695510575success; capturebcb7c44a/receipte9de8d8d,110fresh-restored members/4451776bytes equal originals; no coordinator closure |
 | Tasks1–7 | Complete verified offline; preserve closure evidence, do not replay SQL/Cognitive/VMSS/history/retail work |
 | Task8 | Specification frozen in PR198; original50 cases plus26 supplemental/13 procedural expectations and32 bound files preserved |
 | Task9 | Owned required inventory Build/admission implemented and verified offline in [PR201](https://github.com/DeBoX85/Cloud-Assess/pull/201), frozen head `b568606836f0c20ef0a87f9652c5b59bbf33bcd2` |
@@ -70,6 +73,7 @@ ETA: no evidence-based calendar forecast is available yet. Comparable remaining-
 
 | Date | Change / verified result |
 | --- | --- |
+| 28 October | Three-task audit/recovery complete;207own QA/retention verified, environment available, region/AZ/currency/cumulative-budget source binding findings published on separate PRODUCT successor; own new QA pending |
 | 27 October | PR203 final index resolves old local/pending F01 snapshots: complete own QA, original control conservation, nine new tag controls per host, private capture and fresh restore |
 | 27 October | Both existing native package-cleanliness gates caught the new test driver's Python cache issue. Correction and positive/negative hygiene proof retained; failed history not relabelled |
 | 27 October | Private archive `1be50f1ec0a57a2ce542937b9a1ca40f474fd3d8` and receipt `09c4e6ebb2ee850a040df3a45145faddf3117683`: seven remote files read back,87 restored members/8,179,608 bytes equal originals; unrelated security blobs preserved |

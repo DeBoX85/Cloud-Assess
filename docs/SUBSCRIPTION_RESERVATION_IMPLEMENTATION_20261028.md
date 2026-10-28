@@ -1,3 +1,5 @@
+Current outcome: PR207/5fe46d8c VERIFIED OFFLINE by its final exact-head index, own full native/source QA/fresh local race/coherent rollback/private110member restore. The runtime outage below is historical. Follow the LIVE explicit PRODUCT successor and [binding/audit checkpoint](COORDINATOR_BINDING_AUDIT_20261028.md). No coordinator/task10closure.
+
 # Subscription reservation implementation and runtime recovery
 
 The private API is implemented; the coordinator/public CLI/output path is not. Contract,13literal scenarios/eight boundary recipes/12procedural obligations and nine bound preparation files were frozen/read back at eb85c315 before code changes. Actual old-API compile/healthy control passed, intended pair-only2versuswhole3assertion failed at its named marker, and strict consumer identified the missing APIs. No compiler failure is counted as runtime mutation evidence.
