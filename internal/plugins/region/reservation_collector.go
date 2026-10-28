@@ -188,6 +188,12 @@ func decodeReservation(body []byte, id, region, subscription string) (Reservatio
 // Collect owns per-call state. Operational failures are explicit incomplete
 // evidence; invalid caller scope and cancellation return nil result and error.
 func (c *ReservationCollector) Collect(ctx context.Context, subscriptions map[string]string, request ReservationRequest) (*ReservationCollection, error) {
+	return c.collectReservationTraversal(ctx, subscriptions, request, nil)
+}
+
+// A non-nil whole traversal is created only by CollectSubscription. Regional
+// requests retain their existing preflight/filter and every shared counter.
+func (c *ReservationCollector) collectReservationTraversal(ctx context.Context, subscriptions map[string]string, request ReservationRequest, whole *subscriptionReservationTraversal) (*ReservationCollection, error) {
 	if e := ctx.Err(); e != nil {
 		return nil, e
 	}
@@ -202,7 +208,7 @@ func (c *ReservationCollector) Collect(ctx context.Context, subscriptions map[st
 		}
 	}
 	request.SubscriptionID = strings.ToLower(request.SubscriptionID)
-	if !subscriptionID.MatchString(request.SubscriptionID) || len(request.SubscriptionID) != 36 || scope[request.SubscriptionID] == "" || !regionID.MatchString(request.Region) || !reservationPhysical(request.Region) {
+	if !subscriptionID.MatchString(request.SubscriptionID) || len(request.SubscriptionID) != 36 || scope[request.SubscriptionID] == "" || whole == nil && (!regionID.MatchString(request.Region) || !reservationPhysical(request.Region)) {
 		return nil, reservationFailure(ctx, "request_invalid")
 	}
 	result := &ReservationCollection{Evidence: ReservationEvidence{Request: request, Status: "complete", Reservations: []ReservationUsage{}}}
@@ -324,8 +330,13 @@ func (c *ReservationCollector) Collect(ctx context.Context, subscriptions map[st
 	}
 	groups, reservations := map[string]bool{}, map[string]bool{}
 	e := list("/subscriptions/"+request.SubscriptionID+"/providers/Microsoft.Compute/capacityReservationGroups", "", groups, func(group reservationItem) error {
-		if group.Location != request.Region {
+		if whole == nil && group.Location != request.Region {
 			return nil
+		}
+		region := request.Region
+		if whole != nil {
+			region = group.Location
+			whole.observe(region)
 		}
 		return list(group.ID+"/capacityReservations", group.ID, reservations, func(summary reservationItem) error {
 			b, valid, e := get(urlFor(summary.ID, true))
@@ -335,7 +346,7 @@ func (c *ReservationCollector) Collect(ctx context.Context, subscriptions map[st
 			if !valid {
 				return nil
 			}
-			r, refs, valid := decodeReservation(b, summary.ID, request.Region, request.SubscriptionID)
+			r, refs, valid := decodeReservation(b, summary.ID, region, request.SubscriptionID)
 			if !valid {
 				fail("reservation_identity_invalid")
 				return nil

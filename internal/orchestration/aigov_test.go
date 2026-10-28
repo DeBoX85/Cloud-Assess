@@ -43,6 +43,7 @@ func TestAICoordinatorRecordedTagScopeOwned(t *testing.T) {
 	ops.ScanAIGovernance = func(ctx context.Context, subs map[string]string, filter *config.AssessmentFilter) (assessment.PluginTable, error) {
 		if subs[zoneSub] != "Dev" || filter.IsServiceExcluded(strings.ToUpper(id)) || !filter.IsServiceExcluded(denied) || !filter.IsServiceExcluded(unknown) {
 			t.Error("recorded included/excluded/unknown/inherited tag scope lost")
+			return aigov.PendingTable(), errors.New("recorded scope snapshot contract failed")
 		}
 		if !filter.IsServiceExcluded("/subscriptions/" + zoneSub + "/resourceGroups/fixture-rg/providers/Microsoft.Compute/virtualMachines/other") {
 			t.Error("selected scanner scope widened")

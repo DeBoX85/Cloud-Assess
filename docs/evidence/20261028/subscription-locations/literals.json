@@ -1,0 +1,713 @@
+{
+  "format": "cloud-assess-subscription-locations-literals-v1",
+  "base": "69637552e1875ff533a81f8e762ff5dc52a71d01",
+  "scope": "Independent hand-authored wire expectations BEFORE production; no source-generated oracle",
+  "cases": [
+    {
+      "name": "fallback-sorted",
+      "pages": [
+        {
+          "body": "{\"value\":[{\"name\":\"WestEurope\",\"metadata\":{\"regionType\":\"Physical\"}},{\"name\":\"global\",\"metadata\":{\"regionType\":\"Logical\"}},{\"name\":\"EastUS\",\"metadata\":{\"regionType\":\"Physical\"}}]}",
+          "status": 200,
+          "error": ""
+        }
+      ],
+      "regions": [
+        "eastus",
+        "westeurope"
+      ],
+      "counts": {
+        "eastus": 3,
+        "westeurope": 3
+      },
+      "mappings": {},
+      "status": "complete",
+      "count_source": "fallback",
+      "code": "",
+      "calls": 1
+    },
+    {
+      "name": "api-mixed-no-peer-fallback",
+      "pages": [
+        {
+          "body": "{\"value\":[{\"name\":\"eastus\",\"metadata\":{\"regionType\":\"Physical\"},\"availabilityZoneMappings\":[{\"logicalZone\":\"1\",\"physicalZone\":\"eastus-az2\"}]},{\"name\":\"westeurope\",\"metadata\":{\"regionType\":\"Physical\"}}]}",
+          "status": 200,
+          "error": ""
+        }
+      ],
+      "regions": [
+        "eastus",
+        "westeurope"
+      ],
+      "counts": {
+        "eastus": 1,
+        "westeurope": 0
+      },
+      "mappings": {
+        "eastus": {
+          "1": "eastus-az2"
+        }
+      },
+      "status": "complete",
+      "count_source": "api",
+      "code": "",
+      "calls": 1
+    },
+    {
+      "name": "complete-empty",
+      "pages": [
+        {
+          "body": "{\"value\":[]}",
+          "status": 200,
+          "error": ""
+        }
+      ],
+      "regions": [],
+      "counts": {},
+      "mappings": {},
+      "status": "complete",
+      "count_source": "fallback",
+      "code": "",
+      "calls": 1
+    },
+    {
+      "name": "logical-mapping-does-not-disable-fallback",
+      "pages": [
+        {
+          "body": "{\"value\":[{\"name\":\"global\",\"metadata\":{\"regionType\":\"Logical\"},\"availabilityZoneMappings\":[{\"logicalZone\":\"1\",\"physicalZone\":\"opaque\"}]},{\"name\":\"eastus\",\"metadata\":{\"regionType\":\"Physical\"}}]}",
+          "status": 200,
+          "error": ""
+        }
+      ],
+      "regions": [
+        "eastus"
+      ],
+      "counts": {
+        "eastus": 3
+      },
+      "mappings": {},
+      "status": "complete",
+      "count_source": "fallback",
+      "code": "",
+      "calls": 1
+    },
+    {
+      "name": "optional-null-mappings",
+      "pages": [
+        {
+          "body": "{\"value\":[{\"name\":\"eastus\",\"metadata\":{\"regionType\":\"Physical\"},\"availabilityZoneMappings\":null},{\"name\":\"syntheticregion\",\"metadata\":{\"regionType\":\"Physical\"}}]}",
+          "status": 200,
+          "error": ""
+        }
+      ],
+      "regions": [
+        "eastus",
+        "syntheticregion"
+      ],
+      "counts": {
+        "eastus": 3,
+        "syntheticregion": 0
+      },
+      "mappings": {},
+      "status": "complete",
+      "count_source": "fallback",
+      "code": "",
+      "calls": 1
+    },
+    {
+      "name": "opaque-zone-case-unicode",
+      "pages": [
+        {
+          "body": "{\"value\":[{\"name\":\"eastus\",\"metadata\":{\"regionType\":\"Physical\"},\"availabilityZoneMappings\":[{\"logicalZone\":\"Zone\",\"physicalZone\":\"physical-A\"},{\"logicalZone\":\"zone\",\"physicalZone\":\"physical-a\"},{\"logicalZone\":\"ſ\",\"physicalZone\":\"opaque\"},{\"logicalZone\":\"s\",\"physicalZone\":\"opaque\"}]}]}",
+          "status": 200,
+          "error": ""
+        }
+      ],
+      "regions": [
+        "eastus"
+      ],
+      "counts": {
+        "eastus": 4
+      },
+      "mappings": {
+        "eastus": {
+          "Zone": "physical-A",
+          "zone": "physical-a",
+          "ſ": "opaque",
+          "s": "opaque"
+        }
+      },
+      "status": "complete",
+      "count_source": "api",
+      "code": "",
+      "calls": 1
+    },
+    {
+      "name": "later-page-api-disables-all-fallback",
+      "pages": [
+        {
+          "body": "{\"value\":[{\"name\":\"eastus\",\"metadata\":{\"regionType\":\"Physical\"}}],\"nextLink\":\"?api-version=2022-12-01&$skiptoken=second\"}",
+          "status": 200,
+          "error": ""
+        },
+        {
+          "body": "{\"value\":[{\"name\":\"westeurope\",\"metadata\":{\"regionType\":\"Physical\"},\"availabilityZoneMappings\":[{\"logicalZone\":\"1\",\"physicalZone\":\"westeurope-az3\"}]}]}",
+          "status": 200,
+          "error": ""
+        }
+      ],
+      "regions": [
+        "eastus",
+        "westeurope"
+      ],
+      "counts": {
+        "eastus": 0,
+        "westeurope": 1
+      },
+      "mappings": {
+        "westeurope": {
+          "1": "westeurope-az3"
+        }
+      },
+      "status": "complete",
+      "count_source": "api",
+      "code": "",
+      "calls": 2
+    },
+    {
+      "name": "partial-prefix-no-fallback",
+      "pages": [
+        {
+          "body": "{\"value\":[{\"name\":\"eastus\",\"metadata\":{\"regionType\":\"Physical\"}}],\"nextLink\":\"?api-version=2022-12-01&$skiptoken=second\"}",
+          "status": 200,
+          "error": ""
+        },
+        {
+          "body": "{}",
+          "status": 200,
+          "error": ""
+        }
+      ],
+      "regions": [
+        "eastus"
+      ],
+      "counts": {
+        "eastus": 0
+      },
+      "mappings": {},
+      "status": "partial",
+      "count_source": "incomplete",
+      "code": "locations_invalid_response",
+      "calls": 2
+    },
+    {
+      "name": "getter-error-unknown",
+      "pages": [
+        {
+          "body": "",
+          "status": 200,
+          "error": "operational"
+        }
+      ],
+      "regions": [],
+      "counts": {},
+      "mappings": {},
+      "status": "unknown",
+      "count_source": "incomplete",
+      "code": "locations_request_failed",
+      "calls": 1
+    },
+    {
+      "name": "http-error-unknown",
+      "pages": [
+        {
+          "body": "{\"value\":[]}",
+          "status": 403,
+          "error": ""
+        }
+      ],
+      "regions": [],
+      "counts": {},
+      "mappings": {},
+      "status": "unknown",
+      "count_source": "incomplete",
+      "code": "locations_status_invalid",
+      "calls": 1
+    },
+    {
+      "name": "opaque-metadata-case-keys",
+      "pages": [
+        {
+          "body": "{\"value\":[{\"name\":\"eastus\",\"metadata\":{\"regionType\":\"Physical\"},\"extra\":{\"Key\":\"A\",\"key\":\"a\",\"ſ\":\"v\",\"s\":\"w\"}}]}",
+          "status": 200,
+          "error": ""
+        }
+      ],
+      "regions": [
+        "eastus"
+      ],
+      "counts": {
+        "eastus": 3
+      },
+      "mappings": {},
+      "status": "complete",
+      "count_source": "fallback",
+      "code": "",
+      "calls": 1
+    },
+    {
+      "name": "ignored-large-number",
+      "pages": [
+        {
+          "body": "{\"value\":[],\"opaque\":1e99999}",
+          "status": 200,
+          "error": ""
+        }
+      ],
+      "regions": [],
+      "counts": {},
+      "mappings": {},
+      "status": "complete",
+      "count_source": "fallback",
+      "code": "",
+      "calls": 1
+    },
+    {
+      "name": "exact-member-duplicate",
+      "pages": [
+        {
+          "body": "{\"value\":[],\"value\":[]}",
+          "status": 200,
+          "error": ""
+        }
+      ],
+      "regions": [],
+      "counts": {},
+      "mappings": {},
+      "status": "unknown",
+      "count_source": "incomplete",
+      "code": "locations_invalid_response",
+      "calls": 1
+    },
+    {
+      "name": "escaped-member-duplicate",
+      "pages": [
+        {
+          "body": "{\"value\":[],\"v\\u0061lue\":[]}",
+          "status": 200,
+          "error": ""
+        }
+      ],
+      "regions": [],
+      "counts": {},
+      "mappings": {},
+      "status": "unknown",
+      "count_source": "incomplete",
+      "code": "locations_invalid_response",
+      "calls": 1
+    },
+    {
+      "name": "typed-envelope-alias",
+      "pages": [
+        {
+          "body": "{\"Value\":[]}",
+          "status": 200,
+          "error": ""
+        }
+      ],
+      "regions": [],
+      "counts": {},
+      "mappings": {},
+      "status": "unknown",
+      "count_source": "incomplete",
+      "code": "locations_invalid_response",
+      "calls": 1
+    },
+    {
+      "name": "typed-name-alias",
+      "pages": [
+        {
+          "body": "{\"value\":[{\"Name\":\"eastus\",\"metadata\":{\"regionType\":\"Physical\"}}]}",
+          "status": 200,
+          "error": ""
+        }
+      ],
+      "regions": [],
+      "counts": {},
+      "mappings": {},
+      "status": "unknown",
+      "count_source": "incomplete",
+      "code": "locations_invalid_response",
+      "calls": 1
+    },
+    {
+      "name": "typed-metadata-alias",
+      "pages": [
+        {
+          "body": "{\"value\":[{\"name\":\"eastus\",\"Metadata\":{\"regionType\":\"Physical\"}}]}",
+          "status": 200,
+          "error": ""
+        }
+      ],
+      "regions": [],
+      "counts": {},
+      "mappings": {},
+      "status": "unknown",
+      "count_source": "incomplete",
+      "code": "locations_invalid_response",
+      "calls": 1
+    },
+    {
+      "name": "null-value",
+      "pages": [
+        {
+          "body": "{\"value\":null}",
+          "status": 200,
+          "error": ""
+        }
+      ],
+      "regions": [],
+      "counts": {},
+      "mappings": {},
+      "status": "unknown",
+      "count_source": "incomplete",
+      "code": "locations_invalid_response",
+      "calls": 1
+    },
+    {
+      "name": "null-row",
+      "pages": [
+        {
+          "body": "{\"value\":[null]}",
+          "status": 200,
+          "error": ""
+        }
+      ],
+      "regions": [],
+      "counts": {},
+      "mappings": {},
+      "status": "unknown",
+      "count_source": "incomplete",
+      "code": "locations_invalid_response",
+      "calls": 1
+    },
+    {
+      "name": "null-mapping-row",
+      "pages": [
+        {
+          "body": "{\"value\":[{\"name\":\"eastus\",\"metadata\":{\"regionType\":\"Physical\"},\"availabilityZoneMappings\":[null]}]}",
+          "status": 200,
+          "error": ""
+        }
+      ],
+      "regions": [],
+      "counts": {},
+      "mappings": {},
+      "status": "unknown",
+      "count_source": "incomplete",
+      "code": "locations_invalid_response",
+      "calls": 1
+    },
+    {
+      "name": "empty-logical-key",
+      "pages": [
+        {
+          "body": "{\"value\":[{\"name\":\"eastus\",\"metadata\":{\"regionType\":\"Physical\"},\"availabilityZoneMappings\":[{\"logicalZone\":\"\",\"physicalZone\":\"p\"}]}]}",
+          "status": 200,
+          "error": ""
+        }
+      ],
+      "regions": [],
+      "counts": {},
+      "mappings": {},
+      "status": "unknown",
+      "count_source": "incomplete",
+      "code": "locations_invalid_response",
+      "calls": 1
+    },
+    {
+      "name": "null-next-link",
+      "pages": [
+        {
+          "body": "{\"value\":[],\"nextLink\":null}",
+          "status": 200,
+          "error": ""
+        }
+      ],
+      "regions": [],
+      "counts": {},
+      "mappings": {},
+      "status": "unknown",
+      "count_source": "incomplete",
+      "code": "locations_invalid_response",
+      "calls": 1
+    },
+    {
+      "name": "foreign-returned-id",
+      "pages": [
+        {
+          "body": "{\"value\":[{\"name\":\"eastus\",\"metadata\":{\"regionType\":\"Physical\"},\"id\":\"/subscriptions/22222222-2222-2222-2222-222222222222/locations/eastus\"}]}",
+          "status": 200,
+          "error": ""
+        }
+      ],
+      "regions": [],
+      "counts": {},
+      "mappings": {},
+      "status": "unknown",
+      "count_source": "incomplete",
+      "code": "locations_invalid_response",
+      "calls": 1
+    },
+    {
+      "name": "foreign-subscription-id",
+      "pages": [
+        {
+          "body": "{\"value\":[{\"name\":\"eastus\",\"metadata\":{\"regionType\":\"Physical\"},\"subscriptionId\":\"22222222-2222-2222-2222-222222222222\"}]}",
+          "status": 200,
+          "error": ""
+        }
+      ],
+      "regions": [],
+      "counts": {},
+      "mappings": {},
+      "status": "unknown",
+      "count_source": "incomplete",
+      "code": "locations_invalid_response",
+      "calls": 1
+    },
+    {
+      "name": "null-metadata",
+      "pages": [
+        {
+          "body": "{\"value\":[{\"name\":\"eastus\",\"metadata\":null}]}",
+          "status": 200,
+          "error": ""
+        }
+      ],
+      "regions": [],
+      "counts": {},
+      "mappings": {},
+      "status": "unknown",
+      "count_source": "incomplete",
+      "code": "locations_invalid_response",
+      "calls": 1
+    },
+    {
+      "name": "escaped-logical-duplicate",
+      "pages": [
+        {
+          "body": "{\"value\":[{\"name\":\"eastus\",\"metadata\":{\"regionType\":\"Physical\"},\"availabilityZoneMappings\":[{\"logicalZone\":\"1\",\"logicalZ\\u006fne\":\"2\",\"physicalZone\":\"p\"}]}]}",
+          "status": 200,
+          "error": ""
+        }
+      ],
+      "regions": [],
+      "counts": {},
+      "mappings": {},
+      "status": "unknown",
+      "count_source": "incomplete",
+      "code": "locations_invalid_response",
+      "calls": 1
+    },
+    {
+      "name": "unicode-typed-alias",
+      "pages": [
+        {
+          "body": "{\"value\":[{\"name\":\"eastus\",\"metadata\":{\"regionType\":\"Physical\"},\"availabilityZoneMappingſ\":[]}]}",
+          "status": 200,
+          "error": ""
+        }
+      ],
+      "regions": [],
+      "counts": {},
+      "mappings": {},
+      "status": "unknown",
+      "count_source": "incomplete",
+      "code": "locations_invalid_response",
+      "calls": 1
+    },
+    {
+      "name": "normalized-row-duplicate",
+      "pages": [
+        {
+          "body": "{\"value\":[{\"name\":\"eastus\",\"metadata\":{\"regionType\":\"Physical\"}},{\"name\":\"EastUS\",\"metadata\":{\"regionType\":\"Physical\"}}]}",
+          "status": 200,
+          "error": ""
+        }
+      ],
+      "regions": [],
+      "counts": {},
+      "mappings": {},
+      "status": "unknown",
+      "count_source": "incomplete",
+      "code": "locations_identity_duplicate",
+      "calls": 1
+    },
+    {
+      "name": "duplicate-later-page-atomic",
+      "pages": [
+        {
+          "body": "{\"value\":[{\"name\":\"eastus\",\"metadata\":{\"regionType\":\"Physical\"}}],\"nextLink\":\"?api-version=2022-12-01&$skiptoken=second\"}",
+          "status": 200,
+          "error": ""
+        },
+        {
+          "body": "{\"value\":[{\"name\":\"westeurope\",\"metadata\":{\"regionType\":\"Physical\"}},{\"name\":\"EastUS\",\"metadata\":{\"regionType\":\"Physical\"}}]}",
+          "status": 200,
+          "error": ""
+        }
+      ],
+      "regions": [
+        "eastus"
+      ],
+      "counts": {
+        "eastus": 0
+      },
+      "mappings": {},
+      "status": "partial",
+      "count_source": "incomplete",
+      "code": "locations_identity_duplicate",
+      "calls": 2
+    },
+    {
+      "name": "duplicate-logical-key",
+      "pages": [
+        {
+          "body": "{\"value\":[{\"name\":\"eastus\",\"metadata\":{\"regionType\":\"Physical\"},\"availabilityZoneMappings\":[{\"logicalZone\":\"1\",\"physicalZone\":\"p\"},{\"logicalZone\":\"1\",\"physicalZone\":\"p\"}]}]}",
+          "status": 200,
+          "error": ""
+        }
+      ],
+      "regions": [],
+      "counts": {},
+      "mappings": {},
+      "status": "unknown",
+      "count_source": "incomplete",
+      "code": "locations_identity_duplicate",
+      "calls": 1
+    },
+    {
+      "name": "unsafe-foreign-continuation",
+      "pages": [
+        {
+          "body": "{\"value\":[{\"name\":\"eastus\",\"metadata\":{\"regionType\":\"Physical\"}}],\"nextLink\":\"https://foreign.invalid/subscriptions/{SUB}/locations?api-version=2022-12-01\"}",
+          "status": 200,
+          "error": ""
+        }
+      ],
+      "regions": [
+        "eastus"
+      ],
+      "counts": {
+        "eastus": 0
+      },
+      "mappings": {},
+      "status": "partial",
+      "count_source": "incomplete",
+      "code": "locations_unsafe_continuation",
+      "calls": 1
+    },
+    {
+      "name": "canonical-cycle",
+      "pages": [
+        {
+          "body": "{\"value\":[],\"nextLink\":\"?api-version=2022-12-01\"}",
+          "status": 200,
+          "error": ""
+        }
+      ],
+      "regions": [],
+      "counts": {},
+      "mappings": {},
+      "status": "partial",
+      "count_source": "incomplete",
+      "code": "locations_continuation_cycle",
+      "calls": 1
+    },
+    {
+      "name": "decoded-control-token",
+      "pages": [
+        {
+          "body": "{\"value\":[],\"nextLink\":\"?api-version=2022-12-01&$skiptoken=%0A\"}",
+          "status": 200,
+          "error": ""
+        }
+      ],
+      "regions": [],
+      "counts": {},
+      "mappings": {},
+      "status": "partial",
+      "count_source": "incomplete",
+      "code": "locations_unsafe_continuation",
+      "calls": 1
+    },
+    {
+      "name": "bound-optional-identities",
+      "pages": [
+        {
+          "body": "{\"value\":[{\"name\":\"EastUS\",\"metadata\":{\"regionType\":\"Physical\"},\"id\":\"/SUBSCRIPTIONS/{SUB}/LOCATIONS/EASTUS\",\"subscriptionId\":\"{SUB}\"}]}",
+          "status": 200,
+          "error": ""
+        }
+      ],
+      "regions": [
+        "eastus"
+      ],
+      "counts": {
+        "eastus": 3
+      },
+      "mappings": {},
+      "status": "complete",
+      "count_source": "fallback",
+      "code": "",
+      "calls": 1
+    },
+    {
+      "name": "non-bijective-values-allowed",
+      "pages": [
+        {
+          "body": "{\"value\":[{\"name\":\"eastus\",\"metadata\":{\"regionType\":\"Physical\"},\"availabilityZoneMappings\":[{\"logicalZone\":\"1\",\"physicalZone\":\"p\"},{\"logicalZone\":\"2\",\"physicalZone\":\"p\"}]}]}",
+          "status": 200,
+          "error": ""
+        }
+      ],
+      "regions": [
+        "eastus"
+      ],
+      "counts": {
+        "eastus": 2
+      },
+      "mappings": {
+        "eastus": {
+          "1": "p",
+          "2": "p"
+        }
+      },
+      "status": "complete",
+      "count_source": "api",
+      "code": "",
+      "calls": 1
+    }
+  ],
+  "boundary_recipes": [
+    "pages-at64",
+    "pages-plus-one65",
+    "body-at1MiB",
+    "body-plus-one-byte",
+    "aggregate-at8MiB",
+    "aggregate-plus-one-body",
+    "work-at8192",
+    "work-plus-one8193"
+  ],
+  "procedural": [
+    "caller-admission",
+    "constructor-admission",
+    "canonical-context-errors",
+    "cancel-every-getter-boundary",
+    "scope-snapshot",
+    "diagnostic-and-accessor-ownership",
+    "concurrent-independent-runs",
+    "all33pinned-fallback-counts"
+  ]
+}

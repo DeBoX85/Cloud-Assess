@@ -1,0 +1,5 @@
+--- FAIL: TestRetailEmptyContainerDepth (0.00s)
+    retail_budget_test.go:174: 33empty containers admitted &{complete  [{m1 {USD 0 2 2 eastus  2026-01-01T00:00:00Z m1 Meter Product   SKU    1 Hour Consumption true } false}] [{m1 {USD 0 2 2 eastus  2026-01-01T00:00:00Z m1 Meter Product   SKU    1 Hour Consumption true } false}] [{USD 0 2 2 eastus  2026-01-01T00:00:00Z m1 Meter Product   SKU    1 Hour Consumption true } {USD 0 2 2 eastus  2026-01-01T00:00:00Z m1 Meter Product   SKU    1 Hour Consumption true }] [{m1 {USD 0 2 2 eastus  2026-01-01T00:00:00Z m1 Meter Product   SKU    1 Hour Consumption true } metadata} {m1 {USD 0 2 2 eastus  2026-01-01T00:00:00Z m1 Meter Product   SKU    1 Hour Consumption true } pricing}] [] {2 2 204 2 3 832} complete map[m1:map[eastus:2]]} <nil> 2
+FAIL
+FAIL	github.com/DeBoX85/Cloud-Assess/internal/plugins/region	0.038s
+FAIL

@@ -1,0 +1,173 @@
+{
+  "head": "242da51cbfd84fc9ade95dff2362e1d292092ce3",
+  "tree": "0019c582b04513a2bb0d36087c55ab494323bf9c",
+  "quality_run": 40243373880,
+  "source_run": 40243373785,
+  "preview": "6d34e54d16e007a2ab1306328c9fff43e656fc9b",
+  "jobs": [
+    {
+      "job": 121319735919,
+      "name": "linux-native",
+      "steps": 35,
+      "non_success_steps": [
+        {
+          "name": "Retain synthetic QA failure evidence",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 32
+        }
+      ],
+      "declared_steps_preserved_in_order": true,
+      "log_bytes": 64695,
+      "log_sha256": "d4f02be2cc31597cdb9443e1d02b53b5149bd9162c2fb4b999137807c65fda87",
+      "checkouts": [
+        "6d34e54d16e007a2ab1306328c9fff43e656fc9b"
+      ],
+      "control_lines": 1
+    },
+    {
+      "job": 121319736030,
+      "name": "windows-native",
+      "steps": 21,
+      "non_success_steps": [],
+      "declared_steps_preserved_in_order": true,
+      "log_bytes": 44398,
+      "log_sha256": "a68fe3aeb226f09d8802265c7a5f4439db8dc634bf029fda27f724571a4e349a",
+      "checkouts": [
+        "6d34e54d16e007a2ab1306328c9fff43e656fc9b"
+      ],
+      "control_lines": 0
+    },
+    {
+      "job": 121319736036,
+      "name": "windows-controls-3",
+      "steps": 21,
+      "non_success_steps": [],
+      "declared_steps_preserved_in_order": true,
+      "log_bytes": 51158,
+      "log_sha256": "11b693049ccb79d2cbdc22533ac540dbb1570d114a08610b909c26f6dad87cd3",
+      "checkouts": [
+        "6d34e54d16e007a2ab1306328c9fff43e656fc9b"
+      ],
+      "control_lines": 186
+    },
+    {
+      "job": 121319736086,
+      "name": "windows-controls-2",
+      "steps": 22,
+      "non_success_steps": [],
+      "declared_steps_preserved_in_order": true,
+      "log_bytes": 62348,
+      "log_sha256": "3c6c67ad005c807fdb8afc6bb2f5d3650b6c243bba75b3177b7602581bf8bc92",
+      "checkouts": [
+        "6d34e54d16e007a2ab1306328c9fff43e656fc9b"
+      ],
+      "control_lines": 231
+    },
+    {
+      "job": 121319736124,
+      "name": "linux-controls-1",
+      "steps": 21,
+      "non_success_steps": [],
+      "declared_steps_preserved_in_order": true,
+      "log_bytes": 57015,
+      "log_sha256": "89d6e673b50520199e2c41b5e10dc12c9cbefc0b1a5945dc9bcc681308e8e902",
+      "checkouts": [
+        "6d34e54d16e007a2ab1306328c9fff43e656fc9b"
+      ],
+      "control_lines": 195
+    },
+    {
+      "job": 121319736136,
+      "name": "linux-controls-3",
+      "steps": 22,
+      "non_success_steps": [],
+      "declared_steps_preserved_in_order": true,
+      "log_bytes": 54615,
+      "log_sha256": "bb724854d21c73c4191bf31b150ef0affaf70b20b763f2944233a2231eddfae6",
+      "checkouts": [
+        "6d34e54d16e007a2ab1306328c9fff43e656fc9b"
+      ],
+      "control_lines": 218
+    },
+    {
+      "job": 121319736143,
+      "name": "windows-controls-1",
+      "steps": 20,
+      "non_success_steps": [],
+      "declared_steps_preserved_in_order": true,
+      "log_bytes": 57211,
+      "log_sha256": "a75827fefc100a3e680228cdc66d1ed1878b8b4e7b9df00b78a148e5979635db",
+      "checkouts": [
+        "6d34e54d16e007a2ab1306328c9fff43e656fc9b"
+      ],
+      "control_lines": 200
+    },
+    {
+      "job": 121319736163,
+      "name": "linux-controls-2",
+      "steps": 21,
+      "non_success_steps": [],
+      "declared_steps_preserved_in_order": true,
+      "log_bytes": 58270,
+      "log_sha256": "b4c831029e836f2e3d7b9c304ad8ad1c2846a0e99294240bbb9d502b710eb340",
+      "checkouts": [
+        "6d34e54d16e007a2ab1306328c9fff43e656fc9b"
+      ],
+      "control_lines": 208
+    },
+    {
+      "job": 121323071773,
+      "name": "quality",
+      "steps": 5,
+      "non_success_steps": [],
+      "declared_steps_preserved_in_order": true,
+      "log_bytes": 16417,
+      "log_sha256": "b24c187926402f0b7c97133fd8819a404c40cb30ddb99d76238c187c41b2debb",
+      "checkouts": [
+        "6d34e54d16e007a2ab1306328c9fff43e656fc9b"
+      ],
+      "control_lines": 0
+    },
+    {
+      "job": 121325277183,
+      "name": "windows-validation",
+      "steps": 5,
+      "non_success_steps": [],
+      "declared_steps_preserved_in_order": true,
+      "log_bytes": 16440,
+      "log_sha256": "0a7e80b3de217c1d53b95ebccb5a0364eeada608e95d18cc8fe0c5209d67dbdf",
+      "checkouts": [
+        "6d34e54d16e007a2ab1306328c9fff43e656fc9b"
+      ],
+      "control_lines": 0
+    }
+  ],
+  "platform_controls": {
+    "linux": {
+      "count": 622,
+      "sorted_full_lines_sha256": "502445901501da199dfd0c92dfa28bbdc50bd7c6a1499f7d1ad223ef608042f2",
+      "complete_lines_equal_product183": true,
+      "complete_lines_equal_product185": true
+    },
+    "windows": {
+      "count": 617,
+      "sorted_full_lines_sha256": "52320baa793d2d730801e26b992e3912e3400af7e54527012ed5b1a200a937ab",
+      "complete_lines_equal_product183": true,
+      "complete_lines_equal_product185": true
+    }
+  },
+  "coverage_percent": 87.6,
+  "coverage_floor_percent": 75,
+  "native_security": {
+    "reachable": 0,
+    "imported_not_called": 3,
+    "module_only": 1,
+    "residuals": "OPEN"
+  },
+  "source_verification_file": "source-verification.json",
+  "limitations": [
+    "Own QA certifies only the recorded review candidate, not archive storage trees, protected acceptance or release.",
+    "All audit findings and independent/live/operational/acceptance obligations remain open."
+  ]
+}

@@ -1,0 +1,31 @@
+"""Credit only explicitly completed view reads; separate from raw read coverage."""
+import hashlib
+import json
+from pathlib import Path
+import subprocess
+import sys
+from json_review_view import make_view, compact, load_strict
+
+names = sys.argv[1:]
+helper_name = 'json_review_view.py'
+if names and names[0] == '--delta':
+    from json_review_delta import make_view
+    helper_name = 'json_review_delta.py'
+    names = names[1:]
+
+root = Path(__file__).resolve().parent
+ledger = root / 'semantic-data-read-review.json'
+rows = json.loads(ledger.read_text()) if ledger.exists() else []
+seen = {row['path'] for row in rows}
+revision = '458d5c5296c321c8e5e961f18eb5422d43c2eb18'
+for name in names:
+    if name in seen:
+        continue
+    raw = subprocess.check_output(['git', 'show', revision + ':' + name], cwd=root / 'audit-code')
+    assert raw == (root / 'audit-code' / name).read_bytes()
+    blob = subprocess.check_output(['git', 'rev-parse', revision + ':' + name], cwd=root / 'audit-code', text=True).strip()
+    view = compact(make_view(load_strict(raw))).encode()
+    rows.append({'path': name, 'base': revision, 'blob': blob, 'raw_sha256': hashlib.sha256(raw).hexdigest(), 'bytes': len(raw), 'view_sha256': hashlib.sha256(view).hexdigest(), 'review': 'complete reversible JSON view read; original lexical formatting not manually read', 'helper_file': helper_name + '.txt', 'helper_sha256': hashlib.sha256((root / helper_name).read_bytes()).hexdigest(), 'strict_loader_dependency_sha256': hashlib.sha256((root / 'json_review_view.py').read_bytes()).hexdigest()})
+    seen.add(name)
+ledger.write_text(json.dumps(sorted(rows, key=lambda row: row['path']), indent=2) + '\n')
+print(json.dumps({'complete_semantic_view_reads': len(rows), 'not_added_to_raw_read_ledger': True}))

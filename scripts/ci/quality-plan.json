@@ -1,0 +1,297 @@
+{
+  "source_commit": "b5fd314e97604a2ccd71da339c0c73c9440f2155",
+  "baseline_run": 38947446296,
+  "baseline_sha256": "1c9e08848af4aabc9b29402a0d0f264efbd679c019466c628d14048e8032e5ee",
+  "baseline_job_seconds": {
+    "linux": 1413,
+    "windows": 2140
+  },
+  "groups": {
+    "linux": [
+      [
+        "Verify Section 1 compiling regressions",
+        "Verify Section 2 compiling regressions",
+        "Verify Section 4 compiling regressions",
+        "Verify retained source capture byte guard",
+        "Quota source oracle compiling controls",
+        "VM quota SDK source oracle compiling controls",
+        "Compute SKU source oracle compiling controls",
+        "Verify region primary tests reject selected mutations",
+        "Verify region service tests reject selected mutations",
+        "Verify region availability tests reject selected mutations",
+        "Verify region cost enrichment tests reject selected mutations",
+        "Verify reservation collector tests reject selected mutations"
+      ],
+      [
+        "Verify ARG response framing compiling controls",
+        "Verify Storage SKU collector compiling controls",
+        "Verify VM SKU collector compiling controls",
+        "Verify availability source oracle mutations",
+        "Verify AI request boundary tests reject selected mutations",
+        "Verify AI public execution tests reject selected mutations",
+        "Verify region auxiliary tests reject selected mutations",
+        "Verify region cost tests reject selected mutations",
+        "Verify region inventory tests reject selected mutations",
+        "Verify region latency tests reject selected mutations",
+        "Verify region reservation runtime tests reject selected mutations"
+      ],
+      [
+        "Verify Section 3 compiling regressions",
+        "Verify Compute disk SKU collector compiling controls",
+        "Verify latency source oracle mutations",
+        "Verify cost enrichment source oracle mutations",
+        "Reservation SDK source oracle compiling controls",
+        "Provider locations source oracle compiling controls",
+        "Remaining SKU source oracle compiling controls",
+        "Verify comparator tests reject selected mutations",
+        "Verify region inventory aggregation tests reject selected mutations",
+        "Verify region quota runtime tests reject selected mutations",
+        "Verify REST quota collector tests reject selected mutations",
+        "Verify provider collector compiling controls"
+      ]
+    ],
+    "windows": [
+      [
+        "Verify Section 4 compiling regressions",
+        "Verify Compute disk SKU collector compiling controls",
+        "Verify VM SKU collector compiling controls",
+        "VM quota SDK source oracle compiling controls",
+        "Reservation SDK source oracle compiling controls",
+        "Verify Windows AI request boundary tests reject selected mutations",
+        "Verify Windows region auxiliary tests reject selected mutations",
+        "Verify Windows region cost tests reject selected mutations",
+        "Verify Windows region inventory aggregation tests reject selected mutations",
+        "Verify Windows region cost enrichment tests reject selected mutations",
+        "Verify Windows region quota runtime tests reject selected mutations"
+      ],
+      [
+        "Verify Section 3 compiling regressions",
+        "Verify Storage SKU collector compiling controls",
+        "Verify Windows retained source capture byte guard",
+        "Verify Windows latency source oracle mutations",
+        "Verify Windows cost enrichment source oracle mutations",
+        "Provider locations source oracle compiling controls",
+        "Compute SKU source oracle compiling controls",
+        "Verify Windows AI public execution tests reject selected mutations",
+        "Verify Windows region availability tests reject selected mutations",
+        "Verify Windows region latency tests reject selected mutations",
+        "Verify Windows region reservation runtime tests reject selected mutations",
+        "Verify Windows provider collector compiling controls"
+      ],
+      [
+        "Verify Section 1 compiling regressions",
+        "Verify Section 2 compiling regressions",
+        "Verify ARG response framing compiling controls",
+        "Verify Windows availability source oracle mutations",
+        "Quota source oracle compiling controls",
+        "Remaining SKU source oracle compiling controls",
+        "Verify Windows region primary tests reject selected mutations",
+        "Verify Windows region service tests reject selected mutations",
+        "Verify Windows region inventory tests reject selected mutations",
+        "Verify Windows REST quota collector tests reject selected mutations",
+        "Verify Windows reservation collector tests reject selected mutations"
+      ]
+    ]
+  },
+  "additions": {
+    "linux": [
+      {
+        "name": "Verify isolated required inventory Build controls",
+        "script": "scripts/tests/required-inventory-build.py",
+        "worker": "native"
+      },
+      {
+        "name": "Verify required evidence Admission controls",
+        "script": "scripts/tests/required-inventory-admission.py",
+        "worker": "native"
+      },
+      {
+        "name": "Verify legacy mutation assertion admission",
+        "script": "scripts/tests/mutation-assertions.py",
+        "worker": "native"
+      },
+      {
+        "name": "Verify hosted gate contract definitions",
+        "script": "scripts/tests/gate-probe.py",
+        "worker": "native"
+      },
+      {
+        "name": "Verify handoff authority consistency",
+        "script": "scripts/tests/handoff.py",
+        "worker": "native"
+      },
+      {
+        "name": "Verify durable evidence bundle integrity",
+        "script": "scripts/tests/evidence-bundle.py",
+        "worker": "native"
+      },
+      {
+        "name": "Verify VMSS catalog compiling controls",
+        "script": "scripts/tests/vmss-catalog-mutation.py",
+        "worker": "controls-3"
+      },
+      {
+        "name": "Verify Cognitive SKU catalog compiling controls",
+        "script": "scripts/tests/cognitive-sku-mutation.py",
+        "worker": "controls-3"
+      },
+      {
+        "name": "Verify SQL Database capability compiling controls",
+        "script": "scripts/tests/sql-database-controls.py",
+        "worker": "controls-1"
+      },
+      {
+        "name": "Verify SQL Managed Instance capability compiling controls",
+        "script": "scripts/tests/sql-mi-controls.py",
+        "worker": "controls-2"
+      },
+      {
+        "name": "Verify assessment status scope redaction compiling controls",
+        "script": "scripts/tests/scope-redaction-controls.py",
+        "worker": "controls-3"
+      },
+      {
+        "name": "Verify SQL report adapter compiling controls",
+        "script": "scripts/tests/sql-report-controls.py",
+        "worker": "controls-2"
+      },
+      {
+        "name": "Verify meter history compiling controls",
+        "script": "scripts/tests/meter-history-controls.py",
+        "worker": "controls-2"
+      },
+      {
+        "name": "Verify retail pricing compiling controls",
+        "script": "scripts/tests/retail-controls.py",
+        "worker": "controls-1"
+      },
+      {
+        "name": "Verify tag collision rejection controls",
+        "script": "scripts/tests/tag-collision-controls.py",
+        "worker": "native"
+      },
+      {
+        "name": "Verify comparison JSON admission controls",
+        "script": "scripts/tests/comparison-json-controls.py",
+        "worker": "native"
+      },
+      {
+        "name": "Verify coordinator scheduling specification",
+        "script": "scripts/tests/coordinator-scheduling.py",
+        "worker": "native"
+      },
+      {
+        "name": "Verify subscription reservation contract controls",
+        "script": "scripts/tests/subscription-reservation-controls.py",
+        "worker": "native"
+      },
+      {
+        "name": "Verify subscription location preproduction contract",
+        "script": "scripts/tests/subscription-location-preproduction.py",
+        "worker": "native"
+      }
+    ],
+    "windows": [
+      {
+        "name": "Verify isolated required inventory Build controls",
+        "script": "scripts/tests/required-inventory-build.py",
+        "worker": "native"
+      },
+      {
+        "name": "Verify required evidence Admission controls",
+        "script": "scripts/tests/required-inventory-admission.py",
+        "worker": "native"
+      },
+      {
+        "name": "Verify legacy mutation assertion admission",
+        "script": "scripts/tests/mutation-assertions.py",
+        "worker": "native"
+      },
+      {
+        "name": "Verify hosted gate contract definitions",
+        "script": "scripts/tests/gate-probe.py",
+        "worker": "native"
+      },
+      {
+        "name": "Verify handoff authority consistency",
+        "script": "scripts/tests/handoff.py",
+        "worker": "native"
+      },
+      {
+        "name": "Verify durable evidence bundle integrity",
+        "script": "scripts/tests/evidence-bundle.py",
+        "worker": "native"
+      },
+      {
+        "name": "Verify VMSS catalog compiling controls",
+        "script": "scripts/tests/vmss-catalog-mutation.py",
+        "worker": "controls-3"
+      },
+      {
+        "name": "Verify Cognitive SKU catalog compiling controls",
+        "script": "scripts/tests/cognitive-sku-mutation.py",
+        "worker": "controls-3"
+      },
+      {
+        "name": "Verify SQL Database capability compiling controls",
+        "script": "scripts/tests/sql-database-controls.py",
+        "worker": "controls-1"
+      },
+      {
+        "name": "Verify SQL Managed Instance capability compiling controls",
+        "script": "scripts/tests/sql-mi-controls.py",
+        "worker": "controls-2"
+      },
+      {
+        "name": "Verify assessment status scope redaction compiling controls",
+        "script": "scripts/tests/scope-redaction-controls.py",
+        "worker": "controls-3"
+      },
+      {
+        "name": "Verify SQL report adapter compiling controls",
+        "script": "scripts/tests/sql-report-controls.py",
+        "worker": "controls-2"
+      },
+      {
+        "name": "Verify meter history compiling controls",
+        "script": "scripts/tests/meter-history-controls.py",
+        "worker": "controls-1"
+      },
+      {
+        "name": "Verify retail pricing compiling controls",
+        "script": "scripts/tests/retail-controls.py",
+        "worker": "controls-2"
+      },
+      {
+        "name": "Verify Windows comparator assertion controls",
+        "script": "scripts/tests/qa-mutation.py",
+        "worker": "controls-3"
+      },
+      {
+        "name": "Verify tag collision rejection controls",
+        "script": "scripts/tests/tag-collision-controls.py",
+        "worker": "native"
+      },
+      {
+        "name": "Verify comparison JSON admission controls",
+        "script": "scripts/tests/comparison-json-controls.py",
+        "worker": "native"
+      },
+      {
+        "name": "Verify coordinator scheduling specification",
+        "script": "scripts/tests/coordinator-scheduling.py",
+        "worker": "native"
+      },
+      {
+        "name": "Verify subscription reservation contract controls",
+        "script": "scripts/tests/subscription-reservation-controls.py",
+        "worker": "native"
+      },
+      {
+        "name": "Verify subscription location preproduction contract",
+        "script": "scripts/tests/subscription-location-preproduction.py",
+        "worker": "native"
+      }
+    ]
+  }
+}

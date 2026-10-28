@@ -5,6 +5,9 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
+	"maps"
+	"reflect"
+	"slices"
 	"strconv"
 	"strings"
 
@@ -32,6 +35,9 @@ func LoadReference(reader io.Reader) (Projection, error) {
 	content, err := io.ReadAll(reader)
 	if err != nil {
 		return Projection{}, fmt.Errorf("read reference JSON: %w", err)
+	}
+	if err := validateComparisonJSON(content, nil); err != nil {
+		return Projection{}, fmt.Errorf("decode reference JSON: %w", err)
 	}
 	var raw map[string]json.RawMessage
 	if err := json.Unmarshal(content, &raw); err != nil {
@@ -95,6 +101,9 @@ func LoadTarget(reader io.Reader) (Projection, error) {
 	content, err := io.ReadAll(reader)
 	if err != nil {
 		return Projection{}, fmt.Errorf("read target JSON: %w", err)
+	}
+	if err := validateComparisonJSON(content, reflect.TypeFor[result.AssessmentResult]()); err != nil {
+		return Projection{}, fmt.Errorf("decode target JSON: %w", err)
 	}
 	var data result.AssessmentResult
 	if err := json.Unmarshal(content, &data); err != nil {
@@ -571,6 +580,19 @@ func put(projection *Projection, datasetName, key string, fields map[string]stri
 	dataset := projection.Datasets[datasetName]
 	if dataset.Records == nil {
 		dataset.Records = map[string]Record{}
+	}
+	if existing, exists := dataset.Records[key]; exists {
+		if !maps.Equal(existing.Fields, fields) {
+			projection.Comparable = false
+			// Keep identities and values out of the diagnostic. A later matching
+			// row must never turn contradictory evidence into a valid baseline.
+			note := "dataset " + datasetName + " contains conflicting records with the same normalized identity"
+			if !slices.Contains(projection.Notes, note) {
+				projection.Notes = append(projection.Notes, note)
+				slices.Sort(projection.Notes)
+			}
+		}
+		return
 	}
 	dataset.Records[key] = Record{Key: key, Fields: fields}
 	projection.Datasets[datasetName] = dataset

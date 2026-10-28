@@ -7,6 +7,7 @@ import (
 	"io"
 	"net/http"
 	"net/http/httptest"
+	"strconv"
 	"strings"
 	"sync/atomic"
 	"testing"
@@ -238,5 +239,31 @@ func TestResourceGraphProductionEndpointIsQueryOnly(t *testing.T) {
 	endpoint := resourceGraphEndpoint()
 	if !strings.HasSuffix(endpoint, "/providers/Microsoft.ResourceGraph/resources?api-version=2024-04-01") {
 		t.Fatalf("unexpected production query endpoint: %s", endpoint)
+	}
+}
+
+func TestARGHTTPTransportRequiresDocumentedCompletedQueryStatus(t *testing.T) {
+	for _, status := range []int{200, 201, 202, 203, 204, 205, 206} {
+		t.Run(strconv.Itoa(status), func(t *testing.T) {
+			body := &argSuffixBody{Reader: strings.NewReader(`{"data":[],"resultTruncated":"false"}`)}
+			options := azure.DefaultHTTPClientOptions(time.Second)
+			options.MaxRetries = -1
+			options.Scope = "https://management.azure.com/.default"
+			options.Transport = completionTransportFunc(func(request *http.Request) (*http.Response, error) {
+				return &http.Response{StatusCode: status, Header: http.Header{}, Body: body, Request: request}, nil
+			})
+			transport := NewHTTPTransportWithClient(azure.NewHTTPClient(argTestCredential{}, options), "https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2024-04-01")
+			result, err := NewClient(transport).Query(context.Background(), "resources", map[string]string{"sub": "Synthetic"})
+			if body.closes != 1 {
+				t.Fatalf("ARG status response body closes=%d, want one", body.closes)
+			}
+			if status == http.StatusOK {
+				if err != nil || result == nil || len(result.Data) != 0 {
+					t.Fatalf("documented empty query failed: result=%v error=%v", result, err)
+				}
+			} else if err == nil || result != nil {
+				t.Fatalf("undocumented ARG status admitted as complete query: status=%d result=%v error=%v", status, result, err)
+			}
+		})
 	}
 }

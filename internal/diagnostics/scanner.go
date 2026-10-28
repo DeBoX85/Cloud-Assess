@@ -81,6 +81,10 @@ func (s *Scanner) Scan(
 	}
 
 	for _, resource := range resources {
+		if err := ctx.Err(); err != nil {
+			result.Findings = nil
+			return result, err
+		}
 		resourceID := normalize(resource.ID)
 		if enabled[resourceID] {
 			continue
@@ -118,6 +122,10 @@ func (s *Scanner) Scan(
 		})
 	}
 
+	if err := ctx.Err(); err != nil {
+		result.Findings = nil
+		return result, err
+	}
 	return result, nil
 }
 
@@ -131,6 +139,9 @@ func (s *Scanner) ListResourcesWithDiagnosticSettings(
 	enabled := map[string]bool{}
 	warnings := []assessment.AssessmentWarning{}
 
+	if err := ctx.Err(); err != nil {
+		return nil, warnings, err
+	}
 	resourceIDs := make([]string, 0, len(resources))
 	for _, resource := range resources {
 		if Supports(resource.Type) {
@@ -192,6 +203,9 @@ func (s *Scanner) ListResourcesWithDiagnosticSettings(
 		go func() {
 			defer wg.Done()
 			for ids := range jobs {
+				if workerCtx.Err() != nil {
+					return
+				}
 				batchEnabled, batchWarnings, err := s.scanBatch(workerCtx, ids)
 				results <- batchResult{enabled: batchEnabled, warnings: batchWarnings, err: err}
 				if err != nil {
@@ -231,6 +245,9 @@ func (s *Scanner) ListResourcesWithDiagnosticSettings(
 			enabled[resourceID] = true
 		}
 	}
+	if err := ctx.Err(); err != nil {
+		return enabled, warnings, err
+	}
 	if firstErr != nil {
 		return enabled, warnings, firstErr
 	}
@@ -261,8 +278,16 @@ func (s *Scanner) scanBatch(
 	defer response.Body.Close()
 
 	var batch armBatchResponse
-	if err := json.NewDecoder(response.Body).Decode(&batch); err != nil {
+	decoder := json.NewDecoder(response.Body)
+	if err := decoder.Decode(&batch); err != nil {
 		return nil, nil, fmt.Errorf("decode diagnostic settings batch response: %w", err)
+	}
+	var trailing any
+	if err := decoder.Decode(&trailing); err != io.EOF {
+		if err != nil {
+			return nil, nil, fmt.Errorf("read diagnostic settings batch trailing content: %w", err)
+		}
+		return nil, nil, fmt.Errorf("diagnostic settings batch response has trailing content")
 	}
 	if len(batch.Responses) != len(resourceIDs) {
 		return nil, nil, fmt.Errorf("diagnostic settings batch returned %d subresponses for %d requests", len(batch.Responses), len(resourceIDs))
@@ -270,6 +295,10 @@ func (s *Scanner) scanBatch(
 
 	enabled := map[string]bool{}
 	warnings := []assessment.AssessmentWarning{}
+	requested := make(map[string]bool, len(resourceIDs))
+	for _, resourceID := range resourceIDs {
+		requested[normalize(resourceID)] = true
+	}
 	for _, item := range batch.Responses {
 		if item.HTTPStatusCode != http.StatusOK {
 			// The reference implementation leaves this resource absent from the enabled map,
@@ -294,6 +323,9 @@ func (s *Scanner) scanBatch(
 					Message: "diagnostic settings response contained a setting without a parseable resource ID",
 				})
 				continue
+			}
+			if !requested[resourceID] {
+				return nil, warnings, fmt.Errorf("diagnostic settings response contains a resource outside the requested batch")
 			}
 			enabled[resourceID] = true
 		}
