@@ -9,10 +9,10 @@ This is the short project dashboard for Denis. Update it at every meaningful act
 | Item | Position |
 | --- | --- |
 | Goal | AZQR feature/function/capability parity with adjustable branding, accurate behavior and documented deliberate improvements; verified against Denis's pinned fork |
-| Active task | Task10 prerequisite: subscription location/AZ contract and strict consumer preparation on `dev/subscription-locations-contract-20261028`; production API and coordinator absent |
+| Active task | Location prerequisite: additive accessor-assurance freeze on `dev/subscription-locations-20261028`; correct local implementation unaccepted, public API still absent at initial checkpoint |
 | Latest verified product milestone | [Draft PR207](https://github.com/DeBoX85/Cloud-Assess/pull/207), frozen `5fe46d8c394b45995402850944e63b236c792912`: subscription-wide reservation component verified offline with own QA/private110member restore |
-| Current candidate verification | PR208 audit/binding checkpoint verified offline by own quality40716534512/source40716534340 and private96member restore. New location preparation needs OWN full QA/retention; fixture-only shape check is not API runtime proof |
-| Next production task | Publish/read back location contract/consumer freeze, verify BOTH-native missing APIs and own QA/retention, then implement on a separate PRODUCT successor; exact coordinator/currency/cumulative budgets remain |
+| Current candidate verification | PR209preparation verified offline with own full QA/private94member restore. Local producer97race events pass, but compiling accessor-alias fault survives original97; additive literal regression must reject it before runtime assurance |
+| Next production task | Publish/read back ownership supplement, prove accessor reversal/restoration, publish coherent implementation plus strict controls, then own full native/source/rollback/private retention; no coordinator closure |
 | Input needed from Denis now | None for the authorized offline sequence. Stop only for material uncertainty with no safe mitigation or explicit deferral |
 | Protected acceptance | Drafts remain unmerged. Protected baseline and AZQR/APRL pins unchanged; no release approval implied |
 
@@ -26,6 +26,7 @@ Current audit: latest206–208live exact heads/own QA and private retention rech
 
 | Work | Verified position / evidence |
 | --- | --- |
+| Location preparation | PR209own quality40741266237/source40741266629 and archive825d0ff9/receipt24f0f7c7;94fresh-restored members4167079bytes. No actual location API runtime pass |
 | Audit/binding checkpoint | PR208own quality40716534512/source40716534340 and capture5fee1aaf/receipt922d9373;96fresh-restored members/6900417bytes equal originals. No coordinator/API freeze closure |
 | Subscription reservations | PR207own quality40695510572/source40695510575success; capturebcb7c44a/receipte9de8d8d,110fresh-restored members/4451776bytes equal originals; no coordinator closure |
 | Tasks1–7 | Complete verified offline; preserve closure evidence, do not replay SQL/Cognitive/VMSS/history/retail work |
@@ -76,6 +77,7 @@ ETA: no evidence-based calendar forecast is available yet. Comparable remaining-
 
 | Date | Change / verified result |
 | --- | --- |
+| 28 October | Local producer passes97frozen race events; accessor fault also passes because expected snapshot aliases state. Restored source exactly; independent additive literal regression prepared without changing original nine files. New candidate remains unaccepted |
 | 28 October | Latest206–208own QA/retention rechecked; location contract,35wire literals/eightboundaries and strict future consumer prepared before production. New candidate own QA/retention pending; no API runtime pass |
 | 28 October | Three-task audit/recovery complete;207own QA/retention verified, environment available, region/AZ/currency/cumulative-budget source binding findings published on separate PRODUCT successor; own new QA pending |
 | 27 October | PR203 final index resolves old local/pending F01 snapshots: complete own QA, original control conservation, nine new tag controls per host, private capture and fresh restore |

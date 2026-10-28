@@ -383,7 +383,7 @@
         "docs/ACTION_REGISTER.md"
       ],
       "disposition": "historical_programme_step_verified_offline",
-      "closure_reference": "Original programme1–5 closure; do not replay; OFFLINE_SEQUENCE current tasks remain separate."
+      "closure_reference": "Original programme1\u20135 closure; do not replay; OFFLINE_SEQUENCE current tasks remain separate."
     },
     {
       "id": "OP-002",
@@ -391,7 +391,7 @@
         "docs/ACTION_REGISTER.md"
       ],
       "disposition": "historical_programme_step_verified_offline",
-      "closure_reference": "Original programme1–5 closure; do not replay; OFFLINE_SEQUENCE current tasks remain separate."
+      "closure_reference": "Original programme1\u20135 closure; do not replay; OFFLINE_SEQUENCE current tasks remain separate."
     },
     {
       "id": "OP-003",
@@ -399,7 +399,7 @@
         "docs/ACTION_REGISTER.md"
       ],
       "disposition": "historical_programme_step_verified_offline",
-      "closure_reference": "Original programme1–5 closure; do not replay; OFFLINE_SEQUENCE current tasks remain separate."
+      "closure_reference": "Original programme1\u20135 closure; do not replay; OFFLINE_SEQUENCE current tasks remain separate."
     },
     {
       "id": "OP-004",
@@ -407,7 +407,7 @@
         "docs/ACTION_REGISTER.md"
       ],
       "disposition": "historical_programme_step_verified_offline",
-      "closure_reference": "Original programme1–5 closure; do not replay; OFFLINE_SEQUENCE current tasks remain separate."
+      "closure_reference": "Original programme1\u20135 closure; do not replay; OFFLINE_SEQUENCE current tasks remain separate."
     },
     {
       "id": "OP-005",
@@ -415,7 +415,7 @@
         "docs/ACTION_REGISTER.md"
       ],
       "disposition": "historical_programme_step_verified_offline",
-      "closure_reference": "Original programme1–5 closure; do not replay; OFFLINE_SEQUENCE current tasks remain separate."
+      "closure_reference": "Original programme1\u20135 closure; do not replay; OFFLINE_SEQUENCE current tasks remain separate."
     },
     {
       "id": "R7-F01",
@@ -772,9 +772,9 @@
     },
     {
       "id": "OFFLINE-10",
-      "state": "contract_preparation_in_progress",
+      "state": "implementation_in_progress",
       "owner": "development owner",
-      "next_or_limit": "PR208/69637552 own full QA/private96member restore verified by final index; latest206–208audit rechecks own exact-head evidence and fresh122/110/96member restores. New PRODUCT subscription-locations-contract preparation freezes35wire/eightcollection/11JSON/13URI cases and three actual Go consumers before production; publication/readback/BOTH-native missing APIs/own QA and retention pending. No new location/coordinator API or task10closure; currency/ownership/cumulative budgets and exact coordinator request/result remain. All other obligations retained."
+      "next_or_limit": "PR209/d152 owns full native/source QA/private94member restore (825d0ff9/24f0f7c7), before production. Local location API passes97original race events but compiling accessor alias also passes original oracle; restored correct source unchanged. New PRODUCT successor freezes additive literal accessor assertion before its execution/further production change; original9files/97events unchanged, plus1supplement total98. Public API absent in initial supplement checkpoint; implementation local unaccepted WIP. Publish coherent implementation/strict assertion reversals and own full QA/retention before coordinator/currency/cumulative-budget work and11. All obligations retained."
     },
     {
       "id": "OFFLINE-11",

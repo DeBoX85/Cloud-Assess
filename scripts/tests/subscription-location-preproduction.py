@@ -10,6 +10,11 @@ manifest=json.loads((D/'integrity.json').read_text());assert len(manifest['files
 for row in manifest['files']:
  raw=(ROOT/row['path']).read_bytes().replace(b'\r\n',b'\n');assert len(raw)==row['bytes'] and hashlib.sha256(raw).hexdigest()==row['sha256']
 subprocess.run([sys.executable,str(D/'check_literals.py')],cwd=ROOT,check=True)
+S=ROOT/'docs/evidence/20261028/subscription-locations-supplement'
+supplement=json.loads((S/'integrity.json').read_text());assert len(supplement['files'])==2
+for row in supplement['files']:
+ raw=(ROOT/row['path']).read_bytes().replace(b'\r\n',b'\n');assert len(raw)==row['bytes'] and hashlib.sha256(raw).hexdigest()==row['sha256']
+
 stub='''package region
 import "context"
 type SubscriptionLocationRequest struct{SubscriptionID string}
@@ -22,6 +27,7 @@ func(*SubscriptionLocationCollection)Evidence()SubscriptionLocationEvidence{pani
 '''
 with tempfile.TemporaryDirectory(prefix='cloud-assess-location-preproduction-') as tmp:
  T=Path(tmp);replace={str(ROOT/'internal/plugins/region'/p.name.removesuffix('.txt')):str(p) for p in sorted(D.glob('*_test.go.txt'))};assert len(replace)==3
+ replace.update({str(ROOT/'internal/plugins/region'/p.name.removesuffix('.txt')):str(p) for p in S.glob('*_test.go.txt')});assert len(replace)==4
  overlay=T/'overlay.json';overlay.write_text(json.dumps({'Replace':replace}))
  command=['go','test','-mod=readonly','-overlay',str(overlay),'-count=1','-run','^$','./internal/plugins/region']
  missing=subprocess.run(command,cwd=ROOT,capture_output=True,text=True,encoding='utf-8',timeout=180)
@@ -36,4 +42,4 @@ with tempfile.TemporaryDirectory(prefix='cloud-assess-location-preproduction-') 
  assert [e['Test'] for e in events if e['Action']=='pass' and e.get('Test')]==['TestSubscriptionLocationsFixtureShape']
 assert all((ROOT/p).read_bytes()==raw for p,raw in pins.items())
 assert subprocess.check_output(['git','status','--porcelain','--untracked-files=all'],cwd=ROOT)==status
-print('SUBSCRIPTION_LOCATION_PREPRODUCTION_JSON '+json.dumps({'bound_files':9,'wire_literals':35,'boundary_recipes':8,'procedural_obligations':8,'missing_api_compile_exit':1,'missing_symbols':symbols,'missing_compile_stdout_sha256':hashlib.sha256(missing.stdout.encode()).hexdigest(),'missing_compile_stderr_sha256':hashlib.sha256(missing.stderr.encode()).hexdigest(),'fixture_shape_exit':0,'fixture_passed_tests':['TestSubscriptionLocationsFixtureShape'],'shape_stub_methods_panic_if_executed':True,'actual_future_API_executed':False,'compiler_failure_is_runtime_mutation_credit':False,'module_pins_unchanged':True,'checkout_unchanged':True},separators=(',',':')),flush=True)
+print('SUBSCRIPTION_LOCATION_PREPRODUCTION_JSON '+json.dumps({'bound_files':9,'supplemental_bound_files':2,'original_future_named_events':97,'supplemental_future_named_events':1,'wire_literals':35,'boundary_recipes':8,'procedural_obligations':8,'missing_api_compile_exit':1,'missing_symbols':symbols,'missing_compile_stdout_sha256':hashlib.sha256(missing.stdout.encode()).hexdigest(),'missing_compile_stderr_sha256':hashlib.sha256(missing.stderr.encode()).hexdigest(),'fixture_shape_exit':0,'fixture_passed_tests':['TestSubscriptionLocationsFixtureShape'],'shape_stub_methods_panic_if_executed':True,'actual_future_API_executed':False,'compiler_failure_is_runtime_mutation_credit':False,'module_pins_unchanged':True,'checkout_unchanged':True},separators=(',',':')),flush=True)
