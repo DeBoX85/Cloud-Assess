@@ -186,8 +186,8 @@
         "worker": "native"
       },
       {
-        "name": "Verify subscription location preproduction contract",
-        "script": "scripts/tests/subscription-location-preproduction.py",
+        "name": "Verify subscription location contract controls",
+        "script": "scripts/tests/subscription-location-controls.py",
         "worker": "native"
       }
     ],
@@ -288,8 +288,8 @@
         "worker": "native"
       },
       {
-        "name": "Verify subscription location preproduction contract",
-        "script": "scripts/tests/subscription-location-preproduction.py",
+        "name": "Verify subscription location contract controls",
+        "script": "scripts/tests/subscription-location-controls.py",
         "worker": "native"
       }
     ]

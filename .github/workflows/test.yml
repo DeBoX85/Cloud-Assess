@@ -58,8 +58,8 @@ jobs:
       - name: Verify subscription reservation contract controls
         run: python3 scripts/tests/subscription-reservation-controls.py
 
-      - name: Verify subscription location preproduction contract
-        run: python3 scripts/tests/subscription-location-preproduction.py
+      - name: Verify subscription location contract controls
+        run: python3 scripts/tests/subscription-location-controls.py
 
       - name: Verify pinned source-data provenance
         shell: bash
@@ -478,8 +478,8 @@ jobs:
       - name: Verify subscription reservation contract controls
         run: python scripts/tests/subscription-reservation-controls.py
 
-      - name: Verify subscription location preproduction contract
-        run: python scripts/tests/subscription-location-preproduction.py
+      - name: Verify subscription location contract controls
+        run: python scripts/tests/subscription-location-controls.py
 
       - name: Parse scripts with Windows PowerShell 5.1
         shell: powershell

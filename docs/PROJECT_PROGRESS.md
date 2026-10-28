@@ -9,14 +9,14 @@ This is the short project dashboard for Denis. Update it at every meaningful act
 | Item | Position |
 | --- | --- |
 | Goal | AZQR feature/function/capability parity with adjustable branding, accurate behavior and documented deliberate improvements; verified against Denis's pinned fork |
-| Active task | Location prerequisite: additive accessor-assurance freeze on `dev/subscription-locations-20261028`; correct local implementation unaccepted, public API still absent at initial checkpoint |
+| Active task | [PR210](https://github.com/DeBoX85/Cloud-Assess/pull/210): private location component implemented as unaccepted WIP; own QA/retention pending |
 | Latest verified product milestone | [Draft PR207](https://github.com/DeBoX85/Cloud-Assess/pull/207), frozen `5fe46d8c394b45995402850944e63b236c792912`: subscription-wide reservation component verified offline with own QA/private110member restore |
-| Current candidate verification | PR209preparation verified offline with own full QA/private94member restore. Local producer97race events pass, but compiling accessor-alias fault survives original97; additive literal regression must reject it before runtime assurance |
-| Next production task | Publish/read back ownership supplement, prove accessor reversal/restoration, publish coherent implementation plus strict controls, then own full native/source/rollback/private retention; no coordinator closure |
+| Current candidate verification | PR209preparation owns full QA/private94member restore.210local98race events/14strict compiling reversals pass; original oracle gap reproduced and independent literal regression verified. Own hosted QA/rollback/retention pending; execution workspace now unavailable |
+| Next production task | Publish/read back recovered implementation, complete own native/source/rollback/private retention; restore execution capability for fresh-directory proof before dependent production |
 | Input needed from Denis now | None for the authorized offline sequence. Stop only for material uncertainty with no safe mitigation or explicit deferral |
 | Protected acceptance | Drafts remain unmerged. Protected baseline and AZQR/APRL pins unchanged; no release approval implied |
 
-Current location prerequisite: [strict contract and independent consumer](SUBSCRIPTION_LOCATION_CONTRACT_20261028.md). No new API is implemented.
+Current location prerequisite: [strict contract and independent consumer](SUBSCRIPTION_LOCATION_CONTRACT_20261028.md). PR210implements the private API as unaccepted WIP; see [implementation/recovery record](SUBSCRIPTION_LOCATION_IMPLEMENTATION_20261028.md).
 
 Current preparation scope and remaining bindings: [coordinator contract](REGION_COORDINATOR_CONTRACT_20261028.md). Its finite model does not execute or accept the future Go coordinator. [PR206 final index](https://github.com/DeBoX85/Cloud-Assess/pull/206) verifies its own preparation QA/private retention; the completed subscription contract is [subscription reservations](SUBSCRIPTION_RESERVATION_CONTRACT_20261028.md) and next binding work is [region/AZ preparation](COORDINATOR_BINDING_AUDIT_20261028.md). No input from Denis or Azure tenant is required for the next binding review.
 
@@ -44,7 +44,7 @@ PR204 quality40531800632 and source40531800701 completed/success; final index ow
 | --- | --- | --- | --- |
 | Complete | Progress dashboard/workflow: verified offline | PR204 own full QA and44member private restore verified by final index | Verified PR203 |
 | Complete | F03 verified offline in PR205 | Own quality40540010823/source40540010588 and archiveb2d51adb/receiptf99c7951;91fresh-restored members equal originals | Frozen205 |
-| 10 | Owned per-run coordinator: preparation in progress | Ownership, lifecycle, cancellation and bounded execution contract implemented and verified | Tasks5/7/9 and corrective sequence |
+| 10 | Owned per-run coordinator: prerequisites in progress | Ownership, lifecycle, cancellation and bounded execution contract implemented and verified | Tasks5/7/9 and corrective sequence |
 | 11 | Public region CLI/registry: not started | Public command wiring and early validation verified | Task10 |
 | 12 | Outputs/FullCost/health/exits: not started | Required output contracts and types reconciled; results and exit behavior verified | Coordinator/CLI |
 | 13 | Synthetic workloads: not started | Representative permission/cancellation/volume/budget behavior verified; limits explicit | Integrated behavior |
@@ -77,6 +77,7 @@ ETA: no evidence-based calendar forecast is available yet. Comparable remaining-
 
 | Date | Change / verified result |
 | --- | --- |
+| 28 October | PR210supplement42b5f18c fully read back before execution; correct98race events/14strict reversals/restoration pass locally. Execution workspace then unavailable; recovered producer hashes verified, own full QA/rollback/private fresh restore pending |
 | 28 October | Local producer passes97frozen race events; accessor fault also passes because expected snapshot aliases state. Restored source exactly; independent additive literal regression prepared without changing original nine files. New candidate remains unaccepted |
 | 28 October | Latest206–208own QA/retention rechecked; location contract,35wire literals/eightboundaries and strict future consumer prepared before production. New candidate own QA/retention pending; no API runtime pass |
 | 28 October | Three-task audit/recovery complete;207own QA/retention verified, environment available, region/AZ/currency/cumulative-budget source binding findings published on separate PRODUCT successor; own new QA pending |
