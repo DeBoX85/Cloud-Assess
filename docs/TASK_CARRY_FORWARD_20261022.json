@@ -522,7 +522,7 @@
       "id": "SEC-BASELINE",
       "state": "report_received_triaged_bounded",
       "owner": "security reviewer; development owner integrates",
-      "next_or_limit": "Denis supplied immutable private report;14manifest members and23explicit source blob pairs checked. No fresh reproduction/full archive certification; R7findings remain open; separate corrective candidates. Separate28October dated PR206native summaries0reachable/5imported-not-called/1module-only; new GO-2026-6866/GO-2026-6860first-party classified, all residuals OPEN, no pin/gate update. Reevaluate after integration/before readiness/release; no independent/security-completeness approval."
+      "next_or_limit": "Denis supplied immutable private report;14manifest members and23explicit source blob pairs checked. No fresh reproduction/full archive certification; R7findings remain open; separate corrective candidates. Separate28October dated PR206native summaries0reachable/5imported-not-called/1module-only; new GO-2026-6866/GO-2026-6860first-party classified, all residuals OPEN, no pin/gate update. Reevaluate after integration/before readiness/release; no independent/security-completeness approval. PR207own native scans independently confirm0/5/1; this is not inherited206scan evidence."
     },
     {
       "id": "R7-F01",
@@ -576,13 +576,13 @@
       "id": "DC-CI-EVIDENCE-20261022",
       "state": "resolved_bounded_migration",
       "owner": "agent tracks; Denis selects destination",
-      "next_or_limit": "Issue189closed/completed after196ownQA. Archivecf093771/receipt10ba2bcdverified; retention/revisit/future capture duties continue. No automatic archival or independent backup. Additional206captureeffaf284/receiptaf59ad63full remote readback/fresh122member restore verified, preserving unrelated blobs; ongoing duties unchanged."
+      "next_or_limit": "Issue189closed/completed after196ownQA. Archivecf093771/receipt10ba2bcdverified; retention/revisit/future capture duties continue. No automatic archival or independent backup. Additional206captureeffaf284/receiptaf59ad63full remote readback/fresh122member restore verified, preserving unrelated blobs; ongoing duties unchanged. PR207capturebcb7c44a/receipte9de8d8d own110member fresh restore now verified;222prior non-index blobs preserved."
     },
     {
       "id": "AR-01",
       "state": "open_residual",
       "owner": "security/release owner",
-      "next_or_limit": "Approved security updates complete offline;3imported-not-called/1module-only residual dispositions remain open."
+      "next_or_limit": "Approved security updates complete offline; dated PR207own BOTH-native summaries0reachable/5imported-not-called/1module-only supersede older3imported snapshots. All residual dispositions remain OPEN; reevaluate after integration/before readiness/release without unrelated pin/gate changes."
     },
     {
       "id": "AR-02",
