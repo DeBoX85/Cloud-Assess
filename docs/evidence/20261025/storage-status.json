@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-25",
+  "task": "DC-CI-EVIDENCE-20261022",
+  "status": "in_progress",
+  "private_repository": "DeBoX85/SC-storage",
+  "repository_id": 1429973420,
+  "artifact_commit": "64f3c6d833340c202fae539fb7d1423a870006a6",
+  "artifact_tree": "4defd1127eb5158638fe75518385b61cd3489546",
+  "archive_branch": "archive/cloud-assess-ci-20261022",
+  "receipt_commit": "f4081f5716dc39d3a9263900602fd621c39eb2d2",
+  "receipt_branch": "archive/cloud-assess-ci-verification-20261025",
+  "receipt": "https://github.com/DeBoX85/SC-storage/blob/f4081f5716dc39d3a9263900602fd621c39eb2d2/projects/cloud-assess/ci-evidence/v1/verification-receipts/2026/10/25/archive-64f3c6d8.json",
+  "complete_remote_readback": {
+    "files": 33,
+    "bytes": 2895506
+  },
+  "fresh_directory_restore": {
+    "members": 200,
+    "bytes": 25196544,
+    "all_members_match_original_inventory": true
+  },
+  "complete_job_logs": 69,
+  "captures": 7,
+  "scope": "6complete recorded own-QA captures; PR194capture001partial with3logs",
+  "main_observed": "4a968897234ba587a2193b43e627d8fe23b7bb5a",
+  "pending": [
+    "Integrate CI archive into latest shared main, preserving security-review category and all concurrent work.",
+    "Append the8later completed PR194job logs/final metadata as a new immutable capture and verify it."
+  ],
+  "limits": [
+    "No raw logs or sensitive security findings are published in Cloud-Assess.",
+    "No automatic continuous archive/pruning configured.",
+    "GitHub storage is not independent disaster recovery/DC-006closure."
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "source_commit": "1cdcc5414764d20e8815554c8b89708c10747c18",
+  "files": [
+    {
+      "file": "compute-primary-2021-07-01-skus.json",
+      "source_blob": "b85286923a6382356ab773d90faac382e73740ec",
+      "bytes": 14114,
+      "sha256": "81f9bb91b33be77111ef82ffa1549c633cf0b50edb6907ba2ca9e4d9f484fe59"
+    },
+    {
+      "file": "compute-primary-2021-07-01-ListAvailableResourceSkus.json",
+      "source_blob": "9d403f67699adfedf2714ada315ba5215f793c81",
+      "bytes": 4949,
+      "sha256": "e4cbaed858756360cf8649e5d6c09006600c8df3ff0665b1bea8f0e02e6da314"
+    },
+    {
+      "file": "compute-primary-2021-07-01-ListAvailableResourceSkusForARegion.json",
+      "source_blob": "def2413e26e98f88fdbc46448b1b1511fbdf4fb6",
+      "bytes": 5013,
+      "sha256": "11fa69a6a6a3d062f32f780fb86a0ec6153433a05188d198c4216e2f3e69c083"
+    },
+    {
+      "file": "compute-primary-2021-07-01-ListAvailableResourceSkusWithExtendedLocations.json",
+      "source_blob": "f1c254f72d650831db106561306a1e102a718a02",
+      "bytes": 5277,
+      "sha256": "fe0dd2a9f44d64b4d2b9c7828a4c945d0827ed6f181b478d32e389635e43ed26"
+    }
+  ],
+  "future_scenarios": 67
+}

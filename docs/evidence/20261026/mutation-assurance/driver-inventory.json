@@ -1,0 +1,123 @@
+{
+  "base": "b568606836f0c20ef0a87f9652c5b59bbf33bcd2",
+  "scope": "17reported weak drivers plus separately limited comparator pattern",
+  "drivers": [
+    {
+      "path": "scripts/tests/sql-database-controls.py",
+      "base_git_blob": "09f5895d6e1eac9da0421a1572982a55fc904011",
+      "sha256": "ce788ef17c69d13cd12afaaf783429fda27b758518c38b34600bbb2b0a195c60",
+      "control_declarations_sha256": "3543b4693a36a1098850b8bc928887694ed59a6deb7d3dfd0339de01f55a77b6",
+      "plan_sha256": "c83c18a745aaf98567e48b116bb10b048a143628866c57825065f8a129c289a4"
+    },
+    {
+      "path": "scripts/tests/sql-mi-controls.py",
+      "base_git_blob": "afc106d2c30d46003600ce5208304eb7305ee942",
+      "sha256": "a3fc144e4a5ae161d6a8ada3de621a957f65ce1852328c66afce7ee8dfc07c61",
+      "control_declarations_sha256": "3543b4693a36a1098850b8bc928887694ed59a6deb7d3dfd0339de01f55a77b6",
+      "plan_sha256": "e0585f48dd353e47365ac7871c213432a81dd2880c261fb414312fed7b97567d"
+    },
+    {
+      "path": "scripts/tests/sql-report-controls.py",
+      "base_git_blob": "c5e2bd1a28f6754d2e8b5637e3b5b0e1e2d39616",
+      "sha256": "d217822ee4952810fe67cf855c006ba51e2b4682eecb07b22d5e710d965ddd4a",
+      "control_declarations_sha256": "3543b4693a36a1098850b8bc928887694ed59a6deb7d3dfd0339de01f55a77b6",
+      "plan_sha256": "fb5be2d44ba2aad6db98beebea79a043c415e394a1946f7753972f11f6176219"
+    },
+    {
+      "path": "scripts/tests/scope-redaction-controls.py",
+      "base_git_blob": "52f8dc69ffe0349e88c8c71f5ed818c307610072",
+      "sha256": "d9df9b6c0c1eb769a7e905aa78257e85ebb55529f49610b179226d6cdfd77137",
+      "control_declarations_sha256": "3543b4693a36a1098850b8bc928887694ed59a6deb7d3dfd0339de01f55a77b6",
+      "plan_sha256": "c2addd425296fa78198124cb8404e9ae9dc5789d723aa0cacecdb60d67fddb38"
+    },
+    {
+      "path": "scripts/tests/qa-mutation.py",
+      "base_git_blob": "4d3a1f7c48a4ec4bd1cf9ca31267c2743d97e6a7",
+      "sha256": "20b53294cf50b7be560eb7b565f6f8b256f236ee005cdd2cf184b96761b2be93",
+      "control_declarations_sha256": "7504c8f8fabd57e83ef147cdba8ca244f97bdd2d7ac5156600716d8a97150c4d"
+    },
+    {
+      "path": "scripts/tests/storage-sku-collector-mutation.py",
+      "base_git_blob": "db28f717db97353cf068dd634945fc688d2e12ad",
+      "sha256": "224ba9f4acaa6fe9f86245576a9c767112b77c34c992d0917665a0831c869261",
+      "control_declarations_sha256": "97cc7c3ca638c0b2f8f2b112aef13f3b478e2108d4a11ecf1c882ec45bdc1900"
+    },
+    {
+      "path": "scripts/tests/compute-vm-sku-collector-mutation.py",
+      "base_git_blob": "ab613222d8ec6f83e8ca96f5c35776920ebcaaf2",
+      "sha256": "f9bf062dd79543af30d51625ca55c590601d9bd9d7fcc07e98d15b5294d39d3c",
+      "control_declarations_sha256": "4b2fca78094f870ec86cc95425a52da9be1fc9a28089184a90a9c9b9b5d227cb"
+    },
+    {
+      "path": "scripts/tests/arg-response-framing-mutation.py",
+      "base_git_blob": "06315565951f7fa07f760111e1335e45ffba5c08",
+      "sha256": "3adfaa4805cd85752342247aa20b7bce14bc78496b93056b0f2cf1a19249de00",
+      "control_declarations_sha256": "3ad2221142484ba2ead2a55ccdcdd85780f1354c294875c9fb7ed517a0221e1c"
+    },
+    {
+      "path": "scripts/tests/region-service-mutation.py",
+      "base_git_blob": "488cd60ebb9198f942605e86b604fbe620dcee25",
+      "sha256": "123f7c24d4dd1f8722e85d758b737380a17fd57e86afbddb7c11f99808ffd8b4",
+      "control_declarations_sha256": "f395b62397ffc601844337a27de3e272346e18168090e973df29277c473a1a79"
+    },
+    {
+      "path": "scripts/tests/vmss-catalog-mutation.py",
+      "base_git_blob": "b95f63ee0c50e15f6df4665e66e39db917f58f14",
+      "sha256": "b8374b41cbaae91779d61cdcccb3337dcc84f2918e5621e42655a1db72a5c96d",
+      "control_declarations_sha256": "48972cc348e155881b530741da02480d9723355c1cb11eb5b6b40d66b44376ea"
+    },
+    {
+      "path": "scripts/tests/region-auxiliary-mutation.py",
+      "base_git_blob": "3b46159ba695da177f5cdccf5670570f37e808ca",
+      "sha256": "405e82335db9a86632d7e52afce324cda0fa2b53f33592ba3f979f801f1efc1c",
+      "control_declarations_sha256": "fe391fa5758bd60c60b390f50d1659e909aa9054481b09789ce203c0dacb7a90"
+    },
+    {
+      "path": "scripts/tests/region-primary-mutation.py",
+      "base_git_blob": "e4ed5303df304bcac0e91f25bcd7eb67d75e13b1",
+      "sha256": "d8aefbc76f2760bc248ae19a3d795506879e0aa866623cb1f29c3e46722cc1fa",
+      "control_declarations_sha256": "a646c14a1f04d01adaee6aba038dd86416521e0898ff0b504821ea2c7eea1fe2"
+    },
+    {
+      "path": "scripts/tests/ai-request-mutation.py",
+      "base_git_blob": "ddd1895658aab8f1c4d5541824bfe74a812e4244",
+      "sha256": "2e262307869199b9b6b47e75b2768f4d1443536cf517eddabb3199eed3f249f6",
+      "control_declarations_sha256": "376185cadd6138ff65ea5ad1db4bcf3ac4d3d1e7b1be1c04bf592a13e0b595ad"
+    },
+    {
+      "path": "scripts/tests/region-inventory-mutation.py",
+      "base_git_blob": "8bb7956a8ad5ad4c17eb3be67e399b608b93d69d",
+      "sha256": "166f17681d381ef41ffd5ba1a11665ee4ac0a9014535cd92699f2156a18a4994",
+      "control_declarations_sha256": "88294b1ec9d398f262bc6aa6f065adac2cb2055f15e400a5c5fe98d5793fd1b3"
+    },
+    {
+      "path": "scripts/tests/compute-disk-sku-collector-mutation.py",
+      "base_git_blob": "4ad481d7d24dfd288533a7794c6de418a911f5ed",
+      "sha256": "259fa1f4b1e1e585b0ae4dda59b9cc74f122d0b31044a6503f21d51454ef13b4",
+      "control_declarations_sha256": "fe81e07422c80e24ff558a66166b5d01655e443bdfde9d7c1d291c61362e8e98"
+    },
+    {
+      "path": "scripts/tests/ai-execution-mutation.py",
+      "base_git_blob": "feb4a7e50eb5541c7fd11e20cba3a76ef51a39b4",
+      "sha256": "beac208638bd6aa7fd7dc2bc784496f5299179795146a237bcdebf241ec29a08",
+      "control_declarations_sha256": "90fcecf19a51669a250e7a5b669d02ff7a81efca88021ba8fe2dbf1af1e4f73c"
+    },
+    {
+      "path": "scripts/tests/cognitive-sku-mutation.py",
+      "base_git_blob": "04886b78e2ae655c7c5a6693bc7a2eb382aca510",
+      "sha256": "7c8148c5e1b6b2c25f21ea2885f90ab4d97a194407aa420a9091882e3520dbeb",
+      "control_declarations_sha256": "e352b368cd05e1dddf2b94639dce478962a75e160635cbe2600d58be8fdc3347"
+    },
+    {
+      "path": "scripts/tests/region-cost-mutation.py",
+      "base_git_blob": "7cd73153c307aee9b044af60633e03f5207b9df7",
+      "sha256": "83fe2c7a91e0eeed49eccd79c8aa7303c707d758598a13c3c941c9a431c1380e",
+      "control_declarations_sha256": "5d047e7b244f3fcf0c2cb056604b32cc93c0693d7c9ed47147cf36a2861f7f8d"
+    }
+  ],
+  "original_control_identities_required": {
+    "linux": 622,
+    "windows": 617
+  },
+  "expectations_or_pins_changed": false
+}

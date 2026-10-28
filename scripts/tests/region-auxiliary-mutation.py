@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Require region auxiliary guards to reject compiling faults, with restored baselines."""
+from mutation_assertions import intended_failure, run_go_test
 from pathlib import Path
 import shutil
 import subprocess
@@ -18,7 +19,7 @@ MUTATIONS = (
 
 
 def run(directory, package, test):
-    return subprocess.run(['go', 'test', '-count=1', '-run', '^' + test + '$', package],
+    return run_go_test(['go', 'test', '-count=1', '-run', '^' + test + '$', package],
                           cwd=directory, capture_output=True, text=True, timeout=120)
 
 
@@ -41,7 +42,7 @@ with tempfile.TemporaryDirectory(prefix='cloud-assess-region-auxiliary-mutations
             outcome = run(directory, package, test)
         finally:
             path.write_text(original, encoding='utf-8')
-        if outcome.returncode == 0 or '--- FAIL: ' + test not in outcome.stdout:
+        if not intended_failure(outcome,test):
             raise SystemExit('Region auxiliary mutation survived or failed outside named assertions: ' + name + '\n' + outcome.stdout + outcome.stderr)
         restored = run(directory, package, test)
         if restored.returncode:

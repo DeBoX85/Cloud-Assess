@@ -1,3 +1,9 @@
+# Current routing and preserved deferred obligations
+
+Follow [CURRENT_STATE](CURRENT_STATE.md), [CONTINUE](CONTINUE.md) and the [active review progress](REVIEW_PROGRESS_20261021.md) for current product revision, own QA and task order. The dated security and acceptance snapshots below are historical; they do not restart a resolved pause or certify a successor. DV-001 and all independent/live/operational/acceptance obligations remain OPEN. No Azure scope, fixtures/RBAC, protected merge or release is authorised here.
+
+---
+
 # Current security remediation authority, 2026-10-11
 
 Read [SESSION_HANDOVER.md](SESSION_HANDOVER.md), the

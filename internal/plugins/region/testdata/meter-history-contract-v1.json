@@ -1,0 +1,1951 @@
+{
+  "format": "region-meter-history-oracle-v1",
+  "requestBody": {
+    "type": "ActualCost",
+    "timeframe": "Custom",
+    "timePeriod": {
+      "from": "2026-09-01T00:00:00Z",
+      "to": "2026-09-30T23:59:59Z"
+    },
+    "dataset": {
+      "granularity": "Monthly",
+      "grouping": [
+        {
+          "type": "Dimension",
+          "name": "ResourceId"
+        },
+        {
+          "type": "Dimension",
+          "name": "ResourceGuid"
+        },
+        {
+          "type": "Dimension",
+          "name": "MeterCategory"
+        },
+        {
+          "type": "Dimension",
+          "name": "MeterSubcategory"
+        },
+        {
+          "type": "Dimension",
+          "name": "Meter"
+        }
+      ],
+      "aggregation": {
+        "PreTaxCost": {
+          "name": "PreTaxCost",
+          "function": "Sum"
+        }
+      }
+    }
+  },
+  "queryCases": [
+    {
+      "name": "march31-leap",
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 1,
+        "Now": "2024-03-31T12:00:00Z",
+        "Currency": "USD"
+      },
+      "wantFrom": "2024-02-01T00:00:00Z",
+      "wantTo": "2024-02-29T23:59:59Z"
+    },
+    {
+      "name": "march31-common",
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 1,
+        "Now": "2025-03-31T12:00:00Z",
+        "Currency": "USD"
+      },
+      "wantFrom": "2025-02-01T00:00:00Z",
+      "wantTo": "2025-02-28T23:59:59Z"
+    },
+    {
+      "name": "january-rollover",
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 1,
+        "Now": "2026-01-01T00:00:00Z",
+        "Currency": "USD"
+      },
+      "wantFrom": "2025-12-01T00:00:00Z",
+      "wantTo": "2025-12-31T23:59:59Z"
+    },
+    {
+      "name": "twelve-months",
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 12,
+        "Now": "2026-10-18T00:00:00Z",
+        "Currency": "USD"
+      },
+      "wantFrom": "2025-10-01T00:00:00Z",
+      "wantTo": "2026-09-30T23:59:59Z"
+    },
+    {
+      "name": "offset-cross-month",
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 1,
+        "Now": "2024-03-01T00:30:00+01:00",
+        "Currency": "USD"
+      },
+      "wantFrom": "2024-01-01T00:00:00Z",
+      "wantTo": "2024-01-31T23:59:59Z"
+    },
+    {
+      "name": "offset-ahead",
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 1,
+        "Now": "2024-02-29T23:30:00-01:00",
+        "Currency": "USD"
+      },
+      "wantFrom": "2024-02-01T00:00:00Z",
+      "wantTo": "2024-02-29T23:59:59Z"
+    },
+    {
+      "name": "lower-year",
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 12,
+        "Now": "0002-01-01T00:00:00Z",
+        "Currency": "USD"
+      },
+      "wantFrom": "0001-01-01T00:00:00Z",
+      "wantTo": "0001-12-31T23:59:59Z"
+    },
+    {
+      "name": "upper-year",
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 1,
+        "Now": "9999-12-31T23:59:59Z",
+        "Currency": "USD"
+      },
+      "wantFrom": "9999-11-01T00:00:00Z",
+      "wantTo": "9999-11-30T23:59:59Z"
+    }
+  ],
+  "collectorCases": [
+    {
+      "name": "owned-positive",
+      "selected": {
+        "11111111-1111-1111-1111-111111111111": "Alpha"
+      },
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 1,
+        "Now": "2026-10-18T00:00:00Z",
+        "Currency": "USD"
+      },
+      "responses": [
+        {
+          "status": 200,
+          "body": "{\"properties\":{\"columns\":[{\"name\":\"ResourceId\",\"type\":\"String\"},{\"name\":\"ResourceGuid\",\"type\":\"String\"},{\"name\":\"Currency\",\"type\":\"String\"},{\"name\":\"PreTaxCost\",\"type\":\"Number\"}],\"rows\":[[\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/virtualMachines/vm\",\"meter-a\",\"USD\",3]]}}",
+          "error": "",
+          "nilResponse": false
+        }
+      ],
+      "want": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Currency": "USD",
+        "Status": "complete",
+        "FailureCode": "",
+        "Meters": [
+          {
+            "MeterID": "meter-a",
+            "HistoricalCost": 3
+          }
+        ]
+      },
+      "wantError": "",
+      "wantURLs": [
+        "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01"
+      ]
+    },
+    {
+      "name": "sum-and-sort",
+      "selected": {
+        "11111111-1111-1111-1111-111111111111": "Alpha"
+      },
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 1,
+        "Now": "2026-10-18T00:00:00Z",
+        "Currency": "USD"
+      },
+      "responses": [
+        {
+          "status": 200,
+          "body": "{\"properties\":{\"columns\":[{\"name\":\"ResourceId\",\"type\":\"String\"},{\"name\":\"ResourceGuid\",\"type\":\"String\"},{\"name\":\"Currency\",\"type\":\"String\"},{\"name\":\"PreTaxCost\",\"type\":\"Number\"}],\"rows\":[[\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/virtualMachines/vm\",\"z\",\"USD\",2],[\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/virtualMachines/vm\",\"a\",\"USD\",1],[\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/virtualMachines/vm\",\"z\",\"USD\",3]]}}",
+          "error": "",
+          "nilResponse": false
+        }
+      ],
+      "want": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Currency": "USD",
+        "Status": "complete",
+        "FailureCode": "",
+        "Meters": [
+          {
+            "MeterID": "a",
+            "HistoricalCost": 1
+          },
+          {
+            "MeterID": "z",
+            "HistoricalCost": 5
+          }
+        ]
+      },
+      "wantError": "",
+      "wantURLs": [
+        "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01"
+      ]
+    },
+    {
+      "name": "nonpositive-skipped",
+      "selected": {
+        "11111111-1111-1111-1111-111111111111": "Alpha"
+      },
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 1,
+        "Now": "2026-10-18T00:00:00Z",
+        "Currency": "USD"
+      },
+      "responses": [
+        {
+          "status": 200,
+          "body": "{\"properties\":{\"columns\":[{\"name\":\"ResourceId\",\"type\":\"String\"},{\"name\":\"ResourceGuid\",\"type\":\"String\"},{\"name\":\"Currency\",\"type\":\"String\"},{\"name\":\"PreTaxCost\",\"type\":\"Number\"}],\"rows\":[[\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/virtualMachines/vm\",\"zero\",\"USD\",0],[\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/virtualMachines/vm\",\"refund\",\"USD\",-2],[\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/virtualMachines/vm\",\"a\",\"USD\",1]]}}",
+          "error": "",
+          "nilResponse": false
+        }
+      ],
+      "want": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Currency": "USD",
+        "Status": "complete",
+        "FailureCode": "",
+        "Meters": [
+          {
+            "MeterID": "a",
+            "HistoricalCost": 1
+          }
+        ]
+      },
+      "wantError": "",
+      "wantURLs": [
+        "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01"
+      ]
+    },
+    {
+      "name": "empty-declared",
+      "selected": {
+        "11111111-1111-1111-1111-111111111111": "Alpha"
+      },
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 1,
+        "Now": "2026-10-18T00:00:00Z",
+        "Currency": "USD"
+      },
+      "responses": [
+        {
+          "status": 200,
+          "body": "{\"properties\":{\"columns\":[{\"name\":\"ResourceId\",\"type\":\"String\"},{\"name\":\"ResourceGuid\",\"type\":\"String\"},{\"name\":\"Currency\",\"type\":\"String\"},{\"name\":\"PreTaxCost\",\"type\":\"Number\"}],\"rows\":[]}}",
+          "error": "",
+          "nilResponse": false
+        }
+      ],
+      "want": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Currency": "USD",
+        "Status": "complete",
+        "FailureCode": "",
+        "Meters": []
+      },
+      "wantError": "",
+      "wantURLs": [
+        "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01"
+      ]
+    },
+    {
+      "name": "empty-no-columns",
+      "selected": {
+        "11111111-1111-1111-1111-111111111111": "Alpha"
+      },
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 1,
+        "Now": "2026-10-18T00:00:00Z",
+        "Currency": "USD"
+      },
+      "responses": [
+        {
+          "status": 200,
+          "body": "{\"properties\":{\"columns\":[],\"rows\":[]}}",
+          "error": "",
+          "nilResponse": false
+        }
+      ],
+      "want": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Currency": "USD",
+        "Status": "complete",
+        "FailureCode": "",
+        "Meters": []
+      },
+      "wantError": "",
+      "wantURLs": [
+        "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01"
+      ]
+    },
+    {
+      "name": "204-empty",
+      "selected": {
+        "11111111-1111-1111-1111-111111111111": "Alpha"
+      },
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 1,
+        "Now": "2026-10-18T00:00:00Z",
+        "Currency": "USD"
+      },
+      "responses": [
+        {
+          "status": 204,
+          "body": "",
+          "error": "",
+          "nilResponse": false
+        }
+      ],
+      "want": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Currency": "USD",
+        "Status": "complete",
+        "FailureCode": "",
+        "Meters": []
+      },
+      "wantError": "",
+      "wantURLs": [
+        "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01"
+      ]
+    },
+    {
+      "name": "204-body",
+      "selected": {
+        "11111111-1111-1111-1111-111111111111": "Alpha"
+      },
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 1,
+        "Now": "2026-10-18T00:00:00Z",
+        "Currency": "USD"
+      },
+      "responses": [
+        {
+          "status": 204,
+          "body": "{}",
+          "error": "",
+          "nilResponse": false
+        }
+      ],
+      "want": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Currency": "USD",
+        "Status": "unknown",
+        "FailureCode": "history_response_invalid",
+        "Meters": []
+      },
+      "wantError": "",
+      "wantURLs": [
+        "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01"
+      ]
+    },
+    {
+      "name": "202-not-success",
+      "selected": {
+        "11111111-1111-1111-1111-111111111111": "Alpha"
+      },
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 1,
+        "Now": "2026-10-18T00:00:00Z",
+        "Currency": "USD"
+      },
+      "responses": [
+        {
+          "status": 202,
+          "body": "{}",
+          "error": "",
+          "nilResponse": false
+        }
+      ],
+      "want": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Currency": "USD",
+        "Status": "unknown",
+        "FailureCode": "history_response_invalid",
+        "Meters": []
+      },
+      "wantError": "",
+      "wantURLs": [
+        "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01"
+      ]
+    },
+    {
+      "name": "201-not-success",
+      "selected": {
+        "11111111-1111-1111-1111-111111111111": "Alpha"
+      },
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 1,
+        "Now": "2026-10-18T00:00:00Z",
+        "Currency": "USD"
+      },
+      "responses": [
+        {
+          "status": 201,
+          "body": "{}",
+          "error": "",
+          "nilResponse": false
+        }
+      ],
+      "want": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Currency": "USD",
+        "Status": "unknown",
+        "FailureCode": "history_response_invalid",
+        "Meters": []
+      },
+      "wantError": "",
+      "wantURLs": [
+        "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01"
+      ]
+    },
+    {
+      "name": "403-denied",
+      "selected": {
+        "11111111-1111-1111-1111-111111111111": "Alpha"
+      },
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 1,
+        "Now": "2026-10-18T00:00:00Z",
+        "Currency": "USD"
+      },
+      "responses": [
+        {
+          "status": 403,
+          "body": "{}",
+          "error": "",
+          "nilResponse": false
+        }
+      ],
+      "want": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Currency": "USD",
+        "Status": "unknown",
+        "FailureCode": "history_response_invalid",
+        "Meters": []
+      },
+      "wantError": "",
+      "wantURLs": [
+        "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01"
+      ]
+    },
+    {
+      "name": "nil-http",
+      "selected": {
+        "11111111-1111-1111-1111-111111111111": "Alpha"
+      },
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 1,
+        "Now": "2026-10-18T00:00:00Z",
+        "Currency": "USD"
+      },
+      "responses": [
+        {
+          "status": 200,
+          "body": "",
+          "error": "",
+          "nilResponse": true
+        }
+      ],
+      "want": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Currency": "USD",
+        "Status": "unknown",
+        "FailureCode": "history_response_invalid",
+        "Meters": []
+      },
+      "wantError": "",
+      "wantURLs": [
+        "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01"
+      ]
+    },
+    {
+      "name": "transport-failure",
+      "selected": {
+        "11111111-1111-1111-1111-111111111111": "Alpha"
+      },
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 1,
+        "Now": "2026-10-18T00:00:00Z",
+        "Currency": "USD"
+      },
+      "responses": [
+        {
+          "status": 200,
+          "body": "",
+          "error": "ordinary",
+          "nilResponse": false
+        }
+      ],
+      "want": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Currency": "USD",
+        "Status": "unknown",
+        "FailureCode": "history_request_failed",
+        "Meters": []
+      },
+      "wantError": "",
+      "wantURLs": [
+        "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01"
+      ]
+    },
+    {
+      "name": "empty-body",
+      "selected": {
+        "11111111-1111-1111-1111-111111111111": "Alpha"
+      },
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 1,
+        "Now": "2026-10-18T00:00:00Z",
+        "Currency": "USD"
+      },
+      "responses": [
+        {
+          "status": 200,
+          "body": "",
+          "error": "",
+          "nilResponse": false
+        }
+      ],
+      "want": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Currency": "USD",
+        "Status": "unknown",
+        "FailureCode": "history_decode_invalid",
+        "Meters": []
+      },
+      "wantError": "",
+      "wantURLs": [
+        "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01"
+      ]
+    },
+    {
+      "name": "missing-properties",
+      "selected": {
+        "11111111-1111-1111-1111-111111111111": "Alpha"
+      },
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 1,
+        "Now": "2026-10-18T00:00:00Z",
+        "Currency": "USD"
+      },
+      "responses": [
+        {
+          "status": 200,
+          "body": "{}",
+          "error": "",
+          "nilResponse": false
+        }
+      ],
+      "want": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Currency": "USD",
+        "Status": "unknown",
+        "FailureCode": "history_decode_invalid",
+        "Meters": []
+      },
+      "wantError": "",
+      "wantURLs": [
+        "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01"
+      ]
+    },
+    {
+      "name": "null-properties",
+      "selected": {
+        "11111111-1111-1111-1111-111111111111": "Alpha"
+      },
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 1,
+        "Now": "2026-10-18T00:00:00Z",
+        "Currency": "USD"
+      },
+      "responses": [
+        {
+          "status": 200,
+          "body": "{\"properties\":null}",
+          "error": "",
+          "nilResponse": false
+        }
+      ],
+      "want": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Currency": "USD",
+        "Status": "unknown",
+        "FailureCode": "history_decode_invalid",
+        "Meters": []
+      },
+      "wantError": "",
+      "wantURLs": [
+        "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01"
+      ]
+    },
+    {
+      "name": "null-columns",
+      "selected": {
+        "11111111-1111-1111-1111-111111111111": "Alpha"
+      },
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 1,
+        "Now": "2026-10-18T00:00:00Z",
+        "Currency": "USD"
+      },
+      "responses": [
+        {
+          "status": 200,
+          "body": "{\"properties\":{\"columns\":null,\"rows\":[]}}",
+          "error": "",
+          "nilResponse": false
+        }
+      ],
+      "want": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Currency": "USD",
+        "Status": "unknown",
+        "FailureCode": "history_decode_invalid",
+        "Meters": []
+      },
+      "wantError": "",
+      "wantURLs": [
+        "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01"
+      ]
+    },
+    {
+      "name": "null-rows",
+      "selected": {
+        "11111111-1111-1111-1111-111111111111": "Alpha"
+      },
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 1,
+        "Now": "2026-10-18T00:00:00Z",
+        "Currency": "USD"
+      },
+      "responses": [
+        {
+          "status": 200,
+          "body": "{\"properties\":{\"columns\":[],\"rows\":null}}",
+          "error": "",
+          "nilResponse": false
+        }
+      ],
+      "want": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Currency": "USD",
+        "Status": "unknown",
+        "FailureCode": "history_decode_invalid",
+        "Meters": []
+      },
+      "wantError": "",
+      "wantURLs": [
+        "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01"
+      ]
+    },
+    {
+      "name": "trailing-json",
+      "selected": {
+        "11111111-1111-1111-1111-111111111111": "Alpha"
+      },
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 1,
+        "Now": "2026-10-18T00:00:00Z",
+        "Currency": "USD"
+      },
+      "responses": [
+        {
+          "status": 200,
+          "body": "{\"properties\":{\"columns\":[{\"name\":\"ResourceId\",\"type\":\"String\"},{\"name\":\"ResourceGuid\",\"type\":\"String\"},{\"name\":\"Currency\",\"type\":\"String\"},{\"name\":\"PreTaxCost\",\"type\":\"Number\"}],\"rows\":[]}}{}",
+          "error": "",
+          "nilResponse": false
+        }
+      ],
+      "want": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Currency": "USD",
+        "Status": "unknown",
+        "FailureCode": "history_decode_invalid",
+        "Meters": []
+      },
+      "wantError": "",
+      "wantURLs": [
+        "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01"
+      ]
+    },
+    {
+      "name": "duplicate-json",
+      "selected": {
+        "11111111-1111-1111-1111-111111111111": "Alpha"
+      },
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 1,
+        "Now": "2026-10-18T00:00:00Z",
+        "Currency": "USD"
+      },
+      "responses": [
+        {
+          "status": 200,
+          "body": "{\"properties\":{\"columns\":[],\"Columns\":[],\"rows\":[]}}",
+          "error": "",
+          "nilResponse": false
+        }
+      ],
+      "want": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Currency": "USD",
+        "Status": "unknown",
+        "FailureCode": "history_decode_invalid",
+        "Meters": []
+      },
+      "wantError": "",
+      "wantURLs": [
+        "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01"
+      ]
+    },
+    {
+      "name": "missing-required",
+      "selected": {
+        "11111111-1111-1111-1111-111111111111": "Alpha"
+      },
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 1,
+        "Now": "2026-10-18T00:00:00Z",
+        "Currency": "USD"
+      },
+      "responses": [
+        {
+          "status": 200,
+          "body": "{\"properties\":{\"columns\":[],\"rows\":[[\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/virtualMachines/vm\",\"meter-a\",\"USD\",3]]}}",
+          "error": "",
+          "nilResponse": false
+        }
+      ],
+      "want": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Currency": "USD",
+        "Status": "unknown",
+        "FailureCode": "history_decode_invalid",
+        "Meters": []
+      },
+      "wantError": "",
+      "wantURLs": [
+        "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01"
+      ]
+    },
+    {
+      "name": "short-row",
+      "selected": {
+        "11111111-1111-1111-1111-111111111111": "Alpha"
+      },
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 1,
+        "Now": "2026-10-18T00:00:00Z",
+        "Currency": "USD"
+      },
+      "responses": [
+        {
+          "status": 200,
+          "body": "{\"properties\":{\"columns\":[{\"name\":\"ResourceId\",\"type\":\"String\"},{\"name\":\"ResourceGuid\",\"type\":\"String\"},{\"name\":\"Currency\",\"type\":\"String\"},{\"name\":\"PreTaxCost\",\"type\":\"Number\"}],\"rows\":[[\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/virtualMachines/vm\",\"meter-a\",\"USD\"]]}}",
+          "error": "",
+          "nilResponse": false
+        }
+      ],
+      "want": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Currency": "USD",
+        "Status": "unknown",
+        "FailureCode": "history_decode_invalid",
+        "Meters": []
+      },
+      "wantError": "",
+      "wantURLs": [
+        "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01"
+      ]
+    },
+    {
+      "name": "numeric-string",
+      "selected": {
+        "11111111-1111-1111-1111-111111111111": "Alpha"
+      },
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 1,
+        "Now": "2026-10-18T00:00:00Z",
+        "Currency": "USD"
+      },
+      "responses": [
+        {
+          "status": 200,
+          "body": "{\"properties\":{\"columns\":[{\"name\":\"ResourceId\",\"type\":\"String\"},{\"name\":\"ResourceGuid\",\"type\":\"String\"},{\"name\":\"Currency\",\"type\":\"String\"},{\"name\":\"PreTaxCost\",\"type\":\"Number\"}],\"rows\":[[\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/virtualMachines/vm\",\"meter-a\",\"USD\",\"3\"]]}}",
+          "error": "",
+          "nilResponse": false
+        }
+      ],
+      "want": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Currency": "USD",
+        "Status": "unknown",
+        "FailureCode": "history_decode_invalid",
+        "Meters": []
+      },
+      "wantError": "",
+      "wantURLs": [
+        "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01"
+      ]
+    },
+    {
+      "name": "null-cell",
+      "selected": {
+        "11111111-1111-1111-1111-111111111111": "Alpha"
+      },
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 1,
+        "Now": "2026-10-18T00:00:00Z",
+        "Currency": "USD"
+      },
+      "responses": [
+        {
+          "status": 200,
+          "body": "{\"properties\":{\"columns\":[{\"name\":\"ResourceId\",\"type\":\"String\"},{\"name\":\"ResourceGuid\",\"type\":\"String\"},{\"name\":\"Currency\",\"type\":\"String\"},{\"name\":\"PreTaxCost\",\"type\":\"Number\"}],\"rows\":[[\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/virtualMachines/vm\",\"meter-a\",\"USD\",null]]}}",
+          "error": "",
+          "nilResponse": false
+        }
+      ],
+      "want": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Currency": "USD",
+        "Status": "unknown",
+        "FailureCode": "history_decode_invalid",
+        "Meters": []
+      },
+      "wantError": "",
+      "wantURLs": [
+        "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01"
+      ]
+    },
+    {
+      "name": "boolean-cell",
+      "selected": {
+        "11111111-1111-1111-1111-111111111111": "Alpha"
+      },
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 1,
+        "Now": "2026-10-18T00:00:00Z",
+        "Currency": "USD"
+      },
+      "responses": [
+        {
+          "status": 200,
+          "body": "{\"properties\":{\"columns\":[{\"name\":\"ResourceId\",\"type\":\"String\"},{\"name\":\"ResourceGuid\",\"type\":\"String\"},{\"name\":\"Currency\",\"type\":\"String\"},{\"name\":\"PreTaxCost\",\"type\":\"Number\"}],\"rows\":[[\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/virtualMachines/vm\",\"meter-a\",\"USD\",true]]}}",
+          "error": "",
+          "nilResponse": false
+        }
+      ],
+      "want": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Currency": "USD",
+        "Status": "unknown",
+        "FailureCode": "history_decode_invalid",
+        "Meters": []
+      },
+      "wantError": "",
+      "wantURLs": [
+        "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01"
+      ]
+    },
+    {
+      "name": "foreign-resource",
+      "selected": {
+        "11111111-1111-1111-1111-111111111111": "Alpha"
+      },
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 1,
+        "Now": "2026-10-18T00:00:00Z",
+        "Currency": "USD"
+      },
+      "responses": [
+        {
+          "status": 200,
+          "body": "{\"properties\":{\"columns\":[{\"name\":\"ResourceId\",\"type\":\"String\"},{\"name\":\"ResourceGuid\",\"type\":\"String\"},{\"name\":\"Currency\",\"type\":\"String\"},{\"name\":\"PreTaxCost\",\"type\":\"Number\"}],\"rows\":[[\"/subscriptions/22222222-2222-2222-2222-222222222222/resourceGroups/rg/providers/Microsoft.Compute/virtualMachines/vm\",\"meter-a\",\"USD\",3]]}}",
+          "error": "",
+          "nilResponse": false
+        }
+      ],
+      "want": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Currency": "USD",
+        "Status": "unknown",
+        "FailureCode": "history_decode_invalid",
+        "Meters": []
+      },
+      "wantError": "",
+      "wantURLs": [
+        "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01"
+      ]
+    },
+    {
+      "name": "empty-resource",
+      "selected": {
+        "11111111-1111-1111-1111-111111111111": "Alpha"
+      },
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 1,
+        "Now": "2026-10-18T00:00:00Z",
+        "Currency": "USD"
+      },
+      "responses": [
+        {
+          "status": 200,
+          "body": "{\"properties\":{\"columns\":[{\"name\":\"ResourceId\",\"type\":\"String\"},{\"name\":\"ResourceGuid\",\"type\":\"String\"},{\"name\":\"Currency\",\"type\":\"String\"},{\"name\":\"PreTaxCost\",\"type\":\"Number\"}],\"rows\":[[\"\",\"meter-a\",\"USD\",3]]}}",
+          "error": "",
+          "nilResponse": false
+        }
+      ],
+      "want": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Currency": "USD",
+        "Status": "unknown",
+        "FailureCode": "history_decode_invalid",
+        "Meters": []
+      },
+      "wantError": "",
+      "wantURLs": [
+        "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01"
+      ]
+    },
+    {
+      "name": "empty-meter",
+      "selected": {
+        "11111111-1111-1111-1111-111111111111": "Alpha"
+      },
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 1,
+        "Now": "2026-10-18T00:00:00Z",
+        "Currency": "USD"
+      },
+      "responses": [
+        {
+          "status": 200,
+          "body": "{\"properties\":{\"columns\":[{\"name\":\"ResourceId\",\"type\":\"String\"},{\"name\":\"ResourceGuid\",\"type\":\"String\"},{\"name\":\"Currency\",\"type\":\"String\"},{\"name\":\"PreTaxCost\",\"type\":\"Number\"}],\"rows\":[[\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/virtualMachines/vm\",\"\",\"USD\",3]]}}",
+          "error": "",
+          "nilResponse": false
+        }
+      ],
+      "want": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Currency": "USD",
+        "Status": "unknown",
+        "FailureCode": "history_decode_invalid",
+        "Meters": []
+      },
+      "wantError": "",
+      "wantURLs": [
+        "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01"
+      ]
+    },
+    {
+      "name": "foreign-currency",
+      "selected": {
+        "11111111-1111-1111-1111-111111111111": "Alpha"
+      },
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 1,
+        "Now": "2026-10-18T00:00:00Z",
+        "Currency": "USD"
+      },
+      "responses": [
+        {
+          "status": 200,
+          "body": "{\"properties\":{\"columns\":[{\"name\":\"ResourceId\",\"type\":\"String\"},{\"name\":\"ResourceGuid\",\"type\":\"String\"},{\"name\":\"Currency\",\"type\":\"String\"},{\"name\":\"PreTaxCost\",\"type\":\"Number\"}],\"rows\":[[\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/virtualMachines/vm\",\"meter-a\",\"EUR\",3]]}}",
+          "error": "",
+          "nilResponse": false
+        }
+      ],
+      "want": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Currency": "USD",
+        "Status": "unknown",
+        "FailureCode": "history_decode_invalid",
+        "Meters": []
+      },
+      "wantError": "",
+      "wantURLs": [
+        "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01"
+      ]
+    },
+    {
+      "name": "lower-currency",
+      "selected": {
+        "11111111-1111-1111-1111-111111111111": "Alpha"
+      },
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 1,
+        "Now": "2026-10-18T00:00:00Z",
+        "Currency": "USD"
+      },
+      "responses": [
+        {
+          "status": 200,
+          "body": "{\"properties\":{\"columns\":[{\"name\":\"ResourceId\",\"type\":\"String\"},{\"name\":\"ResourceGuid\",\"type\":\"String\"},{\"name\":\"Currency\",\"type\":\"String\"},{\"name\":\"PreTaxCost\",\"type\":\"Number\"}],\"rows\":[[\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/virtualMachines/vm\",\"meter-a\",\"usd\",3]]}}",
+          "error": "",
+          "nilResponse": false
+        }
+      ],
+      "want": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Currency": "USD",
+        "Status": "unknown",
+        "FailureCode": "history_decode_invalid",
+        "Meters": []
+      },
+      "wantError": "",
+      "wantURLs": [
+        "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01"
+      ]
+    },
+    {
+      "name": "zero-foreign-currency",
+      "selected": {
+        "11111111-1111-1111-1111-111111111111": "Alpha"
+      },
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 1,
+        "Now": "2026-10-18T00:00:00Z",
+        "Currency": "USD"
+      },
+      "responses": [
+        {
+          "status": 200,
+          "body": "{\"properties\":{\"columns\":[{\"name\":\"ResourceId\",\"type\":\"String\"},{\"name\":\"ResourceGuid\",\"type\":\"String\"},{\"name\":\"Currency\",\"type\":\"String\"},{\"name\":\"PreTaxCost\",\"type\":\"Number\"}],\"rows\":[[\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/virtualMachines/vm\",\"meter-a\",\"EUR\",0]]}}",
+          "error": "",
+          "nilResponse": false
+        }
+      ],
+      "want": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Currency": "USD",
+        "Status": "unknown",
+        "FailureCode": "history_decode_invalid",
+        "Meters": []
+      },
+      "wantError": "",
+      "wantURLs": [
+        "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01"
+      ]
+    },
+    {
+      "name": "tiny-positive",
+      "selected": {
+        "11111111-1111-1111-1111-111111111111": "Alpha"
+      },
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 1,
+        "Now": "2026-10-18T00:00:00Z",
+        "Currency": "USD"
+      },
+      "responses": [
+        {
+          "status": 200,
+          "body": "{\"properties\":{\"columns\":[{\"name\":\"ResourceId\",\"type\":\"String\"},{\"name\":\"ResourceGuid\",\"type\":\"String\"},{\"name\":\"Currency\",\"type\":\"String\"},{\"name\":\"PreTaxCost\",\"type\":\"Number\"}],\"rows\":[[\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/virtualMachines/vm\",\"meter-a\",\"USD\",1e-13]]}}",
+          "error": "",
+          "nilResponse": false
+        }
+      ],
+      "want": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Currency": "USD",
+        "Status": "unknown",
+        "FailureCode": "history_decode_invalid",
+        "Meters": []
+      },
+      "wantError": "",
+      "wantURLs": [
+        "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01"
+      ]
+    },
+    {
+      "name": "cost-excess",
+      "selected": {
+        "11111111-1111-1111-1111-111111111111": "Alpha"
+      },
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 1,
+        "Now": "2026-10-18T00:00:00Z",
+        "Currency": "USD"
+      },
+      "responses": [
+        {
+          "status": 200,
+          "body": "{\"properties\":{\"columns\":[{\"name\":\"ResourceId\",\"type\":\"String\"},{\"name\":\"ResourceGuid\",\"type\":\"String\"},{\"name\":\"Currency\",\"type\":\"String\"},{\"name\":\"PreTaxCost\",\"type\":\"Number\"}],\"rows\":[[\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/virtualMachines/vm\",\"meter-a\",\"USD\",1000000000001]]}}",
+          "error": "",
+          "nilResponse": false
+        }
+      ],
+      "want": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Currency": "USD",
+        "Status": "unknown",
+        "FailureCode": "history_decode_invalid",
+        "Meters": []
+      },
+      "wantError": "",
+      "wantURLs": [
+        "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01"
+      ]
+    },
+    {
+      "name": "sum-excess",
+      "selected": {
+        "11111111-1111-1111-1111-111111111111": "Alpha"
+      },
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 1,
+        "Now": "2026-10-18T00:00:00Z",
+        "Currency": "USD"
+      },
+      "responses": [
+        {
+          "status": 200,
+          "body": "{\"properties\":{\"columns\":[{\"name\":\"ResourceId\",\"type\":\"String\"},{\"name\":\"ResourceGuid\",\"type\":\"String\"},{\"name\":\"Currency\",\"type\":\"String\"},{\"name\":\"PreTaxCost\",\"type\":\"Number\"}],\"rows\":[[\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/virtualMachines/vm\",\"meter-a\",\"USD\",1000000000000],[\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/virtualMachines/vm\",\"meter-a\",\"USD\",1]]}}",
+          "error": "",
+          "nilResponse": false
+        }
+      ],
+      "want": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Currency": "USD",
+        "Status": "unknown",
+        "FailureCode": "history_decode_invalid",
+        "Meters": []
+      },
+      "wantError": "",
+      "wantURLs": [
+        "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01"
+      ]
+    },
+    {
+      "name": "ambiguous-cost",
+      "selected": {
+        "11111111-1111-1111-1111-111111111111": "Alpha"
+      },
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 1,
+        "Now": "2026-10-18T00:00:00Z",
+        "Currency": "USD"
+      },
+      "responses": [
+        {
+          "status": 200,
+          "body": "{\"properties\":{\"columns\":[{\"name\":\"ResourceId\",\"type\":\"String\"},{\"name\":\"ResourceGuid\",\"type\":\"String\"},{\"name\":\"Currency\",\"type\":\"String\"},{\"name\":\"PreTaxCost\",\"type\":\"Number\"},{\"name\":\"Cost\",\"type\":\"Number\"}],\"rows\":[[\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/virtualMachines/vm\",\"a\",\"USD\",1,1]]}}",
+          "error": "",
+          "nilResponse": false
+        }
+      ],
+      "want": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Currency": "USD",
+        "Status": "unknown",
+        "FailureCode": "history_decode_invalid",
+        "Meters": []
+      },
+      "wantError": "",
+      "wantURLs": [
+        "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01"
+      ]
+    },
+    {
+      "name": "duplicate-column",
+      "selected": {
+        "11111111-1111-1111-1111-111111111111": "Alpha"
+      },
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 1,
+        "Now": "2026-10-18T00:00:00Z",
+        "Currency": "USD"
+      },
+      "responses": [
+        {
+          "status": 200,
+          "body": "{\"properties\":{\"columns\":[{\"name\":\"ResourceId\",\"type\":\"String\"},{\"name\":\"ResourceGuid\",\"type\":\"String\"},{\"name\":\"Currency\",\"type\":\"String\"},{\"name\":\"PreTaxCost\",\"type\":\"Number\"},{\"name\":\"pretaxcost\",\"type\":\"Number\"}],\"rows\":[[\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/virtualMachines/vm\",\"a\",\"USD\",1,1]]}}",
+          "error": "",
+          "nilResponse": false
+        }
+      ],
+      "want": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Currency": "USD",
+        "Status": "unknown",
+        "FailureCode": "history_decode_invalid",
+        "Meters": []
+      },
+      "wantError": "",
+      "wantURLs": [
+        "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01"
+      ]
+    },
+    {
+      "name": "wrong-column-type",
+      "selected": {
+        "11111111-1111-1111-1111-111111111111": "Alpha"
+      },
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 1,
+        "Now": "2026-10-18T00:00:00Z",
+        "Currency": "USD"
+      },
+      "responses": [
+        {
+          "status": 200,
+          "body": "{\"properties\":{\"columns\":[{\"name\":\"ResourceId\",\"type\":\"String\"},{\"name\":\"ResourceGuid\",\"type\":\"String\"},{\"name\":\"Currency\",\"type\":\"String\"},{\"name\":\"PreTaxCost\",\"type\":\"String\"}],\"rows\":[[\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/virtualMachines/vm\",\"meter-a\",\"USD\",3]]}}",
+          "error": "",
+          "nilResponse": false
+        }
+      ],
+      "want": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Currency": "USD",
+        "Status": "unknown",
+        "FailureCode": "history_decode_invalid",
+        "Meters": []
+      },
+      "wantError": "",
+      "wantURLs": [
+        "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01"
+      ]
+    },
+    {
+      "name": "exact-cost-floor",
+      "selected": {
+        "11111111-1111-1111-1111-111111111111": "Alpha"
+      },
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 1,
+        "Now": "2026-10-18T00:00:00Z",
+        "Currency": "USD"
+      },
+      "responses": [
+        {
+          "status": 200,
+          "body": "{\"properties\":{\"columns\":[{\"name\":\"ResourceId\",\"type\":\"String\"},{\"name\":\"ResourceGuid\",\"type\":\"String\"},{\"name\":\"Currency\",\"type\":\"String\"},{\"name\":\"PreTaxCost\",\"type\":\"Number\"}],\"rows\":[[\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/virtualMachines/vm\",\"meter-a\",\"USD\",1e-12]]}}",
+          "error": "",
+          "nilResponse": false
+        }
+      ],
+      "want": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Currency": "USD",
+        "Status": "complete",
+        "FailureCode": "",
+        "Meters": [
+          {
+            "MeterID": "meter-a",
+            "HistoricalCost": 1e-12
+          }
+        ]
+      },
+      "wantError": "",
+      "wantURLs": [
+        "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01"
+      ]
+    },
+    {
+      "name": "exact-cost-ceiling",
+      "selected": {
+        "11111111-1111-1111-1111-111111111111": "Alpha"
+      },
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 1,
+        "Now": "2026-10-18T00:00:00Z",
+        "Currency": "USD"
+      },
+      "responses": [
+        {
+          "status": 200,
+          "body": "{\"properties\":{\"columns\":[{\"name\":\"ResourceId\",\"type\":\"String\"},{\"name\":\"ResourceGuid\",\"type\":\"String\"},{\"name\":\"Currency\",\"type\":\"String\"},{\"name\":\"PreTaxCost\",\"type\":\"Number\"}],\"rows\":[[\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/virtualMachines/vm\",\"meter-a\",\"USD\",1000000000000]]}}",
+          "error": "",
+          "nilResponse": false
+        }
+      ],
+      "want": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Currency": "USD",
+        "Status": "complete",
+        "FailureCode": "",
+        "Meters": [
+          {
+            "MeterID": "meter-a",
+            "HistoricalCost": 1000000000000
+          }
+        ]
+      },
+      "wantError": "",
+      "wantURLs": [
+        "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01"
+      ]
+    },
+    {
+      "name": "relative-page-sum",
+      "selected": {
+        "11111111-1111-1111-1111-111111111111": "Alpha"
+      },
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 1,
+        "Now": "2026-10-18T00:00:00Z",
+        "Currency": "USD"
+      },
+      "responses": [
+        {
+          "status": 200,
+          "body": "{\"properties\":{\"columns\":[{\"name\":\"ResourceId\",\"type\":\"String\"},{\"name\":\"ResourceGuid\",\"type\":\"String\"},{\"name\":\"Currency\",\"type\":\"String\"},{\"name\":\"PreTaxCost\",\"type\":\"Number\"}],\"rows\":[[\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/virtualMachines/vm\",\"meter-a\",\"USD\",2]],\"nextLink\":\"?api-version=2021-10-01&$skiptoken=two\"}}",
+          "error": "",
+          "nilResponse": false
+        },
+        {
+          "status": 200,
+          "body": "{\"properties\":{\"columns\":[{\"name\":\"ResourceId\",\"type\":\"String\"},{\"name\":\"ResourceGuid\",\"type\":\"String\"},{\"name\":\"Currency\",\"type\":\"String\"},{\"name\":\"PreTaxCost\",\"type\":\"Number\"}],\"rows\":[[\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/virtualMachines/vm\",\"meter-a\",\"USD\",3]]}}",
+          "error": "",
+          "nilResponse": false
+        }
+      ],
+      "want": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Currency": "USD",
+        "Status": "complete",
+        "FailureCode": "",
+        "Meters": [
+          {
+            "MeterID": "meter-a",
+            "HistoricalCost": 5
+          }
+        ]
+      },
+      "wantError": "",
+      "wantURLs": [
+        "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01",
+        "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01&$skiptoken=two"
+      ]
+    },
+    {
+      "name": "partial-bad-second",
+      "selected": {
+        "11111111-1111-1111-1111-111111111111": "Alpha"
+      },
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 1,
+        "Now": "2026-10-18T00:00:00Z",
+        "Currency": "USD"
+      },
+      "responses": [
+        {
+          "status": 200,
+          "body": "{\"properties\":{\"columns\":[{\"name\":\"ResourceId\",\"type\":\"String\"},{\"name\":\"ResourceGuid\",\"type\":\"String\"},{\"name\":\"Currency\",\"type\":\"String\"},{\"name\":\"PreTaxCost\",\"type\":\"Number\"}],\"rows\":[[\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/virtualMachines/vm\",\"meter-a\",\"USD\",2]],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01&$skiptoken=two\"}}",
+          "error": "",
+          "nilResponse": false
+        },
+        {
+          "status": 200,
+          "body": "{\"properties\":{\"columns\":[{\"name\":\"ResourceId\",\"type\":\"String\"},{\"name\":\"ResourceGuid\",\"type\":\"String\"},{\"name\":\"Currency\",\"type\":\"String\"},{\"name\":\"PreTaxCost\",\"type\":\"Number\"}],\"rows\":[[\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/virtualMachines/vm\",\"meter-a\",\"USD\",3],[\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/virtualMachines/vm\",\"meter-a\",\"EUR\",3]]}}",
+          "error": "",
+          "nilResponse": false
+        }
+      ],
+      "want": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Currency": "USD",
+        "Status": "partial",
+        "FailureCode": "history_decode_invalid",
+        "Meters": [
+          {
+            "MeterID": "meter-a",
+            "HistoricalCost": 2
+          }
+        ]
+      },
+      "wantError": "",
+      "wantURLs": [
+        "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01",
+        "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01&$skiptoken=two"
+      ]
+    },
+    {
+      "name": "empty-prefix-failure",
+      "selected": {
+        "11111111-1111-1111-1111-111111111111": "Alpha"
+      },
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 1,
+        "Now": "2026-10-18T00:00:00Z",
+        "Currency": "USD"
+      },
+      "responses": [
+        {
+          "status": 200,
+          "body": "{\"properties\":{\"columns\":[{\"name\":\"ResourceId\",\"type\":\"String\"},{\"name\":\"ResourceGuid\",\"type\":\"String\"},{\"name\":\"Currency\",\"type\":\"String\"},{\"name\":\"PreTaxCost\",\"type\":\"Number\"}],\"rows\":[],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01&$skiptoken=two\"}}",
+          "error": "",
+          "nilResponse": false
+        },
+        {
+          "status": 200,
+          "body": "",
+          "error": "ordinary",
+          "nilResponse": false
+        }
+      ],
+      "want": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Currency": "USD",
+        "Status": "partial",
+        "FailureCode": "history_request_failed",
+        "Meters": []
+      },
+      "wantError": "",
+      "wantURLs": [
+        "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01",
+        "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01&$skiptoken=two"
+      ]
+    },
+    {
+      "name": "foreign-origin",
+      "selected": {
+        "11111111-1111-1111-1111-111111111111": "Alpha"
+      },
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 1,
+        "Now": "2026-10-18T00:00:00Z",
+        "Currency": "USD"
+      },
+      "responses": [
+        {
+          "status": 200,
+          "body": "{\"properties\":{\"columns\":[{\"name\":\"ResourceId\",\"type\":\"String\"},{\"name\":\"ResourceGuid\",\"type\":\"String\"},{\"name\":\"Currency\",\"type\":\"String\"},{\"name\":\"PreTaxCost\",\"type\":\"Number\"}],\"rows\":[[\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/virtualMachines/vm\",\"meter-a\",\"USD\",3]],\"nextLink\":\"https://evil.example/query?api-version=2021-10-01\"}}",
+          "error": "",
+          "nilResponse": false
+        }
+      ],
+      "want": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Currency": "USD",
+        "Status": "partial",
+        "FailureCode": "history_continuation_invalid",
+        "Meters": [
+          {
+            "MeterID": "meter-a",
+            "HistoricalCost": 3
+          }
+        ]
+      },
+      "wantError": "",
+      "wantURLs": [
+        "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01"
+      ]
+    },
+    {
+      "name": "foreign-subscription",
+      "selected": {
+        "11111111-1111-1111-1111-111111111111": "Alpha"
+      },
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 1,
+        "Now": "2026-10-18T00:00:00Z",
+        "Currency": "USD"
+      },
+      "responses": [
+        {
+          "status": 200,
+          "body": "{\"properties\":{\"columns\":[{\"name\":\"ResourceId\",\"type\":\"String\"},{\"name\":\"ResourceGuid\",\"type\":\"String\"},{\"name\":\"Currency\",\"type\":\"String\"},{\"name\":\"PreTaxCost\",\"type\":\"Number\"}],\"rows\":[[\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/virtualMachines/vm\",\"meter-a\",\"USD\",3]],\"nextLink\":\"https://management.azure.com/subscriptions/22222222-2222-2222-2222-222222222222/providers/Microsoft.CostManagement/query?api-version=2021-10-01&$skiptoken=two\"}}",
+          "error": "",
+          "nilResponse": false
+        }
+      ],
+      "want": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Currency": "USD",
+        "Status": "partial",
+        "FailureCode": "history_continuation_invalid",
+        "Meters": [
+          {
+            "MeterID": "meter-a",
+            "HistoricalCost": 3
+          }
+        ]
+      },
+      "wantError": "",
+      "wantURLs": [
+        "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01"
+      ]
+    },
+    {
+      "name": "wrong-version",
+      "selected": {
+        "11111111-1111-1111-1111-111111111111": "Alpha"
+      },
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 1,
+        "Now": "2026-10-18T00:00:00Z",
+        "Currency": "USD"
+      },
+      "responses": [
+        {
+          "status": 200,
+          "body": "{\"properties\":{\"columns\":[{\"name\":\"ResourceId\",\"type\":\"String\"},{\"name\":\"ResourceGuid\",\"type\":\"String\"},{\"name\":\"Currency\",\"type\":\"String\"},{\"name\":\"PreTaxCost\",\"type\":\"Number\"}],\"rows\":[[\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/virtualMachines/vm\",\"meter-a\",\"USD\",3]],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2026-06-01&$skiptoken=two\"}}",
+          "error": "",
+          "nilResponse": false
+        }
+      ],
+      "want": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Currency": "USD",
+        "Status": "partial",
+        "FailureCode": "history_continuation_invalid",
+        "Meters": [
+          {
+            "MeterID": "meter-a",
+            "HistoricalCost": 3
+          }
+        ]
+      },
+      "wantError": "",
+      "wantURLs": [
+        "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01"
+      ]
+    },
+    {
+      "name": "duplicate-version",
+      "selected": {
+        "11111111-1111-1111-1111-111111111111": "Alpha"
+      },
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 1,
+        "Now": "2026-10-18T00:00:00Z",
+        "Currency": "USD"
+      },
+      "responses": [
+        {
+          "status": 200,
+          "body": "{\"properties\":{\"columns\":[{\"name\":\"ResourceId\",\"type\":\"String\"},{\"name\":\"ResourceGuid\",\"type\":\"String\"},{\"name\":\"Currency\",\"type\":\"String\"},{\"name\":\"PreTaxCost\",\"type\":\"Number\"}],\"rows\":[[\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/virtualMachines/vm\",\"meter-a\",\"USD\",3]],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01&$skiptoken=two&api-version=2021-10-01\"}}",
+          "error": "",
+          "nilResponse": false
+        }
+      ],
+      "want": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Currency": "USD",
+        "Status": "partial",
+        "FailureCode": "history_continuation_invalid",
+        "Meters": [
+          {
+            "MeterID": "meter-a",
+            "HistoricalCost": 3
+          }
+        ]
+      },
+      "wantError": "",
+      "wantURLs": [
+        "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01"
+      ]
+    },
+    {
+      "name": "unknown-query",
+      "selected": {
+        "11111111-1111-1111-1111-111111111111": "Alpha"
+      },
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 1,
+        "Now": "2026-10-18T00:00:00Z",
+        "Currency": "USD"
+      },
+      "responses": [
+        {
+          "status": 200,
+          "body": "{\"properties\":{\"columns\":[{\"name\":\"ResourceId\",\"type\":\"String\"},{\"name\":\"ResourceGuid\",\"type\":\"String\"},{\"name\":\"Currency\",\"type\":\"String\"},{\"name\":\"PreTaxCost\",\"type\":\"Number\"}],\"rows\":[[\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/virtualMachines/vm\",\"meter-a\",\"USD\",3]],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01&$skiptoken=two&extra=1\"}}",
+          "error": "",
+          "nilResponse": false
+        }
+      ],
+      "want": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Currency": "USD",
+        "Status": "partial",
+        "FailureCode": "history_continuation_invalid",
+        "Meters": [
+          {
+            "MeterID": "meter-a",
+            "HistoricalCost": 3
+          }
+        ]
+      },
+      "wantError": "",
+      "wantURLs": [
+        "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01"
+      ]
+    },
+    {
+      "name": "empty-token",
+      "selected": {
+        "11111111-1111-1111-1111-111111111111": "Alpha"
+      },
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 1,
+        "Now": "2026-10-18T00:00:00Z",
+        "Currency": "USD"
+      },
+      "responses": [
+        {
+          "status": 200,
+          "body": "{\"properties\":{\"columns\":[{\"name\":\"ResourceId\",\"type\":\"String\"},{\"name\":\"ResourceGuid\",\"type\":\"String\"},{\"name\":\"Currency\",\"type\":\"String\"},{\"name\":\"PreTaxCost\",\"type\":\"Number\"}],\"rows\":[[\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/virtualMachines/vm\",\"meter-a\",\"USD\",3]],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01&$skiptoken=\"}}",
+          "error": "",
+          "nilResponse": false
+        }
+      ],
+      "want": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Currency": "USD",
+        "Status": "partial",
+        "FailureCode": "history_continuation_invalid",
+        "Meters": [
+          {
+            "MeterID": "meter-a",
+            "HistoricalCost": 3
+          }
+        ]
+      },
+      "wantError": "",
+      "wantURLs": [
+        "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01"
+      ]
+    },
+    {
+      "name": "fragment",
+      "selected": {
+        "11111111-1111-1111-1111-111111111111": "Alpha"
+      },
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 1,
+        "Now": "2026-10-18T00:00:00Z",
+        "Currency": "USD"
+      },
+      "responses": [
+        {
+          "status": 200,
+          "body": "{\"properties\":{\"columns\":[{\"name\":\"ResourceId\",\"type\":\"String\"},{\"name\":\"ResourceGuid\",\"type\":\"String\"},{\"name\":\"Currency\",\"type\":\"String\"},{\"name\":\"PreTaxCost\",\"type\":\"Number\"}],\"rows\":[[\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/virtualMachines/vm\",\"meter-a\",\"USD\",3]],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01&$skiptoken=two#x\"}}",
+          "error": "",
+          "nilResponse": false
+        }
+      ],
+      "want": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Currency": "USD",
+        "Status": "partial",
+        "FailureCode": "history_continuation_invalid",
+        "Meters": [
+          {
+            "MeterID": "meter-a",
+            "HistoricalCost": 3
+          }
+        ]
+      },
+      "wantError": "",
+      "wantURLs": [
+        "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01"
+      ]
+    },
+    {
+      "name": "userinfo",
+      "selected": {
+        "11111111-1111-1111-1111-111111111111": "Alpha"
+      },
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 1,
+        "Now": "2026-10-18T00:00:00Z",
+        "Currency": "USD"
+      },
+      "responses": [
+        {
+          "status": 200,
+          "body": "{\"properties\":{\"columns\":[{\"name\":\"ResourceId\",\"type\":\"String\"},{\"name\":\"ResourceGuid\",\"type\":\"String\"},{\"name\":\"Currency\",\"type\":\"String\"},{\"name\":\"PreTaxCost\",\"type\":\"Number\"}],\"rows\":[[\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/virtualMachines/vm\",\"meter-a\",\"USD\",3]],\"nextLink\":\"https://user@management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01&$skiptoken=two\"}}",
+          "error": "",
+          "nilResponse": false
+        }
+      ],
+      "want": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Currency": "USD",
+        "Status": "partial",
+        "FailureCode": "history_continuation_invalid",
+        "Meters": [
+          {
+            "MeterID": "meter-a",
+            "HistoricalCost": 3
+          }
+        ]
+      },
+      "wantError": "",
+      "wantURLs": [
+        "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01"
+      ]
+    },
+    {
+      "name": "loop",
+      "selected": {
+        "11111111-1111-1111-1111-111111111111": "Alpha"
+      },
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 1,
+        "Now": "2026-10-18T00:00:00Z",
+        "Currency": "USD"
+      },
+      "responses": [
+        {
+          "status": 200,
+          "body": "{\"properties\":{\"columns\":[{\"name\":\"ResourceId\",\"type\":\"String\"},{\"name\":\"ResourceGuid\",\"type\":\"String\"},{\"name\":\"Currency\",\"type\":\"String\"},{\"name\":\"PreTaxCost\",\"type\":\"Number\"}],\"rows\":[[\"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg/providers/Microsoft.Compute/virtualMachines/vm\",\"meter-a\",\"USD\",3]],\"nextLink\":\"https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01\"}}",
+          "error": "",
+          "nilResponse": false
+        }
+      ],
+      "want": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Currency": "USD",
+        "Status": "partial",
+        "FailureCode": "history_continuation_invalid",
+        "Meters": [
+          {
+            "MeterID": "meter-a",
+            "HistoricalCost": 3
+          }
+        ]
+      },
+      "wantError": "",
+      "wantURLs": [
+        "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01"
+      ]
+    },
+    {
+      "name": "month-zero",
+      "selected": {
+        "11111111-1111-1111-1111-111111111111": "Alpha"
+      },
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 0,
+        "Now": "2026-10-18T00:00:00Z",
+        "Currency": "USD"
+      },
+      "responses": [],
+      "want": null,
+      "wantError": "region meter history rejected [history_request_invalid]",
+      "wantURLs": []
+    },
+    {
+      "name": "month-thirteen",
+      "selected": {
+        "11111111-1111-1111-1111-111111111111": "Alpha"
+      },
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 13,
+        "Now": "2026-10-18T00:00:00Z",
+        "Currency": "USD"
+      },
+      "responses": [],
+      "want": null,
+      "wantError": "region meter history rejected [history_request_invalid]",
+      "wantURLs": []
+    },
+    {
+      "name": "bad-id",
+      "selected": {
+        "11111111-1111-1111-1111-111111111111": "Alpha"
+      },
+      "request": {
+        "SubscriptionID": "bad",
+        "Months": 1,
+        "Now": "2026-10-18T00:00:00Z",
+        "Currency": "USD"
+      },
+      "responses": [],
+      "want": null,
+      "wantError": "region meter history rejected [history_request_invalid]",
+      "wantURLs": []
+    },
+    {
+      "name": "unselected-id",
+      "selected": {
+        "11111111-1111-1111-1111-111111111111": "Alpha"
+      },
+      "request": {
+        "SubscriptionID": "22222222-2222-2222-2222-222222222222",
+        "Months": 1,
+        "Now": "2026-10-18T00:00:00Z",
+        "Currency": "USD"
+      },
+      "responses": [],
+      "want": null,
+      "wantError": "region meter history rejected [history_request_invalid]",
+      "wantURLs": []
+    },
+    {
+      "name": "currency-empty",
+      "selected": {
+        "11111111-1111-1111-1111-111111111111": "Alpha"
+      },
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 1,
+        "Now": "2026-10-18T00:00:00Z",
+        "Currency": ""
+      },
+      "responses": [],
+      "want": null,
+      "wantError": "region meter history rejected [history_request_invalid]",
+      "wantURLs": []
+    },
+    {
+      "name": "currency-lower",
+      "selected": {
+        "11111111-1111-1111-1111-111111111111": "Alpha"
+      },
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 1,
+        "Now": "2026-10-18T00:00:00Z",
+        "Currency": "usd"
+      },
+      "responses": [],
+      "want": null,
+      "wantError": "region meter history rejected [history_request_invalid]",
+      "wantURLs": []
+    },
+    {
+      "name": "clock-zero",
+      "selected": {
+        "11111111-1111-1111-1111-111111111111": "Alpha"
+      },
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 1,
+        "Now": "0001-01-01T00:00:00Z",
+        "Currency": "USD"
+      },
+      "responses": [],
+      "want": null,
+      "wantError": "region meter history rejected [history_request_invalid]",
+      "wantURLs": []
+    },
+    {
+      "name": "wrapped-cancel",
+      "selected": {
+        "11111111-1111-1111-1111-111111111111": "Alpha"
+      },
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 1,
+        "Now": "2026-10-18T00:00:00Z",
+        "Currency": "USD"
+      },
+      "responses": [
+        {
+          "status": 200,
+          "body": "",
+          "error": "cancelled",
+          "nilResponse": false
+        }
+      ],
+      "want": null,
+      "wantError": "cancelled",
+      "wantURLs": [
+        "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01"
+      ]
+    },
+    {
+      "name": "wrapped-deadline",
+      "selected": {
+        "11111111-1111-1111-1111-111111111111": "Alpha"
+      },
+      "request": {
+        "SubscriptionID": "11111111-1111-1111-1111-111111111111",
+        "Months": 1,
+        "Now": "2026-10-18T00:00:00Z",
+        "Currency": "USD"
+      },
+      "responses": [
+        {
+          "status": 200,
+          "body": "",
+          "error": "deadline",
+          "nilResponse": false
+        }
+      ],
+      "want": null,
+      "wantError": "deadline",
+      "wantURLs": [
+        "https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.CostManagement/query?api-version=2021-10-01"
+      ]
+    }
+  ]
+}

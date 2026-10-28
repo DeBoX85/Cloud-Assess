@@ -1,0 +1,62 @@
+{
+  "scope": "local synthetic source/toolchain QA; not hosted/installed/live acceptance",
+  "product_base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+  "planning_parent": "1348503ba415e630082004b785d802982b4c8b50",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "bytes": 8,
+      "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da"
+    },
+    {
+      "path": "full-preflight.log",
+      "bytes": 3096,
+      "sha256": "fe78b2f91b7447452aafbf6e370e8e24060a02635d9c885b4b50256b46196f02"
+    },
+    {
+      "path": "new-security.log",
+      "bytes": 299,
+      "sha256": "ad69f133adefccc9759e15ab22c7681d4a7e4b413857929bdac33769a678284f"
+    },
+    {
+      "path": "official-release-metadata.json",
+      "bytes": 12210,
+      "sha256": "f21a9c049237ca0a7c0005631f273851e0ddf25fda942246836a6046e9364198"
+    },
+    {
+      "path": "old-focused.log",
+      "bytes": 121,
+      "sha256": "50a91a74e6f3cf05335ce531ff76b895187ef3b088c1056b911e7f5bec46ca6a"
+    },
+    {
+      "path": "old-security.log",
+      "bytes": 900,
+      "sha256": "fc00647fd93678decfcc9344679c96f8169e5b4a7b0d5eacb9a902772892e35f"
+    },
+    {
+      "path": "old-static.log",
+      "bytes": 478,
+      "sha256": "89e4e5f21202df5b63becd4c6bf1bd6478c79d9849724f5dcf27905e7604b852"
+    },
+    {
+      "path": "restored-focused.log",
+      "bytes": 121,
+      "sha256": "f91d8497c176920a3a28a1dd81fdc79a7ad0dd0fb5499633995727ba27bbda91"
+    },
+    {
+      "path": "restored-static.log",
+      "bytes": 478,
+      "sha256": "2c4b391db99daa9d36ef337bc615e224e569167b7bfe88482d0179b9586b0641"
+    },
+    {
+      "path": "rollback-review.json",
+      "bytes": 3770,
+      "sha256": "0c0621bce9eca6a9dcc52e875c820fdf04d9310440d387b8dd3cb4d0fb1ccd14"
+    },
+    {
+      "path": "upstream-delta.json",
+      "bytes": 33169,
+      "sha256": "ce236d83e244aaa26ee02f89f356dea1bee40c204f7ee45f5ebe10732bfb9c51"
+    }
+  ]
+}
