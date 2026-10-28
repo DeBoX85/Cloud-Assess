@@ -1,6 +1,6 @@
 # Cloud-Assess project progress
 
-Updated: 27 October 2026 (Europe/Oslo). Maintainer: development/integration owner.
+Updated: 28 October 2026 (Europe/Oslo). Maintainer: development/integration owner.
 
 This is the short project dashboard for Denis. Update it at every meaningful active-work checkpoint; no status request is needed. It is a snapshot, not a background activity indicator. The live task PR body owns final exact-revision QA outcomes; a later outcome can resolve a pending snapshot here without a status-only commit. [Restart prompt](RESTART_PROMPT.md) · [Detailed current state](CURRENT_STATE.md) · [Full obligation register](TASK_CARRY_FORWARD_20261022.json) · [Roadmap](ROADMAP.md).
 
@@ -9,12 +9,14 @@ This is the short project dashboard for Denis. Update it at every meaningful act
 | Item | Position |
 | --- | --- |
 | Goal | AZQR feature/function/capability parity with adjustable branding, accurate behavior and documented deliberate improvements; verified against Denis's pinned fork |
-| Active task | F03 admission implementation and nine strict controls locally verified on `fix/comparison-json-admission-20261027`; own QA/retention next |
-| Latest verified product milestone | [Draft PR204](https://github.com/DeBoX85/Cloud-Assess/pull/204), head `fd746cbfdccc6d3b85bfdf1c21bc5ae497d57ba2`: dashboard/SOP verified offline with own native/source QA/private restore complete; F01 verified in PR203 |
-| Current candidate verification | Contract/tests frozen/read back before production;21intended rejection assertions reproduced,10healthy passes. Implementation/nine controls locally verified; own full native/source QA/private restore pending |
-| Next production task | F03 comparison-JSON admission contract and independently failing expectations BEFORE production; then own QA/retention before task10 |
+| Active task | Task10 coordinator preparation on `dev/region-coordinator-contract-20261028`; exact typed API bindings next, no production coordinator |
+| Latest verified product milestone | [Draft PR205](https://github.com/DeBoX85/Cloud-Assess/pull/205), head `08a220a72edd902eb3f7eafc14b8e95f64a46f12`: F03 verified offline with own native/source QA and private91member restore; dashboard/SOP verified in204 |
+| Current candidate verification | 40independent scheduling literals/eight malformed checks and24workflow guards locally pass; preparation only, own full native/source QA/private retention pending |
+| Next production task | Resolve coordinator region/reservation/currency/budget bindings; freeze strict API consumer and independently reproduce BEFORE production |
 | Input needed from Denis now | None for the authorized offline sequence. Stop only for material uncertainty with no safe mitigation or explicit deferral |
 | Protected acceptance | Drafts remain unmerged. Protected baseline and AZQR/APRL pins unchanged; no release approval implied |
+
+Current preparation scope and remaining bindings: [coordinator contract](REGION_COORDINATOR_CONTRACT_20261028.md). Its finite model does not execute or accept the future Go coordinator. No input from Denis or Azure tenant is required for the next binding review.
 
 ## Completed milestones
 
@@ -34,8 +36,8 @@ PR204 quality40531800632 and source40531800701 completed/success; final index ow
 | Order | Task / state | Exit condition | Dependency |
 | --- | --- | --- | --- |
 | Complete | Progress dashboard/workflow: verified offline | PR204 own full QA and44member private restore verified by final index | Verified PR203 |
-| Now | F03: corrective candidate locally verified, own QA pending | Freeze duplicate/escaped-name and typed-field-alias expectations; reproduce at intended assertions; bounded correction, own native/source QA and restore | Before task10 |
-| 10 | Owned per-run coordinator: not started | Ownership, lifecycle, cancellation and bounded execution contract implemented and verified | Tasks5/7/9 and corrective sequence |
+| Complete | F03 verified offline in PR205 | Own quality40540010823/source40540010588 and archiveb2d51adb/receiptf99c7951;91fresh-restored members equal originals | Frozen205 |
+| 10 | Owned per-run coordinator: preparation in progress | Ownership, lifecycle, cancellation and bounded execution contract implemented and verified | Tasks5/7/9 and corrective sequence |
 | 11 | Public region CLI/registry: not started | Public command wiring and early validation verified | Task10 |
 | 12 | Outputs/FullCost/health/exits: not started | Required output contracts and types reconciled; results and exit behavior verified | Coordinator/CLI |
 | 13 | Synthetic workloads: not started | Representative permission/cancellation/volume/budget behavior verified; limits explicit | Integrated behavior |

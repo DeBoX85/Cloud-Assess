@@ -81,7 +81,37 @@ def require_comparison_json_controls(text):
             raise ValueError('comparison JSON controls weakened')
 
 
+def require_coordinator_specification(text):
+    for host, consumer in [('linux', 'Verify pinned source-data provenance'), ('windows', 'Parse scripts with Windows PowerShell 5.1')]:
+        match = re.search(r'^  '+host+r'-native:\n(.*?)(?=^  [a-z]|\Z)', text, re.M|re.S)
+        if not match: raise ValueError('missing coordinator specification native host')
+        body = match.group(1); marker = '      - name: Verify coordinator scheduling specification\n'
+        if body.count(marker) != 1 or body.index(marker) >= body.index('      - name: '+consumer+'\n'):
+            raise ValueError('coordinator specification missing/late')
+        block = body.split(marker, 1)[1].split('      - name:', 1)[0]
+        if 'scripts/tests/coordinator-scheduling.py' not in block or 'continue-on-error' in block or 'if:' in block:
+            raise ValueError('coordinator specification weakened')
+
+
 class GateTests(unittest.TestCase):
+    def test_coordinator_specification_both_hosts(self):
+        require_coordinator_specification(workflow.generate())
+
+    def test_coordinator_specification_cannot_be_removed_or_weakened(self):
+        text = workflow.generate(); marker = '      - name: Verify coordinator scheduling specification\n'
+        for host in ('linux', 'windows'):
+            before, rest = text.split('  '+host+'-native:\n', 1)
+            for mutation in ('      - name: Lost coordinator specification\n', marker+'        continue-on-error: true\n', marker+'        if: false\n'):
+                with self.assertRaises(ValueError):
+                    require_coordinator_specification(before+'  '+host+'-native:\n'+rest.replace(marker, mutation, 1))
+
+    def test_coordinator_specification_cannot_run_late(self):
+        text = workflow.generate(); marker = '      - name: Verify coordinator scheduling specification\n'
+        start = text.index(marker); end = text.index('      - name:', start+len(marker)); block = text[start:end]
+        lost = text[:start]+text[end:]; later = lost.index('      - name: Vet\n')
+        with self.assertRaises(ValueError):
+            require_coordinator_specification(lost[:later]+block+lost[later:])
+
     def test_comparison_json_controls_both_hosts(self):
         require_comparison_json_controls(workflow.generate())
 
