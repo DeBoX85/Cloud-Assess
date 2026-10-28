@@ -55,6 +55,9 @@ jobs:
       - name: Verify coordinator scheduling specification
         run: python3 scripts/tests/coordinator-scheduling.py
 
+      - name: Verify subscription reservation contract controls
+        run: python3 scripts/tests/subscription-reservation-controls.py
+
       - name: Verify pinned source-data provenance
         shell: bash
         run: |
@@ -468,6 +471,9 @@ jobs:
 
       - name: Verify coordinator scheduling specification
         run: python scripts/tests/coordinator-scheduling.py
+
+      - name: Verify subscription reservation contract controls
+        run: python scripts/tests/subscription-reservation-controls.py
 
       - name: Parse scripts with Windows PowerShell 5.1
         shell: powershell

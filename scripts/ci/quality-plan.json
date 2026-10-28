@@ -179,6 +179,11 @@
         "name": "Verify coordinator scheduling specification",
         "script": "scripts/tests/coordinator-scheduling.py",
         "worker": "native"
+      },
+      {
+        "name": "Verify subscription reservation contract controls",
+        "script": "scripts/tests/subscription-reservation-controls.py",
+        "worker": "native"
       }
     ],
     "windows": [
@@ -270,6 +275,11 @@
       {
         "name": "Verify coordinator scheduling specification",
         "script": "scripts/tests/coordinator-scheduling.py",
+        "worker": "native"
+      },
+      {
+        "name": "Verify subscription reservation contract controls",
+        "script": "scripts/tests/subscription-reservation-controls.py",
         "worker": "native"
       }
     ]

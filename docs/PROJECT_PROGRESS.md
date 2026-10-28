@@ -9,10 +9,10 @@ This is the short project dashboard for Denis. Update it at every meaningful act
 | Item | Position |
 | --- | --- |
 | Goal | AZQR feature/function/capability parity with adjustable branding, accurate behavior and documented deliberate improvements; verified against Denis's pinned fork |
-| Active task | Task10 prerequisite on `dev/subscription-reservations-20261028`: freeze whole-subscription reservation API/independent consumer before production; coordinator remains unimplemented |
+| Active task | Task10 prerequisite on `dev/subscription-reservations-20261028`: private whole-subscription API locally verified; implementation recovered by recorded Go/test hashes after runtime outage; own hosted QA/retention pending; coordinator remains unimplemented |
 | Latest verified product milestone | [Draft PR205](https://github.com/DeBoX85/Cloud-Assess/pull/205), head `08a220a72edd902eb3f7eafc14b8e95f64a46f12`: F03 verified offline with own native/source QA and private91member restore; dashboard/SOP verified in204 |
-| Current candidate verification | PR206preparation verified offline by its final index, own native/source QA and122member private restore complete. Current subscription-reservation contract/consumer preparation remains unverified |
-| Next production task | Publish/read back subscription-reservation API/consumer, observe intended preproduction gap/missing API, then bounded implementation and own QA/retention; remaining coordinator bindings follow |
+| Current candidate verification | PR206preparation verified offline by its final index, own native/source QA and122member private restore complete. Current207Go implementation passed50named race events/ten strict reversals and32legacy events before outage; five Go/test hashes recovered exactly. Own full hosted QA/private fresh-directory retention pending |
+| Next production task | Verify recovered207WIP/full hosted native-source QA; finish private capture/fresh-directory restore when execution returns; then remaining coordinator bindings |
 | Input needed from Denis now | None for the authorized offline sequence. Stop only for material uncertainty with no safe mitigation or explicit deferral |
 | Protected acceptance | Drafts remain unmerged. Protected baseline and AZQR/APRL pins unchanged; no release approval implied |
 
@@ -82,6 +82,8 @@ ETA: no evidence-based calendar forecast is available yet. Comparable remaining-
 | 28 October | New0/5/1advisory observation classified, residuals remain OPEN with no pin/gate change. Whole-subscription reservation contract/independent consumer preparation starts on isolated PRODUCT successor; existing regional API retained |
 
 Raw logs/findings stay in private `DeBoX85/SC-storage`; public Git contains safe metadata. Reread current storage main/tree before additive expected-head updates; preserve unrelated blobs, never force older history. Retain until Denis explicitly approves deletion. No automatic archival or independent-backup/DC-006 closure. Revisit issue189 at each handover/end and before readiness/acceptance/release.
+
+Recovery milestone: contract/consumer were frozen in PR207 before implementation; the scope gap and missing APIs were independently observed. The private API passes local contract/legacy checks. Runtime outage blocks local verification and the mandatory fresh-directory retention step; no final207acceptance is claimed. See [implementation checkpoint](SUBSCRIPTION_RESERVATION_IMPLEMENTATION_20261028.md).
 
 ## Maintenance rule
 
