@@ -522,7 +522,7 @@
       "id": "SEC-BASELINE",
       "state": "report_received_triaged_bounded",
       "owner": "security reviewer; development owner integrates",
-      "next_or_limit": "Denis supplied immutable private report;14manifest members and23explicit source blob pairs checked. No fresh reproduction/full archive certification; R7findings remain open; separate corrective candidates."
+      "next_or_limit": "Denis supplied immutable private report;14manifest members and23explicit source blob pairs checked. No fresh reproduction/full archive certification; R7findings remain open; separate corrective candidates. Separate28October dated PR206native summaries0reachable/5imported-not-called/1module-only; new GO-2026-6866/GO-2026-6860first-party classified, all residuals OPEN, no pin/gate update. Reevaluate after integration/before readiness/release; no independent/security-completeness approval."
     },
     {
       "id": "R7-F01",
@@ -576,7 +576,7 @@
       "id": "DC-CI-EVIDENCE-20261022",
       "state": "resolved_bounded_migration",
       "owner": "agent tracks; Denis selects destination",
-      "next_or_limit": "Issue189closed/completed after196ownQA. Archivecf093771/receipt10ba2bcdverified; retention/revisit/future capture duties continue. No automatic archival or independent backup."
+      "next_or_limit": "Issue189closed/completed after196ownQA. Archivecf093771/receipt10ba2bcdverified; retention/revisit/future capture duties continue. No automatic archival or independent backup. Additional206captureeffaf284/receiptaf59ad63full remote readback/fresh122member restore verified, preserving unrelated blobs; ongoing duties unchanged."
     },
     {
       "id": "AR-01",
@@ -774,7 +774,7 @@
       "id": "OFFLINE-10",
       "state": "contract_preparation_in_progress",
       "owner": "development owner",
-      "next_or_limit": "PRODUCT successor dev/region-coordinator-contract-20261028from205. Pinned source trace and40independent scheduling literals/eight malformed controls locally verified; exact API/region/reservation/currency/cumulative-budget bindings pending BEFORE strict consumer/production. Own full native/source/private retention pending; task11blocked on complete10proof."
+      "next_or_limit": "PR206/4627a4d9preparation verified offline: own quality40616376872/source40616376953, captureeffaf284/receiptaf59ad63,122fresh-restored members equal originals. New PRODUCT successor dev/subscription-reservations-20261028prepares whole-subscription API/13literal/eightbudget/12procedural expectations before production; strict consumer/publication/reproduction pending. No coordinator implementation or10closure; region/currency/cumulative-budget bindings and own fullQA remain before11."
     },
     {
       "id": "OFFLINE-11",

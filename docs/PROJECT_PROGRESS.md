@@ -9,14 +9,14 @@ This is the short project dashboard for Denis. Update it at every meaningful act
 | Item | Position |
 | --- | --- |
 | Goal | AZQR feature/function/capability parity with adjustable branding, accurate behavior and documented deliberate improvements; verified against Denis's pinned fork |
-| Active task | Task10 coordinator preparation on `dev/region-coordinator-contract-20261028`; exact typed API bindings next, no production coordinator |
+| Active task | Task10 prerequisite on `dev/subscription-reservations-20261028`: freeze whole-subscription reservation API/independent consumer before production; coordinator remains unimplemented |
 | Latest verified product milestone | [Draft PR205](https://github.com/DeBoX85/Cloud-Assess/pull/205), head `08a220a72edd902eb3f7eafc14b8e95f64a46f12`: F03 verified offline with own native/source QA and private91member restore; dashboard/SOP verified in204 |
-| Current candidate verification | 40independent scheduling literals/eight malformed checks and24workflow guards locally pass; preparation only, own full native/source QA/private retention pending |
-| Next production task | Resolve coordinator region/reservation/currency/budget bindings; freeze strict API consumer and independently reproduce BEFORE production |
+| Current candidate verification | PR206preparation verified offline by its final index, own native/source QA and122member private restore complete. Current subscription-reservation contract/consumer preparation remains unverified |
+| Next production task | Publish/read back subscription-reservation API/consumer, observe intended preproduction gap/missing API, then bounded implementation and own QA/retention; remaining coordinator bindings follow |
 | Input needed from Denis now | None for the authorized offline sequence. Stop only for material uncertainty with no safe mitigation or explicit deferral |
 | Protected acceptance | Drafts remain unmerged. Protected baseline and AZQR/APRL pins unchanged; no release approval implied |
 
-Current preparation scope and remaining bindings: [coordinator contract](REGION_COORDINATOR_CONTRACT_20261028.md). Its finite model does not execute or accept the future Go coordinator. No input from Denis or Azure tenant is required for the next binding review.
+Current preparation scope and remaining bindings: [coordinator contract](REGION_COORDINATOR_CONTRACT_20261028.md). Its finite model does not execute or accept the future Go coordinator. [PR206 final index](https://github.com/DeBoX85/Cloud-Assess/pull/206) verifies its own preparation QA/private retention; current next contract is [subscription reservations](SUBSCRIPTION_RESERVATION_CONTRACT_20261028.md). No input from Denis or Azure tenant is required for the next binding review.
 
 ## Completed milestones
 
@@ -61,7 +61,7 @@ ETA: no evidence-based calendar forecast is available yet. Comparable remaining-
 ## Remaining assurance and acceptance
 
 - F03 verified offline by PR205 final index; F02 reclassified not a defect. O01–O04 remain observations, with practical impact not assumed.
-- Recorded advisories: zero reachable, three imported-not-called and one module-only; residual dispositions remain OPEN. No fresh database/security-completeness claim.
+- PR206dated BOTH-native summaries: zero reachable, five imported-not-called and one module-only; all residuals OPEN. GO-2026-6866/GO-2026-6860are newly published x/net/html records, classified from pinned verbose Linux execution and full official JSON. No dependency update, suppression, gate change or security/database-freshness claim; reevaluate after integration and before readiness/release.
 - Whole documentary audit remains unfinished. Historical raw/semantic read counts are not proof of a complete current audit.
 - Independent product/gate/check-inventory review, live Azure visibility/least privilege, supported fresh OS/architecture, safe pilot and operational rollback remain separate obligations.
 - Licensing, artifact provenance/SBOM, content applicability, Gate004 row-by-row disposition and release acceptance remain open. See all44 legacy IDs and49 current obligations in the full register.
@@ -78,6 +78,8 @@ ETA: no evidence-based calendar forecast is available yet. Comparable remaining-
 | 27 October | F03 contract/tests frozen at5f1ad72a before production,21intended rejection assertions and10healthy passes; implementation/nine controls locally verified, own QA/restore pending |
 | 28 October | PR205 final index resolves preceding F03pending snapshot: own quality40540010823/source40540010588success, archiveb2d51adb/receiptf99c7951,91fresh-restored members equal originals |
 | 28 October | Coordinator preparation published in draft PR206;40literal/eightmalformed scheduling checks and24workflow/sevenhandoff guards locally pass. Own final exact-head QA/private retention pending; no production coordinator or task10closure |
+| 28 October | PR206final index resolves preceding pending snapshot: own quality40616376872/source40616376953success, captureeffaf284/receiptaf59ad63,122fresh-restored members/9874097bytes equal originals; no production coordinator |
+| 28 October | New0/5/1advisory observation classified, residuals remain OPEN with no pin/gate change. Whole-subscription reservation contract/independent consumer preparation starts on isolated PRODUCT successor; existing regional API retained |
 
 Raw logs/findings stay in private `DeBoX85/SC-storage`; public Git contains safe metadata. Reread current storage main/tree before additive expected-head updates; preserve unrelated blobs, never force older history. Retain until Denis explicitly approves deletion. No automatic archival or independent-backup/DC-006 closure. Revisit issue189 at each handover/end and before readiness/acceptance/release.
 
