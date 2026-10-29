@@ -383,7 +383,7 @@
         "docs/ACTION_REGISTER.md"
       ],
       "disposition": "historical_programme_step_verified_offline",
-      "closure_reference": "Original programme1–5 closure; do not replay; OFFLINE_SEQUENCE current tasks remain separate."
+      "closure_reference": "Original programme1\u20135 closure; do not replay; OFFLINE_SEQUENCE current tasks remain separate."
     },
     {
       "id": "OP-002",
@@ -391,7 +391,7 @@
         "docs/ACTION_REGISTER.md"
       ],
       "disposition": "historical_programme_step_verified_offline",
-      "closure_reference": "Original programme1–5 closure; do not replay; OFFLINE_SEQUENCE current tasks remain separate."
+      "closure_reference": "Original programme1\u20135 closure; do not replay; OFFLINE_SEQUENCE current tasks remain separate."
     },
     {
       "id": "OP-003",
@@ -399,7 +399,7 @@
         "docs/ACTION_REGISTER.md"
       ],
       "disposition": "historical_programme_step_verified_offline",
-      "closure_reference": "Original programme1–5 closure; do not replay; OFFLINE_SEQUENCE current tasks remain separate."
+      "closure_reference": "Original programme1\u20135 closure; do not replay; OFFLINE_SEQUENCE current tasks remain separate."
     },
     {
       "id": "OP-004",
@@ -407,7 +407,7 @@
         "docs/ACTION_REGISTER.md"
       ],
       "disposition": "historical_programme_step_verified_offline",
-      "closure_reference": "Original programme1–5 closure; do not replay; OFFLINE_SEQUENCE current tasks remain separate."
+      "closure_reference": "Original programme1\u20135 closure; do not replay; OFFLINE_SEQUENCE current tasks remain separate."
     },
     {
       "id": "OP-005",
@@ -415,7 +415,7 @@
         "docs/ACTION_REGISTER.md"
       ],
       "disposition": "historical_programme_step_verified_offline",
-      "closure_reference": "Original programme1–5 closure; do not replay; OFFLINE_SEQUENCE current tasks remain separate."
+      "closure_reference": "Original programme1\u20135 closure; do not replay; OFFLINE_SEQUENCE current tasks remain separate."
     },
     {
       "id": "R7-F01",
@@ -576,13 +576,13 @@
       "id": "DC-CI-EVIDENCE-20261022",
       "state": "resolved_bounded_migration",
       "owner": "agent tracks; Denis selects destination",
-      "next_or_limit": "Issue189closed/completed after196ownQA. Archivecf093771/receipt10ba2bcdverified; retention/revisit/future capture duties continue. No automatic archival or independent backup. Additional206captureeffaf284/receiptaf59ad63full remote readback/fresh122member restore verified, preserving unrelated blobs; ongoing duties unchanged. PR207capturebcb7c44a/receipte9de8d8d own110member fresh restore now verified;222prior non-index blobs preserved. PR208capture5fee1aaf/receipt922d9373 full readback/fresh96members verified; ongoing additive/latest-main preservation/retention duties unchanged."
+      "next_or_limit": "Issue189closed/completed after196ownQA. Archivecf093771/receipt10ba2bcdverified; retention/revisit/future capture duties continue. No automatic archival or independent backup. Additional206captureeffaf284/receiptaf59ad63full remote readback/fresh122member restore verified, preserving unrelated blobs; ongoing duties unchanged. PR207capturebcb7c44a/receipte9de8d8d own110member fresh restore now verified;222prior non-index blobs preserved. PR208capture5fee1aaf/receipt922d9373 full readback/fresh96members verified; ongoing additive/latest-main preservation/retention duties unchanged. PR209own94member restoration verified; PR210fixed verifier/fresh128members7817312bytes and closure0035b60f245/receipt65146b2d now verified, preserving all prior blobs with lease/no force. Future candidate own capture/readback/fresh restore remains mandatory."
     },
     {
       "id": "AR-01",
       "state": "open_residual",
       "owner": "security/release owner",
-      "next_or_limit": "Approved security updates complete offline; dated PR207own BOTH-native summaries0reachable/5imported-not-called/1module-only supersede older3imported snapshots. All residual dispositions remain OPEN; reevaluate after integration/before readiness/release without unrelated pin/gate changes."
+      "next_or_limit": "Approved security updates complete offline; dated PR207own BOTH-native summaries0reachable/5imported-not-called/1module-only supersede older3imported snapshots. All residual dispositions remain OPEN; reevaluate after integration/before readiness/release without unrelated pin/gate changes. PR210own dated28October BOTH-native independently records0/5/1; residuals OPEN, no fresh29October advisory scan or pin change."
     },
     {
       "id": "AR-02",
@@ -774,7 +774,7 @@
       "id": "OFFLINE-10",
       "state": "implementation_in_progress",
       "owner": "development owner",
-      "next_or_limit": "PR210private location prerequisite unaccepted WIP;209contract/97consumer preceded producer, owns full QA/private94member restore825d0ff9/24f0f7c7. Original accessor oracle survived direct-alias fault; correct source restored exactly. Additive literal regression42b5f18c fully read back before execution; correct98race events/14strict compiling assertion reversals/restoration pass locally. Original9files/2supplement unchanged. Execution workspace unavailable after controls, last attempted local docs/wiring edit UNKNOWN; recovered2producer/4consumer hashes match. Own full hosted QA/local full race/coherent rollback/private readback/fresh restore/self-assessment pending; no inherited green or dependent production. Continue when safe, no Denis/laptop/tenant input. Then coordinator currency/ownership/cumulative budgets before10closure/11; all49obligations retained."
+      "next_or_limit": "PR210/7ad location prerequisite VERIFIED OFFLINE with own full hosted/source/local race/coherent209rollback210forward; capture0035b60f245/receipt65146b2d,128fresh-restored members7817312bytes across001/002/003, zero executed. Original9plus2supplement/98events/14strict controls unchanged. Current PRODUCT history currency/ownership binding preparation:8bound files/35literals/77future events; no binder API, publication/readback/missing API/native QA/retention pending. Then pure binding implementation with exact consumers and own QA/retention. Closed-shape cumulative retained work and exact coordinator request/result precede coordinator production/10closure/11.49obligations retained."
     },
     {
       "id": "OFFLINE-11",

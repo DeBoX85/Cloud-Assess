@@ -85,7 +85,7 @@ def generate():
             py = 'python3' if platform == 'linux' else 'python'
             # Run the separate bounded Build/Admission proofs before the full
             # native suite. They remain additive and never replace that suite.
-            early = [e for e in extras.get(worker, []) if e['script'] in ('scripts/tests/required-inventory-build.py', 'scripts/tests/required-inventory-admission.py', 'scripts/tests/mutation-assertions.py', 'scripts/tests/tag-collision-controls.py', 'scripts/tests/comparison-json-controls.py', 'scripts/tests/coordinator-scheduling.py', 'scripts/tests/subscription-reservation-controls.py', 'scripts/tests/subscription-location-controls.py')]
+            early = [e for e in extras.get(worker, []) if e['script'] in ('scripts/tests/required-inventory-build.py', 'scripts/tests/required-inventory-admission.py', 'scripts/tests/mutation-assertions.py', 'scripts/tests/tag-collision-controls.py', 'scripts/tests/comparison-json-controls.py', 'scripts/tests/coordinator-scheduling.py', 'scripts/tests/subscription-reservation-controls.py', 'scripts/tests/subscription-location-controls.py', 'scripts/tests/run-history-preproduction.py')]
             late = [e for e in extras.get(worker, []) if e not in early]
             early_blocks = ''.join('      - name: ' + e['name'] + '\n        run: ' + py + ' ' + e['script'] + '\n\n' for e in early)
             extra_blocks = ''.join('      - name: ' + e['name'] + '\n        run: ' + py + ' ' + e['script'] + '\n\n' for e in late)

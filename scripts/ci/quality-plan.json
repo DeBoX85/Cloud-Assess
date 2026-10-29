@@ -189,6 +189,11 @@
         "name": "Verify subscription location contract controls",
         "script": "scripts/tests/subscription-location-controls.py",
         "worker": "native"
+      },
+      {
+        "name": "Verify run history binding preproduction contract",
+        "script": "scripts/tests/run-history-preproduction.py",
+        "worker": "native"
       }
     ],
     "windows": [
@@ -290,6 +295,11 @@
       {
         "name": "Verify subscription location contract controls",
         "script": "scripts/tests/subscription-location-controls.py",
+        "worker": "native"
+      },
+      {
+        "name": "Verify run history binding preproduction contract",
+        "script": "scripts/tests/run-history-preproduction.py",
         "worker": "native"
       }
     ]

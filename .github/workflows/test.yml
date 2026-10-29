@@ -61,6 +61,9 @@ jobs:
       - name: Verify subscription location contract controls
         run: python3 scripts/tests/subscription-location-controls.py
 
+      - name: Verify run history binding preproduction contract
+        run: python3 scripts/tests/run-history-preproduction.py
+
       - name: Verify pinned source-data provenance
         shell: bash
         run: |
@@ -480,6 +483,9 @@ jobs:
 
       - name: Verify subscription location contract controls
         run: python scripts/tests/subscription-location-controls.py
+
+      - name: Verify run history binding preproduction contract
+        run: python scripts/tests/run-history-preproduction.py
 
       - name: Parse scripts with Windows PowerShell 5.1
         shell: powershell

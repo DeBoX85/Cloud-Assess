@@ -1,6 +1,6 @@
 # Cloud-Assess project progress
 
-Updated: 28 October 2026 (Europe/Oslo). Maintainer: development/integration owner.
+Updated: 29 October 2026 (Europe/Oslo). Maintainer: development/integration owner.
 
 This is the short project dashboard for Denis. Update it at every meaningful active-work checkpoint; no status request is needed. It is a snapshot, not a background activity indicator. The live task PR body owns final exact-revision QA outcomes; a later outcome can resolve a pending snapshot here without a status-only commit. [Restart prompt](RESTART_PROMPT.md) · [Detailed current state](CURRENT_STATE.md) · [Full obligation register](TASK_CARRY_FORWARD_20261022.json) · [Roadmap](ROADMAP.md).
 
@@ -9,23 +9,24 @@ This is the short project dashboard for Denis. Update it at every meaningful act
 | Item | Position |
 | --- | --- |
 | Goal | AZQR feature/function/capability parity with adjustable branding, accurate behavior and documented deliberate improvements; verified against Denis's pinned fork |
-| Active task | [PR210](https://github.com/DeBoX85/Cloud-Assess/pull/210): private location component implemented as unaccepted WIP; own QA/retention pending |
-| Latest verified product milestone | [Draft PR207](https://github.com/DeBoX85/Cloud-Assess/pull/207), frozen `5fe46d8c394b45995402850944e63b236c792912`: subscription-wide reservation component verified offline with own QA/private110member restore |
-| Current candidate verification | PR209preparation owns full QA/private94member restore.210local98race events/14strict compiling reversals pass; original oracle gap reproduced and independent literal regression verified. Own hosted QA/rollback/retention pending; execution workspace now unavailable |
-| Next production task | Publish/read back recovered implementation, complete own native/source/rollback/private retention; restore execution capability for fresh-directory proof before dependent production |
+| Active task | History currency/ownership contract and strict consumer preparation on `dev/run-history-binding-20261029`; no new binder API yet |
+| Latest verified product milestone | [PR210](https://github.com/DeBoX85/Cloud-Assess/pull/210), frozen `7ad8233`: private location component verified offline with own hosted/local QA, rollback and private128member fresh restores |
+| Current candidate verification | Eight preparation files/35literal cases/77future named events; fixture-only shape passes,33workflow/sevenhandoff guards pass. Publication/readback/missing APIs and OWN hosted QA/retention pending; no binder runtime pass |
+| Next production task | Finish this independent contract freeze and own preparation QA/retention, then implement owned history admission; cumulative-work and exact coordinator binding remain before coordinator production |
 | Input needed from Denis now | None for the authorized offline sequence. Stop only for material uncertainty with no safe mitigation or explicit deferral |
 | Protected acceptance | Drafts remain unmerged. Protected baseline and AZQR/APRL pins unchanged; no release approval implied |
 
-Current location prerequisite: [strict contract and independent consumer](SUBSCRIPTION_LOCATION_CONTRACT_20261028.md). PR210implements the private API as unaccepted WIP; see [implementation/recovery record](SUBSCRIPTION_LOCATION_IMPLEMENTATION_20261028.md).
+Current location prerequisite: [strict contract and independent consumer](SUBSCRIPTION_LOCATION_CONTRACT_20261028.md). PR210private location API is verified offline, draft/unmerged. Next: [owned history/currency binding](RUN_HISTORY_BINDING_CONTRACT_20261029.md); see [recovery audit](RECOVERY_AUDIT_20261029.md).
 
 Current preparation scope and remaining bindings: [coordinator contract](REGION_COORDINATOR_CONTRACT_20261028.md). Its finite model does not execute or accept the future Go coordinator. [PR206 final index](https://github.com/DeBoX85/Cloud-Assess/pull/206) verifies its own preparation QA/private retention; the completed subscription contract is [subscription reservations](SUBSCRIPTION_RESERVATION_CONTRACT_20261028.md) and next binding work is [region/AZ preparation](COORDINATOR_BINDING_AUDIT_20261028.md). No input from Denis or Azure tenant is required for the next binding review.
 
-Current audit: latest206–208live exact heads/own QA and private retention rechecked. Fresh restores122/110/96members match original manifests; no members executed. Old dirty work is preserved.208final index owns full review; earlier pending snapshots are history.
+Current audit: latest208–210live exact heads/own six runs and complete retained logs/source/control sets rechecked. Fresh restores96/94/128members match original manifests, no archived members executed. Fresh current PRODUCT Go AST verifies301witnesses/host/task and original622/617identities. The execution outage is historical; unrelated dirty/unknown work is preserved.
 
 ## Completed milestones
 
 | Work | Verified position / evidence |
 | --- | --- |
+| Location component | PR210own quality40750955737/source40750955455, full local race/coherent rollback, capture0035b60f245/receipt65146b2d; all128current210members7817312bytes freshly restored equal originals, zero executed. No coordinator closure |
 | Location preparation | PR209own quality40741266237/source40741266629 and archive825d0ff9/receipt24f0f7c7;94fresh-restored members4167079bytes. No actual location API runtime pass |
 | Audit/binding checkpoint | PR208own quality40716534512/source40716534340 and capture5fee1aaf/receipt922d9373;96fresh-restored members/6900417bytes equal originals. No coordinator/API freeze closure |
 | Subscription reservations | PR207own quality40695510572/source40695510575success; capturebcb7c44a/receipte9de8d8d,110fresh-restored members/4451776bytes equal originals; no coordinator closure |
@@ -68,7 +69,7 @@ ETA: no evidence-based calendar forecast is available yet. Comparable remaining-
 ## Remaining assurance and acceptance
 
 - F03 verified offline by PR205 final index; F02 reclassified not a defect. O01–O04 remain observations, with practical impact not assumed.
-- PR206dated BOTH-native summaries: zero reachable, five imported-not-called and one module-only; all residuals OPEN. GO-2026-6866/GO-2026-6860are newly published x/net/html records, classified from pinned verbose Linux execution and full official JSON. No dependency update, suppression, gate change or security/database-freshness claim; reevaluate after integration and before readiness/release.
+- PR210own dated28October BOTH-native summaries: zero reachable, five imported-not-called and one module-only; all residuals OPEN. GO-2026-6866/GO-2026-6860are newly published x/net/html records, classified from pinned verbose Linux execution and full official JSON. No dependency update, suppression, gate change or security/database-freshness claim; reevaluate after integration and before readiness/release.
 - Whole documentary audit remains unfinished. Historical raw/semantic read counts are not proof of a complete current audit.
 - Independent product/gate/check-inventory review, live Azure visibility/least privilege, supported fresh OS/architecture, safe pilot and operational rollback remain separate obligations.
 - Licensing, artifact provenance/SBOM, content applicability, Gate004 row-by-row disposition and release acceptance remain open. See all44 legacy IDs and49 current obligations in the full register.
@@ -77,6 +78,7 @@ ETA: no evidence-based calendar forecast is available yet. Comparable remaining-
 
 | Date | Change / verified result |
 | --- | --- |
+| 29 October | PR210offline closure: own hosted/local/rollback QA and fixed verifier/fresh128member restoration complete. Receipt65146b2d read back; latest208–210audit passes. History/currency strict preparation starts; no producer or coordinator closure |
 | 28 October | PR210supplement42b5f18c fully read back before execution; correct98race events/14strict reversals/restoration pass locally. Execution workspace then unavailable; recovered producer hashes verified, own full QA/rollback/private fresh restore pending |
 | 28 October | Local producer passes97frozen race events; accessor fault also passes because expected snapshot aliases state. Restored source exactly; independent additive literal regression prepared without changing original nine files. New candidate remains unaccepted |
 | 28 October | Latest206–208own QA/retention rechecked; location contract,35wire literals/eightboundaries and strict future consumer prepared before production. New candidate own QA/retention pending; no API runtime pass |
@@ -94,7 +96,7 @@ ETA: no evidence-based calendar forecast is available yet. Comparable remaining-
 
 Raw logs/findings stay in private `DeBoX85/SC-storage`; public Git contains safe metadata. Reread current storage main/tree before additive expected-head updates; preserve unrelated blobs, never force older history. Retain until Denis explicitly approves deletion. No automatic archival or independent-backup/DC-006 closure. Revisit issue189 at each handover/end and before readiness/acceptance/release.
 
-Recovery milestone: PR207contract/consumer preceded implementation and its own full QA/private110member restore are verified. The old runtime outage is historical. Current paths differ from last turn, so the location prerequisite was recovered from published208/private evidence. See [implementation checkpoint](SUBSCRIPTION_RESERVATION_IMPLEMENTATION_20261028.md).
+Recovery milestone: new PRODUCT clone recovered from exact live210; full local race/coherent209rollback210forward/fixed private verifier/fresh restores pass. Previous missing local streams remain honestly unavailable; newly recovered execution is separately dated. See [recovery and next sequence](RECOVERY_AUDIT_20261029.md).
 
 ## Maintenance rule
 
