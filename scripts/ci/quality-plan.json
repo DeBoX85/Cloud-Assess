@@ -191,8 +191,8 @@
         "worker": "native"
       },
       {
-        "name": "Verify run history binding preproduction contract",
-        "script": "scripts/tests/run-history-preproduction.py",
+        "name": "Verify run history binding contract controls",
+        "script": "scripts/tests/run-history-controls.py",
         "worker": "native"
       }
     ],
@@ -298,8 +298,8 @@
         "worker": "native"
       },
       {
-        "name": "Verify run history binding preproduction contract",
-        "script": "scripts/tests/run-history-preproduction.py",
+        "name": "Verify run history binding contract controls",
+        "script": "scripts/tests/run-history-controls.py",
         "worker": "native"
       }
     ]

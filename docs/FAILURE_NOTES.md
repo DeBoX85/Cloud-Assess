@@ -1,3 +1,9 @@
+## 29 October 2026 — interrupted-operation readback and branch lookup
+
+PR211 final private write had completed before interruption. Recovered live main4d328e85, prior full-file readback and both actual fresh directories before writing anything again; all155member occurrences matched original bytes, zero executed. Receipt was then additive with expected-head/no-force and250prior blobs preserved. No duplicate capture or uncertain write retry.
+
+PR212 branch creation succeeded, then an encoded-slash lookup returned no content. Inspected the unencoded live branch URL: exact089f980 and unprotected; no branch mutation retried. Public single-branch Git fetch populated FETCH_HEAD without a tracking ref, so the guessed origin path failed; verified FETCH_HEAD identity, preserved the existing local commit and switched explicitly. Use actual observed refs rather than assumed remote-tracking paths. An unavailable V8 structuredClone helper failed before any private receipt mutation; replaced it with an explicit JSON deep copy, then published/read back once. No data or expectation weakening.
+
 ## 29 October 2026 — additive freeze documentary guards
 
 Initial successor documentation prepend displaced ROADMAP's compact authority header and pushed the stable evidence issue link beyond the required resume window. Existing handoff guards correctly failed; restored the header before dated status and added the stable issue identifier/link near the top. Seven handoff and33workflow guards now pass without expectation changes. Before publication, static source inspection also corrected the new UTF8 consumer's field spelling to the existing HistoricalCost field; no missing-API or runtime test credit was taken from that draft. Preserve fixed expectations before producer code and inspect actual source types before freezing supplemental consumers.
