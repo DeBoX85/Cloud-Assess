@@ -1,0 +1,21 @@
+{
+  "format": "cloud-assess-history-supplement-v1",
+  "base": "61e33fb9f86ac59419716fc1cc3952734b97f579",
+  "original_bound_files": 8,
+  "original_future_events": 77,
+  "supplement_future_events": 5,
+  "total_future_events": 82,
+  "total_roots": 17,
+  "files": [
+    {
+      "path": "docs/evidence/20261029/run-history-supplement/README.md",
+      "bytes": 1186,
+      "sha256": "876364f2eb49ddf8e3de1adf7d1b2e4ef6038a1247d3d265b3ae60a8d115ec33"
+    },
+    {
+      "path": "docs/evidence/20261029/run-history-supplement/run_history_supplement_test.go.txt",
+      "bytes": 1728,
+      "sha256": "67ca71b56d2e05ae4c0886d51c7d37d2c2e4ad3cd1353e680a08a572b24dbfb2"
+    }
+  ]
+}
