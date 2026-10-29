@@ -10,3 +10,78 @@ internal/plugins/carbon/testdata/source-*.json -text
 internal/plugins/aigov/testdata/*.json -text
 internal/plugins/region/testdata/*.json -text
 internal/plugins/region/data/latency.json -text
+# Preserve byte-addressed evidence bundle text across native checkouts.
+docs/evidence/**/*.base64 -text
+
+# Retain exact upstream MIT license bytes used by SQL primary integrity checks.
+internal/plugins/region/testdata/storage-primary-LICENSE.txt -text
+internal/plugins/region/sql_report_oracle_test.go -text
+internal/plugins/region/sql_report_budget_plan_test.go -text
+
+# Byte-addressed independent region meter-history expectations.
+internal/plugins/region/testdata/meter-history-contract-v1.json -text
+internal/plugins/region/testdata/meter-history-budget-proof-v1.json -text
+internal/plugins/region/testdata/retail-pricing-contract-v1.json -text
+internal/plugins/region/testdata/retail-primary-cost.go.txt -text
+internal/plugins/region/testdata/retail-primary-types.go.txt -text
+internal/plugins/region/testdata/retail-primary-http.go.txt -text
+
+# Byte-addressed pre-API output-ledger evidence.
+docs/evidence/20261026/inventory-output/** -text
+
+# Freeze-descriptor/model/schema bytes.
+docs/evidence/20261026/inventory-freeze/** -text
+docs/evidence/20261026/inventory-consumer/** -text
+docs/evidence/20261026/inventory-build/** -text
+# Preserve the byte-addressed new Build source across native checkouts.
+internal/plugins/region/required_inventory.go -text
+# Keep locked module metadata byte-identical during native cache bootstrap.
+go.mod -text
+go.sum -text
+# Frozen descriptor binds raw Git bytes, including normative Markdown on Windows.
+docs/INVENTORY_BUDGET_20261022.md -text
+docs/INVENTORY_CANCELLATION_PROTOCOL_20261026.md -text
+docs/INVENTORY_CONTRACT_RECONCILIATION_20261026.md -text
+docs/INVENTORY_DECISIONS_20261022.md -text
+docs/INVENTORY_OUTPUT_LEDGER_20261026.md -text
+docs/INVENTORY_PREPARATION_20261022.md -text
+docs/INVENTORY_VALIDATION_ORDER_20261026.md -text
+docs/REQUIRED_INVENTORY_CONTRACT_V1.md -text
+docs/evidence/20261021/recovered-local/task8-provisional/CONTRACT.provisional.md -text
+docs/evidence/20261021/recovered-local/task8-provisional/prepare_literals.py -text
+docs/evidence/20261021/recovered-local/task8-provisional/required-inventory-contract.provisional.json -text
+docs/evidence/20261022/inventory-budget/budget-recipe-check.py.txt -text
+docs/evidence/20261022/inventory-budget/budget-recipes.json -text
+docs/evidence/20261022/inventory-budget/execution-summary.json -text
+docs/evidence/20261022/inventory-budget/local-projector-probe.go.txt -text
+docs/evidence/20261022/inventory-budget/recipe-arithmetic-results.json -text
+docs/evidence/20261026/inventory-freeze/cancellation-model-result.json -text
+docs/evidence/20261026/inventory-freeze/cancellation-model.go.txt -text
+docs/evidence/20261026/inventory-freeze/check-consumer-schema.py.txt -text
+docs/evidence/20261026/inventory-freeze/check-freeze-readiness.py.txt -text
+docs/evidence/20261026/inventory-freeze/consumer-schema-result.json -text
+docs/evidence/20261026/inventory-freeze/consumer-schema.json -text
+docs/evidence/20261026/inventory-freeze/document-review.json -text
+docs/evidence/20261026/inventory-output/additional-expectations.json -text
+docs/evidence/20261026/inventory-output/additional-structure-proof.json -text
+docs/evidence/20261026/inventory-output/arithmetic-proof.json -text
+docs/evidence/20261026/inventory-output/budget-recipes.json -text
+docs/evidence/20261026/inventory-output/check-additional-expectations.py.txt -text
+docs/evidence/20261026/inventory-output/check-budget-recipes.py.txt -text
+docs/evidence/20261026/inventory-output/integrity.json -text
+docs/evidence/20261026/inventory-output/projector-probe.go.txt -text
+docs/evidence/20261026/inventory-output/projector-proof.json -text
+
+# Preserve exact new Admission source bytes for native mutation proof hashes.
+internal/plugins/region/required_evidence.go -text
+internal/plugins/region/required_evidence_input.go -text
+docs/evidence/20261026/inventory-admission/** -text
+
+# Keep source-addressed assertion provenance stable on native hosts.
+tools/mutationassertions/main.go -text
+docs/evidence/20261026/mutation-assurance/** -text
+# Four existing plans are now byte-addressed by the assertion admission inventory.
+scripts/tests/sql-database-controls.plan.json -text
+scripts/tests/sql-mi-controls.plan.json -text
+scripts/tests/sql-report-controls.plan.json -text
+scripts/tests/scope-redaction-controls.plan.json -text

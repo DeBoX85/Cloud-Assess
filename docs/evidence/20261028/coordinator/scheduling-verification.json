@@ -1,0 +1,6 @@
+{
+  "literal_cases": 40,
+  "negative_controls": 8,
+  "actual_product_execution": false,
+  "scope": "Finite boundary/cardinality/terminal reference specification only; not Go API enforcement, adapter completeness, real timer or memory proof."
+}

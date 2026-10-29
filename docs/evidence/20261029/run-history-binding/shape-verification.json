@@ -1,0 +1,16 @@
+{
+  "bound_files": null,
+  "literal_cases": 35,
+  "future_named_events": 77,
+  "root_tests": 14,
+  "metadata_negatives": 8,
+  "fixture_shape_exit": 0,
+  "fixture_passed_tests": [
+    "TestRunHistoryFixtureShape"
+  ],
+  "shape_stub_methods_panic_if_invoked": true,
+  "actual_future_API_executed": false,
+  "compiler_failure_is_runtime_mutation_credit": false,
+  "pins_and_checkout_unchanged": true,
+  "shape_stub_sha256": "819a9c35a85f20a4655e142b52e0afa962ae4128c9070beb3e9b1c02c3af9c65"
+}

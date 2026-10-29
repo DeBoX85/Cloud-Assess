@@ -1,0 +1,416 @@
+{
+  "format": "required-inventory-additional-expectations-preparation-v1",
+  "frozen": false,
+  "base_manifest": "docs/evidence/20261021/recovered-local/task8-provisional/required-inventory-contract.provisional.json",
+  "meaning": "Literal SET operations on immutable base inputs; explicit expected changes only. No API execution or task8freeze.",
+  "cases": [
+    {
+      "name": "id-padded-final-segment",
+      "base_case": "vm-complete-owned-coordinates",
+      "set": {
+        "/resources/0/id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/ vm "
+      },
+      "want_error": "required_inventory_invalid",
+      "want_phase": "build",
+      "want_nil": true
+    },
+    {
+      "name": "id-unnamed-child-leaf",
+      "base_case": "vm-complete-owned-coordinates",
+      "set": {
+        "/resources/0/id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm/extensions",
+        "/resources/0/type": "microsoft.compute/virtualmachines/extensions"
+      },
+      "want_error": "required_inventory_invalid",
+      "want_phase": "build",
+      "want_nil": true
+    },
+    {
+      "name": "nested-full-type-disagreement",
+      "base_case": "vm-complete-owned-coordinates",
+      "set": {
+        "/resources/0/id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.sql/servers/s/databases/d"
+      },
+      "want_error": "required_inventory_invalid",
+      "want_phase": "build",
+      "want_nil": true
+    },
+    {
+      "name": "extension-terminal-provider-disagreement",
+      "base_case": "vm-complete-owned-coordinates",
+      "set": {
+        "/resources/0/id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm/providers/microsoft.insights/diagnosticsettings/x"
+      },
+      "want_error": "required_inventory_invalid",
+      "want_phase": "build",
+      "want_nil": true
+    },
+    {
+      "name": "id-trailing-empty-segment",
+      "base_case": "vm-complete-owned-coordinates",
+      "set": {
+        "/resources/0/id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm/"
+      },
+      "want_error": "required_inventory_invalid",
+      "want_phase": "build",
+      "want_nil": true
+    },
+    {
+      "name": "id-query-not-url",
+      "base_case": "vm-complete-owned-coordinates",
+      "set": {
+        "/resources/0/id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm?x=y"
+      },
+      "want_error": "required_inventory_invalid",
+      "want_phase": "build",
+      "want_nil": true
+    },
+    {
+      "name": "id-fragment-not-url",
+      "base_case": "vm-complete-owned-coordinates",
+      "set": {
+        "/resources/0/id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm#x"
+      },
+      "want_error": "required_inventory_invalid",
+      "want_phase": "build",
+      "want_nil": true
+    },
+    {
+      "name": "opaque-percent-sequence-not-decoded",
+      "base_case": "vm-complete-owned-coordinates",
+      "set": {
+        "/resources/0/id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm%2Fchild"
+      },
+      "want_error": "",
+      "want_phase": "",
+      "want_nil": false,
+      "want_same_as_base_except": {
+        "/requirements/0/resource_ids": [
+          "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm%2Fchild"
+        ]
+      }
+    },
+    {
+      "name": "nested-display-name-not-inferred",
+      "base_case": "sql-database-no-coordinate-inference",
+      "set": {
+        "/resources/0/name": "arbitrary display/name"
+      },
+      "want_error": "",
+      "want_phase": "",
+      "want_nil": false,
+      "want_same_as_base_except": {}
+    },
+    {
+      "name": "extension-type-retained-unsupported",
+      "base_case": "unknown-type-no-adapter-invention",
+      "set": {
+        "/resources/0/id": "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm/providers/microsoft.insights/diagnosticsettings/x",
+        "/resources/0/type": "microsoft.insights/diagnosticsettings"
+      },
+      "want_error": "",
+      "want_phase": "",
+      "want_nil": false,
+      "want_same_as_base_except": {
+        "/requirements/0/resource_type": "microsoft.insights/diagnosticsettings",
+        "/requirements/0/resource_ids": [
+          "/subscriptions/aaaaaaaa-1111-4111-8111-111111111111/resourceGroups/rg/providers/microsoft.compute/virtualmachines/vm/providers/microsoft.insights/diagnosticsettings/x"
+        ],
+        "/sku_evidence": {
+          "microsoft.insights/diagnosticsettings": {
+            "status": "unsupported",
+            "values": {}
+          }
+        }
+      }
+    },
+    {
+      "name": "mixed-payload-union",
+      "base_case": "vm-complete-owned-coordinates",
+      "set": {
+        "/collections/0/disk": {
+          "SubscriptionID": "aaaaaaaa-1111-4111-8111-111111111111",
+          "Region": "westeurope",
+          "Status": "complete",
+          "Values": {},
+          "FailureCode": ""
+        }
+      },
+      "want_error": "required_evidence_invalid",
+      "want_phase": "admit",
+      "want_nil": true
+    },
+    {
+      "name": "unused-vm-invalid-state",
+      "base_case": "vm-complete-owned-coordinates",
+      "set": {
+        "/collections/0/vm/Groups/unused": {
+          "Known": true,
+          "State": 99,
+          "BlockedZones": []
+        }
+      },
+      "want_error": "required_evidence_invalid",
+      "want_phase": "admit",
+      "want_nil": true
+    },
+    {
+      "name": "vm-unknown-with-prefix-invalid",
+      "base_case": "vm-complete-owned-coordinates",
+      "set": {
+        "/collections/0/vm/Status": "unknown",
+        "/collections/0/vm/FailureCode": "vm_sku_request_failed"
+      },
+      "want_error": "required_evidence_invalid",
+      "want_phase": "admit",
+      "want_nil": true
+    },
+    {
+      "name": "vm-partial-without-fixed-failure",
+      "base_case": "vm-complete-owned-coordinates",
+      "set": {
+        "/collections/0/vm/Status": "partial"
+      },
+      "want_error": "required_evidence_invalid",
+      "want_phase": "admit",
+      "want_nil": true
+    },
+    {
+      "name": "vm-complete-with-failure-invalid",
+      "base_case": "vm-complete-owned-coordinates",
+      "set": {
+        "/collections/0/vm/FailureCode": "vm_sku_request_failed"
+      },
+      "want_error": "required_evidence_invalid",
+      "want_phase": "admit",
+      "want_nil": true
+    },
+    {
+      "name": "storage-partial-is-not-generic-partial",
+      "base_case": "storage-all-required-kinds-intersect",
+      "set": {
+        "/collections/0/storage/Status": "partial"
+      },
+      "want_error": "required_evidence_invalid",
+      "want_phase": "admit",
+      "want_nil": true
+    },
+    {
+      "name": "sql-partial-is-invalid",
+      "base_case": "sql-database-no-coordinate-inference",
+      "set": {
+        "/collections/0/sql/Status": "partial",
+        "/collections/0/sql/FailureCode": "sql_capability_request_failed"
+      },
+      "want_error": "required_evidence_invalid",
+      "want_phase": "admit",
+      "want_nil": true
+    },
+    {
+      "name": "cognitive-invalid-status",
+      "base_case": "cognitive-same-sku-different-kinds",
+      "set": {
+        "/collections/0/cognitive/Status": "failed"
+      },
+      "want_error": "required_evidence_invalid",
+      "want_phase": "admit",
+      "want_nil": true
+    },
+    {
+      "name": "cognitive-inner-kind-disagreement",
+      "base_case": "cognitive-same-sku-different-kinds",
+      "set": {
+        "/collections/0/cognitive/Kind": "openai"
+      },
+      "want_error": "required_evidence_invalid",
+      "want_phase": "admit",
+      "want_nil": true
+    },
+    {
+      "name": "disk-unknown-needs-fixed-failure",
+      "base_case": "disk-validated-owned-evidence",
+      "set": {
+        "/collections/0/disk/Status": "unknown",
+        "/collections/0/disk/Values": {}
+      },
+      "want_error": "required_evidence_invalid",
+      "want_phase": "admit",
+      "want_nil": true
+    },
+    {
+      "name": "disk-partial-prefix-unknown-scoring",
+      "base_case": "disk-validated-owned-evidence",
+      "set": {
+        "/collections/0/disk/Status": "partial",
+        "/collections/0/disk/FailureCode": "sku_request_failed"
+      },
+      "want_error": "",
+      "want_phase": "",
+      "want_nil": false,
+      "want_same_as_base_except": {
+        "/admission_status": "partial",
+        "/sku_evidence": {
+          "microsoft.compute/disks": {
+            "status": "unknown",
+            "values": {}
+          }
+        }
+      }
+    },
+    {
+      "name": "disk-zones-on-available-invalid",
+      "base_case": "disk-validated-owned-evidence",
+      "set": {
+        "/collections/0/disk/Values/premium_lrs/BlockedZones": [
+          "1"
+        ]
+      },
+      "want_error": "required_evidence_invalid",
+      "want_phase": "admit",
+      "want_nil": true
+    },
+    {
+      "name": "storage-false-unused-unqualified-invalid",
+      "base_case": "storage-all-required-kinds-intersect",
+      "set": {
+        "/collections/0/storage/UnqualifiedNames/unused": false
+      },
+      "want_error": "required_evidence_invalid",
+      "want_phase": "admit",
+      "want_nil": true
+    },
+    {
+      "name": "whitespace-only-sku-is-unrepresentable",
+      "base_case": "vm-complete-owned-coordinates",
+      "set": {
+        "/resources/0/skuName": "   "
+      },
+      "want_error": "",
+      "want_phase": "",
+      "want_nil": false,
+      "want_same_as_base_except": {
+        "/requirements/0/skus": [],
+        "/requirements/0/flags": [
+          "unrepresentable_sku"
+        ],
+        "/admission_status": "partial",
+        "/sku_evidence": {
+          "microsoft.compute/virtualmachines": {
+            "status": "unknown",
+            "values": {}
+          }
+        }
+      }
+    },
+    {
+      "name": "capacity-int32-max-retained",
+      "base_case": "vm-complete-owned-coordinates",
+      "set": {
+        "/resources/0/skuCapacity": 2147483647
+      },
+      "want_error": "",
+      "want_phase": "",
+      "want_nil": false,
+      "want_same_as_base_except": {}
+    },
+    {
+      "name": "capacity-first-excess-invalid",
+      "base_case": "vm-complete-owned-coordinates",
+      "set": {
+        "/resources/0/skuCapacity": 2147483648
+      },
+      "want_error": "required_inventory_invalid",
+      "want_phase": "build",
+      "want_nil": true
+    }
+  ],
+  "procedural_expectations": [
+    {
+      "name": "nil-context-build",
+      "operation": "BuildRequiredInventory(nil, valid inputs)",
+      "want_error": "required_inventory_invalid",
+      "want_nil": true,
+      "want_panic": false
+    },
+    {
+      "name": "nil-context-admit",
+      "operation": "AdmitRequiredEvidence(nil, valid constructed plan/request/collections)",
+      "want_error": "required_evidence_invalid",
+      "want_nil": true,
+      "want_panic": false
+    },
+    {
+      "name": "nil-zero-forged-plan",
+      "operation": "Admit with nil plan, zero-value plan, then caller-built public diagnostics copied from valid plan without private constructor state",
+      "want_each_error": "required_evidence_invalid",
+      "want_each_nil": true
+    },
+    {
+      "name": "constructor-input-ownership",
+      "operation": "Build baseline; mutate original selected/declarations/resource strings and Tags; admit with original literal request/collections",
+      "want_equals_baseline": true,
+      "want_original_plan_unchanged": true
+    },
+    {
+      "name": "plan-diagnostic-mutation-resistance",
+      "operation": "Build baseline; mutate public Resources, Requirements nested SKUs/Kinds/IDs, Scopes and Status; admit literal baseline request/collections",
+      "want_equals_baseline": true
+    },
+    {
+      "name": "admission-input-ownership",
+      "operation": "Admit baseline; mutate original typed payload metadata/maps/zones; call Evidence",
+      "want_request_equals_baseline": true,
+      "want_values_equal_baseline": true
+    },
+    {
+      "name": "accessor-deep-copy",
+      "operation": "Mutate public admission Request/SKUs/Catalogs and first Evidence result request/maps/zones; call Evidence again",
+      "want_request_equals_baseline": true,
+      "want_values_equal_baseline": true,
+      "want_aliasing": false
+    },
+    {
+      "name": "zero-admission-accessor",
+      "operation": "Evidence on zero/nil admission",
+      "want_request_zero": true,
+      "want_non_nil_empty_values": true,
+      "want_panic": false
+    },
+    {
+      "name": "repeat-and-concurrent-isolation",
+      "operation": "Separate Build/Admit calls with stable shared inputs, then concurrent Evidence calls; mutate one returned result only after all calls return",
+      "want_all_equal_baseline": true,
+      "want_cross_result_aliasing": false,
+      "requires_native_race_check": true
+    },
+    {
+      "name": "terminal-context-priority",
+      "operation": "At entry use already canceled/deadline contexts with invalid and over-limit inputs on both APIs",
+      "want_each_nil": true,
+      "want_errors_is_context_cause": true,
+      "want_fixed_input_error": false
+    },
+    {
+      "name": "late-terminal-context",
+      "operation": "Cancel/deadline after bounded input work and before publication, with concurrent late invalid-tail condition",
+      "want_each_nil": true,
+      "want_errors_is_context_cause": true,
+      "schedule": "OPEN: deterministic phase synchronization required before freeze; no sleeps or implementation-derived Err-count schedule",
+      "executed": false
+    },
+    {
+      "name": "late-invalid-tail-atomicity",
+      "operation": "Place invalid unused payload row after healthy families; compare original immutable late-invalid case too",
+      "want_error": "required_evidence_invalid",
+      "want_nil": true,
+      "want_healthy_prefix_escape": false
+    },
+    {
+      "name": "storage-all-kinds-first-excess",
+      "operation": "One canonical Storage SKU with17distinct required kind members including missing marker if present; original resources remain within8192",
+      "want_error": "required_inventory_limit",
+      "want_nil": true,
+      "want_truncation": false
+    }
+  ]
+}

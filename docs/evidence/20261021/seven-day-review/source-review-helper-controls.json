@@ -1,0 +1,50 @@
+{
+  "healthy": {
+    "captures": 23,
+    "chunks": 315,
+    "bytes": 909865
+  },
+  "controls": [
+    {
+      "case": "missing_chunk",
+      "rejected": true,
+      "reason": "noncontiguous or inconsistent source chunks"
+    },
+    {
+      "case": "duplicate_chunk",
+      "rejected": true,
+      "reason": "noncontiguous or inconsistent source chunks"
+    },
+    {
+      "case": "reordered_chunks",
+      "rejected": true,
+      "reason": "noncontiguous or inconsistent source chunks"
+    },
+    {
+      "case": "corrupt_content",
+      "rejected": true,
+      "reason": "capture hash mismatch"
+    },
+    {
+      "case": "duplicate_json_key",
+      "rejected": true,
+      "reason": "duplicate JSON key"
+    },
+    {
+      "case": "unexpected_member",
+      "rejected": true,
+      "reason": "capture inventory mismatch"
+    },
+    {
+      "case": "missing_footer",
+      "rejected": true,
+      "reason": "missing source footer"
+    },
+    {
+      "case": "wrong_provenance",
+      "rejected": true,
+      "reason": "source provenance mismatch"
+    }
+  ],
+  "scope": "Audit helper validation only; not new product/source execution or independent publisher authentication"
+}

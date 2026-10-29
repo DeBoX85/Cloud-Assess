@@ -1,0 +1,19 @@
+{
+  "original_cases_structurally_admitted": 50,
+  "supplemental_cases_structurally_admitted": 26,
+  "procedural_expectations_preserved": 13,
+  "negative_controls_rejected": [
+    "root-unknown",
+    "nested-unknown",
+    "case-alias",
+    "missing-required",
+    "null-list",
+    "boolean-as-integer",
+    "duplicate-key",
+    "trailing-document",
+    "nonfinite",
+    "unpaired-surrogate"
+  ],
+  "phase_labels": "explicit inventory/build and admission/admit mapping; literals unchanged",
+  "future_api_executed": false
+}

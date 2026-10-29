@@ -1,0 +1,15 @@
+{
+  "format": "required-inventory-admission-budget-recipes-v1",
+  "status": "provisional-independent-input-expectations-before-implementation",
+  "entry_limit": 65536,
+  "text_limit": 16711680,
+  "cases": [
+    {"name": "entries-exact", "kinds": 8, "group_counts": [8192,8192,8192,8192,8192,8192,8192,8150], "key_bytes": 6, "key_overrides": {}, "want_entries": 65536, "want_text": 396127, "want_error": "", "want_catalogs": 8},
+    {"name": "entries-first-excess", "kinds": 8, "group_counts": [8192,8192,8192,8192,8192,8192,8192,8151], "key_bytes": 6, "key_overrides": {}, "want_entries": 65537, "want_text": 396133, "want_error": "required_evidence_limit", "want_catalogs": 0},
+    {"name": "text-exact", "kinds": 4, "group_counts": [8192,8192,8192,8192], "key_bytes": 510, "key_overrides": {"0": 6,"1": 6,"2": 6,"3": 391}, "want_entries": 32790, "want_text": 16711680, "want_error": "", "want_catalogs": 4},
+    {"name": "text-first-excess", "kinds": 4, "group_counts": [8192,8192,8192,8192], "key_bytes": 510, "key_overrides": {"0": 6,"1": 6,"2": 6,"3": 392}, "want_entries": 32790, "want_text": 16711681, "want_error": "required_evidence_limit", "want_catalogs": 0}
+  ],
+  "successful_result": {"scope_status": "complete", "admission_status": "complete", "scoring_status": "unsupported", "scoring_values": {}, "catalog_status": "complete", "required_sku": "s0", "required_sku_state": 2, "deployment_eligibility": "not_assessed"},
+  "excess_result": {"nil_admission": true, "no_prefix": true},
+  "limits": ["Arithmetic/specification proof only; future APIs do not exist.", "Original50provisional cases are unchanged.", "Owned-output and Build-input text boundary recipes remain open."]
+}

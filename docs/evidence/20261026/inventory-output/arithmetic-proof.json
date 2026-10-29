@@ -1,0 +1,106 @@
+{
+  "proof": "independent arithmetic; no future API execution",
+  "cases": [
+    {
+      "name": "build-input-exact",
+      "input_entries": 6502,
+      "input_text": 16711680,
+      "output_entries": 13002,
+      "output_text": 40872296,
+      "expected_error": "required_inventory_limit",
+      "constructed_stream_sha256": "70f69cfe2fec9b879b1501483344fab22b7e2470315930457449e1739b33bb68"
+    },
+    {
+      "name": "build-input-first-excess",
+      "input_entries": 6502,
+      "input_text": 16711681,
+      "output_entries": 13002,
+      "output_text": 40872298,
+      "expected_error": "required_inventory_limit",
+      "constructed_stream_sha256": "676e9dcf5fbba73ad5a8cd68202aeebf24f29be9e6d270cd12080d050e63ec8b"
+    },
+    {
+      "name": "build-output-text-exact",
+      "input_entries": 2602,
+      "input_text": 6866072,
+      "output_entries": 5202,
+      "output_text": 16711680,
+      "expected_error": "",
+      "constructed_stream_sha256": "1d2c95f0fab54fc97bc68370962bd509740d30c4f6f69d831287972f9e75f9b3"
+    },
+    {
+      "name": "build-output-text-first-reachable-excess",
+      "input_entries": 2602,
+      "input_text": 6866073,
+      "output_entries": 5202,
+      "output_text": 16711682,
+      "expected_error": "required_inventory_limit",
+      "constructed_stream_sha256": "1e9a66baafeb6078342c39f57b14980ee6ff9942174237f3799c8d23b25f4d8d"
+    },
+    {
+      "name": "build-output-entries-exact",
+      "input_entries": 8199,
+      "input_text": 1712251,
+      "output_entries": 65536,
+      "output_text": 7945654,
+      "expected_error": "",
+      "constructed_stream_sha256": "3e609be7ed0ca257a3216aef88226ad14f50625e8d42606d20b8f4c5bb892995"
+    },
+    {
+      "name": "build-output-entries-first-reachable-excess",
+      "input_entries": 8201,
+      "input_text": 1712334,
+      "output_entries": 65538,
+      "output_text": 7945748,
+      "expected_error": "required_inventory_limit",
+      "constructed_stream_sha256": "3e609be7ed0ca257a3216aef88226ad14f50625e8d42606d20b8f4c5bb892995"
+    },
+    {
+      "name": "admission-output-entries-exact",
+      "input_entries": 38234,
+      "input_text": 1095603,
+      "output_entries": 65536,
+      "output_text": 189178,
+      "expected_error": "",
+      "constructed_stream_sha256": "07e702b342be8a88afb278c631fad6f7636152a6442493c2391f9718dd992b64"
+    },
+    {
+      "name": "admission-output-entries-first-excess",
+      "input_entries": 38235,
+      "input_text": 1095641,
+      "output_entries": 65537,
+      "output_text": 189216,
+      "expected_error": "required_evidence_limit",
+      "constructed_stream_sha256": "07e702b342be8a88afb278c631fad6f7636152a6442493c2391f9718dd992b64"
+    },
+    {
+      "name": "admission-output-text-exact",
+      "input_entries": 38231,
+      "input_text": 6602979,
+      "output_entries": 65533,
+      "output_text": 16711680,
+      "expected_error": "",
+      "constructed_stream_sha256": "31de433bb5364e6ac50a9cc81dc73ca4c7b7e65eb29fa9af11bcbe41af2ead08"
+    },
+    {
+      "name": "admission-output-text-first-excess",
+      "input_entries": 38231,
+      "input_text": 6602980,
+      "output_entries": 65533,
+      "output_text": 16711681,
+      "expected_error": "required_evidence_limit",
+      "constructed_stream_sha256": "31de433bb5364e6ac50a9cc81dc73ca4c7b7e65eb29fa9af11bcbe41af2ead08"
+    }
+  ],
+  "negative_controls_rejected": [
+    "wrong-literal",
+    "outer-cap",
+    "oversized-cell",
+    "zone-width"
+  ],
+  "limits": [
+    "Build input text/count dominated; not isolated causal enforcement.",
+    "Build duplicate views have first-reachable excess2, not1.",
+    "Existing projector execution is a separate prerequisite."
+  ]
+}

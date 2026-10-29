@@ -1,0 +1,13 @@
+{
+  "specification_dependencies_verified": 32,
+  "negative_controls_rejected": [
+    "changed-hash",
+    "lost-case",
+    "unreachable-error-phase",
+    "invented-runtime-pass"
+  ],
+  "specification_readiness": "locally verified; own exact-head native/source QA required before task9",
+  "runtime_implementation": "absent",
+  "whole_documentary_audit": "OPEN",
+  "product_acceptance_or_release": false
+}

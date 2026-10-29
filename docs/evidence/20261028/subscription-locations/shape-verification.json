@@ -1,0 +1,12 @@
+{
+  "stage":"independent_preproduction_consumer_preparation",
+  "wire_literals":35,
+  "collection_boundary_recipes":8,
+  "json_boundary_cases":11,
+  "unsafe_continuation_cases":13,
+  "procedural_obligations":8,
+  "future_named_baseline_events":97,
+  "pinned_fallback_constants":33,
+  "actual_future_API_executed":false,
+  "limits":"Cardinality/fixture-only preparation, not production runtime or whole QA acceptance."
+}
