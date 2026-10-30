@@ -6,6 +6,10 @@ Dated progress and resume sections below are historical snapshots; behavioral re
 
 ---
 
+## Branch/document retirement successor, 30 October 2026
+
+Read [CURRENT_STATE](CURRENT_STATE.md) and [assessment/protocol](BRANCH_AND_DOCUMENT_RETIREMENT_20261030.md), then live PR213/successors. This documentation successor preserves e47/b0; PR213 hosted runs now report success but full final review/CI retention is pending. No deletion is authorized. Ancestry, age, acceptance and evidence retention are distinct. Current snapshot disposition is recorded in the per-branch manifest; all future retirement needs fresh live checks.
+
 ## Active authority map after recovery, 30 October 2026
 
 Use [CONTINUE](CONTINUE.md), [CURRENT_STATE](CURRENT_STATE.md), [RECOVERY_STATE.json](RECOVERY_STATE.json), [the detailed recovery handover](RECOVERY_HANDOVER_20261030.md) and [the process review](HANDOVER_PROCESS_REVIEW_20261030.md). PR212/b0 owns completed history-component offline QA; this documentation/process proposal owns a separate live publication/check status. Protected acceptance is unchanged. Exact next development work is cumulative retained-copy/time accounting and coordinator contracts, not replaying history admission.

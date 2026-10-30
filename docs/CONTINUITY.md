@@ -1,3 +1,8 @@
+## Controlled retirement, 30 October 2026
+
+Use [branch/document retirement protocol](BRANCH_AND_DOCUMENT_RETIREMENT_20261030.md) and [dated branch manifest](BRANCH_ASSESSMENT_20261030.json). Archive superseded status prose only after unique binding requirements/obligations are reconciled and published historical bytes/replacement links are verified. Keep active entrypoints concise, preserve frozen evidence paths and leave redirects at important old bookmarks. No age-based automatic deletion or Git history rewrite. A134branch merged/accepted candidate list is a review pool, not deletion authority; prepare at most10per dry-run after pending QA/evidence closure, and obtain explicit authorization for actual branch deletion. Hold open PRs, named active/recovery refs, unique/separate-history and all private evidence archives unless explicitly dispositioned. Record exact expected head, containment, links, preserved recovery route and post-operation checks. This conversation authorized assessment and documentation only.
+
+
 # Enhanced recovery controls, 30 October 2026
 
 [CURRENT_STATE](CURRENT_STATE.md), [RECOVERY_STATE.json](RECOVERY_STATE.json) and [the recovery handover](RECOVERY_HANDOVER_20261030.md) own current orientation. [Process review](HANDOVER_PROCESS_REVIEW_20261030.md) explains what failed and the safeguards implemented. The older procedure below still applies; this section strengthens evidence and semantic reconciliation without replacing existing QA gates.

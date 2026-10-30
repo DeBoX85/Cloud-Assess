@@ -1,3 +1,8 @@
+## Branch and document retirement assessment addendum, 30 October 2026
+
+[The live inventory and controlled retirement protocol](BRANCH_AND_DOCUMENT_RETIREMENT_20261030.md) and [per-branch manifest](BRANCH_ASSESSMENT_20261030.json) now qualify the cleanup recommendation:265development branches at collection,134merged/accepted review candidates,69otheropenPRreferences,39separate-historyholds,16containedunacceptedrefs and7named roles.37branches have54commits not reachable through other live branch heads. All14private storage branches are held under evidence retention. No deletion, PR closure or automation enabled. First finish PR213 final review/CI retention and this successor's own checks; then prepare small dry-run disposition batches. Preserve historical contracts/evidence, repair links, require explicit branch-deletion authorization and verify restoration. Source of truth remains CURRENT_STATE/RECOVERY_STATE/live exact-head PR.
+
+
 # Handover process review after disaster recovery
 
 30 October 2026, Europe/Berlin. Scope: reduce reconstruction work and detect drift earlier without weakening QA, inventing automated persistence or changing protected infrastructure. Root cause of the workspace rollback is unknown; the controls below address observed loss and confusion, not a proven platform cause.

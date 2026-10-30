@@ -678,13 +678,13 @@
       "id": "PROCESS-EVIDENCE",
       "state": "open_proposal",
       "owner": "development owner",
-      "next_or_limit": "Bounded migration resolved. Material30October handover adds phase-based incremental completed evidence/readback/fresh restore conditions. Automatic resumable capture remains an open design, not deployed; independent backup/DC006 not closed. Final b0 capture2a0a5fce/receipt76ea73b2 retained."
+      "next_or_limit": "Bounded migration resolved. Material30October handover adds phase-based incremental completed evidence/readback/fresh restore conditions. Automatic resumable capture remains an open design, not deployed; independent backup/DC006 not closed. Final b0 capture2a0a5fce/receipt76ea73b2 retained. Branch retirement must preserve exact recovery/evidence refs, verify restorable bytes and keep private archives; all14storage branches held. No new independent backup or automatic cleanup."
     },
     {
       "id": "PROCESS-STATE",
       "state": "open_proposal",
       "owner": "development owner",
-      "next_or_limit": "Material30October handover proposal adds concise current entrypoints, structured RECOVERY_STATE and local consistency checker, plus enhanced next-three-material-slice/source-backed reconciliation and published-only restart walkthrough. Own proposal checks recorded in live successor PR, no inherited b0QA. Semantic correctness, remote monitoring and automation remain open;49obligations/44legacy IDs conserved."
+      "next_or_limit": "Material30October handover proposal adds concise current entrypoints, structured RECOVERY_STATE and local consistency checker, plus enhanced next-three-material-slice/source-backed reconciliation and published-only restart walkthrough. Own proposal checks recorded in live successor PR, no inherited b0QA. Semantic correctness, remote monitoring and automation remain open;49obligations/44legacy IDs conserved. 30October branch/document retirement assessment and controlled archive/link migration protocol added on separate material successor:265live development branches assessed,134merged/accepted candidates, no deletion/PRclosure. Prepare per-document inventory and at-most10branch dry-run after pending QA/evidence; explicit approval before deletion. See BRANCH_AND_DOCUMENT_RETIREMENT_20261030.md."
     },
     {
       "id": "PROCESS-TIMING",

@@ -1,3 +1,8 @@
+## Branch and documentation retirement routing
+
+Read docs/BRANCH_AND_DOCUMENT_RETIREMENT_20261030.md and its dated manifest before proposing cleanup. Current scope is assessment/protocol and handover updates, not branch deletion or PR closure. Preserve named active/recovery roles, frozen contracts/expectations, open proposals and private archive retention. Prepare exact-head/link/evidence/restore disposition first; actual branch deletion needs explicit Denis authorization. Age/merged status alone is insufficient. PR213 workflows now report success, but final complete-log review/CI retention and each successor's own checks remain distinct. Continue using docs/CURRENT_STATE.md and docs/CONTINUE.md for live authority.
+
+
 ## Post-recovery development protocol, 30 October 2026
 
 Read docs/CONTINUE.md, docs/CURRENT_STATE.md, docs/RECOVERY_STATE.json and docs/RECOVERY_HANDOVER_20261030.md before changing work. Follow the enhanced-verification section of docs/CONTINUITY.md for at least the next three completed material development slices; do not leave it automatically after a count. Run `python3 scripts/check-handover.py` at orientation and handover. Its local structural pass is not remote or semantic verification. Reconcile source-backed claims and contradictory evidence before relying on them. Preserve PR212/b0 as the last product head with completed own QA; this documentation/process successor has separate publication and own-QA status.

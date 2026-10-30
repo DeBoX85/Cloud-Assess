@@ -1,5 +1,7 @@
 # Start or resume Cloud-Assess
 
+Current material documentation successor: `docs/branch-retirement-assessment-20261030`, derived from PR213/e47. Read [branch assessment and retirement recommendations](BRANCH_AND_DOCUMENT_RETIREMENT_20261030.md), inspect PR213's explicit live successor link, and check the live successor PR's own head/QA before relying on a publication-time pending statement. PR213's workflows now report success, but final complete-log review and private CI retention remain pending. This assessment authorizes no branch deletion or PR closure. Preserve PR213/e47 and product PR212/b0. [CURRENT_STATE](CURRENT_STATE.md), [RECOVERY_STATE.json](RECOVERY_STATE.json) and [recovery handover](RECOVERY_HANDOVER_20261030.md) remain the orientation records. Administrative cleanup proposals do not close product tasks.
+
 Updated 30 October 2026, Europe/Berlin. Read this file from the supplied bookmark, then follow any verified explicit successor in its live task PR. Do not start development from default main, which is a historical seed.
 
 1. Read AGENTS.md, [CURRENT_STATE](CURRENT_STATE.md), [the recovery handover](RECOVERY_HANDOVER_20261030.md), [RECOVERY_STATE.json](RECOVERY_STATE.json) and the authority map in [SESSION_HANDOVER](SESSION_HANDOVER.md).
