@@ -1,0 +1,52 @@
+{
+  "format": "cloud-assess-subscription-reservation-freeze-v1",
+  "base": "4627a4d9c2853d9337e8c0f959f241a6d319b416",
+  "scope": "Independent API/consumer/literals BEFORE production; no actual new API executed or implemented.",
+  "files": [
+    {
+      "path": "docs/SUBSCRIPTION_RESERVATION_CONTRACT_20261028.md",
+      "bytes": 10646,
+      "sha256": "fc09091e442aee9829e2ea88ffc96871ad74eff825826ac0b5cef9d0c4e7a768"
+    },
+    {
+      "path": "docs/evidence/20261028/subscription-reservations/README.md",
+      "bytes": 2824,
+      "sha256": "752dfb3fdb4691f9b204a920c6fb4ca359526d831c3d97062756b9c77cc49edd"
+    },
+    {
+      "path": "docs/evidence/20261028/subscription-reservations/check_literals.py",
+      "bytes": 3361,
+      "sha256": "6fdfaa09c69c2540f23726eeaefe6e7a1740bdccd0a2d5e8244a99efa22e6c02"
+    },
+    {
+      "path": "docs/evidence/20261028/subscription-reservations/literal-shape-verification.json",
+      "bytes": 235,
+      "sha256": "62c3c3d81e1b9c5a3c8f0ba013940597c3006febcbc437363659e4e156c7b6d6"
+    },
+    {
+      "path": "docs/evidence/20261028/subscription-reservations/literals.json",
+      "bytes": 6280,
+      "sha256": "8b890789c1f9d207c5088e1804fa6272986f921442ff3cf48080ab47e5b0d69d"
+    },
+    {
+      "path": "docs/evidence/20261028/subscription-reservations/pair_scope_probe_test.go.txt",
+      "bytes": 3234,
+      "sha256": "ee674fce73ad6ca92e4fd01ecf8752754506b1964453d746c16b6a86958c372f"
+    },
+    {
+      "path": "docs/evidence/20261028/subscription-reservations/subscription_reservations_budget_test.go.txt",
+      "bytes": 3066,
+      "sha256": "304ba0b15b8148fb6819c24efe61f7fb045f4efb7c6a359a4a7e1d8da62cfea8"
+    },
+    {
+      "path": "docs/evidence/20261028/subscription-reservations/subscription_reservations_contract_test.go.txt",
+      "bytes": 8468,
+      "sha256": "6ecbd4f5d931ad8cb8ed431eb28721f62e32302b497c6c8dc3aeeea1976f417f"
+    },
+    {
+      "path": "docs/evidence/20261028/subscription-reservations/subscription_reservations_lifecycle_test.go.txt",
+      "bytes": 7432,
+      "sha256": "d9658ad86eea3b13dd6fd05546b94077478549801e2ed876c033c80624a1417b"
+    }
+  ]
+}

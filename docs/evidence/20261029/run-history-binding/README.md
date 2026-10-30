@@ -1,0 +1,9 @@
+# Independent history binding consumers
+
+Prepared29October2026 from verified frozen PRODUCT PR210/7ad8233ed47d6a658405d5879380371d4551afed. Three hand-authored Go consumers remain .go.txt outside ordinary compilation.35literal cases, five existing failure codes,13request rejections, six at/plus-one recipes, two cancellation causes and two relative arithmetic literals define77future named events across14roots. Expected ownership values are independent literals, never snapshots returned by the API being checked.
+
+The contract adds pure structural admission/ownership, not a new history collector or authenticated response/window provenance. Currency labels remain per subscription. No FX, USD relabelling, monetary aggregation, live pricing, original source oracle refresh or absolute FullCost is asserted. Original APIs/tests/pins remain unchanged.
+
+Before implementation, publish/read back all bound files; observe actual missing AdmitRunHistory/RunHistoryBinding/RunHistoryEvidence symbols. A separate temporary shape stub panics if its API is invoked; only TestRunHistoryFixtureShape may run. Fixture syntax and compiler failure are NOT future API runtime or mutation credit. Then copy exact consumers unchanged into an isolated PRODUCT implementation successor, require strict compiling assertion-specific reversals and own full native/source/rollback/private readback/fresh restore.
+
+Manifest hashes normalize CRLF to LF only for native checkout admission, preserving exact published Git bytes. The small metadata checker has eight malformed-plan controls; it validates specification inventory, not a producer. Never run prepare_literals.py or execute restored archive members. All49obligations/44legacy IDs/32original frozen files/nine207/nine209/two210supplement files and original controls/expectations/pins remain.

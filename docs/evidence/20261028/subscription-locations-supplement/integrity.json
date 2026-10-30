@@ -1,0 +1,21 @@
+{
+  "format": "cloud-assess-location-ownership-supplement-v1",
+  "base": "d152b684b35c751048ecc8c468363604c7b53b35",
+  "original_bound_files": 9,
+  "original_named_events": 97,
+  "supplemental_named_events": 1,
+  "expected_total_named_events": 98,
+  "scope": "Independent literal assertion for an ALREADY frozen requirement; original9files unchanged; no production behavior change",
+  "files": [
+    {
+      "path": "docs/evidence/20261028/subscription-locations-supplement/README.md",
+      "bytes": 1590,
+      "sha256": "0ba7c80ac83336d2547a02ace0d5e0a2dfae4cf98a9846549cf99fc771286565"
+    },
+    {
+      "path": "docs/evidence/20261028/subscription-locations-supplement/accessor_snapshot_test.go.txt",
+      "bytes": 1053,
+      "sha256": "d6135fd6786703c8955baadf8a6852caa2092dc0dea9526ea6eb38d3ca6eb0dc"
+    }
+  ]
+}

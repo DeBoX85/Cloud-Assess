@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Require compiling ARG framing regressions to detect selected production faults."""
+from mutation_assertions import intended_failure, run_go_test
 from pathlib import Path
 import os
 import subprocess
@@ -11,7 +12,7 @@ SELECT = '^TestHTTPTransport(RejectsTrailingData|AcceptsOnlyWhitespaceAfterDocum
 
 
 def run(select):
-    return subprocess.run([GO, 'test', './internal/arg', '-run', select, '-count=1', '-v'],
+    return run_go_test([GO, 'test', './internal/arg', '-run', select, '-count=1', '-v'],
                           cwd=ROOT, capture_output=True, text=True, timeout=120)
 
 
@@ -39,7 +40,7 @@ try:
         if compiled.returncode:
             raise SystemExit('ARG mutation did not compile: ' + name + '\n' + compiled.stdout + compiled.stderr)
         failed = run('^' + expected + '$')
-        if failed.returncode == 0 or ('--- FAIL: ' + expected) not in failed.stdout or '[build failed]' in failed.stdout + failed.stderr:
+        if not intended_failure(failed,expected):
             raise SystemExit('ARG mutation missed named assertion: ' + name + '\n' + failed.stdout + failed.stderr)
         SOURCE.write_bytes(original)
         baseline()

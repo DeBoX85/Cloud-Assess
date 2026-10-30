@@ -1,0 +1,78 @@
+"""Independent strict fixture admission; no product imports or expected-output generation."""
+import copy,json
+from pathlib import Path
+import sys
+
+def unique(pairs):
+ d={}
+ for k,v in pairs:
+  if k in d:raise ValueError('duplicate JSON key')
+  d[k]=v
+ return d
+def load(raw):
+ if len(raw)>8388608:raise ValueError('fixture bytes')
+ value=json.loads(raw.decode('utf-8'),object_pairs_hook=unique,parse_constant=lambda s:(_ for _ in ()).throw(ValueError('nonfinite JSON')))
+ def lexical(v,depth=0):
+  if depth>64:raise ValueError('fixture depth')
+  if isinstance(v,str):v.encode('utf-8')
+  elif isinstance(v,dict):
+   for k,x in v.items():k.encode('utf-8');lexical(x,depth+1)
+  elif isinstance(v,list):
+   for x in v:lexical(x,depth+1)
+ lexical(value)
+ return value
+def check(value,node,defs,depth=0):
+ if depth>64:raise ValueError('depth')
+ if isinstance(node,str):
+  expected={'string':str,'integer':int,'boolean':bool}[node]
+  if type(value)!=expected:raise ValueError('primitive type')
+  return
+ if 'ref' in node:return check(value,defs[node['ref']],defs,depth+1)
+ if 'nullable' in node:
+  if value is not None:check(value,node['nullable'],defs,depth+1)
+  return
+ if 'list' in node:
+  if type(value)!=list:raise ValueError('list type')
+  for x in value:check(x,node['list'],defs,depth+1)
+  return
+ if 'map' in node:
+  if type(value)!=dict:raise ValueError('map type')
+  for k,v in value.items():
+   if type(k)!=str:raise ValueError('map key')
+   check(v,node['map'],defs,depth+1)
+  return
+ required=node['object'];optional=node['optional']
+ if type(value)!=dict or not set(required)<=set(value) or set(value)-set(required)-set(optional):raise ValueError('object keys/presence')
+ for k,v in value.items():check(v,(required|optional)[k],defs,depth+1)
+def put(doc,path,value):
+ parts=[p.replace('~1','/').replace('~0','~') for p in path[1:].split('/')];current=doc
+ for k in parts[:-1]:current=current[int(k)] if type(current)==list else current[k]
+ if type(current)==list:current[int(parts[-1])]=copy.deepcopy(value)
+ else:current[parts[-1]]=copy.deepcopy(value)
+
+root=Path(sys.argv[1]);folder=root/'docs/evidence/20261026/inventory-freeze';schema=load((folder/'consumer-schema.json').read_bytes());defs=schema['definitions'];base_path=root/'docs/evidence/20261021/recovered-local/task8-provisional/required-inventory-contract.provisional.json';raw=base_path.read_bytes();base=load(raw);check(base,schema['root'],defs)
+assert len(base['cases'])==50 and len({c['name'] for c in base['cases']})==50
+known={c['name']:c for c in base['cases']};aliases=schema['phase_labels'];assert aliases=={'':'','inventory':'inventory','build':'inventory','admission':'admission','admit':'admission'}
+for c in base['cases']:assert c['want']['error_phase'] in ('','inventory','admission')
+additional=load((root/'docs/evidence/20261026/inventory-output/additional-expectations.json').read_bytes())
+for case in additional['cases']:
+ c=copy.deepcopy(known[case['base_case']]);c['name']=case['name']
+ for path,value in case['set'].items():put(c,path,value)
+ if case['want_error']:
+  c['want']['error']=case['want_error'];c['want']['error_phase']=aliases[case['want_phase']]
+ else:
+  for path,value in case['want_same_as_base_except'].items():put(c['want'],path,value)
+ check(c,{'ref':'case'},defs)
+assert len(additional['cases'])==26 and len(additional['procedural_expectations'])==13
+bad=[]
+def rejected(name,data=None,raw_input=None):
+ try:
+  candidate=load(raw_input) if raw_input is not None else data;check(candidate,schema['root'],defs)
+ except (ValueError,TypeError,KeyError,UnicodeError):bad.append(name)
+ else:raise AssertionError('bad fixture admitted: '+name)
+for name,mutate in [('root-unknown',lambda d:d.update(extra=1)),('nested-unknown',lambda d:d['cases'][0]['resources'][0].update(extra='x')),('case-alias',lambda d:d['cases'][0]['collections'][0]['vm'].update(subscriptionid='x')),('missing-required',lambda d:d['cases'][0]['request'].pop('target_region')),('null-list',lambda d:d['cases'][0].update(resources=None)),('boolean-as-integer',lambda d:d['cases'][0]['resources'][0].update(skuCapacity=True))]:
+ d=copy.deepcopy(base);mutate(d);rejected(name,data=d)
+rejected('duplicate-key',raw_input=raw.replace(b'"format":',b'"format":"duplicate","format":',1));rejected('trailing-document',raw_input=raw+b'{}');rejected('nonfinite',raw_input=raw.replace(b'"skuCapacity": 2',b'"skuCapacity": NaN',1))
+rejected('unpaired-surrogate',raw_input=raw.replace(b'"One"',b'"'+bytes([92])+b'uD800"',1))
+assert len(bad)==10
+print(json.dumps({'original_cases_structurally_admitted':50,'supplemental_cases_structurally_admitted':26,'procedural_expectations_preserved':13,'negative_controls_rejected':bad,'phase_labels':'explicit inventory/build and admission/admit mapping; literals unchanged','future_api_executed':False},indent=2))

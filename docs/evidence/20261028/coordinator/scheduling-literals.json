@@ -1,0 +1,1174 @@
+{
+  "format": "cloud-assess-coordinator-scheduling-v1",
+  "scope": "Finite post-plan cardinality/terminal reference model, not actual Go coordinator/adapter/timer/memory execution.",
+  "limits": {
+    "subscriptions": 1000,
+    "pairs": 8192,
+    "collector_callbacks": 65536
+  },
+  "cases": [
+    {
+      "id": "shared-retail-two-subscriptions",
+      "input": {
+        "subscriptions": 2,
+        "pairs": 3,
+        "requirements_per_pair": 2,
+        "cost": true,
+        "meters": 4,
+        "quota_requests": 5,
+        "reservation_requests": 2,
+        "cancel_at": "none",
+        "cause": "canceled",
+        "failure_at": "none",
+        "partial": []
+      },
+      "expected": {
+        "calls": {
+          "providers": 2,
+          "required": 6,
+          "history": 2,
+          "retail": 1,
+          "quota": 5,
+          "reservations": 2
+        },
+        "status": "completed",
+        "publish": true,
+        "reason": "none"
+      }
+    },
+    {
+      "id": "one-subscription-three-pairs",
+      "input": {
+        "subscriptions": 1,
+        "pairs": 3,
+        "requirements_per_pair": 1,
+        "cost": false,
+        "meters": 4,
+        "quota_requests": 0,
+        "reservation_requests": 0,
+        "cancel_at": "none",
+        "cause": "canceled",
+        "failure_at": "none",
+        "partial": []
+      },
+      "expected": {
+        "calls": {
+          "providers": 1,
+          "required": 3,
+          "history": 0,
+          "retail": 0,
+          "quota": 0,
+          "reservations": 0
+        },
+        "status": "completed",
+        "publish": true,
+        "reason": "none"
+      }
+    },
+    {
+      "id": "complete-empty",
+      "input": {
+        "subscriptions": 0,
+        "pairs": 0,
+        "requirements_per_pair": 0,
+        "cost": false,
+        "meters": 0,
+        "quota_requests": 0,
+        "reservation_requests": 0,
+        "cancel_at": "none",
+        "cause": "canceled",
+        "failure_at": "none",
+        "partial": []
+      },
+      "expected": {
+        "calls": {
+          "providers": 0,
+          "required": 0,
+          "history": 0,
+          "retail": 0,
+          "quota": 0,
+          "reservations": 0
+        },
+        "status": "completed",
+        "publish": true,
+        "reason": "none"
+      }
+    },
+    {
+      "id": "selected-but-no-comparisons",
+      "input": {
+        "subscriptions": 2,
+        "pairs": 0,
+        "requirements_per_pair": 2,
+        "cost": true,
+        "meters": 4,
+        "quota_requests": 5,
+        "reservation_requests": 2,
+        "cancel_at": "none",
+        "cause": "canceled",
+        "failure_at": "none",
+        "partial": []
+      },
+      "expected": {
+        "calls": {
+          "providers": 0,
+          "required": 0,
+          "history": 0,
+          "retail": 0,
+          "quota": 0,
+          "reservations": 0
+        },
+        "status": "completed",
+        "publish": true,
+        "reason": "none"
+      }
+    },
+    {
+      "id": "no-historical-meters",
+      "input": {
+        "subscriptions": 2,
+        "pairs": 3,
+        "requirements_per_pair": 2,
+        "cost": true,
+        "meters": 0,
+        "quota_requests": 5,
+        "reservation_requests": 2,
+        "cancel_at": "none",
+        "cause": "canceled",
+        "failure_at": "none",
+        "partial": []
+      },
+      "expected": {
+        "calls": {
+          "providers": 2,
+          "required": 6,
+          "history": 2,
+          "retail": 0,
+          "quota": 5,
+          "reservations": 2
+        },
+        "status": "completed",
+        "publish": true,
+        "reason": "none"
+      }
+    },
+    {
+      "id": "cost-disabled",
+      "input": {
+        "subscriptions": 2,
+        "pairs": 3,
+        "requirements_per_pair": 2,
+        "cost": false,
+        "meters": 4,
+        "quota_requests": 5,
+        "reservation_requests": 2,
+        "cancel_at": "none",
+        "cause": "canceled",
+        "failure_at": "none",
+        "partial": []
+      },
+      "expected": {
+        "calls": {
+          "providers": 2,
+          "required": 6,
+          "history": 0,
+          "retail": 0,
+          "quota": 5,
+          "reservations": 2
+        },
+        "status": "completed",
+        "publish": true,
+        "reason": "none"
+      }
+    },
+    {
+      "id": "required-disabled",
+      "input": {
+        "subscriptions": 2,
+        "pairs": 3,
+        "requirements_per_pair": 0,
+        "cost": true,
+        "meters": 4,
+        "quota_requests": 5,
+        "reservation_requests": 2,
+        "cancel_at": "none",
+        "cause": "canceled",
+        "failure_at": "none",
+        "partial": []
+      },
+      "expected": {
+        "calls": {
+          "providers": 2,
+          "required": 0,
+          "history": 2,
+          "retail": 1,
+          "quota": 5,
+          "reservations": 2
+        },
+        "status": "completed",
+        "publish": true,
+        "reason": "none"
+      }
+    },
+    {
+      "id": "partial-provider-and-history",
+      "input": {
+        "subscriptions": 2,
+        "pairs": 3,
+        "requirements_per_pair": 2,
+        "cost": true,
+        "meters": 4,
+        "quota_requests": 5,
+        "reservation_requests": 2,
+        "cancel_at": "none",
+        "cause": "canceled",
+        "failure_at": "none",
+        "partial": [
+          "providers",
+          "history"
+        ]
+      },
+      "expected": {
+        "calls": {
+          "providers": 2,
+          "required": 6,
+          "history": 2,
+          "retail": 1,
+          "quota": 5,
+          "reservations": 2
+        },
+        "status": "completed_with_warnings",
+        "publish": true,
+        "reason": "none"
+      }
+    },
+    {
+      "id": "exact-comparison-cardinality",
+      "input": {
+        "subscriptions": 1,
+        "pairs": 8192,
+        "requirements_per_pair": 0,
+        "cost": false,
+        "meters": 4,
+        "quota_requests": 0,
+        "reservation_requests": 0,
+        "cancel_at": "none",
+        "cause": "canceled",
+        "failure_at": "none",
+        "partial": []
+      },
+      "expected": {
+        "calls": {
+          "providers": 1,
+          "required": 0,
+          "history": 0,
+          "retail": 0,
+          "quota": 0,
+          "reservations": 0
+        },
+        "status": "completed",
+        "publish": true,
+        "reason": "none"
+      }
+    },
+    {
+      "id": "comparison-plus-one",
+      "input": {
+        "subscriptions": 2,
+        "pairs": 8193,
+        "requirements_per_pair": 2,
+        "cost": true,
+        "meters": 4,
+        "quota_requests": 5,
+        "reservation_requests": 2,
+        "cancel_at": "none",
+        "cause": "canceled",
+        "failure_at": "none",
+        "partial": []
+      },
+      "expected": {
+        "calls": {
+          "providers": 0,
+          "required": 0,
+          "history": 0,
+          "retail": 0,
+          "quota": 0,
+          "reservations": 0
+        },
+        "status": "rejected",
+        "publish": false,
+        "reason": "plan_limit"
+      }
+    },
+    {
+      "id": "selected-subscriptions-plus-one",
+      "input": {
+        "subscriptions": 1001,
+        "pairs": 1001,
+        "requirements_per_pair": 2,
+        "cost": true,
+        "meters": 4,
+        "quota_requests": 5,
+        "reservation_requests": 2,
+        "cancel_at": "none",
+        "cause": "canceled",
+        "failure_at": "none",
+        "partial": []
+      },
+      "expected": {
+        "calls": {
+          "providers": 0,
+          "required": 0,
+          "history": 0,
+          "retail": 0,
+          "quota": 0,
+          "reservations": 0
+        },
+        "status": "rejected",
+        "publish": false,
+        "reason": "plan_limit"
+      }
+    },
+    {
+      "id": "exact-selected-cardinality",
+      "input": {
+        "subscriptions": 1000,
+        "pairs": 1000,
+        "requirements_per_pair": 0,
+        "cost": false,
+        "meters": 4,
+        "quota_requests": 0,
+        "reservation_requests": 0,
+        "cancel_at": "none",
+        "cause": "canceled",
+        "failure_at": "none",
+        "partial": []
+      },
+      "expected": {
+        "calls": {
+          "providers": 1000,
+          "required": 0,
+          "history": 0,
+          "retail": 0,
+          "quota": 0,
+          "reservations": 0
+        },
+        "status": "completed",
+        "publish": true,
+        "reason": "none"
+      }
+    },
+    {
+      "id": "exact-callback-reservation",
+      "input": {
+        "subscriptions": 1,
+        "pairs": 8191,
+        "requirements_per_pair": 8,
+        "cost": true,
+        "meters": 1,
+        "quota_requests": 5,
+        "reservation_requests": 0,
+        "cancel_at": "none",
+        "cause": "canceled",
+        "failure_at": "none",
+        "partial": []
+      },
+      "expected": {
+        "calls": {
+          "providers": 1,
+          "required": 65528,
+          "history": 1,
+          "retail": 1,
+          "quota": 5,
+          "reservations": 0
+        },
+        "status": "completed",
+        "publish": true,
+        "reason": "none"
+      }
+    },
+    {
+      "id": "callback-reservation-plus-one",
+      "input": {
+        "subscriptions": 1,
+        "pairs": 8191,
+        "requirements_per_pair": 8,
+        "cost": true,
+        "meters": 1,
+        "quota_requests": 6,
+        "reservation_requests": 0,
+        "cancel_at": "none",
+        "cause": "canceled",
+        "failure_at": "none",
+        "partial": []
+      },
+      "expected": {
+        "calls": {
+          "providers": 0,
+          "required": 0,
+          "history": 0,
+          "retail": 0,
+          "quota": 0,
+          "reservations": 0
+        },
+        "status": "rejected",
+        "publish": false,
+        "reason": "plan_limit"
+      }
+    },
+    {
+      "id": "before-plan-canceled",
+      "input": {
+        "subscriptions": 2,
+        "pairs": 3,
+        "requirements_per_pair": 2,
+        "cost": true,
+        "meters": 4,
+        "quota_requests": 5,
+        "reservation_requests": 2,
+        "cancel_at": "before-plan",
+        "cause": "canceled",
+        "failure_at": "none",
+        "partial": []
+      },
+      "expected": {
+        "calls": {
+          "providers": 0,
+          "required": 0,
+          "history": 0,
+          "retail": 0,
+          "quota": 0,
+          "reservations": 0
+        },
+        "status": "cancelled",
+        "publish": false,
+        "reason": "canceled"
+      }
+    },
+    {
+      "id": "before-plan-deadline_exceeded",
+      "input": {
+        "subscriptions": 2,
+        "pairs": 3,
+        "requirements_per_pair": 2,
+        "cost": true,
+        "meters": 4,
+        "quota_requests": 5,
+        "reservation_requests": 2,
+        "cancel_at": "before-plan",
+        "cause": "deadline_exceeded",
+        "failure_at": "none",
+        "partial": []
+      },
+      "expected": {
+        "calls": {
+          "providers": 0,
+          "required": 0,
+          "history": 0,
+          "retail": 0,
+          "quota": 0,
+          "reservations": 0
+        },
+        "status": "cancelled",
+        "publish": false,
+        "reason": "deadline_exceeded"
+      }
+    },
+    {
+      "id": "after-inventory-canceled",
+      "input": {
+        "subscriptions": 2,
+        "pairs": 3,
+        "requirements_per_pair": 2,
+        "cost": true,
+        "meters": 4,
+        "quota_requests": 5,
+        "reservation_requests": 2,
+        "cancel_at": "after-inventory",
+        "cause": "canceled",
+        "failure_at": "none",
+        "partial": []
+      },
+      "expected": {
+        "calls": {
+          "providers": 0,
+          "required": 0,
+          "history": 0,
+          "retail": 0,
+          "quota": 0,
+          "reservations": 0
+        },
+        "status": "cancelled",
+        "publish": false,
+        "reason": "canceled"
+      }
+    },
+    {
+      "id": "after-inventory-deadline_exceeded",
+      "input": {
+        "subscriptions": 2,
+        "pairs": 3,
+        "requirements_per_pair": 2,
+        "cost": true,
+        "meters": 4,
+        "quota_requests": 5,
+        "reservation_requests": 2,
+        "cancel_at": "after-inventory",
+        "cause": "deadline_exceeded",
+        "failure_at": "none",
+        "partial": []
+      },
+      "expected": {
+        "calls": {
+          "providers": 0,
+          "required": 0,
+          "history": 0,
+          "retail": 0,
+          "quota": 0,
+          "reservations": 0
+        },
+        "status": "cancelled",
+        "publish": false,
+        "reason": "deadline_exceeded"
+      }
+    },
+    {
+      "id": "after-providers-canceled",
+      "input": {
+        "subscriptions": 2,
+        "pairs": 3,
+        "requirements_per_pair": 2,
+        "cost": true,
+        "meters": 4,
+        "quota_requests": 5,
+        "reservation_requests": 2,
+        "cancel_at": "after-providers",
+        "cause": "canceled",
+        "failure_at": "none",
+        "partial": []
+      },
+      "expected": {
+        "calls": {
+          "providers": 2,
+          "required": 0,
+          "history": 0,
+          "retail": 0,
+          "quota": 0,
+          "reservations": 0
+        },
+        "status": "cancelled",
+        "publish": false,
+        "reason": "canceled"
+      }
+    },
+    {
+      "id": "after-providers-deadline_exceeded",
+      "input": {
+        "subscriptions": 2,
+        "pairs": 3,
+        "requirements_per_pair": 2,
+        "cost": true,
+        "meters": 4,
+        "quota_requests": 5,
+        "reservation_requests": 2,
+        "cancel_at": "after-providers",
+        "cause": "deadline_exceeded",
+        "failure_at": "none",
+        "partial": []
+      },
+      "expected": {
+        "calls": {
+          "providers": 2,
+          "required": 0,
+          "history": 0,
+          "retail": 0,
+          "quota": 0,
+          "reservations": 0
+        },
+        "status": "cancelled",
+        "publish": false,
+        "reason": "deadline_exceeded"
+      }
+    },
+    {
+      "id": "after-required-canceled",
+      "input": {
+        "subscriptions": 2,
+        "pairs": 3,
+        "requirements_per_pair": 2,
+        "cost": true,
+        "meters": 4,
+        "quota_requests": 5,
+        "reservation_requests": 2,
+        "cancel_at": "after-required",
+        "cause": "canceled",
+        "failure_at": "none",
+        "partial": []
+      },
+      "expected": {
+        "calls": {
+          "providers": 2,
+          "required": 6,
+          "history": 0,
+          "retail": 0,
+          "quota": 0,
+          "reservations": 0
+        },
+        "status": "cancelled",
+        "publish": false,
+        "reason": "canceled"
+      }
+    },
+    {
+      "id": "after-required-deadline_exceeded",
+      "input": {
+        "subscriptions": 2,
+        "pairs": 3,
+        "requirements_per_pair": 2,
+        "cost": true,
+        "meters": 4,
+        "quota_requests": 5,
+        "reservation_requests": 2,
+        "cancel_at": "after-required",
+        "cause": "deadline_exceeded",
+        "failure_at": "none",
+        "partial": []
+      },
+      "expected": {
+        "calls": {
+          "providers": 2,
+          "required": 6,
+          "history": 0,
+          "retail": 0,
+          "quota": 0,
+          "reservations": 0
+        },
+        "status": "cancelled",
+        "publish": false,
+        "reason": "deadline_exceeded"
+      }
+    },
+    {
+      "id": "after-history-canceled",
+      "input": {
+        "subscriptions": 2,
+        "pairs": 3,
+        "requirements_per_pair": 2,
+        "cost": true,
+        "meters": 4,
+        "quota_requests": 5,
+        "reservation_requests": 2,
+        "cancel_at": "after-history",
+        "cause": "canceled",
+        "failure_at": "none",
+        "partial": []
+      },
+      "expected": {
+        "calls": {
+          "providers": 2,
+          "required": 6,
+          "history": 2,
+          "retail": 0,
+          "quota": 0,
+          "reservations": 0
+        },
+        "status": "cancelled",
+        "publish": false,
+        "reason": "canceled"
+      }
+    },
+    {
+      "id": "after-history-deadline_exceeded",
+      "input": {
+        "subscriptions": 2,
+        "pairs": 3,
+        "requirements_per_pair": 2,
+        "cost": true,
+        "meters": 4,
+        "quota_requests": 5,
+        "reservation_requests": 2,
+        "cancel_at": "after-history",
+        "cause": "deadline_exceeded",
+        "failure_at": "none",
+        "partial": []
+      },
+      "expected": {
+        "calls": {
+          "providers": 2,
+          "required": 6,
+          "history": 2,
+          "retail": 0,
+          "quota": 0,
+          "reservations": 0
+        },
+        "status": "cancelled",
+        "publish": false,
+        "reason": "deadline_exceeded"
+      }
+    },
+    {
+      "id": "after-retail-canceled",
+      "input": {
+        "subscriptions": 2,
+        "pairs": 3,
+        "requirements_per_pair": 2,
+        "cost": true,
+        "meters": 4,
+        "quota_requests": 5,
+        "reservation_requests": 2,
+        "cancel_at": "after-retail",
+        "cause": "canceled",
+        "failure_at": "none",
+        "partial": []
+      },
+      "expected": {
+        "calls": {
+          "providers": 2,
+          "required": 6,
+          "history": 2,
+          "retail": 1,
+          "quota": 0,
+          "reservations": 0
+        },
+        "status": "cancelled",
+        "publish": false,
+        "reason": "canceled"
+      }
+    },
+    {
+      "id": "after-retail-deadline_exceeded",
+      "input": {
+        "subscriptions": 2,
+        "pairs": 3,
+        "requirements_per_pair": 2,
+        "cost": true,
+        "meters": 4,
+        "quota_requests": 5,
+        "reservation_requests": 2,
+        "cancel_at": "after-retail",
+        "cause": "deadline_exceeded",
+        "failure_at": "none",
+        "partial": []
+      },
+      "expected": {
+        "calls": {
+          "providers": 2,
+          "required": 6,
+          "history": 2,
+          "retail": 1,
+          "quota": 0,
+          "reservations": 0
+        },
+        "status": "cancelled",
+        "publish": false,
+        "reason": "deadline_exceeded"
+      }
+    },
+    {
+      "id": "after-quota-canceled",
+      "input": {
+        "subscriptions": 2,
+        "pairs": 3,
+        "requirements_per_pair": 2,
+        "cost": true,
+        "meters": 4,
+        "quota_requests": 5,
+        "reservation_requests": 2,
+        "cancel_at": "after-quota",
+        "cause": "canceled",
+        "failure_at": "none",
+        "partial": []
+      },
+      "expected": {
+        "calls": {
+          "providers": 2,
+          "required": 6,
+          "history": 2,
+          "retail": 1,
+          "quota": 5,
+          "reservations": 0
+        },
+        "status": "cancelled",
+        "publish": false,
+        "reason": "canceled"
+      }
+    },
+    {
+      "id": "after-quota-deadline_exceeded",
+      "input": {
+        "subscriptions": 2,
+        "pairs": 3,
+        "requirements_per_pair": 2,
+        "cost": true,
+        "meters": 4,
+        "quota_requests": 5,
+        "reservation_requests": 2,
+        "cancel_at": "after-quota",
+        "cause": "deadline_exceeded",
+        "failure_at": "none",
+        "partial": []
+      },
+      "expected": {
+        "calls": {
+          "providers": 2,
+          "required": 6,
+          "history": 2,
+          "retail": 1,
+          "quota": 5,
+          "reservations": 0
+        },
+        "status": "cancelled",
+        "publish": false,
+        "reason": "deadline_exceeded"
+      }
+    },
+    {
+      "id": "after-reservations-canceled",
+      "input": {
+        "subscriptions": 2,
+        "pairs": 3,
+        "requirements_per_pair": 2,
+        "cost": true,
+        "meters": 4,
+        "quota_requests": 5,
+        "reservation_requests": 2,
+        "cancel_at": "after-reservations",
+        "cause": "canceled",
+        "failure_at": "none",
+        "partial": []
+      },
+      "expected": {
+        "calls": {
+          "providers": 2,
+          "required": 6,
+          "history": 2,
+          "retail": 1,
+          "quota": 5,
+          "reservations": 2
+        },
+        "status": "cancelled",
+        "publish": false,
+        "reason": "canceled"
+      }
+    },
+    {
+      "id": "after-reservations-deadline_exceeded",
+      "input": {
+        "subscriptions": 2,
+        "pairs": 3,
+        "requirements_per_pair": 2,
+        "cost": true,
+        "meters": 4,
+        "quota_requests": 5,
+        "reservation_requests": 2,
+        "cancel_at": "after-reservations",
+        "cause": "deadline_exceeded",
+        "failure_at": "none",
+        "partial": []
+      },
+      "expected": {
+        "calls": {
+          "providers": 2,
+          "required": 6,
+          "history": 2,
+          "retail": 1,
+          "quota": 5,
+          "reservations": 2
+        },
+        "status": "cancelled",
+        "publish": false,
+        "reason": "deadline_exceeded"
+      }
+    },
+    {
+      "id": "before-publish-canceled",
+      "input": {
+        "subscriptions": 2,
+        "pairs": 3,
+        "requirements_per_pair": 2,
+        "cost": true,
+        "meters": 4,
+        "quota_requests": 5,
+        "reservation_requests": 2,
+        "cancel_at": "before-publish",
+        "cause": "canceled",
+        "failure_at": "none",
+        "partial": []
+      },
+      "expected": {
+        "calls": {
+          "providers": 2,
+          "required": 6,
+          "history": 2,
+          "retail": 1,
+          "quota": 5,
+          "reservations": 2
+        },
+        "status": "cancelled",
+        "publish": false,
+        "reason": "canceled"
+      }
+    },
+    {
+      "id": "before-publish-deadline_exceeded",
+      "input": {
+        "subscriptions": 2,
+        "pairs": 3,
+        "requirements_per_pair": 2,
+        "cost": true,
+        "meters": 4,
+        "quota_requests": 5,
+        "reservation_requests": 2,
+        "cancel_at": "before-publish",
+        "cause": "deadline_exceeded",
+        "failure_at": "none",
+        "partial": []
+      },
+      "expected": {
+        "calls": {
+          "providers": 2,
+          "required": 6,
+          "history": 2,
+          "retail": 1,
+          "quota": 5,
+          "reservations": 2
+        },
+        "status": "cancelled",
+        "publish": false,
+        "reason": "deadline_exceeded"
+      }
+    },
+    {
+      "id": "failure-after-providers",
+      "input": {
+        "subscriptions": 2,
+        "pairs": 3,
+        "requirements_per_pair": 2,
+        "cost": true,
+        "meters": 4,
+        "quota_requests": 5,
+        "reservation_requests": 2,
+        "cancel_at": "none",
+        "cause": "canceled",
+        "failure_at": "providers",
+        "partial": []
+      },
+      "expected": {
+        "calls": {
+          "providers": 2,
+          "required": 0,
+          "history": 0,
+          "retail": 0,
+          "quota": 0,
+          "reservations": 0
+        },
+        "status": "failed",
+        "publish": false,
+        "reason": "dependency_failure"
+      }
+    },
+    {
+      "id": "failure-after-required",
+      "input": {
+        "subscriptions": 2,
+        "pairs": 3,
+        "requirements_per_pair": 2,
+        "cost": true,
+        "meters": 4,
+        "quota_requests": 5,
+        "reservation_requests": 2,
+        "cancel_at": "none",
+        "cause": "canceled",
+        "failure_at": "required",
+        "partial": []
+      },
+      "expected": {
+        "calls": {
+          "providers": 2,
+          "required": 6,
+          "history": 0,
+          "retail": 0,
+          "quota": 0,
+          "reservations": 0
+        },
+        "status": "failed",
+        "publish": false,
+        "reason": "dependency_failure"
+      }
+    },
+    {
+      "id": "failure-after-history",
+      "input": {
+        "subscriptions": 2,
+        "pairs": 3,
+        "requirements_per_pair": 2,
+        "cost": true,
+        "meters": 4,
+        "quota_requests": 5,
+        "reservation_requests": 2,
+        "cancel_at": "none",
+        "cause": "canceled",
+        "failure_at": "history",
+        "partial": []
+      },
+      "expected": {
+        "calls": {
+          "providers": 2,
+          "required": 6,
+          "history": 2,
+          "retail": 0,
+          "quota": 0,
+          "reservations": 0
+        },
+        "status": "failed",
+        "publish": false,
+        "reason": "dependency_failure"
+      }
+    },
+    {
+      "id": "failure-after-retail",
+      "input": {
+        "subscriptions": 2,
+        "pairs": 3,
+        "requirements_per_pair": 2,
+        "cost": true,
+        "meters": 4,
+        "quota_requests": 5,
+        "reservation_requests": 2,
+        "cancel_at": "none",
+        "cause": "canceled",
+        "failure_at": "retail",
+        "partial": []
+      },
+      "expected": {
+        "calls": {
+          "providers": 2,
+          "required": 6,
+          "history": 2,
+          "retail": 1,
+          "quota": 0,
+          "reservations": 0
+        },
+        "status": "failed",
+        "publish": false,
+        "reason": "dependency_failure"
+      }
+    },
+    {
+      "id": "failure-after-quota",
+      "input": {
+        "subscriptions": 2,
+        "pairs": 3,
+        "requirements_per_pair": 2,
+        "cost": true,
+        "meters": 4,
+        "quota_requests": 5,
+        "reservation_requests": 2,
+        "cancel_at": "none",
+        "cause": "canceled",
+        "failure_at": "quota",
+        "partial": []
+      },
+      "expected": {
+        "calls": {
+          "providers": 2,
+          "required": 6,
+          "history": 2,
+          "retail": 1,
+          "quota": 5,
+          "reservations": 0
+        },
+        "status": "failed",
+        "publish": false,
+        "reason": "dependency_failure"
+      }
+    },
+    {
+      "id": "failure-after-reservations",
+      "input": {
+        "subscriptions": 2,
+        "pairs": 3,
+        "requirements_per_pair": 2,
+        "cost": true,
+        "meters": 4,
+        "quota_requests": 5,
+        "reservation_requests": 2,
+        "cancel_at": "none",
+        "cause": "canceled",
+        "failure_at": "reservations",
+        "partial": []
+      },
+      "expected": {
+        "calls": {
+          "providers": 2,
+          "required": 6,
+          "history": 2,
+          "retail": 1,
+          "quota": 5,
+          "reservations": 2
+        },
+        "status": "failed",
+        "publish": false,
+        "reason": "dependency_failure"
+      }
+    },
+    {
+      "id": "cancel-wins-provider-error",
+      "input": {
+        "subscriptions": 2,
+        "pairs": 3,
+        "requirements_per_pair": 2,
+        "cost": true,
+        "meters": 4,
+        "quota_requests": 5,
+        "reservation_requests": 2,
+        "cancel_at": "after-providers",
+        "cause": "canceled",
+        "failure_at": "providers",
+        "partial": []
+      },
+      "expected": {
+        "calls": {
+          "providers": 2,
+          "required": 0,
+          "history": 0,
+          "retail": 0,
+          "quota": 0,
+          "reservations": 0
+        },
+        "status": "cancelled",
+        "publish": false,
+        "reason": "canceled"
+      }
+    },
+    {
+      "id": "deadline-wins-history-error",
+      "input": {
+        "subscriptions": 2,
+        "pairs": 3,
+        "requirements_per_pair": 2,
+        "cost": true,
+        "meters": 4,
+        "quota_requests": 5,
+        "reservation_requests": 2,
+        "cancel_at": "after-history",
+        "cause": "deadline_exceeded",
+        "failure_at": "history",
+        "partial": []
+      },
+      "expected": {
+        "calls": {
+          "providers": 2,
+          "required": 6,
+          "history": 2,
+          "retail": 0,
+          "quota": 0,
+          "reservations": 0
+        },
+        "status": "cancelled",
+        "publish": false,
+        "reason": "deadline_exceeded"
+      }
+    }
+  ]
+}
