@@ -1,0 +1,30 @@
+{
+  "snapshot": "2026-10-30",
+  "scope": "two historical unresolved public review questions recovered during disaster reconstruction; not new product changes or additional approval gates",
+  "source_revision": "65440d03182d21f7916b5682c544c67fa27ba379",
+  "items": [
+    {
+      "id": "REC-AI-01",
+      "state": "open_contract_reconciliation",
+      "origin_pr": 98,
+      "path": "internal/plugins/aigov/discovery.go",
+      "observation": "query still orders by subscriptionId/resourceGroup without unique id tie-breaker",
+      "primary_evidence": "https://learn.microsoft.com/azure/governance/resource-graph/concepts/paging-results",
+      "closure": "adjudicate pinned contract versus primary pagination guidance; freeze deliberate correction expectations or document justified limitation; no live failure/severity asserted"
+    },
+    {
+      "id": "REC-AI-02",
+      "state": "open_contract_reconciliation",
+      "origin_pr": 99,
+      "path": "internal/plugins/aigov/discovery.go",
+      "observation": "decoder accepts valid skipToken with resultTruncated true",
+      "primary_evidence": "https://learn.microsoft.com/azure/governance/resource-graph/concepts/work-with-data",
+      "closure": "adjudicate exact API/schema and contradiction policy before any separately justified correction; no runtime/live failure/severity asserted"
+    }
+  ],
+  "limits": [
+    "49carried-forward obligation IDs/44legacy IDs remain unchanged",
+    "source/expectation refresh or silent API behavior change not authorized by this register",
+    "16unresolved GitHub thread states do not imply16current defects; several corrections already exist"
+  ]
+}

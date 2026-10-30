@@ -1,3 +1,13 @@
+## Recovery validation checkpoint, 30 October 2026
+
+DC-CI-EVIDENCE-20261022 https://github.com/DeBoX85/Cloud-Assess/issues/189 remains CLOSED bounded migration; ongoing private retention/revisit duties remain.
+
+Read [the recovery validation checkpoint](RECOVERY_VALIDATION_20261030.md) and LIVE PR212 head/body/explicit successors before acting. Product implementation65440and original preparation089are preserved separately. Initial089own full hosted/source/current-AST review and private completion captureb97f02c9/receipt now verify. Fresh30October source6544082events/22strict controls/full repository race/developer preflight/readonly verify and source rollback-forward pass; all134replacement streams are privately retained at25416655(two captures/166members/435526bytes), full remote readback/fresh restore, zero members executed. Original lost streams are not recovered originals.
+
+This material recovery descendant requires OWN exact-head full Linux/Windows/source QA and final private retention; no inherited green or history-component/task10closure. Live task PR owns the exact head/QA outcome. Next complete own QA/evidence, then task10cumulative retained-work and exact coordinator contracts BEFORE coordinator production/11–15.49carried-forward obligations/44legacy IDs/32original inputs and all frozen consumers/controls/pins remain; two historical AI review questions are separately tracked in RECOVERY_FOLLOWUPS_20261030.json. No Azure/live retail/real credentials/fixtures/RBAC/subagents/unrelated refresh/protected merge/bypass/release. Human security consideration AFTER overall completion; no independent-backup or security/freshness claim.
+
+Earlier dated snapshots below are history. Their pending/retained/local-path statements must not override this checkpoint, its limits or later live exact-head outcomes.
+
 # Owned history admission implementation
 
 Pure structural admission follows the published original [contract](RUN_HISTORY_BINDING_CONTRACT_20261029.md) and [eight-file freeze](evidence/20261029/run-history-binding/integrity.json), plus the separately published [two-file coverage supplement](evidence/20261029/run-history-supplement/integrity.json). PR211/61e33fb is frozen verified offline. PR212 initial089f980/tree11113df8 owns the additive no-producer freeze; all14files and both Denis identities were fully read back before actual local/native observations and production.
@@ -15,6 +25,10 @@ Original35literals, five failure codes,13request negatives, six limits, two canc
 All82events pass locally with race detector.22semantic reversals separately compile0, fail1 at intended original assertion sites, restore source/tests/pins/status exactly and pass0: request months, scope aliases/all names, returned spelling/foreign currency, complete code/unknown prefix/partial eligibility, exact duplicate/opaque case, meter limit/UTF8bytes, negative/NaN/subminimum weights, input/diagnostic/accessor ownership, forged admission, context observations, UTC request and sanitized error. The shared auxiliary text helper is deliberately faulted for byte-versus-rune enforcement, then restored exactly; it has no final production delta.134complete local compile/fault/restored/baseline child streams are retained privately. Hosted child streams are not promised; complete hosted parent logs and assertion/source witnesses remain mandatory.
 
 The native workflow replaces the historical preparation phase with mandatory runtime controls on BOTH hosts. The three prior phase-guard identities remain,33workflow/sevenhandoff total; earlier30controls/steps/gates and all original622Linux/617Windows controls/301legacy witnesses perhost remain. Historical preproduction tooling is preserved for old heads; implemented heads cannot require absent APIs.
+
+## Workspace rollback and evidence availability
+
+Published WIP65440d03182d21f7916b5682c544c67fa27ba379/tree3a848b245257db0259ea9000a1da861c907d1d81 fully read back; fresh recovered PRODUCT clone matches. Earlier local82events/22controls/full-race/vet/module passes remain execution history. Their134local child streams and new local review files disappeared in a workspace rollback before durable capture; those original streams are unavailable, not SC-storage retained originals. Regenerate fresh evidence from unchanged published source and label it separately. Initial089quality/source now report success; complete review and private final retention remain pending. No mutation or producer defect follows from the environment failure.
 
 ## Current acceptance and next action
 

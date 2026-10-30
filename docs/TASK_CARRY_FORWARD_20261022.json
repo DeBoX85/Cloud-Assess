@@ -576,7 +576,7 @@
       "id": "DC-CI-EVIDENCE-20261022",
       "state": "resolved_bounded_migration",
       "owner": "agent tracks; Denis selects destination",
-      "next_or_limit": "Issue189closed/completed after196ownQA. Archivecf093771/receipt10ba2bcdverified; retention/revisit/future capture duties continue. No automatic archival or independent backup. Additional206captureeffaf284/receiptaf59ad63full remote readback/fresh122member restore verified, preserving unrelated blobs; ongoing duties unchanged. PR207capturebcb7c44a/receipte9de8d8d own110member fresh restore now verified;222prior non-index blobs preserved. PR208capture5fee1aaf/receipt922d9373 full readback/fresh96members verified; ongoing additive/latest-main preservation/retention duties unchanged. PR209own94member restoration verified; PR210fixed verifier/fresh128members7817312bytes and closure0035b60f245/receipt65146b2d now verified, preserving all prior blobs with lease/no force. Future candidate own capture/readback/fresh restore remains mandatory."
+      "next_or_limit": "Issue189closed/completed after196ownQA. Archivecf093771/receipt10ba2bcdverified; retention/revisit/future capture duties continue. No automatic archival or independent backup. Additional206captureeffaf284/receiptaf59ad63full remote readback/fresh122member restore verified, preserving unrelated blobs; ongoing duties unchanged. PR207capturebcb7c44a/receipte9de8d8d own110member fresh restore now verified;222prior non-index blobs preserved. PR208capture5fee1aaf/receipt922d9373 full readback/fresh96members verified; ongoing additive/latest-main preservation/retention duties unchanged. PR209own94member restoration verified; PR210fixed verifier/fresh128members7817312bytes and closure0035b60f245/receipt65146b2d now verified, preserving all prior blobs with lease/no force. Future candidate own capture/readback/fresh restore remains mandatory. 30October initial212completion captureb97f02c9/36fresh-restored members4170533bytes and local65440runtime25416655/166members435526bytes now fully read back/restored, preserving254then257prior non-index blobs. Implementation own changed-head hosted/final retention remains pending."
     },
     {
       "id": "AR-01",
@@ -774,7 +774,7 @@
       "id": "OFFLINE-10",
       "state": "implementation_in_progress",
       "owner": "development owner",
-      "next_or_limit": "PR210 location and PR211/61e history preparation verified offline by own final indexes. PR212 initial089f980/14files fully read back BEFORE supplemental execution/production; BOTH native actual missing3APIs compiler1/fixture-only0 verified from complete logs; original8+separate2bound files/82events/17roots unchanged. Pure owned history admission now UNACCEPTED WIP:82race events/22strict compiling assertion rejections/restored baselines/134complete local child streams. Own implementation full native/source QA/rollback/private retention/readback/fresh restore/self-assessment pending; no inherited green.49DTO roots source-classified, no runtime/copy/cumulative numeric-budget proof; exact coordinator request/result and cumulative retained-work still precede coordinator production/task10closure/11. All49obligations retained."
+      "next_or_limit": "30October recovery: initial089own11hosted logs/622-617controls/301fresh current-AST witnesses perhost/source23-315-909865/gates/native stamps/211rollback-089forward verify; private completionb97f02c9/receipt retained. Exact65440fresh82events/22strict controls/full race/developer preflight/readonly verify/source rollback-forward pass. All134fresh30October childstreams durably retained at25416655(two captures/166members435526bytes), full remote readback/fresh restore; lost original streams remain unavailable. This material recovery descendant requires OWN full native/source QA/rollback/private final capture/readback/restore; no inherited green/component/task10closure. Then cumulative retained-copy/time and exact coordinator API/consumer contracts before production/11\u201315. See RECOVERY_VALIDATION_20261030.md."
     },
     {
       "id": "OFFLINE-11",
@@ -813,5 +813,6 @@
     "Task names overlap across historical batches; offline programme numbers here mean OFFLINE_SEQUENCE_20261019 only.",
     "Legacy extracted IDs are preserved, not all reopened or declared complete.",
     "No repository mutation, Azure operation or acceptance authority is granted by this register."
-  ]
+  ],
+  "recovery_followups": "RECOVERY_FOLLOWUPS_20261030.json"
 }

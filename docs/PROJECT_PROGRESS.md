@@ -1,6 +1,6 @@
 # Cloud-Assess project progress
 
-Updated: 29 October 2026 (Europe/Oslo). Maintainer: development/integration owner.
+Updated: 30 October 2026 (Europe/Berlin). Maintainer: development/integration owner.
 
 This is the short project dashboard for Denis. Update it at every meaningful active-work checkpoint; no status request is needed. It is a snapshot, not a background activity indicator. The live task PR body owns final exact-revision QA outcomes; a later outcome can resolve a pending snapshot here without a status-only commit. [Restart prompt](RESTART_PROMPT.md) · [Detailed current state](CURRENT_STATE.md) · [Full obligation register](TASK_CARRY_FORWARD_20261022.json) · [Roadmap](ROADMAP.md).
 
@@ -8,23 +8,18 @@ This is the short project dashboard for Denis. Update it at every meaningful act
 
 | Item | Position |
 | --- | --- |
-| Goal | AZQR feature/function/capability parity with adjustable branding, accurate behavior and documented deliberate improvements; verified against Denis's pinned fork |
-| Active task | Owned history admission implementation WIP in PR212; coordinator remains open |
-| Latest verified milestone | Frozen PR211/61e33fb own offline preparation QA/retention complete, final index owns outcome |
-| Current candidate verification |82frozen events and22strict compiling assertion rejections/restored baselines pass locally; own implemented-head full native/source QA, rollback/private retention pending |
-| Next production task | Finish implementation own QA/retention/self-assessment, then cumulative retained-work and exact coordinator API/consumer freeze BEFORE coordinator code |
-| Input needed from Denis now | None for the authorized offline sequence. Stop only for material uncertainty with no safe mitigation or explicit deferral |
-| Protected acceptance | Drafts remain unmerged. Protected baseline and AZQR/APRL pins unchanged; no release approval implied |
+| Goal | AZQR feature/function/capability parity with adjustable branding and documented deliberate corrections |
+| Active task | Owned history implementation recovery/own-QA on PR212; coordinator/task10 remains open |
+| Latest verified preparation | Initial089full native/source/current-AST review, coherent211rollback/089forward and private completion captureb97f02c9/receipt verified |
+| Fresh implementation local proof | Exact65440:82events/22strict controls/full repository race/developer preflight/readonly verify pass; source/runner rollback-forward checked |
+| Evidence recovery | All134fresh30October childstreams retained in25416655;166members/435526bytes freshly restored from remote equal originals. Original lost streams remain unavailable |
+| Current candidate QA | This material recovery descendant needs OWN exact-head full Linux/Windows/source QA/private final retention; no inherited green |
+| Next dependency | Cumulative retained-copy/time accounting and exact coordinator contracts/independent consumers precede coordinator code and tasks11–15 |
+| Scope tracking |49carried-forward obligations/44legacy IDs preserved; two historical AI paging review questions tracked separately |
+| Input needed | None for the authorized offline QA sequence; stop only at a genuine unresolved boundary |
+| Acceptance | Draft/unmerged; protected baseline and pins unchanged; no release/live/security/independent-backup claim |
 
-Current location prerequisite: [strict contract and independent consumer](SUBSCRIPTION_LOCATION_CONTRACT_20261028.md). PR210private location API is verified offline, draft/unmerged. Next: [owned history/currency binding](RUN_HISTORY_BINDING_CONTRACT_20261029.md); see [recovery audit](RECOVERY_AUDIT_20261029.md).
-
-Current preparation scope and remaining bindings: [coordinator contract](REGION_COORDINATOR_CONTRACT_20261028.md). Its finite model does not execute or accept the future Go coordinator. [PR206 final index](https://github.com/DeBoX85/Cloud-Assess/pull/206) verifies its own preparation QA/private retention; the completed subscription contract is [subscription reservations](SUBSCRIPTION_RESERVATION_CONTRACT_20261028.md) and next binding work is [region/AZ preparation](COORDINATOR_BINDING_AUDIT_20261028.md). No input from Denis or Azure tenant is required for the next binding review.
-
-Current audit: latest208–210live exact heads/own six runs and complete retained logs/source/control sets rechecked. Fresh restores96/94/128members match original manifests, no archived members executed. Fresh current PRODUCT Go AST verifies301witnesses/host/task and original622/617identities. The execution outage is historical; unrelated dirty/unknown work is preserved.
-
-Initial212089f980 additive freeze was fully read back BEFORE producer: original8files/77events plus separate2file/5event supplement unchanged. BOTH native missingAPI/fixture-only proofs verified from complete logs; no compiler-failure runtime credit. Current implementation scope/evidence/limitations are in [implementation record](RUN_HISTORY_BINDING_IMPLEMENTATION_20261029.md).
-
-PR211 own quality40809867763/source40809867380 SUCCESS;11complete logs,622/617originals,301current-AST witnesses/host and23own source captures verified. Private0016dacc57e/0024d328e85/receipted2a2b89:155member occurrences5111597bytes freshly restored equal originals, zero executed. Preparation only, no binder/runtime/task10closure. Static coverage refinements and cumulative-work source findings are in the current handover; frozen original expectations remain.
+Read [the exact recovery record](RECOVERY_VALIDATION_20261030.md), [follow-ups](RECOVERY_FOLLOWUPS_20261030.json), [obligation register](TASK_CARRY_FORWARD_20261022.json) and LIVE PR212 for actual final head/outcomes. Earlier milestone records below retain their dated scope; current status is not inferred from an old pending paragraph or another revision's green badge.
 
 ## Completed milestones
 

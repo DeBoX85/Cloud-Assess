@@ -1,9 +1,6 @@
 # Cloud Assess
 
-Current development checkpoint: [security crossroads](docs/CHAT_TRANSFER_20261020.md); [status and resume authority](docs/CURRENT_STATE.md). Narrow security remediation is approved and undergoing its own QA; no retail implementation has started.
-
-
-Current audited continuation: [status](docs/CURRENT_STATE.md), [restart prompt](docs/RESTART_PROMPT.md), [transfer](docs/CHAT_TRANSFER_20261019.md), [72hour QA](docs/AUDIT_72H_20261019.md) and [discrepancies](docs/DISCREPANCIES_20261019.md). Exact outcomes stay in the live draft PR; verified offline is distinct from acceptance.
+Current development checkpoint: [history recovery validation](docs/RECOVERY_VALIDATION_20261030.md). Start with [CONTINUE](docs/CONTINUE.md) and [CURRENT_STATE](docs/CURRENT_STATE.md); the live task PR owns exact-revision outcomes. Verified offline draft work remains distinct from protected acceptance.
 
 New chat or interruption: [start here](docs/CONTINUE.md), [copy the restart prompt](docs/RESTART_PROMPT.md), and follow [continuity procedure](docs/CONTINUITY.md). Historical [handoff](docs/HANDOFF_20261017.md) is retained. Current development status and resume point: [CURRENT_STATE](docs/CURRENT_STATE.md). QA safeguards and continuity assessment: [safeguards](docs/QA_SAFEGUARDS_RECONCILIATION_20261017.md). Verified draft work is distinct from protected acceptance. Developer preflight and isolated parallel QA: [development workflow](docs/DEVELOPMENT_WORKFLOW.md).
 
