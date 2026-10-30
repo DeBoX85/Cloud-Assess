@@ -1,0 +1,47 @@
+{
+  "format": "cloud-assess-run-history-binding-freeze-v1",
+  "base": "7ad8233ed47d6a658405d5879380371d4551afed",
+  "scope": "Independent contract and literal consumers BEFORE producer; compiler/stub syntax is not runtime assurance",
+  "files": [
+    {
+      "path": "docs/RUN_HISTORY_BINDING_CONTRACT_20261029.md",
+      "bytes": 8541,
+      "sha256": "3dcb392608ea054809d623a763ada60707d910c47fbf88b31b5e307fe5dbd9f5"
+    },
+    {
+      "path": "docs/evidence/20261029/run-history-binding/README.md",
+      "bytes": 1829,
+      "sha256": "358a2cecc661f86c8a9697afff83f5c9f538561150e5f2ceca013f11cc9e35b6"
+    },
+    {
+      "path": "docs/evidence/20261029/run-history-binding/check_literals.py",
+      "bytes": 1531,
+      "sha256": "a1aae751f36f1e48af85a1b00a390142f381619fb48275cf53e8c02e1542c7d1"
+    },
+    {
+      "path": "docs/evidence/20261029/run-history-binding/run_history_budget_test.go.txt",
+      "bytes": 1564,
+      "sha256": "e05437b428d1052d9a180a256a174680deb955a6d690e2bfbc1d6b7e316ea082"
+    },
+    {
+      "path": "docs/evidence/20261029/run-history-binding/run_history_contract_test.go.txt",
+      "bytes": 9700,
+      "sha256": "d16229f6cba74bd9ddf42631cebf18d48406606a743b68cc9ac3638695b17eb1"
+    },
+    {
+      "path": "docs/evidence/20261029/run-history-binding/run_history_lifecycle_test.go.txt",
+      "bytes": 6236,
+      "sha256": "f058bd8039312dfb80b529a57193ba6c1d75c84128b97462835a0012711d00b7"
+    },
+    {
+      "path": "docs/evidence/20261029/run-history-binding/shape-verification.json",
+      "bytes": 490,
+      "sha256": "9444077286c833521c721a8bbadad64f383d60e47a8892cb944ca01855d01790"
+    },
+    {
+      "path": "docs/evidence/20261029/run-history-binding/test-plan.json",
+      "bytes": 1651,
+      "sha256": "877d1e3e34d172cab77a9a4e3ef0612c970006da71822cbce55db0d7a8026f5a"
+    }
+  ]
+}

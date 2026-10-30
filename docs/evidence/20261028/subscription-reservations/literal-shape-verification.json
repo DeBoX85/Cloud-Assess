@@ -1,0 +1,8 @@
+{
+  "literal_cases": 13,
+  "boundary_recipes": 8,
+  "procedural_obligations": 12,
+  "actual_product_execution": false,
+  "scope": "Independent expectation shape only, not collector/API/timer/memory proof.",
+  "malformed_controls": 8
+}

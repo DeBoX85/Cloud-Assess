@@ -1,0 +1,92 @@
+[
+  {
+    "bundle": "older-logs-01.base64",
+    "manifest": "older-logs-01-manifest.json",
+    "integrity": {
+      "members": 100,
+      "bytes": 10718060,
+      "revisions": {
+        "product": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+        "security": "566cc4d8b78d168e5216245a5a386f742a3a2f85"
+      }
+    },
+    "bundle_bytes": 1205189,
+    "decoded_bytes": 11909749,
+    "all_members_equal_original_raw_bytes": true
+  },
+  {
+    "bundle": "older-logs-02.base64",
+    "manifest": "older-logs-02-manifest.json",
+    "integrity": {
+      "members": 100,
+      "bytes": 10814913,
+      "revisions": {
+        "product": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+        "security": "566cc4d8b78d168e5216245a5a386f742a3a2f85"
+      }
+    },
+    "bundle_bytes": 1221101,
+    "decoded_bytes": 12010288,
+    "all_members_equal_original_raw_bytes": true
+  },
+  {
+    "bundle": "older-logs-03.base64",
+    "manifest": "older-logs-03-manifest.json",
+    "integrity": {
+      "members": 70,
+      "bytes": 12028339,
+      "revisions": {
+        "product": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+        "security": "566cc4d8b78d168e5216245a5a386f742a3a2f85"
+      }
+    },
+    "bundle_bytes": 1292913,
+    "decoded_bytes": 13400764,
+    "all_members_equal_original_raw_bytes": true
+  },
+  {
+    "bundle": "older-logs-04.base64",
+    "manifest": "older-logs-04-manifest.json",
+    "integrity": {
+      "members": 78,
+      "bytes": 12267205,
+      "revisions": {
+        "product": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+        "security": "566cc4d8b78d168e5216245a5a386f742a3a2f85"
+      }
+    },
+    "bundle_bytes": 1334377,
+    "decoded_bytes": 13644989,
+    "all_members_equal_original_raw_bytes": true
+  },
+  {
+    "bundle": "older-logs-05.base64",
+    "manifest": "older-logs-05-manifest.json",
+    "integrity": {
+      "members": 68,
+      "bytes": 11903048,
+      "revisions": {
+        "product": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+        "security": "566cc4d8b78d168e5216245a5a386f742a3a2f85"
+      }
+    },
+    "bundle_bytes": 2269261,
+    "decoded_bytes": 13097027,
+    "all_members_equal_original_raw_bytes": true
+  },
+  {
+    "bundle": "older-logs-06.base64",
+    "manifest": "older-logs-06-manifest.json",
+    "integrity": {
+      "members": 73,
+      "bytes": 12459491,
+      "revisions": {
+        "product": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+        "security": "566cc4d8b78d168e5216245a5a386f742a3a2f85"
+      }
+    },
+    "bundle_bytes": 1409749,
+    "decoded_bytes": 13838465,
+    "all_members_equal_original_raw_bytes": true
+  }
+]

@@ -1,0 +1,52 @@
+{
+  "format": "cloud-assess-subscription-location-freeze-v1",
+  "base": "69637552e1875ff533a81f8e762ff5dc52a71d01",
+  "scope": "Independent contract/consumer/data BEFORE production; no implementation/API runtime pass",
+  "files": [
+    {
+      "path": "docs/SUBSCRIPTION_LOCATION_CONTRACT_20261028.md",
+      "bytes": 11537,
+      "sha256": "0a32f4e3a0e08a868126854224c81fc18e514b14f20ef68d6f546b00551be5d9"
+    },
+    {
+      "path": "docs/evidence/20261028/subscription-locations/README.md",
+      "bytes": 1125,
+      "sha256": "045741d41fc37173116979535e1f250b4c44411b71d464a5f5a67d31426848e3"
+    },
+    {
+      "path": "docs/evidence/20261028/subscription-locations/check_literals.py",
+      "bytes": 2548,
+      "sha256": "411f35871d75eab41f316ad6e740cdbf25ad25bbb175f6c6c0482f64d6677b20"
+    },
+    {
+      "path": "docs/evidence/20261028/subscription-locations/literals.json",
+      "bytes": 18612,
+      "sha256": "0e3eb5033750adf1cf34f927821b6bebb1cdf1ca72b1f0a3cf0a1d29a4b458e1"
+    },
+    {
+      "path": "docs/evidence/20261028/subscription-locations/shape-verification.json",
+      "bytes": 420,
+      "sha256": "6bb77869af1a7e3ab257a5b9ad8708157311ef9b47ffc8a6283d1a65d61c2f9b"
+    },
+    {
+      "path": "docs/evidence/20261028/subscription-locations/subscription_locations_budget_test.go.txt",
+      "bytes": 4246,
+      "sha256": "c0066436a33101c347b8da13d87aaeeed9035f63499576b909ee3000a294cc73"
+    },
+    {
+      "path": "docs/evidence/20261028/subscription-locations/subscription_locations_contract_test.go.txt",
+      "bytes": 6050,
+      "sha256": "a352e0ad7075d1406e7bfee0779dc34a7dc6d655234ee0da613d0fe640cbc1fc"
+    },
+    {
+      "path": "docs/evidence/20261028/subscription-locations/subscription_locations_lifecycle_test.go.txt",
+      "bytes": 9482,
+      "sha256": "6d1d7be528866cfdaa782819a34df267553428005f86c89e0ec05c561948a9ad"
+    },
+    {
+      "path": "docs/evidence/20261028/subscription-locations/zone-counts-pinned.json",
+      "bytes": 866,
+      "sha256": "283fc6c7aba69330edb272d9d23620e298ba728ae97eced804936e22e596778b"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+=== RUN   TestReviewHistoryEmptyContainerDepth
+=== RUN   TestReviewHistoryEmptyContainerDepth/32
+    review_history_empty_depth_test.go:36: containers=32 status=complete code= bytes=110
+=== RUN   TestReviewHistoryEmptyContainerDepth/33
+    review_history_empty_depth_test.go:36: containers=33 status=complete code= bytes=112
+    review_history_empty_depth_test.go:41: 33empty containers admitted beyond the32-container boundary
+--- FAIL: TestReviewHistoryEmptyContainerDepth (0.00s)
+    --- PASS: TestReviewHistoryEmptyContainerDepth/32 (0.00s)
+    --- FAIL: TestReviewHistoryEmptyContainerDepth/33 (0.00s)
+FAIL
+FAIL	github.com/DeBoX85/Cloud-Assess/internal/plugins/region	0.027s
+FAIL

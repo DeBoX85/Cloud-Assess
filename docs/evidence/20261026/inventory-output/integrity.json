@@ -1,0 +1,64 @@
+{
+  "classification": "preparation-integrity-only",
+  "product_reference": "566cc4d8b78d168e5216245a5a386f742a3a2f85",
+  "original_files": [
+    {
+      "path": "docs/evidence/20261021/recovered-local/task8-provisional/CONTRACT.provisional.md",
+      "sha256": "a1b1d6115d73f393feb3c12fccd0c6b06dfe69aa36e3ab50062c7f904e2e864b"
+    },
+    {
+      "path": "docs/evidence/20261021/recovered-local/task8-provisional/required-inventory-contract.provisional.json",
+      "sha256": "4fe4148e6805e400e3ce43886109f1eae40e2f335f12335479b0adea9b20bc77"
+    },
+    {
+      "path": "docs/evidence/20261021/recovered-local/task8-provisional/prepare_literals.py",
+      "sha256": "d729857dcaf3e8d1ae0cab2bfaf62b0ad9f3698957ec5e2953b91ff551f9450c"
+    }
+  ],
+  "preparation_files": [
+    {
+      "path": "docs/evidence/20261026/inventory-output/additional-expectations.json",
+      "bytes": 14570,
+      "sha256": "722f3dabec59c0768b83e1423bb938276b8a6c2cafdcbd767a665f21113b8ed4"
+    },
+    {
+      "path": "docs/evidence/20261026/inventory-output/additional-structure-proof.json",
+      "bytes": 322,
+      "sha256": "4b874409bbad67f076bb6aa966f39e494a740f7bb2eee2c51f39fc1b021794b4"
+    },
+    {
+      "path": "docs/evidence/20261026/inventory-output/arithmetic-proof.json",
+      "bytes": 3670,
+      "sha256": "919115168f39313857c4e0ed0d2d59456c72d6757420617eb2c4701b7fe96d69"
+    },
+    {
+      "path": "docs/evidence/20261026/inventory-output/budget-recipes.json",
+      "bytes": 2187,
+      "sha256": "b84c46843a584a9f040b36d6b5f1dc21891dcbd8118ed77b775febdfa96da4e2"
+    },
+    {
+      "path": "docs/evidence/20261026/inventory-output/check-additional-expectations.py.txt",
+      "bytes": 3922,
+      "sha256": "5e2a4929728f84dc13fa7080005054c71289333efd0a01ed3c9fa58a2fa4def0"
+    },
+    {
+      "path": "docs/evidence/20261026/inventory-output/check-budget-recipes.py.txt",
+      "bytes": 5602,
+      "sha256": "81e530a8c539a76551413f34bd6733eb4763e45152b5dfb4ffaacb64ee54dd47"
+    },
+    {
+      "path": "docs/evidence/20261026/inventory-output/projector-probe.go.txt",
+      "bytes": 3213,
+      "sha256": "16bdfc142af118107bc8f1338dbab4274bf656f51315461c4f168f8936a9c8b7"
+    },
+    {
+      "path": "docs/evidence/20261026/inventory-output/projector-proof.json",
+      "bytes": 1920,
+      "sha256": "71464447c96f0991b21330430812e074c57ccdd27b4a441f2927ffa749b82ed9"
+    }
+  ],
+  "limits": [
+    "Not task8freeze or future API execution.",
+    "Late-cancellation schedule and documentary reconciliation remain open."
+  ]
+}
