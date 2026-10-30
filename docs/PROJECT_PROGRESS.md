@@ -8,23 +8,24 @@ This is the short project dashboard for Denis. Update it at every meaningful act
 
 | Item | Position |
 | --- | --- |
-| Goal | AZQR feature/function/capability parity with adjustable branding and documented deliberate corrections |
-| Active task | Owned history implementation recovery/own-QA on PR212; coordinator/task10 remains open |
-| Latest verified preparation | Initial089full native/source/current-AST review, coherent211rollback/089forward and private completion captureb97f02c9/receipt verified |
-| Fresh implementation local proof | Exact65440:82events/22strict controls/full repository race/developer preflight/readonly verify pass; source/runner rollback-forward checked |
-| Evidence recovery | All134fresh30October childstreams retained in25416655;166members/435526bytes freshly restored from remote equal originals. Original lost streams remain unavailable |
-| Current candidate QA | This material recovery descendant needs OWN exact-head full Linux/Windows/source QA/private final retention; no inherited green |
-| Next dependency | Cumulative retained-copy/time accounting and exact coordinator contracts/independent consumers precede coordinator code and tasks11–15 |
-| Scope tracking |49carried-forward obligations/44legacy IDs preserved; two historical AI paging review questions tracked separately |
-| Input needed | None for the authorized offline QA sequence; stop only at a genuine unresolved boundary |
-| Acceptance | Draft/unmerged; protected baseline and pins unchanged; no release/live/security/independent-backup claim |
+| Goal | AZQR feature/function/capability parity with adjustable branding and deliberate corrections |
+| Last completed product slice | History admission verified offline at PR212/b0bddc82; draft/unmerged |
+| Own QA | quality41091179200/source41091179157 SUCCESS;11complete logs reviewed; original622Linux/617Windows controls,301fresh-AST legacy witnesses/host;82history events/22strict controls/host |
+| Source and coverage |23captures/315chunks/909865bytes exact ownGit;87.1%Linux coverage against unchanged75%floor |
+| Durable final evidence |2a0a5fce capture/76ea73b2 receipt;47members/4402661bytes remote readback/fresh restore equal; zero executed |
+| Original loss |134pre-rollback streams remain unavailable; fresh30October replacements retained separately in25416655 |
+| Active proposal | Documentation/process handover at docs/handover-resilience-20261030; separate own checks, no inherited b0QA |
+| Next development | Task10 cumulative retained-copy/time accounting and exact coordinator contracts before producer code; coordinator unfinished |
+| Recovery caution | Enhanced verification for at least next3completed material development slices; source-backed claims and published-only restart review |
+| Input / acceptance | No routine offline input needed; no protected/live/release/security/independent-backup acceptance |
 
-Read [the exact recovery record](RECOVERY_VALIDATION_20261030.md), [follow-ups](RECOVERY_FOLLOWUPS_20261030.json), [obligation register](TASK_CARRY_FORWARD_20261022.json) and LIVE PR212 for actual final head/outcomes. Earlier milestone records below retain their dated scope; current status is not inferred from an old pending paragraph or another revision's green badge.
+Read [CURRENT_STATE](CURRENT_STATE.md), [the recovery handover](RECOVERY_HANDOVER_20261030.md), [process review](HANDOVER_PROCESS_REVIEW_20261030.md) and live PR212/successors. Preserve49obligations/44legacy IDs/32original inventory inputs and REC-AI-01/02 follow-ups. Superseded pending snapshots remain historical, not current work instructions.
 
 ## Completed milestones
 
 | Work | Verified position / evidence |
 | --- | --- |
+| History admission component | PR212/b0 own complete native/source QA and final47member private restoration/receipt76ea73b2 verified; task10coordinator remains open |
 | Location component | PR210own quality40750955737/source40750955455, full local race/coherent rollback, capture0035b60f245/receipt65146b2d; all128current210members7817312bytes freshly restored equal originals, zero executed. No coordinator closure |
 | Location preparation | PR209own quality40741266237/source40741266629 and archive825d0ff9/receipt24f0f7c7;94fresh-restored members4167079bytes. No actual location API runtime pass |
 | Audit/binding checkpoint | PR208own quality40716534512/source40716534340 and capture5fee1aaf/receipt922d9373;96fresh-restored members/6900417bytes equal originals. No coordinator/API freeze closure |
@@ -68,7 +69,7 @@ ETA: no evidence-based calendar forecast is available yet. Comparable remaining-
 ## Remaining assurance and acceptance
 
 - F03 verified offline by PR205 final index; F02 reclassified not a defect. O01–O04 remain observations, with practical impact not assumed.
-- PR210own dated28October BOTH-native summaries: zero reachable, five imported-not-called and one module-only; all residuals OPEN. GO-2026-6866/GO-2026-6860are newly published x/net/html records, classified from pinned verbose Linux execution and full official JSON. No dependency update, suppression, gate change or security/database-freshness claim; reevaluate after integration and before readiness/release.
+- PR212own dated30October BOTH-native summaries: zero reachable, five imported-not-called and one module-only; all residuals OPEN. GO-2026-6866/GO-2026-6860are newly published x/net/html records, classified from pinned verbose Linux execution and full official JSON. No dependency update, suppression, gate change or security/database-freshness claim; reevaluate after integration and before readiness/release.
 - Whole documentary audit remains unfinished. Historical raw/semantic read counts are not proof of a complete current audit.
 - Independent product/gate/check-inventory review, live Azure visibility/least privilege, supported fresh OS/architecture, safe pilot and operational rollback remain separate obligations.
 - Licensing, artifact provenance/SBOM, content applicability, Gate004 row-by-row disposition and release acceptance remain open. See all44 legacy IDs and49 current obligations in the full register.

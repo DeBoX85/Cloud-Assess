@@ -1,6 +1,6 @@
 # Cloud Assess
 
-Current development checkpoint: [history recovery validation](docs/RECOVERY_VALIDATION_20261030.md). Start with [CONTINUE](docs/CONTINUE.md) and [CURRENT_STATE](docs/CURRENT_STATE.md); the live task PR owns exact-revision outcomes. Verified offline draft work remains distinct from protected acceptance.
+Current development checkpoint: [fresh-chat recovery handover](docs/RECOVERY_HANDOVER_20261030.md). Start with [CONTINUE](docs/CONTINUE.md) and [CURRENT_STATE](docs/CURRENT_STATE.md); use the [copy-ready restart prompt](docs/RESTART_PROMPT.md). PR212/b0 owns completed history-component offline QA. This handover/process successor has separate publication/check status. Next: unfinished coordinator accounting/contracts, with enhanced post-recovery verification. Protected acceptance is unchanged.
 
 New chat or interruption: [start here](docs/CONTINUE.md), [copy the restart prompt](docs/RESTART_PROMPT.md), and follow [continuity procedure](docs/CONTINUITY.md). Historical [handoff](docs/HANDOFF_20261017.md) is retained. Current development status and resume point: [CURRENT_STATE](docs/CURRENT_STATE.md). QA safeguards and continuity assessment: [safeguards](docs/QA_SAFEGUARDS_RECONCILIATION_20261017.md). Verified draft work is distinct from protected acceptance. Developer preflight and isolated parallel QA: [development workflow](docs/DEVELOPMENT_WORKFLOW.md).
 

@@ -1,3 +1,31 @@
+# Enhanced recovery controls, 30 October 2026
+
+[CURRENT_STATE](CURRENT_STATE.md), [RECOVERY_STATE.json](RECOVERY_STATE.json) and [the recovery handover](RECOVERY_HANDOVER_20261030.md) own current orientation. [Process review](HANDOVER_PROCESS_REVIEW_20261030.md) explains what failed and the safeguards implemented. The older procedure below still applies; this section strengthens evidence and semantic reconciliation without replacing existing QA gates.
+
+## Enhanced verification after recovery
+
+Apply to at least the next three completed material development slices. The count starts at zero in this handover; documentary recovery work does not count as a completed product slice. Exit only after a recorded reassessment shows published-only restart agreement, no unresolved current-state or retention drift, complete own-head gates, and no unexplained relevant contract/evidence discrepancy. Continue the mode if any condition remains unmet; do not request new user approval merely to keep working carefully.
+
+For each slice:
+
+1. Confirm live revision roles, exact source/contracts and independently owned expectations. Create a small claim table in the slice record: claim, exact source/evidence, verified/hypothesis/unknown/conflict, consequence and disposition. Avoid whole-repo certainty from a green predecessor.
+2. Freeze any required independent consumers before producer code. Preserve prior failing controls and contradictory evidence. Reconcile a doubtful oracle from requirements/primary sources, never edit it merely to fit implementation.
+3. Keep one behavioral change and its dependencies at a time. Publish recoverable WIP before long setup, QA or context-heavy review. Record intended remote mutation, expected parent and inspection method before it; inspect actual state after an uncertain result rather than retrying blindly.
+4. Persist completed, closed evidence batches privately at safe phase boundaries. Index exact revision/command/time/exit/hash, expected missing members and partial/final status. Full remote readback and new-directory restoration are required for a retained claim. Never execute restored evidence or accept an open log prefix as complete. Do not interrupt atomic fault/restore operations merely to meet a time target.
+5. Require unchanged full own-head Linux/Windows/source QA and original control identities, applicable mutation/cancellation/rollback proof, final complete raw evidence and self-assessment before moving to a dependent slice. Success of the new handover checker does not replace any gate.
+6. Reconcile CURRENT_STATE, RECOVERY_STATE, PROJECT_PROGRESS and task register at the next material checkpoint. Record final exact-head outcomes in the live PR to avoid certification loops. Walk the published restart path without chat memory and record discrepancies. This is a same-agent documentation walkthrough, not independent review or a real outage test.
+
+## Recovery point and evidence backlog
+
+The recovery point is the last published/read-back source checkpoint plus separately verified durable evidence, not the latest chat status or local commit. Before expanding work or ending a status response, identify any code, design or raw evidence still local-only and its reconstruction recipe. If private persistence fails, preserve local data and prioritize publication; do not expand the irreplaceable backlog. Independently useful read-only/reproducible work can continue with explicit limits.
+
+The20–30active-minute target below remains best effort. Phase boundaries are the primary safeguard. No timer, background upload, new token/secret or scheduled backup is installed. Independent backup/DC006 and resumable CI automation remain open proposals, separately tracked; same-account SC-storage does not close them.
+
+## Compact orientation check
+
+Run `python3 scripts/check-handover.py` in this checkout. It checks the local record shape, revision-role separation, documented evidence bindings, unchanged tracked pins/obligation identities and explicit routing markers. It neither fetches remote state nor executes evidence. Review live PR/ref/receipt contents separately and record the actual publication/QA status. A failed check blocks reliance on that state record until reconciled; it does not authorize changing frozen product expectations.
+
+
 # Proactive continuity and interruption recovery
 
 Shared private storage: CI and security categories can have different writers. Before any ref update, reread the live parent/tree and preserve unrelated paths. Use an expected-head lease; after an error inspect the actual ref before retrying. Never force an older CI-only tree over shared main. Use immutable capture paths and separate archive refs as safe checkpoints. Current outstanding integration is in [the25October handover](HANDOVER_CHECKPOINT_20261025.md).

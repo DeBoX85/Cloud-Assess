@@ -1,3 +1,8 @@
+## Recovery scope clarification, 30 October 2026
+
+Current routing is [CURRENT_STATE](CURRENT_STATE.md) and [the recovery handover](RECOVERY_HANDOVER_20261030.md). Source/runner rollback089/implementedb0 and earlier211/089preparation restoration passed. These do not establish installed/customer/operational rollback. Preserve b0/PR212, protecteda6, WIP65440 and archive089; use a new task-owned view for reversal checks, never reset unrelated dirty work or force shared refs. This separate handover/process proposal's rollback route is its verified b0 parent, with its own publication/check status in its live PR.
+
+
 # Rollback and restoration runbook
 
 [CURRENT_STATE](CURRENT_STATE.md) owns authorization/status. This runbook expands [the existing development procedure](DEVELOPMENT_EXECUTION_PLAN.md#rollback-and-incident-correction); it does not authorize protected merges, Azure operations or release. [Action/change records](ACTION_REGISTER.md) and [retained rehearsal evidence](EVIDENCE_RETENTION.md) provide traceability.

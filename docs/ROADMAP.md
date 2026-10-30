@@ -4,7 +4,7 @@ Read [CURRENT_STATE](CURRENT_STATE.md) for current status, authorization and the
 
 New sessions use [CONTINUE](CONTINUE.md), the [restart prompt](RESTART_PROMPT.md) and current task PR. Next task/verification state is in CURRENT_STATE; VMSS contract details are in [the catalog contract](VMSS_CATALOG_CONTRACT_20261017.md), with the separate [diagnostic candidate](VMSS_CATALOG_IMPLEMENTATION_20261017.md) in draft PR154. Dated handoffs remain historical snapshots.
 
-The Cognitive three-task batch is verified offline in PR157. The active [SQL four-task workstream](SQL_CAPABILITY_WORKSTREAM_20261017.md) starts with source/schema/status/identity reconciliation before contract/oracles and bounded Database/MI capability catalogs. CURRENT_STATE and the live task PR own actual status.
+Current task direction: [CURRENT_STATE](CURRENT_STATE.md), [recovery handover](RECOVERY_HANDOVER_20261030.md) and live task PR. History admission is verified offline at PR212/b0; task10 coordinator accounting/contracts precede production, then11–15. Older SQL/Cognitive next-action paragraphs below are historical; do not replay completed work.
 
 ---
 

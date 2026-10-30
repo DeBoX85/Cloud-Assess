@@ -1,3 +1,8 @@
+## Recovery strengthening, 30 October 2026
+
+Follow [CONTINUITY](CONTINUITY.md) and [the process review](HANDOVER_PROCESS_REVIEW_20261030.md). Retain completed closed raw evidence incrementally at safe phase boundaries, with immutable partial/final captures and explicit missing members. Complete remote byte readback/new-directory restore before claiming retained or moving to dependent work. A hash, local commit, live run URL or chat summary is insufficient. Do not execute restored evidence. Preserve shared security categories with latest-parent expected-head/no-force writes. Final b0 capture2a0a5fce/receipt76ea73b2 is verified; original lost134streams are not recovered. Independent backup and resumable CI capture remain open proposals; no new destination/secret/automation is configured.
+
+
 ## Inventory preparation continuation, 26 October 2026
 
 Current documentation successor: `docs/inventory-output-ledger-20261026`, preserving verified PR196/b997bc4676958aff25580c2bb88d1439d6529485. Read [the inventory checkpoint](INVENTORY_PREPARATION_CHECKPOINT_20261026.md) and [output ledger](INVENTORY_OUTPUT_LEDGER_20261026.md). This WIP requires OWN full native/source QA; no inherited196pass. Product coding remains PR185/566cc4d8 with current guidance carried, never this documentary tree.

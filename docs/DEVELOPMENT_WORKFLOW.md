@@ -2,6 +2,10 @@
 
 Current implementation/acceptance state is in [CURRENT_STATE.md](CURRENT_STATE.md). Research and baseline measurements are in [the research record](DEVELOPMENT_WORKFLOW_RESEARCH_20261017.md). The original parallel workflow was verified in PR148; later changes require their own exact-revision QA. Verification does not imply protected acceptance.
 
+## Post-recovery verification
+
+Follow [enhanced verification](CONTINUITY.md#enhanced-verification-after-recovery) for the next three completed material development slices and until its exit criteria are met. Run `python3 scripts/check-handover.py`, verify live refs and reconcile relevant source/contract/evidence claims before implementation. Capture complete raw evidence incrementally at safe boundaries; full private readback/fresh restoration precedes the next dependent task. [The process review](HANDOVER_PROCESS_REVIEW_20261030.md) records limits and still-open automation/independent backup. No gate, frozen expectation or pin is relaxed.
+
 ## Continuity
 
 Follow [the continuity procedure](CONTINUITY.md) proactively during active work. [CONTINUE](CONTINUE.md) routes recovery and [RESTART_PROMPT](RESTART_PROMPT.md) is the stable copy-ready prompt. Update compact state and publish coherent WIP after meaningful slices, before long QA/environment work and before transitions; aim for 20-30 active-minute safe-boundary checkpoints. Preserve uncertain outcomes explicitly and verify remote publication. Do not wait for a user handoff request. No zero-loss, precise token-threshold or background-work guarantee is implied.

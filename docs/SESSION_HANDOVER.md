@@ -6,6 +6,25 @@ Dated progress and resume sections below are historical snapshots; behavioral re
 
 ---
 
+## Active authority map after recovery, 30 October 2026
+
+Use [CONTINUE](CONTINUE.md), [CURRENT_STATE](CURRENT_STATE.md), [RECOVERY_STATE.json](RECOVERY_STATE.json), [the detailed recovery handover](RECOVERY_HANDOVER_20261030.md) and [the process review](HANDOVER_PROCESS_REVIEW_20261030.md). PR212/b0 owns completed history-component offline QA; this documentation/process proposal owns a separate live publication/check status. Protected acceptance is unchanged. Exact next development work is cumulative retained-copy/time accounting and coordinator contracts, not replaying history admission.
+
+| Record | Authority / limitation |
+| --- | --- |
+| Explicit user instructions | Current scope and authorization; do not import security-chat read-only restrictions into the development owner role |
+| CURRENT_STATE and RECOVERY_STATE | Concise current human state and structured identities; reconcile any conflict |
+| Live task PR, exact commit/tree and private receipt | Own-head publication, completed checks and retention within their recorded scope |
+| Technical contracts and frozen independent expectations | Behavioral requirements; newer status prose alone cannot override them |
+| PROJECT_PROGRESS and obligation register | Programme progress and all49obligations/44legacy IDs; no automatic closure |
+| Dated narratives and chat memory | Historical context and leads; verify claims needed for current work |
+
+The next fresh chat should assume some historical claims may be obsolete or faulty. Use enhanced verification for at least three material development slices and until its exit criteria are met. Original134streams remain unavailable; replacements have separate provenance. Root cause and unrecorded work remain unknown. Do not invent historical completeness, independent backup or security assurance.
+
+## Historical snapshots below
+
+All dated status/resume narratives below are superseded for current task direction by the authority map above. Applicable behavioral requirements remain in force unless explicitly revised. They are preserved for traceability, not instructions to replay completed work.
+
 ## Recovery validation checkpoint, 30 October 2026
 
 DC-CI-EVIDENCE-20261022 https://github.com/DeBoX85/Cloud-Assess/issues/189 remains CLOSED bounded migration; ongoing private retention/revisit duties remain.

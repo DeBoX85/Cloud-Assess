@@ -1,3 +1,10 @@
+## Post-recovery development protocol, 30 October 2026
+
+Read docs/CONTINUE.md, docs/CURRENT_STATE.md, docs/RECOVERY_STATE.json and docs/RECOVERY_HANDOVER_20261030.md before changing work. Follow the enhanced-verification section of docs/CONTINUITY.md for at least the next three completed material development slices; do not leave it automatically after a count. Run `python3 scripts/check-handover.py` at orientation and handover. Its local structural pass is not remote or semantic verification. Reconcile source-backed claims and contradictory evidence before relying on them. Preserve PR212/b0 as the last product head with completed own QA; this documentation/process successor has separate publication and own-QA status.
+
+Capture completed raw evidence in durable private batches at safe phase boundaries and verify full remote readback/new-directory restoration before advancing dependent work. Publish partial captures honestly when QA is unfinished. Do not leave a whole task's irreplaceable evidence local-only until a final pass. Do not disrupt an atomic operation, execute archived members, fabricate originals, weaken frozen expectations or infer acceptance from these additional checks. Record local-only risk in status replies and before context-heavy work. Process review: docs/HANDOVER_PROCESS_REVIEW_20261030.md. Existing authorization/exclusions and mandatory exact-head QA remain in force.
+
+
 # Repository agent continuity and QA
 
 Preserve docs/TASK_CARRY_FORWARD_20261022.json and its captured legacy IDs/current obligations; reconcile new tasks explicitly. The security reviewer uses docs/SECURITY_REVIEW_HANDOFF_20261022.md read-only on the frozen scope, while this development thread remains sole production/integration owner. No automatic cross-chat synchronization or independent-human approval is implied.

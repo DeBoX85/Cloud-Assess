@@ -576,13 +576,13 @@
       "id": "DC-CI-EVIDENCE-20261022",
       "state": "resolved_bounded_migration",
       "owner": "agent tracks; Denis selects destination",
-      "next_or_limit": "Issue189closed/completed after196ownQA. Archivecf093771/receipt10ba2bcdverified; retention/revisit/future capture duties continue. No automatic archival or independent backup. Additional206captureeffaf284/receiptaf59ad63full remote readback/fresh122member restore verified, preserving unrelated blobs; ongoing duties unchanged. PR207capturebcb7c44a/receipte9de8d8d own110member fresh restore now verified;222prior non-index blobs preserved. PR208capture5fee1aaf/receipt922d9373 full readback/fresh96members verified; ongoing additive/latest-main preservation/retention duties unchanged. PR209own94member restoration verified; PR210fixed verifier/fresh128members7817312bytes and closure0035b60f245/receipt65146b2d now verified, preserving all prior blobs with lease/no force. Future candidate own capture/readback/fresh restore remains mandatory. 30October initial212completion captureb97f02c9/36fresh-restored members4170533bytes and local65440runtime25416655/166members435526bytes now fully read back/restored, preserving254then257prior non-index blobs. Implementation own changed-head hosted/final retention remains pending."
+      "next_or_limit": "Issue189 CLOSED bounded migration. Continuing additive/latest-main expected-head no-force retention/readback/restore. Final PR212 own-head capture2a0a5fce/receipt76ea73b2 verified47members4402661bytes, zero executed; prior unrelated blobs preserved. Original partial captures immutable. Phase-based incremental completed evidence capture now required; independent backup/automatic archival remains open."
     },
     {
       "id": "AR-01",
       "state": "open_residual",
       "owner": "security/release owner",
-      "next_or_limit": "Approved security updates complete offline; dated PR207own BOTH-native summaries0reachable/5imported-not-called/1module-only supersede older3imported snapshots. All residual dispositions remain OPEN; reevaluate after integration/before readiness/release without unrelated pin/gate changes. PR210own dated28October BOTH-native independently records0/5/1; residuals OPEN, no fresh29October advisory scan or pin change."
+      "next_or_limit": "PR212 own dated30October BOTH native reachable gates passed,5imported-package/1module observations remain OPEN. No freshDB/whole-security guarantee or pin/gate update. Reevaluate after integration/before readiness/release."
     },
     {
       "id": "AR-02",
@@ -678,13 +678,13 @@
       "id": "PROCESS-EVIDENCE",
       "state": "open_proposal",
       "owner": "development owner",
-      "next_or_limit": "Issue189bounded migration resolved. PR204archive41e2d576/receiptd2061659 fully read back and44members/6558197bytes freshly restored equal originals. Each new candidate needs own exact-head QA/capture/readback/restore on latest private main; resumable automation remains proposal."
+      "next_or_limit": "Bounded migration resolved. Material30October handover adds phase-based incremental completed evidence/readback/fresh restore conditions. Automatic resumable capture remains an open design, not deployed; independent backup/DC006 not closed. Final b0 capture2a0a5fce/receipt76ea73b2 retained."
     },
     {
       "id": "PROCESS-STATE",
       "state": "open_proposal",
       "owner": "development owner",
-      "next_or_limit": "PROJECT_PROGRESS dashboard/mandatory SOP verified offline in PR204 final index with own full native/source QA/private44member restore. Machine-readable semantic consistency controls remain an open proposal;49obligations/44legacy IDs preserved."
+      "next_or_limit": "Material30October handover proposal adds concise current entrypoints, structured RECOVERY_STATE and local consistency checker, plus enhanced next-three-material-slice/source-backed reconciliation and published-only restart walkthrough. Own proposal checks recorded in live successor PR, no inherited b0QA. Semantic correctness, remote monitoring and automation remain open;49obligations/44legacy IDs conserved."
     },
     {
       "id": "PROCESS-TIMING",
@@ -774,7 +774,7 @@
       "id": "OFFLINE-10",
       "state": "implementation_in_progress",
       "owner": "development owner",
-      "next_or_limit": "30October recovery: initial089own11hosted logs/622-617controls/301fresh current-AST witnesses perhost/source23-315-909865/gates/native stamps/211rollback-089forward verify; private completionb97f02c9/receipt retained. Exact65440fresh82events/22strict controls/full race/developer preflight/readonly verify/source rollback-forward pass. All134fresh30October childstreams durably retained at25416655(two captures/166members435526bytes), full remote readback/fresh restore; lost original streams remain unavailable. This material recovery descendant requires OWN full native/source QA/rollback/private final capture/readback/restore; no inherited green/component/task10closure. Then cumulative retained-copy/time and exact coordinator API/consumer contracts before production/11\u201315. See RECOVERY_VALIDATION_20261030.md."
+      "next_or_limit": "History component verified offline at PR212/b0bddc82 with own quality41091179200/source41091179157,11complete logs/original622-617controls/301freshASTwitnesses each/82events22strictcontrols each/source23-315-909865. Final47member4402661byte capture2a0a5fce/receipt76ea73b2 fully read back/fresh restored; original134streams unavailable, dated replacements in25416655. Coordinator/task10 remains unfinished: next cumulative retained-copy/time accounting and exact request/result contracts/independent consumers before production;11-15not started. Separate handover/process proposal needs own checks; no inherited QA."
     },
     {
       "id": "OFFLINE-11",

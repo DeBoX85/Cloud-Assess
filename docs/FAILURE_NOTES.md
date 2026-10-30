@@ -1,3 +1,12 @@
+## 30 October 2026: recovery loss, stale authority and prevention
+
+Observed workspace rollback removed task-owned local trees and134original child streams before durable capture. Published product65440 survived; infrastructure root cause is unknown. Do not infer causation from a preceding status request. Preparation089green did not certify65440implementation. Final b0 now owns its full native/source proof and privately verified47member final capture/receipt76ea73b2. Fresh30October134replacement streams remain separately attributed, never recovered originals.
+
+Repeated status narratives plus best-effort timed checkpoints were insufficient. Prevention now uses concise current entrypoints, explicit structured revision roles, source-backed claim reconciliation and extra next-three-slice checks, durable completed-evidence batches before dependent work, operation inspection before retry and published-only restart walkthroughs. Existing guards/full gates remain unchanged; the additional structural check cannot certify semantics or remote state. Independent backup/automatic capture remain open designs, not installed protections. See HANDOVER_PROCESS_REVIEW_20261030.md.
+
+Preserved recovery failures: cold module provisioning expanded19checksum lines, caught and restored before tests; ledger blank EOF rejected before publication; reviewer v1 mishandled configured failure-only upload, v2 mishandled Windows path separators, v3 passed after evidence-based parser correction. No product gate/pin/frozen expectation weakened. The first new local orientation check correctly rejected the evidence-duty link beyond the existing6000byte entrypoint window in CURRENT_STATE. Moved that duty into the compact opening; the unchanged existing guard and new check must both pass. The initial failure stays in this handover's private evidence record.
+
+
 ## Verified WIP recovery after workspace rollback, 29 October 2026
 
 DC-CI-EVIDENCE-20261022 https://github.com/DeBoX85/Cloud-Assess/issues/189 remains CLOSED bounded migration; ongoing retention/revisit duties remain. Initial PR212 is still089f980; explicit unprotected PRODUCT WIP `dev/run-history-admission-wip-20261029` is65440d03182d21f7916b5682c544c67fa27ba379/tree3a848b245257db0259ea9000a1da861c907d1d81, sole parent089f980. All21files/both Denis identities were fully read back before interruption. Fresh PRODUCT clone matches that exact remote tree and is clean; no missing producer reconstruction or source/consumer/pin change needed. Verify LIVE PR/head/body/successors before changes.

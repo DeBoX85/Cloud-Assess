@@ -29,5 +29,13 @@
   ],
   "verification_limit": "Bounded migration resolved after PR196ownQA, full readback/fresh restore and source-record reconciliation. Retention/revisit duties continue; no automatic future archival or independent-backup closure.",
   "authorization": "Denis explicitly requested using his dedicated private SC-storage repository for CI evidence and organization suitable for other persistent categories.",
-  "pending": []
+  "pending": [],
+  "latest_verified_capture": {
+    "candidate": "b0bddc8298cb7a107a0a8349ff8a19b072a62971",
+    "capture_commit": "2a0a5fce1dfddccef33e53f1c25dea94840f45b5",
+    "receipt_commit": "76ea73b20c714251a1b139b11203a9b6cf55bb86",
+    "members": 47,
+    "bytes": 4402661,
+    "limits": "exactb0 history component offline only; new handover proposal needs own checks; ongoing duties unchanged"
+  }
 }
