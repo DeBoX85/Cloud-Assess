@@ -1,0 +1,85 @@
+{
+  "scope": "local bounded Admission proof, not hosted whole-native acceptance",
+  "traces": {
+    "admission-controls-final-local.log": {
+      "bytes": 313105,
+      "sha256": "176bff130594621010843b308c5228ccceaa2f2236fc2c08ea2b42dd4b318475",
+      "proof": {
+        "frozen_scenarios": 76,
+        "terminal_schedules": 8,
+        "input_recipes": 4,
+        "output_recipes": 4,
+        "typed_single_faults": 15,
+        "strict_compiling_reversals": 13,
+        "classifier_negatives": [
+          "zero-exit",
+          "compiler",
+          "panic",
+          "wrong-test",
+          "wrong-marker",
+          "unframed",
+          "no-failure-event",
+          "timeout",
+          "infrastructure",
+          "race"
+        ],
+        "bootstrap_negatives": [
+          "changed-version",
+          "changed-pin-file",
+          "failed-verification",
+          "missing-module",
+          "duplicate-module",
+          "malformed-json",
+          "timeout"
+        ],
+        "source_sha256": {
+          "required_inventory.go": "f8523e689a30b15191d18fb6cd6a78f89a9d7808f508ef4f125f6a582045b952",
+          "required_evidence.go": "6ab465e445d932e3b5f2a30fea463a4fa3b9684d402483fe4e46884851a54ab7",
+          "required_evidence_input.go": "c08de7b8bc75da2bde61308eae9949082f89e01063a9fbe8a940bb6721c33507"
+        },
+        "source_restored_exact": true,
+        "restored_baseline_exit": 0,
+        "race": true,
+        "whole_native_acceptance": false
+      }
+    },
+    "build-controls-admission-final.log": {
+      "bytes": 132802,
+      "sha256": "673616d9583d2b4076c49414637d57d250e170d59da43c909a9c67d8080130c6",
+      "proof": {
+        "scope": "isolated explicit file-set, not whole native acceptance",
+        "frozen_build_scenarios": 76,
+        "build_terminal_schedules": 8,
+        "build_recipes": 6,
+        "compiling_assertion_reversals": 12,
+        "classifier_negative_controls": [
+          "zero-exit",
+          "compiler",
+          "panic",
+          "wrong-test",
+          "wrong-marker",
+          "unframed",
+          "no-failure-event",
+          "timeout",
+          "infrastructure",
+          "race"
+        ],
+        "bootstrap_negative_controls": [
+          "changed-version",
+          "changed-pin-file",
+          "failed-verification",
+          "missing-module",
+          "duplicate-module",
+          "malformed-json",
+          "timeout"
+        ],
+        "source_sha256": "f8523e689a30b15191d18fb6cd6a78f89a9d7808f508ef4f125f6a582045b952",
+        "source_restored_exact": true,
+        "restored_baseline_exit": 0,
+        "race": true,
+        "admission_implemented": true,
+        "healthy_whole_native_accepted": false
+      }
+    }
+  }
+}

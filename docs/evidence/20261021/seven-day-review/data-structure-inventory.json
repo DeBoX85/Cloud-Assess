@@ -1,0 +1,1188 @@
+{
+  "base": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+  "rows": [
+    {
+      "path": "cmd/cloud-assess/testdata/rules-reference.json",
+      "blob": "992b347802179b23bb611440e77d5be59d052f01",
+      "sha256": "77d7574232a32062d87dc32f6f9fc216f6f509921cc4d75621aa3a0c5279ed08",
+      "bytes": 129537,
+      "top_type": "list",
+      "top_keys": null,
+      "top_items": 380,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "cmd/cloud-assess/testdata/scanner-keys-reference.json",
+      "blob": "2719845c92c1098a4a22d4dc4fa6f390ec1198e5",
+      "sha256": "398fed601cae3785f660c5572edfdf58d631380cb9a02be14ed262bec567d861",
+      "bytes": 838,
+      "top_type": "list",
+      "top_keys": null,
+      "top_items": 87,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "examples/branding/example.json",
+      "blob": "9043c50ea35e7089fd1697eae62b322322b49d16",
+      "sha256": "10849ad5847aa57c4ee759bdc004e42f08351f49832948135eeed5739aa5f6a9",
+      "bytes": 227,
+      "top_type": "dict",
+      "top_keys": [
+        "schemaVersion",
+        "productName",
+        "cliName",
+        "reportTitle",
+        "reportFilePrefix",
+        "websiteURL"
+      ],
+      "top_items": 6,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/app/testdata/optional-stage-projections.json",
+      "blob": "074ee2a6918414bbb578ef945836fe6152e765fa",
+      "sha256": "6fc4fcd91d370907c7e9dc3617c45d8550a61d3929e2988ba8ad9e400b9089d9",
+      "bytes": 3722,
+      "top_type": "dict",
+      "top_keys": [
+        "policy",
+        "defender",
+        "defender-recommendations"
+      ],
+      "top_items": 3,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/aigov/testdata/deployments-input.json",
+      "blob": "2e071f26e617982d775d8a1bd3b508de7c53d24b",
+      "sha256": "ac24ff2a680f1505f861e6768f6989415c3f026b543e3376897657d6c6b9ec7c",
+      "bytes": 198,
+      "top_type": "dict",
+      "top_keys": [
+        "value"
+      ],
+      "top_items": 1,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/aigov/testdata/metrics-input.json",
+      "blob": "b6c7407eb3364d385f42d39d291d6c3da4201152",
+      "sha256": "b666207abd55744a1e8ac74d5ff4c1a49ce3005f845d7f97614781cac0bb1d48",
+      "bytes": 1269,
+      "top_type": "dict",
+      "top_keys": [
+        "values"
+      ],
+      "top_items": 1,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/aigov/testdata/source-all.json",
+      "blob": "b018113ea8d9452659751c66fb1e6a5ba17f8a36",
+      "sha256": "d23f7beca04f4c8479c081b2b6103615875eb3e30277a4bc8beb8ec363681d22",
+      "bytes": 3344,
+      "top_type": "list",
+      "top_keys": null,
+      "top_items": 1,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/aigov/testdata/source-deployment-denied.json",
+      "blob": "a93a7f65d04110b9df491125a088a3a43b04a28f",
+      "sha256": "728d371bf3c81f5fb5887b91c3adb23171d36e637167a9fdcde59be49738e551",
+      "bytes": 3293,
+      "top_type": "list",
+      "top_keys": null,
+      "top_items": 1,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/aigov/testdata/source-empty.json",
+      "blob": "49196550c01e0dd866d9d73919bb165185bfec1f",
+      "sha256": "b8028ac622173c209adab0495eff64b46d2921781358ca25be56b723c958ab3f",
+      "bytes": 1694,
+      "top_type": "list",
+      "top_keys": null,
+      "top_items": 1,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/aigov/testdata/source-unknown-include-tag.json",
+      "blob": "49196550c01e0dd866d9d73919bb165185bfec1f",
+      "sha256": "b8028ac622173c209adab0495eff64b46d2921781358ca25be56b723c958ab3f",
+      "bytes": 1694,
+      "top_type": "list",
+      "top_keys": null,
+      "top_items": 1,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/carbon/testdata/source-all.json",
+      "blob": "4a15cc42ae1b2a3feea8bc076ee7c3b9ec506df7",
+      "sha256": "bb14c9143d7590f431e629c67ca20fd2e47bd7d153472d41d8583ecd14f7391d",
+      "bytes": 1549,
+      "top_type": "list",
+      "top_keys": null,
+      "top_items": 1,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/carbon/testdata/source-batched.json",
+      "blob": "00c4f21c40937d67226fa1871ebf4f1fa1f023a1",
+      "sha256": "6966a5a96ec9b02974c6d6abc847732a041a22d0c8ce419b68d8afb2c87be3f8",
+      "bytes": 1550,
+      "top_type": "list",
+      "top_keys": null,
+      "top_items": 1,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/carbon/testdata/source-calculations.json",
+      "blob": "5464439fd1deeaabbf9bdc5434c0dab311847e89",
+      "sha256": "0c9795aa4d6f063bfc8d9e3d3519a8be059c7e43a7a6b211a3c8b2a365fdb872",
+      "bytes": 1428,
+      "top_type": "list",
+      "top_keys": null,
+      "top_items": 6,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/carbon/testdata/source-denied.json",
+      "blob": "5f2649fa1110a4206e1c0b7aa8db6464b0c99e7d",
+      "sha256": "0152b1ec8081a786e4fbaa7673820a486ffbec411d7057c4cd5c2a4e5724f32f",
+      "bytes": 1179,
+      "top_type": "list",
+      "top_keys": null,
+      "top_items": 1,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/carbon/testdata/source-empty.json",
+      "blob": "5f2649fa1110a4206e1c0b7aa8db6464b0c99e7d",
+      "sha256": "0152b1ec8081a786e4fbaa7673820a486ffbec411d7057c4cd5c2a4e5724f32f",
+      "bytes": 1179,
+      "top_type": "list",
+      "top_keys": null,
+      "top_items": 1,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/carbon/testdata/source-filtered.json",
+      "blob": "ed56b94a9d0a199b95def82693830f33ef998f64",
+      "sha256": "ba2dc5a0b4c9bdf35eed8997fa5789fc05b78cdb89b6865da4ca6d0e7efa4d07",
+      "bytes": 1373,
+      "top_type": "list",
+      "top_keys": null,
+      "top_items": 1,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/region/data/latency.json",
+      "blob": "363e872a014e0a4f92b5e43ecc9ee6cad3962bc3",
+      "sha256": "45e575040812ee74e006be34623cb253df24e6558f07727cefcef7e55e13326b",
+      "bytes": 61304,
+      "top_type": "dict",
+      "top_keys": [
+        "source_blob",
+        "matrix",
+        "clusters"
+      ],
+      "top_items": 3,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/region/testdata/cognitive-primary-2024-10-01-GetSkus.json",
+      "blob": "57c0132a67d4958fb40cf20914537b034a10f39f",
+      "sha256": "1c859ac36d080942f817958db9085603cc00b3ce42bbbab5d7a236cf53fc33d6",
+      "bytes": 55486,
+      "top_type": "dict",
+      "top_keys": [
+        "parameters",
+        "responses"
+      ],
+      "top_items": 2,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/region/testdata/cognitive-primary-2024-10-01-schema.json",
+      "blob": "f0919ebcbf91755f10591b931bd80138df13f547",
+      "sha256": "e6efa93f54d62b025c4afe953b7491ea9c50f497646a6b2545f87e82d03c306a",
+      "bytes": 239116,
+      "top_type": "dict",
+      "top_keys": [
+        "swagger",
+        "info",
+        "host",
+        "schemes",
+        "consumes",
+        "produces",
+        "securityDefinitions",
+        "paths",
+        "definitions",
+        "parameters"
+      ],
+      "top_items": 10,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/region/testdata/cognitive-sku-target-contract-v1.json",
+      "blob": "a2ba57bafdeb30bbd93cf3f411e571b0856816e1",
+      "sha256": "c12604b2a6ac8b7fed6eb7c66397cf181bba8c0505b512bd5e844972f6aaa81b",
+      "bytes": 268084,
+      "top_type": "dict",
+      "top_keys": [
+        "format",
+        "purpose",
+        "base_revision",
+        "primary_files",
+        "limitation",
+        "scoring_invariant",
+        "cases"
+      ],
+      "top_items": 7,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/region/testdata/compute-primary-2021-07-01-ListAvailableResourceSkus.json",
+      "blob": "9d403f67699adfedf2714ada315ba5215f793c81",
+      "sha256": "e4cbaed858756360cf8649e5d6c09006600c8df3ff0665b1bea8f0e02e6da314",
+      "bytes": 4949,
+      "top_type": "dict",
+      "top_keys": [
+        "parameters",
+        "responses",
+        "operationId",
+        "title"
+      ],
+      "top_items": 4,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/region/testdata/compute-primary-2021-07-01-ListAvailableResourceSkusForARegion.json",
+      "blob": "def2413e26e98f88fdbc46448b1b1511fbdf4fb6",
+      "sha256": "11fa69a6a6a3d062f32f780fb86a0ec6153433a05188d198c4216e2f3e69c083",
+      "bytes": 5013,
+      "top_type": "dict",
+      "top_keys": [
+        "parameters",
+        "responses",
+        "operationId",
+        "title"
+      ],
+      "top_items": 4,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/region/testdata/compute-primary-2021-07-01-ListAvailableResourceSkusWithExtendedLocations.json",
+      "blob": "f1c254f72d650831db106561306a1e102a718a02",
+      "sha256": "fe0dd2a9f44d64b4d2b9c7828a4c945d0827ed6f181b478d32e389635e43ed26",
+      "bytes": 5277,
+      "top_type": "dict",
+      "top_keys": [
+        "parameters",
+        "responses",
+        "operationId",
+        "title"
+      ],
+      "top_items": 4,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/region/testdata/compute-primary-2021-07-01-skus.json",
+      "blob": "b85286923a6382356ab773d90faac382e73740ec",
+      "sha256": "81f9bb91b33be77111ef82ffa1549c633cf0b50edb6907ba2ca9e4d9f484fe59",
+      "bytes": 14114,
+      "top_type": "dict",
+      "top_keys": [
+        "swagger",
+        "info",
+        "schemes",
+        "host",
+        "produces",
+        "consumes",
+        "security",
+        "securityDefinitions",
+        "tags",
+        "paths",
+        "definitions",
+        "parameters"
+      ],
+      "top_items": 12,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/region/testdata/compute-vm-target-contract-v1.json",
+      "blob": "1dccacd2651ea1486adc38be68c545266dbcde08",
+      "sha256": "ac5eb22cb4582959afe6f9ccaf43a9aaba908231019a7b85b4e257c599292c34",
+      "bytes": 77125,
+      "top_type": "dict",
+      "top_keys": [
+        "schema_version",
+        "status",
+        "selected_subscriptions",
+        "literal_first_url_eastus",
+        "primary_files",
+        "cases"
+      ],
+      "top_items": 6,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/region/testdata/meter-history-budget-proof-v1.json",
+      "blob": "22508e1fe53c1cf9e630e841e6b56c4d10e67d99",
+      "sha256": "b690edc8d4951d8ad80afc12edfb8483b2f09e92001711165c2133a6e78fce9b",
+      "bytes": 675,
+      "top_type": "dict",
+      "top_keys": [
+        "rawWork",
+        "depth",
+        "rows",
+        "wire",
+        "totalWire",
+        "scope"
+      ],
+      "top_items": 6,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/region/testdata/meter-history-contract-v1.json",
+      "blob": "0edb2d0e59261aa7fc1df3415103e39ed4b4af66",
+      "sha256": "fc87a540dc0893ad44b1b54f1397973aa0d0de9db212f806f691e17fe521ebc8",
+      "bytes": 70949,
+      "top_type": "dict",
+      "top_keys": [
+        "format",
+        "requestBody",
+        "queryCases",
+        "collectorCases"
+      ],
+      "top_items": 4,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/region/testdata/retail-pricing-contract-v1.json",
+      "blob": "973d76f543434dd3f6bdbe83eda9da72b3dfedd6",
+      "sha256": "73b9005094216e579156459a77a4ee9d0cfa18c46182d0adcfb7fbafe0b36d3a",
+      "bytes": 92775,
+      "top_type": "dict",
+      "top_keys": [
+        "format",
+        "frozen_before_production",
+        "cases"
+      ],
+      "top_items": 3,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/region/testdata/source-aux-inputs.json",
+      "blob": "0eb15c3eee36d5bd402a988e46aa4ec9962a1970",
+      "sha256": "f9695cfa0bd662b2dbc52addb68a9208b57be1e60dabe31c99cb5651d2962c28",
+      "bytes": 8331,
+      "top_type": "dict",
+      "top_keys": [
+        "comparisons",
+        "inventory",
+        "pricing",
+        "quotas",
+        "reservations",
+        "resources"
+      ],
+      "top_items": 6,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/region/testdata/source-aux-outputs.json",
+      "blob": "7fbdf1bfa4e8656441a1c300bcfb936e0954067c",
+      "sha256": "efe06093eddece6b54617c806bdb74727aed5228a5a96f7300068b22bd77bc06",
+      "bytes": 9461,
+      "top_type": "dict",
+      "top_keys": [
+        "cost-full",
+        "cost-nil",
+        "cost-no-meters",
+        "cost-no-prices",
+        "inventory-empty",
+        "inventory-masked",
+        "inventory-raw",
+        "quota-empty",
+        "quota-full",
+        "reservations-empty",
+        "reservations-full",
+        "service-full",
+        "service-nil-inventory",
+        "service-no-results"
+      ],
+      "top_items": 14,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/region/testdata/source-availability-inputs.json",
+      "blob": "661bf5de672c6f3ddeda1783d4b4d75496f5eb47",
+      "sha256": "32345bea44a162a1518f9022c93dba3cf5640980c94fb1d3734e172b780cc245",
+      "bytes": 14644,
+      "top_type": "dict",
+      "top_keys": [
+        "cases",
+        "sku_error",
+        "sku_response"
+      ],
+      "top_items": 3,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/region/testdata/source-availability-outputs.json",
+      "blob": "d23e678ca8ecfac76841ef9370846f7d13eacd2e",
+      "sha256": "d3e8186fb80ffc9a47191228e5cad222636ffdfea1de3c837747bf896acbaef9",
+      "bytes": 10728,
+      "top_type": "dict",
+      "top_keys": [
+        "cases",
+        "provider_calls",
+        "provider_lookup"
+      ],
+      "top_items": 3,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/region/testdata/source-compute-sku-inputs.json",
+      "blob": "bf4e214a4493bfa6b612dd5181ae47db4ef4a598",
+      "sha256": "75a69648317d4f53615107172255b30853b77b6f2185f421bcc6eb01e1c7ba12",
+      "bytes": 56827,
+      "top_type": "dict",
+      "top_keys": [
+        "Blobs",
+        "Cases",
+        "Registry",
+        "CachePages",
+        "RetryPages",
+        "CacheCalls",
+        "ZonePages",
+        "ConcurrentSeam",
+        "Seam"
+      ],
+      "top_items": 9,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/region/testdata/source-compute-sku-outputs.json",
+      "blob": "13f3492599bc3716cdf9abeca112f03d77ba89a7",
+      "sha256": "c443a81278f9bd82d52096232ae81adab48443d08b0a52029130642398631f00",
+      "bytes": 81019,
+      "top_type": "dict",
+      "top_keys": [
+        "Cases",
+        "Registry",
+        "DuplicateRegistrationPanics",
+        "Cache",
+        "Retry",
+        "ZoneBefore",
+        "ZoneAfter",
+        "ConcurrentSameKey",
+        "ConcurrentSeparateKeys"
+      ],
+      "top_items": 9,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/region/testdata/source-cost-enrichment-inputs.json",
+      "blob": "f629df479d264ef91fb4281755c124e0056e3932",
+      "sha256": "112a462e1bb2090afb39322684264189a8d1977b7c7cab938c8b217535ed670d",
+      "bytes": 46496,
+      "top_type": "dict",
+      "top_keys": [
+        "source_blob",
+        "types_blob",
+        "cases"
+      ],
+      "top_items": 3,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/region/testdata/source-cost-enrichment-outputs.json",
+      "blob": "5e6368d2e4f0544184a48fe0713a42e97588174d",
+      "sha256": "0ae38cf25c54462e3b7314c4f74c31a5bbe0cfac6d22af72554198ffeb447526",
+      "bytes": 24534,
+      "top_type": "dict",
+      "top_keys": [
+        "both-free",
+        "display-names",
+        "duplicate-last-nine",
+        "duplicate-last-one",
+        "empty-meters",
+        "empty-pricing",
+        "empty-results",
+        "equal-prices",
+        "exact-threshold",
+        "free-target",
+        "logical-source",
+        "logical-target",
+        "missing-source",
+        "missing-target",
+        "near-zero-both",
+        "near-zero-source",
+        "negative-prices",
+        "negative-weight",
+        "nil-shared",
+        "nil-without-prior",
+        "owned-only",
+        "same-region",
+        "unbound-subscription",
+        "unowned-only",
+        "weighted",
+        "zero-weight"
+      ],
+      "top_items": 26,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/region/testdata/source-inputs.json",
+      "blob": "4f1d725b7ec1eb6776af26ea0b7b11ddfb39ce27",
+      "sha256": "121d891edf09aaffc53db7bf6063021250b9d7af0e2277e1b89fafecee1050a6",
+      "bytes": 38521,
+      "top_type": "list",
+      "top_keys": null,
+      "top_items": 42,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/region/testdata/source-inventory-inputs.json",
+      "blob": "660b1dbf7f182179706247a233066e25791596ba",
+      "sha256": "cdaa6b25e3250e6d701999279f96d5ea225c927e1249ee43c32cfe0b5072b17c",
+      "bytes": 5663,
+      "top_type": "dict",
+      "top_keys": [
+        "regions",
+        "resources",
+        "selectors"
+      ],
+      "top_items": 3,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/region/testdata/source-inventory-outputs.json",
+      "blob": "67a78477a13f979278be4723892a300a82242dea",
+      "sha256": "756647e2981f8cd0ac4f0d5091ba6b4a74345ad6266de1bc15f8c833afeb2006",
+      "bytes": 9984,
+      "top_type": "dict",
+      "top_keys": [
+        "build-empty",
+        "build-nil",
+        "build-nil-resource-panics",
+        "build-selected-0",
+        "build-selected-1",
+        "build-selected-2",
+        "build-selected-3",
+        "build-selected-4",
+        "merge-empty",
+        "merge-nil-source-panics",
+        "merge-repeated",
+        "merge-selected",
+        "normalization"
+      ],
+      "top_items": 13,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/region/testdata/source-latency-data.json",
+      "blob": "363e872a014e0a4f92b5e43ecc9ee6cad3962bc3",
+      "sha256": "45e575040812ee74e006be34623cb253df24e6558f07727cefcef7e55e13326b",
+      "bytes": 61304,
+      "top_type": "dict",
+      "top_keys": [
+        "source_blob",
+        "matrix",
+        "clusters"
+      ],
+      "top_items": 3,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/region/testdata/source-latency-inputs.json",
+      "blob": "77d8bafebc9dbf210d481b287ed0e6ebdd170da1",
+      "sha256": "1651ac72d681e39dbf43429ba8c44a9bd4d18f5e0cb801db0af580fa4677a6b7",
+      "bytes": 91626,
+      "top_type": "dict",
+      "top_keys": [
+        "default",
+        "empty",
+        "empty-results",
+        "negative",
+        "one-way-cluster",
+        "synthetic",
+        "zero"
+      ],
+      "top_items": 7,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/region/testdata/source-latency-outputs.json",
+      "blob": "946868f074f4717c2422fa0144fc7fc75a78c91f",
+      "sha256": "791c85899fcfa2598ac8de3860194126b232ecd7134f30558219e7bb827f1a5e",
+      "bytes": 27998,
+      "top_type": "dict",
+      "top_keys": [
+        "default",
+        "empty",
+        "empty-results",
+        "negative",
+        "one-way-cluster",
+        "synthetic",
+        "zero"
+      ],
+      "top_items": 7,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/region/testdata/source-other-sku-inputs.json",
+      "blob": "07e5783b172a5871071d9cc55ff0224c6f807e0b",
+      "sha256": "81ffb15038ec13e007051e79c43076a474b8a671ab4e6808cddb8d24adba3a74",
+      "bytes": 111334,
+      "top_type": "dict",
+      "top_keys": [
+        "Blobs",
+        "Cases",
+        "CacheCalls",
+        "CachePages",
+        "Seam"
+      ],
+      "top_items": 5,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/region/testdata/source-other-sku-outputs.json",
+      "blob": "c49f80c973603b28965f70f3b93bd9ea20956452",
+      "sha256": "c7721666656cf97775f849da9212c3f2f7f92c988184aa41e22a59538a63c5a3",
+      "bytes": 132253,
+      "top_type": "dict",
+      "top_keys": [
+        "Cases",
+        "Cache"
+      ],
+      "top_items": 2,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/region/testdata/source-primary.json",
+      "blob": "ea5a30eae95518e06569b3bf466f4328b0d1193a",
+      "sha256": "8ce00e410df46af95630c2240dcfafab7760fd341316e3668c27e55018d8d985",
+      "bytes": 133255,
+      "top_type": "list",
+      "top_keys": null,
+      "top_items": 42,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/region/testdata/source-provider-locations-inputs.json",
+      "blob": "3c9eb938921ea14f95d772b84a13c446b0da6bd1",
+      "sha256": "aba5e5eb67a149bdd5f297518688fc8cf8b0c8daa89d48238f1c0bbd5175c910",
+      "bytes": 18091,
+      "top_type": "dict",
+      "top_keys": [
+        "SourceBlob",
+        "TypesBlob",
+        "OptionsBlob",
+        "CloudBlob",
+        "SDKModule",
+        "AzcoreModule",
+        "SDKProvidersBlob",
+        "SDKDefaultTransportBlob",
+        "ExecutionMode",
+        "TLSVerificationEnabled",
+        "DirectSDKDisableRPRegistration",
+        "DirectSDKMaxRetries",
+        "PublicSDKRequests",
+        "Cases"
+      ],
+      "top_items": 14,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/region/testdata/source-provider-locations-outputs.json",
+      "blob": "007a88c6b9ef2cc28c63aebf722a4693808fd97b",
+      "sha256": "39a534faaa08070ca42d2a30d5f071f13796d48b372364a872077357beb92500",
+      "bytes": 83058,
+      "top_type": "dict",
+      "top_keys": [
+        "basic",
+        "cancelled",
+        "case-field-alias",
+        "cycle-stopped",
+        "duplicate-field",
+        "duplicate-to-empty",
+        "duplicate-type",
+        "empty",
+        "empty-locations",
+        "empty-namespace",
+        "empty-resource-types",
+        "empty-type",
+        "global",
+        "http400",
+        "http403",
+        "http404",
+        "http405",
+        "key-whitespace",
+        "later-cancelled",
+        "later-http400",
+        "later-http403",
+        "later-http404",
+        "later-http405",
+        "later-malformed",
+        "location-whitespace",
+        "malformed",
+        "malformed-next",
+        "missing-locations",
+        "missing-namespace",
+        "missing-resource-types",
+        "missing-type",
+        "missing-value",
+        "nested-type",
+        "normalization",
+        "null-envelope",
+        "null-location",
+        "null-locations",
+        "null-namespace",
+        "null-provider",
+        "null-resource-types",
+        "null-type",
+        "null-value",
+        "paged",
+        "paged-overwrite",
+        "relative-next",
+        "unicode-namespace",
+        "wrong-locations",
+        "wrong-value"
+      ],
+      "top_items": 48,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/region/testdata/source-quota-inputs.json",
+      "blob": "f4e8cd4ba70dcef555cc6441325e5eda23bde58c",
+      "sha256": "804a2e6f24536be69b290be9f9d7bfc0015646ee0fc99132bcc646893150918c",
+      "bytes": 8922,
+      "top_type": "dict",
+      "top_keys": [
+        "Blobs",
+        "Cases"
+      ],
+      "top_items": 2,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/region/testdata/source-quota-outputs.json",
+      "blob": "06ff99b184458bff46f02d9a1df5e01585baf9e3",
+      "sha256": "0796a14301763d7a67c9d47fef0d8827b10aca8844932ee047eddd71dff1d0ed",
+      "bytes": 11100,
+      "top_type": "dict",
+      "top_keys": [
+        "arithmetic",
+        "cancelled",
+        "empty",
+        "http400",
+        "http403",
+        "http404",
+        "http405",
+        "invalid-name",
+        "later-http400",
+        "later-http403",
+        "later-http404",
+        "later-http405",
+        "later-malformed",
+        "malformed",
+        "names",
+        "network-filter",
+        "paged",
+        "sql-filter",
+        "storage-filter",
+        "web-filter"
+      ],
+      "top_items": 20,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/region/testdata/source-reservation-inputs.json",
+      "blob": "8240a99b52515a955cd174b49188d6e55723b716",
+      "sha256": "3e8e9870bb4a4d4a91490ac400dccfc28e7070ca4b8a2d22434176d1c61b3c09",
+      "bytes": 47327,
+      "top_type": "dict",
+      "top_keys": [
+        "SourceBlob",
+        "SDKModule",
+        "DisableRPRegistration",
+        "MaxRetries",
+        "Cases"
+      ],
+      "top_items": 5,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/region/testdata/source-reservation-outputs.json",
+      "blob": "6d3aa17eb688be5fff8a0c910080795c0b27024e",
+      "sha256": "4393a4ae45d0b5bacd116aa48bc44ed5698a4cde5b991b2e6e6ab6429974c2d5",
+      "bytes": 31727,
+      "top_type": "dict",
+      "top_keys": [
+        "at",
+        "available",
+        "cancel-get",
+        "cancel-list",
+        "cancelled",
+        "empty",
+        "get-http403",
+        "get-http404",
+        "get-malformed",
+        "group-http403",
+        "group-http404",
+        "group-malformed",
+        "group-paged",
+        "identity-conflict",
+        "idle",
+        "later-group-http403",
+        "later-group-malformed",
+        "later-list-http403",
+        "later-list-malformed",
+        "list-http403",
+        "list-http404",
+        "list-malformed",
+        "list-paged",
+        "malformed-group-id",
+        "missing-capacity",
+        "missing-get-fields",
+        "missing-group-location",
+        "missing-utilization",
+        "negative",
+        "null-group",
+        "null-summary",
+        "over",
+        "skipped-groups",
+        "skipped-summary",
+        "zero"
+      ],
+      "top_items": 35,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/region/testdata/source-vm-quota-inputs.json",
+      "blob": "9d593a0ac1fcca636a2b2c597fe52fbf87d275d6",
+      "sha256": "5b5319746110e4e86cc6753ec5b20a3306d6290d03b0e829682d2511324d3a1c",
+      "bytes": 7730,
+      "top_type": "dict",
+      "top_keys": [
+        "SourceBlob",
+        "SDKModule",
+        "DisableRPRegistration",
+        "MaxRetries",
+        "Cases"
+      ],
+      "top_items": 5,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/region/testdata/source-vm-quota-outputs.json",
+      "blob": "7c810647dfee30cd9028219efc67fc348934bd0f",
+      "sha256": "b6311db11c7a62c74818ef694c2991cd1ab46d3a8c0bf1337ed5fcd7cb480c32",
+      "bytes": 9708,
+      "top_type": "dict",
+      "top_keys": [
+        "arithmetic",
+        "cancelled",
+        "empty",
+        "http400",
+        "http403",
+        "http404",
+        "http405",
+        "later-http400",
+        "later-http403",
+        "later-http404",
+        "later-http405",
+        "later-malformed",
+        "localized",
+        "malformed",
+        "missing-current",
+        "missing-skipped",
+        "null-item",
+        "paged",
+        "selection"
+      ],
+      "top_items": 19,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/region/testdata/sql-database-capability-contract-v1.json",
+      "blob": "12741571d334532a52491f0e9c4e417c1d6e32fd",
+      "sha256": "67b664515b0407d57a037d401bd830662db49b4b177c2a67140701a34587a5fd",
+      "bytes": 362752,
+      "top_type": "dict",
+      "top_keys": [
+        "format",
+        "purpose",
+        "base_revision",
+        "resource_type",
+        "primary_files",
+        "limitation",
+        "scoring_invariant",
+        "cases"
+      ],
+      "top_items": 8,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/region/testdata/sql-managed-instance-capability-contract-v1.json",
+      "blob": "783656e15509b32d317a1ee7353a781494637733",
+      "sha256": "4035965123c5c72c93c099c7accd6c7be8d2d5a84a7041a8359f0ec1ecd720a7",
+      "bytes": 399973,
+      "top_type": "dict",
+      "top_keys": [
+        "format",
+        "purpose",
+        "base_revision",
+        "resource_type",
+        "primary_files",
+        "limitation",
+        "scoring_invariant",
+        "cases"
+      ],
+      "top_items": 8,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/region/testdata/sql-primary-2021-11-01-common.json",
+      "blob": "f7decac418742c0cd8fb0c6b44d1330a5b6cb46d",
+      "sha256": "709781a78cdfb4ac27edcd4bdc7709e4667b3e33eaf4f91ae1d2c21a42b9a1c3",
+      "bytes": 5904,
+      "top_type": "dict",
+      "top_keys": [
+        "swagger",
+        "info",
+        "paths",
+        "definitions",
+        "parameters"
+      ],
+      "top_items": 5,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/region/testdata/sql-primary-2021-11-01-example.json",
+      "blob": "9815b0a083dd402d2b7b17e29bb9b09df392dfce",
+      "sha256": "f4b992d87b9e6e8bae6a7693092b4028dfa60bc7a79f132a8b658acebc9b57dd",
+      "bytes": 119773,
+      "top_type": "dict",
+      "top_keys": [
+        "parameters",
+        "responses"
+      ],
+      "top_items": 2,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/region/testdata/sql-primary-2021-11-01-schema.json",
+      "blob": "d6c7b7fb88fa594932ba62c5523c343ab85108dd",
+      "sha256": "8246593e56c6d2708186a3603f9d92ee64ef2cc292931c7db09753471e506040",
+      "bytes": 38062,
+      "top_type": "dict",
+      "top_keys": [
+        "swagger",
+        "info",
+        "host",
+        "schemes",
+        "consumes",
+        "produces",
+        "paths",
+        "definitions",
+        "parameters",
+        "securityDefinitions"
+      ],
+      "top_items": 10,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/region/testdata/storage-primary-2023-01-01-SKUList.json",
+      "blob": "ea659d8e4c2408b470a31fe1152e3d40c675af43",
+      "sha256": "aceb9c06f233a6db9b4adb726e8f7951037531887dd28c949a24dee5b354830e",
+      "bytes": 180419,
+      "top_type": "dict",
+      "top_keys": [
+        "parameters",
+        "responses"
+      ],
+      "top_items": 2,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/region/testdata/storage-target-contract-v1.json",
+      "blob": "11e7cfefa657a22d9f1bb933106ce5d0ed1c31ef",
+      "sha256": "0231aab4d2d73e15147e77eefa62aa854283de1e49e49614e67df42c097391cc",
+      "bytes": 70125,
+      "top_type": "dict",
+      "top_keys": [
+        "contract_version",
+        "status",
+        "selected_subscriptions",
+        "primary",
+        "cases"
+      ],
+      "top_items": 5,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/region/testdata/vmss-catalog-target-contract-v1.json",
+      "blob": "a53e23a194669f537cf3fb9b8a6fe032f3735e9a",
+      "sha256": "e09f3814ebc647265ea2aa7e8614e855ee24a96e4eefd4fa4897d7d739e881c0",
+      "bytes": 93385,
+      "top_type": "dict",
+      "top_keys": [
+        "format",
+        "purpose",
+        "base_revision",
+        "catalog_source_resource_type",
+        "target_resource_type",
+        "limitation",
+        "scoring_invariant",
+        "cases"
+      ],
+      "top_items": 8,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/servicehealth/testdata/source-output.json",
+      "blob": "2b3f846ecada1657f18a267347f4146bfd362ebe",
+      "sha256": "b310fef3dd1eff03cf251e3e948fcebff275a25581966e48c609f0ee8b432549",
+      "bytes": 1702,
+      "top_type": "list",
+      "top_keys": null,
+      "top_items": 1,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/sqleol/testdata/source-empty.json",
+      "blob": "20f7fdf1a1c2c631d6162fe8de656a6846bc220e",
+      "sha256": "b2561841d95d8ecca57018c2f8d92bc7758c6c5046de0688de4984dc30e0e82f",
+      "bytes": 3515,
+      "top_type": "list",
+      "top_keys": null,
+      "top_items": 1,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/sqleol/testdata/source-filtered.json",
+      "blob": "73698041e621001011a08c62ace3f3e694e99498",
+      "sha256": "149a153b603fed8c41e0d37ba3dde2f8cd194915f962c97188a031e62a8c9622",
+      "bytes": 4283,
+      "top_type": "list",
+      "top_keys": null,
+      "top_items": 1,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/sqleol/testdata/source-input.json",
+      "blob": "cc6a0937194fa89f73d1681e8eae27d05cfc3c28",
+      "sha256": "2e82c9d3d106ab20236c95a76f0b7c1d692eba439e67b3107da99d15e83821f0",
+      "bytes": 2134,
+      "top_type": "list",
+      "top_keys": null,
+      "top_items": 2,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/sqleol/testdata/source-output.json",
+      "blob": "93adcc1de871cd99e9a2acef7f4c196009318164",
+      "sha256": "881d489015558566b780eb53173b9db55aae992dafee6092c3005dd33cf4078d",
+      "bytes": 4991,
+      "top_type": "list",
+      "top_keys": null,
+      "top_items": 1,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/plugins/zone/testdata/source-rows.json",
+      "blob": "f9812b012cbe5c704a85808a70ed802e5eac513a",
+      "sha256": "f75b14ea9012511ed976563984748a63d0bf8baa360c6135e936f3cbcf8aab42",
+      "bytes": 429,
+      "top_type": "list",
+      "top_keys": null,
+      "top_items": 2,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    },
+    {
+      "path": "internal/rules/testdata/yaml-source-conversion.json",
+      "blob": "9300ce7cdfe2042eff327ad115155b552b5d9993",
+      "sha256": "dbd0ba34d2aff68c8ff8dd28eb353e2906085fa43821bea24becd3188856772c",
+      "bytes": 937,
+      "top_type": "dict",
+      "top_keys": [
+        "Metadata",
+        "Recommendations"
+      ],
+      "top_items": 2,
+      "duplicate_object_names": [],
+      "review": "mechanically parsed complete raw file; structural inventory only, not manual full-read credit"
+    }
+  ]
+}

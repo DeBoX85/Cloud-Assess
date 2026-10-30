@@ -1,0 +1,42 @@
+{
+  "format": "cloud-assess-evidence-v1",
+  "classification": "reviewed-synthetic-ci-local",
+  "bundle_sha256": "c1aad0dd0a178bad0bed359a3c4e31f5c932f8aa47e4b42429e1547704e3531f",
+  "decoded_sha256": "f5ffde2b24c512ec4732f8e3f2231db6f1afc6d11ccf40eaffd0401bc4ff2247",
+  "members": [
+    {
+      "path": "audit-runs-initial.json",
+      "bytes": 3080283,
+      "sha256": "0d51e1218e2bad15f45ecbd7f901a235dd9c754c446a06579aed63453bfece69"
+    },
+    {
+      "path": "audit-pr-details.json",
+      "bytes": 1213909,
+      "sha256": "b5b5b7cafc46a84aa95e9b6ba61d6d0225837e306c419a96d863b201930a0818"
+    },
+    {
+      "path": "audit-jobs.json",
+      "bytes": 4963565,
+      "sha256": "12bf3a3c50cba84bc5e4744c33854df22ef346db93b53dfc8e2ce476e174551c"
+    },
+    {
+      "path": "audit-heads-initial.json",
+      "bytes": 54339,
+      "sha256": "7ebf67bca0bd68bdf2e5f12d24eb36fca85b066462c936490d5b5f19ea394821"
+    },
+    {
+      "path": "audit-log-inventory.json",
+      "bytes": 265207,
+      "sha256": "5a30b56c484b3f2dbd86d6343f30ac465cfcb63fb2635b3a31b52fe069f41d59"
+    },
+    {
+      "path": "code-inventory-initial.json",
+      "bytes": 180637,
+      "sha256": "554bbdfc320a26a7aa8ad1f8be817c9bf3b1226f5af7e7739aec51970a3f0e3d"
+    }
+  ],
+  "revisions": {
+    "product": "458d5c5296c321c8e5e961f18eb5422d43c2eb18",
+    "security": "566cc4d8b78d168e5216245a5a386f742a3a2f85"
+  }
+}

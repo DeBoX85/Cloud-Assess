@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/ee3c2680ffe8/retail-validation-20261020/scripts/tests/retail-controls.py", line 22, in <module>
+    assert result.returncode!=0,('reversal survived',m['name'],result.stdout)
+           ^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('reversal survived', 'complete-only-admission', 'ok  \tgithub.com/DeBoX85/Cloud-Assess/internal/plugins/region\t0.034s\n')
